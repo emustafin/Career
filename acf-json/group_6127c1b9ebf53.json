@@ -108,8 +108,27 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_612f5bfa85e08",
+            "label": "Проект",
+            "name": "vacancy_project",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_612b6a4c53ce3",
-            "label": "Ожидания",
+            "label": "Ты будешь заниматься",
             "name": "expectations",
             "type": "wysiwyg",
             "instructions": "",
@@ -128,7 +147,7 @@
         },
         {
             "key": "field_612b6ac453ce4",
-            "label": "Что нужно делать",
+            "label": "Мы знаем, что ты",
             "name": "what_you_need_to_do",
             "type": "wysiwyg",
             "instructions": "",
@@ -147,7 +166,7 @@
         },
         {
             "key": "field_612b6b7c53ce5",
-            "label": "Что мы предлагаем",
+            "label": "Что ты получишь",
             "name": "what_do_we_offer",
             "type": "wysiwyg",
             "instructions": "",
@@ -250,5 +269,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1630323112
+    "modified": 1630494140
 }
