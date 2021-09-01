@@ -91,6 +91,7 @@ class Setup_Theme {
 
 		wp_enqueue_script( self::THEME_ID . "swiper-js", "https://unpkg.com/swiper/swiper-bundle.min.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "ajax-js", THEME_URL . "/assets/js/ajax.js", [], THEME_VSN, true );
+		wp_enqueue_script( self::THEME_ID . "bundle-js", THEME_URL . "/assets/js/bundle.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "popup_vacancy-js", THEME_URL . "/assets/js/popup_vacancy.js", [], THEME_VSN, true );
 		wp_localize_script(
 			self::THEME_ID . 'ajax-js',

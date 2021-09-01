@@ -221,9 +221,47 @@
 
           <!-- Vacancy Description-block -->
           <div class="vacancy__description">
+
             <div class="vacancy__description-block">
               <div class="vacancy__description-title">
-                <p class="vacancy__description-title-text">Наши ожидания</p>
+                <p class="vacancy__description-title-text">Проект</p>
+              </div>
+              <div class="vacancy__description-list">
+                <ul id="vacancy_project" class="vacancy__description-list-wrapper">
+                  <li class="vacancy__description-list-item">
+                    Высшее образование (экономическое/техническое)
+                  </li>
+                  <li class="vacancy__description-list-item">
+                    Аналогичный опыт работы от трёх лет
+                  </li>
+                  <li class="vacancy__description-list-item">
+                    Базовое понимание и формирование стратегии развития
+                    продукта, технологический кругозор, базовое понимание
+                    принципов и подходов создания ИТ решений
+                  </li>
+                  <li class="vacancy__description-list-item">
+                    Понимание экономики и финансов продукта, метрики и TCO
+                  </li>
+                  <li class="vacancy__description-list-item">
+                    Глубокое понимание работы бизнеса. Отличное понимание
+                    продуктового подхода
+                  </li>
+                  <li class="vacancy__description-list-item">
+                    Умение организовывать и делать прототипирование и MVP
+                    (Minimum Valuable Product), навыки формирования стратегии
+                    развития продукта
+                  </li>
+                  <li class="vacancy__description-list-item">
+                    Умение работать с данными, создавать ИТ решения, опыт
+                    запуска и лидирования продуктов и проектов
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="vacancy__description-block">
+              <div class="vacancy__description-title">
+                <p class="vacancy__description-title-text">Ты будешь заниматься</p>
               </div>
               <div class="vacancy__description-list">
                 <ul id="expectations" class="vacancy__description-list-wrapper">
@@ -260,7 +298,7 @@
 
             <div class="vacancy__description-block">
               <div class="vacancy__description-title">
-                <p class="vacancy__description-title-text">Что нужно делать</p>
+                <p class="vacancy__description-title-text">Мы знаем, что ты</p>
               </div>
               <div class="vacancy__description-list">
                 <ul id="what_you_need_to_do" class="vacancy__description-list-wrapper">
@@ -292,7 +330,7 @@
 
             <div class="vacancy__description-block">
               <div class="vacancy__description-title">
-                <p class="vacancy__description-title-text">Что мы предлагаем</p>
+                <p class="vacancy__description-title-text">Что ты получишь</p>
               </div>
               <div class="vacancy__description-list">
                 <ul id="what_do_we_offer" class="vacancy__description-list-wrapper">

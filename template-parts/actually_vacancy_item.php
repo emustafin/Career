@@ -4,6 +4,7 @@ $popup_info = array(
     'content'                   => get_the_content( $vacancy_item_id ),
     'img'                       => get_the_post_thumbnail_url( $vacancy_item_id, 'full' ),
     'money_from'                => number_format( get_field( 'money_from', $vacancy_item_id ), 0, ',', ' '),
+    'vacancy_project'           => get_field( 'vacancy_project', $vacancy_item_id ),
     'can_without_experience'    => get_field( 'can_without_experience', $vacancy_item_id ),
     'can_work_remotely'         => get_field( 'can_work_remotely', $vacancy_item_id ),
     'expectations'              => get_field( 'expectations', $vacancy_item_id ),
