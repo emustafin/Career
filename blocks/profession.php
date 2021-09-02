@@ -107,7 +107,16 @@
                     <div class="profession__filter-item">
                     <p class="profession__filter-item-title">Уровень</p>
                     <div class="profession__filter-item-select">
-                        <p class="profession__filter-item-select-value">
+                        <select name="level" id="level">
+                            <?php
+                            foreach( $level_terms as $level_term ){
+                                ?>
+                                <option value="<?php echo $level_term->slug; ?>"><?php echo $level_term->name; ?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
+                        <!-- <p class="profession__filter-item-select-value">
                         Junior, Senior
                         </p>
                         <div class="profession__filter-item-select-arrow">
@@ -118,18 +127,18 @@
                         />
                         </div>
                         <div class="profession__filter-item-select-list hide">
-                        <p class="profession__filter-item-select-list-item">
-                            Junior, Senior
-                        </p>
-                        <p class="profession__filter-item-select-list-item">Lead</p>
-                        <p class="profession__filter-item-select-list-item">
-                            Middle
-                        </p>
-                        </div>
+                            <p class="profession__filter-item-select-list-item">
+                                Junior, Senior
+                            </p>
+                            <p class="profession__filter-item-select-list-item">Lead</p>
+                            <p class="profession__filter-item-select-list-item">
+                                Middle
+                            </p>
+                        </div> -->
                     </div>
 
                     <label class="profession__filter-checbox-wrapper-mobile">
-                        <input class="profession__filter-input" type="checkbox" />
+                        <input class="profession__filter-input can_without_experience" type="checkbox" />
                         Без опыта
                         <span class="profession__filter-checbox-value"></span>
                     </label>
@@ -138,7 +147,16 @@
                     <div class="profession__filter-item">
                     <p class="profession__filter-item-title">Город</p>
                     <div class="profession__filter-item-select">
-                        <p class="profession__filter-item-select-value">Любой</p>
+                        <select name="town" id="town">
+                            <?php
+                            foreach( $town_terms as $town_term ){
+                                ?>
+                                <option value="<?php echo $town_term->slug; ?>"><?php echo $town_term->name; ?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
+                        <!-- <p class="profession__filter-item-select-value">Любой</p>
                         <div class="profession__filter-item-select-arrow">
                         <img
                             class="profession__filter-item-select-arrow-image"
@@ -156,11 +174,11 @@
                         <p class="profession__filter-item-select-list-item">
                             Санкт-Петербург
                         </p>
-                        </div>
+                        </div> -->
                     </div>
 
                     <label class="profession__filter-checbox-wrapper-mobile">
-                        <input class="profession__filter-input" type="checkbox" />
+                        <input class="profession__filter-input can_work_remotely" type="checkbox" />
                         Удалённо
                         <span class="profession__filter-checbox-value"></span>
                     </label>
@@ -168,14 +186,14 @@
 
                     <div class="profession__checkbox-container">
                     <label class="profession__filter-checbox-wrapper">
-                        <input class="profession__filter-input" type="checkbox" />
+                        <input class="profession__filter-input can_work_remotely" type="checkbox" />
 
                         Удалённо
                         <span class="profession__filter-checbox-value"></span>
                     </label>
 
                     <label class="profession__filter-checbox-wrapper">
-                        <input class="profession__filter-input" type="checkbox" />
+                        <input class="profession__filter-input can_without_experience" type="checkbox" />
 
                         Без опыта
                         <span class="profession__filter-checbox-value"></span>

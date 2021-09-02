@@ -195,13 +195,50 @@ class Vacancies {
                         'terms'    => $_POST['town_slug']
                     );
                 }
-    
+
                 if( '' != $_POST['level_slug'] ){
                     $args['tax_query'][] = array(
                         'taxonomy' => 'level',
                         'field'    => 'slug',
                         'terms'    => $_POST['level_slug']
                     );
+                }
+
+                if( '' != $_POST['can_work_remotely'] ){
+                    if( $_POST['input_val'] == 'true' ){
+                        $args['meta_query'] = 
+                        array(
+                            'relation'		=> 'AND',
+                            array(
+                                'key'		=> 'can_work_remotely',
+                                'value'		=> true,
+                                'compare'	=> '='
+                            )
+                        );
+                    }
+                }
+
+                if( '' != $_POST['can_without_experience'] ){
+                    if( $_POST['can_input_val'] == 'true' ){
+
+                        if( isset($args['meta_query']) ){
+                            $args['meta_query'][] = array(
+                                'key'		=> 'can_without_experience',
+                                'value'		=> true,
+                                'compare'	=> '='
+                            );
+                        } else{
+                            $args['meta_query'] = 
+                            array(
+                                'relation'		=> 'AND',
+                                array(
+                                    'key'		=> 'can_without_experience',
+                                    'value'		=> true,
+                                    'compare'	=> '='
+                                )
+                            );
+                        }
+                    }
                 }
             }
 
