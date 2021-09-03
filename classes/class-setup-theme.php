@@ -73,8 +73,7 @@ class Setup_Theme {
 	public function theme_styles() {
 
 		wp_enqueue_style( self::THEME_ID . "-swiper-css", "https://unpkg.com/swiper/swiper-bundle.min.css", [], THEME_VSN, 'all' );
-		wp_enqueue_style( self::THEME_ID . "-main-css", THEME_URL . "/assets/css/main.css", [], THEME_VSN, 'all' );
-		wp_enqueue_style( self::THEME_ID . "-styles-css", THEME_URL . "/assets/css/styles.css", [], THEME_VSN, 'all' );
+		wp_enqueue_style( self::THEME_ID . "-styles-css", THEME_URL . "/assets/styles/styles.css", [], THEME_VSN, 'all' );
 	}
 
 	/**
