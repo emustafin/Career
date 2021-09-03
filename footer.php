@@ -776,14 +776,5 @@
 
     <?php wp_footer(); ?>
 
-    <script>
-      var swiper = new Swiper(".why-are-we__slider-wrapper", {
-        navigation: {
-          nextEl: ".why-are-we__slide-arrow-next",
-          prevEl: ".why-are-we__slide-arrow-prev",
-        },
-      });
-    </script>
-
     </body>
 </html>
