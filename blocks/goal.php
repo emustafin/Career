@@ -26,7 +26,7 @@
             <div class="goal__slide-buttons-mobile">
             <button class="why-are-we__slide-arrow">
                 <img
-                src="<?php echo THEME_URL; ?>/assets/img/advantages/small-arrow-left.svg"
+                src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-left.svg"
                 alt="Arrow-right"
                 />
             </button>
@@ -39,7 +39,7 @@
 
             <button class="why-are-we__slide-arrow">
                 <img
-                src="<?php echo THEME_URL; ?>/assets/img/advantages/small-arrow-right.svg"
+                src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-right.svg"
                 alt="Arrow-right"
                 />
             </button>
@@ -54,7 +54,7 @@
                 <div class="goal__item-image-container">
                     <img
                     class="goal__item-image"
-                    src="<?php echo THEME_URL; ?>/assets/img/goal/one-retail.svg"
+                    src="<?php echo THEME_URL; ?>/assets/images/goal/one-retail.svg"
                     alt="Retail Tech"
                     />
                 </div>
@@ -68,7 +68,7 @@
                 <div class="goal__item-image-container">
                     <img
                     class="goal__item-image"
-                    src="<?php echo THEME_URL; ?>/assets/img/goal/leader.svg"
+                    src="<?php echo THEME_URL; ?>/assets/images/goal/leader.svg"
                     alt="Лидер рынка"
                     />
                 </div>
@@ -82,7 +82,7 @@
                 <div class="goal__item-image-container">
                     <img
                     class="goal__item-image"
-                    src="<?php echo THEME_URL; ?>/assets/img/goal/height.svg"
+                    src="<?php echo THEME_URL; ?>/assets/images/goal/height.svg"
                     alt="Стабильный рост"
                     />
                 </div>
@@ -96,7 +96,7 @@
                 <div class="goal__item-image-container">
                     <img
                     class="goal__item-image"
-                    src="<?php echo THEME_URL; ?>/assets/img/goal/care-future.svg"
+                    src="<?php echo THEME_URL; ?>/assets/images/goal/care-future.svg"
                     alt="Забота о будущем"
                     />
                 </div>

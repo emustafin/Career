@@ -22,28 +22,28 @@
                         <div class="upgrade__slider-prev-image">
                             <img
                             class="upgrade__slider-prev-picture"
-                            src="<?php echo THEME_URL; ?>/assets/img/direction/director.png"
+                            src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                             alt="Photo"
                             />
                         </div>
                         <div class="upgrade__slider-prev-image">
                             <img
                             class="upgrade__slider-prev-picture"
-                            src="<?php echo THEME_URL; ?>/assets/img/direction/director.png"
+                            src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                             alt="Photo"
                             />
                         </div>
                         <div class="upgrade__slider-prev-image">
                             <img
                             class="upgrade__slider-prev-picture"
-                            src="<?php echo THEME_URL; ?>/assets/img/direction/director.png"
+                            src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                             alt="Photo"
                             />
                         </div>
                         <div class="upgrade__slider-prev-image">
                             <img
                             class="upgrade__slider-prev-picture"
-                            src="<?php echo THEME_URL; ?>/assets/img/direction/director.png"
+                            src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                             alt="Photo"
                             />
                         </div>
@@ -62,7 +62,7 @@
                         <div class="upgrade__middle-image">
                             <img
                             class="upgrade__main-image"
-                            src="<?php echo THEME_URL; ?>/assets/img/upgrade/upgrade-image.png"
+                            src="<?php echo THEME_URL; ?>/assets/images/upgrade/upgrade-image.png"
                             alt="Photo"
                             />
                         </div>
@@ -90,7 +90,7 @@
 
                         <div class="upgrade__way-arrow-block">
                             <img
-                            src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-right.svg"
+                            src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-right.svg"
                             alt="Arrow"
                             class="upgrade__way-arrow"
                             />
@@ -103,7 +103,7 @@
 
                         <div class="upgrade__way-arrow-block">
                             <img
-                            src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-right.svg"
+                            src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-right.svg"
                             alt="Arrow"
                             class="upgrade__way-arrow"
                             />
@@ -116,7 +116,7 @@
 
                         <div class="upgrade__way-arrow-block">
                             <img
-                            src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-right.svg"
+                            src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-right.svg"
                             alt="Arrow"
                             class="upgrade__way-arrow"
                             />
@@ -142,7 +142,7 @@
                     <div class="upgrade__middle-image">
                         <img
                         class="upgrade__main-image"
-                        src="<?php echo THEME_URL; ?>/assets/img/upgrade/upgrade-image.png"
+                        src="<?php echo THEME_URL; ?>/assets/images/upgrade/upgrade-image.png"
                         alt="Photo"
                         />
                     </div>
@@ -170,7 +170,7 @@
 
                     <div class="upgrade__way-arrow-block">
                         <img
-                        src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-right.svg"
+                        src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-right.svg"
                         alt="Arrow"
                         class="upgrade__way-arrow"
                         />
@@ -183,7 +183,7 @@
 
                     <div class="upgrade__way-arrow-block">
                         <img
-                        src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-right.svg"
+                        src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-right.svg"
                         alt="Arrow"
                         class="upgrade__way-arrow"
                         />
@@ -196,7 +196,7 @@
 
                     <div class="upgrade__way-arrow-block">
                         <img
-                        src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-right.svg"
+                        src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-right.svg"
                         alt="Arrow"
                         class="upgrade__way-arrow"
                         />
@@ -213,7 +213,7 @@
                     <div class="upgrade__middle-image">
                         <img
                         class="upgrade__main-image"
-                        src="<?php echo THEME_URL; ?>/assets/img/upgrade/upgrade-image.png"
+                        src="<?php echo THEME_URL; ?>/assets/images/upgrade/upgrade-image.png"
                         alt="Photo"
                         />
                     </div>
@@ -241,7 +241,7 @@
 
                     <div class="upgrade__way-arrow-block">
                         <img
-                        src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-right.svg"
+                        src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-right.svg"
                         alt="Arrow"
                         class="upgrade__way-arrow"
                         />
@@ -254,7 +254,7 @@
 
                     <div class="upgrade__way-arrow-block">
                         <img
-                        src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-right.svg"
+                        src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-right.svg"
                         alt="Arrow"
                         class="upgrade__way-arrow"
                         />
@@ -267,7 +267,7 @@
 
                     <div class="upgrade__way-arrow-block">
                         <img
-                        src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-right.svg"
+                        src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-right.svg"
                         alt="Arrow"
                         class="upgrade__way-arrow"
                         />
@@ -284,7 +284,7 @@
                     <div class="upgrade__middle-image">
                         <img
                         class="upgrade__main-image"
-                        src="<?php echo THEME_URL; ?>/assets/img/upgrade/upgrade-image.png"
+                        src="<?php echo THEME_URL; ?>/assets/images/upgrade/upgrade-image.png"
                         alt="Photo"
                         />
                     </div>
@@ -312,7 +312,7 @@
 
                     <div class="upgrade__way-arrow-block">
                         <img
-                        src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-right.svg"
+                        src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-right.svg"
                         alt="Arrow"
                         class="upgrade__way-arrow"
                         />
@@ -325,7 +325,7 @@
 
                     <div class="upgrade__way-arrow-block">
                         <img
-                        src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-right.svg"
+                        src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-right.svg"
                         alt="Arrow"
                         class="upgrade__way-arrow"
                         />
@@ -338,7 +338,7 @@
 
                     <div class="upgrade__way-arrow-block">
                         <img
-                        src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-right.svg"
+                        src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-right.svg"
                         alt="Arrow"
                         class="upgrade__way-arrow"
                         />
@@ -362,7 +362,7 @@
                         <div class="upgrade__slider-next-item-image-block">
                             <img
                             class="upgrade__slider-next-item-image"
-                            src="<?php echo THEME_URL; ?>/assets/img/direction/director.png"
+                            src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                             alt="Image"
                             />
                         </div>
@@ -377,7 +377,7 @@
                         <div class="upgrade__slider-next-item-image-block">
                             <img
                             class="upgrade__slider-next-item-image"
-                            src="<?php echo THEME_URL; ?>/assets/img/direction/director.png"
+                            src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                             alt="Image"
                             />
                         </div>
@@ -392,7 +392,7 @@
                         <div class="upgrade__slider-next-item-image-block">
                             <img
                             class="upgrade__slider-next-item-image"
-                            src="<?php echo THEME_URL; ?>/assets/img/direction/director.png"
+                            src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                             alt="Image"
                             />
                         </div>
@@ -407,7 +407,7 @@
                         <div class="upgrade__slider-next-item-image-block">
                             <img
                             class="upgrade__slider-next-item-image"
-                            src="<?php echo THEME_URL; ?>/assets/img/direction/director.png"
+                            src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                             alt="Image"
                             />
                         </div>

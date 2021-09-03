@@ -11,7 +11,7 @@ $slides = get_sub_field('slides');
         <div class="why-are-we__slide-buttons-mobile">
             <button class="why-are-we__slide-arrow" data-name="prev">
             <img
-                src="<?php echo THEME_URL; ?>/assets/img/advantages/small-arrow-left.svg"
+                src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-left.svg"
                 alt="Arrow-right"
             />
             </button>
@@ -24,7 +24,7 @@ $slides = get_sub_field('slides');
 
             <button class="why-are-we__slide-arrow" data-name="next">
             <img
-                src="<?php echo THEME_URL; ?>/assets/img/advantages/small-arrow-right.svg"
+                src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-right.svg"
                 alt="Arrow-right"
             />
             </button>
@@ -73,14 +73,14 @@ $slides = get_sub_field('slides');
             <div class="why-are-we__slide-buttons">
                 <button class="why-are-we__slide-arrow-prev">
                 <img
-                    src="<?php echo THEME_URL; ?>/assets/img/advantages/arrow-left.svg"
+                    src="<?php echo THEME_URL; ?>/assets/images/advantages/arrow-left.svg"
                     alt="Arrow-right"
                 />
                 </button>
 
                 <button class="why-are-we__slide-arrow-next">
                 <img
-                    src="<?php echo THEME_URL; ?>/assets/img/advantages/arrow-right.svg"
+                    src="<?php echo THEME_URL; ?>/assets/images/advantages/arrow-right.svg"
                     alt="Arrow-right"
                 />
                 </button>

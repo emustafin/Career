@@ -19,7 +19,7 @@
             <div class="footer__item-wrapper">
               <a href="#" class="footer__logo-link">
                 <img
-                  src="<?php echo THEME_URL; ?>/assets/img/footer/footer__logo.svg"
+                  src="<?php echo THEME_URL; ?>/assets/images/footer/footer__logo.svg"
                   alt="Logo"
                   class="footer__logo"
                 />
@@ -107,7 +107,7 @@
 
         <a href="#" class="footer__logo-link-mobile">
           <img
-            src="<?php echo THEME_URL; ?>/assets/img/footer/footer__logo.svg"
+            src="<?php echo THEME_URL; ?>/assets/images/footer/footer__logo.svg"
             alt="Logo"
             class="footer__logo"
           />
@@ -199,7 +199,7 @@
           <div class="vacancy__intro">
             <div class="vacancy__video">
               <div class="vacancy__video-container">
-                <img src="<?php echo THEME_URL; ?>/assets/img/flyout/flyout-intro/intro-bg.png" alt="">
+                <img src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-intro/intro-bg.png" alt="">
               </div>
             </div>
             <div class="vacancy__intro-description">
@@ -384,7 +384,7 @@
               <div class="vacancy__office-map-wrapper">
                 <img
                   class="vacancy__office-map-image"
-                  src="<?php echo THEME_URL; ?>/assets/img/flyout/flyout-office/map.png"
+                  src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-office/map.png"
                   alt="Map"
                 />
 
@@ -471,7 +471,7 @@
             <div class="vacancy__remote-image-container">
               <img
                 class="vacancy__remote-image"
-                src="<?php echo THEME_URL; ?>/assets/img/flyout/flyout-remote/palm.svg"
+                src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-remote/palm.svg"
                 alt="Picture"
               />
             </div>
@@ -692,7 +692,7 @@
               <div class="vacancy__news-item-image-block">
                 <img
                   class="vacancy__news-image"
-                  src="<?php echo THEME_URL; ?>/assets/img/flyout/flyout-news/news1.png"
+                  src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-news/news1.png"
                   alt="News"
                 />
               </div>
@@ -712,7 +712,7 @@
               <div class="vacancy__news-item-image-block">
                 <img
                   class="vacancy__news-image"
-                  src="<?php echo THEME_URL; ?>/assets/img/flyout/flyout-news/news2.png"
+                  src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-news/news2.png"
                   alt="News"
                 />
               </div>
@@ -732,7 +732,7 @@
               <div class="vacancy__news-item-image-block">
                 <img
                   class="vacancy__news-image"
-                  src="<?php echo THEME_URL; ?>/assets/img/flyout/flyout-news/news1.png"
+                  src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-news/news1.png"
                   alt="News"
                 />
               </div>
@@ -752,7 +752,7 @@
               <div class="vacancy__news-item-image-block">
                 <img
                   class="vacancy__news-image"
-                  src="<?php echo THEME_URL; ?>/assets/img/flyout/flyout-news/news2.png"
+                  src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-news/news2.png"
                   alt="News"
                 />
               </div>

@@ -161,7 +161,7 @@
             <div class="intern__main-news-image-block">
             <img
                 class="intern__main-news-image"
-                src="<?php echo THEME_URL; ?>/assets/img/internship/main-news.png"
+                src="<?php echo THEME_URL; ?>/assets/images/internship/main-news.png"
                 alt="News"
             />
             </div>
@@ -181,7 +181,7 @@
             <div class="intern__news-image-block">
                 <img
                 class="intern__news-image"
-                src="<?php echo THEME_URL; ?>/assets/img/internship/news1.png"
+                src="<?php echo THEME_URL; ?>/assets/images/internship/news1.png"
                 alt="News"
                 />
             </div>
@@ -200,7 +200,7 @@
             <div class="intern__news-image-block">
                 <img
                 class="intern__news-image"
-                src="<?php echo THEME_URL; ?>/assets/img/internship/news2.png"
+                src="<?php echo THEME_URL; ?>/assets/images/internship/news2.png"
                 alt="News"
                 />
             </div>

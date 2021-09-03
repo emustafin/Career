@@ -81,7 +81,7 @@
                     <div class="profession__side-bar-image-tools-wrapper">
                     <img
                         class="profession__side-bar-tools"
-                        src="<?php echo THEME_URL; ?>/assets/img/management/tools.svg"
+                        src="<?php echo THEME_URL; ?>/assets/images/management/tools.svg"
                         alt="Tools"
                     />
                     </div>
@@ -108,7 +108,7 @@
                 <div class="profession__side-bar-image-wrapper">
                     <img
                     class="profession__side-bar-image"
-                    src="<?php echo THEME_URL; ?>/assets/img/management/management.png"
+                    src="<?php echo THEME_URL; ?>/assets/images/management/management.png"
                     alt="management"
                     />
                 </div>
@@ -141,7 +141,7 @@
                             <div class="profession__filter-item-select-arrow">
                             <img
                                 class="profession__filter-item-select-arrow-image"
-                                src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-bottom.svg"
+                                src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-bottom.svg"
                                 alt="arrow-bottom"
                             />
                             </div>
@@ -186,7 +186,7 @@
                             <div class="profession__filter-item-select-arrow">
                             <img
                                 class="profession__filter-item-select-arrow-image"
-                                src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-bottom.svg"
+                                src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-bottom.svg"
                                 alt="arrow-bottom"
                             />
                             </div>

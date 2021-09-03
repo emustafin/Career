@@ -99,7 +99,7 @@
             <div class="direction__director-container-mobile">
                 <div class="direction__director-image-block-mobile">
                 <img
-                    src="<?php echo THEME_URL; ?>/assets/img/direction/director.png"
+                    src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                     alt=""
                     class="direction__director-image"
                 />
@@ -135,7 +135,7 @@
             <div class="direction__director-container">
             <div class="direction__director-image-block">
                 <img
-                src="<?php echo THEME_URL; ?>/assets/img/direction/director.png"
+                src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                 alt=""
                 class="direction__director-image"
                 />

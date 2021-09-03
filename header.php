@@ -19,7 +19,7 @@
               <div class="it-header__directions-arrow">
                 <img
                   class="it-header__directions-image"
-                  src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-bottom.svg"
+                  src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-bottom.svg"
                   alt="directions"
                 />
               </div>
