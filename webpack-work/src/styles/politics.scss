@@ -1,0 +1,39 @@
+.politics-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 16px;
+}
+
+.politics {
+  max-width: 1264px;
+  width: 100%;
+  margin-bottom: 96px;
+  font-family: Suisse Intl, sans-serif;
+
+  &__header {
+    font-size: 64px;
+    line-height: 68px;
+    margin-bottom: 96px;
+  }
+
+  &__description {
+    display: block;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .politics {
+    &__header {
+      padding: 0 8px;
+      font-size: 32px;
+      line-height: 36px;
+      margin-bottom: 32px;
+    }
+
+    &__description {
+      padding: 0 8px;
+    }
+  }
+}
