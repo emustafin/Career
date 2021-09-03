@@ -1,17 +1,3 @@
-// import '../styles/styles.scss';
-// import '../styles/header.scss';
-// import '../styles/createFuture.scss';
-// import '../styles/advantages.scss';
-// import '../styles/goal.scss';
-// import '../styles/profession.scss';
-// import '../styles/direction.scss';
-// import '../styles/upgrade.scss';
-// import '../styles/find.scss';
-// import '../styles/intern.scss';
-// import '../styles/footer.scss';
-// import '../styles/flyout.scss';
-// import '../styles/listing.scss';
-
 import { Vacancy } from './components/itHubPage/vacancy';
 import { Listing } from './components/vacancyListingPage/listing';
 import { Advantages } from './components/itHubPage/advantages';

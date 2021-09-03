@@ -50,7 +50,15 @@
       </div>
 
       <div class="create-future">
-        <div class="create-future__image"></div>
+        <!-- <div class="create-future__image"></div> -->
+          <div class="spiral__wrap">
+              <div class="spiral__wrap_twist">
+                <img 
+                  src="<?php echo THEME_URL; ?>/assets/images/create-future/spiral_anim.svg"
+                  class="spiral__img"
+                  alt="">
+              </div>
+          </div>
         <div class="create-future__container">
           <div class="create-future__title-wrapper">
             <h2 class="create-future__title">
