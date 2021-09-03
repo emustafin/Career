@@ -16,16 +16,28 @@
                 $vaccat_slug = '';
             }
 
-            if( null != $_GET['town'] ){
-                $town_slug = $_GET['town'];
+            if( null != $_GET['town_slug'] ){
+                $town_slug = $_GET['town_slug'];
             } else{
                 $town_slug = '';
             }
 
-            if( null != $_GET['level'] ){
-                $level_slug = $_GET['level'];
+            if( null != $_GET['level_slug'] ){
+                $level_slug = $_GET['level_slug'];
             } else{
                 $level_slug = '';
+            }
+
+            if( null != $_GET['can_work_remotely'] ){
+                $can_work_remotely = 'checked';
+            } else{
+                $can_work_remotely = '';
+            }
+
+            if( null != $_GET['can_without_experience'] ){
+                $can_without_experience = 'checked';
+            } else{
+                $can_without_experience = '';
             }
 
             if( $vaccat_terms && ! is_wp_error($vaccat_terms) ){
@@ -33,11 +45,11 @@
                 foreach( $vaccat_terms as $vaccat_term ){
                     if( $vaccat_term->slug != $vaccat_slug ){
                         ?>
-                        <span data-vaccat_id="<?php echo $vaccat_term->slug; ?>" class="cursor-pointer profession__menu-item"><?php echo $vaccat_term->name; ?></span>
+                        <span data-vaccat_slug="<?php echo $vaccat_term->slug; ?>" class="cursor-pointer profession__menu-item"><?php echo $vaccat_term->name; ?></span>
                         <?php            
                     } elseif( $vaccat_term->slug == $vaccat_slug ){
                         ?>
-                        <span data-vaccat_id="<?php echo $vaccat_term->slug; ?>" class="cursor-pointer profession__menu-item profession__menu-item-active"><?php echo $vaccat_term->name; ?></span>
+                        <span data-vaccat_slug="<?php echo $vaccat_term->slug; ?>" class="cursor-pointer profession__menu-item profession__menu-item-active"><?php echo $vaccat_term->name; ?></span>
                         <?php
                         $profession__title = $vaccat_term->name;
                     }
@@ -105,95 +117,109 @@
             <div class="profession__main-content">
                 <div class="profession__filter-wrapper">
                     <div class="profession__filter-item">
-                    <p class="profession__filter-item-title">Уровень</p>
-                    <div class="profession__filter-item-select">
-                        <select name="level" id="level">
-                            <?php
-                            foreach( $level_terms as $level_term ){
-                                ?>
-                                <option value="<?php echo $level_term->slug; ?>"><?php echo $level_term->name; ?></option>
+                        <p class="profession__filter-item-title">Уровень</p>
+                        <div class="profession__filter-item-select">
+                            <select name="level" id="level">
+                                <option value="-1">Выберите уровень</option>
                                 <?php
-                            }
-                            ?>
-                        </select>
-                        <!-- <p class="profession__filter-item-select-value">
-                        Junior, Senior
-                        </p>
-                        <div class="profession__filter-item-select-arrow">
-                        <img
-                            class="profession__filter-item-select-arrow-image"
-                            src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-bottom.svg"
-                            alt="arrow-bottom"
-                        />
+                                foreach( $level_terms as $level_term ){
+                                    if( $level_slug == $level_term->slug ){
+                                        ?>
+                                        <option value="<?php echo $level_term->slug; ?>" selected><?php echo $level_term->name; ?></option>
+                                        <?php
+                                    } else{
+                                        ?>
+                                        <option value="<?php echo $level_term->slug; ?>"><?php echo $level_term->name; ?></option>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                            </select>
+                            <!-- <p class="profession__filter-item-select-value">
+                            Junior, Senior
+                            </p>
+                            <div class="profession__filter-item-select-arrow">
+                            <img
+                                class="profession__filter-item-select-arrow-image"
+                                src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-bottom.svg"
+                                alt="arrow-bottom"
+                            />
+                            </div>
+                            <div class="profession__filter-item-select-list hide">
+                                <p class="profession__filter-item-select-list-item">
+                                    Junior, Senior
+                                </p>
+                                <p class="profession__filter-item-select-list-item">Lead</p>
+                                <p class="profession__filter-item-select-list-item">
+                                    Middle
+                                </p>
+                            </div> -->
                         </div>
-                        <div class="profession__filter-item-select-list hide">
-                            <p class="profession__filter-item-select-list-item">
-                                Junior, Senior
-                            </p>
-                            <p class="profession__filter-item-select-list-item">Lead</p>
-                            <p class="profession__filter-item-select-list-item">
-                                Middle
-                            </p>
-                        </div> -->
-                    </div>
 
-                    <label class="profession__filter-checbox-wrapper-mobile">
-                        <input class="profession__filter-input can_without_experience" type="checkbox" />
-                        Без опыта
-                        <span class="profession__filter-checbox-value"></span>
-                    </label>
+                        <!-- <label class="profession__filter-checbox-wrapper-mobile">
+                            <input class="profession__filter-input can_without_experience" type="checkbox" <?php echo $can_without_experience; ?>/>
+                            Без опыта
+                            <span class="profession__filter-checbox-value"></span>
+                        </label> -->
                     </div>
 
                     <div class="profession__filter-item">
-                    <p class="profession__filter-item-title">Город</p>
-                    <div class="profession__filter-item-select">
-                        <select name="town" id="town">
-                            <?php
-                            foreach( $town_terms as $town_term ){
-                                ?>
-                                <option value="<?php echo $town_term->slug; ?>"><?php echo $town_term->name; ?></option>
+                        <p class="profession__filter-item-title">Город</p>
+                        <div class="profession__filter-item-select">
+                            <select name="town" id="town">
+                                <option value="-1">Выберите город</option>
                                 <?php
-                            }
-                            ?>
-                        </select>
-                        <!-- <p class="profession__filter-item-select-value">Любой</p>
-                        <div class="profession__filter-item-select-arrow">
-                        <img
-                            class="profession__filter-item-select-arrow-image"
-                            src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-bottom.svg"
-                            alt="arrow-bottom"
-                        />
+                                foreach( $town_terms as $town_term ){
+                                    if( $town_slug == $town_term->slug ){
+                                        ?>
+                                        <option value="<?php echo $town_term->slug; ?>" selected><?php echo $town_term->name; ?></option>
+                                        <?php
+                                    } else{
+                                        ?>
+                                        <option value="<?php echo $town_term->slug; ?>"><?php echo $town_term->name; ?></option>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                            </select>
+                            <!-- <p class="profession__filter-item-select-value">Любой</p>
+                            <div class="profession__filter-item-select-arrow">
+                            <img
+                                class="profession__filter-item-select-arrow-image"
+                                src="<?php echo THEME_URL; ?>/assets/img/arrows/arrow-bottom.svg"
+                                alt="arrow-bottom"
+                            />
+                            </div>
+                            <div class="profession__filter-item-select-list hide">
+                            <p class="profession__filter-item-select-list-item">
+                                Любой
+                            </p>
+                            <p class="profession__filter-item-select-list-item">
+                                Москва
+                            </p>
+                            <p class="profession__filter-item-select-list-item">
+                                Санкт-Петербург
+                            </p>
+                            </div> -->
                         </div>
-                        <div class="profession__filter-item-select-list hide">
-                        <p class="profession__filter-item-select-list-item">
-                            Любой
-                        </p>
-                        <p class="profession__filter-item-select-list-item">
-                            Москва
-                        </p>
-                        <p class="profession__filter-item-select-list-item">
-                            Санкт-Петербург
-                        </p>
-                        </div> -->
-                    </div>
 
-                    <label class="profession__filter-checbox-wrapper-mobile">
-                        <input class="profession__filter-input can_work_remotely" type="checkbox" />
-                        Удалённо
-                        <span class="profession__filter-checbox-value"></span>
-                    </label>
+                        <!-- <label class="profession__filter-checbox-wrapper-mobile">
+                            <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $can_work_remotely; ?>/>
+                            Удалённо
+                            <span class="profession__filter-checbox-value"></span>
+                        </label> -->
                     </div>
 
                     <div class="profession__checkbox-container">
                     <label class="profession__filter-checbox-wrapper">
-                        <input class="profession__filter-input can_work_remotely" type="checkbox" />
+                        <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $can_work_remotely; ?>/>
 
                         Удалённо
                         <span class="profession__filter-checbox-value"></span>
                     </label>
 
                     <label class="profession__filter-checbox-wrapper">
-                        <input class="profession__filter-input can_without_experience" type="checkbox" />
+                        <input class="profession__filter-input can_without_experience" type="checkbox"  <?php echo $can_without_experience; ?>/>
 
                         Без опыта
                         <span class="profession__filter-checbox-value"></span>

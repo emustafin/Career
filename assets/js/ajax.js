@@ -33,148 +33,53 @@ $(document).ready(function() {
     $('.profession__menu-item').on( 'click', function(e){
 
         e.preventDefault();
-
         var current_item = $(this);
-        var vaccat_slug = current_item.attr('data-vaccat_id');
-        
-        var data = {
-            action: 'get_profession__menu_items',
-            vaccat_slug: vaccat_slug,
-        };
-    
-        $.ajax({
-            type: 'POST',
-            url: ajax.url,
-            data: data,
-            dataType: 'json',
-            cache: 'false',
-            success: function (response) {
-                if( true == response.success ){
-                    $('#actually_vacancies').html( response.html );
-                    $('.profession__menu-item').removeClass('profession__menu-item-active');
-                    current_item.addClass('profession__menu-item-active');
-                    $('h2.profession__title').html( current_item.html() );
+        $('.profession__menu-item').removeClass('profession__menu-item-active');
+        current_item.addClass('profession__menu-item-active');
+        $('h2.profession__title').html( current_item.html() );
+        filtering();
 
-                    // TODO
-                    var xxx = '?';
-                    window.history.pushState('', '', window.location.origin + window.location.pathname + xxx + '&vaccat='+vaccat_slug );
-                }
-            },
-        });
     });
 
     $('.can_work_remotely').on( 'change', function(e){
 
         e.preventDefault();
-
-        var current_item = $(this);
-        var input_val = current_item.prop("checked");
-        console.log(input_val);
-        var data = {
-            action: 'get_profession__menu_items',
-            can_work_remotely: 'can_work_remotely',
-            input_val: input_val,
-        };
-    
-        $.ajax({
-            type: 'POST',
-            url: ajax.url,
-            data: data,
-            dataType: 'json',
-            cache: 'false',
-            success: function (response) {
-                if( true == response.success ){
-                    $('#actually_vacancies').html( response.html );
-                    $('.profession__menu-item').removeClass('profession__menu-item-active');
-                    $('h2.profession__title').text('');
-
-                    // TODO
-                    var xxx = '?';
-                    window.history.pushState('', '', window.location.origin + window.location.pathname + xxx + '&can_work_remotely='+input_val );
-                }
-            },
-        });
+        filtering();
     });
 
     $('.can_without_experience').on( 'change', function(e){
 
         e.preventDefault();
-
-        var current_item = $(this);
-        var can_input_val = current_item.prop("checked");
-        
-        var data = {
-            action: 'get_profession__menu_items',
-            can_without_experience: 'can_without_experience',
-            can_input_val: can_input_val,
-        };
-    
-        $.ajax({
-            type: 'POST',
-            url: ajax.url,
-            data: data,
-            dataType: 'json',
-            cache: 'false',
-            success: function (response) {
-                if( true == response.success ){
-                    $('#actually_vacancies').html( response.html );
-                    $('.profession__menu-item').removeClass('profession__menu-item-active');
-                    $('h2.profession__title').text('');
-
-                    // TODO
-                    var xxx = '?';
-                    window.history.pushState('', '', window.location.origin + window.location.pathname + xxx + '&can_without_experience='+can_input_val );
-                }
-            },
-        });
+        filtering();
     });
 
     $('#level').on( 'change', function(e){
 
         e.preventDefault();
-
-        var current_item = $(this);
-        var level_slug = current_item.val();
-        console.log(
-            level_slug
-        );
-        var data = {
-            action: 'get_profession__menu_items',
-            level_slug: level_slug,
-        };
-    
-        $.ajax({
-            type: 'POST',
-            url: ajax.url,
-            data: data,
-            dataType: 'json',
-            cache: 'false',
-            success: function (response) {
-                if( true == response.success ){
-                    $('#actually_vacancies').html( response.html );
-                    $('.profession__menu-item').removeClass('profession__menu-item-active');
-                    $('h2.profession__title').text('');
-
-                    // TODO
-                    var xxx = '?';
-                    window.history.pushState('', '', window.location.origin + window.location.pathname + xxx + '&level_slug='+level_slug );
-                }
-            },
-        });
+        filtering();
     });
 
     $('#town').on( 'change', function(e){
 
         e.preventDefault();
+        filtering();
+    });
 
-        var current_item = $(this);
-        var town_slug = current_item.val();
-        console.log(
-            town_slug
-        );
+    function filtering(){
+
+        var town_slug = $('#town').val();
+        var level_slug = $('#level').val();
+        var vaccat_slug = $('.profession__menu-item.profession__menu-item-active').attr('data-vaccat_slug');
+        var can_without_experience = $('.can_without_experience').prop("checked");
+        var can_work_remotely = $('.can_work_remotely').prop("checked");
+        
         var data = {
             action: 'get_profession__menu_items',
-            town_slug: town_slug,
+            town_slug : town_slug,
+            level_slug : level_slug,
+            vaccat_slug: vaccat_slug,
+            can_without_experience : can_without_experience,
+            can_work_remotely : can_work_remotely,
         };
     
         $.ajax({
@@ -186,14 +91,32 @@ $(document).ready(function() {
             success: function (response) {
                 if( true == response.success ){
                     $('#actually_vacancies').html( response.html );
-                    $('.profession__menu-item').removeClass('profession__menu-item-active');
-                    $('h2.profession__title').text('');
 
                     // TODO
-                    var xxx = '?';
-                    window.history.pushState('', '', window.location.origin + window.location.pathname + xxx + '&town_slug='+town_slug );
+                    var xxx = '';
+                    if( data.can_without_experience != false ){
+                        xxx = xxx+'&can_without_experience=true';
+                    }
+                    if( data.can_work_remotely != false ){
+                        xxx = xxx+'&can_work_remotely=true';
+                    }
+                    if( data.level_slug != '-1' ){
+                        xxx = xxx+'&level_slug='+level_slug;
+                    }
+                    if( data.town_slug != '-1' ){
+                        xxx = xxx+'&town_slug='+town_slug;
+                    }
+                    if( data.vaccat_slug != undefined ){
+                        xxx = xxx+'&vaccat_slug='+vaccat_slug;
+                    }
+
+                    if( xxx != '' ){
+                        xxx = '?'+xxx;
+                    }
+
+                    window.history.pushState('', '', window.location.origin + window.location.pathname + xxx );
                 }
             },
         });
-    });
+    }
 });
