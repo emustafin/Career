@@ -662,7 +662,7 @@
 
                 $thumbnail_url = get_the_post_thumbnail_url( $news_item_id, 'full' );
                 if( false == $thumbnail_url ){
-                  $thumbnail_url = THEME_URL .'/assets/img/default/post-image-default.jpg';
+                  $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
                 }
                 ?>
                 <div class="vacancy__news-item">
@@ -775,15 +775,6 @@
     <!-- //Flyout section -->
 
     <?php wp_footer(); ?>
-
-    <script>
-      var swiper = new Swiper(".why-are-we__slider-wrapper", {
-        navigation: {
-          nextEl: ".why-are-we__slide-arrow-next",
-          prevEl: ".why-are-we__slide-arrow-prev",
-        },
-      });
-    </script>
 
     </body>
 </html>

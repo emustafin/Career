@@ -70,7 +70,7 @@ export class VideoPlayer {
 
     this.video.load();
     this.videoControl.style.background =
-      "url('./images/find-vacancies/pause.svg') center / contain no-repeat";
+      "url('./../wp-content/themes/career_theme/assets/images/find-vacancies/pause.svg') center / contain no-repeat";
 
     setTimeout(() => (this.videoControl.dataset.name = 'pause'), 100);
   }
@@ -81,7 +81,7 @@ export class VideoPlayer {
     this.buttonNext.classList.remove('find__arrow-next-active');
     this.videoContainer.lastElementChild.style.display = 'none';
     this.videoControl.style.background =
-      "url('./images/find-vacancies/play-control.svg') center / contain no-repeat";
+      "url('./../wp-content/themes/career_theme/assets/images/find-vacancies/play-control.svg') center / contain no-repeat";
     this.setVideoProgress();
 
     setTimeout(() => (this.videoControl.dataset.name = 'play'), 100);
@@ -91,7 +91,7 @@ export class VideoPlayer {
     this.cleanScreen();
     this.scrollToVideoBlock();
     this.videoControl.style.background =
-      "url('./images/find-vacancies/pause.svg') center / contain no-repeat";
+      "url('./../wp-content/themes/career_theme/assets/images/find-vacancies/pause.svg') center / contain no-repeat";
     this.videoContainer.lastElementChild.style.display = 'none';
 
     setTimeout(() => (this.videoControl.dataset.name = 'pause'), 100);

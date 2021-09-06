@@ -7,7 +7,19 @@
     <title>М.ВидеоЭльдорадо</title>
     <?php wp_head(); ?>
 </head>
-<body>
+<?php
+$post_slug = get_post_field( 'post_name', get_post() );
+switch ($post_slug) {
+  case 'it-hub':
+    $body_class = 'it-hub';
+    break;
+    
+  default:
+    $body_class = 'it-hub';
+    break;
+}
+?>
+<body class='<?php echo $body_class; ?>'>
     <!-- Header -->
     <header class="it-header">
       <div class="container">
