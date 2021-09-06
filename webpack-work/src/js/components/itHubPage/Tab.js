@@ -30,8 +30,6 @@ export class Tab {
   init() {
     this.tabList.querySelector('.tab-list-item').classList.add(this.activeClass);
     this.tabItemContent.forEach(el => {
-      if (el.dataset.tabUid == 1) el.style.display = 'block';
-      else el.style.display = 'none';
     });
   }
 
