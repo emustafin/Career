@@ -195,7 +195,6 @@
             $actually_news = new WP_Query( $args );
 
             if ( $actually_news->have_posts() ) {
-                // var_dump( $actually_news->posts );
 
                 $thumbnail_url = get_the_post_thumbnail_url( $actually_news->posts[0]->ID, 'full' );
                 if( false == $thumbnail_url ){
@@ -215,8 +214,6 @@
                     </p>
                     <div class="intern__main-news-date-block">
                         <span class="intern__main-news-date"><?php echo get_the_date( 'j F Y', $actually_news->posts[0]->ID ); ?></span>
-                        <!-- <span class="intern__main-news-month">июля</span> -->
-                        <!-- <span class="intern__main-news-year">2021</span> -->
                     </div>
                 </div>
                 <?php
@@ -244,8 +241,6 @@
                         </p>
                         <div class="intern__news-date-block">
                             <span class="intern__news-date"><?php echo get_the_date( 'j F Y', $actually_news->posts[1]->ID ); ?></span>
-                            <!-- <span class="intern__news-month">июля</span> -->
-                            <!-- <span class="intern__news-year">2021</span> -->
                         </div>
                     </div>
 
@@ -269,8 +264,6 @@
                             </p>
                             <div class="intern__news-date-block">
                                 <span class="intern__news-date"><?php echo get_the_date( 'j F Y', $actually_news->posts[2]->ID ); ?></span>
-                                <!-- <span class="intern__news-month">июля</span> -->
-                                <!-- <span class="intern__news-year">2021</span> -->
                             </div>
                         </div>
                         <?php
