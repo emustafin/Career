@@ -66,7 +66,7 @@ class Product_directions {
             'has_archive'           => true,
             'hierarchical'          => true,
             'menu_position'         => 6,
-			'supports'              => array( 'title', 'editor' ),
+			'supports'              => array( 'title', 'editor', 'thumbnail' ),
 			'menu_icon'             => 'dashicons-admin-generic',
 			'publicly_queryable'    => true,
 			'show_in_admin_bar'     => true,
