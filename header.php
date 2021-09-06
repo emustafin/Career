@@ -78,13 +78,19 @@ switch ($post_slug) {
               будущее
             </h2>
 
-            <h2 class="create-future__typing-title">
-              идея <br />
-              за идеей
-            </h2>
+            <div class="text-animate create-future__typing-title">
+             <div class="text-animate_desktop">
+               <div id="typed-strings">
+                 <span>идея за&nbsp;идеей</span>
+                 <span>проект за&nbsp;проектом</span>
+                 <span>код за&nbsp;кодом</span>
+               </div>
 
-            <h2 class="create-future__typing-title-mobile">идея за идеей</h2>
-
+               <div class="text-typing">
+                 <span id="typed"></span>
+               </div>
+             </div>
+           </div>
             <a href="#" class="create-future__button">узнай, как именно</a>
           </div>
 
@@ -102,6 +108,5 @@ switch ($post_slug) {
           </p>
         </div>
       </div>
-      <div class="create-future__gradient"></div>
     </header>
     <!-- Header -->
