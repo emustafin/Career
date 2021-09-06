@@ -42,207 +42,244 @@
     <div class="container">
     <div class="intern__main-content">
         <div class="intern__events-block">
-        <div class="intern__events-title">Ближайшие события</div>
-        <div class="intern__events-group">
-            <p class="intern__events-group-month">Сентябрь</p>
+            <!-- <div class="intern__events-title">Ближайшие события</div>
+            <div class="intern__events-group">
+                <p class="intern__events-group-month">Сентябрь</p>
 
-            <div class="intern__event">
-            <div class="intern__event-date-block">
-                <p class="intern__event-date">12</p>
-            </div>
+                <div class="intern__event">
+                <div class="intern__event-date-block">
+                    <p class="intern__event-date">12</p>
+                </div>
 
-            <div class="intern__event-description-block">
-                <p class="intern__event-title">Митап по Data Science</p>
-                <p class="intern__event-method">Онлайн</p>
-                <a href="#" class="intern__event-link">Зарегистрироваться</a>
-            </div>
-            </div>
+                <div class="intern__event-description-block">
+                    <p class="intern__event-title">Митап по Data Science</p>
+                    <p class="intern__event-method">Онлайн</p>
+                    <a href="#" class="intern__event-link">Зарегистрироваться</a>
+                </div>
+                </div>
 
-            <div class="intern__event">
-            <div class="intern__event-date-block">
-                <p class="intern__event-date">13</p>
-            </div>
+                <div class="intern__event">
+                <div class="intern__event-date-block">
+                    <p class="intern__event-date">13</p>
+                </div>
 
-            <div class="intern__event-description-block">
-                <p class="intern__event-title">Митап по Data Science</p>
-                <p class="intern__event-method">Онлайн</p>
-                <a href="#" class="intern__event-link">Зарегистрироваться</a>
-            </div>
-            </div>
-        </div>
-
-        <div class="intern__events-group">
-            <p class="intern__events-group-month">Октябрь</p>
-
-            <div class="intern__event">
-            <div class="intern__event-date-block">
-                <p class="intern__event-date">07</p>
+                <div class="intern__event-description-block">
+                    <p class="intern__event-title">Митап по Data Science</p>
+                    <p class="intern__event-method">Онлайн</p>
+                    <a href="#" class="intern__event-link">Зарегистрироваться</a>
+                </div>
+                </div>
             </div>
 
-            <div class="intern__event-description-block">
-                <p class="intern__event-title">Митап по Data Science</p>
-                <p class="intern__event-method">Онлайн</p>
-                <a href="#" class="intern__event-link">Зарегистрироваться</a>
-            </div>
+            <div class="intern__events-group">
+                <p class="intern__events-group-month">Октябрь</p>
+
+                <div class="intern__event">
+                <div class="intern__event-date-block">
+                    <p class="intern__event-date">07</p>
+                </div>
+
+                <div class="intern__event-description-block">
+                    <p class="intern__event-title">Митап по Data Science</p>
+                    <p class="intern__event-method">Онлайн</p>
+                    <a href="#" class="intern__event-link">Зарегистрироваться</a>
+                </div>
+                </div>
+
+                <div class="intern__event">
+                <div class="intern__event-date-block">
+                    <p class="intern__event-date">29</p>
+                </div>
+
+                <div class="intern__event-description-block">
+                    <p class="intern__event-title">Митап по Data Science</p>
+                    <p class="intern__event-method">Онлайн</p>
+                    <a href="#" class="intern__event-link">Зарегистрироваться</a>
+                </div>
+                </div>
             </div>
 
-            <div class="intern__event">
-            <div class="intern__event-date-block">
-                <p class="intern__event-date">29</p>
-            </div>
-
-            <div class="intern__event-description-block">
-                <p class="intern__event-title">Митап по Data Science</p>
-                <p class="intern__event-method">Онлайн</p>
-                <a href="#" class="intern__event-link">Зарегистрироваться</a>
-            </div>
-            </div>
-        </div>
-
-        <a href="#" class="intern__events-all-link">Все события</a>
+            <a href="#" class="intern__events-all-link">Все события</a> -->
         </div>
 
         <div class="intern__events-block-mobile">
-        <div class="intern__events-block-mobile-events-wrapper">
-            <a href="#" class="intern__events-next-link">Ближайшие события</a>
-            <a href="#" class="intern__events-all-link">Все события</a>
-        </div>
-
-        <div class="intern__events-row-mobile">
-            <div class="intern__event-mobile">
-            <div class="intern__event-date-block">
-                <p class="intern__event-date">
-                <span class="intern__event-date-mobile">12</span>/<span
-                    class="intern__event-month-mobile"
-                    >09</span
-                >
-                </p>
+            <div class="intern__events-block-mobile-events-wrapper">
+                <a href="#" class="intern__events-next-link">Ближайшие события</a>
+                <a href="#" class="intern__events-all-link">Все события</a>
             </div>
 
-            <div class="intern__event-description-block">
-                <p class="intern__event-title">Митап по Data Science</p>
-                <p class="intern__event-method">Онлайн</p>
-                <a href="#" class="intern__event-link">Зарегистрироваться</a>
-            </div>
-            </div>
+            <div class="intern__events-row-mobile">
+                <div class="intern__event-mobile">
+                <div class="intern__event-date-block">
+                    <p class="intern__event-date">
+                    <span class="intern__event-date-mobile">12</span>/<span
+                        class="intern__event-month-mobile"
+                        >09</span
+                    >
+                    </p>
+                </div>
 
-            <div class="intern__event-mobile">
-            <div class="intern__event-date-block">
-                <p class="intern__event-date">
-                <span class="intern__event-date-mobile">13</span>/<span
-                    class="intern__event-month-mobile"
-                    >09</span
-                >
-                </p>
-            </div>
+                <div class="intern__event-description-block">
+                    <p class="intern__event-title">Митап по Data Science</p>
+                    <p class="intern__event-method">Онлайн</p>
+                    <a href="#" class="intern__event-link">Зарегистрироваться</a>
+                </div>
+                </div>
 
-            <div class="intern__event-description-block">
-                <p class="intern__event-title">Митап по Data Science</p>
-                <p class="intern__event-method">Онлайн</p>
-                <a href="#" class="intern__event-link">Зарегистрироваться</a>
-            </div>
-            </div>
+                <div class="intern__event-mobile">
+                <div class="intern__event-date-block">
+                    <p class="intern__event-date">
+                    <span class="intern__event-date-mobile">13</span>/<span
+                        class="intern__event-month-mobile"
+                        >09</span
+                    >
+                    </p>
+                </div>
 
-            <div class="intern__event-mobile">
-            <div class="intern__event-date-block">
-                <p class="intern__event-date">
-                <span class="intern__event-date-mobile">07</span>/<span
-                    class="intern__event-month-mobile"
-                    >10</span
-                >
-                </p>
-            </div>
+                <div class="intern__event-description-block">
+                    <p class="intern__event-title">Митап по Data Science</p>
+                    <p class="intern__event-method">Онлайн</p>
+                    <a href="#" class="intern__event-link">Зарегистрироваться</a>
+                </div>
+                </div>
 
-            <div class="intern__event-description-block">
-                <p class="intern__event-title">Митап по Data Science</p>
-                <p class="intern__event-method">Онлайн</p>
-                <a href="#" class="intern__event-link">Зарегистрироваться</a>
-            </div>
-            </div>
+                <div class="intern__event-mobile">
+                <div class="intern__event-date-block">
+                    <p class="intern__event-date">
+                    <span class="intern__event-date-mobile">07</span>/<span
+                        class="intern__event-month-mobile"
+                        >10</span
+                    >
+                    </p>
+                </div>
 
-            <div class="intern__event-mobile">
-            <div class="intern__event-date-block">
-                <p class="intern__event-date">
-                <span class="intern__event-date-mobile">29</span>/<span
-                    class="intern__event-month-mobile"
-                    >10</span
-                >
-                </p>
-            </div>
+                <div class="intern__event-description-block">
+                    <p class="intern__event-title">Митап по Data Science</p>
+                    <p class="intern__event-method">Онлайн</p>
+                    <a href="#" class="intern__event-link">Зарегистрироваться</a>
+                </div>
+                </div>
 
-            <div class="intern__event-description-block">
-                <p class="intern__event-title">Митап по Data Science</p>
-                <p class="intern__event-method">Онлайн</p>
-                <a href="#" class="intern__event-link">Зарегистрироваться</a>
+                <div class="intern__event-mobile">
+                <div class="intern__event-date-block">
+                    <p class="intern__event-date">
+                    <span class="intern__event-date-mobile">29</span>/<span
+                        class="intern__event-month-mobile"
+                        >10</span
+                    >
+                    </p>
+                </div>
+
+                <div class="intern__event-description-block">
+                    <p class="intern__event-title">Митап по Data Science</p>
+                    <p class="intern__event-method">Онлайн</p>
+                    <a href="#" class="intern__event-link">Зарегистрироваться</a>
+                </div>
+                </div>
             </div>
-            </div>
-        </div>
         </div>
 
         <div class="intern__news-block">
-        <div class="intern__news-block-header">
-            <p class="intern__news">Новости</p>
-            <a href="#" class="intern__news-link">Все новости</a>
-        </div>
-
-        <div class="intern__main-news">
-            <div class="intern__main-news-image-block">
-            <img
-                class="intern__main-news-image"
-                src="<?php echo THEME_URL; ?>/assets/images/internship/main-news.png"
-                alt="News"
-            />
-            </div>
-            <p class="intern__main-news-title">
-            Группа «М.Видео-Эльдорадо» запустила программу стажировок
-            для программистов
-            </p>
-            <div class="intern__main-news-date-block">
-            <span class="intern__main-news-date">16</span>
-            <span class="intern__main-news-month">июля</span>
-            <span class="intern__main-news-year">2021</span>
-            </div>
-        </div>
-
-        <div class="intern__subnews-block">
-            <div class="intern__news">
-            <div class="intern__news-image-block">
-                <img
-                class="intern__news-image"
-                src="<?php echo THEME_URL; ?>/assets/images/internship/news1.png"
-                alt="News"
-                />
-            </div>
-            <p class="intern__news-title">
-                Группа «М.Видео-Эльдорадо» запустила программу стажировок
-                для программистов
-            </p>
-            <div class="intern__news-date-block">
-                <span class="intern__news-date">16</span>
-                <span class="intern__news-month">июля</span>
-                <span class="intern__news-year">2021</span>
-            </div>
+            <div class="intern__news-block-header">
+                <p class="intern__news">Новости</p>
+                <a href="#" class="intern__news-link">Все новости</a>
             </div>
 
-            <div class="intern__news">
-            <div class="intern__news-image-block">
-                <img
-                class="intern__news-image"
-                src="<?php echo THEME_URL; ?>/assets/images/internship/news2.png"
-                alt="News"
-                />
-            </div>
-            <p class="intern__news-title">
-                Группа «М.Видео-Эльдорадо» запустила программу стажировок
-                для программистов
-            </p>
-            <div class="intern__news-date-block">
-                <span class="intern__news-date">16</span>
-                <span class="intern__news-month">июля</span>
-                <span class="intern__news-year">2021</span>
-            </div>
-            </div>
-        </div>
+            <?php
+            $args = array(
+                'post_type'         => 'post',
+                'posts_per_page'    => 3,
+            );
+            $i = 1;
+
+            $actually_news = new WP_Query( $args );
+
+            if ( $actually_news->have_posts() ) {
+                // var_dump( $actually_news->posts );
+
+                $thumbnail_url = get_the_post_thumbnail_url( $actually_news->posts[0]->ID, 'full' );
+                if( false == $thumbnail_url ){
+                  $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
+                }
+                ?>
+                <div class="intern__main-news">
+                    <div class="intern__main-news-image-block">
+                        <img
+                            class="intern__main-news-image"
+                            src="<?php echo $thumbnail_url; ?>"
+                            alt="News"
+                        />
+                    </div>
+                    <p class="intern__main-news-title">
+                        <?php echo $actually_news->posts[0]->post_title; ?>
+                    </p>
+                    <div class="intern__main-news-date-block">
+                        <span class="intern__main-news-date"><?php echo get_the_date( 'j F Y', $actually_news->posts[0]->ID ); ?></span>
+                        <!-- <span class="intern__main-news-month">июля</span> -->
+                        <!-- <span class="intern__main-news-year">2021</span> -->
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+
+            <?php
+            if( null != $actually_news->posts[1] ){
+                $thumbnail_url = get_the_post_thumbnail_url( $actually_news->posts[1]->ID, 'full' );
+                if( false == $thumbnail_url ){
+                  $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
+                }
+                ?>
+                <div class="intern__subnews-block">
+                    <div class="intern__news">
+                        <div class="intern__news-image-block">
+                            <img
+                            class="intern__news-image"
+                            src="<?php echo $thumbnail_url; ?>"
+                            alt="News"
+                            />
+                        </div>
+                        <p class="intern__news-title">
+                            <?php echo $actually_news->posts[1]->post_title; ?>
+                        </p>
+                        <div class="intern__news-date-block">
+                            <span class="intern__news-date"><?php echo get_the_date( 'j F Y', $actually_news->posts[1]->ID ); ?></span>
+                            <!-- <span class="intern__news-month">июля</span> -->
+                            <!-- <span class="intern__news-year">2021</span> -->
+                        </div>
+                    </div>
+
+                    <?php
+                    if( null != $actually_news->posts[2] ){
+                        $thumbnail_url = get_the_post_thumbnail_url( $actually_news->posts[2]->ID, 'full' );
+                        if( false == $thumbnail_url ){
+                        $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
+                        }
+                        ?>
+                        <div class="intern__news">
+                            <div class="intern__news-image-block">
+                                <img
+                                class="intern__news-image"
+                                src="<?php echo THEME_URL; ?>/assets/images/internship/news2.png"
+                                alt="News"
+                                />
+                            </div>
+                            <p class="intern__news-title">
+                                <?php echo $actually_news->posts[2]->post_title; ?>
+                            </p>
+                            <div class="intern__news-date-block">
+                                <span class="intern__news-date"><?php echo get_the_date( 'j F Y', $actually_news->posts[2]->ID ); ?></span>
+                                <!-- <span class="intern__news-month">июля</span> -->
+                                <!-- <span class="intern__news-year">2021</span> -->
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <?php
+            }
+            ?>
         </div>
     </div>
     </div>
