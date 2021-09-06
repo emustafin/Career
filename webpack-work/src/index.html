@@ -62,13 +62,25 @@
               Создавай <br />
               будущее
             </h2>
+            <div class="text-animate create-future__typing-title">
+              <div class="text-animate_desktop">
+                <div id="typed-strings">
+                  <span>идея за&nbsp;идеей</span>
+                  <span>проект за&nbsp;проектом</span>
+                  <span>код за&nbsp;кодом</span>
+                </div>
 
-            <h2 class="create-future__typing-title">
-              идея <br />
-              за идеей
-            </h2>
+                <div class="text-typing">
+                  <span id="typed"></span>
+                </div>
+              </div>
+            </div>
+<!--            <h2 class="create-future__typing-title">-->
+<!--              идея <br />-->
+<!--              за идеей-->
+<!--            </h2>-->
 
-            <h2 class="create-future__typing-title-mobile">идея за идеей</h2>
+<!--            <h2 class="create-future__typing-title-mobile">идея за идеей</h2>-->
 
             <a href="#" class="create-future__button">узнай, как именно</a>
           </div>
@@ -388,11 +400,15 @@
                   регулярная индексация, а также кафетерий льгот и ДМС.
                 </p>
                 <div class="goal__item-image-container">
-                  <img
-                    class="goal__item-image"
-                    src="./images/goal/leader.svg"
-                    alt="Лидер рынка"
-                  />
+                  <div class="two-horizontal-circle">
+                    <svg class="two-horizontal-circle__circle" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="27.5" stroke="#E31235"/></svg>
+                    <svg class="two-horizontal-circle__circle" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="27.5" stroke="#E31235"/></svg>
+                  </div>
+<!--                  <img-->
+<!--                    class="goal__item-image"-->
+<!--                    src="./images/goal/leader.svg"-->
+<!--                    alt="Лидер рынка"-->
+<!--                  />-->
                 </div>
               </div>
 
@@ -408,11 +424,16 @@
                   твоя карьера быстро пойдет в гору!
                 </p>
                 <div class="goal__item-image-container">
-                  <img
-                    class="goal__item-image"
-                    src="./images/goal/height.svg"
-                    alt="Стабильный рост"
-                  />
+                  <div class="three-circle">
+                    <svg width="27" height="27" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13.5" cy="13.5" r="13" stroke="#E31235"/></svg>
+                    <svg width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17.5" stroke="#E31235"/></svg>
+                    <svg width="53" height="53" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="26.5" cy="26.5" r="26" stroke="#E31235"/></svg>
+                  </div>
+<!--                  <img-->
+<!--                    class="goal__item-image"-->
+<!--                    src="./images/goal/height.svg"-->
+<!--                    alt="Стабильный рост"-->
+<!--                  />-->
                 </div>
               </div>
 
@@ -427,11 +448,17 @@
                   и ментального здоровья, а также волонтерские акции.
                 </p>
                 <div class="goal__item-image-container">
-                  <img
-                    class="goal__item-image"
-                    src="./images/goal/care-future.svg"
-                    alt="Забота о будущем"
-                  />
+                  <div class="circle-in-circle">
+                    <div class="circle-in-circle__area">
+                      <svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="23.5" stroke="#E31235"/></svg>
+                    </div>
+                    <svg width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="39.5" stroke="#E31235"/></svg>
+                  </div>
+<!--                  <img-->
+<!--                    class="goal__item-image"-->
+<!--                    src="./images/goal/care-future.svg"-->
+<!--                    alt="Забота о будущем"-->
+<!--                  />-->
                 </div>
               </div>
             </div>
@@ -1863,7 +1890,35 @@
     <section class="intern">
       <div class="intern__header">
         <h2 class="intern__title">Приходи на стажировку!</h2>
-        <div class="intern__header-background"></div>
+        <div class="intern__header-background">
+          <div class="svg-toggle" id="svg-toggle-activate">
+            <div class="svg-toggle-line">
+              <div class="svg-toggle__btn">
+                <svg width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#76BC21"/></svg>
+                <svg width="111" height="111" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.16 55.856c0 29.551 23.936 53.507 53.463 53.507 29.526 0 53.462-23.956 53.462-53.507S85.149 2.349 55.623 2.349C26.097 2.349 2.16 26.305 2.16 55.856zM55.624.976C25.34.977.79 25.547.79 55.857c0 30.309 24.55 54.879 54.833 54.879 30.283 0 54.832-24.57 54.832-54.88 0-30.308-24.549-54.878-54.832-54.878z" fill="#76BC21"/></svg>
+              </div>
+              <svg class="svg-toggle__arrow" width="166" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z" fill="#76BC21"/></svg>
+              <div class="svg-toggle__btn">
+                <svg width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#E31235"/></svg>
+                <svg width="111" height="111" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.16 55.856c0 29.551 23.936 53.507 53.463 53.507 29.526 0 53.462-23.956 53.462-53.507S85.149 2.349 55.623 2.349C26.097 2.349 2.16 26.305 2.16 55.856zM55.624.976C25.34.977.79 25.547.79 55.857c0 30.309 24.55 54.879 54.833 54.879 30.283 0 54.832-24.57 54.832-54.88 0-30.308-24.549-54.878-54.832-54.878z" fill="#E31235"/></svg>
+              </div>
+              <svg class="svg-toggle__arrow" width="166" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z" fill="#E31235"/></svg>
+
+            </div>
+
+            <div class="svg-toggle-line">
+              <div class="svg-toggle__btn">
+                <svg width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#E31235"/></svg>
+                <svg width="111" height="111" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.16 55.856c0 29.551 23.936 53.507 53.463 53.507 29.526 0 53.462-23.956 53.462-53.507S85.149 2.349 55.623 2.349C26.097 2.349 2.16 26.305 2.16 55.856zM55.624.976C25.34.977.79 25.547.79 55.857c0 30.309 24.55 54.879 54.833 54.879 30.283 0 54.832-24.57 54.832-54.88 0-30.308-24.549-54.878-54.832-54.878z" fill="#E31235"/></svg>
+              </div>
+              <svg class="svg-toggle__arrow" width="166" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z" fill="#E31235"/></svg>
+              <div class="svg-toggle__btn">
+                <svg width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#76BC21"/></svg>
+                <svg width="111" height="111" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.16 55.856c0 29.551 23.936 53.507 53.463 53.507 29.526 0 53.462-23.956 53.462-53.507S85.149 2.349 55.623 2.349C26.097 2.349 2.16 26.305 2.16 55.856zM55.624.976C25.34.977.79 25.547.79 55.857c0 30.309 24.55 54.879 54.833 54.879 30.283 0 54.832-24.57 54.832-54.88 0-30.308-24.549-54.878-54.832-54.878z" fill="#76BC21"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
         <p class="intern__header-text">
           9 месяцев оплачиваемой работы с инновационными проектами в сильной
           команде. Можно работать в офисе или удалённо. Мы даем опыт, который
@@ -2782,6 +2837,8 @@
       rel="stylesheet"
       href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
     />
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   </body>

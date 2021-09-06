@@ -239,6 +239,168 @@
     line-height: 20;
   }
 }
+//anim
+.circle-in-circle{
+  position: relative;
+}
+
+/*circle-in-circle заменить на необходимый*/
+.goal__item:hover .circle-in-circle__area {
+  width:80px;
+  height:80px;
+  position:absolute;
+  -webkit-animation-timing-function:linear;
+  -webkit-animation-name:orbit;
+  -webkit-animation-duration:1s;
+}
+
+.circle-in-circle svg:nth-child(1) {
+  position: absolute;
+  top: 10px;
+}
+
+/*three-circle*/
+.three-circle {
+  position: relative;
+}
+
+
+.three-circle_inverted {
+  transform: rotate(180deg);
+  max-width: 72px;
+}
+
+.three-circle > svg:nth-child(1) {
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+}
+
+.three-circle > svg:nth-child(3) {
+  position: absolute;
+  top: -30px;
+  left: 20px;
+}
+/*three-circle заменить на необходимый*/
+.goal__item:hover  svg:nth-child(1) {
+  animation: three-circle-small 1s ease-in-out;
+}
+
+.goal__item:hover  svg:nth-child(3) {
+  animation: three-circle-big 1s ease-in-out;
+}
+
+.two-horizontal-circle__circle {
+  width: 56px;
+  height: 56px;
+}
+
+.two-horizontal-circle__circle:nth-child(1) {
+  margin-left: 0;
+}
+
+.two-horizontal-circle__circle:nth-child(2) {
+  margin-left: -20px;
+}
+
+/*Заменить на необходимый*/
+.goal__item:hover .two-horizontal-circle > svg.two-horizontal-circle__circle:nth-child(1) {
+  animation: two-horizontal-circle-right .8s ease-in-out;
+}
+
+/*Анимации*/
+@keyframes spin {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes two-horizontal-circle-right {
+  0% { margin-right: 0; }
+  50% { margin-right: -16px; }
+  100% { margin-right: 0; }
+}
+
+@-webkit-keyframes orbit {
+  from { -webkit-transform:rotate(0deg) }
+  to { -webkit-transform:rotate(360deg) }
+}
+
+@keyframes three-circle-small {
+  0%{transform:translate(0);}
+  50%{transform:translate(5px, -5px);border-color:#875678}
+  100%{transform:translate(0);}
+}
+
+@keyframes three-circle-big {
+  0%{transform:translate(0);}
+  50%{transform:translate(-5px, 5px);border-color:#875678}
+  100%{transform:translate(0);}
+}
+
+@keyframes ellipse-move {
+  0%{transform:translate(0);}
+  50%{transform:translate(15px, 15px);border-color:#875678}
+  100%{transform:translate(0);}
+}
+/*four-circle*/
+@keyframes four-circle-1 {
+  0% {transform:translate(0);}
+  50%{transform:translate(0, -20px);border-color:#EE4D68}
+  100%{transform:translate(0);}}
+@keyframes four-circle-2 {
+  0%{transform:translate(0);}
+  50%{transform:translate(-20px, 0);border-color:#875678}
+  100%{transform:translate(0);}}
+@keyframes four-circle-3 {
+  0%{transform:translate(0);}
+  50%{transform:translate(0, 20px);border-color:#FF9900}
+  100%{transform:translate(0);}}
+@keyframes four-circle-4 {
+  0%{transform:translate(0);}
+  50%{transform:translate(20px, 0);border-color:#00E4F6}
+  100%{transform:translate(0);}}
+
+/*three-circle-mixed*/
+@keyframes three-circle-mixed {
+  50%{
+    top: 0;
+    left: 0;
+  }
+}
+
+
+/**/
+@-webkit-keyframes scroll {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100%, 0)
+  }
+}
+
+@-moz-keyframes scroll {
+  0% {
+    -moz-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    -moz-transform: translate(-100%, 0);
+    transform: translate(-100%, 0)
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0)
+  }
+}
 
 // Styles for 320px
 @media (max-width: 720px) {
