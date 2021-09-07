@@ -1,0 +1,73 @@
+//.select-content {
+//  position: relative;
+//  max-width: 240px;
+//  width: 100%;
+//}
+//.select {
+//  font-family: Suisse Intl, sans-serif;
+//  font-size: 16px;
+//  line-height: 20px;
+//  background: transparent;
+//  padding: 4px 0 8px 0;
+//  border-bottom: 1px solid #76BC21;
+//  appearance: none;
+//  -moz-appearance: none;
+//  -webkit-appearance: none;
+//  outline: none;
+//  cursor: pointer;
+//
+//  &__option {
+//    padding: 8px;
+//    &:hover {
+//      background: transparent;
+//    }
+//    &:focus {
+//      background: #000;
+//    }
+//    option {
+//      content: " " url(http://www.blogger.com/img/icon_28_followers.png);
+//      vertical-align: middle;
+//    }
+//  }
+//
+//  &__wrap {
+//    display: flex;
+//    flex-direction: column;
+//    cursor: pointer;
+//
+//
+//    &::before {
+//      background: url("../images/arrows/arrow-bottom.svg") no-repeat center ;
+//      content: "";
+//      position: absolute;
+//      top: 0;
+//      right: 0;
+//      width: 20%;
+//      height: 100%;
+//      text-align: center;
+//      font-size: 28px;
+//      line-height: 45px;
+//      color: rgba(255, 255, 255, 0.5);
+//      pointer-events: none;
+//    }
+//  }
+//
+//  &__label{
+//    font-size: 12px;
+//    line-height: 12px;
+//    opacity: 0.5;
+//    display: flex;
+//    justify-content: space-between;
+//  }
+//
+//  &__arrow {
+//    transform: rotate(180deg);
+//  }
+//}
+
+
+.custom-select {
+  display: flex;
+  flex-direction: column;
+
+}
