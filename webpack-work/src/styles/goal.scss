@@ -240,6 +240,15 @@
   }
 }
 //anim
+.circle{
+  transition: all 1s;
+}
+
+.goal__item:hover .circle {
+  transition: all 1s;
+  transform: scaleX(2) scale(0.5);
+}
+
 .circle-in-circle{
   position: relative;
 }
@@ -249,9 +258,15 @@
   width:80px;
   height:80px;
   position:absolute;
-  -webkit-animation-timing-function:linear;
-  -webkit-animation-name:orbit;
-  -webkit-animation-duration:1s;
+  transform:rotate(360deg);
+  transition: all 1s linear;
+}
+.goal__item .circle-in-circle__area {
+  width:80px;
+  height:80px;
+  position:absolute;
+  transform:rotate(0);
+  transition: all 1s linear;
 }
 
 .circle-in-circle svg:nth-child(1) {
@@ -270,24 +285,30 @@
   max-width: 72px;
 }
 
-.three-circle > svg:nth-child(1) {
+.three-circle > svg.three-circle-big:nth-child(1) {
   position: absolute;
   bottom: -10px;
   left: -10px;
+  transform: translate(0, 0);
+  transition: all 1s;
 }
 
-.three-circle > svg:nth-child(3) {
+.three-circle > svg.three-circle-big:nth-child(3) {
   position: absolute;
   top: -30px;
   left: 20px;
+  transform: translate(0, 0);
+  transition: all 1s;
 }
 /*three-circle заменить на необходимый*/
-.goal__item:hover  svg:nth-child(1) {
-  animation: three-circle-small 1s ease-in-out;
+.goal__item:hover  svg.three-circle-big:nth-child(1) {
+  transition: all 1s;
+  transform: translate(-10px, 10px);
 }
 
-.goal__item:hover  svg:nth-child(3) {
-  animation: three-circle-big 1s ease-in-out;
+.goal__item:hover  svg.three-circle-big:nth-child(3) {
+  transition: all 1s;
+  transform: translate(10px, -15px);
 }
 
 .two-horizontal-circle__circle {
@@ -297,17 +318,31 @@
 
 .two-horizontal-circle__circle:nth-child(1) {
   margin-left: 0;
+  transition: margin-left .8s;
 }
 
 .two-horizontal-circle__circle:nth-child(2) {
   margin-left: -20px;
+  transition: margin-left .8s;
+}
+
+.goal__item:hover .two-horizontal-circle__circle:nth-child(1) {
+
+}
+
+.goal__item:hover .two-horizontal-circle__circle:nth-child(2) {
+  margin-left: -28px;
+  transition: margin-left .8s;
 }
 
 /*Заменить на необходимый*/
-.goal__item:hover .two-horizontal-circle > svg.two-horizontal-circle__circle:nth-child(1) {
-  animation: two-horizontal-circle-right .8s ease-in-out;
-}
-
+//.goal__item:hover .two-horizontal-circle > svg.two-horizontal-circle__circle:nth-child(1) {
+//  //transition: margin-right .8s;
+//  //animation: two-horizontal-circle-right .8s ease-in-out infinite;
+//  //animation-direction: alternate-reverse;
+//  //animation-iteration-count: 1;
+//  //animation-fill-mode: forwards;
+//}
 /*Анимации*/
 @keyframes spin {
   100% {
@@ -319,11 +354,6 @@
   0% { margin-right: 0; }
   50% { margin-right: -16px; }
   100% { margin-right: 0; }
-}
-
-@-webkit-keyframes orbit {
-  from { -webkit-transform:rotate(0deg) }
-  to { -webkit-transform:rotate(360deg) }
 }
 
 @keyframes three-circle-small {
