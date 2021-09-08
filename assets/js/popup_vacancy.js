@@ -56,11 +56,26 @@ function resizeFlyout() {
 };
 
 
+$('.vacancy__header-head-link-main').on( 'click', function(e){
+
+    var origin_location = $('.flyout .vacancy__headline-title').attr( 'origin_url' );
+    window.history.pushState( '', '', origin_location );
+})
+
+$('.vacancy__header-head-link-vacancy').on( 'click', function(e){
+
+    var origin_location = $('.flyout .vacancy__headline-title').attr( 'origin_url' );
+    window.history.pushState( '', '', origin_location );
+})
+
 $('.profession__job-title').on( 'click', function(e){
     
     var vacancy_info = $(this).attr('data-info');
     vacancy_info = jQuery.parseJSON( vacancy_info );
 
+    var origin_location = window.location;
+
+    $('.flyout .vacancy__headline-title').attr( 'origin_url', origin_location );
     $('.flyout .vacancy__headline-title').html( vacancy_info.title );
     // $('.flyout .vacancy__video-container img').attr( "src", vacancy_info.img );
     $('.flyout .vacancy__intro-description').html( vacancy_info.content );
@@ -74,4 +89,6 @@ $('.profession__job-title').on( 'click', function(e){
     $('.flyout #vaccat_info_vacancy').html( vacancy_info.vaccat );
     $('.flyout #town_info_vacancy').html( vacancy_info.town );
     $('.flyout #experience_important').html( vacancy_info.experience );
+
+    window.history.pushState( '', '', vacancy_info.url );
 })

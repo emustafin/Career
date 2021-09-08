@@ -14,6 +14,7 @@ $popup_info = array(
     'map_full_adress'           => get_field( 'map_full_adress', $vacancy_item_id ),
     'related_vacancies'         => get_field( 'related_vacancies', $vacancy_item_id ),
     'news'                      => get_field( 'news', $vacancy_item_id ),
+    'url'                       => get_post_permalink( $vacancy_item_id ),
 );
 
 $vaccat_names = '';

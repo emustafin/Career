@@ -1,560 +1,171 @@
+<?php
+$args = array(
+  'post_type'         => 'product_directions',
+  'posts_per_page'    => -1,
+);
+
+$product_directions = new WP_Query( $args );
+?>
 <!--  Product Direction Section  -->
 <section class="direction">
-  <div class="container">
-    <h2 class="direction__title">
-      Продуктовые <br />
-      направления
-    </h2>
+      <div class="container">
+        <h2 class="direction__title">
+          Продуктовые <br />
+          направления
+        </h2>
 
-    <div class="direction__select-container-mobile">
-      <p class="direction__select-title">Выбери направление</p>
-      <div class="direction__select-field">B2C</div>
-      <div class="direction__select-list-wrapper hide">
-        <ul class="direction__select">
-          <li class="direction__select-item">B2C</li>
-          <li class="direction__select-item">B2R</li>
-          <li class="direction__select-item">Сервисы/B2Pay</li>
-          <li class="direction__select-item">ИТ</li>
-          <li class="direction__select-item">ОЦТ</li>
-          <li class="direction__select-item">Реалокатор</li>
-          <li class="direction__select-item">Коммерция</li>
-          <li class="direction__select-item">Работа с мерчантами</li>
-          <li class="direction__select-item">Финансы</li>
-          <li class="direction__select-item">HR и АХД</li>
-          <li class="direction__select-item">Логистика</li>
-          <li class="direction__select-item">Эльдорадо</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="direction__content-wrapper tab-content">
-      <div class="direction__side-bar">
-        <div class="direction__choose-container">
-          <p class="direction__choose">Выбери направление</p>
-        </div>
-
-        <div class="direction__direction-container tab-list">
-          <p class="direction__choose-mobile">Выбери направление</p>
-          <div class="direction__direction-item tab-list-item" data-tab-uid="1">
-            <p class="direction__direction">B2C</p>
-          </div>
-
-          <div class="direction__direction-item tab-list-item" data-tab-uid="2">
-            <p class="direction__direction">B2R</p>
-          </div>
-
-          <div class="direction__direction-item tab-list-item" data-tab-uid="3">
-            <p class="direction__direction">Сервисы/B2Pay</p>
-          </div>
-
-          <div class="direction__direction-item tab-list-item" data-tab-uid="4">
-            <p class="direction__direction">ИТ</p>
-          </div>
-
-          <div class="direction__direction-item tab-list-item" data-tab-uid="5">
-            <p class="direction__direction">ОЦТ</p>
-          </div>
-
-          <div class="direction__direction-item tab-list-item" data-tab-uid="6">
-            <p class="direction__direction">Реалокатор</p>
-          </div>
-
-          <div class="direction__direction-item tab-list-item" data-tab-uid="7">
-            <p class="direction__direction">Коммерция</p>
-          </div>
-
-          <div class="direction__direction-item tab-list-item" data-tab-uid="8">
-            <p class="direction__direction">Работа с мерчантами</p>
-          </div>
-
-          <div class="direction__direction-item tab-list-item" data-tab-uid="9">
-            <p class="direction__direction">Финансы</p>
-          </div>
-
-          <div class="direction__direction-item tab-list-item" data-tab-uid="10">
-            <p class="direction__direction">HR и АХД</p>
-          </div>
-
-          <div class="direction__direction-item tab-list-item" data-tab-uid="11">
-            <p class="direction__direction">Логистика</p>
-          </div>
-
-          <div class="direction__direction-item tab-list-item" data-tab-uid="12">
-            <p class="direction__direction">Эльдорадо</p>
-          </div>
-        </div>
-      </div>
-      <!-- tab content-->
-      <div class="direction__main-content tab-item-content" data-tab-uid='1'>
-        <div class="direction__tribe-description">
-          <div class="direction__choosed tab-choice">
-            <p class="direction__choosed-item">B2C</p>
-          </div>
-
-          <div class="direction__description-container">
-            <div class="direction__director-container-mobile">
-              <div class="direction__director-image-block-mobile">
-                <img src="./images/direction/director.png" alt="" class="direction__director-image" />
-              </div>
-              <div class="direction__director-name-wrapper">
-                <p class="direction__director-name">
-                  Андрей Пчелинцев<span>,</span>
-                </p>
-                <p class="direction__director-name">СРО трайба B2C</p>
-              </div>
-            </div>
-
-            <p class="direction__description-text">
-              Наш трайб объединяет профессионализм и стремление
-              к постоянному развитию. Мы амбициозны, любим то, что делаем,
-              и верим, что создаём продукты, меняющие привычный способ
-              покупки онлайн на суперконкурентном рынке.
-            </p>
-            <p class="direction__description-text">
-              В каждом из наших каналов (web & app) есть множество
-              продуктов: Лояльность, Личный кабинет, Сделка, Промо,
-              Поиск и другие, которые помогают миллионам клиентов ежедневно
-              получать свой дофамин от покупок. Многие из них совершенно
-              уникальные и инновационные, позволяющие персонализировать опыт
-              покупателя в масштабе.
-            </p>
-
-            <a href="#" class="direction__description-link-mobile">Развернуть текст</a>
-          </div>
-
-          <div class="direction__director-container">
-            <div class="direction__director-image-block">
-              <img src="./images/direction/director.png" alt="" class="direction__director-image" />
-            </div>
-            <p class="direction__director-name">
-              Андрей Пчелинцев<span>,</span>
-            </p>
-            <p class="direction__director-name">СРО трайба B2C</p>
+        <div class="direction__select-container-mobile">
+          <p class="direction__select-title">Выбери направление</p>
+          <div class="direction__select-field"><?php echo get_the_title($product_directions->posts[0]->ID); ?></div>
+          <div class="direction__select-list-wrapper hide">
+            <ul class="direction__select">
+              <?php
+              $i = 1;
+              if ( $product_directions->have_posts() ) {
+                while ( $product_directions->have_posts() ) {
+                  $product_directions->the_post();
+                  if( 1 == $i ){
+                    $active = 'direction__direction-item-active';
+                  } else{
+                    $active = '';
+                  }
+                  ?>
+                  <li class="direction__select-item <?php echo $active; ?>" data-tab-uid="<?php the_ID(); ?>"><?php the_title(); ?></li>
+                  <?php
+                  $i++;
+                }
+              }
+              ?>
+            </ul>
           </div>
         </div>
 
-        <div class="direction__products-wrapper">
-          <div class="direction__products-container">
-            <p class="direction__products-title">Продукты трайба</p>
-          </div>
-
-          <div class="direction__products-table-wrapper">
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Selection/Search (МПоиск)</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
+        <div class="direction__content-wrapper tab-content">
+          <div class="direction__side-bar">
+            <div class="direction__choose-container">
+              <p class="direction__choose">Выбери направление</p>
             </div>
 
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Selection</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Deal</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Платформа WEB</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Маркетплейс</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">App In Store</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Персонализация</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Content</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">CVM</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
+            <div class="direction__direction-container tab-list">
+              <p class="direction__choose-mobile">Выбери направление</p>
+              <?php
+              $i = 1;
+              if ( $product_directions->have_posts() ) {
+                while ( $product_directions->have_posts() ) {
+                  $product_directions->the_post();
+                  if( 1 == $i ){
+                    $active = 'direction__direction-item-active';
+                  } else{
+                    $active = '';
+                  }
+                  ?>
+                  <div class="direction__direction-item tab-list-item <?php echo $active; ?>" data-tab-uid="<?php the_ID(); ?>">
+                    <p class="direction__direction"><?php the_title(); ?></p>
+                  </div>
+                  <?php
+                  $i++;
+                }
+              }
+              ?>
             </div>
           </div>
+
+          <?php
+            $j = 1;
+            if ( $product_directions->have_posts() ) {
+              while ( $product_directions->have_posts() ) {
+                $product_directions->the_post();
+                if( 1 == $j ){
+                  $main_display = 'display: block;';
+                } else{
+                  $main_display = 'display: none;';
+                }
+                ?>
+                <div class="direction__main-content tab-item-content" data-tab-uid='<?php echo the_ID(); ?>' style="<?php echo $main_display; ?>" >
+                  <div class="direction__tribe-description">
+                    <div class="direction__choosed tab-choice">
+                      <p class="direction__choosed-item"><?php the_title(); ?></p>
+                    </div>
+
+                    <div class="direction__description-container">
+                      <div class="direction__director-container-mobile">
+                        <div class="direction__director-image-block-mobile">
+                          <img
+                            src="<?php echo get_the_post_thumbnail_url(); ?>"
+                            alt=""
+                            class="direction__director-image"
+                          />
+                        </div>
+                        <div class="direction__director-name-wrapper">
+                          <p class="direction__director-name">
+                            <?php echo get_field( 'director_name' ); ?><span>,</span>
+                          </p>
+                          <p class="direction__director-name"><?php echo get_field( 'director_position' ); ?></p>
+                        </div>
+                      </div>
+
+                      <div class="direction__description-text">
+                        <?php the_content(); ?>
+                      </div>
+
+                      <a href="#" class="direction__description-link-mobile">Развернуть текст</a>
+                    </div>
+
+                    <div class="direction__director-container">
+                      <div class="direction__director-image-block">
+                        <img
+                          src="<?php echo get_the_post_thumbnail_url(); ?>"
+                          alt=""
+                          class="direction__director-image"
+                        />
+                      </div>
+                      <p class="direction__director-name">
+                        <?php echo get_field( 'director_name' ); ?><span>,</span>
+                      </p>
+                      <p class="direction__director-name"><?php echo get_field( 'director_position' ); ?></p>
+                    </div>
+                  </div>
+
+                  <div class="direction__products-wrapper">
+                    <div class="direction__products-container">
+                      <p class="direction__products-title">Продукты трайба</p>
+                    </div>
+
+                    <div class="direction__products-table-wrapper">
+                      <?php
+                      if( have_rows('direction_products') ):
+
+                          while( have_rows('direction_products') ) : the_row();
+
+                              ?>
+                              <div class="direction__products-table-item">
+                                <p class="direction__item-title"><?php echo get_sub_field('title'); ?></p>
+                                <p class="direction__item-text"><?php echo get_sub_field('description'); ?></p>
+                              </div>
+                              <?php
+
+                          endwhile;
+                      endif;
+                      ?>
+                    </div>
+
+                  </div>
+                  <a href="#" class="direction__products-link-mobile">
+                    еще
+                    <span class="direction__products-link-mobile-number">3</span>
+                    продукта
+                  </a>
+                </div>
+                <?php
+                $j++;
+              }
+            }
+            wp_reset_postdata();
+          ?>
         </div>
-        <a href="#" class="direction__products-link-mobile">
-          еще
-          <span class="direction__products-link-mobile-number">3</span>
-          продукта
-        </a>
-      </div>
-      <!--        tab content 2-->
-
-      <div class="direction__main-content tab-item-content" data-tab-uid='2'>
-        <div class="direction__tribe-description">
-          <div class="direction__choosed tab-choice">
-            <p class="direction__choosed-item">B2R</p>
-          </div>
-
-          <div class="direction__description-container">
-            <div class="direction__director-container-mobile">
-              <div class="direction__director-image-block-mobile">
-                <img src="./images/direction/director.png" alt="" class="direction__director-image" />
-              </div>
-              <div class="direction__director-name-wrapper">
-                <p class="direction__director-name">
-                  Андрей Пчелинцев<span>,</span>
-                </p>
-                <p class="direction__director-name">СРО трайба B2C</p>
-              </div>
-            </div>
-
-            <p class="direction__description-text">
-              Наш трайб объединяет профессионализм и стремление
-              к постоянному развитию. Мы амбициозны, любим то, что делаем,
-              и верим, что создаём продукты, меняющие привычный способ
-              покупки онлайн на суперконкурентном рынке.
-            </p>
-            <p class="direction__description-text">
-              В каждом из наших каналов (web & app) есть множество
-              продуктов: Лояльность, Личный кабинет, Сделка, Промо,
-              Поиск и другие, которые помогают миллионам клиентов ежедневно
-              получать свой дофамин от покупок. Многие из них совершенно
-              уникальные и инновационные, позволяющие персонализировать опыт
-              покупателя в масштабе.
-            </p>
-
-            <a href="#" class="direction__description-link-mobile">Развернуть текст</a>
-          </div>
-
-          <div class="direction__director-container">
-            <div class="direction__director-image-block">
-              <img src="./images/direction/director.png" alt="" class="direction__director-image" />
-            </div>
-            <p class="direction__director-name">
-              Андрей Пчелинцев<span>,</span>
-            </p>
-            <p class="direction__director-name">СРО трайба B2C</p>
-          </div>
-        </div>
-
-        <div class="direction__products-wrapper">
-          <div class="direction__products-container">
-            <p class="direction__products-title">Продукты трайба</p>
-          </div>
-
-          <div class="direction__products-table-wrapper">
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Selection/Search (МПоиск)</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Selection</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Deal</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Платформа WEB</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Маркетплейс</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">App In Store</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Персонализация</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Content</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">CVM</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-          </div>
-        </div>
-        <a href="#" class="direction__products-link-mobile">
-          еще
-          <span class="direction__products-link-mobile-number">3</span>
-          продукта
-        </a>
       </div>
 
-      <!--          3-->
-      <div class="direction__main-content tab-item-content" data-tab-uid='3'>
-        <div class="direction__tribe-description">
-          <div class="direction__choosed tab-choice">
-            <p class="direction__choosed-item">Сервисы/B2Pay</p>
-          </div>
-
-          <div class="direction__description-container">
-            <div class="direction__director-container-mobile">
-              <div class="direction__director-image-block-mobile">
-                <img src="./images/direction/director.png" alt="" class="direction__director-image" />
-              </div>
-              <div class="direction__director-name-wrapper">
-                <p class="direction__director-name">
-                  Андрей Пчелинцев<span>,</span>
-                </p>
-                <p class="direction__director-name">СРО трайба B2C</p>
-              </div>
-            </div>
-
-            <p class="direction__description-text">
-              Наш трайб объединяет профессионализм и стремление
-              к постоянному развитию. Мы амбициозны, любим то, что делаем,
-              и верим, что создаём продукты, меняющие привычный способ
-              покупки онлайн на суперконкурентном рынке.
-            </p>
-            <p class="direction__description-text">
-              В каждом из наших каналов (web & app) есть множество
-              продуктов: Лояльность, Личный кабинет, Сделка, Промо,
-              Поиск и другие, которые помогают миллионам клиентов ежедневно
-              получать свой дофамин от покупок. Многие из них совершенно
-              уникальные и инновационные, позволяющие персонализировать опыт
-              покупателя в масштабе.
-            </p>
-
-            <a href="#" class="direction__description-link-mobile">Развернуть текст</a>
-          </div>
-
-          <div class="direction__director-container">
-            <div class="direction__director-image-block">
-              <img src="./images/direction/director.png" alt="" class="direction__director-image" />
-            </div>
-            <p class="direction__director-name">
-              Андрей Пчелинцев<span>,</span>
-            </p>
-            <p class="direction__director-name">СРО трайба B2C</p>
-          </div>
-        </div>
-
-        <div class="direction__products-wrapper">
-          <div class="direction__products-container">
-            <p class="direction__products-title">Продукты трайба</p>
-          </div>
-
-          <div class="direction__products-table-wrapper">
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Selection/Search (МПоиск)</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Selection</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Deal</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Платформа WEB</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Маркетплейс</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">App In Store</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Персонализация</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Content</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">CVM</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-          </div>
-        </div>
-        <a href="#" class="direction__products-link-mobile">
-          еще
-          <span class="direction__products-link-mobile-number">3</span>
-          продукта
-        </a>
       </div>
 
-      <!--        4-->
-      <div class="direction__main-content tab-item-content" data-tab-uid='4'>
-        <div class="direction__tribe-description">
-          <div class="direction__choosed tab-choice">
-            <p class="direction__choosed-item">ИТ</p>
-          </div>
-
-          <div class="direction__description-container">
-            <div class="direction__director-container-mobile">
-              <div class="direction__director-image-block-mobile">
-                <img src="./images/direction/director.png" alt="" class="direction__director-image" />
-              </div>
-              <div class="direction__director-name-wrapper">
-                <p class="direction__director-name">
-                  Андрей Пчелинцев<span>,</span>
-                </p>
-                <p class="direction__director-name">СРО трайба B2C</p>
-              </div>
-            </div>
-
-            <p class="direction__description-text">
-              Наш трайб объединяет профессионализм и стремление
-              к постоянному развитию. Мы амбициозны, любим то, что делаем,
-              и верим, что создаём продукты, меняющие привычный способ
-              покупки онлайн на суперконкурентном рынке.
-            </p>
-            <p class="direction__description-text">
-              В каждом из наших каналов (web & app) есть множество
-              продуктов: Лояльность, Личный кабинет, Сделка, Промо,
-              Поиск и другие, которые помогают миллионам клиентов ежедневно
-              получать свой дофамин от покупок. Многие из них совершенно
-              уникальные и инновационные, позволяющие персонализировать опыт
-              покупателя в масштабе.
-            </p>
-
-            <a href="#" class="direction__description-link-mobile">Развернуть текст</a>
-          </div>
-
-          <div class="direction__director-container">
-            <div class="direction__director-image-block">
-              <img src="./images/direction/director.png" alt="" class="direction__director-image" />
-            </div>
-            <p class="direction__director-name">
-              Андрей Пчелинцев<span>,</span>
-            </p>
-            <p class="direction__director-name">СРО трайба B2C</p>
-          </div>
-        </div>
-
-        <div class="direction__products-wrapper">
-          <div class="direction__products-container">
-            <p class="direction__products-title">Продукты трайба</p>
-          </div>
-
-          <div class="direction__products-table-wrapper">
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Selection/Search (МПоиск)</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Selection</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Deal</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Платформа WEB</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Маркетплейс</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">App In Store</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Персонализация</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">Content</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-
-            <div class="direction__products-table-item">
-              <p class="direction__item-title">CVM</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-              <p class="direction__item-text">Пара слов о продукте</p>
-            </div>
-          </div>
-        </div>
-        <a href="#" class="direction__products-link-mobile">
-          еще
-          <span class="direction__products-link-mobile-number">3</span>
-          продукта
-        </a>
-      </div>
-    </div>
-  </div>
-
-  </div>
-
-</section>
+    </section>
 <!--  //Product Direction Section  -->
