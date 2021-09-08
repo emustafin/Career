@@ -39,25 +39,11 @@ $product_directions = new WP_Query( $args );
             </ul>
           </div>
         </div>
-      </div>
-      <!-- tab content-->
-      <div class="direction__main-content tab-item-content" data-tab-uid='1'>
-        <div class="direction__tribe-description">
-          <div class="direction__choosed tab-choice">
-            <p class="direction__choosed-item">B2C</p>
-          </div>
 
-          <div class="direction__description-container">
-            <div class="direction__director-container-mobile">
-              <div class="direction__director-image-block-mobile">
-                <img src="./images/direction/director.png" alt="" class="direction__director-image" />
-              </div>
-              <div class="direction__director-name-wrapper">
-                <p class="direction__director-name">
-                  Андрей Пчелинцев<span>,</span>
-                </p>
-                <p class="direction__director-name">СРО трайба B2C</p>
-              </div>
+        <div class="direction__content-wrapper tab-content">
+          <div class="direction__side-bar">
+            <div class="direction__choose-container">
+              <p class="direction__choose">Выбери направление</p>
             </div>
 
             <div class="direction__direction-container tab-list">
@@ -179,7 +165,7 @@ $product_directions = new WP_Query( $args );
         </div>
       </div>
 
-  </div>
+      </div>
 
-</section>
+    </section>
 <!--  //Product Direction Section  -->
