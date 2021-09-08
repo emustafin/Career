@@ -387,12 +387,6 @@
                   src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-office/map.png"
                   alt="Map"
                 />
-
-                <!-- <img
-                  class="vacancy__office-selector-image"
-                  src="<?php //echo THEME_URL; ?>/assets/img/flyout/flyout-office/map-selector.svg"
-                  alt="Selector"
-                /> -->
               </div>
             </div>
 
@@ -679,94 +673,12 @@
                   </a>
                   <p class="vacancy__news-date-container">
                     <span class="vacancy__news-date"><?php echo get_the_date( 'j F Y', $news_item_id ); ?></span>
-                    <!-- <span class="vacancy__news-month">июля</span> -->
-                    <!-- <span class="vacancy__news-year">2021</span> -->
                   </p>
                 </div>
                 <?php
               }
             }
-
             ?>
-            <!-- <div class="vacancy__news-item">
-              <div class="vacancy__news-item-image-block">
-                <img
-                  class="vacancy__news-image"
-                  src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-news/news1.png"
-                  alt="News"
-                />
-              </div>
-
-              <a href="#" class="vacancy__news-title-info">
-                Группа «М.Видео-Эльдорадо» запустила программу стажировок
-                для программистов
-              </a>
-              <p class="vacancy__news-date-container">
-                <span class="vacancy__news-date">16</span>
-                <span class="vacancy__news-month">июля</span>
-                <span class="vacancy__news-year">2021</span>
-              </p>
-            </div>
-
-            <div class="vacancy__news-item">
-              <div class="vacancy__news-item-image-block">
-                <img
-                  class="vacancy__news-image"
-                  src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-news/news2.png"
-                  alt="News"
-                />
-              </div>
-
-              <a href="#" class="vacancy__news-title-info">
-                Группа «М.Видео-Эльдорадо» запустила программу стажировок
-                для программистов
-              </a>
-              <p class="vacancy__news-date-container">
-                <span class="vacancy__news-date">16</span>
-                <span class="vacancy__news-month">июля</span>
-                <span class="vacancy__news-year">2021</span>
-              </p>
-            </div>
-
-            <div class="vacancy__news-item">
-              <div class="vacancy__news-item-image-block">
-                <img
-                  class="vacancy__news-image"
-                  src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-news/news1.png"
-                  alt="News"
-                />
-              </div>
-
-              <a href="#" class="vacancy__news-title-info">
-                Группа «М.Видео-Эльдорадо» запустила программу стажировок
-                для программистов
-              </a>
-              <p class="vacancy__news-date-container">
-                <span class="vacancy__news-date">16</span>
-                <span class="vacancy__news-month">июля</span>
-                <span class="vacancy__news-year">2021</span>
-              </p>
-            </div>
-
-            <div class="vacancy__news-item">
-              <div class="vacancy__news-item-image-block">
-                <img
-                  class="vacancy__news-image"
-                  src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-news/news2.png"
-                  alt="News"
-                />
-              </div>
-
-              <a href="#" class="vacancy__news-title-info">
-                Группа «М.Видео-Эльдорадо» запустила программу стажировок
-                для программистов
-              </a>
-              <p class="vacancy__news-date-container">
-                <span class="vacancy__news-date">16</span>
-                <span class="vacancy__news-month">июля</span>
-                <span class="vacancy__news-year">2021</span>
-              </p>
-            </div> -->
           </div>
         </div>
         <!-- //Vacancy News-block -->

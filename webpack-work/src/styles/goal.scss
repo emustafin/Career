@@ -239,6 +239,198 @@
     line-height: 20;
   }
 }
+//anim
+.circle{
+  transition: all 1s;
+}
+
+.goal__item:hover .circle {
+  transition: all 1s;
+  transform: scaleX(2) scale(0.5);
+}
+
+.circle-in-circle{
+  position: relative;
+}
+
+/*circle-in-circle заменить на необходимый*/
+.goal__item:hover .circle-in-circle__area {
+  width:80px;
+  height:80px;
+  position:absolute;
+  transform:rotate(360deg);
+  transition: all 1s linear;
+}
+.goal__item .circle-in-circle__area {
+  width:80px;
+  height:80px;
+  position:absolute;
+  transform:rotate(0);
+  transition: all 1s linear;
+}
+
+.circle-in-circle svg:nth-child(1) {
+  position: absolute;
+  top: 10px;
+}
+
+/*three-circle*/
+.three-circle {
+  position: relative;
+}
+
+
+.three-circle_inverted {
+  transform: rotate(180deg);
+  max-width: 72px;
+}
+
+.three-circle > svg.three-circle-big:nth-child(1) {
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+  transform: translate(0, 0);
+  transition: all 1s;
+}
+
+.three-circle > svg.three-circle-big:nth-child(3) {
+  position: absolute;
+  top: -30px;
+  left: 20px;
+  transform: translate(0, 0);
+  transition: all 1s;
+}
+/*three-circle заменить на необходимый*/
+.goal__item:hover  svg.three-circle-big:nth-child(1) {
+  transition: all 1s;
+  transform: translate(-10px, 10px);
+}
+
+.goal__item:hover  svg.three-circle-big:nth-child(3) {
+  transition: all 1s;
+  transform: translate(10px, -15px);
+}
+
+.two-horizontal-circle__circle {
+  width: 56px;
+  height: 56px;
+}
+
+.two-horizontal-circle__circle:nth-child(1) {
+  margin-left: 0;
+  transition: margin-left .8s;
+}
+
+.two-horizontal-circle__circle:nth-child(2) {
+  margin-left: -20px;
+  transition: margin-left .8s;
+}
+
+.goal__item:hover .two-horizontal-circle__circle:nth-child(1) {
+
+}
+
+.goal__item:hover .two-horizontal-circle__circle:nth-child(2) {
+  margin-left: -28px;
+  transition: margin-left .8s;
+}
+
+/*Заменить на необходимый*/
+//.goal__item:hover .two-horizontal-circle > svg.two-horizontal-circle__circle:nth-child(1) {
+//  //transition: margin-right .8s;
+//  //animation: two-horizontal-circle-right .8s ease-in-out infinite;
+//  //animation-direction: alternate-reverse;
+//  //animation-iteration-count: 1;
+//  //animation-fill-mode: forwards;
+//}
+/*Анимации*/
+@keyframes spin {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes two-horizontal-circle-right {
+  0% { margin-right: 0; }
+  50% { margin-right: -16px; }
+  100% { margin-right: 0; }
+}
+
+@keyframes three-circle-small {
+  0%{transform:translate(0);}
+  50%{transform:translate(5px, -5px);border-color:#875678}
+  100%{transform:translate(0);}
+}
+
+@keyframes three-circle-big {
+  0%{transform:translate(0);}
+  50%{transform:translate(-5px, 5px);border-color:#875678}
+  100%{transform:translate(0);}
+}
+
+@keyframes ellipse-move {
+  0%{transform:translate(0);}
+  50%{transform:translate(15px, 15px);border-color:#875678}
+  100%{transform:translate(0);}
+}
+/*four-circle*/
+@keyframes four-circle-1 {
+  0% {transform:translate(0);}
+  50%{transform:translate(0, -20px);border-color:#EE4D68}
+  100%{transform:translate(0);}}
+@keyframes four-circle-2 {
+  0%{transform:translate(0);}
+  50%{transform:translate(-20px, 0);border-color:#875678}
+  100%{transform:translate(0);}}
+@keyframes four-circle-3 {
+  0%{transform:translate(0);}
+  50%{transform:translate(0, 20px);border-color:#FF9900}
+  100%{transform:translate(0);}}
+@keyframes four-circle-4 {
+  0%{transform:translate(0);}
+  50%{transform:translate(20px, 0);border-color:#00E4F6}
+  100%{transform:translate(0);}}
+
+/*three-circle-mixed*/
+@keyframes three-circle-mixed {
+  50%{
+    top: 0;
+    left: 0;
+  }
+}
+
+
+/**/
+@-webkit-keyframes scroll {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100%, 0)
+  }
+}
+
+@-moz-keyframes scroll {
+  0% {
+    -moz-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    -moz-transform: translate(-100%, 0);
+    transform: translate(-100%, 0)
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0)
+  }
+}
 
 // Styles for 320px
 @media (max-width: 720px) {
