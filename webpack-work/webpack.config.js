@@ -49,6 +49,10 @@ module.exports = {
       filename: 'politics.html',
       template: './politics.html',
     }),
+    new HTMLWebpackPlugin({
+      filename: 'partial.html',
+      template: './partial.html',
+    }),
 
     new MiniCssExtractPlugin({
       filename: 'styles/styles.css',
