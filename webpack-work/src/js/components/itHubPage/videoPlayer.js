@@ -55,7 +55,7 @@ export class VideoPlayer {
     const activeSlide = slides.find((slide) =>
       slide.classList.contains('find__video-slide-active')
     );
-    const prevewImage = activeSlide.firstElementChild.src;
+    const prevewImage = activeSlide.dataset.image;
     const prevewText = activeSlide.dataset.prevew;
 
     this.prevewImage.style.width = document.documentElement.clientWidth + 'px';
@@ -135,7 +135,7 @@ export class VideoPlayer {
     this.showControllsOnScreen();
     this.video.load();
     this.videoControl.style.background =
-      "url('/wp-content/themes/career_theme/assets/images/find-vacancies/pause.svg') center / contain no-repeat";
+      "url('./images/find-vacancies/pause.svg') center / contain no-repeat";
 
     setTimeout(() => (this.videoControl.dataset.name = 'pause'), 100);
   }
@@ -148,21 +148,27 @@ export class VideoPlayer {
     this.buttonNext.classList.remove('find__arrow-next-active');
     this.videoContainer.lastElementChild.style.display = 'none';
     this.videoControl.style.background =
-      "url('/wp-content/themes/career_theme/assets/images/find-vacancies/play-control.svg') center / contain no-repeat";
+      "url('./images/find-vacancies/play-control.svg') center / contain no-repeat";
     this.setVideoProgress();
 
-    setTimeout(() => (this.videoControl.dataset.name = 'play'), 100);
+    setTimeout(() => {
+      this.videoControl.dataset.name = 'play';
+      this.video.dataset.name = 'play';
+    }, 100);
   }
 
   playVideoContinue() {
     this.cleanScreen();
     this.scrollToVideoBlock();
     this.videoControl.style.background =
-      "url('/wp-content/themes/career_theme/assets/images/find-vacancies/pause.svg') center / contain no-repeat";
+      "url('./images/find-vacancies/pause.svg') center / contain no-repeat";
     this.videoContainer.lastElementChild.style.display = 'none';
-
-    setTimeout(() => (this.videoControl.dataset.name = 'pause'), 100);
     this.video.play();
+
+    setTimeout(() => {
+      this.videoControl.dataset.name = 'pause';
+      this.video.dataset.name = 'pause';
+    }, 100);
   }
 
   turnOfSound() {
@@ -202,17 +208,21 @@ export class VideoPlayer {
       video.classList.remove('hide');
       video.play();
       button.style.background =
-        "url('./wp-content/themes/career_theme/assets/images/find-vacancies/pause.svg') left / contain no-repeat";
+        "url('../images/find-vacancies/pause.svg') left / contain no-repeat";
       button.dataset.name = 'pause';
+      video.dataset.name = 'pause';
     }, 300);
   }
 
   pauseMobileVideo(video, button) {
     video.pause();
     button.style.background =
-      "url('./wp-content/themes/career_theme/assets/images/find-vacancies/play-mobile.svg') left / contain no-repeat";
+      "url('../images/find-vacancies/play-mobile.svg') left / contain no-repeat";
 
-    setTimeout(() => (button.dataset.name = 'play'), 50);
+    setTimeout(() => {
+      button.dataset.name = 'play';
+      video.dataset.name = 'play';
+    }, 50);
   }
 
   stopMobileVideo(video, prevew, progress, button) {
@@ -222,10 +232,11 @@ export class VideoPlayer {
     prevew.style.zIndex = 0;
     progress.style.width = '0';
     button.style.background =
-      "url('./wp-content/themes/career_theme/assets/images/find-vacancies/play-mobile.svg') left / contain no-repeat";
+      "url('../images/find-vacancies/play-mobile.svg') left / contain no-repeat";
 
     setTimeout(() => {
       button.dataset.name = 'play';
+      video.dataset.name = 'play';
       video.currentTime = '0';
     }, 50);
   }
@@ -278,8 +289,10 @@ export class VideoPlayer {
       );
 
       if (
-        event.target === mobileButton &&
-        event.target.dataset.name === 'play'
+        (event.target === mobileButton &&
+          event.target.dataset.name === 'play') ||
+        (event.target.classList.contains('find__video-player-mobile') &&
+          event.target.dataset.name === 'play')
       ) {
         this.playMobileVideo(mobilePrevew, mobileVideo, mobileButton);
         this.showProgressMobileVideo(
@@ -291,8 +304,10 @@ export class VideoPlayer {
       }
 
       if (
-        event.target === mobileButton &&
-        event.target.dataset.name === 'pause'
+        (event.target === mobileButton &&
+          event.target.dataset.name === 'pause') ||
+        (event.target.classList.contains('find__video-player-mobile') &&
+          event.target.dataset.name === 'pause')
       ) {
         this.pauseMobileVideo(mobileVideo, mobileButton);
       }
@@ -311,15 +326,19 @@ function videoBlockClickHandler(event) {
   }
 
   if (
-    event.target.classList.contains('find__video-control') &&
-    event.target.dataset.name === 'pause'
+    (event.target.classList.contains('find__video-control') &&
+      event.target.dataset.name === 'pause') ||
+    (event.target.classList.contains('find__video') &&
+      this.video.dataset.name === 'pause')
   ) {
     this.putOnPause();
   }
 
   if (
-    event.target.classList.contains('find__video-control') &&
-    event.target.dataset.name === 'play'
+    (event.target.classList.contains('find__video-control') &&
+      event.target.dataset.name === 'play') ||
+    (event.target.classList.contains('find__video') &&
+      this.video.dataset.name === 'play')
   ) {
     this.playVideoContinue();
   }
