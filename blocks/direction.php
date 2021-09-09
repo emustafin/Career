@@ -14,23 +14,26 @@ $product_directions = new WP_Query( $args );
           направления
         </h2>
 
-        <div class="direction__select-container-mobile">
-          <p class="direction__select-title">Выбери направление</p>
-          <div class="direction__select-field"><?php echo get_the_title($product_directions->posts[0]->ID); ?></div>
-          <div class="direction__select-list-wrapper hide">
-            <ul class="direction__select">
+        <div class="custom-select direction__select-container-mobile" id="custom-select-first">
+          <span class="custom-select__label">Выбери направление</span>
+          <span class="custom-select__change-select"><?php echo get_the_title($product_directions->posts[0]->ID); ?></span>
+          <div class="direction__select-list-wrapper custom-select__select-list-wrap">
+            <ul class="direction__select custom-select__select-list">
               <?php
               $i = 1;
               if ( $product_directions->have_posts() ) {
                 while ( $product_directions->have_posts() ) {
                   $product_directions->the_post();
-                  if( 1 == $i ){
-                    $active = 'direction__direction-item-active';
-                  } else{
-                    $active = '';
-                  }
+//                   if( 1 == $i ){
+//                     $active = 'direction__direction-item-active';
+//                   } else{
+//                     $active = '';
+//                   }
                   ?>
-                  <li class="direction__select-item <?php echo $active; ?>" data-tab-uid="<?php the_ID(); ?>"><?php the_title(); ?></li>
+                  <li class="custom-select__select-list-item <?php echo $active; ?>" data-tab-uid="<?php the_ID(); ?>" data-value="<?php the_title(); ?>">
+                    <?php the_title(); ?>
+                    <svg class="custom-select__list-icon" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 10.151l5.576-5.575.849.848L6.5 11.848 3.076 8.425l.849-.848L6.5 10.15z" fill="#000"/></svg>
+                  </li>
                   <?php
                   $i++;
                 }

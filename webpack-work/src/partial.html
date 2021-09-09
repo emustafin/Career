@@ -6,6 +6,7 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="styles/select.scss">
 </head>
 <body>
 
@@ -143,3 +144,88 @@
 </div>
 </body>
 </html>
+
+
+<div class="direction__select-container-mobile">
+  <p class="direction__select-title">Выбери направление</p>
+  <div class="direction__select-field"><?php echo get_the_title($product_directions->posts[0]->ID); ?></div>
+  <div class="direction__select-list-wrapper hide">
+    <ul class="direction__select">
+      <?php
+              $i = 1;
+              if ( $product_directions->have_posts() ) {
+      while ( $product_directions->have_posts() ) {
+      $product_directions->the_post();
+      if( 1 == $i ){
+      $active = 'direction__direction-item-active';
+      } else{
+      $active = '';
+      }
+      ?>
+      <li class="direction__select-item <?php echo $active; ?>" data-tab-uid="<?php the_ID(); ?>"><?php the_title(); ?></li>
+      <?php
+                  $i++;
+                }
+              }
+              ?>
+    </ul>
+  </div>
+</div>
+
+<div class="direction__select-container-mobile">
+  <span class="custom-select__label">Выбери направление</span>
+  <span class="custom-select__change-select">
+              <?php echo get_the_title($product_directions->posts[0]->ID); ?>
+            </span>
+
+  <div class="custom-select__select-list-wrap">
+    <ul class="custom-select__select-list">
+      <?php
+                  $i = 1;
+                  if ( $product_directions->have_posts() ) {
+      while ( $product_directions->have_posts() ) {
+      $product_directions->the_post();
+      if( 1 == $i ){
+      $active = 'direction__direction-item-active';
+      } else{
+      $active = '';
+      }
+      ?>
+      <li class="direction__select-item <?php echo $active; ?>" data-tab-uid="<?php the_ID(); ?>"><?php the_title(); ?></li>
+      <?php
+                              $i++;
+                            }
+                          }
+                          ?>
+    </ul>
+  </div>
+</div>
+
+<div class="direction__select-container-mobile">
+  <span class="custom-select__label">Выбери направление</span>
+  <span class="custom-select__change-select">
+              <?php echo get_the_title($product_directions->posts[0]->ID); ?>
+            </span>
+
+  <div class="custom-select__select-list-wrap">
+    <ul class="custom-select__select-list">
+      <?php
+                  $i = 1;
+                  if ( $product_directions->have_posts() ) {
+      while ( $product_directions->have_posts() ) {
+      $product_directions->the_post();
+      if( 1 == $i ){
+      $active = 'direction__direction-item-active';
+      } else{
+      $active = '';
+      }
+      ?>
+      <li class="direction__select-item <?php echo $active; ?>" data-tab-uid="<?php the_ID(); ?>"><?php the_title(); ?></li>
+      <?php
+                              $i++;
+                            }
+                          }
+                          ?>
+    </ul>
+  </div>
+</div>

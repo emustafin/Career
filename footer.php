@@ -709,7 +709,7 @@
                       <div class="form__dropdown-item-checked">
                         <img
                           class="form__dropdown-item-checked-image"
-                          src="./images/form/check.svg"
+                          src="<?php echo THEME_URL; ?>/assets/images/form/check.svg"
                           alt="Check"
                         />
                       </div>
@@ -720,7 +720,7 @@
                       <div class="form__dropdown-item-checked">
                         <img
                           class="form__dropdown-item-checked-image"
-                          src="./images/form/check.svg"
+                          src="<?php echo THEME_URL; ?>/assets/images/form/check.svg"
                           alt="Check"
                         />
                       </div>
@@ -733,7 +733,7 @@
                       <div class="form__dropdown-item-checked">
                         <img
                           class="form__dropdown-item-checked-image"
-                          src="./images/form/check.svg"
+                          src="<?php echo THEME_URL; ?>/assets/images/form/check.svg"
                           alt="Check"
                         />
                       </div>
@@ -756,7 +756,7 @@
                       <div class="form__dropdown-item-checked">
                         <img
                           class="form__dropdown-item-checked-image"
-                          src="./images/form/check.svg"
+                          src="<?php echo THEME_URL; ?>/assets/images/form/check.svg"
                           alt="Check"
                         />
                       </div>
@@ -769,7 +769,7 @@
                       <div class="form__dropdown-item-checked">
                         <img
                           class="form__dropdown-item-checked-image"
-                          src="./images/form/check.svg"
+                          src="<?php echo THEME_URL; ?>/assets/images/form/check.svg"
                           alt="Check"
                         />
                       </div>
@@ -782,7 +782,7 @@
                       <div class="form__dropdown-item-checked">
                         <img
                           class="form__dropdown-item-checked-image"
-                          src="./images/form/check.svg"
+                          src="<?php echo THEME_URL; ?>/assets/images/form/check.svg"
                           alt="Check"
                         />
                       </div>

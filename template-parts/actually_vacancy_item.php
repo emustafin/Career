@@ -54,10 +54,10 @@ if( get_field( 'map_full_adress', $vacancy_item_id ) ){
 ?>
 <div class="profession__job-item" data-vacancy_id="<?php echo $vacancy_item_id; ?>" >
     <div class="profession__job-title-container">
-        <a href="#" class="profession__job-title"
+        <div class="profession__job-title"
         data-vacancy_id="<?php echo $vacancy_item_id; ?>"
         data-info='<?php echo json_encode($popup_info); ?>'
-        ><?php echo get_the_title($vacancy_item_id); ?></a>
+        ><?php echo get_the_title($vacancy_item_id); ?></div>
 
         <div class="profession__bread-crumbs">
             <a href="#" class="profession__crumb">IT-департамент</a>

@@ -6,9 +6,9 @@ import { VideoPlayer } from './components/itHubPage/videoPlayer';
 import { Tab } from './components/itHubPage/Tab';
 import './components/animation';
 import './components/itHubPage/animationSvgTab';
-import {Select} from "./components/itHubPage/select";
-import {SvgToggleAnimate} from "./components/itHubPage/animationSvgTab";
-import  {ScrollTo} from './components/itHubPage/scroll';
+import { Select } from './components/itHubPage/select';
+import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
+import { ScrollTo } from './components/itHubPage/scroll';
 import { Form } from './components/itHubPage/form';
 
 // Перенос изображений
@@ -40,23 +40,17 @@ const selectSecond = document.getElementById('custom-select-second');
 new Select(selectGreen);
 new Select(selectSecond);
 
-
 const togls = document.getElementById('svg-toggle-activate');
-const triger = document.getElementById('my-sticky-element')
+const triger = document.getElementById('my-sticky-element');
 new SvgToggleAnimate(triger, togls);
 
-new ScrollTo('.create-future__button', '.goal', false)
-
+new ScrollTo('.create-future__button', '.goal', false);
 
 if (listingPage && listingPage !== null && listingPage !== undefined) {
   new Listing(listingPage);
 }
 
 document.body.addEventListener('click', (event) => {
-  if (event.target.tagName.toLowerCase() === 'a') {
-    event.preventDefault();
-  }
-
   if (
     event.target.classList.contains('it-header__button') ||
     event.target.classList.contains('intern__header-link')
