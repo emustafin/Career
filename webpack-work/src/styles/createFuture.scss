@@ -46,6 +46,7 @@
 }
 
 .create-future__button {
+  cursor: pointer;
   display: block;
   position: absolute;
   top: 47%;
@@ -156,6 +157,7 @@
     font-size: 20px;
     line-height: 20px;
     width: 233px;
+    cursor: pointer;
   }
 
   .create-future {
