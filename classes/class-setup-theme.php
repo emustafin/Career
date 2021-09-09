@@ -87,7 +87,7 @@ class Setup_Theme {
 
 		// Bring back jQuery for  now.
 		wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', [], '3.5.1', false );
-
+		wp_enqueue_script('jsdelivr', 'https://cdn.jsdelivr.net/npm/typed.js@2.0.11', [], '2.0.11', false);
 		wp_enqueue_script( self::THEME_ID . "swiper-js", THEME_URL . "/assets/js/swiper-bundle.min.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "ajax-js", THEME_URL . "/assets/js/ajax.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "bundle-js", THEME_URL . "/assets/bundle.js", [], THEME_VSN, true );

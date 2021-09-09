@@ -18,8 +18,48 @@
   right: 0;
   width: 100%;
   max-width: 907px;
-  background: url('../images/internship/swichers.svg') right / contain no-repeat;
-  padding-top: 15%;
+  //background: url('../images/internship/swichers.svg') right / contain no-repeat;
+  //padding-top: 15%;
+}
+
+/*svg-toggle*/
+.svg-toggle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 950px;
+  overflow: hidden;
+  padding: 10px;
+}
+.svg-toggle-line{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 950px;
+}
+
+.svg-toggle-line:nth-child(2) {
+  max-width: 800px;
+  top: 20px;
+  left: 262px;
+  margin-bottom: 15px;
+}
+
+.svg-toggle__btn {
+  position: relative;
+  display: flex;
+}
+
+.svg-toggle .svg-toggle__btn svg:nth-child(2) {
+  position: absolute;
+  top: 11px;
+  left: 10px;
+}
+
+.svg-toggle:hover .svg-toggle__btn svg:nth-child(2) {
+  transition-property: top,left;
+  transition-duration: 1s;
 }
 
 .intern__title {

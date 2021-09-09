@@ -11,6 +11,7 @@
     />
 
     <title>М.ВидеоЭльдорадо</title>
+    <link rel="stylesheet" href="styles/direction.scss">
   </head>
   <body class="it-hub">
     <!-- Header -->
@@ -72,13 +73,25 @@
               Создавай <br />
               будущее
             </h2>
+            <div class="text-animate create-future__typing-title">
+              <div class="text-animate_desktop">
+                <div id="typed-strings">
+                  <span>идея за&nbsp;идеей</span>
+                  <span>проект за&nbsp;проектом</span>
+                  <span>код за&nbsp;кодом</span>
+                </div>
 
-            <h2 class="create-future__typing-title">
-              идея <br />
-              за идеей
-            </h2>
+                <div class="text-typing">
+                  <span id="typed"></span>
+                </div>
+              </div>
+            </div>
+<!--            <h2 class="create-future__typing-title">-->
+<!--              идея <br />-->
+<!--              за идеей-->
+<!--            </h2>-->
 
-            <h2 class="create-future__typing-title-mobile">идея за идеей</h2>
+<!--            <h2 class="create-future__typing-title-mobile">идея за идеей</h2>-->
 
             <a href="#" class="create-future__button">узнай, как именно</a>
           </div>
@@ -379,11 +392,15 @@
                   также собственная продуктовая школа и академия ритейла.
                 </p>
                 <div class="goal__item-image-container">
-                  <img
-                    class="goal__item-image"
-                    src="./images/goal/one-retail.svg"
-                    alt="Retail Tech"
-                  />
+<!--                  <img-->
+<!--                    class="goal__item-image"-->
+<!--                    src="./images/goal/one-retail.svg"-->
+<!--                    alt="Retail Tech"-->
+<!--                  />-->
+                  <svg class="circle" width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="39.5" stroke="#E31235" stroke-miterlimit="1.24264"/>
+                  </svg>
+
                 </div>
               </div>
 
@@ -398,11 +415,15 @@
                   регулярная индексация, а также кафетерий льгот и ДМС.
                 </p>
                 <div class="goal__item-image-container">
-                  <img
-                    class="goal__item-image"
-                    src="./images/goal/leader.svg"
-                    alt="Лидер рынка"
-                  />
+                  <div class="two-horizontal-circle">
+                    <svg class="two-horizontal-circle__circle" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="27.5" stroke="#E31235"/></svg>
+                    <svg class="two-horizontal-circle__circle" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="27.5" stroke="#E31235"/></svg>
+                  </div>
+<!--                  <img-->
+<!--                    class="goal__item-image"-->
+<!--                    src="./images/goal/leader.svg"-->
+<!--                    alt="Лидер рынка"-->
+<!--                  />-->
                 </div>
               </div>
 
@@ -418,11 +439,16 @@
                   твоя карьера быстро пойдет в гору!
                 </p>
                 <div class="goal__item-image-container">
-                  <img
-                    class="goal__item-image"
-                    src="./images/goal/height.svg"
-                    alt="Стабильный рост"
-                  />
+                  <div class="three-circle">
+                    <svg class="three-circle-big" width="27" height="27" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13.5" cy="13.5" r="13" stroke="#E31235"/></svg>
+                    <svg class="three-circle-big" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17.5" stroke="#E31235"/></svg>
+                    <svg class="three-circle-big" width="53" height="53" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="26.5" cy="26.5" r="26" stroke="#E31235"/></svg>
+                  </div>
+<!--                  <img-->
+<!--                    class="goal__item-image"-->
+<!--                    src="./images/goal/height.svg"-->
+<!--                    alt="Стабильный рост"-->
+<!--                  />-->
                 </div>
               </div>
 
@@ -437,11 +463,12 @@
                   и ментального здоровья, а также волонтерские акции.
                 </p>
                 <div class="goal__item-image-container">
-                  <img
-                    class="goal__item-image"
-                    src="./images/goal/care-future.svg"
-                    alt="Забота о будущем"
-                  />
+                  <div class="circle-in-circle">
+                    <div class="circle-in-circle__area">
+                      <svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="23.5" stroke="#E31235"/></svg>
+                    </div>
+                    <svg width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="39.5" stroke="#E31235"/></svg>
+                  </div>
                 </div>
               </div>
             </div>
@@ -965,71 +992,67 @@
           </div>
         </div>
 
-        <div class="direction__content-wrapper">
+        <div class="direction__content-wrapper tab-content">
           <div class="direction__side-bar">
             <div class="direction__choose-container">
               <p class="direction__choose">Выбери направление</p>
             </div>
 
-            <div class="direction__direction-container">
+            <div class="direction__direction-container tab-list">
               <p class="direction__choose-mobile">Выбери направление</p>
-              <div
-                class="
-                  direction__direction-item direction__direction-item-active
-                "
-              >
+              <div class="direction__direction-item tab-list-item" data-tab-uid="1">
                 <p class="direction__direction">B2C</p>
               </div>
 
-              <div class="direction__direction-item">
+              <div class="direction__direction-item tab-list-item" data-tab-uid="2">
                 <p class="direction__direction">B2R</p>
               </div>
 
-              <div class="direction__direction-item">
+              <div class="direction__direction-item tab-list-item" data-tab-uid="3">
                 <p class="direction__direction">Сервисы/B2Pay</p>
               </div>
 
-              <div class="direction__direction-item">
+              <div class="direction__direction-item tab-list-item" data-tab-uid="4">
                 <p class="direction__direction">ИТ</p>
               </div>
 
-              <div class="direction__direction-item">
+              <div class="direction__direction-item tab-list-item" data-tab-uid="5">
                 <p class="direction__direction">ОЦТ</p>
               </div>
 
-              <div class="direction__direction-item">
+              <div class="direction__direction-item tab-list-item" data-tab-uid="6">
                 <p class="direction__direction">Реалокатор</p>
               </div>
 
-              <div class="direction__direction-item">
+              <div class="direction__direction-item tab-list-item" data-tab-uid="7">
                 <p class="direction__direction">Коммерция</p>
               </div>
 
-              <div class="direction__direction-item">
+              <div class="direction__direction-item tab-list-item" data-tab-uid="8">
                 <p class="direction__direction">Работа с мерчантами</p>
               </div>
 
-              <div class="direction__direction-item">
+              <div class="direction__direction-item tab-list-item" data-tab-uid="9">
                 <p class="direction__direction">Финансы</p>
               </div>
 
-              <div class="direction__direction-item">
+              <div class="direction__direction-item tab-list-item" data-tab-uid="10">
                 <p class="direction__direction">HR и АХД</p>
               </div>
 
-              <div class="direction__direction-item">
+              <div class="direction__direction-item tab-list-item" data-tab-uid="11">
                 <p class="direction__direction">Логистика</p>
               </div>
 
-              <div class="direction__direction-item">
+              <div class="direction__direction-item tab-list-item" data-tab-uid="12">
                 <p class="direction__direction">Эльдорадо</p>
               </div>
             </div>
           </div>
-
-          <div class="direction__main-content">
+<!-- tab content-->
+          <div class="direction__main-content tab-item-content" data-tab-uid='1'>
             <div class="direction__tribe-description">
-              <div class="direction__choosed">
+              <div class="direction__choosed tab-choice">
                 <p class="direction__choosed-item">B2C</p>
               </div>
 
@@ -1152,8 +1175,392 @@
               продукта
             </a>
           </div>
+<!--        tab content 2-->
+
+        <div class="direction__main-content tab-item-content" data-tab-uid='2' >
+          <div class="direction__tribe-description">
+            <div class="direction__choosed tab-choice">
+              <p class="direction__choosed-item">B2R</p>
+            </div>
+
+            <div class="direction__description-container">
+              <div class="direction__director-container-mobile">
+                <div class="direction__director-image-block-mobile">
+                  <img
+                    src="./images/direction/director.png"
+                    alt=""
+                    class="direction__director-image"
+                  />
+                </div>
+                <div class="direction__director-name-wrapper">
+                  <p class="direction__director-name">
+                    Андрей Пчелинцев<span>,</span>
+                  </p>
+                  <p class="direction__director-name">СРО трайба B2C</p>
+                </div>
+              </div>
+
+              <p class="direction__description-text">
+                Наш трайб объединяет профессионализм и стремление
+                к постоянному развитию. Мы амбициозны, любим то, что делаем,
+                и верим, что создаём продукты, меняющие привычный способ
+                покупки онлайн на суперконкурентном рынке.
+              </p>
+              <p class="direction__description-text">
+                В каждом из наших каналов (web & app) есть множество
+                продуктов: Лояльность, Личный кабинет, Сделка, Промо,
+                Поиск и другие, которые помогают миллионам клиентов ежедневно
+                получать свой дофамин от покупок. Многие из них совершенно
+                уникальные и инновационные, позволяющие персонализировать опыт
+                покупателя в масштабе.
+              </p>
+
+              <a href="#" class="direction__description-link-mobile"
+              >Развернуть текст</a
+              >
+            </div>
+
+            <div class="direction__director-container">
+              <div class="direction__director-image-block">
+                <img
+                  src="./images/direction/director.png"
+                  alt=""
+                  class="direction__director-image"
+                />
+              </div>
+              <p class="direction__director-name">
+                Андрей Пчелинцев<span>,</span>
+              </p>
+              <p class="direction__director-name">СРО трайба B2C</p>
+            </div>
+          </div>
+
+          <div class="direction__products-wrapper">
+            <div class="direction__products-container">
+              <p class="direction__products-title">Продукты трайба</p>
+            </div>
+
+            <div class="direction__products-table-wrapper">
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">Selection/Search (МПоиск)</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">Selection</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">Deal</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">Платформа WEB</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">Маркетплейс</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">App In Store</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">Персонализация</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">Content</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">CVM</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="direction__products-link-mobile">
+            еще
+            <span class="direction__products-link-mobile-number">3</span>
+            продукта
+          </a>
+        </div>
+
+<!--          3-->
+          <div class="direction__main-content tab-item-content" data-tab-uid='3'>
+            <div class="direction__tribe-description">
+              <div class="direction__choosed tab-choice">
+                <p class="direction__choosed-item">Сервисы/B2Pay</p>
+              </div>
+
+              <div class="direction__description-container">
+                <div class="direction__director-container-mobile">
+                  <div class="direction__director-image-block-mobile">
+                    <img
+                      src="./images/direction/director.png"
+                      alt=""
+                      class="direction__director-image"
+                    />
+                  </div>
+                  <div class="direction__director-name-wrapper">
+                    <p class="direction__director-name">
+                      Андрей Пчелинцев<span>,</span>
+                    </p>
+                    <p class="direction__director-name">СРО трайба B2C</p>
+                  </div>
+                </div>
+
+                <p class="direction__description-text">
+                  Наш трайб объединяет профессионализм и стремление
+                  к постоянному развитию. Мы амбициозны, любим то, что делаем,
+                  и верим, что создаём продукты, меняющие привычный способ
+                  покупки онлайн на суперконкурентном рынке.
+                </p>
+                <p class="direction__description-text">
+                  В каждом из наших каналов (web & app) есть множество
+                  продуктов: Лояльность, Личный кабинет, Сделка, Промо,
+                  Поиск и другие, которые помогают миллионам клиентов ежедневно
+                  получать свой дофамин от покупок. Многие из них совершенно
+                  уникальные и инновационные, позволяющие персонализировать опыт
+                  покупателя в масштабе.
+                </p>
+
+                <a href="#" class="direction__description-link-mobile"
+                >Развернуть текст</a
+                >
+              </div>
+
+              <div class="direction__director-container">
+                <div class="direction__director-image-block">
+                  <img
+                    src="./images/direction/director.png"
+                    alt=""
+                    class="direction__director-image"
+                  />
+                </div>
+                <p class="direction__director-name">
+                  Андрей Пчелинцев<span>,</span>
+                </p>
+                <p class="direction__director-name">СРО трайба B2C</p>
+              </div>
+            </div>
+
+            <div class="direction__products-wrapper">
+              <div class="direction__products-container">
+                <p class="direction__products-title">Продукты трайба</p>
+              </div>
+
+              <div class="direction__products-table-wrapper">
+                <div class="direction__products-table-item">
+                  <p class="direction__item-title">Selection/Search (МПоиск)</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                </div>
+
+                <div class="direction__products-table-item">
+                  <p class="direction__item-title">Selection</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                </div>
+
+                <div class="direction__products-table-item">
+                  <p class="direction__item-title">Deal</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                </div>
+
+                <div class="direction__products-table-item">
+                  <p class="direction__item-title">Платформа WEB</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                </div>
+
+                <div class="direction__products-table-item">
+                  <p class="direction__item-title">Маркетплейс</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                </div>
+
+                <div class="direction__products-table-item">
+                  <p class="direction__item-title">App In Store</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                </div>
+
+                <div class="direction__products-table-item">
+                  <p class="direction__item-title">Персонализация</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                </div>
+
+                <div class="direction__products-table-item">
+                  <p class="direction__item-title">Content</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                </div>
+
+                <div class="direction__products-table-item">
+                  <p class="direction__item-title">CVM</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                  <p class="direction__item-text">Пара слов о продукте</p>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="direction__products-link-mobile">
+              еще
+              <span class="direction__products-link-mobile-number">3</span>
+              продукта
+            </a>
+          </div>
+
+<!--        4-->
+        <div class="direction__main-content tab-item-content" data-tab-uid='4'>
+          <div class="direction__tribe-description">
+            <div class="direction__choosed tab-choice">
+              <p class="direction__choosed-item">ИТ</p>
+            </div>
+
+            <div class="direction__description-container">
+              <div class="direction__director-container-mobile">
+                <div class="direction__director-image-block-mobile">
+                  <img
+                    src="./images/direction/director.png"
+                    alt=""
+                    class="direction__director-image"
+                  />
+                </div>
+                <div class="direction__director-name-wrapper">
+                  <p class="direction__director-name">
+                    Андрей Пчелинцев<span>,</span>
+                  </p>
+                  <p class="direction__director-name">СРО трайба B2C</p>
+                </div>
+              </div>
+
+              <p class="direction__description-text">
+                Наш трайб объединяет профессионализм и стремление
+                к постоянному развитию. Мы амбициозны, любим то, что делаем,
+                и верим, что создаём продукты, меняющие привычный способ
+                покупки онлайн на суперконкурентном рынке.
+              </p>
+              <p class="direction__description-text">
+                В каждом из наших каналов (web & app) есть множество
+                продуктов: Лояльность, Личный кабинет, Сделка, Промо,
+                Поиск и другие, которые помогают миллионам клиентов ежедневно
+                получать свой дофамин от покупок. Многие из них совершенно
+                уникальные и инновационные, позволяющие персонализировать опыт
+                покупателя в масштабе.
+              </p>
+
+              <a href="#" class="direction__description-link-mobile"
+              >Развернуть текст</a
+              >
+            </div>
+
+            <div class="direction__director-container">
+              <div class="direction__director-image-block">
+                <img
+                  src="./images/direction/director.png"
+                  alt=""
+                  class="direction__director-image"
+                />
+              </div>
+              <p class="direction__director-name">
+                Андрей Пчелинцев<span>,</span>
+              </p>
+              <p class="direction__director-name">СРО трайба B2C</p>
+            </div>
+          </div>
+
+          <div class="direction__products-wrapper">
+            <div class="direction__products-container">
+              <p class="direction__products-title">Продукты трайба</p>
+            </div>
+
+            <div class="direction__products-table-wrapper">
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">Selection/Search (МПоиск)</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">Selection</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">Deal</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">Платформа WEB</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">Маркетплейс</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">App In Store</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">Персонализация</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">Content</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+
+              <div class="direction__products-table-item">
+                <p class="direction__item-title">CVM</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+                <p class="direction__item-text">Пара слов о продукте</p>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="direction__products-link-mobile">
+            еще
+            <span class="direction__products-link-mobile-number">3</span>
+            продукта
+          </a>
         </div>
       </div>
+      </div>
+
+      </div>
+
     </section>
     <!--  //Product Direction Section  -->
 
@@ -1630,10 +2037,32 @@
     <section class="find">
       <h2 class="find__title">
         <a href="#" class="find__title-link">
-          <span class="find__link-aroow">Найти вакансию</span>
-          <span class="find__link-aroow">Найти вакансию</span>
-          <span class="find__link-aroow">Найти вакансию</span>
-          <span class="find__link-aroow">Найти вакансию</span>
+          <div class="result-stats">
+            <div class="resultMarquee">
+              <p class="resultMarquee__text">Найти вакансию</p>
+              <svg width="160" height="162" viewBox="0 0 160 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M105.785 76.1794H40V88.1794H105.436L76.1088 117.781L84.6334 126.227L120.777 89.7456C125.024 85.4582 125.025 78.549 120.777 74.2617L84.6334 37.7808L76.1088 46.2265L105.785 76.1794Z" fill="black"/>
+              </svg>
+            </div>
+            <div class="resultMarquee" style="left: 1294px;">
+              <p class="resultMarquee__text">Найти вакансию</p>
+              <svg width="160" height="162" viewBox="0 0 160 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M105.785 76.1794H40V88.1794H105.436L76.1088 117.781L84.6334 126.227L120.777 89.7456C125.024 85.4582 125.025 78.549 120.777 74.2617L84.6334 37.7808L76.1088 46.2265L105.785 76.1794Z" fill="black"/>
+              </svg>
+            </div>
+            <div class="resultMarquee" style="left: 2588px;">
+              <p class="resultMarquee__text">Найти вакансию</p>
+              <svg width="160" height="162" viewBox="0 0 160 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M105.785 76.1794H40V88.1794H105.436L76.1088 117.781L84.6334 126.227L120.777 89.7456C125.024 85.4582 125.025 78.549 120.777 74.2617L84.6334 37.7808L76.1088 46.2265L105.785 76.1794Z" fill="black"/>
+              </svg>
+            </div>
+            <div class="resultMarquee" style="left: 3882px;">
+              <p class="resultMarquee__text">Найти вакансию</p>
+              <svg width="160" height="162" viewBox="0 0 160 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M105.785 76.1794H40V88.1794H105.436L76.1088 117.781L84.6334 126.227L120.777 89.7456C125.024 85.4582 125.025 78.549 120.777 74.2617L84.6334 37.7808L76.1088 46.2265L105.785 76.1794Z" fill="black"/>
+              </svg>
+            </div>
+          </div>
         </a>
       </h2>
 
@@ -1967,7 +2396,35 @@
     <section class="intern">
       <div class="intern__header">
         <h2 class="intern__title">Приходи на стажировку!</h2>
-        <div class="intern__header-background"></div>
+        <div class="intern__header-background">
+          <div class="svg-toggle" id="svg-toggle-activate">
+            <div class="svg-toggle-line">
+              <div class="svg-toggle__btn">
+                <svg width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#76BC21"/></svg>
+                <svg width="111" height="111" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.16 55.856c0 29.551 23.936 53.507 53.463 53.507 29.526 0 53.462-23.956 53.462-53.507S85.149 2.349 55.623 2.349C26.097 2.349 2.16 26.305 2.16 55.856zM55.624.976C25.34.977.79 25.547.79 55.857c0 30.309 24.55 54.879 54.833 54.879 30.283 0 54.832-24.57 54.832-54.88 0-30.308-24.549-54.878-54.832-54.878z" fill="#76BC21"/></svg>
+              </div>
+              <svg class="svg-toggle__arrow" width="166" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z" fill="#76BC21"/></svg>
+              <div class="svg-toggle__btn">
+                <svg width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#E31235"/></svg>
+                <svg width="111" height="111" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.16 55.856c0 29.551 23.936 53.507 53.463 53.507 29.526 0 53.462-23.956 53.462-53.507S85.149 2.349 55.623 2.349C26.097 2.349 2.16 26.305 2.16 55.856zM55.624.976C25.34.977.79 25.547.79 55.857c0 30.309 24.55 54.879 54.833 54.879 30.283 0 54.832-24.57 54.832-54.88 0-30.308-24.549-54.878-54.832-54.878z" fill="#E31235"/></svg>
+              </div>
+              <svg class="svg-toggle__arrow" width="166" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z" fill="#E31235"/></svg>
+
+            </div>
+
+            <div class="svg-toggle-line">
+              <div class="svg-toggle__btn">
+                <svg width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#E31235"/></svg>
+                <svg width="111" height="111" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.16 55.856c0 29.551 23.936 53.507 53.463 53.507 29.526 0 53.462-23.956 53.462-53.507S85.149 2.349 55.623 2.349C26.097 2.349 2.16 26.305 2.16 55.856zM55.624.976C25.34.977.79 25.547.79 55.857c0 30.309 24.55 54.879 54.833 54.879 30.283 0 54.832-24.57 54.832-54.88 0-30.308-24.549-54.878-54.832-54.878z" fill="#E31235"/></svg>
+              </div>
+              <svg class="svg-toggle__arrow" width="166" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z" fill="#E31235"/></svg>
+              <div class="svg-toggle__btn">
+                <svg width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#76BC21"/></svg>
+                <svg width="111" height="111" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.16 55.856c0 29.551 23.936 53.507 53.463 53.507 29.526 0 53.462-23.956 53.462-53.507S85.149 2.349 55.623 2.349C26.097 2.349 2.16 26.305 2.16 55.856zM55.624.976C25.34.977.79 25.547.79 55.857c0 30.309 24.55 54.879 54.833 54.879 30.283 0 54.832-24.57 54.832-54.88 0-30.308-24.549-54.878-54.832-54.878z" fill="#76BC21"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
         <p class="intern__header-text">
           9 месяцев оплачиваемой работы с инновационными проектами в сильной
           команде. Можно работать в офисе или удалённо. Мы даем опыт, который
@@ -2886,6 +3343,8 @@
       rel="stylesheet"
       href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
     />
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   </body>

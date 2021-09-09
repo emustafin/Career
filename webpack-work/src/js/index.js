@@ -3,6 +3,9 @@ import { Listing } from './components/vacancyListingPage/listing';
 import { Advantages } from './components/itHubPage/advantages';
 import { CareerUpgrade } from './components/itHubPage/upgrade';
 import { VideoPlayer } from './components/itHubPage/videoPlayer';
+import {Tab} from "./components/itHubPage/Tab";
+import './components/animation';
+import {Select} from "./components/itHubPage/select";
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -14,6 +17,7 @@ const listingPage = document.querySelector('.listing');
 const ourAdvantages = document.querySelector('.why-are-we');
 const upgradeSection = document.querySelector('.upgrade');
 const videoPlayerBlock = document.querySelector('.find');
+const tabContainer = document.querySelector('.tab-content');
 
 if (itHubPage && itHubPage !== null && itHubPage !== undefined) {
   new Vacancy(profession);
@@ -21,6 +25,15 @@ if (itHubPage && itHubPage !== null && itHubPage !== undefined) {
   new CareerUpgrade(upgradeSection);
   new VideoPlayer(videoPlayerBlock);
 }
+
+new Tab(tabContainer, 'direction__direction-item-active');
+
+const selectGreen = document.querySelector('.custom-select');
+const selectSecond = document.getElementById('custom-select-second');
+
+new Select(selectGreen);
+new Select(selectSecond);
+
 
 if (listingPage && listingPage !== null && listingPage !== undefined) {
   new Listing(listingPage);
