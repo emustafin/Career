@@ -16,7 +16,9 @@
 export class Tab {
   constructor(el, activeClass) {
     this.el = el;
-    if (this.el == null || undefined) return;
+
+    if ((this.el == null || undefined) || this.el.classList.length <= 0) return;
+
     this.activeClass = activeClass
     this.tabList = el.querySelector('.tab-list');
     this.tabChoice  = el.querySelector('.tab-choice');
@@ -31,8 +33,6 @@ export class Tab {
   init() {
     this.tabList.querySelector('.tab-list-item').classList.add(this.activeClass);
     this.tabItemContent.forEach((el, i) => {
-      // if (el.dataset.tabUid == 1) el.style.display = 'block';
-      // else el.style.display = 'none';
       if (i == 0) el.style.display = 'block';
       else el.style.display = 'none';
     });
