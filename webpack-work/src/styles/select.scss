@@ -1,6 +1,5 @@
 .particl {
   display: flex;
-  height: 800px;
 }
 
 .custom-select {
@@ -11,6 +10,7 @@
   width: 100%;
   cursor: pointer;
   position: relative;
+  border: none;
 
   &__label {
     font-size: 12px;

@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
-    "swiper": "^7.0.2"
+    "swiper": "^7.0.2",
+    "typed.js": "^2.0.12"
   }
 }
