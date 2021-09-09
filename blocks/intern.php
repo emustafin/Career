@@ -41,7 +41,7 @@
 
     <div class="container">
     <div class="intern__main-content">
-        <div class="intern__events-block">
+        <!-- <div class="intern__events-block"> -->
             <!-- <div class="intern__events-title">Ближайшие события</div>
             <div class="intern__events-group">
                 <p class="intern__events-group-month">Сентябрь</p>
@@ -100,7 +100,7 @@
             </div>
 
             <a href="#" class="intern__events-all-link">Все события</a> -->
-        </div>
+        <!-- </div> -->
 
         <div class="intern__events-block-mobile">
             <div class="intern__events-block-mobile-events-wrapper">
