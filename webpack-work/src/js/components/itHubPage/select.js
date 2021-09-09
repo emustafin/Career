@@ -28,6 +28,12 @@ export class Select {
   }
 
   init() {
+    if (
+      (this.changeSelect == null || undefined)
+      || (this.list == null || undefined)
+      || (this.listItem == null || undefined)
+    ) return console.error("Присутсвуют не все входные классы у эллемента")
+
     this.changeSelect.onclick = this.handleClick.bind(this);
     this.listItem.forEach(el => {
       el.onclick = this.handleSelect.bind(this);
