@@ -1,5 +1,3 @@
-// @import './styles.scss';
-
 .footer {
   padding-top: 40px;
   padding-bottom: 24px;
@@ -99,10 +97,6 @@
   margin-bottom: 8px;
 }
 
-.footer__info-text-mobile {
-  color: #969696;
-}
-
 .footer__contact-mail,
 .footer__contact-phone {
   font-size: 40px;
@@ -170,6 +164,10 @@
 
 .footer__info-text {
   margin-top: auto;
+}
+
+.footer__info-text,
+.footer__info-text-mobile {
   color: #969696;
 }
 
