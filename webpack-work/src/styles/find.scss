@@ -81,7 +81,7 @@
   background: #000;
 
   &::before {
-    background: transparent;
+    display: none;
   }
 
   &:hover > .find__sound-control,

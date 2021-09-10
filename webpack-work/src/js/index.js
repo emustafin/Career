@@ -55,6 +55,7 @@ document.body.addEventListener('click', (event) => {
     event.target.classList.contains('it-header__button') ||
     event.target.classList.contains('intern__header-link')
   ) {
+    event.preventDefault();
     openApplicationForm();
   }
 });
