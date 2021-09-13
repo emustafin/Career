@@ -16,8 +16,8 @@ $blackColorOpacity-05: rgba(0, 0, 0, 0.5);
 @import './profession.scss';
 @import './upgrade.scss';
 @import './politics.scss';
-@import "select";
-
+@import 'select';
+@import './form.scss';
 
 @font-face {
   font-family: suisse;

@@ -3,13 +3,18 @@ import { Listing } from './components/vacancyListingPage/listing';
 import { Advantages } from './components/itHubPage/advantages';
 import { CareerUpgrade } from './components/itHubPage/upgrade';
 import { VideoPlayer } from './components/itHubPage/videoPlayer';
+<<<<<<< HEAD
 // import {Tab} from "./components/itHubPage/Tab";
+=======
+import { Tab } from './components/itHubPage/Tab';
+>>>>>>> 9eb75ae5049470b89c80373b0c361109d2df76c2
 import './components/animation';
 import './components/itHubPage/Tab'
 import './components/itHubPage/animationSvgTab';
-import {Select} from "./components/itHubPage/select";
-import {SvgToggleAnimate} from "./components/itHubPage/animationSvgTab";
-import  {ScrollTo} from './components/itHubPage/scroll';
+import { Select } from './components/itHubPage/select';
+import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
+import { ScrollTo } from './components/itHubPage/scroll';
+import { Form } from './components/itHubPage/form';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -21,13 +26,19 @@ const listingPage = document.querySelector('.listing');
 const ourAdvantages = document.querySelector('.why-are-we');
 const upgradeSection = document.querySelector('.upgrade');
 const videoPlayerBlock = document.querySelector('.find');
+<<<<<<< HEAD
 // const tabContainer = document.querySelector('.tab-content');
+=======
+const tabContainer = document.querySelector('.tab-content');
+const form = document.querySelector('.form');
+>>>>>>> 9eb75ae5049470b89c80373b0c361109d2df76c2
 
 if (itHubPage && itHubPage !== null && itHubPage !== undefined) {
   new Vacancy(profession);
   new Advantages(ourAdvantages);
   new CareerUpgrade(upgradeSection);
   new VideoPlayer(videoPlayerBlock);
+  new Form(form);
 }
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
@@ -38,13 +49,38 @@ const selectSecond = document.getElementById('custom-select-first');
 new Select(selectGreen);
 new Select(selectSecond);
 
-
 const togls = document.getElementById('svg-toggle-activate');
-const triger = document.getElementById('my-sticky-element')
+const triger = document.getElementById('my-sticky-element');
 new SvgToggleAnimate(triger, togls);
+<<<<<<< HEAD
 new ScrollTo('.create-future__button', '.goal', false)
 
+=======
+
+new ScrollTo('.create-future__button', '.goal', false);
+>>>>>>> 9eb75ae5049470b89c80373b0c361109d2df76c2
 
 if (listingPage && listingPage !== null && listingPage !== undefined) {
   new Listing(listingPage);
+}
+
+document.body.addEventListener('click', (event) => {
+  if (
+    event.target.classList.contains('it-header__button') ||
+    event.target.classList.contains('intern__header-link')
+  ) {
+    openApplicationForm();
+  }
+});
+
+// Открыть анкету выбора вакансии
+function openApplicationForm() {
+  const form = document.querySelector('.form');
+
+  form.classList.add('form-active');
+
+  setTimeout(() => {
+    document.body.style.overflow = 'hidden';
+    form.firstElementChild.style.background = 'rgba(0, 0, 0, 0.8)';
+  }, 300);
 }
