@@ -4,11 +4,11 @@ import { Advantages } from './components/itHubPage/advantages';
 import { CareerUpgrade } from './components/itHubPage/upgrade';
 import { VideoPlayer } from './components/itHubPage/videoPlayer';
 import './components/animation';
-import './components/itHubPage/Tab'
+import './components/itHubPage/Tab';
 import './components/itHubPage/animationSvgTab';
-import {Select} from "./components/itHubPage/select";
-import {SvgToggleAnimate} from "./components/itHubPage/animationSvgTab";
-import  {ScrollTo} from './components/itHubPage/scroll';
+import { Select } from './components/itHubPage/select';
+import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
+import { ScrollTo } from './components/itHubPage/scroll';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -38,12 +38,10 @@ const selectSecond = document.getElementById('custom-select-first');
 new Select(selectGreen);
 new Select(selectSecond);
 
-
 const togls = document.getElementById('svg-toggle-activate');
-const triger = document.getElementById('my-sticky-element')
+const triger = document.getElementById('my-sticky-element');
 new SvgToggleAnimate(triger, togls);
-new ScrollTo('.create-future__button', '.goal', false)
-
+new ScrollTo('.create-future__button', '.goal', false);
 
 if (listingPage && listingPage !== null && listingPage !== undefined) {
   new Listing(listingPage);
