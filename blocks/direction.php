@@ -129,7 +129,8 @@ $product_directions = new WP_Query( $args );
                     </div>
                   </div>
 
-                  <div class="direction__products-wrapper">
+                  <!-- Блок с продуктами по направлениям -->
+                  <!-- <div class="direction__products-wrapper">
                     <div class="direction__products-container">
                       <p class="direction__products-title">Продукты трайба</p>
                     </div>
@@ -157,7 +158,9 @@ $product_directions = new WP_Query( $args );
                     еще
                     <span class="direction__products-link-mobile-number">3</span>
                     продукта
-                  </a>
+                  </a> -->
+                  <!-- //Блок с продуктами по направлениям -->
+
                 </div>
                 <?php
                 $j++;
