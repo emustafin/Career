@@ -29,7 +29,7 @@ if (itHubPage && itHubPage !== null && itHubPage !== undefined) {
   new Advantages(ourAdvantages);
   new CareerUpgrade(upgradeSection);
   new VideoPlayer(videoPlayerBlock);
-  new Form(form);
+  // new Form(form);
 }
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));

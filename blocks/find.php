@@ -65,7 +65,7 @@
               class="find__video-slide find__video-slide-active swiper-slide"
               data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video1.mp4"
               data-prevew="#включайбудущее с М.Видео: Андрей Ревяшко"
-              data-image="./images/find-vacancies/video-placeholders/placeholder1.png"
+              data-image="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder1.png"
               >
               <img
                 class="find__video-slide-image"
@@ -79,7 +79,7 @@
               class="find__video-slide find__video-slide-active swiper-slide"
               data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video2.mp4"
               data-prevew="#ВКЛЮЧАЙБУДУЩЕЕ: HR&DIGITAL EMPLOYEE EXPERIENCE - СТРОИМ ЭКОСИСТЕМУ ДЛЯ СОТРУДНИКОВ"
-              data-image="./images/find-vacancies/video-placeholders/placeholder2.png"
+              data-image="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder2.png"
 
               >
               <img
@@ -94,7 +94,7 @@
               class="find__video-slide find__video-slide-active swiper-slide"
               data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video3.mp4"
               data-prevew="#ВКЛЮЧАЙБУДУЩЕЕ: ЭЛЕКТРОННЫЙ ПОМОЩНИК, КОТОРЫЙ ВЫПОЛНЯЕТ ВСЕ РУТИННЫЕ ЗАДАЧИ ВМЕСТО ТЕБЯ"
-              data-image="./images/find-vacancies/video-placeholders/placeholder3.png"
+              data-image="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder3.png"
 
               >
               <img
@@ -109,7 +109,7 @@
               class="find__video-slide find__video-slide-active swiper-slide"
               data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video4.mp4"
               data-prevew="#ВКЛЮЧАЙБУДУЩЕЕ: HIGHLOAD, ДЕРЖИСЬ! РАЗНОСИМ МОНОЛИТНУЮ СИСТЕМУ"
-              data-image="./images/find-vacancies/video-placeholders/placeholder4.png"
+              data-image="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder4.png"
               >
               <img
                 class="find__video-slide-image"
@@ -123,7 +123,7 @@
               class="find__video-slide find__video-slide-active swiper-slide"
               data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video5.mp4"
               data-prevew="#ВКЛЮЧАЙБУДУЩЕЕ: НЕЙРОСЕТЬ ЗНАЕТ О ТЕБЕ ВСЕ ВСЕГО ЗА ПАРУ ШАГОВ ПО МАГАЗИНУ"
-              data-image="./images/find-vacancies/video-placeholders/placeholder5.png"
+              data-image="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder5.png"
             >
               <img
                 class="find__video-slide-image"
@@ -137,7 +137,7 @@
               class="find__video-slide find__video-slide-active swiper-slide"
               data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video6.mp4"
               data-prevew="#ВКЛЮЧАЙБУДУЩЕЕ: АНАЛИТИКИ В М.ВИДЕО-ЭЛЬДОРАДО ВОПЛОЩАЮТ СВОИ ИДЕИ В РЕАЛЬНОСТЬ"
-              data-image="./images/find-vacancies/video-placeholders/placeholder6.png"
+              data-image="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder6.png"
 
             >
               <img
@@ -305,7 +305,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-                src="<?php echo THEME_URL; ?>/assets/images/video-placeholders/placeholder6.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder6.png"
                 alt="Image"
               />
 
