@@ -3,7 +3,6 @@ import { Listing } from './components/vacancyListingPage/listing';
 import { Advantages } from './components/itHubPage/advantages';
 import { CareerUpgrade } from './components/itHubPage/upgrade';
 import { VideoPlayer } from './components/itHubPage/videoPlayer';
-import { Tab } from './components/itHubPage/Tab';
 import './components/animation';
 import './components/itHubPage/Tab'
 import './components/itHubPage/animationSvgTab';
@@ -30,11 +29,7 @@ if (itHubPage && itHubPage !== null && itHubPage !== undefined) {
   new Advantages(ourAdvantages);
   new CareerUpgrade(upgradeSection);
   new VideoPlayer(videoPlayerBlock);
-<<<<<<< HEAD
-  new Form(form);
-=======
   // new Form(form);
->>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
 }
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
@@ -60,10 +55,7 @@ document.body.addEventListener('click', (event) => {
     event.target.classList.contains('it-header__button') ||
     event.target.classList.contains('intern__header-link')
   ) {
-<<<<<<< HEAD
-=======
     event.preventDefault();
->>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
     openApplicationForm();
   }
 });
