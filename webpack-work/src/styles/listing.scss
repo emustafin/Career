@@ -1,5 +1,3 @@
-// @import './styles.scss';
-
 // Styles for Listing-top section
 .listing {
   font-size: 18px;
@@ -1250,13 +1248,8 @@
     margin-bottom: 32px;
   }
 
-  .events__news-arrows,
   .events__news-link-events {
     display: none;
-  }
-
-  .vacancy__news-link-mobile {
-    display: inline-block;
   }
 
   .events__news-row {
@@ -1282,5 +1275,15 @@
 
   .position__info-link {
     width: 180px;
+  }
+}
+
+@media (max-width: 670px) {
+  .vacancy__news-link-mobile {
+    display: inline-block;
+  }
+
+  .events__news-arrows {
+    display: none;
   }
 }

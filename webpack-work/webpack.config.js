@@ -53,7 +53,10 @@ module.exports = {
       filename: 'partial.html',
       template: './partial.html',
     }),
-
+    new HTMLWebpackPlugin({
+      filename: 'vacancy-direct-link.html',
+      template: './vacancy-direct-link.html',
+    }),
     new MiniCssExtractPlugin({
       filename: 'styles/styles.css',
     }),

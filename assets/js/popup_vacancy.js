@@ -1,4 +1,72 @@
+const profession = document.querySelector('.profession');
+const flyout = document.querySelector('.flyout');
+const flyoutSideBar = flyout.querySelector('.flyout__side-bar');
+const flyOutContentBar = flyout.querySelector('.vacancy');
 
+profession.addEventListener('click', vacancyClickHandler.bind(profession));
+closeFlyout();
+resizeFlyout();
+
+function vacancyClickHandler(event) {
+    if (event.target.classList.contains('profession__job-title')) {
+      event.preventDefault();
+      openFlyout();
+    }
+}
+
+function openFlyout() {
+    flyout.classList.add('flyout__active');
+    document.body.style.overflow = 'hidden';
+    window.scrollTo(0, 0);
+    setHeightFlyoutSideBar();
+
+    setTimeout(() => {
+        flyoutSideBar.style.background = 'rgba(0, 0, 0, 0.8)';
+    }, 300);
+};
+
+function closeFlyout() {
+    flyout.addEventListener('click', (event) => {
+        if (
+        event.target.classList.contains('vacancy__header-head-link-main') ||
+        event.target.classList.contains('flyout__side-bar')
+        ) {
+        event.preventDefault();
+        flyoutSideBar.style.background = 'transparent';
+        document.body.style.overflow = 'visible';
+
+        setTimeout(() => {
+            flyout.classList.remove('flyout__active');
+        }, 300);
+        }
+    });
+};
+
+function setHeightFlyoutSideBar() {
+    flyoutSideBar.style.height = flyOutContentBar.clientHeight + 'px';
+    setTimeout(() => {
+        flyoutSideBar.style.background = 'rgba(0, 0, 0, 0.8)';
+    }, 300);
+};
+
+function resizeFlyout() {
+    window.addEventListener('resize', () => {
+        setHeightFlyoutSideBar();
+    });
+};
+
+
+$('.vacancy__header-head-link-main').on( 'click', function(e){
+
+    var origin_location = $('.flyout .vacancy__headline-title').attr( 'origin_url' );
+    window.history.pushState( '', '', origin_location );
+})
+
+$('.vacancy__header-head-link-vacancy').on( 'click', function(e){
+
+    var origin_location = $('.flyout .vacancy__headline-title').attr( 'origin_url' );
+    window.history.pushState( '', '', origin_location );
+})
 
 $('.profession__job-title').on( 'click', function(e){
     
