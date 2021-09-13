@@ -3,11 +3,7 @@ import { Listing } from './components/vacancyListingPage/listing';
 import { Advantages } from './components/itHubPage/advantages';
 import { CareerUpgrade } from './components/itHubPage/upgrade';
 import { VideoPlayer } from './components/itHubPage/videoPlayer';
-<<<<<<< HEAD
-// import {Tab} from "./components/itHubPage/Tab";
-=======
 import { Tab } from './components/itHubPage/Tab';
->>>>>>> 9eb75ae5049470b89c80373b0c361109d2df76c2
 import './components/animation';
 import './components/itHubPage/Tab'
 import './components/itHubPage/animationSvgTab';
@@ -26,12 +22,8 @@ const listingPage = document.querySelector('.listing');
 const ourAdvantages = document.querySelector('.why-are-we');
 const upgradeSection = document.querySelector('.upgrade');
 const videoPlayerBlock = document.querySelector('.find');
-<<<<<<< HEAD
-// const tabContainer = document.querySelector('.tab-content');
-=======
 const tabContainer = document.querySelector('.tab-content');
 const form = document.querySelector('.form');
->>>>>>> 9eb75ae5049470b89c80373b0c361109d2df76c2
 
 if (itHubPage && itHubPage !== null && itHubPage !== undefined) {
   new Vacancy(profession);
@@ -52,13 +44,8 @@ new Select(selectSecond);
 const togls = document.getElementById('svg-toggle-activate');
 const triger = document.getElementById('my-sticky-element');
 new SvgToggleAnimate(triger, togls);
-<<<<<<< HEAD
-new ScrollTo('.create-future__button', '.goal', false)
-
-=======
 
 new ScrollTo('.create-future__button', '.goal', false);
->>>>>>> 9eb75ae5049470b89c80373b0c361109d2df76c2
 
 if (listingPage && listingPage !== null && listingPage !== undefined) {
   new Listing(listingPage);
