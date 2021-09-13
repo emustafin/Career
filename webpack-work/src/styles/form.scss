@@ -97,7 +97,10 @@
   width: 100%;
 }
 
+<<<<<<< HEAD
 /////
+=======
+>>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
 .form__input-checkbox {
   display: none;
 }
@@ -133,12 +136,21 @@
   color: $mainColor;
   border-bottom: 1px solid $mainColor;
   padding-bottom: 1px;
+<<<<<<< HEAD
+=======
+  font-size: 18px;
+  line-height: 24px;
+>>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
 }
 
 .form__response {
   display: block;
   width: 100%;
+<<<<<<< HEAD
   max-width: 213px;
+=======
+  max-width: 180px;
+>>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
   border-radius: 36px;
   background: $whiteColor;
   padding: 8px 40px 8px 16px;
@@ -251,3 +263,119 @@
   font-size: 18px;
   line-height: 24px;
 }
+<<<<<<< HEAD
+=======
+
+.form__form-label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+// Styles for 1440px
+@media (max-width: 1600px) {
+  .form,
+  .form__form-input,
+  .form__information,
+  .form__form-politics {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .form__title {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 16px;
+  }
+
+  .form__response {
+    font-size: 20px;
+    line-height: 20px;
+    max-width: 160px;
+  }
+
+  .form__text-left-bar,
+  .form__dropdown-result,
+  .form__title {
+    padding-right: 16px;
+  }
+
+  .form__header {
+    margin-bottom: 40px;
+  }
+}
+
+// Styles for 768px
+@media (max-width: 991px) {
+  .form__container {
+    padding: 0 8px;
+  }
+
+  .form__side-bar {
+    display: none;
+  }
+
+  .form__content {
+    width: 100%;
+  }
+
+  .form__header {
+    margin-bottom: 32px;
+  }
+
+  .form__content-left-bar {
+    width: 35%;
+  }
+
+  .form__content-right-bar {
+    width: 65%;
+  }
+
+  .form__response {
+    font-size: 18px;
+    line-height: 18px;
+    max-width: 147px;
+  }
+}
+
+// Styles for 320px
+@media (max-width: 650px) {
+  .form,
+  .form__form-input,
+  .form__information,
+  .form__form-politics {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .form__title {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .form__content-wrapper {
+    flex-direction: column;
+  }
+
+  .form__content-left-bar,
+  .form__content-right-bar {
+    width: 100%;
+  }
+
+  .form__content-left-bar {
+    margin-bottom: 24px;
+  }
+
+  .form__text-left-bar {
+    display: inline;
+    padding-right: 0;
+  }
+
+  .form__file-uploader {
+    margin-bottom: 16px;
+  }
+
+  .form__header {
+    margin-bottom: 24px;
+  }
+}
+>>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
