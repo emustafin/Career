@@ -414,7 +414,7 @@
               <video class="find__video-player-mobile hide">
                 <source
                   class="find__video-player-mobile-location"
-                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video7.mp4"
+                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video3.mp4"
                 />
               </video>
 
