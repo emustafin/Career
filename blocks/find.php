@@ -69,7 +69,7 @@
               >
               <img
                 class="find__video-slide-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-1.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image1.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -84,7 +84,7 @@
               >
               <img
                 class="find__video-slide-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-2.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image2.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -99,7 +99,7 @@
               >
               <img
                 class="find__video-slide-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-3.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image3.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -113,7 +113,7 @@
               >
               <img
                 class="find__video-slide-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-4.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image4.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -127,7 +127,7 @@
             >
               <img
                 class="find__video-slide-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-5.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image5.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -142,7 +142,7 @@
             >
               <img
                 class="find__video-slide-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-6.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image6.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
