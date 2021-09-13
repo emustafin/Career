@@ -151,6 +151,93 @@
           </div>
         </div>
 
+
+    <!-- <div class="find__video-slides-row">
+        <div
+        class="find__video-slide find__video-slide-active"
+        data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video1.mp4"
+        >
+        <img
+            class="find__video-slide-image"
+            src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image1.png"
+            alt="slide-image"
+        />
+        <div class="find__video-slide-progress"></div>
+        </div>
+
+        <div
+        class="find__video-slide"
+        data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video2.mp4"
+        >
+        <img
+            class="find__video-slide-image"
+            src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image2.png"
+            alt="slide-image"
+        />
+        <div class="find__video-slide-progress"></div>
+        </div>
+
+        <div
+        class="find__video-slide"
+        data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video3.mp4"
+        >
+        <img
+            class="find__video-slide-image"
+            src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image3.png"
+            alt="slide-image"
+        />
+        <div class="find__video-slide-progress"></div>
+        </div>
+
+        <div
+        class="find__video-slide"
+        data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video4.mp4"
+        >
+        <img
+            class="find__video-slide-image"
+            src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image4.png"
+            alt="slide-image"
+        />
+        <div class="find__video-slide-progress"></div>
+        </div>
+
+        <div
+        class="find__video-slide"
+        data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video5.mp4"
+        >
+        <img
+            class="find__video-slide-image"
+            src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image5.png"
+            alt="slide-image"
+        />
+        <div class="find__video-slide-progress"></div>
+        </div>
+
+        <div
+        class="find__video-slide"
+        data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video6.mp4"
+        >
+        <img
+            class="find__video-slide-image"
+            src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image6.png"
+            alt="slide-image"
+        />
+        <div class="find__video-slide-progress"></div>
+        </div>
+
+        <div
+        class="find__video-slide"
+        data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video7.mp4"
+        >
+        <img
+            class="find__video-slide-image"
+            src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image5.png"
+            alt="slide-image"
+        />
+        <div class="find__video-slide-progress"></div>
+        </div>
+    </div> -->
+
     <button class="find__arrow-next"></button>
     </div>
 
@@ -305,7 +392,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-                src="<?php echo THEME_URL; ?>/assets/images/video-placeholders/placeholder6.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder6.png"
                 alt="Image"
               />
 
@@ -322,8 +409,149 @@
             </a>
           </div>
 
+          <div class="find__video-slide-mobile swiper-slide">
+            <div class="find__video-slide-mobile-video">
+              <video class="find__video-player-mobile hide">
+                <source
+                  class="find__video-player-mobile-location"
+                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video7.mp4"
+                />
+              </video>
+
+              <img
+                class="find__video-slide-mobile-image"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image3.png"
+                alt="Image"
+              />
+
+              <button
+                class="find__video-slide-mobile-button"
+                data-name="play"
+              ></button>
+              <div class="find__mobile-progress"></div>
+            </div>
+
+            <a href="#" class="find__video-slide-mobile-text-info">
+            #ВКЛЮЧАЙБУДУЩЕЕ: ЗАКАЗ ТОВАРА ПОД КАПОТОМ - СТРОИМ БЕСШОВНЫЙ ONE
+              RETAIL ОПЫТ
+            </a>
+          </div>
         </div>
       </div>
 
+
+    <!-- <div class="find__video-slides-row-mobile">
+        <div class="find__video-slide-mobile">
+            <div class="find__video-slide-mobile-video">
+            <img
+                class="find__video-slide-mobile-image"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/slide-mobile.png"
+                alt="Image"
+            />
+
+            <button class="find__video-slide-mobile-button"></button>
+            </div>
+
+            <div class="find__video-slide-mobile-text-info">
+            #включайбудущее с М.Видео: Андрей Ревяшко
+            </div>
+        </div>
+
+        <div class="find__video-slide-mobile">
+            <div class="find__video-slide-mobile-video">
+            <img
+                class="find__video-slide-mobile-image"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/slide-mobile.png"
+                alt="Image"
+            />
+
+            <button class="find__video-slide-mobile-button"></button>
+            </div>
+
+            <div class="find__video-slide-mobile-text-info">
+            #включайбудущее с М.Видео: Андрей Ревяшко
+            </div>
+        </div>
+
+        <div class="find__video-slide-mobile">
+            <div class="find__video-slide-mobile-video">
+            <img
+                class="find__video-slide-mobile-image"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/slide-mobile.png"
+                alt="Image"
+            />
+
+            <button class="find__video-slide-mobile-button"></button>
+            </div>
+
+            <div class="find__video-slide-mobile-text-info">
+            #включайбудущее с М.Видео: Андрей Ревяшко
+            </div>
+        </div>
+
+        <div class="find__video-slide-mobile">
+            <div class="find__video-slide-mobile-video">
+            <img
+                class="find__video-slide-mobile-image"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/slide-mobile.png"
+                alt="Image"
+            />
+
+            <button class="find__video-slide-mobile-button"></button>
+            </div>
+
+            <div class="find__video-slide-mobile-text-info">
+            #включайбудущее с М.Видео: Андрей Ревяшко
+            </div>
+        </div>
+
+        <div class="find__video-slide-mobile">
+            <div class="find__video-slide-mobile-video">
+            <img
+                class="find__video-slide-mobile-image"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/slide-mobile.png"
+                alt="Image"
+            />
+
+            <button class="find__video-slide-mobile-button"></button>
+            </div>
+
+            <div class="find__video-slide-mobile-text-info">
+            #включайбудущее с М.Видео: Андрей Ревяшко
+            </div>
+        </div>
+
+        <div class="find__video-slide-mobile">
+            <div class="find__video-slide-mobile-video">
+            <img
+                class="find__video-slide-mobile-image"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/slide-mobile.png"
+                alt="Image"
+            />
+
+            <button class="find__video-slide-mobile-button"></button>
+            </div>
+
+            <div class="find__video-slide-mobile-text-info">
+            #включайбудущее с М.Видео: Андрей Ревяшко
+            </div>
+        </div>
+
+        <div class="find__video-slide-mobile">
+            <div class="find__video-slide-mobile-video">
+            <img
+                class="find__video-slide-mobile-image"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/slide-mobile.png"
+                alt="Image"
+            />
+
+            <button class="find__video-slide-mobile-button"></button>
+            </div>
+
+            <div class="find__video-slide-mobile-text-info">
+            #включайбудущее с М.Видео: Андрей Ревяшко
+            </div>
+        </div>
+    </div> -->
 </section>
 <!-- //Find vacansies Section -->

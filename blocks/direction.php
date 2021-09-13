@@ -14,11 +14,11 @@ $product_directions = new WP_Query( $args );
           направления
         </h2>
 
-        <div class="custom-select direction__select-container-mobile" id="custom-select-first">
+        <div class="custom-select" id="custom-select-first">
           <span class="custom-select__label">Выбери направление</span>
           <span class="custom-select__change-select"><?php echo get_the_title($product_directions->posts[0]->ID); ?></span>
-          <div class="direction__select-list-wrapper custom-select__select-list-wrap">
-            <ul class="direction__select custom-select__select-list">
+          <div class="custom-select__select-list-wrap">
+            <ul class="custom-select__select-list">
               <?php
               $i = 1;
               if ( $product_directions->have_posts() ) {
@@ -30,7 +30,7 @@ $product_directions = new WP_Query( $args );
 //                     $active = '';
 //                   }
                   ?>
-                  <li class="custom-select__select-list-item <?php echo $active; ?>" data-tab-uid="<?php the_ID(); ?>" data-value="<?php the_title(); ?>">
+                  <li class="custom-select__select-list-item tab-list-item <?php echo $active; ?>" data-tab-uid="<?php the_ID(); ?>" data-value="<?php the_title(); ?>">
                     <?php the_title(); ?>
                     <svg class="custom-select__list-icon" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 10.151l5.576-5.575.849.848L6.5 11.848 3.076 8.425l.849-.848L6.5 10.15z" fill="#000"/></svg>
                   </li>
@@ -49,7 +49,7 @@ $product_directions = new WP_Query( $args );
               <p class="direction__choose">Выбери направление</p>
             </div>
 
-            <div class="direction__direction-container tab-list">
+            <div class="direction__direction-container tab-list" id="tabController">
               <p class="direction__choose-mobile">Выбери направление</p>
               <?php
               $i = 1;
@@ -72,7 +72,7 @@ $product_directions = new WP_Query( $args );
               ?>
             </div>
           </div>
-
+      <div class="direction__main-content" id="tab-content">
           <?php
             $j = 1;
             if ( $product_directions->have_posts() ) {
@@ -84,7 +84,7 @@ $product_directions = new WP_Query( $args );
                   $main_display = 'display: none;';
                 }
                 ?>
-                <div class="direction__main-content tab-item-content" data-tab-uid='<?php echo the_ID(); ?>' style="<?php echo $main_display; ?>" >
+                <div class="tab-item-content" data-tab-uid='<?php echo the_ID(); ?>' style="<?php echo $main_display; ?>" >
                   <div class="direction__tribe-description">
                     <div class="direction__choosed tab-choice">
                       <p class="direction__choosed-item"><?php the_title(); ?></p>
@@ -168,6 +168,7 @@ $product_directions = new WP_Query( $args );
             }
             wp_reset_postdata();
           ?>
+            </div>
         </div>
       </div>
 
