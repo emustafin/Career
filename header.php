@@ -93,7 +93,7 @@ switch ($post_slug) {
                 </div>
               </div>
             </div>
-              <a href="#" class="create-future__button">узнай, как именно</a>
+              <a class="create-future__button">узнай, как именно</a>
             </div>
 
             <p class="create-future__text">

@@ -135,7 +135,7 @@ export class VideoPlayer {
     this.showControllsOnScreen();
     this.video.load();
     this.videoControl.style.background =
-      "url('/wp-content/themes/career_theme/assets/images/find-vacancies/pause.svg') center / contain no-repeat";
+      "url('./images/find-vacancies/pause.svg') center / contain no-repeat";
 
     setTimeout(() => (this.videoControl.dataset.name = 'pause'), 100);
   }
@@ -148,7 +148,7 @@ export class VideoPlayer {
     this.buttonNext.classList.remove('find__arrow-next-active');
     this.videoContainer.lastElementChild.style.display = 'none';
     this.videoControl.style.background =
-      "url('/wp-content/themes/career_theme/assets/images/find-vacancies/play-control.svg') center / contain no-repeat";
+      "url('./images/find-vacancies/play-control.svg') center / contain no-repeat";
     this.setVideoProgress();
 
     setTimeout(() => {
@@ -161,7 +161,7 @@ export class VideoPlayer {
     this.cleanScreen();
     this.scrollToVideoBlock();
     this.videoControl.style.background =
-      "url('/wp-content/themes/career_theme/assets/images/find-vacancies/pause.svg') center / contain no-repeat";
+      "url('./images/find-vacancies/pause.svg') center / contain no-repeat";
     this.videoContainer.lastElementChild.style.display = 'none';
     this.video.play();
 
@@ -208,7 +208,7 @@ export class VideoPlayer {
       video.classList.remove('hide');
       video.play();
       button.style.background =
-        "url('./wp-content/themes/career_theme/assets/images/find-vacancies/pause.svg') left / contain no-repeat";
+        "url('../images/find-vacancies/pause.svg') left / contain no-repeat";
       button.dataset.name = 'pause';
       video.dataset.name = 'pause';
     }, 300);
@@ -217,7 +217,7 @@ export class VideoPlayer {
   pauseMobileVideo(video, button) {
     video.pause();
     button.style.background =
-      "url('./wp-content/themes/career_theme/assets/images/find-vacancies/play-mobile.svg') left / contain no-repeat";
+      "url('../images/find-vacancies/play-mobile.svg') left / contain no-repeat";
 
     setTimeout(() => {
       button.dataset.name = 'play';
@@ -232,7 +232,7 @@ export class VideoPlayer {
     prevew.style.zIndex = 0;
     progress.style.width = '0';
     button.style.background =
-      "url('./wp-content/themes/career_theme/assets/images/find-vacancies/play-mobile.svg') left / contain no-repeat";
+      "url('../images/find-vacancies/play-mobile.svg') left / contain no-repeat";
 
     setTimeout(() => {
       button.dataset.name = 'play';

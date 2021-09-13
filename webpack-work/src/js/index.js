@@ -6,10 +6,9 @@ import { VideoPlayer } from './components/itHubPage/videoPlayer';
 import './components/animation';
 import './components/itHubPage/Tab'
 import './components/itHubPage/animationSvgTab';
-import { Select } from './components/itHubPage/select';
-import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
-import { ScrollTo } from './components/itHubPage/scroll';
-import { Form } from './components/itHubPage/form';
+import {Select} from "./components/itHubPage/select";
+import {SvgToggleAnimate} from "./components/itHubPage/animationSvgTab";
+import  {ScrollTo} from './components/itHubPage/scroll';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -21,8 +20,7 @@ const listingPage = document.querySelector('.listing');
 const ourAdvantages = document.querySelector('.why-are-we');
 const upgradeSection = document.querySelector('.upgrade');
 const videoPlayerBlock = document.querySelector('.find');
-const tabContainer = document.querySelector('.tab-content');
-const form = document.querySelector('.form');
+// const tabContainer = document.querySelector('.tab-content');
 
 if (itHubPage && itHubPage !== null && itHubPage !== undefined) {
   new Vacancy(profession);
@@ -40,11 +38,12 @@ const selectSecond = document.getElementById('custom-select-first');
 new Select(selectGreen);
 new Select(selectSecond);
 
-const togls = document.getElementById('svg-toggle-activate');
-const triger = document.getElementById('my-sticky-element');
-new SvgToggleAnimate(triger, togls);
 
-new ScrollTo('.create-future__button', '.goal', false);
+const togls = document.getElementById('svg-toggle-activate');
+const triger = document.getElementById('my-sticky-element')
+new SvgToggleAnimate(triger, togls);
+new ScrollTo('.create-future__button', '.goal', false)
+
 
 if (listingPage && listingPage !== null && listingPage !== undefined) {
   new Listing(listingPage);
