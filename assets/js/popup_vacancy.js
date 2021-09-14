@@ -9,7 +9,7 @@ $('.profession__job-title').on( 'click', function(e){
 
     $('.flyout .vacancy__headline-title').attr( 'origin_url', origin_location );
     $('.flyout .vacancy__headline-title').html( vacancy_info.title );
-    // $('.flyout .vacancy__video-container img').attr( "src", vacancy_info.img );
+    $('.flyout .vacancy__video-container img').attr( "src", vacancy_info.img );
     $('.flyout .vacancy__intro-description').html( vacancy_info.content );
     $('.flyout #vacancy_project').html( vacancy_info.vacancy_project );
     $('.flyout #expectations').html( vacancy_info.expectations );

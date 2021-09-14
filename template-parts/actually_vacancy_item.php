@@ -63,7 +63,7 @@ if( get_field( 'map_full_adress', $vacancy_item_id ) ){
             <a href="#" class="profession__crumb">IT-департамент</a>
             <a href="#" class="profession__crumb"><?php echo $vaccat_terms[0]->name; ?></a>
         </div>
-        <a href="#" class="profession__more-info">Больше о направлении</a>
+        <!-- <a href="#" class="profession__more-info">Больше о направлении</a> -->
     </div>
 
     <div class="profession__job-price-container">
