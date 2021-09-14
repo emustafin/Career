@@ -167,11 +167,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-<<<<<<< HEAD
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-1.png"
-=======
                 src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder1.png"
->>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
                 alt="Image"
               />
 
@@ -198,11 +194,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-<<<<<<< HEAD
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-2.png"
-=======
                 src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder2.png"
->>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
                 alt="Image"
               />
 
@@ -230,11 +222,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-<<<<<<< HEAD
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-3.png"
-=======
                 src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder3.png"
->>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
                 alt="Image"
               />
 
@@ -262,11 +250,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-<<<<<<< HEAD
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-4.png"
-=======
                 src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder4.png"
->>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
                 alt="Image"
               />
 
@@ -293,11 +277,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-<<<<<<< HEAD
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-5.png"
-=======
                 src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder5.png"
->>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
                 alt="Image"
               />
 
