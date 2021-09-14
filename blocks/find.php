@@ -325,11 +325,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-<<<<<<< HEAD
                 src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-6.png"
-=======
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder6.png"
->>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
                 alt="Image"
               />
 
@@ -346,6 +342,33 @@
             </a>
           </div>
 
+          <div class="find__video-slide-mobile swiper-slide">
+            <div class="find__video-slide-mobile-video">
+              <video class="find__video-player-mobile hide">
+                <source
+                  class="find__video-player-mobile-location"
+                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video3.mp4"
+                />
+              </video>
+
+              <img
+                class="find__video-slide-mobile-image"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image3.png"
+                alt="Image"
+              />
+
+              <button
+                class="find__video-slide-mobile-button"
+                data-name="play"
+              ></button>
+              <div class="find__mobile-progress"></div>
+            </div>
+
+            <a href="#" class="find__video-slide-mobile-text-info">
+            #ВКЛЮЧАЙБУДУЩЕЕ: ЗАКАЗ ТОВАРА ПОД КАПОТОМ - СТРОИМ БЕСШОВНЫЙ ONE
+              RETAIL ОПЫТ
+            </a>
+          </div>
         </div>
       </div>
 

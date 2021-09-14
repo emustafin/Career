@@ -9,6 +9,7 @@ import './components/itHubPage/animationSvgTab';
 import { Select } from './components/itHubPage/select';
 import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
 import { ScrollTo } from './components/itHubPage/scroll';
+import { Form } from './components/itHubPage/form';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -20,6 +21,9 @@ const listingPage = document.querySelector('.listing');
 const ourAdvantages = document.querySelector('.why-are-we');
 const upgradeSection = document.querySelector('.upgrade');
 const videoPlayerBlock = document.querySelector('.find');
+const form = document.querySelector('.form');
+const directLink = document.querySelector('.direct-link');
+
 // const tabContainer = document.querySelector('.tab-content');
 
 if (itHubPage && itHubPage !== null && itHubPage !== undefined) {
@@ -27,7 +31,7 @@ if (itHubPage && itHubPage !== null && itHubPage !== undefined) {
   new Advantages(ourAdvantages);
   new CareerUpgrade(upgradeSection);
   new VideoPlayer(videoPlayerBlock);
-  // new Form(form);
+  new Form(form);
 }
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
@@ -45,6 +49,10 @@ new ScrollTo('.create-future__button', '.goal', false);
 
 if (listingPage && listingPage !== null && listingPage !== undefined) {
   new Listing(listingPage);
+}
+
+if (directLink && directLink !== null && directLink !== undefined) {
+  new Form(form);
 }
 
 document.body.addEventListener('click', (event) => {

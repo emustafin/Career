@@ -331,7 +331,99 @@
                 ?>
             </div>
         </div>
+
+
     </div>
+
+    <div class="intern-no-events">
+        <div class="intern-no-events-container">
+          <div class="intern-no-events__header">
+            <a href="#" class="intern-no-events__news-link">Новости</a>
+            <a href="#" class="intern-no-events__all-news-link">Все новости</a>
+          </div>
+
+          <div class="intern-no-events__news-block">
+            <div class="intern-no-events__news-card-main">
+              <div class="intern-no-events__card-image-block">
+                <img
+                  class="intern-no-events__card-image"
+                  src="<?php echo THEME_URL; ?>/assets/images/internship/main-news-no-event.png"
+                  alt="News"
+                />
+              </div>
+              <h2 class="intern-no-events__title">
+                Группа «М.Видео-Эльдорадо» запустила программу стажировок
+                для программистов
+              </h2>
+              <div class="intern-no-events__date-block">
+                <span class="intern-no-events__date">16</span>
+                <span class="intern-no-events__month">июля</span>
+                <span class="intern-no-events__year">2021</span>
+              </div>
+            </div>
+
+            <div class="intern-no-events__news-card-second">
+              <div class="intern-no-events__card-image-block">
+                <img
+                  class="intern-no-events__card-image"
+                  src="<?php echo THEME_URL; ?>/assets/images/internship/main-news.png"
+                  alt="News"
+                />
+              </div>
+              <h2 class="intern-no-events__title">
+                Группа «М.Видео-Эльдорадо» запустила программу стажировок
+                для программистов
+              </h2>
+              <div class="intern-no-events__date-block">
+                <span class="intern-no-events__date">16</span>
+                <span class="intern-no-events__month">июля</span>
+                <span class="intern-no-events__year">2021</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="intern-no-events__news-block">
+            <div class="intern-no-events__news-card-main">
+              <div class="intern-no-events__card-image-block">
+                <img
+                  class="intern-no-events__card-image"
+                  src="<?php echo THEME_URL; ?>/assets/images/internship/main-news-no-event.png"
+                  alt="News"
+                />
+              </div>
+              <h2 class="intern-no-events__title">
+                Группа «М.Видео-Эльдорадо» запустила программу стажировок
+                для программистов
+              </h2>
+              <div class="intern-no-events__date-block">
+                <span class="intern-no-events__date">16</span>
+                <span class="intern-no-events__month">июля</span>
+                <span class="intern-no-events__year">2021</span>
+              </div>
+            </div>
+
+            <div class="intern-no-events__news-card-second">
+              <div class="intern-no-events__card-image-block">
+                <img
+                  class="intern-no-events__card-image"
+                  src="<?php echo THEME_URL; ?>/assets/images/internship/main-news.png"
+                  alt="News"
+                />
+              </div>
+              <h2 class="intern-no-events__title">
+                Группа «М.Видео-Эльдорадо» запустила программу стажировок
+                для программистов
+              </h2>
+              <div class="intern-no-events__date-block">
+                <span class="intern-no-events__date">16</span>
+                <span class="intern-no-events__month">июля</span>
+                <span class="intern-no-events__year">2021</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 </section>
 <!--  //Internship Section  -->
