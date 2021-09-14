@@ -40,7 +40,7 @@ switch ($post_slug) {
           </div>
 
           <div class="it-header__item">
-            <a href="#" class="it-header__logo"></a>
+            <a href="/" class="it-header__logo"></a>
           </div>
 
           <div class="it-header__item">
