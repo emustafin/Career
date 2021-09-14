@@ -833,7 +833,7 @@
                   Политикой обработки персональных данных
                 </a>
               </label>
-              <a href="#" class="form__response">откликнуться</a>
+              <a href="#" class="form__response">отправить</a>
             </div>
           </div>
         </div>
