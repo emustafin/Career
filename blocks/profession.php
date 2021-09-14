@@ -13,7 +13,7 @@
             if( null != $_GET['vaccat'] ){
                 $vaccat_slug = $_GET['vaccat'];
             } else{
-                $vaccat_slug = '';
+                $vaccat_slug = $vaccat_terms[0]->slug;
             }
 
             if( null != $_GET['town_slug'] ){
