@@ -43,13 +43,22 @@
             if( $vaccat_terms && ! is_wp_error($vaccat_terms) ){
                 ?><nav class="profession__menu"><?php
                 foreach( $vaccat_terms as $vaccat_term ){
+
+                    $vaccat_data = array(
+                        'profession__description'   => term_description( $vaccat_term->term_id, 'vaccat' ),
+                        'profession__tehnology'     => get_field( 'vaccat_tehnologies', $vaccat_term ),
+                        'profession__permalink'     => get_term_link( $vaccat_term->term_id, 'vaccat'),
+                        'profession__count'         => $vaccat_term->count,
+                        'profession__img'           => get_field( 'vaccat_img', $vaccat_term )
+                    );
+
                     if( $vaccat_term->slug != $vaccat_slug ){
                         ?>
-                        <span data-vaccat_slug="<?php echo $vaccat_term->slug; ?>" class="cursor-pointer profession__menu-item"><?php echo $vaccat_term->name; ?></span>
+                        <span data-vaccat_info='<?php echo json_encode($vaccat_data); ?>' data-vaccat_slug="<?php echo $vaccat_term->slug; ?>" class="cursor-pointer profession__menu-item"><?php echo $vaccat_term->name; ?></span>
                         <?php            
                     } elseif( $vaccat_term->slug == $vaccat_slug ){
                         ?>
-                        <span data-vaccat_slug="<?php echo $vaccat_term->slug; ?>" class="cursor-pointer profession__menu-item profession__menu-item-active"><?php echo $vaccat_term->name; ?></span>
+                        <span data-vaccat_info='<?php echo json_encode($vaccat_data); ?>' data-vaccat_slug="<?php echo $vaccat_term->slug; ?>" class="cursor-pointer profession__menu-item profession__menu-item-active"><?php echo $vaccat_term->name; ?></span>
                         <?php
                         $profession__title = $vaccat_term->name;
                     }
@@ -72,32 +81,26 @@
         <div class="profession__content">
             <div class="profession__side-bar">
                 <div class="profession__side-bar-text-wrapper">
-                    <p class="profession__side-bar-text">
-                    <?php echo get_sub_field('what_you_need_text'); ?>
-                    </p>
-
+                    <div id="profession__description" class="profession__side-bar-text">
+                        <?php echo term_description( $vaccat_terms[0]->term_id, 'vaccat' ); ?>
+                    </div>
                     <p class="profession__side-bar-text">Мы используем</p>
-
-                    <div class="profession__side-bar-image-tools-wrapper">
-                    <img
-                        class="profession__side-bar-tools"
-                        src="<?php echo THEME_URL; ?>/assets/images/management/tools.svg"
-                        alt="Tools"
-                    />
+                    <div id="profession__tehnology" class="profession__side-bar-image-tools-wrapper">
+                        <?php echo get_field( 'vaccat_tehnologies', $vaccat_terms[0] ); ?>
                     </div>
 
-                    <a href="#" class="profession__side-bar-vacancy-mobile">
-                    <span class="profession__side-bar-vacancy-value">192</span>
-                    вакансии в
-                    <span class="profession__side-bar-vacancy-value">
-                        Менеджменте
-                    </span>
-                    <span class="profession__side-bar-vacancy-value-arrow"></span>
+                    <a id="profession__permalink_mob" href="<?php echo get_term_link( $vaccat_terms[0]->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy-mobile">
+                        <span id="profession__count_mob" class="profession__side-bar-vacancy-value"><?php echo $vaccat_terms[0]->count; ?></span>
+                        вакансии в
+                        <span class="profession__side-bar-vacancy-value">
+                            Менеджменте
+                        </span>
+                        <span class="profession__side-bar-vacancy-value-arrow"></span>
                     </a>
                 </div>
 
-                <a href="#" class="profession__side-bar-vacancy">
-                    <span class="profession__side-bar-vacancy-value">192</span>
+                <a id="profession__permalink" href="<?php echo get_term_link( $vaccat_terms[0]->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy">
+                    <span id="profession__count" class="profession__side-bar-vacancy-value"><?php echo $vaccat_terms[0]->count; ?></span>
                     вакансии в
                     <span class="profession__side-bar-vacancy-value">
                     Менеджменте
@@ -106,11 +109,7 @@
                 </a>
 
                 <div class="profession__side-bar-image-wrapper">
-                    <img
-                    class="profession__side-bar-image"
-                    src="<?php echo THEME_URL; ?>/assets/images/management/management.png"
-                    alt="management"
-                    />
+                    <img id="profession__img" class="profession__side-bar-image" src="<?php echo get_field( 'vaccat_img', $vaccat_terms[0] ); ?>" alt="management"/>
                 </div>
             </div>
 
