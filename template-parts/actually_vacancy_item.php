@@ -59,9 +59,9 @@ if( get_field( 'map_full_adress', $vacancy_item_id ) ){
         data-info='<?php echo json_encode($popup_info); ?>'
         ><?php echo get_the_title($vacancy_item_id); ?></a>
         <div class="profession__bread-crumbs">
-                    <a href="#" class="profession__crumb">IT-департамент</a>
-                    <a href="#" class="profession__crumb"><?php echo $vaccat_terms[0]->name; ?></a>
-                  </div>
+            <a href="#" class="profession__crumb">IT-департамент</a>
+            <a href="#" class="profession__crumb"><?php echo $vaccat_terms[0]->name; ?></a>
+        </div>
 
         <a href="#" class="profession__more-info">Больше о направлении</a>
     </div>
