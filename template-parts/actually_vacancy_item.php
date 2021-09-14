@@ -17,6 +17,7 @@ $popup_info = array(
     'url'                       => get_post_permalink( $vacancy_item_id ),
 );
 
+$k = 1;
 $vaccat_names = '';
 $vaccat_terms = get_the_terms( $vacancy_item_id, 'vaccat' );
 if( is_array( $vaccat_terms ) ){
@@ -26,13 +27,17 @@ if( is_array( $vaccat_terms ) ){
         if( $k != count( $vaccat_terms ) ){
             $vaccat_names .= ', ';
         }
+        if( $k == 1 ){
+            $first_vaccat = $vaccat_term;
+        }
         $k++;
 	}
 }
 $popup_info['vaccat'] = $vaccat_names;
 
+$k = 1;
 $town_names = '';
-$town_terms = get_the_terms( $towny_item_id, 'town' );
+$town_terms = get_the_terms( $vacancy_item_id, 'town' );
 if( is_array( $town_terms ) ){
 	foreach( $town_terms as $town_term ){
         $town_names .= $town_term->name;
@@ -61,7 +66,7 @@ if( get_field( 'map_full_adress', $vacancy_item_id ) ){
 
         <div class="profession__bread-crumbs">
             <a href="#" class="profession__crumb">IT-департамент</a>
-            <a href="<?php echo get_term_link( $vaccat_terms[0]->term_id, 'vaccat'); ?>" class="profession__crumb"><?php echo $vaccat_terms[0]->name; ?></a>
+            <a href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__crumb"><?php echo $first_vaccat->name; ?></a>
         </div>
         <!-- <a href="#" class="profession__more-info">Больше о направлении</a> -->
     </div>
