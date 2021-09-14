@@ -36,7 +36,19 @@ $(document).ready(function() {
         var current_item = $(this);
         $('.profession__menu-item').removeClass('profession__menu-item-active');
         current_item.addClass('profession__menu-item-active');
+
         $('h2.profession__title').html( current_item.html() );
+        var vaccat_info = current_item.attr('data-vaccat_info');
+        vaccat_info = jQuery.parseJSON( vaccat_info );
+
+        $('#profession__description').html( vaccat_info.profession__description );
+        $('#profession__tehnology').html( vaccat_info.profession__tehnology );
+        $('#profession__permalink').attr( 'href', vaccat_info.profession__permalink );
+        $('#profession__permalink_mob').attr( 'href', vaccat_info.profession__permalink );
+        $('#profession__count').html( vaccat_info.profession__count );
+        $('#profession__count_mob').html( vaccat_info.profession__count );
+        $('#profession__img').attr( 'src', vaccat_info.profession__img );
+
         filtering();
 
     });

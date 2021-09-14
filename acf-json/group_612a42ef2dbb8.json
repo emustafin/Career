@@ -333,27 +333,7 @@
                     "name": "profession",
                     "label": "Профессия",
                     "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_612a4e3744247",
-                            "label": "Текст \"Что подходит тебе?\"",
-                            "name": "what_you_need_text",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        }
-                    ],
+                    "sub_fields": [],
                     "min": "",
                     "max": ""
                 },
@@ -480,5 +460,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1630162863
+    "modified": 1631629735
 }
