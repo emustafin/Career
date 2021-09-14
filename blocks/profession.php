@@ -10,35 +10,55 @@
             $town_terms = get_terms( 'town' );
             $level_terms = get_terms( 'level' );
 
-            if( null != $_GET['vaccat'] ){
-                $vaccat_slug = $_GET['vaccat'];
-            } else{
-                $vaccat_slug = $vaccat_terms[0]->slug;
+            foreach ($vaccat_terms as $vaccat_term) {
+                $first_vaccat = $vaccat_term;
+                break;
             }
 
-            if( null != $_GET['town_slug'] ){
-                $town_slug = $_GET['town_slug'];
+            if( !empty($_GET) ){
+                if( !empty($_GET['vaccat_slug']) && null != $_GET['vaccat_slug'] ){
+                    $vaccat_slug = $_GET['vaccat_slug'];
+                } else{
+                    foreach ($vaccat_terms as $vaccat_term) {
+                        $vaccat_slug = $vaccat_term->slug;
+                        break;
+                    }
+                }
+    
+                if( !empty($_GET['town_slug']) && null != $_GET['town_slug'] ){
+                    $town_slug = $_GET['town_slug'];
+                } else{
+                    $town_slug = '';
+                }
+    
+                if( !empty($_GET['level_slug']) && null != $_GET['level_slug'] ){
+                    $level_slug = $_GET['level_slug'];
+                } else{
+                    $level_slug = '';
+                }
+    
+                if( !empty($_GET['can_work_remotely']) && null != $_GET['can_work_remotely'] ){
+                    $can_work_remotely = 'checked';
+                } else{
+                    $can_work_remotely = '';
+                }
+    
+                if( !empty($_GET['can_without_experience']) && null != $_GET['can_without_experience'] ){
+                    $can_without_experience = 'checked';
+                } else{
+                    $can_without_experience = '';
+                }
             } else{
+                foreach ($vaccat_terms as $vaccat_term) {
+                    $vaccat_slug = $vaccat_term->slug;
+                    break;
+                }
                 $town_slug = '';
-            }
-
-            if( null != $_GET['level_slug'] ){
-                $level_slug = $_GET['level_slug'];
-            } else{
                 $level_slug = '';
-            }
-
-            if( null != $_GET['can_work_remotely'] ){
-                $can_work_remotely = 'checked';
-            } else{
                 $can_work_remotely = '';
-            }
-
-            if( null != $_GET['can_without_experience'] ){
-                $can_without_experience = 'checked';
-            } else{
                 $can_without_experience = '';
             }
+
 
             if( $vaccat_terms && ! is_wp_error($vaccat_terms) ){
                 ?><nav class="profession__menu"><?php
@@ -82,15 +102,15 @@
             <div class="profession__side-bar">
                 <div class="profession__side-bar-text-wrapper">
                     <div id="profession__description" class="profession__side-bar-text">
-                        <?php echo term_description( $vaccat_terms[0]->term_id, 'vaccat' ); ?>
+                        <?php echo term_description( $first_vaccat->term_id, 'vaccat' ); ?>
                     </div>
                     <p class="profession__side-bar-text">Мы используем</p>
                     <div id="profession__tehnology" class="profession__side-bar-image-tools-wrapper">
-                        <?php echo get_field( 'vaccat_tehnologies', $vaccat_terms[0] ); ?>
+                        <?php echo get_field( 'vaccat_tehnologies', $first_vaccat ); ?>
                     </div>
 
-                    <a id="profession__permalink_mob" href="<?php echo get_term_link( $vaccat_terms[0]->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy-mobile">
-                        <span id="profession__count_mob" class="profession__side-bar-vacancy-value"><?php echo $vaccat_terms[0]->count; ?></span>
+                    <a id="profession__permalink_mob" href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy-mobile">
+                        <span id="profession__count_mob" class="profession__side-bar-vacancy-value"><?php echo $first_vaccat->count; ?></span>
                         вакансии в
                         <span class="profession__side-bar-vacancy-value">
                             Менеджменте
@@ -99,8 +119,8 @@
                     </a>
                 </div>
 
-                <a id="profession__permalink" href="<?php echo get_term_link( $vaccat_terms[0]->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy">
-                    <span id="profession__count" class="profession__side-bar-vacancy-value"><?php echo $vaccat_terms[0]->count; ?></span>
+                <a id="profession__permalink" href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy">
+                    <span id="profession__count" class="profession__side-bar-vacancy-value"><?php echo $first_vaccat->count; ?></span>
                     вакансии в
                     <span class="profession__side-bar-vacancy-value">
                     Менеджменте
@@ -109,7 +129,7 @@
                 </a>
 
                 <div class="profession__side-bar-image-wrapper">
-                    <img id="profession__img" class="profession__side-bar-image" src="<?php echo get_field( 'vaccat_img', $vaccat_terms[0] ); ?>" alt="management"/>
+                    <img id="profession__img" class="profession__side-bar-image" src="<?php echo get_field( 'vaccat_img', $first_vaccat ); ?>" alt="management"/>
                 </div>
             </div>
 
@@ -234,6 +254,7 @@
                         $args = array(
                             'post_type'         => 'vacancies',
                             'posts_per_page'    => -1,
+                            'post_status'       => 'publish'
                         );
 
                         if( '' != $vaccat_slug ){
