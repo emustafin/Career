@@ -256,6 +256,29 @@
   transition: 0.2s;
 }
 
+.profession__crumb {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 12px;
+  color: $blackColorOpacity-05;
+  position: relative;
+  padding-right: 15px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: calc(50% - 3px);
+    width: 11px;
+    height: 7px;
+    background: url('../images/management/arrow-bread-crumb.svg') no-repeat;
+  }
+
+  &:last-child::after {
+    display: none;
+  }
+}
+
 .profession__job-department {
   font-size: 12px;
   line-height: 12px;
