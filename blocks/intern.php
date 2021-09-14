@@ -240,96 +240,190 @@
                 <a href="#" class="intern__news-link">Все новости</a>
             </div>
 
-            <?php
-            $args = array(
-                'post_type'         => 'post',
-                'posts_per_page'    => 3,
-            );
-            $i = 1;
-
-            $actually_news = new WP_Query( $args );
-
-            if ( $actually_news->have_posts() ) {
-
-                $thumbnail_url = get_the_post_thumbnail_url( $actually_news->posts[0]->ID, 'full' );
-                if( false == $thumbnail_url ){
-                  $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
-                }
-                ?>
-                <div class="intern__main-news">
-                    <div class="intern__main-news-image-block">
-                        <img
-                            class="intern__main-news-image"
-                            src="<?php echo $thumbnail_url; ?>"
-                            alt="News"
-                        />
-                    </div>
-                    <p class="intern__main-news-title">
-                        <?php echo $actually_news->posts[0]->post_title; ?>
-                    </p>
-                    <div class="intern__main-news-date-block">
-                        <span class="intern__main-news-date"><?php echo get_the_date( 'j F Y', $actually_news->posts[0]->ID ); ?></span>
-                    </div>
-                </div>
+            <div class="d-flex">
                 <?php
-            }
-            ?>
+                $args = array(
+                    'post_type'         => 'post',
+                    'posts_per_page'    => 3,
+                );
+                $i = 1;
 
-            <?php
-            if( null != $actually_news->posts[1] ){
-                $thumbnail_url = get_the_post_thumbnail_url( $actually_news->posts[1]->ID, 'full' );
-                if( false == $thumbnail_url ){
-                  $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
-                }
-                ?>
-                <div class="intern__subnews-block">
-                    <div class="intern__news">
-                        <div class="intern__news-image-block">
+                $actually_news = new WP_Query( $args );
+
+                if ( $actually_news->have_posts() ) {
+
+                    $thumbnail_url = get_the_post_thumbnail_url( $actually_news->posts[0]->ID, 'full' );
+                    if( false == $thumbnail_url ){
+                    $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
+                    }
+                    ?>
+                    <div class="intern__main-news">
+                        <div class="intern__main-news-image-block">
                             <img
-                            class="intern__news-image"
-                            src="<?php echo $thumbnail_url; ?>"
-                            alt="News"
+                                class="intern__main-news-image"
+                                src="<?php echo $thumbnail_url; ?>"
+                                alt="News"
                             />
                         </div>
-                        <p class="intern__news-title">
-                            <?php echo $actually_news->posts[1]->post_title; ?>
+                        <p class="intern__main-news-title">
+                            <?php echo $actually_news->posts[0]->post_title; ?>
                         </p>
-                        <div class="intern__news-date-block">
-                            <span class="intern__news-date"><?php echo get_the_date( 'j F Y', $actually_news->posts[1]->ID ); ?></span>
+                        <div class="intern__main-news-date-block">
+                            <span class="intern__main-news-date"><?php echo get_the_date( 'j F Y', $actually_news->posts[0]->ID ); ?></span>
                         </div>
                     </div>
-
                     <?php
-                    if( null != $actually_news->posts[2] ){
-                        $thumbnail_url = get_the_post_thumbnail_url( $actually_news->posts[2]->ID, 'full' );
-                        if( false == $thumbnail_url ){
-                        $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
-                        }
-                        ?>
+                }
+                ?>
+
+                <?php
+                if( null != $actually_news->posts[1] ){
+                    $thumbnail_url = get_the_post_thumbnail_url( $actually_news->posts[1]->ID, 'full' );
+                    if( false == $thumbnail_url ){
+                    $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
+                    }
+                    ?>
+                    <div class="intern__subnews-block flex-direction-column ml-30">
                         <div class="intern__news">
                             <div class="intern__news-image-block">
                                 <img
                                 class="intern__news-image"
-                                src="<?php echo THEME_URL; ?>/assets/images/internship/news2.png"
+                                src="<?php echo $thumbnail_url; ?>"
                                 alt="News"
                                 />
                             </div>
                             <p class="intern__news-title">
-                                <?php echo $actually_news->posts[2]->post_title; ?>
+                                <?php echo $actually_news->posts[1]->post_title; ?>
                             </p>
                             <div class="intern__news-date-block">
-                                <span class="intern__news-date"><?php echo get_the_date( 'j F Y', $actually_news->posts[2]->ID ); ?></span>
+                                <span class="intern__news-date"><?php echo get_the_date( 'j F Y', $actually_news->posts[1]->ID ); ?></span>
                             </div>
                         </div>
+
                         <?php
-                    }
-                    ?>
-                </div>
-                <?php
-            }
-            ?>
+                        if( null != $actually_news->posts[2] ){
+                            $thumbnail_url = get_the_post_thumbnail_url( $actually_news->posts[2]->ID, 'full' );
+                            if( false == $thumbnail_url ){
+                            $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
+                            }
+                            ?>
+                            <div class="intern__news">
+                                <div class="intern__news-image-block">
+                                    <img
+                                    class="intern__news-image"
+                                    src="<?php echo THEME_URL; ?>/assets/images/internship/news2.png"
+                                    alt="News"
+                                    />
+                                </div>
+                                <p class="intern__news-title">
+                                    <?php echo $actually_news->posts[2]->post_title; ?>
+                                </p>
+                                <div class="intern__news-date-block">
+                                    <span class="intern__news-date"><?php echo get_the_date( 'j F Y', $actually_news->posts[2]->ID ); ?></span>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
         </div>
+
+
     </div>
+
+    <div class="intern-no-events">
+        <div class="intern-no-events-container">
+          <div class="intern-no-events__header">
+            <a href="#" class="intern-no-events__news-link">Новости</a>
+            <a href="#" class="intern-no-events__all-news-link">Все новости</a>
+          </div>
+
+          <div class="intern-no-events__news-block">
+            <div class="intern-no-events__news-card-main">
+              <div class="intern-no-events__card-image-block">
+                <img
+                  class="intern-no-events__card-image"
+                  src="<?php echo THEME_URL; ?>/assets/images/internship/main-news-no-event.png"
+                  alt="News"
+                />
+              </div>
+              <h2 class="intern-no-events__title">
+                Группа «М.Видео-Эльдорадо» запустила программу стажировок
+                для программистов
+              </h2>
+              <div class="intern-no-events__date-block">
+                <span class="intern-no-events__date">16</span>
+                <span class="intern-no-events__month">июля</span>
+                <span class="intern-no-events__year">2021</span>
+              </div>
+            </div>
+
+            <div class="intern-no-events__news-card-second">
+              <div class="intern-no-events__card-image-block">
+                <img
+                  class="intern-no-events__card-image"
+                  src="<?php echo THEME_URL; ?>/assets/images/internship/main-news.png"
+                  alt="News"
+                />
+              </div>
+              <h2 class="intern-no-events__title">
+                Группа «М.Видео-Эльдорадо» запустила программу стажировок
+                для программистов
+              </h2>
+              <div class="intern-no-events__date-block">
+                <span class="intern-no-events__date">16</span>
+                <span class="intern-no-events__month">июля</span>
+                <span class="intern-no-events__year">2021</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="intern-no-events__news-block">
+            <div class="intern-no-events__news-card-main">
+              <div class="intern-no-events__card-image-block">
+                <img
+                  class="intern-no-events__card-image"
+                  src="<?php echo THEME_URL; ?>/assets/images/internship/main-news-no-event.png"
+                  alt="News"
+                />
+              </div>
+              <h2 class="intern-no-events__title">
+                Группа «М.Видео-Эльдорадо» запустила программу стажировок
+                для программистов
+              </h2>
+              <div class="intern-no-events__date-block">
+                <span class="intern-no-events__date">16</span>
+                <span class="intern-no-events__month">июля</span>
+                <span class="intern-no-events__year">2021</span>
+              </div>
+            </div>
+
+            <div class="intern-no-events__news-card-second">
+              <div class="intern-no-events__card-image-block">
+                <img
+                  class="intern-no-events__card-image"
+                  src="<?php echo THEME_URL; ?>/assets/images/internship/main-news.png"
+                  alt="News"
+                />
+              </div>
+              <h2 class="intern-no-events__title">
+                Группа «М.Видео-Эльдорадо» запустила программу стажировок
+                для программистов
+              </h2>
+              <div class="intern-no-events__date-block">
+                <span class="intern-no-events__date">16</span>
+                <span class="intern-no-events__month">июля</span>
+                <span class="intern-no-events__year">2021</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 </section>
 <!--  //Internship Section  -->

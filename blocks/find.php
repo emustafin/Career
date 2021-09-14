@@ -69,7 +69,7 @@
               >
               <img
                 class="find__video-slide-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-1.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image1.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -84,7 +84,7 @@
               >
               <img
                 class="find__video-slide-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-2.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image2.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -99,7 +99,7 @@
               >
               <img
                 class="find__video-slide-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-3.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image3.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -113,7 +113,7 @@
               >
               <img
                 class="find__video-slide-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-4.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image4.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -127,7 +127,7 @@
             >
               <img
                 class="find__video-slide-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-5.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image5.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -142,7 +142,7 @@
             >
               <img
                 class="find__video-slide-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-6.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image6.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -150,93 +150,6 @@
             
           </div>
         </div>
-
-
-    <!-- <div class="find__video-slides-row">
-        <div
-        class="find__video-slide find__video-slide-active"
-        data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video1.mp4"
-        >
-        <img
-            class="find__video-slide-image"
-            src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image1.png"
-            alt="slide-image"
-        />
-        <div class="find__video-slide-progress"></div>
-        </div>
-
-        <div
-        class="find__video-slide"
-        data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video2.mp4"
-        >
-        <img
-            class="find__video-slide-image"
-            src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image2.png"
-            alt="slide-image"
-        />
-        <div class="find__video-slide-progress"></div>
-        </div>
-
-        <div
-        class="find__video-slide"
-        data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video3.mp4"
-        >
-        <img
-            class="find__video-slide-image"
-            src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image3.png"
-            alt="slide-image"
-        />
-        <div class="find__video-slide-progress"></div>
-        </div>
-
-        <div
-        class="find__video-slide"
-        data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video4.mp4"
-        >
-        <img
-            class="find__video-slide-image"
-            src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image4.png"
-            alt="slide-image"
-        />
-        <div class="find__video-slide-progress"></div>
-        </div>
-
-        <div
-        class="find__video-slide"
-        data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video5.mp4"
-        >
-        <img
-            class="find__video-slide-image"
-            src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image5.png"
-            alt="slide-image"
-        />
-        <div class="find__video-slide-progress"></div>
-        </div>
-
-        <div
-        class="find__video-slide"
-        data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video6.mp4"
-        >
-        <img
-            class="find__video-slide-image"
-            src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image6.png"
-            alt="slide-image"
-        />
-        <div class="find__video-slide-progress"></div>
-        </div>
-
-        <div
-        class="find__video-slide"
-        data-name="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video7.mp4"
-        >
-        <img
-            class="find__video-slide-image"
-            src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image5.png"
-            alt="slide-image"
-        />
-        <div class="find__video-slide-progress"></div>
-        </div>
-    </div> -->
 
     <button class="find__arrow-next"></button>
     </div>
@@ -248,13 +161,17 @@
               <video class="find__video-player-mobile hide" data-name="play">
                 <source
                   class="find__video-player-mobile-location"
-                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video1.mp4"
+                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/1 ролик.mp4"
                 />
               </video>
 
               <img
                 class="find__video-slide-mobile-image"
+<<<<<<< HEAD
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-1.png"
+=======
                 src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder1.png"
+>>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
                 alt="Image"
               />
 
@@ -275,13 +192,17 @@
               <video class="find__video-player-mobile hide" data-name="play">
                 <source
                   class="find__video-player-mobile-location"
-                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video2.mp4"
+                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/2 ролик.mp4"
                 />
               </video>
 
               <img
                 class="find__video-slide-mobile-image"
+<<<<<<< HEAD
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-2.png"
+=======
                 src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder2.png"
+>>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
                 alt="Image"
               />
 
@@ -303,13 +224,17 @@
               <video class="find__video-player-mobile hide" data-name="play">
                 <source
                   class="find__video-player-mobile-location"
-                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video3.mp4"
+                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/3 ролик.mp4"
                 />
               </video>
 
               <img
                 class="find__video-slide-mobile-image"
+<<<<<<< HEAD
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-3.png"
+=======
                 src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder3.png"
+>>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
                 alt="Image"
               />
 
@@ -331,13 +256,17 @@
               <video class="find__video-player-mobile hide" data-name="play">
                 <source
                   class="find__video-player-mobile-location"
-                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video4.mp4"
+                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/4 ролик.mp4"
                 />
               </video>
 
               <img
                 class="find__video-slide-mobile-image"
+<<<<<<< HEAD
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-4.png"
+=======
                 src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder4.png"
+>>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
                 alt="Image"
               />
 
@@ -358,13 +287,17 @@
               <video class="find__video-player-mobile hide" data-name="play">
                 <source
                   class="find__video-player-mobile-location"
-                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video5.mp4"
+                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/5 ролик.mp4"
                 />
               </video>
 
               <img
                 class="find__video-slide-mobile-image"
+<<<<<<< HEAD
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-5.png"
+=======
                 src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder5.png"
+>>>>>>> 0a4bbd529194f3d2b5d2021f5cdb9bdc3eee63a1
                 alt="Image"
               />
 
@@ -386,13 +319,13 @@
               <video class="find__video-player-mobile hide" data-name="play">
                 <source
                   class="find__video-player-mobile-location"
-                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video6.mp4"
+                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/6 ролик.mp4"
                 />
               </video>
 
               <img
                 class="find__video-slide-mobile-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder6.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-6.png"
                 alt="Image"
               />
 
@@ -414,7 +347,7 @@
               <video class="find__video-player-mobile hide">
                 <source
                   class="find__video-player-mobile-location"
-                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video7.mp4"
+                  src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/videos/video3.mp4"
                 />
               </video>
 
@@ -439,119 +372,5 @@
         </div>
       </div>
 
-
-    <!-- <div class="find__video-slides-row-mobile">
-        <div class="find__video-slide-mobile">
-            <div class="find__video-slide-mobile-video">
-            <img
-                class="find__video-slide-mobile-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/slide-mobile.png"
-                alt="Image"
-            />
-
-            <button class="find__video-slide-mobile-button"></button>
-            </div>
-
-            <div class="find__video-slide-mobile-text-info">
-            #включайбудущее с М.Видео: Андрей Ревяшко
-            </div>
-        </div>
-
-        <div class="find__video-slide-mobile">
-            <div class="find__video-slide-mobile-video">
-            <img
-                class="find__video-slide-mobile-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/slide-mobile.png"
-                alt="Image"
-            />
-
-            <button class="find__video-slide-mobile-button"></button>
-            </div>
-
-            <div class="find__video-slide-mobile-text-info">
-            #включайбудущее с М.Видео: Андрей Ревяшко
-            </div>
-        </div>
-
-        <div class="find__video-slide-mobile">
-            <div class="find__video-slide-mobile-video">
-            <img
-                class="find__video-slide-mobile-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/slide-mobile.png"
-                alt="Image"
-            />
-
-            <button class="find__video-slide-mobile-button"></button>
-            </div>
-
-            <div class="find__video-slide-mobile-text-info">
-            #включайбудущее с М.Видео: Андрей Ревяшко
-            </div>
-        </div>
-
-        <div class="find__video-slide-mobile">
-            <div class="find__video-slide-mobile-video">
-            <img
-                class="find__video-slide-mobile-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/slide-mobile.png"
-                alt="Image"
-            />
-
-            <button class="find__video-slide-mobile-button"></button>
-            </div>
-
-            <div class="find__video-slide-mobile-text-info">
-            #включайбудущее с М.Видео: Андрей Ревяшко
-            </div>
-        </div>
-
-        <div class="find__video-slide-mobile">
-            <div class="find__video-slide-mobile-video">
-            <img
-                class="find__video-slide-mobile-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/slide-mobile.png"
-                alt="Image"
-            />
-
-            <button class="find__video-slide-mobile-button"></button>
-            </div>
-
-            <div class="find__video-slide-mobile-text-info">
-            #включайбудущее с М.Видео: Андрей Ревяшко
-            </div>
-        </div>
-
-        <div class="find__video-slide-mobile">
-            <div class="find__video-slide-mobile-video">
-            <img
-                class="find__video-slide-mobile-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/slide-mobile.png"
-                alt="Image"
-            />
-
-            <button class="find__video-slide-mobile-button"></button>
-            </div>
-
-            <div class="find__video-slide-mobile-text-info">
-            #включайбудущее с М.Видео: Андрей Ревяшко
-            </div>
-        </div>
-
-        <div class="find__video-slide-mobile">
-            <div class="find__video-slide-mobile-video">
-            <img
-                class="find__video-slide-mobile-image"
-                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/slide-mobile.png"
-                alt="Image"
-            />
-
-            <button class="find__video-slide-mobile-button"></button>
-            </div>
-
-            <div class="find__video-slide-mobile-text-info">
-            #включайбудущее с М.Видео: Андрей Ревяшко
-            </div>
-        </div>
-    </div> -->
 </section>
 <!-- //Find vacansies Section -->
