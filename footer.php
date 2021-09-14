@@ -17,7 +17,7 @@
         <div class="footer__wrapper">
           <div class="footer__item">
             <div class="footer__item-wrapper">
-              <a href="#" class="footer__logo-link">
+              <a href="/" class="footer__logo-link">
                 <img
                   src="<?php echo THEME_URL; ?>/assets/images/footer/footer__logo.svg"
                   alt="Logo"
@@ -105,7 +105,7 @@
           </div>
         </div>
 
-        <a href="#" class="footer__logo-link-mobile">
+        <a href="/" class="footer__logo-link-mobile">
           <img
             src="<?php echo THEME_URL; ?>/assets/images/footer/footer__logo.svg"
             alt="Logo"
