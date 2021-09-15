@@ -23,6 +23,7 @@ const upgradeSection = document.querySelector('.upgrade');
 const videoPlayerBlock = document.querySelector('.find');
 const form = document.querySelector('.form');
 const directLink = document.querySelector('.direct-link');
+const goalBlock = document.querySelector('.goal');
 
 // const tabContainer = document.querySelector('.tab-content');
 
@@ -45,7 +46,7 @@ new Select(selectSecond);
 const togls = document.getElementById('svg-toggle-activate');
 const triger = document.getElementById('my-sticky-element');
 new SvgToggleAnimate(triger, togls);
-new ScrollTo('.create-future__button', '.goal', false);
+// new ScrollTo('.create-future__button', '.goal', false);
 
 if (listingPage && listingPage !== null && listingPage !== undefined) {
   new Listing(listingPage);
@@ -63,6 +64,16 @@ document.body.addEventListener('click', (event) => {
     event.preventDefault();
     openApplicationForm();
   }
+
+  if (event.target.classList.contains('create-future__button')) {
+    event.preventDefault();
+    smothScrollingToBlock(goalBlock);
+  }
+
+  if (event.target.classList.contains('goal__button')) {
+    event.preventDefault();
+    smothScrollingToBlock(profession);
+  }
 });
 
 // Открыть анкету выбора вакансии
@@ -75,4 +86,17 @@ function openApplicationForm() {
     document.body.style.overflow = 'hidden';
     form.firstElementChild.style.background = 'rgba(0, 0, 0, 0.8)';
   }, 300);
+}
+
+// Скролл до блока
+function smothScrollingToBlock(block) {
+  const topOffset = block.offsetTop;
+
+  let interval = setInterval(() => {
+    document.scrollingElement.scrollTop += 10;
+
+    if (document.scrollingElement.scrollTop >= topOffset) {
+      clearInterval(interval);
+    }
+  }, 1);
 }
