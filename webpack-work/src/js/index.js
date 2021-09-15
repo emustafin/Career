@@ -8,7 +8,7 @@ import './components/itHubPage/Tab';
 import './components/itHubPage/animationSvgTab';
 import { Select } from './components/itHubPage/select';
 import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
-import { ScrollTo } from './components/itHubPage/scroll';
+// import { ScrollTo } from './components/itHubPage/scroll';
 import { Form } from './components/itHubPage/form';
 import { RunningLine } from './components/itHubPage/runningLine';
 
@@ -29,14 +29,13 @@ const runningLine = document.querySelector('.find__title');
 
 // const tabContainer = document.querySelector('.tab-content');
 
-if (itHubPage && itHubPage !== null && itHubPage !== undefined) {
-  new Vacancy(profession);
-  new Advantages(ourAdvantages);
-  new CareerUpgrade(upgradeSection);
-  new VideoPlayer(videoPlayerBlock);
-  new Form(form);
-  new RunningLine(runningLine);
-}
+new Vacancy(profession);
+new Advantages(ourAdvantages);
+new CareerUpgrade(upgradeSection);
+new VideoPlayer(videoPlayerBlock);
+new Form(form);
+new RunningLine(runningLine);
+new Listing(listingPage);
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
 
@@ -50,14 +49,6 @@ const togls = document.getElementById('svg-toggle-activate');
 const triger = document.getElementById('my-sticky-element');
 new SvgToggleAnimate(triger, togls);
 // new ScrollTo('.create-future__button', '.goal', false);
-
-if (listingPage && listingPage !== null && listingPage !== undefined) {
-  new Listing(listingPage);
-}
-
-if (directLink && directLink !== null && directLink !== undefined) {
-  new Form(form);
-}
 
 document.body.addEventListener('click', (event) => {
   if (
