@@ -53,9 +53,9 @@
 
               <div class="footer__item-social-row">
                 <div class="footer__item-social-item">
-                  <a href="#" class="footer__item-social-link">Facebook</a>
-                  <a href="#" class="footer__item-social-link">Хабр</a>
-                  <a href="#" class="footer__item-social-link">Inplace</a>
+                  <a href="https://www.facebook.com/mvideoeldorado/" class="footer__item-social-link" target="blank">Facebook</a>
+                  <a href="https://habr.com/ru/company/mvideo/blog/" class="footer__item-social-link" target="blank">Хабр</a>
+                  <a href="https://inplacers.ru/eldorado" class="footer__item-social-link" target="blank">Inplace</a>
                 </div>
               </div>
             </div>
@@ -65,9 +65,9 @@
 
               <div class="footer__item-social-row">
                 <div class="footer__item-social-item">
-                  <a href="#" class="footer__item-social-link">ВК</a>
-                  <a href="#" class="footer__item-social-link">YouTube</a>
-                  <a href="#" class="footer__item-social-link">Instagram</a>
+                  <a href="https://vk.com/myjobby" class="footer__item-social-link" target="blank">ВК</a>
+                  <a href="https://www.youtube.com/user/wwwmvideoru" class="footer__item-social-link" target="blank">YouTube</a>
+                  <a href="https://www.instagram.com/myjobby/" class="footer__item-social-link" target="blank">Instagram</a>
                 </div>
               </div>
             </div>
@@ -77,9 +77,9 @@
 
               <div class="footer__item-social-row">
                 <div class="footer__item-social-item">
-                  <a href="#" class="footer__item-social-link">ВК</a>
-                  <a href="#" class="footer__item-social-link">YouTube</a>
-                  <a href="#" class="footer__item-social-link">Instagram</a>
+                  <a href="https://vk.com/eldorado_job" class="footer__item-social-link" target="blank">ВК</a>
+                  <a href="https://www.youtube.com/channel/UCF9nmUgfNLpHAM4FPB1I3uA" class="footer__item-social-link" target="blank">YouTube</a>
+                  <a href="https://www.instagram.com/eldorado_job/" class="footer__item-social-link" target="blank">Instagram</a>
                 </div>
               </div>
             </div>
