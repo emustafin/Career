@@ -1,5 +1,3 @@
-// @import './styles.scss';
-
 .direction {
   margin-bottom: 192px;
   font-size: 18px;
@@ -40,9 +38,7 @@
 .direction__main-content {
   width: 67.5%;
 }
-.tab-item-content {
-  animation: show 0.4s linear;
-}
+
 .direction__tribe-description,
 .direction__products-wrapper {
   width: 100%;
@@ -270,17 +266,6 @@
     height: 9px;
     background: url('../images/direction/arrow-bottom.svg') center / cover
       no-repeat;
-  }
-}
-@keyframes show {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(100%, 0);
-  }
-  100% {
-    transform: translate(0, 0);
   }
 }
 

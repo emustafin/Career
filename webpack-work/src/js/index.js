@@ -10,6 +10,7 @@ import { Select } from './components/itHubPage/select';
 import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
 import { ScrollTo } from './components/itHubPage/scroll';
 import { Form } from './components/itHubPage/form';
+import { RunningLine } from './components/itHubPage/runningLine';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -24,6 +25,7 @@ const videoPlayerBlock = document.querySelector('.find');
 const form = document.querySelector('.form');
 const directLink = document.querySelector('.direct-link');
 const goalBlock = document.querySelector('.goal');
+const runningLine = document.querySelector('.find__title');
 
 // const tabContainer = document.querySelector('.tab-content');
 
@@ -33,6 +35,7 @@ if (itHubPage && itHubPage !== null && itHubPage !== undefined) {
   new CareerUpgrade(upgradeSection);
   new VideoPlayer(videoPlayerBlock);
   new Form(form);
+  new RunningLine(runningLine);
 }
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
