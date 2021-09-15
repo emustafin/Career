@@ -1,6 +1,9 @@
 export class RunningLine {
   constructor(el) {
     this.el = el;
+
+    if (this.el == null || this.el == undefined) return;
+
     this.runningLine = this.el.querySelector('.find__title-link');
     this.runningLineItemWidth;
     this.offset = 0;
