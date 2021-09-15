@@ -1,9 +1,11 @@
+$('.profession__title').attr('originhref',window.location.href);
 $('.profession__job-title').on( 'click', function(e){
     
     var vacancy_info = $(this).attr('data-info');
     vacancy_info = jQuery.parseJSON( vacancy_info );
+    console.log(vacancy_info.url);
     
-    var origin_location = window.location;
+    var origin_location = window.location.href;
     
     $('.flyout .vacancy__headline-title').attr( 'origin_url', origin_location );
     $('.flyout .vacancy__headline-title').html( vacancy_info.title );
@@ -24,11 +26,11 @@ $('.profession__job-title').on( 'click', function(e){
 })
 
 $('.vacancy__header-head-link-main').on( 'click', function(e){
-    var origin_location = $('.flyout .vacancy__headline-title').attr( 'origin_url' );
+    var origin_location = $('.profession__title').attr('originhref');
     window.history.pushState( '', '', origin_location );
 })
 
 $('.flyout__side-bar').on( 'click', function(e){
-    var origin_location = $('.flyout .vacancy__headline-title').attr( 'origin_url' );
+    var origin_location = $('.profession__title').attr('originhref');
     window.history.pushState( '', '', origin_location );
 })

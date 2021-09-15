@@ -126,6 +126,8 @@ $(document).ready(function() {
                         xxx = '?'+xxx;
                     }
 
+                    $('.profession__title').attr( 'originhref', window.location.origin + window.location.pathname + xxx );
+                    $('.vacancy__headline-title').attr( 'origin_url', window.location.origin + window.location.pathname + xxx );
                     window.history.pushState('', '', window.location.origin + window.location.pathname + xxx );
                 }
             },
