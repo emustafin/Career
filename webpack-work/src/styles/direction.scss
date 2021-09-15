@@ -68,6 +68,14 @@
   display: none;
 }
 
+.direction__director-block {
+  margin-bottom: 24px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
 .direction__director-image-block-mobile {
   margin-right: 8px;
   width: 100%;
@@ -371,6 +379,12 @@
 
   .direction__director-container-mobile {
     display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+  }
+
+  .direction__director-block {
+    margin-bottom: 16px;
   }
 
   .direction__products-table-item {
@@ -415,6 +429,10 @@
   .direction__choosed {
     width: 100%;
     margin-bottom: 16px;
+  }
+
+  .direction__description-text {
+    margin-bottom: 8px;
   }
 
   .direction__description-text:nth-child(3) {
