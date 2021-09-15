@@ -346,104 +346,99 @@ if( get_field( 'map_full_adress', $post_id ) ){
         </div>
         <!-- //Vacancy Form-block -->
 
-        <!-- Vacancy Positions-block -->
-        <div class="vacancy__positions">
-        <p class="vacancy__positions-title">Похожие вакансии</p>
+        <?php
+        if( '' != get_field('related_vacancies') ){
+            ?>
+            <!-- Vacancy Positions-block -->
+            <div class="vacancy__positions">
+                <p class="vacancy__positions-title">Похожие вакансии</p>
 
-        <div class="vacancy__positions-wrapper">
-            <div class="vacancy__positions-item">
-            <div class="vacancy__item-positions-name-block">
-                <a href="#" class="vacancy__item-positions-name">
-                Менеджер по управлению технической поддержкой SAP
-                </a>
-                <div class="vacancy__bread-crumbs-block">
-                <a href="#" class="vacancy__bread-crumbs-item">IT-хаб</a>
-                <span class="vacancy__bread-crumbs-item">SAP</span>
+                <div class="vacancy__positions-wrapper">
+
+                    <?php
+                    foreach (get_field('related_vacancies') as $post_id) {
+
+                        $k = 1;
+                        $vaccat_names = '';
+                        $vaccat_terms = get_the_terms( $post_id, 'vaccat' );
+                        if( is_array( $vaccat_terms ) ){
+                            foreach( $vaccat_terms as $vaccat_term ){
+                                $vaccat_names .= $vaccat_term->name;
+                                
+                                if( $k != count( $vaccat_terms ) ){
+                                    $vaccat_names .= ', ';
+                                }
+                                if( $k == 1 ){
+                                    $first_vaccat = $vaccat_term;
+                                }
+                                $k++;
+                            }
+                        }
+
+                        $k = 1;
+                        $town_names = '';
+                        $town_terms = get_the_terms( $post_id, 'town' );
+                        if( is_array( $town_terms ) ){
+                            foreach( $town_terms as $town_term ){
+                                $town_names .= $town_term->name;
+                                
+                                if( $k != count( $town_terms ) ){
+                                    $town_names .= ', ';
+                                }
+                                $k++;
+                            }
+                        }
+
+                        if( get_field( 'map_full_adress', $post_id ) ){
+                            $experience = 'не требуется';
+                        } else{
+                            $experience = 'требуется опыт';
+                        }
+                        ?>
+                        <div class="vacancy__positions-item">
+                            <div class="vacancy__item-positions-name-block">
+                                <a href="<? the_permalink($post_id); ?>" class="vacancy__item-positions-name">
+                                    <?= get_the_title($post_id); ?>
+                                </a>
+                                <div class="vacancy__bread-crumbs-block">
+                                <a href="<?= get_permalink( $first_vaccat->term_id ); ?>" class="vacancy__bread-crumbs-item">IT-хаб</a>
+                                    <span class="vacancy__bread-crumbs-item"><?= $first_vaccat->name; ?></span>
+                                </div>
+                            </div>
+
+                            <div class="vacancy__item-positions-price-block">
+                                <p class="vacancy__item-positions-price">
+                                от
+                                <span class="vacancy__item-positions-price-value">
+                                    <?= get_field( 'money_from', $post_id ); ?>
+                                </span>
+                                <span class="vacancy__item-positions-currency">₽</span>
+                                </p>
+                                <p class="vacancy__item-positions-experience">
+                                    <?= $experience; ?>
+                                </p>
+                            </div>
+
+                            <div class="vacancy__item-positions-location-block">
+                                <p class="vacancy__item-positions-city"><?= $town_names; ?></p>
+                                <?php
+                                if( get_field( 'can_work_remotely', $post_id ) ){
+                                    ?>
+                                    <p class="vacancy__item-positions-location">Можно удалённо</p>
+                                    <?php
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
-
-            <div class="vacancy__item-positions-price-block">
-                <p class="vacancy__item-positions-price">
-                от
-                <span class="vacancy__item-positions-price-value"
-                    >80 000</span
-                >
-                <span class="vacancy__item-positions-currency">₽</span>
-                </p>
-                <p class="vacancy__item-positions-experience">
-                Можно без опыта
-                </p>
-            </div>
-
-            <div class="vacancy__item-positions-location-block">
-                <p class="vacancy__item-positions-city">Москва</p>
-                <p class="vacancy__item-positions-location">Можно удалённо</p>
-            </div>
-            </div>
-
-            <div class="vacancy__positions-item">
-            <div class="vacancy__item-positions-name-block">
-                <a href="#" class="vacancy__item-positions-name">
-                Менеджер по управлению технической поддержкой SAP
-                </a>
-                <div class="vacancy__bread-crumbs-block">
-                <a href="#" class="vacancy__bread-crumbs-item">IT-хаб</a>
-                <span class="vacancy__bread-crumbs-item">SAP</span>
-                </div>
-            </div>
-
-            <div class="vacancy__item-positions-price-block">
-                <p class="vacancy__item-positions-price">
-                от
-                <span class="vacancy__item-positions-price-value"
-                    >80 000</span
-                >
-                <span class="vacancy__item-positions-currency">₽</span>
-                </p>
-                <p class="vacancy__item-positions-experience">
-                Можно без опыта
-                </p>
-            </div>
-
-            <div class="vacancy__item-positions-location-block">
-                <p class="vacancy__item-positions-city">Москва</p>
-                <p class="vacancy__item-positions-location">Можно удалённо</p>
-            </div>
-            </div>
-
-            <div class="vacancy__positions-item">
-            <div class="vacancy__item-positions-name-block">
-                <a href="#" class="vacancy__item-positions-name">
-                Менеджер по управлению технической поддержкой SAP
-                </a>
-                <div class="vacancy__bread-crumbs-block">
-                <a href="#" class="vacancy__bread-crumbs-item">IT-хаб</a>
-                <span class="vacancy__bread-crumbs-item">SAP</span>
-                </div>
-            </div>
-
-            <div class="vacancy__item-positions-price-block">
-                <p class="vacancy__item-positions-price">
-                от
-                <span class="vacancy__item-positions-price-value"
-                    >80 000</span
-                >
-                <span class="vacancy__item-positions-currency">₽</span>
-                </p>
-                <p class="vacancy__item-positions-experience">
-                Можно без опыта
-                </p>
-            </div>
-
-            <div class="vacancy__item-positions-location-block">
-                <p class="vacancy__item-positions-city">Москва</p>
-                <p class="vacancy__item-positions-location">Можно удалённо</p>
-            </div>
-            </div>
-        </div>
-        </div>
-
-        <!-- //Vacancy Positions-block -->
+            <!-- //Vacancy Positions-block -->
+            <?php
+        }
+        ?>
     </div>
     </div>
 </div>
