@@ -50,7 +50,7 @@ window.addEventListener('load', () => {
     activClass = 'active-green'
     tabController = document.getElementById('custom-select-first');
   } else {
-    document.getElementById('custom-select-first').classList.add('hide');
+    // document.getElementById('custom-select-first').classList.add('hide');
     tabController = document.getElementById('tabController')
   }
   new Tab(tabContainer, tabController, activClass);

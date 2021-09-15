@@ -96,6 +96,13 @@
   }
 }
 
+#custom-select-first{
+  display: none;
+  @media (max-width: 767px) {
+    display: flex;
+  }
+}
+
 .active-green {
   transform: translateY(0);
   height: 100%;
