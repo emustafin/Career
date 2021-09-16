@@ -2,7 +2,7 @@
     <!--  Footer  -->
     <footer class="footer">
       <div class="container">
-        <div class="footer__title-container">
+        <!-- <div class="footer__title-container">
           <h2 class="footer__title">Хочешь стать частью команды?</h2>
           <div class="footer__search-block">
             <input
@@ -12,7 +12,7 @@
             />
             <button class="footer__search-button"></button>
           </div>
-        </div>
+        </div> -->
 
         <div class="footer__wrapper">
           <div class="footer__item">

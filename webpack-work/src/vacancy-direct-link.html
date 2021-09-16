@@ -534,7 +534,7 @@
 
     <!-- Vacancy News-block -->
     <div class="vacancy__news-block-desktop">
-      <div class="vacancy__news">
+      <div class="vacancy__news swiper newsSlider">
         <div class="vacancy__news-title">
           <div class="vacancy__news-tabs">
             <a href="#" class="vacancy__news-link vacancy__news-link-active"
@@ -549,8 +549,8 @@
           <a href="#" class="vacancy__news-link-mobile"> Все новости </a>
         </div>
 
-        <div class="vacancy__news-row">
-          <div class="vacancy__news-item">
+        <div class="vacancy__news-row swiper-wrapper">
+          <div class="vacancy__news-item swiper-slide">
             <div class="vacancy__news-item-image-block">
               <img
                 class="vacancy__news-image"
@@ -570,7 +570,7 @@
             </p>
           </div>
 
-          <div class="vacancy__news-item">
+          <div class="vacancy__news-item swiper-slide">
             <div class="vacancy__news-item-image-block">
               <img
                 class="vacancy__news-image"
@@ -590,7 +590,7 @@
             </p>
           </div>
 
-          <div class="vacancy__news-item">
+          <div class="vacancy__news-item swiper-slide">
             <div class="vacancy__news-item-image-block">
               <img
                 class="vacancy__news-image"
@@ -610,7 +610,7 @@
             </p>
           </div>
 
-          <div class="vacancy__news-item">
+          <div class="vacancy__news-item swiper-slide">
             <div class="vacancy__news-item-image-block">
               <img
                 class="vacancy__news-image"
@@ -1072,5 +1072,11 @@
       </div>
     </footer>
     <!--  //Footer  -->
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   </body>
 </html>
