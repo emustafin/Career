@@ -303,50 +303,7 @@ if( get_field( 'map_full_adress', $post_id ) ){
             <h2 class="vacancy__form-title">Расскажи нам о себе</h2>
         </div>
         <div class="vacancy__form-inner-block">
-            <div class="vacancy__form-top">
-                <div class="vacancy__form-name">
-                    <p class="vacancy__form-name-value">Имя и фамилия</p>
-                    <input
-                    class="vacancy__form-input"
-                    type="text"
-                    value="Константин Константинопольский"
-                    />
-                </div>
-
-                <div class="vacancy__form-name">
-                    <p class="vacancy__form-name-value">Электронная почта</p>
-                    <input
-                    class="vacancy__form-input"
-                    type="text"
-                    value="test@test.ru"
-                    />
-                </div>
-
-                <div class="vacancy__form-name">
-                    <p class="vacancy__form-name-value">Телефон</p>
-                    <input
-                    class="vacancy__form-input"
-                    type="text"
-                    value="+7 (999) 999-99-99"
-                    />
-                </div>
-
-                <a href="#" class="vacancy__add-contact">
-                    добавить другие контакты
-                </a>
-            </div>
-
-            <div class="vacancy__form-bottom">
-                <label class="vacancy__form-label">
-                    <input type="checkbox" class="vacancy__input-checkbox" />
-                    <span class="vacncy__checkbox"></span>
-                    <span class="vacancy__form-agree">Я согласен с</span>
-                    <a href="/privacy-policy/" class="vacancy__form-politics">
-                    Политикой обработки персональных данных
-                    </a>
-                </label>
-                <a href="#" class="vacancy__response">откликнуться</a>
-            </div>
+            <?php echo do_shortcode('[contact-form-7 id="224" title="Popap Vacancy"]'); ?>
         </div>
         </div>
         <!-- //Vacancy Form-block -->
