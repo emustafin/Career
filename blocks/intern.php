@@ -111,7 +111,7 @@
         <div class="intern-no-events-container">
           <div class="intern-no-events__header">
             <a href="#" class="intern-no-events__news-link">Новости</a>
-            <a href="#" class="intern-no-events__all-news-link">Все новости</a>
+            <a href="https://habr.com/ru/company/mvideo/blog/" class="intern-no-events__all-news-link" target="blank">Все новости</a>
           </div>
 
           <?php
