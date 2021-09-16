@@ -91,7 +91,7 @@ $reviews = new WP_Query( $args );
                                         <span class="upgrade__main-name"><?php the_title(); ?> </span>,
                                         <br />
                                         <span class="upgrade__main-profession"
-                                        ><?= get_field('thumbnail_url'); ?></span
+                                        ><?= get_field('proffesion'); ?></span
                                         >
                                     </p>
                                 </div>

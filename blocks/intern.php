@@ -129,7 +129,7 @@
 
               <div class="intern-no-events__news-block">
 
-                <a href="<?php echo $url_from_habr0; ?>" class="intern-no-events__news-card-main">
+                <a href="<?php echo $url_from_habr0; ?>" target="_blank" class="intern-no-events__news-card-main">
                   <div class="intern-no-events__card-image-block">
                     <img
                       class="intern-no-events__card-image"
@@ -155,7 +155,7 @@
                     $url_from_habr1 = get_permalink( $actually_news->posts[1]->ID );
                   }
                   ?>
-                  <a href="<?php echo $url_from_habr1; ?>" class="intern-no-events__news-card-second">
+                  <a href="<?php echo $url_from_habr1; ?>" target="_blank" class="intern-no-events__news-card-second">
                     <div class="intern-no-events__card-image-block">
                       <img
                         class="intern-no-events__card-image"
@@ -188,7 +188,7 @@
                     $url_from_habr2 = get_permalink( $actually_news->posts[2]->ID );
                   }
                   ?>
-                  <a href="<?php echo $url_from_habr2; ?>" class="intern-no-events__news-card-main">
+                  <a href="<?php echo $url_from_habr2; ?>" target="_blank" class="intern-no-events__news-card-main">
                     <div class="intern-no-events__card-image-block">
                       <img
                         class="intern-no-events__card-image"
@@ -217,7 +217,7 @@
                     $url_from_habr3 = get_permalink( $actually_news->posts[3]->ID );
                   }
                   ?>
-                  <a href="<?php echo $url_from_habr3; ?>" class="intern-no-events__news-card-second">
+                  <a href="<?php echo $url_from_habr3; ?>" target="_blank" class="intern-no-events__news-card-second">
                     <div class="intern-no-events__card-image-block">
                       <img
                         class="intern-no-events__card-image"
