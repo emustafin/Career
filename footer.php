@@ -258,7 +258,7 @@
                 </ul>
               </div>
             </div>
-            
+
           </div>
           <!-- //Vacancy Description-block -->
 
@@ -585,7 +585,7 @@
                 ?>
 
 
-                <div class="vacancy__news-item swiper-slide">
+                <a href="<?php echo $url_from_habr; ?>" target="_blank" class="vacancy__news-item swiper-slide">
                     <div class="vacancy__news-item-image-block">
                         <img
                         class="vacancy__news-image"
@@ -594,13 +594,13 @@
                         />
                     </div>
 
-                    <a href="<?php echo $url_from_habr; ?>" class="vacancy__news-title-info">
+                    <div class="vacancy__news-title-info">
                         <?php the_title(); ?>
-                    </a>
+                    </div>
                     <p class="vacancy__news-date-container">
                         <span class="vacancy__news-date"><?php echo get_the_date( 'j F Y', $news_item_id ); ?></span>
                     </p>
-                </div>
+                </a>
 
 
                 <?php
@@ -652,7 +652,7 @@
                 }
                 ?>
 
-                <div class="vacancy__news-item">
+                <a href="<?php echo $url_from_habr; ?>" target="_blank" class="vacancy__news-item">
                     <div class="vacancy__news-item-image-block">
                         <img
                         class="vacancy__news-image"
@@ -661,13 +661,13 @@
                         />
                     </div>
 
-                    <a href="<?php echo $url_from_habr; ?>" class="vacancy__news-title-info">
+                    <div class="vacancy__news-title-info">
                         <?php the_title(); ?>
-                    </a>
+                    </div>
                     <p class="vacancy__news-date-container">
                         <span class="vacancy__news-date"><?php echo get_the_date( 'j F Y', $news_item_id ); ?></span>
                     </p>
-                </div>
+                </a>
 
                 <?php
                 }
