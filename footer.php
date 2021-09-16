@@ -702,8 +702,57 @@
               </p>
             </div>
 
+            <?php
+            $formdata = array();
+
+            $args = array(
+              'post_type'         => 'product_directions',
+              'posts_per_page'    => -1,
+            );
+            
+            $product_directions = new WP_Query( $args );
+
+            $info_product_directions = '';
+
+            if ( $product_directions->have_posts() ) {
+              while ( $product_directions->have_posts() ) {
+                $product_directions->the_post();
+
+                // $info_product_directions = get_the_title();
+                $info_product_directions .= '
+                <div class="form__dropdown-list-item">
+                  <p class="form__dropdown-item-position">'.get_the_title().'</p>
+                  <div class="form__dropdown-item-checked">
+                    <img class="form__dropdown-item-checked-image" src="'.THEME_URL.'/assets/images/form/check.svg" alt="Check"></img>
+                  </div>
+                </div>';
+              }
+            }
+            wp_reset_postdata();
+
+            $info_vaccat = '';
+            $terms = get_terms( 'vaccat' );
+            if( $terms && ! is_wp_error($terms) ){
+              foreach( $terms as $term ){
+                $info_vaccat .= '
+                <div class="form__dropdown-list-item">
+                  <p class="form__dropdown-item-position">'.$term->name.'</p>
+                  <div class="form__dropdown-item-checked">
+                    <img class="form__dropdown-item-checked-image" src="'.THEME_URL.'/assets/images/form/check.svg" alt="Check"></img>
+                  </div>
+                </div>';
+              }
+            }
+
+            $formdata = array(
+              'info_product_directions' => $info_product_directions,
+              'info_vaccat'             => $info_vaccat
+            );
+            ?>
+
             <div class="form__content-right-bar">
               <?php echo do_shortcode('[contact-form-7 id="289" title="Анкета"]'); ?>
+              <div id="forminfo" data-formdata='<?php echo json_encode($formdata); ?>' ></div>
             </div>
           </div>
         </div>

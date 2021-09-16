@@ -133,4 +133,10 @@ $(document).ready(function() {
             },
         });
     }
+
+    var formdata = $('#forminfo').attr('data-formdata');
+    formdata = vaccat_info = jQuery.parseJSON( formdata );
+    $('#info_product_directions').html( formdata.info_product_directions );
+    $('#info_vaccat').html( formdata.info_vaccat );
+    
 });
