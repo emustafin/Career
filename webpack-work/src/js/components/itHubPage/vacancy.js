@@ -7,10 +7,11 @@ export class Vacancy {
     this.flyout = document.querySelector('.flyout');
     this.flyoutSideBar = this.flyout.querySelector('.flyout__side-bar');
     this.flyOutContentBar = this.flyout.querySelector('.vacancy');
+    this.flyOutForm = this.flyout.querySelector('.vacancy__form');
 
     this.init();
-    this.closeFlyout();
     this.resizeFlyout();
+    this.flyOutInit();
   }
 
   init() {
@@ -28,27 +29,47 @@ export class Vacancy {
     }, 300);
   }
 
-  closeFlyout() {
+  flyOutInit() {
     this.flyout.addEventListener('click', (event) => {
       if (
         event.target.classList.contains('vacancy__header-head-link-main') ||
         event.target.classList.contains('flyout__side-bar')
       ) {
-        event.preventDefault();
-        this.flyoutSideBar.style.background = 'transparent';
-        document.body.style.overflow = 'visible';
+        this.closeFlyout(event);
+      }
 
-        setTimeout(() => {
-          this.flyout.classList.remove('flyout__active');
-        }, 300);
+      if (event.target.classList.contains('vacancy__headline-link')) {
+        event.preventDefault();
+        this.scrollToForm(this.flyOutForm);
       }
     });
+  }
+
+  closeFlyout(event) {
+    event.preventDefault();
+    this.flyoutSideBar.style.background = 'transparent';
+    document.body.style.overflow = 'visible';
+
+    setTimeout(() => {
+      this.flyout.classList.remove('flyout__active');
+    }, 300);
+  }
+
+  scrollToForm(block) {
+    const topOffset = block.offsetTop - 16;
+
+    let interval = setInterval(() => {
+      this.flyout.scrollTop += 10;
+
+      if (this.flyout.scrollTop >= topOffset) {
+        clearInterval(interval);
+      }
+    }, 1);
   }
 
   setHeightFlyoutSideBar() {
     this.flyoutSideBar.style.height = this.flyOutContentBar.clientHeight + 'px';
     setTimeout(() => {
-      // this.flyout.style.background = '#ffffff';
       this.flyoutSideBar.style.background = 'rgba(0, 0, 0, 0.8)';
     }, 300);
   }

@@ -11,6 +11,7 @@ import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
 // import { ScrollTo } from './components/itHubPage/scroll';
 import { Form } from './components/itHubPage/form';
 import { RunningLine } from './components/itHubPage/runningLine';
+import { VacancyDirectLink } from './components/itHubPage/vacancyDirectLink';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -36,6 +37,7 @@ new VideoPlayer(videoPlayerBlock);
 new Form(form);
 new RunningLine(runningLine);
 new Listing(listingPage);
+new VacancyDirectLink(directLink);
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
 
@@ -83,8 +85,8 @@ function openApplicationForm() {
 }
 
 // Скролл до блока
-function smothScrollingToBlock(block) {
-  const topOffset = block.offsetTop;
+export function smothScrollingToBlock(block) {
+  const topOffset = block.offsetTop - 16;
 
   let interval = setInterval(() => {
     document.scrollingElement.scrollTop += 10;
