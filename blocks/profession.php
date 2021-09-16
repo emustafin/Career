@@ -107,6 +107,16 @@
                     <p class="profession__side-bar-text">Мы используем</p>
                     <div id="profession__tehnology" class="profession__side-bar-image-tools-wrapper">
                         <?php echo get_field( 'vaccat_tehnologies', $first_vaccat ); ?>
+                        <div class="profession__technology-item jira">Jira</div>
+                        <div class="profession__technology-item confluence">
+                            Confluence
+                        </div>
+                        <div class="profession__technology-item google-docs">
+                            Google Docs
+                        </div>
+                        <div class="profession__technology-item gitlab">Gitlab CI</div>
+                        <div class="profession__technology-item slack">Slack</div>
+                        <div class="profession__technology-item swagger">Swagger</div>
                     </div>
 
                     <a id="profession__permalink_mob" href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy-mobile">
