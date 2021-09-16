@@ -12,6 +12,8 @@ export class Form {
     );
     this.sideBar = this.el.querySelector('.form__side-bar');
     this.mainContentBar = this.el.querySelector('.form__content');
+    this.input1 = this.el.querySelector('.form__value1');
+    this.input2 = this.el.querySelector('.form__value2');
 
     this.init();
     this.setHeightFormSideBar();
@@ -49,13 +51,22 @@ export class Form {
     const textField = currentDropdownItem.closest('.form__dropdown-list')
       .previousElementSibling.previousElementSibling;
     const checkIcon = currentDropdownItem.lastElementChild;
-    const input = currentDropdownItem.closest(
-      '.form__dropdown-list'
-    ).previousElementSibling;
 
     textField.textContent = selectedValue;
-    input.value = selectedValue;
-    console.log(input);
+
+    if (
+      currentDropdownItem.closest('.form__form-name').firstElementChild
+        .textContent === 'Направление'
+    ) {
+      this.input1.value = selectedValue;
+    }
+
+    if (
+      currentDropdownItem.closest('.form__form-name').firstElementChild
+        .textContent === 'Специализация'
+    ) {
+      this.input2.value = selectedValue;
+    }
 
     checkIcon.classList.add('form__dropdown-item-checked-active');
 

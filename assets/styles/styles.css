@@ -5657,7 +5657,8 @@
   position: relative;
   cursor: pointer; }
 
-.form__value {
+.form__value1,
+.form__value2 {
   height: 0;
   position: absolute; }
 
