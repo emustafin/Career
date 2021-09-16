@@ -272,24 +272,30 @@ if( get_field( 'map_full_adress', $post_id ) ){
         </div>
         <!-- //Vacancy Office-block -->
 
-        <!-- Vacancy Remote-block -->
-        <div class="vacancy__remote">
-        <div class="vacancy__remote-title-wrapper">
-            <h2 class="vacancy__remote-title">Работай откуда угодно</h2>
-            <p class="vacancy__remote-info">
-            На этой позиции можно работать удалённо и не ходить в офис.
-            Нужно иметь разрешение на работу в России.
-            </p>
-        </div>
-        <div class="vacancy__remote-image-container">
-            <img
-            class="vacancy__remote-image"
-            src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-remote/palm.svg"
-            alt="Picture"
-            />
-        </div>
-        </div>
-        <!-- //Vacancy Remote-block -->
+        <?php
+        if( get_field( 'can_work_remotely', $post_id ) ){
+            ?>
+            <!-- Vacancy Remote-block -->
+            <div class="vacancy__remote">
+                <div class="vacancy__remote-title-wrapper">
+                    <h2 class="vacancy__remote-title">Работай откуда угодно</h2>
+                    <p class="vacancy__remote-info">
+                    На этой позиции можно работать удалённо и не ходить в офис.
+                    Нужно иметь разрешение на работу в России.
+                    </p>
+                </div>
+                <div class="vacancy__remote-image-container">
+                    <img
+                    class="vacancy__remote-image"
+                    src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-remote/palm.svg"
+                    alt="Picture"
+                    />
+                </div>
+            </div>
+            <!-- //Vacancy Remote-block -->
+            <?php
+        }
+        ?>
 
         <!-- Vacancy Form-block -->
         <div class="vacancy__form">
