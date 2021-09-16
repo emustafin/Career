@@ -167,25 +167,6 @@
             ]
         },
         {
-            "key": "field_612b6ac453ce4",
-            "label": "Мы знаем, что ты",
-            "name": "what_you_need_to_do",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
             "key": "field_612b6bf653ce6",
             "label": "Изображение карты",
             "name": "img_map",
@@ -290,5 +271,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631819086
+    "modified": 1631823308
 }
