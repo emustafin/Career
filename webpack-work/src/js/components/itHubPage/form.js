@@ -10,8 +10,14 @@ export class Form {
     this.dropdownLists = Array.from(
       this.el.querySelectorAll('.form__dropdown-list')
     );
+    this.input = this.el.querySelector('.form__value');
+    this.sideBar = this.el.querySelector('.form__side-bar');
+    this.mainContentBar = this.el.querySelector('.form__content');
 
     this.init();
+    this.setHeightFormSideBar();
+    this.resizeFormPage();
+    this.setHeightFormPage();
   }
 
   init() {
@@ -41,18 +47,37 @@ export class Form {
   selectDropdownItem(event) {
     const currentDropdownItem = event.target;
     const selectedValue = currentDropdownItem.firstElementChild.innerText;
-    const textField = currentDropdownItem.closest(
-      '.form__dropdown-list'
-    ).previousElementSibling;
+    const textField = currentDropdownItem.closest('.form__dropdown-list')
+      .previousElementSibling.previousElementSibling;
     const checkIcon = currentDropdownItem.lastElementChild;
 
     textField.textContent = selectedValue;
+    this.input.value = selectedValue;
+
     checkIcon.classList.add('form__dropdown-item-checked-active');
 
     setTimeout(() => {
       checkIcon.classList.remove('form__dropdown-item-checked-active');
       currentDropdownItem.closest('.form__dropdown-list').classList.add('hide');
     }, 50);
+  }
+
+  setHeightFormSideBar() {
+    setTimeout(() => {
+      this.sideBar.style.height = this.mainContentBar.clientHeight + 'px';
+    }, 100);
+  }
+
+  setHeightFormPage() {
+    if (this.mainContentBar.clientHeight > 1000) {
+      this.mainContentBar.style.height = 'max-content';
+    }
+  }
+
+  resizeFormPage() {
+    window.addEventListener('resize', () => {
+      this.setHeightFormSideBar();
+    });
   }
 }
 

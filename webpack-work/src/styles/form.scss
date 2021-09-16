@@ -1,16 +1,15 @@
 .form,
 .form-active {
-  display: flex;
-  font-size: 18px;
-  line-height: 24px;
-  height: 100vh;
-  width: 100vw;
-  overflow: auto;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  display: flex;
+  font-size: 18px;
+  line-height: 24px;
+  width: 100%;
+  overflow: auto;
   z-index: 11;
   transition: 0.3s;
   transform: translateX(100%);
@@ -24,11 +23,14 @@
   width: 34%;
   background: transparent;
   transition: 0.3s;
+
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .form__content {
   width: 70%;
   background: $bodyBackgraund;
+  height: max-content;
 }
 
 .form__container {
@@ -164,6 +166,11 @@
 .form__dropdown {
   position: relative;
   cursor: pointer;
+}
+
+.form__value {
+  height: 0;
+  position: absolute;
 }
 
 .form__dropdown-result {
