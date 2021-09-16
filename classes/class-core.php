@@ -43,6 +43,7 @@ final class Core {
 
 		new Setup_Theme();
 		new CPT\Vacancies();
+		new CPT\Reviews();
 		new CPT\Product_directions();
 	}
 
