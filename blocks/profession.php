@@ -64,9 +64,16 @@
                 ?><nav class="profession__menu"><?php
                 foreach( $vaccat_terms as $vaccat_term ){
 
+                    $profession__technology = '';
+                    if( get_field( 'vaccat_tehnologies', $vaccat_term ) ){
+                        foreach (get_field( 'vaccat_tehnologies', $vaccat_term ) as $tech) {
+                            $profession__technology .= '<div class="profession__technology-item '.$tech['value'].'">'.$tech['label'].'</div>';
+                        }
+                    }
+
                     $vaccat_data = array(
                         'profession__description'   => term_description( $vaccat_term->term_id, 'vaccat' ),
-                        'profession__tehnology'     => get_field( 'vaccat_tehnologies', $vaccat_term ),
+                        'profession__tehnology'     => $profession__technology,
                         'profession__permalink'     => get_term_link( $vaccat_term->term_id, 'vaccat'),
                         'profession__count'         => $vaccat_term->count,
                         'profession__img'           => get_field( 'vaccat_img', $vaccat_term )
@@ -106,17 +113,18 @@
                     </div>
                     <p class="profession__side-bar-text">Мы используем</p>
                     <div id="profession__tehnology" class="profession__side-bar-image-tools-wrapper">
-                        <?php echo get_field( 'vaccat_tehnologies', $first_vaccat ); ?>
-                        <div class="profession__technology-item jira">Jira</div>
-                        <div class="profession__technology-item confluence">
-                            Confluence
-                        </div>
-                        <div class="profession__technology-item google-docs">
-                            Google Docs
-                        </div>
+                        <?php
+                        foreach (get_field( 'vaccat_tehnologies', $first_vaccat ) as $tech) {
+                            ?>
+                            <div class="profession__technology-item <?= $tech['value']; ?>"><?= $tech['label']; ?></div>
+                            <?php
+                        }
+                        ?>
+                        <!-- <div class="profession__technology-item confluence">Confluence</div>
+                        <div class="profession__technology-item google-docs">Google Docs</div>
                         <div class="profession__technology-item gitlab">Gitlab CI</div>
                         <div class="profession__technology-item slack">Slack</div>
-                        <div class="profession__technology-item swagger">Swagger</div>
+                        <div class="profession__technology-item swagger">Swagger</div> -->
                     </div>
 
                     <a id="profession__permalink_mob" href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy-mobile">
