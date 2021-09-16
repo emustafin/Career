@@ -58,9 +58,11 @@ export class VacancyDirectLink {
 }
 
 function vacancyClickHandler(event) {
-  if (event.target.classList.contains('direct-link__headline-link')) {
+  if (
+    event.target.classList.contains('direct-link__headline-link') ||
+    event.target.classList.contains('direct-link__vacancy-link')
+  ) {
     smothScrollingToBlock(this.form);
-    console.log(1);
   }
 
   if (event.target.classList.contains('vacancy__news-btn-prev')) {
