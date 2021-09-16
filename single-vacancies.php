@@ -407,13 +407,13 @@ if( get_field( 'map_full_adress', $post_id ) ){
 
 <!-- Vacancy News-block -->
 <div class="vacancy__news-block-desktop">
-    <div class="vacancy__news">
+    <div class="vacancy__news swiper newsSlider">
         <div class="vacancy__news-title">
             <div class="vacancy__news-tabs">
-            <a href="#" class="vacancy__news-link vacancy__news-link-active"
-                >Новости</a
-            >
-            <a href="#" class="vacancy__news-link">События</a>
+            <a href="#" class="vacancy__news-link vacancy__news-link-active">
+                Новости
+            </a>
+            <!-- <a href="#" class="vacancy__news-link">События</a> -->
             </div>
             <div class="vacancy__news-arrows">
             <button class="vacancy__news-btn-prev"></button>
@@ -422,7 +422,7 @@ if( get_field( 'map_full_adress', $post_id ) ){
             <a href="#" class="vacancy__news-link-mobile"> Все новости </a>
         </div>
 
-        <div class="vacancy__news-row">
+        <div class="vacancy__news-row swiper-wrapper">
             <?php
             $args = array(
                 'post_type'         => 'post',
@@ -452,7 +452,7 @@ if( get_field( 'map_full_adress', $post_id ) ){
                 ?>
 
 
-                <div class="vacancy__news-item">
+                <div class="vacancy__news-item swiper-slide">
                     <div class="vacancy__news-item-image-block">
                         <img
                         class="vacancy__news-image"
