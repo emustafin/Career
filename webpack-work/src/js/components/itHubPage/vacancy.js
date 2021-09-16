@@ -8,10 +8,12 @@ export class Vacancy {
     this.flyoutSideBar = this.flyout.querySelector('.flyout__side-bar');
     this.flyOutContentBar = this.flyout.querySelector('.vacancy');
     this.flyOutForm = this.flyout.querySelector('.vacancy__form');
+    this.newsSlider;
 
     this.init();
     this.resizeFlyout();
     this.flyOutInit();
+    this.newsSliderInit();
   }
 
   init() {
@@ -42,6 +44,14 @@ export class Vacancy {
         event.preventDefault();
         this.scrollToForm(this.flyOutForm);
       }
+
+      if (event.target.classList.contains('vacancy__news-btn-prev')) {
+        this.newsSlider.slidePrev();
+      }
+
+      if (event.target.classList.contains('vacancy__news-btn-next')) {
+        this.newsSlider.slideNext();
+      }
     });
   }
 
@@ -67,6 +77,31 @@ export class Vacancy {
     }, 1);
   }
 
+  newsSliderInit() {
+    if (this.flyout.clientWidth >= 671) {
+      this.newsSlider = new Swiper('.newsSlider', {
+        slidesPerView: 2.5,
+        spaceBetween: 16,
+        loop: true,
+        breakpoints: {
+          767: {
+            slidesPerView: 2.7,
+            spaceBetween: 30,
+          },
+
+          1024: {
+            slidesPerView: 2.2,
+            spaceBetween: 30,
+          },
+          1440: {
+            slidesPerView: 2.7,
+            spaceBetween: 40,
+          },
+        },
+      });
+    }
+  }
+
   setHeightFlyoutSideBar() {
     this.flyoutSideBar.style.height = this.flyOutContentBar.clientHeight + 'px';
     setTimeout(() => {
@@ -77,6 +112,10 @@ export class Vacancy {
   resizeFlyout() {
     window.addEventListener('resize', () => {
       this.setHeightFlyoutSideBar();
+
+      if (this.flyout.clientWidth >= 671) {
+        this.newsSliderInit();
+      }
     });
   }
 }

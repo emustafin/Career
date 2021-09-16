@@ -13,7 +13,7 @@ export class RunningLine {
   }
 
   moveRunningLine() {
-    window.addEventListener('load', () => {
+    document.addEventListener('DOMContentLoaded', () => {
       this.runningLineItemWidth = this.runningLine.lastElementChild.clientWidth;
 
       this.manageSpeedLine(1, 1);
