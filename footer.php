@@ -365,7 +365,7 @@
           <!-- //Vacancy Description-block -->
 
           <!-- Vacancy Office-block -->
-          <div class="vacancy__office">
+          <!-- <div class="vacancy__office">
             <div class="vacancy__office-map">
               <div class="vacancy__office-map-selectors">
                 <p class="vacancy__office-map-title">Офис на карте</p>
@@ -450,7 +450,7 @@
                 Построить маршрут
               </a>
             </div>
-          </div>
+          </div> -->
           <!-- //Vacancy Office-block -->
 
           <!-- Vacancy Remote-block -->

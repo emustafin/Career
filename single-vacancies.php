@@ -189,87 +189,87 @@ if( get_field( 'map_full_adress', $post_id ) ){
         <!-- //Vacancy Description-block -->
 
         <!-- Vacancy Office-block -->
-        <div class="vacancy__office">
-        <div class="vacancy__office-map">
-            <div class="vacancy__office-map-selectors">
-            <p class="vacancy__office-map-title">Офис на карте</p>
-            <div class="vacancy__office-map-links-wrapper">
-                <a href="" class="vacancy__office-map-link vacancy__office-map-link-active">БЦ «Новь»</a>
-                <a href="" class="vacancy__office-map-link">БЦ «Вега»</a>
-            </div>
+        <!-- <div class="vacancy__office">
+            <div class="vacancy__office-map">
+                <div class="vacancy__office-map-selectors">
+                <p class="vacancy__office-map-title">Офис на карте</p>
+                <div class="vacancy__office-map-links-wrapper">
+                    <a href="" class="vacancy__office-map-link vacancy__office-map-link-active">БЦ «Новь»</a>
+                    <a href="" class="vacancy__office-map-link">БЦ «Вега»</a>
+                </div>
+                </div>
+
+                <div class="vacancy__office-map-wrapper">
+                <img
+                    class="vacancy__office-map-image"
+                    src="<?php echo $img_map; ?>"
+                    alt="Map"
+                />
+
+                <img
+                    class="vacancy__office-selector-image"
+                    src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-office/map-selector.svg"
+                    alt="Selector"
+                />
+                </div>
             </div>
 
-            <div class="vacancy__office-map-wrapper">
-            <img
-                class="vacancy__office-map-image"
-                src="<?php echo $img_map; ?>"
-                alt="Map"
-            />
+            <div class="vacancy__office-content">
+                <div class="vacancy__office-content-top">
+                <div class="vacancy__office-adress">
+                    <p class="vacancy__office-adress-text">
+                        <?php echo $map_full_adress; ?>
+                    </p>
+                </div>
 
-            <!-- <img
-                class="vacancy__office-selector-image"
-                src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-office/map-selector.svg"
-                alt="Selector"
-            /> -->
-            </div>
-        </div>
-
-        <div class="vacancy__office-content">
-            <div class="vacancy__office-content-top">
-            <div class="vacancy__office-adress">
-                <p class="vacancy__office-adress-text">
-                    <?php echo $map_full_adress; ?>
-                </p>
-            </div>
-
-            <a href="#" class="vacancy__office-content-link">
-                Построить маршрут
-            </a>
-            </div>
-            <div class="vacancy__office-content-bottom">
-            <div class="vacancy__office-location-wrapper">
-                <p class="vacancy__office-location vacancy__office-location-cokol">
-                    Красносельская
+                <a href="#" class="vacancy__office-content-link">
+                    Построить маршрут
+                </a>
+                </div>
+                <div class="vacancy__office-content-bottom">
+                <div class="vacancy__office-location-wrapper">
+                    <p class="vacancy__office-location vacancy__office-location-cokol">
+                        Красносельская
+                        <span class="vacancy__office-location-time">7</span>
+                        <span class="vacancy__office-location-minutes">мин</span>
+                    </p>
+                    <p
+                    class="
+                        vacancy__office-location vacancy__office-location-cokol
+                    "
+                    >
+                    Комсомольская
                     <span class="vacancy__office-location-time">7</span>
                     <span class="vacancy__office-location-minutes">мин</span>
-                </p>
-                <p
-                class="
-                    vacancy__office-location vacancy__office-location-cokol
-                "
-                >
-                Комсомольская
-                <span class="vacancy__office-location-time">7</span>
-                <span class="vacancy__office-location-minutes">мин</span>
-                </p>
-            </div>
+                    </p>
+                </div>
 
-            <div class="vacancy__office-location-wrapper">
-                <p
-                class="
-                    vacancy__office-location vacancy__office-location-arbat
-                "
-                >
-                Бауманская
-                <span class="vacancy__office-location-time">7</span>
-                <span class="vacancy__office-location-minutes">мин</span>
-                </p>
-                <p
-                class="
-                    vacancy__office-location vacancy__office-location-mck
-                "
-                >
-                Каланчёвская
-                <span class="vacancy__office-location-time">7</span>
-                <span class="vacancy__office-location-minutes">мин</span>
-                </p>
+                <div class="vacancy__office-location-wrapper">
+                    <p
+                    class="
+                        vacancy__office-location vacancy__office-location-arbat
+                    "
+                    >
+                    Бауманская
+                    <span class="vacancy__office-location-time">7</span>
+                    <span class="vacancy__office-location-minutes">мин</span>
+                    </p>
+                    <p
+                    class="
+                        vacancy__office-location vacancy__office-location-mck
+                    "
+                    >
+                    Каланчёвская
+                    <span class="vacancy__office-location-time">7</span>
+                    <span class="vacancy__office-location-minutes">мин</span>
+                    </p>
+                </div>
+                </div>
+                <a href="#" class="vacancy__office-content-link-mobile">
+                Построить маршрут
+                </a>
             </div>
-            </div>
-            <a href="#" class="vacancy__office-content-link-mobile">
-            Построить маршрут
-            </a>
-        </div>
-        </div>
+        </div> -->
         <!-- //Vacancy Office-block -->
 
         <?php
