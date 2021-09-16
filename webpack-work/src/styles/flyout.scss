@@ -664,6 +664,7 @@
   margin-right: 16px;
   display: flex;
   flex-direction: column;
+  color: $mainColor;
 
   &:last-child {
     margin-right: 0;
@@ -1219,6 +1220,10 @@
   .vacancy__news-date-container,
   .vacancy__news-title {
     padding: 0 8px;
+  }
+
+  .vacancy__news-date-container {
+    margin-top: auto;
   }
 
   .vacancy__news-arrows {

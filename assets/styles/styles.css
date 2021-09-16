@@ -1768,7 +1768,8 @@
   max-width: 480px;
   margin-right: 16px;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  color: #000000; }
   .vacancy__news-item:last-child {
     margin-right: 0; }
 
@@ -2112,6 +2113,8 @@
   .vacancy__news-date-container,
   .vacancy__news-title {
     padding: 0 8px; }
+  .vacancy__news-date-container {
+    margin-top: auto; }
   .vacancy__news-arrows {
     display: none; }
   .vacancy__news-link-mobile {
