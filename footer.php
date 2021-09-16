@@ -89,17 +89,17 @@
 
           <div class="footer__item">
             <p class="footer__item-title">Направления</p>
-            <a href="#" class="footem__item-directions-link">IT-департамент</a>
-            <a href="#" class="footem__item-directions-link"
+            <a target="blank" href="https://jobinme.mvideoeldorado.ru/it" class="footem__item-directions-link">IT-департамент</a>
+            <a target="blank" href="https://jobinme.mvideoeldorado.ru/mvideo" class="footem__item-directions-link"
               >Розничные магазины</a
             >
-            <a href="#" class="footem__item-directions-link"
+            <a target="blank" href="https://jobinme.mvideoeldorado.ru/office" class="footem__item-directions-link"
               >Центральный офиc</a
             >
-            <a href="#" class="footem__item-directions-link"
+            <a target="blank" href="https://jobinme.mvideoeldorado.ru/logistics" class="footem__item-directions-link"
               >Сервис и логистика</a
             >
-            <a href="#" class="footem__item-directions-link">Студентам</a>
+            <a target="blank" href="https://jobinme.mvideoeldorado.ru/" class="footem__item-directions-link">Студентам</a>
 
             <p class="footer__info-text">Made by Annti + AmberLabs</p>
           </div>
