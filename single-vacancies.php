@@ -15,9 +15,6 @@ $money_from = number_format( get_field( 'money_from', $post_id ), 0, ',', ' ');
 $vacancy_project = get_field( 'vacancy_project', $post_id );
 $can_without_experience = get_field( 'can_without_experience', $post_id );
 $can_work_remotely = get_field( 'can_work_remotely', $post_id );
-$expectations = get_field( 'expectations', $post_id );
-$what_you_need_to_do = get_field( 'what_you_need_to_do', $post_id );
-$what_do_we_offer = get_field( 'what_do_we_offer', $post_id );
 $img_map = get_field( 'img_map', $post_id );
 $map_full_adress = get_field( 'map_full_adress', $post_id );
 $related_vacancies = get_field( 'related_vacancies', $post_id );
@@ -159,32 +156,26 @@ if( get_field( 'map_full_adress', $post_id ) ){
 
         <!-- Vacancy Description-block -->
         <div class="vacancy__description">
-        <div class="vacancy__description-block">
-            <div class="vacancy__description-title">
-            <p class="vacancy__description-title-text">Наши ожидания</p>
-            </div>
-            <div class="vacancy__description-list">
-                <?php echo $expectations; ?>
-            </div>
-        </div>
 
-        <div class="vacancy__description-block">
-            <div class="vacancy__description-title">
-            <p class="vacancy__description-title-text">Что нужно делать</p>
-            </div>
-            <div class="vacancy__description-list">
-                <?php echo $what_you_need_to_do; ?>
-            </div>
-        </div>
+            <?php
+            if( have_rows('vacancy_repeater') ):
 
-        <div class="vacancy__description-block">
-            <div class="vacancy__description-title">
-            <p class="vacancy__description-title-text">Что мы предлагаем</p>
-            </div>
-            <div class="vacancy__description-list">
-                <?php echo $what_do_we_offer; ?>
-            </div>
-        </div>
+                while( have_rows('vacancy_repeater') ) : the_row();
+
+                    ?>
+                    <div class="vacancy__description-block">
+                        <div class="vacancy__description-title">
+                        <p class="vacancy__description-title-text"><?= get_sub_field('item_title'); ?></p>
+                        </div>
+                        <div class="vacancy__description-list">
+                        <?= get_sub_field('item_contect'); ?>
+                        </div>
+                    </div>
+                    <?php
+                endwhile;
+            endif;
+            ?>
+
         </div>
         <!-- //Vacancy Description-block -->
 
