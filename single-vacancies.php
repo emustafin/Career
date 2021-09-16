@@ -1,6 +1,5 @@
 <?php
 /**
- * Index template file.
  *
  * @package Career\Template
  */
