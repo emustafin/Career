@@ -10,7 +10,6 @@ export class Form {
     this.dropdownLists = Array.from(
       this.el.querySelectorAll('.form__dropdown-list')
     );
-    this.input = this.el.querySelector('.form__value');
     this.sideBar = this.el.querySelector('.form__side-bar');
     this.mainContentBar = this.el.querySelector('.form__content');
 
@@ -50,9 +49,13 @@ export class Form {
     const textField = currentDropdownItem.closest('.form__dropdown-list')
       .previousElementSibling.previousElementSibling;
     const checkIcon = currentDropdownItem.lastElementChild;
+    const input = currentDropdownItem.closest(
+      '.form__dropdown-list'
+    ).previousElementSibling;
 
     textField.textContent = selectedValue;
-    this.input.value = selectedValue;
+    input.value = selectedValue;
+    console.log(input);
 
     checkIcon.classList.add('form__dropdown-item-checked-active');
 
