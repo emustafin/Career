@@ -7,9 +7,6 @@ $popup_info = array(
     'vacancy_project'           => get_field( 'vacancy_project', $vacancy_item_id ),
     'can_without_experience'    => get_field( 'can_without_experience', $vacancy_item_id ),
     'can_work_remotely'         => get_field( 'can_work_remotely', $vacancy_item_id ),
-    'expectations'              => get_field( 'expectations', $vacancy_item_id ),
-    'what_you_need_to_do'       => get_field( 'what_you_need_to_do', $vacancy_item_id ),
-    'what_do_we_offer'          => get_field( 'what_do_we_offer', $vacancy_item_id ),
     'img_map'                   => get_field( 'img_map', $vacancy_item_id ),
     'map_full_adress'           => get_field( 'map_full_adress', $vacancy_item_id ),
     'related_vacancies'         => get_field( 'related_vacancies', $vacancy_item_id ),
@@ -17,6 +14,24 @@ $popup_info = array(
     'url'                       => get_post_permalink( $vacancy_item_id ),
 );
 
+$expectations = '';
+if( have_rows('vacancy_repeater', $vacancy_item_id) ):
+
+    while( have_rows('vacancy_repeater', $vacancy_item_id) ) : the_row();
+
+        $expectations .= '<div class="vacancy__description-block">
+            <div class="vacancy__description-title">
+            <p class="vacancy__description-title-text">'.get_sub_field('item_title').'</p>
+            </div>
+            <div class="vacancy__description-list">
+            '.get_sub_field('item_contect').'
+            </div>
+        </div>';
+    endwhile;
+endif;
+$popup_info['expectations'] = $expectations;
+
+$k = 1;
 $vaccat_names = '';
 $vaccat_terms = get_the_terms( $vacancy_item_id, 'vaccat' );
 if( is_array( $vaccat_terms ) ){
@@ -26,13 +41,17 @@ if( is_array( $vaccat_terms ) ){
         if( $k != count( $vaccat_terms ) ){
             $vaccat_names .= ', ';
         }
+        if( $k == 1 ){
+            $first_vaccat = $vaccat_term;
+        }
         $k++;
 	}
 }
 $popup_info['vaccat'] = $vaccat_names;
 
+$k = 1;
 $town_names = '';
-$town_terms = get_the_terms( $towny_item_id, 'town' );
+$town_terms = get_the_terms( $vacancy_item_id, 'town' );
 if( is_array( $town_terms ) ){
 	foreach( $town_terms as $town_term ){
         $town_names .= $town_term->name;
@@ -61,7 +80,7 @@ if( get_field( 'map_full_adress', $vacancy_item_id ) ){
 
         <div class="profession__bread-crumbs">
             <a href="#" class="profession__crumb">IT-департамент</a>
-            <a href="<?php echo get_term_link( $vaccat_terms[0]->term_id, 'vaccat'); ?>" class="profession__crumb"><?php echo $vaccat_terms[0]->name; ?></a>
+            <a href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__crumb"><?php echo $first_vaccat->name; ?></a>
         </div>
         <!-- <a href="#" class="profession__more-info">Больше о направлении</a> -->
     </div>

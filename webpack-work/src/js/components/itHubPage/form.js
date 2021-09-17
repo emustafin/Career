@@ -1,12 +1,19 @@
 export class Form {
   constructor(el) {
     this.el = el;
+
+    if (this.el == null || this.el == undefined) return;
+
     this.dropdownItems = this.el.querySelectorAll('form__dropdown-list-item');
     this.sideBar = this.el.querySelector('.form__side-bar');
     this.dropdowns = Array.from(this.el.querySelectorAll('.form__dropdown'));
     this.dropdownLists = Array.from(
       this.el.querySelectorAll('.form__dropdown-list')
     );
+    this.sideBar = this.el.querySelector('.form__side-bar');
+    this.mainContentBar = this.el.querySelector('.form__content');
+    this.input1 = this.el.querySelector('.form__value1');
+    this.input2 = this.el.querySelector('.form__value2');
 
     this.init();
   }
@@ -17,7 +24,10 @@ export class Form {
 
   closeForm() {
     this.sideBar.style.background = 'transparent';
-    document.body.style.overflow = 'visible';
+
+    setTimeout(() => {
+      document.body.style.overflow = 'visible';
+    }, 270);
 
     setTimeout(() => {
       this.el.classList.remove('form-active');
@@ -38,12 +48,26 @@ export class Form {
   selectDropdownItem(event) {
     const currentDropdownItem = event.target;
     const selectedValue = currentDropdownItem.firstElementChild.innerText;
-    const textField = currentDropdownItem.closest(
-      '.form__dropdown-list'
-    ).previousElementSibling;
+    const textField = currentDropdownItem.closest('.form__dropdown-list')
+      .previousElementSibling.previousElementSibling;
     const checkIcon = currentDropdownItem.lastElementChild;
 
     textField.textContent = selectedValue;
+
+    if (
+      currentDropdownItem.closest('.form__form-name').firstElementChild
+        .textContent === 'Направление'
+    ) {
+      this.input1.value = selectedValue;
+    }
+
+    if (
+      currentDropdownItem.closest('.form__form-name').firstElementChild
+        .textContent === 'Специализация'
+    ) {
+      this.input2.value = selectedValue;
+    }
+
     checkIcon.classList.add('form__dropdown-item-checked-active');
 
     setTimeout(() => {

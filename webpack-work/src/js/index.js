@@ -8,8 +8,10 @@ import './components/itHubPage/Tab';
 import './components/itHubPage/animationSvgTab';
 import { Select } from './components/itHubPage/select';
 import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
-import { ScrollTo } from './components/itHubPage/scroll';
+// import { ScrollTo } from './components/itHubPage/scroll';
 import { Form } from './components/itHubPage/form';
+import { RunningLine } from './components/itHubPage/runningLine';
+import { VacancyDirectLink } from './components/itHubPage/vacancyDirectLink';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -23,16 +25,19 @@ const upgradeSection = document.querySelector('.upgrade');
 const videoPlayerBlock = document.querySelector('.find');
 const form = document.querySelector('.form');
 const directLink = document.querySelector('.direct-link');
+const goalBlock = document.querySelector('.goal');
+const runningLine = document.querySelector('.find__title');
 
 // const tabContainer = document.querySelector('.tab-content');
 
-if (itHubPage && itHubPage !== null && itHubPage !== undefined) {
-  new Vacancy(profession);
-  new Advantages(ourAdvantages);
-  new CareerUpgrade(upgradeSection);
-  new VideoPlayer(videoPlayerBlock);
-  new Form(form);
-}
+new Vacancy(profession);
+new Advantages(ourAdvantages);
+new CareerUpgrade(upgradeSection);
+new VideoPlayer(videoPlayerBlock);
+new Form(form);
+new RunningLine(runningLine);
+new Listing(listingPage);
+new VacancyDirectLink(directLink);
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
 
@@ -45,15 +50,7 @@ new Select(selectSecond);
 const togls = document.getElementById('svg-toggle-activate');
 const triger = document.getElementById('my-sticky-element');
 new SvgToggleAnimate(triger, togls);
-new ScrollTo('.create-future__button', '.goal', false);
-
-if (listingPage && listingPage !== null && listingPage !== undefined) {
-  new Listing(listingPage);
-}
-
-if (directLink && directLink !== null && directLink !== undefined) {
-  new Form(form);
-}
+// new ScrollTo('.create-future__button', '.goal', false);
 
 document.body.addEventListener('click', (event) => {
   if (
@@ -62,6 +59,16 @@ document.body.addEventListener('click', (event) => {
   ) {
     event.preventDefault();
     openApplicationForm();
+  }
+
+  if (event.target.classList.contains('create-future__button')) {
+    event.preventDefault();
+    smothScrollingToBlock(goalBlock);
+  }
+
+  if (event.target.classList.contains('goal__button')) {
+    event.preventDefault();
+    smothScrollingToBlock(profession);
   }
 });
 
@@ -73,6 +80,22 @@ function openApplicationForm() {
 
   setTimeout(() => {
     document.body.style.overflow = 'hidden';
+  }, 200);
+
+  setTimeout(() => {
     form.firstElementChild.style.background = 'rgba(0, 0, 0, 0.8)';
   }, 300);
+}
+
+// Скролл до блока
+export function smothScrollingToBlock(block) {
+  const topOffset = block.offsetTop - 16;
+
+  let interval = setInterval(() => {
+    document.scrollingElement.scrollTop += 10;
+
+    if (document.scrollingElement.scrollTop >= topOffset) {
+      clearInterval(interval);
+    }
+  }, 1);
 }

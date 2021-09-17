@@ -12,11 +12,11 @@
 $post_slug = get_post_field( 'post_name', get_post() );
 switch ($post_slug) {
   case 'it-hub':
-    $body_class = 'it-hub';
+    $body_class = 'it-hub direct-link';
     break;
     
   default:
-    $body_class = 'it-hub';
+    $body_class = 'it-hub direct-link';
     break;
 }
 ?>
@@ -25,7 +25,7 @@ switch ($post_slug) {
     <header class="it-header">
       <div class="container">
         <div class="it-header__wrapper">
-          <div class="it-header__item">
+          <!-- <div class="it-header__item">
             <div class="it-header__directions">
               <p class="it-header__directions-title">Направления</p>
               <span class="it-header__directions-value">(5)</span>
@@ -37,7 +37,7 @@ switch ($post_slug) {
                 />
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="it-header__item">
             <a href="/" class="it-header__logo"></a>

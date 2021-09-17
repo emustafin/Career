@@ -92,18 +92,36 @@ $product_directions = new WP_Query( $args );
 
                     <div class="direction__description-container">
                       <div class="direction__director-container-mobile">
-                        <div class="direction__director-image-block-mobile">
-                          <img
-                            src="<?php echo get_the_post_thumbnail_url(); ?>"
-                            alt=""
-                            class="direction__director-image"
-                          />
+                        <div class="direction__director-block">
+                          <div class="direction__director-image-block-mobile">
+                            <img
+                              src="<?php echo get_the_post_thumbnail_url(); ?>"
+                              alt="director"
+                              class="direction__director-image"
+                            />
+                          </div>
+                          <div class="direction__director-name-wrapper">
+                            <p class="direction__director-name">
+                              <?php echo get_field( 'director_name' ); ?><span>,</span>
+                            </p>
+                            <p class="direction__director-name"><?php echo get_field( 'director_position' ); ?></p>
+                          </div>
                         </div>
-                        <div class="direction__director-name-wrapper">
-                          <p class="direction__director-name">
-                            <?php echo get_field( 'director_name' ); ?><span>,</span>
-                          </p>
-                          <p class="direction__director-name"><?php echo get_field( 'director_position' ); ?></p>
+
+                        <div class="direction__director-block">
+                          <div class="direction__director-image-block-mobile">
+                            <img
+                              src="<?php echo get_the_post_thumbnail_url(); ?>"
+                              alt="director"
+                              class="direction__director-image"
+                            />
+                          </div>
+                          <div class="direction__director-name-wrapper">
+                            <p class="direction__director-name">
+                              <?php echo get_field( 'director_name' ); ?><span>,</span>
+                            </p>
+                            <p class="direction__director-name"><?php echo get_field( 'director_position' ); ?></p>
+                          </div>
                         </div>
                       </div>
 
@@ -115,17 +133,32 @@ $product_directions = new WP_Query( $args );
                     </div>
 
                     <div class="direction__director-container">
-                      <div class="direction__director-image-block">
-                        <img
-                          src="<?php echo get_the_post_thumbnail_url(); ?>"
-                          alt=""
-                          class="direction__director-image"
-                        />
-                      </div>
-                      <p class="direction__director-name">
-                        <?php echo get_field( 'director_name' ); ?><span>,</span>
-                      </p>
-                      <p class="direction__director-name"><?php echo get_field( 'director_position' ); ?></p>
+
+                      <?php
+                      if( have_rows('people') ):
+
+                        while( have_rows('people') ) : the_row();
+                    
+                            $sub_value = get_sub_field('sub_field');
+                            ?>
+                            <div class="direction__director-block">
+                              <div class="direction__director-image-block">
+                                <img
+                                  src="<?= get_sub_field('img'); ?>"
+                                  alt="director"
+                                  class="direction__director-image"
+                                />
+                              </div>
+                              <p class="direction__director-name">
+                                <?= get_sub_field('director_name'); ?><span>,</span>
+                              </p>
+                              <p class="direction__director-name"><?= get_sub_field('director_position'); ?></p>
+                            </div>
+                            <?php
+                        endwhile;
+                      endif;
+                      ?>
+
                     </div>
                   </div>
 

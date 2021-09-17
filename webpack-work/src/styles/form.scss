@@ -1,15 +1,15 @@
 .form,
 .form-active {
-  display: flex;
-  font-size: 18px;
-  line-height: 24px;
-  height: 100vh;
-  width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  display: flex;
+  font-size: 18px;
+  line-height: 24px;
+  width: 100%;
+  overflow: auto;
   z-index: 11;
   transition: 0.3s;
   transform: translateX(100%);
@@ -28,6 +28,8 @@
 .form__content {
   width: 70%;
   background: $bodyBackgraund;
+  overflow: auto;
+  padding-bottom: 20px;
 }
 
 .form__container {
@@ -97,11 +99,11 @@
   width: 100%;
 }
 
-.form__input-checkbox {
+.form__input-checkbox input{
   display: none;
 }
 
-.form__checkbox {
+.wpcf7-list-item-label {
   display: inline-block;
   position: relative;
   margin-right: 2px;
@@ -123,8 +125,10 @@
     opacity: 0;
   }
 }
-
-.form__input-checkbox:checked ~ .form__checkbox::before {
+.form__input-checkbox span{
+  margin-left: 0;
+}
+.form__input-checkbox input:checked ~ .wpcf7-list-item-label::before {
   opacity: 1;
 }
 
@@ -163,6 +167,12 @@
 .form__dropdown {
   position: relative;
   cursor: pointer;
+}
+
+.form__value1,
+.form__value2 {
+  height: 0;
+  position: absolute;
 }
 
 .form__dropdown-result {
@@ -364,4 +374,11 @@
   .form__header {
     margin-bottom: 24px;
   }
+}
+
+.form__file-uploader .wpcf7-form-control-wrap.upload-file-803 {
+  max-width: 500px;
+}
+.cd-upload-btn {
+  color: #000;
 }

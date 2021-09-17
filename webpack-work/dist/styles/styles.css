@@ -2421,9 +2421,9 @@ body {
   min-width: 150px; }
 
 .upgrade__main-text {
-  font-size: 40px;
-  line-height: 44px;
-  margin-bottom: 32px; }
+  /* font-size: 40px; */
+  /* line-height: 44px; */
+  margin-bottom: 32px;}
 
 .upgrade__way-mobile {
   display: none; }
