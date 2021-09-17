@@ -9,8 +9,6 @@ export class VacancyDirectLink {
     this.form = this.el.querySelector('.vacancy__form');
     this.newsSlider;
 
-    console.log(this.newsSlider);
-
     this.init();
     this.newsSliderInit();
   }
