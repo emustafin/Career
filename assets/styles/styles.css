@@ -4517,7 +4517,8 @@
   max-width: 340px;
   margin-bottom: 32px;
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  filter: grayscale(1); }
 
 .profession__technology-item,
 .jira,
