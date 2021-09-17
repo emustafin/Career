@@ -4480,7 +4480,10 @@
 .profession__menu {
   width: 85%;
   display: flex;
-  justify-content: flex-end; }
+  justify-content: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; }
 
 .profession__menu-item,
 .profession__menu-item-active {
