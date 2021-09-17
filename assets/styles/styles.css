@@ -5591,10 +5591,7 @@
 
 .form__content {
   width: 70%;
-  background: #f3f3f3;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content; }
+  background: #f3f3f3; }
 
 .form__container {
   padding: 0 16px; }
