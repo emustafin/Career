@@ -5243,9 +5243,9 @@
   min-width: 150px; }
 
 .upgrade__main-text {
-  font-size: 40px;
-  line-height: 44px;
-  margin-bottom: 32px; }
+  margin-bottom: 32px;
+  font-size: 16px;
+  line-height: 27px; }
 
 .upgrade__way-mobile {
   display: none; }
@@ -5327,8 +5327,8 @@
   .upgrade__slider-next-block {
     width: 22%; }
   .upgrade__main-text {
-    font-size: 32px;
-    line-height: 40px; }
+    font-size: 20px;
+    line-height: 30px; }
   .upgrade__slider-next-arrow {
     max-width: 223px; } }
 
@@ -5419,7 +5419,7 @@
     line-height: 16px; }
   .upgrade__main-text {
     font-size: 14px;
-    line-height: 16px;
+    line-height: 21px;
     clear: both;
     margin-bottom: 8px; }
   .upgrade__title {
@@ -5855,6 +5855,12 @@
     margin-bottom: 16px; }
   .form__header {
     margin-bottom: 24px; } }
+
+.form__file-uploader .wpcf7-form-control-wrap.upload-file-803 {
+  max-width: 500px; }
+
+.cd-upload-btn {
+  color: #000; }
 
 .direct-link__header {
   position: relative;

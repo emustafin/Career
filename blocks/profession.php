@@ -127,24 +127,24 @@
                         <div class="profession__technology-item swagger">Swagger</div> -->
                     </div>
 
-                    <a id="profession__permalink_mob" href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy-mobile">
+                    <!-- <a id="profession__permalink_mob" href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy-mobile">
                         <span id="profession__count_mob" class="profession__side-bar-vacancy-value"><?php echo $first_vaccat->count; ?></span>
                         вакансии в
                         <span class="profession__side-bar-vacancy-value">
                             Менеджменте
                         </span>
                         <span class="profession__side-bar-vacancy-value-arrow"></span>
-                    </a>
+                    </a> -->
                 </div>
 
-                <a id="profession__permalink" href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy">
+                <!-- <a id="profession__permalink" href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy">
                     <span id="profession__count" class="profession__side-bar-vacancy-value"><?php echo $first_vaccat->count; ?></span>
                     вакансии в
                     <span class="profession__side-bar-vacancy-value">
                     Менеджменте
                     </span>
                     <span class="profession__side-bar-vacancy-value-arrow"></span>
-                </a>
+                </a> -->
 
                 <div class="profession__side-bar-image-wrapper">
                     <img id="profession__img" class="profession__side-bar-image" src="<?php echo get_field( 'vaccat_img', $first_vaccat ); ?>" alt="management"/>

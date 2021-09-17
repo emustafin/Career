@@ -13,8 +13,6 @@ $('.profession__job-title').on( 'click', function(e){
     $('.flyout .vacancy__intro-description').html( vacancy_info.content );
     $('.flyout #vacancy_project').html( vacancy_info.vacancy_project );
     $('.flyout #expectations').html( vacancy_info.expectations );
-    $('.flyout #what_you_need_to_do').html( vacancy_info.what_you_need_to_do );
-    $('.flyout #what_do_we_offer').html( vacancy_info.what_do_we_offer );
     $('.flyout .vacancy__office-map-image').attr( "src", vacancy_info.img_map );
     $('.flyout .vacancy__office-adress-text').html( vacancy_info.map_full_adress );
     $('.flyout .vacancy__meta-info-sum').html( vacancy_info.money_from );

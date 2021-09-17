@@ -12,11 +12,11 @@
 $post_slug = get_post_field( 'post_name', get_post() );
 switch ($post_slug) {
   case 'it-hub':
-    $body_class = 'it-hub';
+    $body_class = 'it-hub direct-link';
     break;
     
   default:
-    $body_class = 'it-hub';
+    $body_class = 'it-hub direct-link';
     break;
 }
 ?>

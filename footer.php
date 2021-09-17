@@ -220,7 +220,7 @@
           <!-- //Vacancy Intro-block -->
 
           <!-- Vacancy Description-block -->
-          <div class="vacancy__description">
+          <div id="expectations" class="vacancy__description">
 
             <div class="vacancy__description-block">
               <div class="vacancy__description-title">
@@ -259,113 +259,11 @@
               </div>
             </div>
 
-            <div class="vacancy__description-block">
-              <div class="vacancy__description-title">
-                <p class="vacancy__description-title-text">Ты будешь заниматься</p>
-              </div>
-              <div class="vacancy__description-list">
-                <ul id="expectations" class="vacancy__description-list-wrapper">
-                  <li class="vacancy__description-list-item">
-                    Высшее образование (экономическое/техническое)
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Аналогичный опыт работы от трёх лет
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Базовое понимание и формирование стратегии развития
-                    продукта, технологический кругозор, базовое понимание
-                    принципов и подходов создания ИТ решений
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Понимание экономики и финансов продукта, метрики и TCO
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Глубокое понимание работы бизнеса. Отличное понимание
-                    продуктового подхода
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Умение организовывать и делать прототипирование и MVP
-                    (Minimum Valuable Product), навыки формирования стратегии
-                    развития продукта
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Умение работать с данными, создавать ИТ решения, опыт
-                    запуска и лидирования продуктов и проектов
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="vacancy__description-block">
-              <div class="vacancy__description-title">
-                <p class="vacancy__description-title-text">Мы знаем, что ты</p>
-              </div>
-              <div class="vacancy__description-list">
-                <ul id="what_you_need_to_do" class="vacancy__description-list-wrapper">
-                  <li class="vacancy__description-list-item">
-                    Ведение продуктовой линейки «Аналитика» и всех продуктов
-                    и проектов, входящих в его контур
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Анализ и рекомендации по увеличению эффективности работы,
-                    основанные на решениях продуктов и проектов
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Поиск перспективных решений на рынке для решения бизнес
-                    задач
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Формирование стратегии развития продуктов и проектов
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Формирование и развитие продуктовых команд, выстраивание
-                    кросс взаимодействия
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Управление жизненным циклом своей продуктовой линейки
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="vacancy__description-block">
-              <div class="vacancy__description-title">
-                <p class="vacancy__description-title-text">Что ты получишь</p>
-              </div>
-              <div class="vacancy__description-list">
-                <ul id="what_do_we_offer" class="vacancy__description-list-wrapper">
-                  <li class="vacancy__description-list-item">
-                    Сильная команда, нацеленная на результат
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Возможность развития профессиональных качеств, возможность
-                    проявить свою инициативу, а также участвовать в крупных
-                    внутренних проектах
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Официальное оформление в полном соответствии с Трудовым
-                    Кодексом РФ
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Корпоративные скидки на продукцию компании
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Оформление ДМС после прохождения испытательного срока
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    «Кафетерий льгот», скидки сотрудникам от наших партнёров
-                  </li>
-                  <li class="vacancy__description-list-item">
-                    Конкурентоспособная, «белая» заработная плата
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
           <!-- //Vacancy Description-block -->
 
           <!-- Vacancy Office-block -->
-          <div class="vacancy__office">
+          <!-- <div class="vacancy__office">
             <div class="vacancy__office-map">
               <div class="vacancy__office-map-selectors">
                 <p class="vacancy__office-map-title">Офис на карте</p>
@@ -450,7 +348,7 @@
                 Построить маршрут
               </a>
             </div>
-          </div>
+          </div> -->
           <!-- //Vacancy Office-block -->
 
           <!-- Vacancy Remote-block -->
@@ -687,7 +585,7 @@
                 ?>
 
 
-                <div class="vacancy__news-item swiper-slide">
+                <a href="<?php echo $url_from_habr; ?>" target="_blank" class="vacancy__news-item swiper-slide">
                     <div class="vacancy__news-item-image-block">
                         <img
                         class="vacancy__news-image"
@@ -696,13 +594,13 @@
                         />
                     </div>
 
-                    <a href="<?php echo $url_from_habr; ?>" class="vacancy__news-title-info">
+                    <div class="vacancy__news-title-info">
                         <?php the_title(); ?>
-                    </a>
+                    </div>
                     <p class="vacancy__news-date-container">
                         <span class="vacancy__news-date"><?php echo get_the_date( 'j F Y', $news_item_id ); ?></span>
                     </p>
-                </div>
+                </a>
 
 
                 <?php
@@ -754,7 +652,7 @@
                 }
                 ?>
 
-                <div class="vacancy__news-item">
+                <a href="<?php echo $url_from_habr; ?>" target="_blank" class="vacancy__news-item">
                     <div class="vacancy__news-item-image-block">
                         <img
                         class="vacancy__news-image"
@@ -763,13 +661,13 @@
                         />
                     </div>
 
-                    <a href="<?php echo $url_from_habr; ?>" class="vacancy__news-title-info">
+                    <div class="vacancy__news-title-info">
                         <?php the_title(); ?>
-                    </a>
+                    </div>
                     <p class="vacancy__news-date-container">
                         <span class="vacancy__news-date"><?php echo get_the_date( 'j F Y', $news_item_id ); ?></span>
                     </p>
-                </div>
+                </a>
 
                 <?php
                 }
@@ -804,8 +702,57 @@
               </p>
             </div>
 
+            <?php
+            $formdata = array();
+
+            $args = array(
+              'post_type'         => 'product_directions',
+              'posts_per_page'    => -1,
+            );
+            
+            $product_directions = new WP_Query( $args );
+
+            $info_product_directions = '';
+
+            if ( $product_directions->have_posts() ) {
+              while ( $product_directions->have_posts() ) {
+                $product_directions->the_post();
+
+                // $info_product_directions = get_the_title();
+                $info_product_directions .= '
+                <div class="form__dropdown-list-item">
+                  <p class="form__dropdown-item-position">'.get_the_title().'</p>
+                  <div class="form__dropdown-item-checked">
+                    <img class="form__dropdown-item-checked-image" src="'.THEME_URL.'/assets/images/form/check.svg" alt="Check"></img>
+                  </div>
+                </div>';
+              }
+            }
+            wp_reset_postdata();
+
+            $info_vaccat = '';
+            $terms = get_terms( 'vaccat' );
+            if( $terms && ! is_wp_error($terms) ){
+              foreach( $terms as $term ){
+                $info_vaccat .= '
+                <div class="form__dropdown-list-item">
+                  <p class="form__dropdown-item-position">'.$term->name.'</p>
+                  <div class="form__dropdown-item-checked">
+                    <img class="form__dropdown-item-checked-image" src="'.THEME_URL.'/assets/images/form/check.svg" alt="Check"></img>
+                  </div>
+                </div>';
+              }
+            }
+
+            $formdata = array(
+              'info_product_directions' => $info_product_directions,
+              'info_vaccat'             => $info_vaccat
+            );
+            ?>
+
             <div class="form__content-right-bar">
               <?php echo do_shortcode('[contact-form-7 id="289" title="Анкета"]'); ?>
+              <div id="forminfo" data-formdata='<?php echo json_encode($formdata); ?>' ></div>
             </div>
           </div>
         </div>

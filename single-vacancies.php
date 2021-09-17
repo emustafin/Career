@@ -15,9 +15,6 @@ $money_from = number_format( get_field( 'money_from', $post_id ), 0, ',', ' ');
 $vacancy_project = get_field( 'vacancy_project', $post_id );
 $can_without_experience = get_field( 'can_without_experience', $post_id );
 $can_work_remotely = get_field( 'can_work_remotely', $post_id );
-$expectations = get_field( 'expectations', $post_id );
-$what_you_need_to_do = get_field( 'what_you_need_to_do', $post_id );
-$what_do_we_offer = get_field( 'what_do_we_offer', $post_id );
 $img_map = get_field( 'img_map', $post_id );
 $map_full_adress = get_field( 'map_full_adress', $post_id );
 $related_vacancies = get_field( 'related_vacancies', $post_id );
@@ -159,117 +156,111 @@ if( get_field( 'map_full_adress', $post_id ) ){
 
         <!-- Vacancy Description-block -->
         <div class="vacancy__description">
-        <div class="vacancy__description-block">
-            <div class="vacancy__description-title">
-            <p class="vacancy__description-title-text">Наши ожидания</p>
-            </div>
-            <div class="vacancy__description-list">
-                <?php echo $expectations; ?>
-            </div>
-        </div>
 
-        <div class="vacancy__description-block">
-            <div class="vacancy__description-title">
-            <p class="vacancy__description-title-text">Что нужно делать</p>
-            </div>
-            <div class="vacancy__description-list">
-                <?php echo $what_you_need_to_do; ?>
-            </div>
-        </div>
+            <?php
+            if( have_rows('vacancy_repeater') ):
 
-        <div class="vacancy__description-block">
-            <div class="vacancy__description-title">
-            <p class="vacancy__description-title-text">Что мы предлагаем</p>
-            </div>
-            <div class="vacancy__description-list">
-                <?php echo $what_do_we_offer; ?>
-            </div>
-        </div>
+                while( have_rows('vacancy_repeater') ) : the_row();
+
+                    ?>
+                    <div class="vacancy__description-block">
+                        <div class="vacancy__description-title">
+                        <p class="vacancy__description-title-text"><?= get_sub_field('item_title'); ?></p>
+                        </div>
+                        <div class="vacancy__description-list">
+                        <?= get_sub_field('item_contect'); ?>
+                        </div>
+                    </div>
+                    <?php
+                endwhile;
+            endif;
+            ?>
+
         </div>
         <!-- //Vacancy Description-block -->
 
         <!-- Vacancy Office-block -->
-        <div class="vacancy__office">
-        <div class="vacancy__office-map">
-            <div class="vacancy__office-map-selectors">
-            <p class="vacancy__office-map-title">Офис на карте</p>
-            <div class="vacancy__office-map-links-wrapper">
-                <a href="" class="vacancy__office-map-link vacancy__office-map-link-active">БЦ «Новь»</a>
-                <a href="" class="vacancy__office-map-link">БЦ «Вега»</a>
-            </div>
+        <!-- <div class="vacancy__office">
+            <div class="vacancy__office-map">
+                <div class="vacancy__office-map-selectors">
+                <p class="vacancy__office-map-title">Офис на карте</p>
+                <div class="vacancy__office-map-links-wrapper">
+                    <a href="" class="vacancy__office-map-link vacancy__office-map-link-active">БЦ «Новь»</a>
+                    <a href="" class="vacancy__office-map-link">БЦ «Вега»</a>
+                </div>
+                </div>
+
+                <div class="vacancy__office-map-wrapper">
+                <img
+                    class="vacancy__office-map-image"
+                    src="<?php echo $img_map; ?>"
+                    alt="Map"
+                />
+
+                <img
+                    class="vacancy__office-selector-image"
+                    src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-office/map-selector.svg"
+                    alt="Selector"
+                />
+                </div>
             </div>
 
-            <div class="vacancy__office-map-wrapper">
-            <img
-                class="vacancy__office-map-image"
-                src="<?php echo $img_map; ?>"
-                alt="Map"
-            />
+            <div class="vacancy__office-content">
+                <div class="vacancy__office-content-top">
+                <div class="vacancy__office-adress">
+                    <p class="vacancy__office-adress-text">
+                        <?php echo $map_full_adress; ?>
+                    </p>
+                </div>
 
-            <!-- <img
-                class="vacancy__office-selector-image"
-                src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-office/map-selector.svg"
-                alt="Selector"
-            /> -->
-            </div>
-        </div>
-
-        <div class="vacancy__office-content">
-            <div class="vacancy__office-content-top">
-            <div class="vacancy__office-adress">
-                <p class="vacancy__office-adress-text">
-                    <?php echo $map_full_adress; ?>
-                </p>
-            </div>
-
-            <a href="#" class="vacancy__office-content-link">
-                Построить маршрут
-            </a>
-            </div>
-            <div class="vacancy__office-content-bottom">
-            <div class="vacancy__office-location-wrapper">
-                <p class="vacancy__office-location vacancy__office-location-cokol">
-                    Красносельская
+                <a href="#" class="vacancy__office-content-link">
+                    Построить маршрут
+                </a>
+                </div>
+                <div class="vacancy__office-content-bottom">
+                <div class="vacancy__office-location-wrapper">
+                    <p class="vacancy__office-location vacancy__office-location-cokol">
+                        Красносельская
+                        <span class="vacancy__office-location-time">7</span>
+                        <span class="vacancy__office-location-minutes">мин</span>
+                    </p>
+                    <p
+                    class="
+                        vacancy__office-location vacancy__office-location-cokol
+                    "
+                    >
+                    Комсомольская
                     <span class="vacancy__office-location-time">7</span>
                     <span class="vacancy__office-location-minutes">мин</span>
-                </p>
-                <p
-                class="
-                    vacancy__office-location vacancy__office-location-cokol
-                "
-                >
-                Комсомольская
-                <span class="vacancy__office-location-time">7</span>
-                <span class="vacancy__office-location-minutes">мин</span>
-                </p>
-            </div>
+                    </p>
+                </div>
 
-            <div class="vacancy__office-location-wrapper">
-                <p
-                class="
-                    vacancy__office-location vacancy__office-location-arbat
-                "
-                >
-                Бауманская
-                <span class="vacancy__office-location-time">7</span>
-                <span class="vacancy__office-location-minutes">мин</span>
-                </p>
-                <p
-                class="
-                    vacancy__office-location vacancy__office-location-mck
-                "
-                >
-                Каланчёвская
-                <span class="vacancy__office-location-time">7</span>
-                <span class="vacancy__office-location-minutes">мин</span>
-                </p>
+                <div class="vacancy__office-location-wrapper">
+                    <p
+                    class="
+                        vacancy__office-location vacancy__office-location-arbat
+                    "
+                    >
+                    Бауманская
+                    <span class="vacancy__office-location-time">7</span>
+                    <span class="vacancy__office-location-minutes">мин</span>
+                    </p>
+                    <p
+                    class="
+                        vacancy__office-location vacancy__office-location-mck
+                    "
+                    >
+                    Каланчёвская
+                    <span class="vacancy__office-location-time">7</span>
+                    <span class="vacancy__office-location-minutes">мин</span>
+                    </p>
+                </div>
+                </div>
+                <a href="#" class="vacancy__office-content-link-mobile">
+                Построить маршрут
+                </a>
             </div>
-            </div>
-            <a href="#" class="vacancy__office-content-link-mobile">
-            Построить маршрут
-            </a>
-        </div>
-        </div>
+        </div> -->
         <!-- //Vacancy Office-block -->
 
         <?php
@@ -452,7 +443,7 @@ if( get_field( 'map_full_adress', $post_id ) ){
                 ?>
 
 
-                <div class="vacancy__news-item swiper-slide">
+                <a href="<?php echo $url_from_habr; ?>" target="_blank" class="vacancy__news-item swiper-slide">
                     <div class="vacancy__news-item-image-block">
                         <img
                         class="vacancy__news-image"
@@ -461,13 +452,13 @@ if( get_field( 'map_full_adress', $post_id ) ){
                         />
                     </div>
 
-                    <a href="<?php echo $url_from_habr; ?>" class="vacancy__news-title-info">
+                    <div class="vacancy__news-title-info">
                         <?php the_title(); ?>
-                    </a>
+                    </div>
                     <p class="vacancy__news-date-container">
                         <span class="vacancy__news-date"><?php echo get_the_date( 'j F Y', $news_item_id ); ?></span>
                     </p>
-                </div>
+                </a>
 
 
                 <?php
@@ -519,7 +510,7 @@ if( get_field( 'map_full_adress', $post_id ) ){
                 }
                 ?>
 
-                <div class="vacancy__news-item">
+                <a href="<?php echo $url_from_habr; ?>" target="_blank"class="vacancy__news-item">
                     <div class="vacancy__news-item-image-block">
                         <img
                         class="vacancy__news-image"
@@ -528,13 +519,13 @@ if( get_field( 'map_full_adress', $post_id ) ){
                         />
                     </div>
 
-                    <a href="<?php echo $url_from_habr; ?>" class="vacancy__news-title-info">
+                    <div class="vacancy__news-title-info">
                         <?php the_title(); ?>
-                    </a>
+                    </div>
                     <p class="vacancy__news-date-container">
                         <span class="vacancy__news-date"><?php echo get_the_date( 'j F Y', $news_item_id ); ?></span>
                     </p>
-                </div>
+                </a>
 
                 <?php
                 }

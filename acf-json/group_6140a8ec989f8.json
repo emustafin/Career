@@ -45,7 +45,26 @@
                 "google-docs": "Google-docs",
                 "gitlab": "Gitlab",
                 "slack": "Slack",
-                "swagger": "Swagger"
+                "swagger": "Swagger",
+                "sap": "SAP",
+                "miro": "Miro",
+                "gradle": "Gradle",
+                "jenkins": "Jenkins",
+                "docker": "Docker",
+                "sonar-qube": "SonarQube",
+                "spring": "Spring",
+                "PostgreSQL": "PostgreSQL",
+                "HP-QualityCenter": "HP-QualityCenter",
+                "postman": "Postman",
+                "ibm": "IBM MQ",
+                "ansible": "Ansible",
+                "kubernetes": "Kubernetes",
+                "clickhouse": "Clickhouse",
+                "terraform": "Terraform",
+                "figma": "Figma",
+                "grafana": "Grafana",
+                "elk": "ELK",
+                "prometheus": "Prometheus"
             },
             "default_value": [],
             "allow_null": 0,
@@ -73,5 +92,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631796176
+    "modified": 1631867911
 }
