@@ -2872,8 +2872,18 @@
       width: 100%;
       -o-object-fit: cover;
          object-fit: cover; }
-  .goal__main-block-title-wrapper {
-    display: flex; } }
+    .goal__item-image-container > svg {
+      width: 40px;
+      height: 40px; }
+  .two-horizontal-circle {
+    width: 96px;
+    height: 96px;
+    transform: translateY(-20px); }
+  > svg {
+    display: none; } }
+
+.goal__main-block-title-wrapper {
+  display: flex; }
 
 .it-header,
 .listing-header {
@@ -5006,9 +5016,6 @@
     line-height: 20px;
     margin-bottom: 24px; }
   .profession__menu {
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
     justify-content: flex-start; } }
 
 @media (max-width: 991px) {

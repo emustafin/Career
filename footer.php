@@ -382,7 +382,7 @@
           <!-- //Vacancy Form-block -->
 
           <!-- Vacancy Positions-block -->
-          <div class="vacancy__positions">
+          <!-- <div class="vacancy__positions">
             <p class="vacancy__positions-title">Похожие вакансии</p>
 
             <div class="vacancy__positions-wrapper">
@@ -477,6 +477,7 @@
               </div>
             </div>
           </div>
+           -->
         </div>
         <!-- //Vacancy Positions-block -->
 

@@ -577,9 +577,24 @@
       width: 100%;
       object-fit: cover;
     }
+
+    & > svg {
+      width: 40px;
+      height: 40px;
+    }
   }
 
-  .goal__main-block-title-wrapper {
-    display: flex;
+  .two-horizontal-circle {
+    width: 96px;
+    height: 96px;
+    transform: translateY(-20px);
   }
+
+  & > svg {
+    display: none;
+  }
+}
+
+.goal__main-block-title-wrapper {
+  display: flex;
 }
