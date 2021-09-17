@@ -13,7 +13,7 @@
   line-height: 24px;
   color: $mainColor;
   background: transparent;
-  overflow: auto;
+  // overflow: auto;
 }
 
 .flyout__active {
@@ -29,7 +29,7 @@
 .vacancy {
   width: 67%;
   background: #f3f3f3;
-  height: max-content;
+  overflow: auto;
 }
 
 // Styles for Flyout-header
