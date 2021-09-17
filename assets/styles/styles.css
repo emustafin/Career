@@ -4544,7 +4544,8 @@
 .figma,
 .grafana,
 .elk,
-.prometheus {
+.prometheus,
+.swagger {
   margin-bottom: 24px;
   margin-right: 10px;
   padding-left: 32px;
@@ -4573,7 +4574,8 @@
   .figma::before,
   .grafana::before,
   .elk::before,
-  .prometheus::before {
+  .prometheus::before,
+  .swagger::before {
     content: '';
     position: absolute;
     left: 0;

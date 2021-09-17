@@ -93,7 +93,8 @@
 .figma,
 .grafana,
 .elk,
-.prometheus {
+.prometheus,
+.swagger {
   margin-bottom: 24px;
   margin-right: 10px;
   padding-left: 32px;
@@ -199,6 +200,10 @@
 
 .prometheus::before {
   background: url('../images/management/prometheus.svg') no-repeat;
+}
+
+.swagger::before {
+  background: url('../images/management/swager.svg') no-repeat;
 }
 
 .profession__side-bar-tools {
