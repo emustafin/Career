@@ -16,9 +16,6 @@ export class Form {
     this.input2 = this.el.querySelector('.form__value2');
 
     this.init();
-    this.setHeightFormSideBar();
-    this.resizeFormPage();
-    this.setHeightFormPage();
   }
 
   init() {
@@ -27,7 +24,10 @@ export class Form {
 
   closeForm() {
     this.sideBar.style.background = 'transparent';
-    document.body.style.overflow = 'visible';
+
+    setTimeout(() => {
+      document.body.style.overflow = 'visible';
+    }, 270);
 
     setTimeout(() => {
       this.el.classList.remove('form-active');
@@ -74,24 +74,6 @@ export class Form {
       checkIcon.classList.remove('form__dropdown-item-checked-active');
       currentDropdownItem.closest('.form__dropdown-list').classList.add('hide');
     }, 50);
-  }
-
-  setHeightFormSideBar() {
-    setTimeout(() => {
-      this.sideBar.style.height = this.mainContentBar.clientHeight + 'px';
-    }, 100);
-  }
-
-  setHeightFormPage() {
-    if (this.mainContentBar.clientHeight > 1000) {
-      this.mainContentBar.style.height = 'max-content';
-    }
-  }
-
-  resizeFormPage() {
-    window.addEventListener('resize', () => {
-      this.setHeightFormSideBar();
-    });
   }
 }
 

@@ -23,14 +23,13 @@
   width: 34%;
   background: transparent;
   transition: 0.3s;
-
-  background: rgba(0, 0, 0, 0.8);
 }
 
 .form__content {
   width: 70%;
   background: $bodyBackgraund;
-  // height: max-content;
+  overflow: auto;
+  padding-bottom: 20px;
 }
 
 .form__container {
@@ -375,10 +374,9 @@
   }
 }
 
-
-.form__file-uploader .wpcf7-form-control-wrap.upload-file-803{
+.form__file-uploader .wpcf7-form-control-wrap.upload-file-803 {
   max-width: 500px;
 }
-.cd-upload-btn{
+.cd-upload-btn {
   color: #000;
 }
