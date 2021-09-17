@@ -96,9 +96,9 @@ $reviews = new WP_Query( $args );
                                     </p>
                                 </div>
 
-                                <p class="upgrade__main-text">
+                                <div class="upgrade__main-text">
                                 <?php the_content(); ?>
-                                </p>
+                                </div>
 
                                 <div class="upgrade__way-wrapper">
 
