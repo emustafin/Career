@@ -55,6 +55,12 @@ export class VacancyDirectLink {
       }
     });
   }
+
+  copyLink() {
+    const link = document.URL;
+
+    return link;
+  }
 }
 
 function vacancyClickHandler(event) {
@@ -71,5 +77,9 @@ function vacancyClickHandler(event) {
 
   if (event.target.classList.contains('vacancy__news-btn-next')) {
     this.newsSlider.slideNext();
+  }
+
+  if (event.target.classList.contains('direct-link__header-head-copy')) {
+    this.copyLink();
   }
 }
