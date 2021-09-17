@@ -71,6 +71,10 @@
   width: 66.66%;
 }
 
+.goal__main-block-mobile {
+  display: none;
+}
+
 .goal__main-block-title-wrapper {
   margin-bottom: 32px;
 }
@@ -545,6 +549,86 @@
     width: 350%;
   }
 
+  .goal__main-block {
+    display: none;
+  }
+
+  .goal__main-block-mobile {
+    display: block;
+  }
+
+  .two-horizontal-circle__circle > circle {
+    transform: scale(0.7, 0.7);
+  }
+
+  .two-horizontal-circle__circle:nth-child(2) {
+    transform: translateX(-10px);
+  }
+
+  .two-horizontal-circle__circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .two-horizontal-circle {
+    height: 40px;
+    width: 96px;
+    margin-top: auto;
+  }
+
+  .three-circle-big > circle {
+    transform: scale(0.8, 0.8);
+  }
+
+  .three-circle > svg.three-circle-big:nth-child(1) {
+    bottom: -43px;
+    left: 0px;
+  }
+
+  .three-circle > svg.three-circle-big:nth-child(2) {
+    position: absolute;
+    left: 7px;
+  }
+
+  .goal__item:hover .two-horizontal-circle__circle:nth-child(2) {
+    transform: translate(0, 0);
+  }
+  .three-circle > svg.three-circle-big:nth-child(3) {
+    top: -26px;
+    left: 20px;
+  }
+
+  .goal__item:hover svg.three-circle-big:nth-child(3) {
+    transition: all 1s;
+    transform: translate(10px, -10px);
+  }
+
+  .circle-in-circle > svg:nth-child(2) > circle {
+    transform: scale(0.9, 0.9);
+  }
+
+  .circle-in-circle {
+    top: -35px;
+    left: 0;
+  }
+
+  .circle-in-circle svg:nth-child(1) > circle {
+    transform: scale(0.8, 0.8);
+  }
+
+  .circle-in-circle svg:nth-child(1) {
+    width: 40px;
+    height: 40px;
+  }
+
+  .goal__item .circle-in-circle__area,
+  .goal__item:hover .circle-in-circle__area {
+    width: 73px;
+    height: 73px;
+
+    // background: rgba(0, 0, 0, 0.5);
+  }
+
   .goal__main-block-title-wrapper {
     margin-bottom: 24px;
   }
@@ -555,9 +639,12 @@
   }
 
   .goal__item {
-    width: 25%;
+    // width: 25%;
+    width: auto;
     padding-bottom: 8px;
     min-height: 276px;
+    display: flex;
+    flex-direction: column;
 
     & > p:nth-child(3) {
       margin-bottom: 0;
@@ -584,17 +671,7 @@
     }
   }
 
-  .two-horizontal-circle {
-    width: 96px;
-    height: 96px;
-    transform: translateY(-20px);
+  .goal__main-block-title-wrapper {
+    display: flex;
   }
-
-  & > svg {
-    display: none;
-  }
-}
-
-.goal__main-block-title-wrapper {
-  display: flex;
 }

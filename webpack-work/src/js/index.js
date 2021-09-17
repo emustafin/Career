@@ -12,6 +12,7 @@ import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
 import { Form } from './components/itHubPage/form';
 import { RunningLine } from './components/itHubPage/runningLine';
 import { VacancyDirectLink } from './components/itHubPage/vacancyDirectLink';
+import { Goals } from './components/itHubPage/goals';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -38,6 +39,7 @@ new Form(form);
 new RunningLine(runningLine);
 new Listing(listingPage);
 new VacancyDirectLink(directLink);
+new Goals(goalBlock);
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
 
