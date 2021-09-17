@@ -22,9 +22,11 @@ export class Vacancy {
 
   openFlyout() {
     this.flyout.classList.add('flyout__active');
-    document.body.style.overflow = 'hidden';
-    this.setHeightFlyoutSideBar();
-    this.flyout.scrollTop = 0;
+    this.flyOutContentBar.scrollTop = 0;
+
+    setTimeout(() => {
+      document.body.style.overflow = 'hidden';
+    }, 200);
 
     setTimeout(() => {
       this.flyoutSideBar.style.background = 'rgba(0, 0, 0, 0.8)';
@@ -58,7 +60,10 @@ export class Vacancy {
   closeFlyout(event) {
     event.preventDefault();
     this.flyoutSideBar.style.background = 'transparent';
-    document.body.style.overflow = 'visible';
+
+    setTimeout(() => {
+      document.body.style.overflow = 'visible';
+    }, 200);
 
     setTimeout(() => {
       this.flyout.classList.remove('flyout__active');
@@ -69,9 +74,9 @@ export class Vacancy {
     const topOffset = block.offsetTop - 16;
 
     let interval = setInterval(() => {
-      this.flyout.scrollTop += 10;
+      this.flyOutContentBar.scrollTop += 10;
 
-      if (this.flyout.scrollTop >= topOffset) {
+      if (this.flyOutContentBar.scrollTop >= topOffset) {
         clearInterval(interval);
       }
     }, 1);
@@ -102,17 +107,8 @@ export class Vacancy {
     }
   }
 
-  setHeightFlyoutSideBar() {
-    this.flyoutSideBar.style.height = this.flyOutContentBar.clientHeight + 'px';
-    setTimeout(() => {
-      this.flyoutSideBar.style.background = 'rgba(0, 0, 0, 0.8)';
-    }, 300);
-  }
-
   resizeFlyout() {
     window.addEventListener('resize', () => {
-      this.setHeightFlyoutSideBar();
-
       if (this.flyout.clientWidth >= 671) {
         this.newsSliderInit();
       }

@@ -80,6 +80,9 @@ function openApplicationForm() {
 
   setTimeout(() => {
     document.body.style.overflow = 'hidden';
+  }, 200);
+
+  setTimeout(() => {
     form.firstElementChild.style.background = 'rgba(0, 0, 0, 0.8)';
   }, 300);
 }

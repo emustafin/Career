@@ -1238,8 +1238,7 @@
   font-size: 18px;
   line-height: 24px;
   color: #000000;
-  background: transparent;
-  overflow: auto; }
+  background: transparent; }
 
 .flyout__active {
   transform: translateX(0); }
@@ -1252,9 +1251,7 @@
 .vacancy {
   width: 67%;
   background: #f3f3f3;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content; }
+  overflow: auto; }
 
 .vacancy__header {
   padding-top: 20px; }
@@ -5601,12 +5598,13 @@
 .form__side-bar {
   width: 34%;
   background: transparent;
-  transition: 0.3s;
-  background: rgba(0, 0, 0, 0.8); }
+  transition: 0.3s; }
 
 .form__content {
   width: 70%;
-  background: #f3f3f3; }
+  background: #f3f3f3;
+  overflow: auto;
+  padding-bottom: 20px; }
 
 .form__container {
   padding: 0 16px; }
