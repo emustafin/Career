@@ -5006,9 +5006,6 @@
     line-height: 20px;
     margin-bottom: 24px; }
   .profession__menu {
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
     justify-content: flex-start; } }
 
 @media (max-width: 991px) {
