@@ -1,14 +1,13 @@
 export class Goals {
   constructor(el) {
     this.el = el;
+
+    if (this.el === null || this.el === undefined) return;
+
     this.slider;
     this.slidesRow = this.el.querySelector('.goal__wrapper-mobile');
     this.currentSlide = this.el.querySelector('.goal__current-slide');
     this.slidesValue = this.el.querySelector('.goal__slide-value');
-
-    console.log(this.slidesRow);
-
-    if (this.el === null || this.el === undefined) return;
 
     this.init();
     this.sliderInit();
