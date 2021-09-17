@@ -2272,7 +2272,6 @@
 @media (max-width: 1700px) {
   .footer {
     padding-top: 40px;
-    padding-bottom: 0;
     font-size: 16px;
     line-height: 20px; }
   .container {
@@ -4654,6 +4653,9 @@
 
 .prometheus::before {
   background: url("../images/management/prometheus.svg") no-repeat; }
+
+.swagger::before {
+  background: url("../images/management/swager.svg") no-repeat; }
 
 .profession__side-bar-tools {
   width: 100%;
