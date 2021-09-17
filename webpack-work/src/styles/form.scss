@@ -100,11 +100,11 @@
   width: 100%;
 }
 
-.form__input-checkbox {
+.form__input-checkbox input{
   display: none;
 }
 
-.form__checkbox {
+.wpcf7-list-item-label {
   display: inline-block;
   position: relative;
   margin-right: 2px;
@@ -126,8 +126,10 @@
     opacity: 0;
   }
 }
-
-.form__input-checkbox:checked ~ .form__checkbox::before {
+.form__input-checkbox span{
+  margin-left: 0;
+}
+.form__input-checkbox input:checked ~ .wpcf7-list-item-label::before {
   opacity: 1;
 }
 
