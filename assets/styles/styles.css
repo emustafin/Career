@@ -4524,9 +4524,27 @@
 .jira,
 .confluence,
 .google-docs,
-.gitlab,
+.sap,
 .slack,
-.swagger {
+.miro,
+.gradle,
+.jenkins,
+.docker,
+.sonar-qube,
+.spring,
+.gitlab,
+.PostgreSQL,
+.HP-QualityCenter,
+.postman,
+.ibm,
+.ansible,
+.kubernetes,
+.clickhouse,
+.terraform,
+.figma,
+.grafana,
+.elk,
+.prometheus {
   margin-bottom: 24px;
   margin-right: 10px;
   padding-left: 32px;
@@ -4535,9 +4553,27 @@
   .jira::before,
   .confluence::before,
   .google-docs::before,
-  .gitlab::before,
+  .sap::before,
   .slack::before,
-  .swagger::before {
+  .miro::before,
+  .gradle::before,
+  .jenkins::before,
+  .docker::before,
+  .sonar-qube::before,
+  .spring::before,
+  .gitlab::before,
+  .PostgreSQL::before,
+  .HP-QualityCenter::before,
+  .postman::before,
+  .ibm::before,
+  .ansible::before,
+  .kubernetes::before,
+  .clickhouse::before,
+  .terraform::before,
+  .figma::before,
+  .grafana::before,
+  .elk::before,
+  .prometheus::before {
     content: '';
     position: absolute;
     left: 0;
@@ -4554,14 +4590,68 @@
 .google-docs::before {
   background: url("../images/management/gdocs.svg") no-repeat; }
 
-.gitlab::before {
-  background: url("../images/management/gitlab.svg") no-repeat; }
+.sap::before {
+  background: url("../images/management/sap.svg") no-repeat; }
 
 .slack::before {
   background: url("../images/management/slack.svg") no-repeat; }
 
-.swagger::before {
-  background: url("../images/management/swagger.svg") no-repeat; }
+.miro::before {
+  background: url("../images/management/miro.svg") no-repeat; }
+
+.gradle::before {
+  background: url("../images/management/gradle.svg") no-repeat; }
+
+.jenkins::before {
+  background: url("../images/management/jenkins.svg") no-repeat; }
+
+.docker::before {
+  background: url("../images/management/docker.svg") no-repeat; }
+
+.sonar-qube::before {
+  background: url("../images/management/sonarqube.svg") no-repeat; }
+
+.spring::before {
+  background: url("../images/management/spring.svg") no-repeat; }
+
+.gitlab::before {
+  background: url("../images/management/gitlab.svg") no-repeat; }
+
+.PostgreSQL::before {
+  background: url("../images/management/postgres.svg") no-repeat; }
+
+.HP-QualityCenter::before {
+  background: url("../images/management/hp.svg") no-repeat; }
+
+.postman::before {
+  background: url("../images/management/postman.svg") no-repeat; }
+
+.ibm::before {
+  background: url("../images/management/ibm.svg") no-repeat; }
+
+.ansible::before {
+  background: url("../images/management/ansible.svg") no-repeat; }
+
+.kubernetes::before {
+  background: url("../images/management/kubernetes.svg") no-repeat; }
+
+.clickhouse::before {
+  background: url("../images/management/clickhouse.svg") no-repeat; }
+
+.terraform::before {
+  background: url("../images/management/terraform.svg") no-repeat; }
+
+.figma::before {
+  background: url("../images/management/figma.svg") no-repeat; }
+
+.grafana::before {
+  background: url("../images/management/grafana.svg") no-repeat; }
+
+.elk::before {
+  background: url("../images/management/elk.svg") no-repeat; }
+
+.prometheus::before {
+  background: url("../images/management/prometheus.svg") no-repeat; }
 
 .profession__side-bar-tools {
   width: 100%;
@@ -4982,44 +5072,6 @@
     max-width: 100%; }
   .profession__side-bar-image-tools-wrapper {
     margin-bottom: 32px; }
-  .profession__technology-item,
-  .jira,
-  .confluence,
-  .google-docs,
-  .gitlab,
-  .slack,
-  .swagger {
-    margin-bottom: 8px;
-    margin-right: 16px;
-    padding-left: 24px;
-    font-size: 14px;
-    line-height: 16px;
-    position: relative; }
-    .profession__technology-item::before,
-    .jira::before,
-    .confluence::before,
-    .google-docs::before,
-    .gitlab::before,
-    .slack::before,
-    .swagger::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 16px;
-      height: 16px; }
-  .jira::before {
-    background: url("../images/management/jira-mob.svg") no-repeat; }
-  .confluence::before {
-    background: url("../images/management/confluence-mob.svg") no-repeat; }
-  .google-docs::before {
-    background: url("../images/management/gdocs-mob.svg") no-repeat; }
-  .gitlab::before {
-    background: url("../images/management/gitlab-mob.svg") no-repeat; }
-  .slack::before {
-    background: url("../images/management/slack-mob.svg") no-repeat; }
-  .swagger::before {
-    background: url("../images/management/swagger-mob.svg") no-repeat; }
   .profession__filter-wrapper {
     flex-direction: column; }
   .profession__filter-item {
@@ -5539,10 +5591,7 @@
 
 .form__content {
   width: 70%;
-  background: #f3f3f3;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content; }
+  background: #f3f3f3; }
 
 .form__container {
   padding: 0 16px; }
