@@ -8,10 +8,13 @@ export class Goals {
     this.slidesRow = this.el.querySelector('.goal__wrapper-mobile');
     this.currentSlide = this.el.querySelector('.goal__current-slide');
     this.slidesValue = this.el.querySelector('.goal__slide-value');
+    this.activeSlideIndex;
+
+    this.slider = new Swiper('.goal-slider', {
+      slidesPerView: 1.23,
+    });
 
     this.init();
-    this.sliderInit();
-    this.goalBlockResizing();
     this.setCurrentSlideNumber();
   }
 
@@ -19,25 +22,10 @@ export class Goals {
     this.el.addEventListener('click', goalClickHendler.bind(this));
   }
 
-  sliderInit() {
-    if (window.innerWidth <= 720) {
-      this.slider = new Swiper('.goal-slider', {
-        slidesPerView: 1.23,
-      });
-
-      this.slidesValue.textContent = this.slider.slides.length;
-    }
-  }
-
-  goalBlockResizing() {
-    window.addEventListener('resize', () => {
-      this.sliderInit();
-    });
-  }
-
   setCurrentSlideNumber() {
     this.slidesRow.addEventListener('transitionend', () => {
-      this.currentSlide.textContent = this.slider.activeIndex + 1;
+      this.activeSlideIndex = this.slider.activeIndex;
+      this.currentSlide.textContent = this.activeSlideIndex + 1;
     });
   }
 }
