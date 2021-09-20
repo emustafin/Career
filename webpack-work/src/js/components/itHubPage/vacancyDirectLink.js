@@ -77,6 +77,7 @@ function vacancyClickHandler(event) {
   }
 
   if (event.target.classList.contains('direct-link__header-head-copy')) {
+    event.preventDefault();
     this.copyLink();
   }
 }
