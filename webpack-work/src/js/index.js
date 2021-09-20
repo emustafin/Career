@@ -40,7 +40,7 @@ new CareerUpgrade(upgradeSection);
 new VideoPlayer(videoPlayerBlock);
 new Form(form);
 new RunningLine(runningLine);
-new Listing(listingPage);
+const vacancyListingComponent = new Listing(listingPage);
 new VacancyDirectLink(directLink);
 new Goals(goalBlock);
 const headerComponent = new Header(header);
@@ -58,8 +58,10 @@ const triger = document.getElementById('my-sticky-element');
 new SvgToggleAnimate(triger, togls);
 // new ScrollTo('.create-future__button', '.goal', false);
 
+// Слушатели событий, установленные на Body
 document.body.addEventListener('click', (event) => {
   headerComponent.closeSelect();
+  vacancyListingComponent.closeHeaderSelect();
 
   if (
     event.target.classList.contains('it-header__button') ||

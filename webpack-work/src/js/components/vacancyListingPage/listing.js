@@ -4,6 +4,17 @@ export class Listing {
 
     if (this.el == null || this.el == undefined) return;
 
+    this.headerSelect = this.el.querySelector('.it-header__directions');
+    this.headerDropdowList = this.el.querySelector(
+      '.it-header__directions-dropdown-list'
+    );
+    this.headerDropdownItems = this.el.querySelectorAll(
+      '.it-header__directions-dropdown-item'
+    );
+    this.headerDirectionsValue = this.el.querySelector(
+      '.it-header__directions-value'
+    );
+
     this.dropdown = this.el.querySelector('.listing-top__dropdown-list');
     this.vacancyCounter = this.el.querySelector('.listing-top__counter');
     this.dropdownContainer = this.el.querySelector(
@@ -16,12 +27,53 @@ export class Listing {
     this.currentDirection = this.el.querySelector('.listing-top__where');
     this.vacancyValue = '';
 
+    // Слушатели событий
+    this.headerSelect.addEventListener(
+      'click',
+      this.openOrCloseHeaderSelect.bind(this)
+    );
+    this.headerDropdownItems.forEach((item) =>
+      item.addEventListener('click', this.closeHeaderSelect.bind(this))
+    );
+    this.headerDirectionsValue.textContent = `(${this.headerDropdownItems.length})`;
+
     this.init();
     this.selectDirection();
   }
 
   init() {
     this.el.addEventListener('click', listingClickHandler.bind(this));
+  }
+
+  openHeaderSelect() {
+    if (this.headerSelect.dataset.name === 'closed') {
+      this.headerDropdowList.classList.add(
+        'it-header__directions-dropdown-list-active'
+      );
+
+      setTimeout(() => {
+        this.headerSelect.dataset.name = 'opened';
+      }, 50);
+    }
+  }
+
+  closeHeaderSelect() {
+    if (this.headerSelect === null || this.headerSelect === undefined) return;
+
+    if (this.headerSelect.dataset.name === 'opened') {
+      this.headerDropdowList.classList.remove(
+        'it-header__directions-dropdown-list-active'
+      );
+
+      setTimeout(() => {
+        this.headerSelect.dataset.name = 'closed';
+      }, 50);
+    }
+  }
+
+  openOrCloseHeaderSelect() {
+    this.openHeaderSelect();
+    this.closeHeaderSelect();
   }
 
   openDropdown() {

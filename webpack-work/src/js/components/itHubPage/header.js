@@ -15,6 +15,7 @@ export class Header {
       '.it-header__directions-value'
     );
 
+    // Слушатели событий
     this.headerSelect.addEventListener(
       'click',
       this.openOrCloseSelect.bind(this)
@@ -38,6 +39,8 @@ export class Header {
   }
 
   closeSelect() {
+    if (this.headerSelect === null || this.headerSelect === undefined) return;
+
     if (this.headerSelect.dataset.name === 'opened') {
       this.dropdowList.classList.remove(
         'it-header__directions-dropdown-list-active'

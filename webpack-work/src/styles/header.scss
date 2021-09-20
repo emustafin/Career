@@ -5,6 +5,7 @@
   position: relative;
   overflow: hidden;
   margin-bottom: 96px;
+  margin-top: 80px;
 }
 
 .listing-header {
@@ -16,10 +17,15 @@
   justify-content: flex-start;
   position: relative;
   padding: 16px 0;
+  position: fixed;
+  background: $bodyBackgraund;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
 .it-header__item {
-  // width: 33.33%;
   width: 32%;
   font-size: 18px;
   line-height: 24px;
@@ -60,6 +66,7 @@
   align-items: center;
   position: relative;
   width: max-content;
+  cursor: pointer;
 }
 
 .it-header__directions-dropdown-wrapper {
@@ -69,6 +76,8 @@
   width: 200%;
   overflow: hidden;
   z-index: 2;
+
+  pointer-events: none;
 }
 
 .it-header__directions-dropdown-list,
@@ -92,6 +101,8 @@
   margin: 5px 0;
   padding: 0 8px;
   transition: 0.3s;
+
+  pointer-events: visible;
 
   &:hover {
     background: rgba(0, 0, 0, 0.1);
@@ -145,8 +156,10 @@
 
 // Styles for 1440px
 @media (max-width: 1440px) {
-  .it-header {
+  .it-header,
+  .listing-header {
     margin-bottom: 72px;
+    margin-top: 72px;
   }
 
   .it-header__item {
@@ -161,8 +174,10 @@
     display: none;
   }
 
-  .it-header {
+  .it-header,
+  .listing-header {
     margin-bottom: 64px;
+    margin-top: 52px;
   }
 }
 
@@ -191,8 +206,14 @@
 
 // Styles for 320px
 @media (max-width: 479px) {
-  .it-header {
+  .it-header,
+  .listing-header {
     margin-bottom: 32px;
+    margin-top: 0;
+  }
+
+  .it-header__wrapper {
+    position: static;
   }
 
   .it-header__item {
