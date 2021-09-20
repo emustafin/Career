@@ -54,10 +54,9 @@ export class VacancyDirectLink {
     });
   }
 
-  copyLink() {
+  async copyLink() {
     const link = document.URL;
-
-    return link;
+    await navigator.clipboard.writeText(link);
   }
 }
 
