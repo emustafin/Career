@@ -247,7 +247,7 @@ class Vacancies {
                     $actually_vacancies_by->the_post();
                     $vacancy_item_id = get_the_ID();
                     ob_start();
-                    include(THEME_DIR . '/template-parts/actually_vacancy_item.php');
+                    include(THEME_DIR . '/template-parts/loop-parts/actually_vacancy_item.php');
                     $html .= ob_get_clean();
                 }
             }
