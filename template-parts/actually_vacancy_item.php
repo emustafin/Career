@@ -127,6 +127,6 @@ if( get_field( 'map_full_adress', $vacancy_item_id ) ){
             <?php
         }
         ?>
-        <a href="#" class="profession__location-map">На карте</a>
+        <!-- <a href="#" class="profession__location-map">На карте</a> -->
     </div>
 </div>
