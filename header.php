@@ -160,6 +160,7 @@ switch ($post_slug) {
               развиваем культуру стартапа.
             </p>
           </div>
+          <div class="create-future__gradient"></div>
         </div>
       <?php } ?>
 
