@@ -4,6 +4,8 @@ $(document).ready(function() {
     $('#clear_all_filters').on( 'click', function(e){
 
         e.preventDefault();
+
+        $('#actually_vacancies').html( '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>' );
         
         var data = {
             action: 'get_profession__menu_items',
@@ -37,6 +39,8 @@ $(document).ready(function() {
         $('.profession__menu-item').removeClass('profession__menu-item-active');
         current_item.addClass('profession__menu-item-active');
 
+        filtering();
+
         $('h2.profession__title').html( current_item.html() );
         var vaccat_info = current_item.attr('data-vaccat_info');
         vaccat_info = jQuery.parseJSON( vaccat_info );
@@ -49,7 +53,6 @@ $(document).ready(function() {
         $('#profession__count_mob').html( vaccat_info.profession__count );
         $('#profession__img').attr( 'src', vaccat_info.profession__img );
 
-        filtering();
 
     });
 
@@ -78,6 +81,8 @@ $(document).ready(function() {
     });
 
     function filtering(){
+
+        $('#actually_vacancies').html( '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>' );
 
         var town_slug = $('#town').val();
         var level_slug = $('#level').val();
