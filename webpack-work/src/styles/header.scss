@@ -2,14 +2,12 @@
 
 .it-header,
 .listing-header {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 96px;
-  margin-top: 80px;
-}
-
-.listing-header {
-  margin-bottom: 56px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: $bodyBackgraund;
 }
 
 .it-header__wrapper {
@@ -17,12 +15,6 @@
   justify-content: flex-start;
   position: relative;
   padding: 16px 0;
-  position: fixed;
-  background: $bodyBackgraund;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
 }
 
 .it-header__item {
@@ -156,12 +148,6 @@
 
 // Styles for 1440px
 @media (max-width: 1440px) {
-  .it-header,
-  .listing-header {
-    margin-bottom: 72px;
-    margin-top: 72px;
-  }
-
   .it-header__item {
     font-size: 16px;
     line-height: 20px;
@@ -172,12 +158,6 @@
 @media (max-width: 991px) {
   .it-header__contact-us {
     display: none;
-  }
-
-  .it-header,
-  .listing-header {
-    margin-bottom: 64px;
-    margin-top: 52px;
   }
 }
 
@@ -208,11 +188,6 @@
 @media (max-width: 479px) {
   .it-header,
   .listing-header {
-    margin-bottom: 32px;
-    margin-top: 0;
-  }
-
-  .it-header__wrapper {
     position: static;
   }
 

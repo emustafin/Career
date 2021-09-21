@@ -174,6 +174,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               развиваем культуру стартапа.
             </p>
           </div>
+          <div class="create-future__gradient"></div>
         </div>
       <?php } ?>
 
