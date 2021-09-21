@@ -268,7 +268,7 @@
                             while ( $actually_vacancies->have_posts() ) {
                                 $actually_vacancies->the_post();
                                 $vacancy_item_id = get_the_ID();
-                                include(THEME_DIR . '/template-parts/actually_vacancy_item.php');
+                                include(THEME_DIR . '/template-parts/loop-parts/actually_vacancy_item.php');
                             }
                         } else {
                             echo 'Вакансий не найдено';
