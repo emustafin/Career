@@ -1,6 +1,6 @@
 // Экспорт классов
 import { Vacancy } from './components/itHubPage/vacancy';
-import { Listing } from './components/vacancyListingPage/listing';
+import { Listing } from './components/itHubPage/vacancyListingPage/listing';
 import { Advantages } from './components/itHubPage/advantages';
 import { CareerUpgrade } from './components/itHubPage/upgrade';
 import { VideoPlayer } from './components/itHubPage/videoPlayer';
@@ -12,9 +12,12 @@ import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
 // import { ScrollTo } from './components/itHubPage/scroll';
 import { Form } from './components/itHubPage/form';
 import { RunningLine } from './components/itHubPage/runningLine';
-import { VacancyDirectLink } from './components/itHubPage/vacancyDirectLink';
+// import { VacancyDirectLink } from './components/itHubPage/vacancyDirectLink';
 import { Goals } from './components/itHubPage/goals';
 import { Header } from './components/itHubPage/header';
+import { VacancyDirecLinkSideBar } from './components/itHubPage/vacancyDirectLinkPage/directLinkSideBar';
+import { VacancyDirecLinkMainContent } from './components/itHubPage/vacancyDirectLinkPage/vacancyDirectLinkMainContent';
+import { VacancyDirecLinkNewsBlock } from './components/itHubPage/vacancyDirectLinkPage/vacancyDirectLinkNews';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -22,8 +25,9 @@ require.context('../fonts', true, /\.(ttf|woff|woff2)$/);
 
 // Глобальные переменные
 const profession = document.querySelector('.profession');
-const listingPage = document.querySelector('.listing');
+
 const ourAdvantages = document.querySelector('.why-are-we');
+const listingPage = document.querySelector('.listing');
 const upgradeSection = document.querySelector('.upgrade');
 const videoPlayerBlock = document.querySelector('.find');
 const form = document.querySelector('.form');
@@ -31,6 +35,15 @@ const directLink = document.querySelector('.direct-link');
 const goalBlock = document.querySelector('.goal');
 const runningLine = document.querySelector('.find__title');
 const header = document.querySelector('.it-header');
+const vacancyDirectLinkSideBar = document.querySelector(
+  '.direct-link__side-bar'
+);
+const vacancyDirectLinkMainContent = document.querySelector(
+  '.direct-link__content'
+);
+const vacancyDirectLinkNews = document.querySelector(
+  '.vacancy__news-block-desktop'
+);
 
 // const tabContainer = document.querySelector('.tab-content');
 
@@ -41,9 +54,12 @@ new VideoPlayer(videoPlayerBlock);
 new Form(form);
 new RunningLine(runningLine);
 const vacancyListingComponent = new Listing(listingPage);
-new VacancyDirectLink(directLink);
+// new VacancyDirectLink(directLink);
 new Goals(goalBlock);
 const headerComponent = new Header(header);
+new VacancyDirecLinkSideBar(vacancyDirectLinkSideBar);
+new VacancyDirecLinkMainContent(vacancyDirectLinkMainContent);
+new VacancyDirecLinkNewsBlock(vacancyDirectLinkNews);
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
 
