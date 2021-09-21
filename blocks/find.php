@@ -17,7 +17,7 @@
         <video class="find__video" data-name="pause">
         <source
             class="find__video-src"
-            src="/wp-content/uploads/2021/09/3-rolik.mp4"
+            src=""
 
         />
         </video>
@@ -137,12 +137,15 @@
 
     <div class="find__slides-mobile-container swiper mobile-slider">
         <div class="find__video-slides-row-mobile swiper-wrapper">
-          <div class="find__video-slide-mobile swiper-slide">
+          <div 
+            class="find__video-slide-mobile swiper-slide" 
+            data-video="/wp-content/uploads/2021/09/3-rolik.mp4"
+          >
             <div class="find__video-slide-mobile-video">
               <video class="find__video-player-mobile hide" data-name="play">
                 <source
                   class="find__video-player-mobile-location"
-                  src="/wp-content/uploads/2021/09/3-rolik.mp4"
+                  src=""
                 />
               </video>
 
@@ -164,12 +167,15 @@
             </a>
           </div>
 
-          <div class="find__video-slide-mobile swiper-slide">
+          <div 
+            class="find__video-slide-mobile swiper-slide" 
+            data-video="/wp-content/uploads/2021/09/6-rolik.mp4"
+          >
             <div class="find__video-slide-mobile-video">
               <video class="find__video-player-mobile hide" data-name="play">
                 <source
                   class="find__video-player-mobile-location"
-                  src="/wp-content/uploads/2021/09/6-rolik.mp4"
+                  src=""
                 />
               </video>
 
@@ -191,12 +197,15 @@
             </a>
           </div>
 
-          <div class="find__video-slide-mobile swiper-slide">
+          <div 
+            class="find__video-slide-mobile swiper-slide"
+            data-video="/wp-content/uploads/2021/09/5-rolik.mp4"
+          >
             <div class="find__video-slide-mobile-video">
               <video class="find__video-player-mobile hide" data-name="play">
                 <source
                   class="find__video-player-mobile-location"
-                  src="/wp-content/uploads/2021/09/5-rolik.mp4"
+                  src=""
                 />
               </video>
 
@@ -218,12 +227,15 @@
             </a>
           </div>
 
-          <div class="find__video-slide-mobile swiper-slide">
+          <div 
+            class="find__video-slide-mobile swiper-slide"
+            data-video="/wp-content/uploads/2021/09/4-rolik.mp4"
+          >
             <div class="find__video-slide-mobile-video">
               <video class="find__video-player-mobile hide" data-name="play">
                 <source
                   class="find__video-player-mobile-location"
-                  src="/wp-content/uploads/2021/09/4-rolik.mp4"
+                  src=""
                 />
               </video>
 
@@ -245,12 +257,15 @@
             </a>
           </div>
 
-          <div class="find__video-slide-mobile swiper-slide">
+          <div 
+            class="find__video-slide-mobile swiper-slide"
+            data-video="/wp-content/uploads/2021/09/2-rolik.mp4"
+          >
             <div class="find__video-slide-mobile-video">
               <video class="find__video-player-mobile hide" data-name="play">
                 <source
                   class="find__video-player-mobile-location"
-                  src="/wp-content/uploads/2021/09/2-rolik.mp4"
+                  src=""
                 />
               </video>
 
@@ -272,12 +287,15 @@
             </a>
           </div>
 
-          <div class="find__video-slide-mobile swiper-slide">
+          <div 
+            class="find__video-slide-mobile swiper-slide" 
+            data-video="/wp-content/uploads/2021/09/1-rolik.mp4"
+          >
             <div class="find__video-slide-mobile-video">
               <video class="find__video-player-mobile hide" data-name="play">
                 <source
                   class="find__video-player-mobile-location"
-                  src="/wp-content/uploads/2021/09/1-rolik.mp4"
+                  src=""
                 />
               </video>
 
@@ -299,12 +317,15 @@
             </a>
           </div>
 
-          <div class="find__video-slide-mobile swiper-slide">
+          <div 
+            class="find__video-slide-mobile swiper-slide" 
+            data-video="/wp-content/uploads/2021/09/5-rolik.mp4"
+          >
             <div class="find__video-slide-mobile-video">
               <video class="find__video-player-mobile hide">
                 <source
                   class="find__video-player-mobile-location"
-                  src="/wp-content/uploads/2021/09/5-rolik.mp4"
+                  src=""
                 />
               </video>
 

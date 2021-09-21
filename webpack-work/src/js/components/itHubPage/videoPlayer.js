@@ -89,6 +89,10 @@ export class VideoPlayer {
     this.videoContainer.lastElementChild.style.display = 'none';
     this.video.style.display = 'block';
 
+    const activeVideoItem = this.el.querySelector('.find__video-slide-active');
+    const currentVideo = activeVideoItem.dataset.name;
+    this.video.src = currentVideo;
+
     this.video.play();
   }
 
@@ -231,6 +235,7 @@ export class VideoPlayer {
   stopMobileVideo(video, prevew, progress, button) {
     video.classList.add('hide');
     video.pause();
+    video.removeAttribute('src');
     prevew.style.opacity = 1;
     prevew.style.zIndex = 0;
     progress.style.width = '0';
@@ -253,6 +258,7 @@ export class VideoPlayer {
 
       if (video.currentTime === video.duration) {
         clearInterval(interval);
+        video.removeAttribute('src');
         this.stopMobileVideo(video, prevew, progress, button);
       }
     }, 10);
@@ -268,6 +274,7 @@ export class VideoPlayer {
     const inactiveSlides = videoSlides.filter(
       (slide) => !slide.classList.contains('active-video')
     );
+    const videoClip = activeSlide.dataset.video;
 
     inactiveSlides.forEach((slide) => {
       let video = slide.querySelector('.find__video-player-mobile');
@@ -290,6 +297,10 @@ export class VideoPlayer {
       const mobileProgress = activeSlide.querySelector(
         '.find__mobile-progress'
       );
+
+      if (mobileVideo.src === '') {
+        mobileVideo.src = videoClip;
+      }
 
       if (
         (event.target === mobileButton &&
