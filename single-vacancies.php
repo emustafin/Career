@@ -398,7 +398,7 @@ if( get_field( 'map_full_adress', $post_id ) ){
 
 <!-- Vacancy News-block -->
 <div class="vacancy__news-block-desktop">
-    <div class="vacancy__news swiper newsSlider">
+    <div class="vacancy__news swiper newsSliderDirectLink">
         <div class="vacancy__news-title">
             <div class="vacancy__news-tabs">
             <a href="#" class="vacancy__news-link vacancy__news-link-active">
