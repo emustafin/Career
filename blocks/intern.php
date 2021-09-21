@@ -29,9 +29,9 @@
             <svg width="111" height="111" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.16 55.856c0 29.551 23.936 53.507 53.463 53.507 29.526 0 53.462-23.956 53.462-53.507S85.149 2.349 55.623 2.349C26.097 2.349 2.16 26.305 2.16 55.856zM55.624.976C25.34.977.79 25.547.79 55.857c0 30.309 24.55 54.879 54.833 54.879 30.283 0 54.832-24.57 54.832-54.88 0-30.308-24.549-54.878-54.832-54.878z" fill="#76BC21"/></svg>
           </div>
         </div>
-    <!--    768 px-->
-    <!--    -->
-    <!--    -->
+        <!--    768 px-->
+        <!--    -->
+        <!--    -->
         <div class="svg-toggle-line svg-toggle-line_768">
           <div class="svg-toggle__btn">
             <svg width="115" height="56" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M86.747.58H27.759C12.748.58.579 12.778.579 27.826c0 15.048 12.168 27.246 27.18 27.246h58.988c15.011 0 27.181-12.198 27.181-27.246 0-15.048-12.17-27.246-27.181-27.246zM27.759 0C12.429 0 0 12.458 0 27.826s12.428 27.826 27.759 27.826h58.988c15.331 0 27.759-12.458 27.759-27.826S102.078 0 86.747 0H27.759z" fill="#76BC21"/></svg>
@@ -57,7 +57,7 @@
           </div>
           <svg class="svg-toggle__arrow" width="71" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M69.46 5.321H.76v-.58h68.7L65.325.598l.41-.41 4.83 4.843-4.83 4.843-.41-.41L69.46 5.32z" fill="#76BC21"/></svg>
         </div>
-    <!-- 320-->
+        <!-- 320-->
 
         <div class="svg-toggle-line svg-toggle-line_320">
           <div class="svg-toggle__btn">
@@ -116,30 +116,27 @@
 
           <?php
             if ( $actually_news->have_posts() ) {
+
               $thumbnail_url = get_the_post_thumbnail_url( $actually_news->posts[0]->ID, 'full' );
-              if( false == $thumbnail_url ){
-                $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
-              }
-              if( null != get_field( 'url_from_habr', $actually_news->posts[0]->ID ) ){
-                $url_from_habr0 = get_field( 'url_from_habr', $actually_news->posts[0]->ID );
-              } else{
-                $url_from_habr0 = get_permalink( $actually_news->posts[0]->ID );
-              }
-              ?>
+              if( false == $thumbnail_url ) $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
+
+              $url_from_habr0 = get_permalink( $actually_news->posts[0]->ID );
+              if( null != get_field( 'url_from_habr', $actually_news->posts[0]->ID ) ) 
+                $url_from_habr0 = get_field( 'url_from_habr', $actually_news->posts[0]->ID ); ?>
 
               <div class="intern-no-events__news-block">
 
-                <a href="<?php echo $url_from_habr0; ?>" target="_blank" class="intern-no-events__news-card-main">
+                <a href="<?= $url_from_habr0; ?>" target="_blank" class="intern-no-events__news-card-main">
                   <div class="intern-no-events__card-image-block">
                     <img
                       class="intern-no-events__card-image"
-                      src="<?php echo $thumbnail_url; ?>"
+                      src="<?= $thumbnail_url; ?>"
                       alt="News"
                     />
                   </div>
-                  <h2 class="intern-no-events__title"><?php echo $actually_news->posts[0]->post_title; ?></h2>
+                  <h2 class="intern-no-events__title"><?= $actually_news->posts[0]->post_title; ?></h2>
                   <div class="intern-no-events__date-block">
-                    <span class="intern-no-events__date"><?php echo get_the_date( 'j F Y', $actually_news->posts[0]->ID ); ?></span>
+                    <span class="intern-no-events__date"><?= get_the_date( 'j F Y', $actually_news->posts[0]->ID ); ?></span>
                   </div>
                 </a>
 
@@ -155,17 +152,17 @@
                     $url_from_habr1 = get_permalink( $actually_news->posts[1]->ID );
                   }
                   ?>
-                  <a href="<?php echo $url_from_habr1; ?>" target="_blank" class="intern-no-events__news-card-second">
+                  <a href="<?= $url_from_habr1; ?>" target="_blank" class="intern-no-events__news-card-second">
                     <div class="intern-no-events__card-image-block">
                       <img
                         class="intern-no-events__card-image"
-                        src="<?php echo $thumbnail_url; ?>"
+                        src="<?= $thumbnail_url; ?>"
                         alt="News"
                       />
                     </div>
-                    <h2 class="intern-no-events__title"><?php echo $actually_news->posts[1]->post_title; ?></h2>
+                    <h2 class="intern-no-events__title"><?= $actually_news->posts[1]->post_title; ?></h2>
                     <div class="intern-no-events__date-block">
-                      <span class="intern-no-events__date"><?php echo get_the_date( 'j F Y', $actually_news->posts[1]->ID ); ?></span>
+                      <span class="intern-no-events__date"><?= get_the_date( 'j F Y', $actually_news->posts[1]->ID ); ?></span>
                     </div>
                   </a>
                  <?php
@@ -188,17 +185,17 @@
                     $url_from_habr2 = get_permalink( $actually_news->posts[2]->ID );
                   }
                   ?>
-                  <a href="<?php echo $url_from_habr2; ?>" target="_blank" class="intern-no-events__news-card-main">
+                  <a href="<?= $url_from_habr2; ?>" target="_blank" class="intern-no-events__news-card-main">
                     <div class="intern-no-events__card-image-block">
                       <img
                         class="intern-no-events__card-image"
-                        src="<?php echo $thumbnail_url; ?>"
+                        src="<?= $thumbnail_url; ?>"
                         alt="News"
                       />
                     </div>
-                    <h2 class="intern-no-events__title"><?php echo $actually_news->posts[2]->post_title; ?></h2>
+                    <h2 class="intern-no-events__title"><?= $actually_news->posts[2]->post_title; ?></h2>
                     <div class="intern-no-events__date-block">
-                      <span class="intern-no-events__date"><?php echo get_the_date( 'j F Y', $actually_news->posts[2]->ID ); ?></span>
+                      <span class="intern-no-events__date"><?= get_the_date( 'j F Y', $actually_news->posts[2]->ID ); ?></span>
                     </div>
                   </a>
                   <?php
@@ -217,17 +214,17 @@
                     $url_from_habr3 = get_permalink( $actually_news->posts[3]->ID );
                   }
                   ?>
-                  <a href="<?php echo $url_from_habr3; ?>" target="_blank" class="intern-no-events__news-card-second">
+                  <a href="<?= $url_from_habr3; ?>" target="_blank" class="intern-no-events__news-card-second">
                     <div class="intern-no-events__card-image-block">
                       <img
                         class="intern-no-events__card-image"
-                        src="<?php echo $thumbnail_url; ?>"
+                        src="<?= $thumbnail_url; ?>"
                         alt="News"
                       />
                     </div>
-                    <h2 class="intern-no-events__title"><?php echo $actually_news->posts[3]->post_title; ?></h2>
+                    <h2 class="intern-no-events__title"><?= $actually_news->posts[3]->post_title; ?></h2>
                     <div class="intern-no-events__date-block">
-                      <span class="intern-no-events__date"><?php echo get_the_date( 'j F Y', $actually_news->posts[3]->ID ); ?></span>
+                      <span class="intern-no-events__date"><?= get_the_date( 'j F Y', $actually_news->posts[3]->ID ); ?></span>
                     </div>
                   </a>
                   <?php
