@@ -1,3 +1,4 @@
+// Экспорт классов
 import { Vacancy } from './components/itHubPage/vacancy';
 import { Listing } from './components/vacancyListingPage/listing';
 import { Advantages } from './components/itHubPage/advantages';
@@ -13,12 +14,13 @@ import { Form } from './components/itHubPage/form';
 import { RunningLine } from './components/itHubPage/runningLine';
 import { VacancyDirectLink } from './components/itHubPage/vacancyDirectLink';
 import { Goals } from './components/itHubPage/goals';
+import { Header } from './components/itHubPage/header';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
 require.context('../fonts', true, /\.(ttf|woff|woff2)$/);
 
-const itHubPage = document.querySelector('.it-hub');
+// Глобальные переменные
 const profession = document.querySelector('.profession');
 const listingPage = document.querySelector('.listing');
 const ourAdvantages = document.querySelector('.why-are-we');
@@ -28,6 +30,7 @@ const form = document.querySelector('.form');
 const directLink = document.querySelector('.direct-link');
 const goalBlock = document.querySelector('.goal');
 const runningLine = document.querySelector('.find__title');
+const header = document.querySelector('.it-header');
 
 // const tabContainer = document.querySelector('.tab-content');
 
@@ -37,9 +40,10 @@ new CareerUpgrade(upgradeSection);
 new VideoPlayer(videoPlayerBlock);
 new Form(form);
 new RunningLine(runningLine);
-new Listing(listingPage);
+const vacancyListingComponent = new Listing(listingPage);
 new VacancyDirectLink(directLink);
 new Goals(goalBlock);
+const headerComponent = new Header(header);
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
 
@@ -54,7 +58,11 @@ const triger = document.getElementById('my-sticky-element');
 new SvgToggleAnimate(triger, togls);
 // new ScrollTo('.create-future__button', '.goal', false);
 
+// Слушатели событий, установленные на Body
 document.body.addEventListener('click', (event) => {
+  headerComponent.closeSelect();
+  vacancyListingComponent.closeHeaderSelect();
+
   if (
     event.target.classList.contains('it-header__button') ||
     event.target.classList.contains('intern__header-link')

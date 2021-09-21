@@ -1,12 +1,27 @@
 .direct-link__header {
-  position: relative;
   overflow: hidden;
-  margin-bottom: 96px;
+  padding: 16px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: $bodyBackgraund;
+  z-index: 10;
 }
 
-.direct-link__header {
-  margin-bottom: 56px;
-  padding: 16px 0;
+.direct-link__button {
+  display: block;
+  width: 162px;
+  text-align: center;
+  padding: 3px 0;
+  border: 0.5px solid #e31235;
+  border-radius: 48px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 16px;
+  line-height: 20px;
+  color: $mainColor;
 }
 
 .direct-link__wrapper {
@@ -17,6 +32,7 @@
 
 .direct-link__container {
   padding: 0 16px;
+  margin-top: 132px;
 }
 
 .direct-link__vacancy-description-block-mobile {
@@ -161,6 +177,10 @@
     margin-bottom: 40px;
   }
 
+  .direct-link__container {
+    margin-top: 108px;
+  }
+
   .vacancy__news,
   .direct-link__container,
   .direct-link__header-head-copy {
@@ -201,6 +221,10 @@
   .direct-link__headline-title {
     font-size: 32px;
     line-height: 36px;
+  }
+
+  .direct-link__container {
+    margin-top: 100px;
   }
 
   .direct-link__headline-link {
@@ -280,7 +304,12 @@
     line-height: 16px;
   }
 
+  .direct-link__container {
+    margin-top: 0;
+  }
+
   .direct-link__header {
+    position: static;
     margin-bottom: 16px;
   }
 
