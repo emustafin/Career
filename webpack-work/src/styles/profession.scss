@@ -25,7 +25,6 @@
   justify-content: flex-end;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
 }
 
 .profession__menu-item,
@@ -658,7 +657,7 @@
 
   .profession__menu {
     // width: max-content;
-    justify-content: flex-start;
+    width: 100%;
   }
 }
 

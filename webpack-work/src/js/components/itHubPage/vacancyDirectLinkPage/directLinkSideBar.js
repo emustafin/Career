@@ -30,8 +30,6 @@ export class VacancyDirecLinkSideBar {
     event.preventDefault();
     const link = document.URL;
 
-    console.log(navigator);
-
     await navigator.clipboard.writeText(link);
   }
 }

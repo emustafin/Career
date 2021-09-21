@@ -8,7 +8,12 @@ export class Vacancy {
     this.flyoutSideBar = this.flyout.querySelector('.flyout__side-bar');
     this.flyOutContentBar = this.flyout.querySelector('.vacancy');
     this.flyOutForm = this.flyout.querySelector('.vacancy__form');
+    this.vacancyCopyLink = this.flyout.querySelector(
+      '.vacancy__header-head-copy'
+    );
     this.newsSlider;
+
+    this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
 
     this.init();
     this.resizeFlyout();
@@ -113,6 +118,13 @@ export class Vacancy {
         this.newsSliderInit();
       }
     });
+  }
+
+  async copyLink(event) {
+    event.preventDefault();
+    const link = document.URL;
+
+    await navigator.clipboard.writeText(link);
   }
 }
 

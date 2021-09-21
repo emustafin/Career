@@ -1265,7 +1265,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  z-index: 10;
+  z-index: 13;
   transform: translateX(100%);
   transition: 0.3s;
   font-size: 18px;
@@ -2964,7 +2964,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 12;
   background: #f3f3f3; }
 
 .it-header__wrapper {
@@ -4636,8 +4636,7 @@
   display: flex;
   justify-content: flex-end;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start; }
+  flex-wrap: wrap; }
 
 .profession__menu-item,
 .profession__menu-item-active {
@@ -5158,7 +5157,7 @@
     line-height: 20px;
     margin-bottom: 24px; }
   .profession__menu {
-    justify-content: flex-start; } }
+    width: 100%; } }
 
 @media (max-width: 991px) {
   .profession__content {
