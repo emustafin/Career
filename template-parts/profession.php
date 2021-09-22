@@ -135,8 +135,10 @@
                              -->
 
                              <input
-                                name="tags-disabled-user-input"
+                                class="selectMode profession__level-select"
+                                name="tags-select-mode"
                                 placeholder=""
+                                value=""
                             />
 
                             <div class="profession__filter-item-select-arrow">
@@ -208,8 +210,8 @@
                              -->
 
                              <input
-                                name="input-custom-dropdown"
-                                class="profession__city-select"
+                                name="tags-select-mode"
+                                class="selectMode profession__city-select"
                                 placeholder=""
                                 value=""
                             />

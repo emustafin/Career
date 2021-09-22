@@ -11,16 +11,25 @@
 .tagify {
   width: 100%;
   border: none;
-  min-height: 32px;
+  margin-top: 0;
+
+  &::after {
+    display: none;
+  }
 }
 
 .tagify__input {
-  padding-left: 0;
   margin-left: 0;
-}
-
-.tagify__input {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-top: 4px;
+  padding-bottom: 8px;
   background: var(--tag-bg);
+
+  &::after {
+    display: none;
+  }
 
   &:hover {
     background: var(--tag-hover);
@@ -28,22 +37,8 @@
 }
 
 .tagify__tag {
-  margin: 5px 1px 5px 1px;
-  // &::after {
-  //   content: ',';
-  //   position: absolute;
-  //   bottom: 0;
-  //   right: -5px;
-  // }
-
-  & > div {
-    padding: 2px;
-  }
+  display: none;
 }
-
-// .tagify__tag__removeBtn {
-//   display: none;
-// }
 
 .tagify__dropdown__wrapper {
   border: 1px solid transparent;
@@ -352,6 +347,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  right: 0;
+  top: 50%;
 }
 
 .profession__filter-item-select-list {
@@ -371,7 +369,7 @@
   font-size: 12px;
   line-height: 12px;
   color: $blackColorOpacity-05;
-  margin-bottom: 4px;
+  // margin-bottom: 4px;
 }
 
 .profession__filter-input {

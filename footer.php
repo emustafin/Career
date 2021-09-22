@@ -766,29 +766,21 @@
       <script>
         const currentLevels = Object.values(JSON.parse(levels));
         const currentCities = Object.values(JSON.parse(towns));
-
-
-        const levelInput = document.querySelector('input[name=tags-disabled-user-input]');
-        const cityInput = document.querySelector('input[name="input-custom-dropdown"]');
+        const levelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
+        const cityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
 
         // Инициализация селекта выбора уровня
         new Tagify(levelInput, {
+          enforceWhitelist: true,
+          mode: 'select',
           whitelist: currentLevels,
-          userInput: false,
-          maxTags: 1,
-
         });
 
         // Инициализация селекта выбора города
         new Tagify(cityInput, {
+          enforceWhitelist: true,
+          mode: 'select',
           whitelist: ['Москва'],
-          maxTags: 1,
-          dropdown: {
-            maxItems: 10, 
-            classname: 'tags-look', 
-            enabled: 0, 
-            closeOnSelect: true, 
-          },
         });
 
       </script>

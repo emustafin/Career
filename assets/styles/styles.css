@@ -4625,21 +4625,25 @@
 .tagify {
   width: 100%;
   border: none;
-  min-height: 32px; }
+  margin-top: 0; }
+  .tagify::after {
+    display: none; }
 
 .tagify__input {
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
   padding-left: 0;
-  margin-left: 0; }
-
-.tagify__input {
+  padding-top: 4px;
+  padding-bottom: 8px;
   background: var(--tag-bg); }
+  .tagify__input::after {
+    display: none; }
   .tagify__input:hover {
     background: var(--tag-hover); }
 
 .tagify__tag {
-  margin: 5px 1px 5px 1px; }
-  .tagify__tag > div {
-    padding: 2px; }
+  display: none; }
 
 .tagify__dropdown__wrapper {
   border: 1px solid transparent; }
@@ -4916,7 +4920,10 @@
 .profession__filter-item-select-arrow {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 50%; }
 
 .profession__filter-item-select-list {
   position: absolute;
@@ -4932,8 +4939,7 @@
 .profession__filter-item-title {
   font-size: 12px;
   line-height: 12px;
-  color: rgba(0, 0, 0, 0.5);
-  margin-bottom: 4px; }
+  color: rgba(0, 0, 0, 0.5); }
 
 .profession__filter-input {
   display: none; }
