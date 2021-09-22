@@ -122,13 +122,18 @@
                             <select name="level" id="level">
                                 <option value="-1">Выберите уровень</option>
 
-                                <? foreach( $level_terms as $level_term ):
+                                <? $level_arr = array();
+                                foreach( $level_terms as $level_term ):
                                     $selected = '';
+                                    $level_arr[$level_term->slug] = $level_term->name;
                                     if( $level_slug == $level_term->slug ) $selected = 'selected'; ?>
                                     <option value="<?= $level_term->slug; ?>" <?= $selected; ?>><?= $level_term->name; ?></option>
                                 <? endforeach; ?>
 
                             </select>
+                            <script>
+                                var levels = '<?= json_encode( $level_arr ); ?>';
+                            </script>
                             <!-- 
                                 <p class="profession__filter-item-select-value">
                                 Junior, Senior
@@ -167,19 +172,16 @@
                             <select name="town" id="town">
                                 <option value="-1">Выберите город</option>
                                 <?php
-                                foreach( $town_terms as $town_term ){
-                                    if( $town_slug == $town_term->slug ){
-                                        ?>
-                                        <option value="<?= $town_term->slug; ?>" selected><?= $town_term->name; ?></option>
-                                        <?php
-                                    } else{
-                                        ?>
-                                        <option value="<?= $town_term->slug; ?>"><?= $town_term->name; ?></option>
-                                        <?php
-                                    }
-                                }
-                                ?>
+                                $towns_array = array();
+                                foreach( $town_terms as $town_term ):
+                                    $towns_array[$town_term->slug] = $town_term->name;
+                                    if( $town_slug == $town_term->slug ) $selected = 'selected'; ?>
+                                        <option value="<?= $town_term->slug; ?>" <?= $selected; ?>><?= $town_term->name; ?></option>
+                                <?php endforeach; ?>
                             </select>
+                            <script>
+                                var towns = '<?= json_encode( $towns_array ); ?>';
+                            </script>
                             <!-- 
                                 <p class="profession__filter-item-select-value">Любой</p>
                                 <div class="profession__filter-item-select-arrow">
