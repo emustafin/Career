@@ -763,36 +763,34 @@
 
 <?php wp_footer(); ?>
 
+    <?php
+    if( is_front_page() ){
+      ?>
       <script>
-        if( typeof levels !== 'undefined' ){
-
-          const currentLevels = Object.values(JSON.parse(levels));
-        }
-        if( typeof towns !== 'undefined' ){
-
-          const currentCities = Object.values(JSON.parse(towns));
-        }
+        const currentLevels = Object.values(JSON.parse(levels));
+        const currentCities = Object.values(JSON.parse(towns));
         const levelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
         const cityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
 
-        if( typeof levels !== 'undefined' && typeof towns !== 'undefined' ){
 
-          // Инициализация селекта выбора уровня
-          new Tagify(levelInput, {
-            enforceWhitelist: true,
-            mode: 'select',
-            whitelist: currentLevels,
-          });
-  
-          // Инициализация селекта выбора города
-          new Tagify(cityInput, {
-            enforceWhitelist: true,
-            mode: 'select',
-            whitelist: ['Москва'],
-          });
-        }
+        // Инициализация селекта выбора уровня
+        new Tagify(levelInput, {
+          enforceWhitelist: true,
+          mode: 'select',
+          whitelist: currentLevels,
+        });
+
+        // Инициализация селекта выбора города
+        new Tagify(cityInput, {
+          enforceWhitelist: true,
+          mode: 'select',
+          whitelist: ['Москва'],
+        });
 
       </script>
+      <?php
+    }
+    ?>
 
     </body>
 </html>
