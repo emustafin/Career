@@ -447,13 +447,16 @@
     line-height: 20px; }
   .why-are-we__slide-title {
     font-size: 32px;
-    line-height: 40px; } }
+    line-height: 40px;
+    margin-bottom: 16px; } }
 
 @media (max-width: 1024px) {
   .why-are-we__slide-text {
     padding-right: 0; }
   .why-are-we {
-    margin-bottom: 128px; } }
+    margin-bottom: 128px; }
+  .why-are-we__slide-title {
+    margin-bottom: 12px; } }
 
 @media (max-width: 991px) {
   .why-are-we__slide-text {
