@@ -1,5 +1,62 @@
 // @import './styles.scss';
 
+// Стили для Tagify
+.tagify {
+  --tag-bg: transparent;
+  --tag-hover: transparent;
+  --tag-remove-bg: transparent;
+  --tagify-dd-color-primary: transparent;
+}
+
+.tagify {
+  width: 100%;
+  border: none;
+  min-height: 32px;
+}
+
+.tagify__input {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.tagify__input {
+  background: var(--tag-bg);
+
+  &:hover {
+    background: var(--tag-hover);
+  }
+}
+
+.tagify__tag {
+  margin: 5px 1px 5px 1px;
+  // &::after {
+  //   content: ',';
+  //   position: absolute;
+  //   bottom: 0;
+  //   right: -5px;
+  // }
+
+  & > div {
+    padding: 2px;
+  }
+}
+
+// .tagify__tag__removeBtn {
+//   display: none;
+// }
+
+.tagify__dropdown__wrapper {
+  border: 1px solid transparent;
+}
+
+.tagify__dropdown__item {
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: $mainColor;
+  }
+}
+// Стили для Tagify
+
 .profession {
   margin-bottom: 192px;
   overflow: hidden;
@@ -46,6 +103,12 @@
   letter-spacing: -0.03em;
   margin-top: 24px;
   margin-bottom: 96px;
+}
+
+#clear_all_filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profession__content {
@@ -256,7 +319,6 @@
 .profession__filter-wrapper {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
   margin-bottom: 64px;
   font-size: 18px;
   line-height: 24px;
@@ -264,6 +326,8 @@
 
 .profession__checkbox-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profession__filter-item {
@@ -273,7 +337,6 @@
   border-bottom: 1px solid $blackColorOpacity-05;
   position: relative;
   cursor: pointer;
-  padding-bottom: 8px;
 
   &:last-child {
     margin-right: 0;
@@ -283,6 +346,12 @@
 .profession__filter-item-select {
   display: flex;
   justify-content: space-between;
+}
+
+.profession__filter-item-select-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profession__filter-item-select-list {
@@ -893,7 +962,7 @@
   }
 }
 
-.loader-bg{
+.loader-bg {
   display: flex;
   justify-content: center;
   align-items: center;
