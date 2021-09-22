@@ -364,7 +364,8 @@ $paged = get_query_var('paged') ? get_query_var('paged') : 1;
                     <!-- //Section Subscribe -->
                 <? endif; ?>
 
-            <?php $i++; endwhile;  ?>
+            <?php //$i++; 
+                endwhile;  ?>
         <?php endif; ?>
 
     </div>
