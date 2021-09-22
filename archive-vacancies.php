@@ -6,7 +6,8 @@
 
 
 get_header();
-$count = $GLOBALS['wp_query']->post_count;
+$count_posts = wp_count_posts('vacancies');
+$published_posts = $count_posts->publish;
 ?>
 
 <!-- Section Listing-Top -->
@@ -14,7 +15,7 @@ $count = $GLOBALS['wp_query']->post_count;
     <div class="page-container">
         <h2 class="listing-top__title">
         Вакансии
-        <span class="listing-top__counter"><?= $count; ?></span>
+        <span class="listing-top__counter"><?= $published_posts; ?></span>
         </h2>
         <div class="listing-top__dropdown">
             <div class="listing-top__dropdown-container">
