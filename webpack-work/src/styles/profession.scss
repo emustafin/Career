@@ -1,5 +1,57 @@
 // @import './styles.scss';
 
+// Стили для Tagify
+.tagify {
+  --tag-bg: transparent;
+  --tag-hover: transparent;
+  --tag-remove-bg: transparent;
+  --tagify-dd-color-primary: transparent;
+}
+
+.tagify {
+  width: 100%;
+  border: none;
+  margin-top: 0;
+
+  &::after {
+    display: none;
+  }
+}
+
+.tagify__input {
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-top: 4px;
+  padding-bottom: 8px;
+  background: var(--tag-bg);
+
+  &::after {
+    display: none;
+  }
+
+  &:hover {
+    background: var(--tag-hover);
+  }
+}
+
+.tagify__tag {
+  display: none;
+}
+
+.tagify__dropdown__wrapper {
+  border: 1px solid transparent;
+}
+
+.tagify__dropdown__item {
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: $mainColor;
+  }
+}
+// Стили для Tagify
+
 .profession {
   margin-bottom: 192px;
   overflow: hidden;
@@ -46,6 +98,12 @@
   letter-spacing: -0.03em;
   margin-top: 24px;
   margin-bottom: 96px;
+}
+
+#clear_all_filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profession__content {
@@ -256,7 +314,6 @@
 .profession__filter-wrapper {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
   margin-bottom: 64px;
   font-size: 18px;
   line-height: 24px;
@@ -264,6 +321,8 @@
 
 .profession__checkbox-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profession__filter-item {
@@ -273,7 +332,6 @@
   border-bottom: 1px solid $blackColorOpacity-05;
   position: relative;
   cursor: pointer;
-  padding-bottom: 8px;
 
   &:last-child {
     margin-right: 0;
@@ -283,6 +341,15 @@
 .profession__filter-item-select {
   display: flex;
   justify-content: space-between;
+}
+
+.profession__filter-item-select-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 50%;
 }
 
 .profession__filter-item-select-list {
@@ -302,7 +369,7 @@
   font-size: 12px;
   line-height: 12px;
   color: $blackColorOpacity-05;
-  margin-bottom: 4px;
+  // margin-bottom: 4px;
 }
 
 .profession__filter-input {
@@ -893,7 +960,7 @@
   }
 }
 
-.loader-bg{
+.loader-bg {
   display: flex;
   justify-content: center;
   align-items: center;

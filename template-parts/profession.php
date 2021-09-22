@@ -119,6 +119,7 @@
                     <div class="profession__filter-item">
                         <p class="profession__filter-item-title">Уровень</p>
                         <div class="profession__filter-item-select">
+<!-- 
                             <select name="level" id="level">
                                 <option value="-1">Выберите уровень</option>
 
@@ -131,6 +132,32 @@
                                 <? endforeach; ?>
 
                             </select>
+                             -->
+
+                             <input
+                                class="selectMode profession__level-select"
+                                name="tags-select-mode"
+                                placeholder=""
+                                value=""
+                            />
+
+                            <div class="profession__filter-item-select-arrow">
+                                <svg
+                                class="profession__filter-item-select-arrow-image"
+                                width="10"
+                                height="10"
+                                viewBox="0 0 10 10"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                >
+                                <path
+                                    d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
+                                    fill="black"
+                                />
+                                </svg>
+                            </div>
+
+
                             <script>
                                 var levels = '<?= json_encode( $level_arr ); ?>';
                             </script>
@@ -169,6 +196,7 @@
                     <div class="profession__filter-item">
                         <p class="profession__filter-item-title">Город</p>
                         <div class="profession__filter-item-select">
+<!-- 
                             <select name="town" id="town">
                                 <option value="-1">Выберите город</option>
                                 <?php
@@ -179,8 +207,32 @@
                                         <option value="<?= $town_term->slug; ?>" <?= $selected; ?>><?= $town_term->name; ?></option>
                                 <?php endforeach; ?>
                             </select>
+                             -->
+
+                             <input
+                                name="tags-select-mode"
+                                class="selectMode profession__city-select"
+                                placeholder=""
+                                value=""
+                            />
+                            <div class="profession__filter-item-select-arrow">
+                                <svg
+                                class="profession__filter-item-select-arrow-image"
+                                width="10"
+                                height="10"
+                                viewBox="0 0 10 10"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                >
+                                <path
+                                    d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
+                                    fill="black"
+                                />
+                                </svg>
+                            </div>
+
                             <script>
-                                var towns = '<?= json_encode( $towns_array ); ?>';
+                               var towns = '<?= json_encode( $towns_array ); ?>';
                             </script>
                             <!-- 
                                 <p class="profession__filter-item-select-value">Любой</p>

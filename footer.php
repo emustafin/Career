@@ -30,7 +30,7 @@
                 <div class="footer__contacts-block">
                   <p class="footer__contact-mail">job@mvideoeldorado.ru</p>
                   <button class="footer__contact-button">скопировать</button>
-                  <a href="#" class="footer__contact-button">написать</a>
+                  <a href="mailto:job@mvideoeldorado.ru" class="footer__contact-button">написать</a>
                 </div>
 
                 <div class="footer__contacts-block">
@@ -761,7 +761,29 @@
     </div>
     <!-- //Form section -->
 
-    <?php wp_footer(); ?>
+<?php wp_footer(); ?>
+
+      <script>
+        const currentLevels = Object.values(JSON.parse(levels));
+        const currentCities = Object.values(JSON.parse(towns));
+        const levelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
+        const cityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
+
+        // Инициализация селекта выбора уровня
+        new Tagify(levelInput, {
+          enforceWhitelist: true,
+          mode: 'select',
+          whitelist: currentLevels,
+        });
+
+        // Инициализация селекта выбора города
+        new Tagify(cityInput, {
+          enforceWhitelist: true,
+          mode: 'select',
+          whitelist: ['Москва'],
+        });
+
+      </script>
 
     </body>
 </html>
