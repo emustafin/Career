@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="<?php echo THEME_URL; ?>/assets/images/favicon/favicon.svg" rel="shortcut icon" type="image/x-icon"/>
-    <title>М.ВидеоЭльдорадо</title>
-    <?php wp_head(); ?>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="<?php echo THEME_URL; ?>/assets/images/favicon/favicon.svg" rel="shortcut icon" type="image/x-icon"/>
+  <title>М.ВидеоЭльдорадо</title>
+  <?php wp_head(); ?>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-6ZQL');</script>
+  <!-- End Google Tag Manager -->
 </head>
 <?php
 $post_slug = get_post_field( 'post_name', get_post() );
@@ -21,6 +28,13 @@ switch ($post_slug) {
 }
 ?>
 <body class='<?php echo $body_class; ?>'>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-6ZQL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
     <!-- Header -->
     <header class="it-header">
       <div class="container">
@@ -112,57 +126,5 @@ switch ($post_slug) {
           <a href="#" class="it-header__button">Заполнить анкету</a>
         </div>
       </div>
-
-      <?php if( is_page('it') ){ ?>
-        <div class="create-future">
-          <!-- <div class="create-future__image"></div> -->
-            <div class="spiral__wrap">
-                <div class="spiral__wrap_twist">
-                  <img 
-                    src="<?php echo THEME_URL; ?>/assets/images/create-future/spiral_anim.svg"
-                    class="spiral__img"
-                    alt="">
-                </div>
-            </div>
-          <div class="create-future__container">
-            <div class="create-future__title-wrapper">
-              <h2 class="create-future__title">
-                Создавай <br />
-                будущее
-              </h2>
-
-              <div class="text-animate create-future__typing-title">
-              <div class="text-animate_desktop">
-                <div id="typed-strings">
-                  <span>идея за&nbsp;идеей</span>
-                  <span>проект за&nbsp;проектом</span>
-                  <span>код за&nbsp;кодом</span>
-                </div>
-
-                <div class="text-typing">
-                  <span id="typed"></span>
-                </div>
-              </div>
-            </div>
-              <a class="create-future__button">узнай, как именно</a>
-            </div>
-
-            <p class="create-future__text">
-              Мы не только кодим — мы трансформируем традиционный розничный бизнес
-              в Retail Tech: генерим инновации, пилим собственную платформу
-              микросервисов, развиваем культуру стартапа.
-            </p>
-
-            <p class="create-future__text-mobile">
-              Мы не только кодим — <br />
-              мы трансформируем традиционный розничный бизнес в Retail Tech:
-              генерим инновации, пилим собственную платформу микросервисов,
-              развиваем культуру стартапа.
-            </p>
-          </div>
-          <div class="create-future__gradient"></div>
-        </div>
-      <?php } ?>
-
     </header>
     <!-- Header -->

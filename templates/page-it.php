@@ -12,32 +12,36 @@ if( have_rows('content_blocks') ):
 
     switch ( get_row_layout() ) {
 
+      case 'create-future':
+        include(THEME_DIR . '/template-parts/create-future.php');
+        break;
+
       case 'why-are-we':
-        include(THEME_DIR . '/blocks/why-are-we.php');
+        include(THEME_DIR . '/template-parts/why-are-we.php');
         break;
 
       case 'goal':
-        include(THEME_DIR . '/blocks/goal.php');
+        include(THEME_DIR . '/template-parts/goal.php');
         break;
 
       case 'profession':
-        include(THEME_DIR . '/blocks/profession.php');
+        include(THEME_DIR . '/template-parts/profession.php');
         break;
 
       case 'direction':
-        include(THEME_DIR . '/blocks/direction.php');
+        include(THEME_DIR . '/template-parts/direction.php');
         break;
 
       case 'upgrade':
-        include(THEME_DIR . '/blocks/upgrade.php');
+        include(THEME_DIR . '/template-parts/upgrade.php');
         break;
 
       case 'find':
-        include(THEME_DIR . '/blocks/find.php');
+        include(THEME_DIR . '/template-parts/find.php');
         break;
 
       case 'intern':
-        include(THEME_DIR . '/blocks/intern.php');
+        include(THEME_DIR . '/template-parts/intern.php');
         break;
     }
 
