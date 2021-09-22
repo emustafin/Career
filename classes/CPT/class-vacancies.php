@@ -19,6 +19,9 @@ class Vacancies {
 
         add_action( 'wp_ajax_get_profession__menu_items', [$this, 'get_profession__menu_items'] );
 		add_action( 'wp_ajax_nopriv_get_profession__menu_items', [$this, 'get_profession__menu_items'] );
+
+        add_action( 'wp_ajax_archive_show_more_items', [$this, 'archive_show_more_items'] );
+		add_action( 'wp_ajax_nopriv_archive_show_more_items', [$this, 'archive_show_more_items'] );
 	}
 
     /**
@@ -295,6 +298,42 @@ class Vacancies {
                 $return = array(
                     'success' 	=> true,
                     'html' 	=> $html,
+                );
+        
+                wp_send_json($return);
+            }
+        }
+    }
+
+    public function archive_show_more_items() {
+
+        $html = '';
+        if( !empty( $_POST ) ){
+
+            $args = json_decode( $_POST['query_vars'] );
+            $paged = $_POST['paged']+1;
+            $args['paged'] = $paged;
+            $args['post_type'] = 'vacancies';
+
+
+            $archive_vacancies = new \WP_Query( $args );
+
+            if ( $archive_vacancies->have_posts() ) {
+                while ( $archive_vacancies->have_posts() ) {
+                    $archive_vacancies->the_post();
+                    $vacancy_item_id = get_the_ID();
+
+                    ob_start();
+                    include(THEME_DIR . '/template-parts/loop-parts/archive_vacancies_item.php');
+                    $html .= ob_get_clean();
+                }
+            }
+
+            if( '' != $html ){
+                $return = array(
+                    'success' 	=> true,
+                    'html' 	=> $html,
+                    'paged' => $paged
                 );
         
                 wp_send_json($return);

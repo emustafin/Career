@@ -143,5 +143,39 @@ $(document).ready(function() {
     formdata = vaccat_info = jQuery.parseJSON( formdata );
     $('#info_product_directions').html( formdata.info_product_directions );
     $('#info_vaccat').html( formdata.info_vaccat );
+
+    $('.position__show-more-button').on( 'click', function(e){
+
+        e.preventDefault();
+        archive_show_more();
+    });
+
+    function archive_show_more(){
+
+        // $('#archive_vacancies').html( '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>' );
+        
+        var data = {
+            action: 'archive_show_more_items',
+            query_vars : query_vars,
+            paged : paged
+        };
+    
+        $.ajax({
+            type: 'POST',
+            url: ajax.url,
+            data: data,
+            dataType: 'json',
+            cache: 'false',
+            success: function (response) {
+                if( true == response.success ){
+                    $('#archive_vacancies').append( response.html );
+                    paged++;
+                    if( paged == max_num_pages ){
+                        $('.products__show-more').fadeOut();
+                    }
+                }
+            },
+        });
+    }
     
 });

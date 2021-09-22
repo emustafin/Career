@@ -81,9 +81,11 @@
                     </div>
                     <p class="profession__side-bar-text">Мы используем</p>
                     <div id="profession__tehnology" class="profession__side-bar-image-tools-wrapper">
-                        <? foreach (get_field( 'vaccat_tehnologies', $first_vaccat ) as $tech) : ?>
+                        <? if( get_field( 'vaccat_tehnologies', $first_vaccat ) != null ):
+                            foreach (get_field( 'vaccat_tehnologies', $first_vaccat ) as $tech) : ?>
                             <div class="profession__technology-item <?= $tech['value']; ?>"><?= $tech['label']; ?></div>
-                        <? endforeach; ?>
+                        <?  endforeach; 
+                           endif;?>
                     </div>
 
                     <!-- 
@@ -135,6 +137,7 @@
                              -->
 
                              <input
+                                id="level"
                                 class="selectMode profession__level-select"
                                 name="tags-select-mode"
                                 placeholder=""
@@ -210,6 +213,7 @@
                              -->
 
                              <input
+                                id="town"
                                 name="tags-select-mode"
                                 class="selectMode profession__city-select"
                                 placeholder=""

@@ -6,8 +6,12 @@
 
 
 get_header();
+
+global $wp_query;
+
 $count_posts = wp_count_posts('vacancies');
 $published_posts = $count_posts->publish;
+$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 ?>
 
 <!-- Section Listing-Top -->
@@ -159,98 +163,15 @@ $published_posts = $count_posts->publish;
 
 <!-- Section Position-card -->
 <div class="position__card-wrapper">
-    <div class="page-container">
+    <div id="archive_vacancies" class="page-container">
 
         <?php if(have_posts()) : ?>
             <?php $i=1; while(have_posts()) : 
                 the_post();
 
-                $experience = 'Требуется опыт';
-                if( get_field( 'map_full_adress', get_the_ID() ) ) $experience = 'Можно без опыта';
-
-                // TODO надо будет посмотреть и переделать
-                $k = 1;
-                $vaccat_terms = get_the_terms( get_the_ID(), 'vaccat' );
-                if( is_array( $vaccat_terms ) ){
-                    foreach( $vaccat_terms as $vaccat_term ){
-                        $first_vaccat = $vaccat_term;
-                        break;
-                    }
-                }
-                ?>
-
-                <div class="position__card-item">
-                    <a href="<? the_permalink(); ?>" class="position__info-link">
-                        посмотреть вакансию
-                        <svg class="position__link-arrow-black" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 1)"/>
-                        </svg>
-                    </a>
-
-                    <div class="position__job-title-container">
-                        <a href="<? the_permalink(); ?>" class="position__job-title"><? the_title(); ?></a>
-                        <div class="position__bread-crumbs-container-mobile">
-                            <a href="#" class="position__link">
-                                IT-департамент
-                                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                                    <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)"/>
-                                </svg>
-                            </a>
-                            <a href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="position__link">
-                                <?php echo $first_vaccat->name; ?>
-                                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                                    <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="position__bread-crumbs-block">
-                        <div class="position__bread-crumbs-container">
-                            <a href="#" class="position__link">
-                                IT-департамент
-                                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                                    <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                                </svg>
-                            </a>
-                            <a href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="position__link">
-                                <?php echo $first_vaccat->name; ?>
-                                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                                    <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="position__payment-container">
-                        <p class="position__payment">
-                        от
-                        <span class="position__payment-value"><?= number_format( get_field( 'money_from' ), 0, ',', ' '); ?></span>
-                        <span class="position__currency">&#8381;</span>
-                        </p>
-
-                        <p class="position__job-expiriens"><?= $experience; ?></p>
-                    </div>
-
-                    <div class="position__location-container">
-                        <? $cur_terms = get_the_terms( get_the_ID(), 'town' );
-                        if( is_array( $cur_terms ) ):
-                            foreach( $cur_terms as $cur_term ):
-                            ?>
-                                <p class="position__location-city"><?= $cur_term->name; ?></p>
-                            <?php
-                            endforeach;
-
-                            if( true == get_field( 'check_metro', get_the_ID() ) ) echo get_field( 'metro_name', get_the_ID() );
-                        endif;
-                        
-                        if( get_field( 'can_work_remotely', get_the_ID() ) ): ?>
-                            <p class="position__location">Можно удаленно</p>
-                        <? endif; ?>
-                    </div>
-                </div>
-
-                <? if( $i == 3 ): ?>
+                include(THEME_DIR . '/template-parts/loop-parts/archive_vacancies_item.php');
+                
+                if( $i == 3 ): ?>
                     <!-- Banner S-->
                     <div class="banner-S">
                         <div class="banner-S__content">
@@ -452,23 +373,18 @@ $published_posts = $count_posts->publish;
 
 <!-- Button Show-more -->
 <div class="products__show-more">
-    <a href="#" class="position__show-more-button">
+    <div href="#" class="position__show-more-button">
         показать ещё
-        <svg
-        class="position__show-more-button-link"
-        width="10"
-        height="10"
-        viewBox="0 0 10 10"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        >
-        <path
-            d="M4.40039 5.60002V9.5H5.60039V5.60002H9.5V4.40002H5.60039V0.5H4.40039V4.40002H0.5L0.5 5.60002H4.40039Z"
-            fill="black"
-        />
+        <svg class="position__show-more-button-link" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.40039 5.60002V9.5H5.60039V5.60002H9.5V4.40002H5.60039V0.5H4.40039V4.40002H0.5L0.5 5.60002H4.40039Z" fill="black"/>
         </svg>
-    </a>
+    </div>
 </div>
+<script>
+    var paged = '<?= $paged; ?>';
+    var query_vars = '<?= json_encode($wp_query->query_vars); ?>';
+    var max_num_pages = '<?= json_encode($wp_query->max_num_pages); ?>';
+</script>
 <!-- //Button Show-more -->
 
 <!-- Vacancy News-block -->
