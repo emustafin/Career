@@ -12,17 +12,19 @@ export class CustomSelectInProfessionBlock {
     );
 
     // Инициализация селекта выбора уровня
-    // new Tagify(this.levelInput, {
-    //   enforceWhitelist: true,
-    //   mode: 'select',
-    //   whitelist: ['Junior', 'Middle', 'Senior'],
-    // });
+    new Tagify(this.levelInput, {
+      enforceWhitelist: true,
+      mode: 'select',
+      whitelist: ['Junior', 'Middle', 'Senior'],
+      userInput: false,
+    });
 
     // Инициализация селекта выбора города
-    // new Tagify(this.cityInput, {
-    //   enforceWhitelist: true,
-    //   mode: 'select',
-    //   whitelist: ['Москва', 'Cанкт-Петербург', 'Ростов-на-Дону'],
-    // });
+    new Tagify(this.cityInput, {
+      enforceWhitelist: true,
+      mode: 'select',
+      whitelist: ['Москва', 'Cанкт-Петербург', 'Ростов-на-Дону'],
+      userInput: false,
+    });
   }
 }

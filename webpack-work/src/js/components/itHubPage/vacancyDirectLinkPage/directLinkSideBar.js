@@ -1,4 +1,5 @@
 import { smothScrollingToBlock } from '../../../index';
+import { vacancyDirectLinkHeader } from '../../../index';
 
 export class VacancyDirecLinkSideBar {
   constructor(el) {
@@ -23,7 +24,7 @@ export class VacancyDirecLinkSideBar {
   }
   scrollToForm(event) {
     event.preventDefault();
-    smothScrollingToBlock(this.form);
+    smothScrollingToBlock(this.form, vacancyDirectLinkHeader);
   }
 
   async copyLink(event) {

@@ -19,6 +19,7 @@ import { VacancyDirecLinkSideBar } from './components/itHubPage/vacancyDirectLin
 import { VacancyDirecLinkMainContent } from './components/itHubPage/vacancyDirectLinkPage/vacancyDirectLinkMainContent';
 import { VacancyDirecLinkNewsBlock } from './components/itHubPage/vacancyDirectLinkPage/vacancyDirectLinkNews';
 import { CustomSelectInProfessionBlock } from './components/itHubPage/customSelect';
+import { ListingFilters } from './components/itHubPage/vacancyListingPage/listingFilters';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -26,7 +27,6 @@ require.context('../fonts', true, /\.(ttf|woff|woff2)$/);
 
 // Глобальные переменные
 const profession = document.querySelector('.profession');
-
 const ourAdvantages = document.querySelector('.why-are-we');
 const listingPage = document.querySelector('.listing');
 const upgradeSection = document.querySelector('.upgrade');
@@ -35,7 +35,6 @@ const form = document.querySelector('.form');
 const directLink = document.querySelector('.direct-link');
 const goalBlock = document.querySelector('.goal');
 const runningLine = document.querySelector('.find__title');
-const header = document.querySelector('.it-header');
 const vacancyDirectLinkSideBar = document.querySelector(
   '.direct-link__side-bar'
 );
@@ -47,6 +46,13 @@ const vacancyDirectLinkNews = document.querySelector(
 );
 const professionCustomSelect = document.querySelector(
   '.profession__filter-wrapper'
+);
+const headerItPage = document.querySelector('.it-header');
+export const vacancyDirectLinkHeader = document.querySelector(
+  '.direct-link__header'
+);
+const listingPageFilters = document.querySelector(
+  '.listing-top__filters-wrapper'
 );
 
 // const tabContainer = document.querySelector('.tab-content');
@@ -60,11 +66,12 @@ new RunningLine(runningLine);
 const vacancyListingComponent = new Listing(listingPage);
 // new VacancyDirectLink(directLink);
 new Goals(goalBlock);
-const headerComponent = new Header(header);
+const headerComponent = new Header(headerItPage);
 new VacancyDirecLinkSideBar(vacancyDirectLinkSideBar);
 new VacancyDirecLinkMainContent(vacancyDirectLinkMainContent);
 new VacancyDirecLinkNewsBlock(vacancyDirectLinkNews);
 new CustomSelectInProfessionBlock(professionCustomSelect);
+new ListingFilters(listingPageFilters);
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
 
@@ -76,6 +83,7 @@ new Select(selectSecond);
 
 const togls = document.getElementById('svg-toggle-activate');
 const triger = document.getElementById('my-sticky-element');
+
 new SvgToggleAnimate(triger, togls);
 // new ScrollTo('.create-future__button', '.goal', false);
 
@@ -94,12 +102,12 @@ document.body.addEventListener('click', (event) => {
 
   if (event.target.classList.contains('create-future__button')) {
     event.preventDefault();
-    smothScrollingToBlock(goalBlock);
+    smothScrollingToBlock(goalBlock, headerItPage);
   }
 
   if (event.target.classList.contains('goal__button')) {
     event.preventDefault();
-    smothScrollingToBlock(profession);
+    smothScrollingToBlock(profession, headerItPage);
   }
 });
 
@@ -119,15 +127,13 @@ function openApplicationForm() {
 }
 
 // Скролл до блока
-export function smothScrollingToBlock(block) {
-  const header = document.querySelector('.it-header');
+export function smothScrollingToBlock(block, header) {
   const offset = 16;
   let headerHeight = header.clientHeight + offset;
 
   if (window.innerWidth <= 479) {
     headerHeight = offset;
   }
-  console.dir(window);
   const topOffset = block.offsetTop - headerHeight;
 
   let interval = setInterval(() => {

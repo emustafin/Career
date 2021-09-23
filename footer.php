@@ -781,6 +781,7 @@ if( is_front_page() ){
       enforceWhitelist: true,
       mode: 'select',
       whitelist: Object.values(currentLevels),
+      userInput: false,
     });
 
     idPageLevelSelect.on('change', () => {
@@ -799,6 +800,7 @@ if( is_front_page() ){
       enforceWhitelist: true,
       mode: 'select',
       whitelist: ['Москва'],
+      userInput: false,
     });
 
     idPageCitySelect.on('change', () => {

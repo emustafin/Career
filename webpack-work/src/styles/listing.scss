@@ -5,9 +5,8 @@
 }
 
 .listing-top {
-  margin-top: 80px;
   margin-bottom: 96px;
-  padding-top: 56px;
+  padding-top: 136px;
 }
 
 .listing-top__title {
@@ -97,24 +96,77 @@
   width: 100%;
   max-width: 304px;
   margin-right: 16px;
-  border-bottom: 1px solid $blackColorOpacity-05;
+  // border-bottom: 1px solid $blackColorOpacity-05;
   position: relative;
   cursor: pointer;
-  padding-bottom: 8px;
+
+  // Temp
+  display: flex;
+  flex-direction: column;
+
+  // Temp
 
   &:last-child {
     margin-right: 0;
   }
 }
 
+// Пробные стили для Тагифай
+.listing__filter-item-select-arrow {
+  position: absolute;
+  right: 0;
+  top: 12px;
+}
+
+.listing__filter-item-border-bottom {
+  height: 1px;
+  background: $blackColorOpacity-05;
+  position: relative;
+}
+
+.listing-top__filter-item-search-icon {
+  position: absolute;
+  right: 0;
+  top: 23px;
+}
+
+.tagify--outside.listing-top__profession-filter {
+  & > .tagify__input {
+    border: none;
+    border-bottom: 1px solid $blackColorOpacity-05;
+  }
+}
+
+.tagify--outside.listing-top__profession-filter {
+  & > .tagify__tag {
+    border: 0.5px solid #969696;
+    box-sizing: border-box;
+    border-radius: 20px;
+    // padding: 2px 4px 4px 6px;
+    padding: 0;
+    margin: 8px 0 1px 3px;
+  }
+}
+
+.tagify.tagify--select {
+  & > .tagify__input {
+    min-height: 34px;
+  }
+}
+// Пробные стили для Тагифай
+
 .listing-top__filter-item:first-child {
   width: 100%;
   max-width: 608px;
   margin-right: 16px;
-  border-bottom: 1px solid $blackColorOpacity-05;
-  padding-bottom: 8px;
+  // border-bottom: 1px solid $blackColorOpacity-05;
+  // padding-bottom: 8px;
   display: flex;
   cursor: auto;
+
+  // Стили для Тагифайм
+  padding-top: 12px;
+  // Стили для Тагифайм
 
   &::after {
     content: '';
@@ -125,6 +177,8 @@
     height: 11px;
     background: url('../images/listing/listing-top/search.svg') no-repeat;
     cursor: pointer;
+
+    display: none;
   }
 }
 
@@ -647,10 +701,18 @@
     line-height: 20px;
   }
 
+  // Для Тагифай
+  .tagify.tagify--select {
+    & > .tagify__input {
+      min-height: 30px;
+    }
+  }
+
+  // Для Тагифай
+
   .listing-top {
     margin-bottom: 72px;
-    margin-top: 72px;
-    padding-top: 40px;
+    padding-top: 112px;
   }
 
   .listing-top__dropdown {
@@ -803,8 +865,7 @@
 @media (max-width: 1250px) {
   .listing-top {
     margin-bottom: 64px;
-    margin-top: 56px;
-    padding-top: 32px;
+    padding-top: 88px;
   }
 
   .listing-top__dropdown {
@@ -849,7 +910,6 @@
 
   .listing-top__filter-item:first-child {
     padding-bottom: 0;
-    padding-top: 8px;
 
     &::after {
       top: 18px;
@@ -969,8 +1029,7 @@
 // Styles for 768px
 @media (max-width: 950px) {
   .listing-top {
-    margin-top: 72px;
-    padding-top: 32px;
+    padding-top: 104px;
   }
 
   .page-container {
