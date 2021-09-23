@@ -767,25 +767,49 @@
     if( is_front_page() ){
       ?>
       <script>
-        const currentLevels = Object.values(JSON.parse(levels));
-        const currentCities = Object.values(JSON.parse(towns));
+        const currentLevels = JSON.parse(levels);
+        const currentCities = JSON.parse(towns);
         const levelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
         const cityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
 
 
         // Инициализация селекта выбора уровня
-        new Tagify(levelInput, {
+        const level = new Tagify(levelInput, {
           enforceWhitelist: true,
           mode: 'select',
-          whitelist: currentLevels,
+          whitelist: Object.values(currentLevels),
         });
 
+        level.on('change', () => {
+          let currentValue;
+
+          for (let prop in currentLevels) {
+            if (currentLevels[prop] === JSON.parse(levelInput.value)[0].value) {
+              currentValue = prop
+            }
+          }
+          levelInput.value = currentValue;
+        })
+
+
         // Инициализация селекта выбора города
-        new Tagify(cityInput, {
+        const city = new Tagify(cityInput, {
           enforceWhitelist: true,
           mode: 'select',
           whitelist: ['Москва'],
         });
+
+        city.on('change', () => {
+          let currentValue;
+
+          for (let prop in currentCities) {
+            if (currentCities[prop] === JSON.parse(cityInput.value)[0].value) {
+              currentValue = prop
+            }
+          }
+          cityInput.value = currentValue;
+        })
+
 
       </script>
       <?php
