@@ -769,46 +769,49 @@
       <script>
         const currentLevels = JSON.parse(levels);
         const currentCities = JSON.parse(towns);
-        const levelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
-        const cityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
+        const idPageTagifyLevelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
+        const idPageTagifyCityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
+
+        const idPageLevelInput = document.querySelector('#level')
+        const idPageCityInput = document.querySelector('#town')
 
 
         // Инициализация селекта выбора уровня
-        const level = new Tagify(levelInput, {
+        const idPageLevelSelect = new Tagify(idPageTagifyLevelInput, {
           enforceWhitelist: true,
           mode: 'select',
           whitelist: Object.values(currentLevels),
         });
 
-        level.on('change', () => {
+        idPageLevelSelect.on('change', () => {
           let currentValue;
 
           for (let prop in currentLevels) {
-            if (currentLevels[prop] === JSON.parse(levelInput.value)[0].value) {
+            if (currentLevels[prop] === JSON.parse(idPageTagifyLevelInput.value)[0].value) {
               currentValue = prop
             }
           }
-          levelInput.value = currentValue;
+          idPageLevelInput.value = currentValue;
         })
 
-
         // Инициализация селекта выбора города
-        const city = new Tagify(cityInput, {
+        const idPageCitySelect= new Tagify(idPageTagifyCityInput, {
           enforceWhitelist: true,
           mode: 'select',
           whitelist: ['Москва'],
         });
 
-        city.on('change', () => {
+        idPageCitySelect.on('change', () => {
           let currentValue;
 
           for (let prop in currentCities) {
-            if (currentCities[prop] === JSON.parse(cityInput.value)[0].value) {
+            if (currentCities[prop] === JSON.parse(idPageTagifyCityInput.value)[0].value) {
               currentValue = prop
             }
           }
-          cityInput.value = currentValue;
+          idPageCityInput.value = currentValue;
         })
+
 
 
       </script>

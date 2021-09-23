@@ -134,7 +134,7 @@
 
 @media (max-width: 1440px) {
   .create-future {
-    margin-top: 72px;
+    padding-top: 72px;
     padding-bottom: 400px;
     margin-bottom: 72px; }
   .create-future__title,
@@ -243,7 +243,6 @@
 
 @media (max-width: 479px) {
   .create-future {
-    margin-top: 0;
     padding-top: 155px; }
   .create-future__typing-title-mobile {
     display: block;

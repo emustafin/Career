@@ -135,7 +135,8 @@
 
                             </select>
                              -->
-
+                             
+                             <input type="hidden" id="level" />
                              <input
                                 id="level"
                                 class="selectMode profession__level-select"
@@ -212,6 +213,7 @@
                             </select>
                              -->
 
+                             <input type="hidden" id="town" />
                              <input
                                 id="town"
                                 name="tags-select-mode"

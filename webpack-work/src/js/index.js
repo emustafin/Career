@@ -120,7 +120,15 @@ function openApplicationForm() {
 
 // Скролл до блока
 export function smothScrollingToBlock(block) {
-  const topOffset = block.offsetTop - 96;
+  const header = document.querySelector('.it-header');
+  const offset = 16;
+  let headerHeight = header.clientHeight + offset;
+
+  if (window.innerWidth <= 479) {
+    headerHeight = offset;
+  }
+  console.dir(window);
+  const topOffset = block.offsetTop - headerHeight;
 
   let interval = setInterval(() => {
     document.scrollingElement.scrollTop += 10;
