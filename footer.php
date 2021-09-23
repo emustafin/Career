@@ -767,14 +767,16 @@
 if( is_front_page() ){
   ?>
   <script>
+    // Данные для фильтров
     const currentLevels = JSON.parse(levels);
     const currentCities = JSON.parse(towns);
+
+
+    // Страница IT
     const idPageTagifyLevelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
     const idPageTagifyCityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
-
     const idPageLevelInput = document.querySelector('#level')
     const idPageCityInput = document.querySelector('#town')
-
 
     // Инициализация селекта выбора уровня
     const idPageLevelSelect = new Tagify(idPageTagifyLevelInput, {
@@ -813,6 +815,55 @@ if( is_front_page() ){
       }
       idPageCityInput.value = currentValue;
     })
+
+    // Страница Листинга вакансий
+    const listingTagifyLevelInput = document.querySelector('.listing__level-select');
+    const listingTagifyCityInput = document.querySelector('.listing__city-select');
+
+    const listingLevelInput = document.querySelector('#listing__level-select');
+    const listingCityInput = document.querySelector('#listing__city-select');
+
+    // Инициализация селекта Уровень
+    const listingLevelSelect = new Tagify(listingTagifyLevelInput, {
+      enforceWhitelist: true,
+      mode: 'select',
+      whitelist: Object.values(currentLevels),
+      userInput: false,
+    });
+
+    listingLevelSelect.on('change', () => {
+      let currentValue;
+
+      for (let prop in currentLevels) {
+        if (currentLevels[prop] === JSON.parse(listingTagifyLevelInput.value)[0].value) {
+          currentValue = prop
+        }
+      }
+      listingLevelInput.value = currentValue;
+    })
+
+    // Инициализация селекта Город
+    const listingCitySelect = new Tagify(listingTagifyCityInput, {
+      enforceWhitelist: true,
+      mode: 'select',
+      whitelist: ['Москва'],
+      userInput: false,
+    });
+
+    listingCitySelect.on('change', () => {
+      let currentValue;
+
+      for (let prop in currentCities) {
+        if (currentCities[prop] === JSON.parse(listingTagifyCityInput.value)[0].value) {
+          currentValue = prop
+        }
+      }
+      listingCityInput.value = currentValue;
+    })
+
+
+
+
 
 
 
