@@ -128,9 +128,9 @@ wp_reset_postdata();
 
                     <input type="hidden" id="listing__specialization-select" />
                     <input
-                    class="selectMode listing__specialization-select"
-                    name="tags-select-mode"
-                    placeholder="Выбери специализацию"
+                        class="selectMode listing__specialization-select"
+                        name="tags-select-mode"
+                        placeholder="Выбери специализацию"
                     />
                     <div class="listing__filter-item-select-arrow">
                     <svg

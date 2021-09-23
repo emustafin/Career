@@ -22,7 +22,7 @@ export class ListingFilters {
       whitelist: ['foo', 'bar', 'baz'],
       dropdown: {
         position: 'input',
-        enabled: 0, // always opens dropdown when input gets focus
+        enabled: 0,
       },
     });
 
@@ -35,19 +35,19 @@ export class ListingFilters {
     });
 
     // Инициализация селекта выбора Уровня
-    this.levelSelect = new Tagify(this.levelFilter, {
-      enforceWhitelist: true,
-      mode: 'select',
-      whitelist: ['first option', 'second option', 'third option'],
-      userInput: false,
-    });
+    // this.levelSelect = new Tagify(this.levelFilter, {
+    //   enforceWhitelist: true,
+    //   mode: 'select',
+    //   whitelist: ['first option', 'second option', 'third option'],
+    //   userInput: false,
+    // });
 
     // Инициализация селекта выбора Города
-    this.citySelect = new Tagify(this.cityFilter, {
-      enforceWhitelist: true,
-      mode: 'select',
-      whitelist: ['first option', 'second option', 'third option'],
-      userInput: false,
-    });
+    // this.citySelect = new Tagify(this.cityFilter, {
+    //   enforceWhitelist: true,
+    //   mode: 'select',
+    //   whitelist: ['first option', 'second option', 'third option'],
+    //   userInput: false,
+    // });
   }
 }
