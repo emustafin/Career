@@ -4,10 +4,7 @@ export class VacancyDirecLinkNewsBlock {
 
     if (this.el === null || this.el === undefined) return;
 
-    this.newsBtnPrev = this.el.querySelector('.vacancy__news-btn-prev');
-    this.newsBtnNext = this.el.querySelector('.vacancy__news-btn-next');
-
-    this.newsSlider = new Swiper('.newsSliderDirectLink', {
+    this.newsSliderV = new Swiper('.newsSliderDirectLink', {
       slidesPerView: 2.5,
       spaceBetween: 16,
       loop: true,
@@ -30,26 +27,10 @@ export class VacancyDirecLinkNewsBlock {
           spaceBetween: 40,
         },
       },
+      navigation: {
+        nextEl: '.vacancy__news-btn-prev',
+        prevEl: '.vacancy__news-btn-next',
+      },
     });
-
-    // Обработчики событий
-    this.newsBtnPrev.addEventListener(
-      'click',
-      this.showPrevNewsSlide.bind(this)
-    );
-    this.newsBtnNext.addEventListener(
-      'click',
-      this.showNextNewsSlide.bind(this)
-    );
-  }
-
-  showPrevNewsSlide() {
-    console.log(this.newsSlider);
-
-    this.newsSlider.slidePrev();
-  }
-
-  showNextNewsSlide() {
-    this.newsSlider.slideNext();
   }
 }

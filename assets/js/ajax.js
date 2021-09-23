@@ -68,17 +68,21 @@ $(document).ready(function() {
         filtering();
     });
 
-    idPageLevelSelect.on( 'change', function(e){
+    if( typeof idPageLevelSelect !== 'undefined' ){
+        idPageLevelSelect.on( 'change', function(e){
+    
+            e.preventDefault();
+            filtering();
+        });
+    }
 
-        e.preventDefault();
-        filtering();
-    });
+    if( typeof idPageCitySelect !== 'undefined' ){
+        idPageCitySelect.on( 'change', function(e){
 
-    idPageCitySelect.on( 'change', function(e){
-
-        e.preventDefault();
-        filtering();
-    });
+            e.preventDefault();
+            filtering();
+        });
+    }
 
     function filtering(){
 
