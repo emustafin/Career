@@ -28,7 +28,7 @@ class Setup_Theme {
 	 */
 	public function __construct() {
 
-		define( 'THEME_VSN', 'v1.2' );
+		define( 'THEME_VSN', 'v1.3' );
 
 		add_theme_support( 'post-thumbnails' );
 		add_filter( 'template_include', [ $this, 'set_assets' ], PHP_INT_MAX );
