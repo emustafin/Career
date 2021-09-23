@@ -6,10 +6,12 @@ $(document).ready(function() {
         e.preventDefault();
 
         $('#actually_vacancies').html( '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>' );
+        var vaccat_slug = $('.profession__menu-item.profession__menu-item-active').attr('data-vaccat_slug');
         
         var data = {
             action: 'get_profession__menu_items',
-            default: 'default'
+            default: 'default',
+            vaccat_slug : vaccat_slug
         };
     
         $.ajax({
@@ -21,11 +23,20 @@ $(document).ready(function() {
             success: function (response) {
                 if( true == response.success ){
                     $('#actually_vacancies').html( response.html );
-                    $('.profession__menu-item').removeClass('profession__menu-item-active');
-                    $('h2.profession__title').text('');
+                    // $('.profession__menu-item').removeClass('profession__menu-item-active');
+                    // $('h2.profession__title').text('');
+                    $('.can_work_remotely').prop('checked', false);
+                    $('.can_without_experience').prop('checked', false);
 
-                    // TODO
+                    $('#town').val(-1);
+                    $('#level').val(-1);
+                    $('.tagify__input').html(''3);
+
                     var xxx = '';
+                    if( data.vaccat_slug != undefined ){
+                        xxx = '?vaccat_slug='+vaccat_slug;
+                    }
+
                     window.history.pushState('', '', window.location.origin + window.location.pathname + xxx );
                 }
             },

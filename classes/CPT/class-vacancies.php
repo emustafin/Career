@@ -240,6 +240,14 @@ class Vacancies {
                         );
                     }
                 }
+            } else{
+                if( null != $_POST['vaccat_slug'] ){
+                    $args['tax_query'][] = array(
+                        'taxonomy' => 'vaccat',
+                        'field'    => 'slug',
+                        'terms'    => $_POST['vaccat_slug']
+                    );
+                }
             }
 
 
