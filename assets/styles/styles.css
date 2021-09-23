@@ -5187,7 +5187,7 @@
   .profession__filter-item {
     max-width: 240px; }
   .profession__checkbox-container {
-    display: none; }
+    display: block; }
   .profession__filter-checbox-wrapper-mobile {
     display: block; }
   .profession__filter-wrapper {
@@ -5302,6 +5302,8 @@
     background: transparent; }
   .profession__filter-checbox-wrapper-mobile {
     line-height: 19px; }
+  .profession__filter-checbox-wrapper {
+    margin-bottom: 5px; }
   .profession__filter-wrapper {
     margin-bottom: 32px; }
   .profession__job-item {

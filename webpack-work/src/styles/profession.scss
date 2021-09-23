@@ -675,7 +675,7 @@
   }
 
   .profession__checkbox-container {
-    display: none;
+    display: block;
   }
 
   .profession__filter-checbox-wrapper-mobile {
@@ -903,6 +903,9 @@
 
   .profession__filter-checbox-wrapper-mobile {
     line-height: 19px;
+  }
+  .profession__filter-checbox-wrapper{
+    margin-bottom: 5px;
   }
 
   .profession__filter-wrapper {
