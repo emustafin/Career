@@ -830,8 +830,8 @@ if( is_front_page() ){
     // Данные для фильтров
     const currentLevels = JSON.parse(level_arr);
     const currentCities = JSON.parse(town_arr);
-    const currentVaccat = JSON.parse(vaccat_arr);
-    const currentVacancyTitles = JSON.parse(vacancy_titles); // ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
+    const currentVaccat = JSON.parse(vaccat_arr); // Специализации
+    const currentVacancyTitles = JSON.parse(vacancy_titles); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
 
     // Инициализация селекта Уровень
     const listingLevelSelect = new Tagify(listingTagifyLevelInput, {
