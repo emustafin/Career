@@ -1,7 +1,7 @@
 <!-- Find vacansies Section -->
 <section class="find">
   <h2 class="find__title">
-    <a href="#" class="find__title-link">
+    <a href="https://career.dev64.ru/vacancies/" class="find__title-link">
       <span class="find__link-aroow">Найти вакансию</span>
       <span class="find__link-aroow">Найти вакансию</span>
       <span class="find__link-aroow">Найти вакансию</span>
