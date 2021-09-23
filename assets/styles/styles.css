@@ -3741,7 +3741,8 @@
     top: calc(50% - 14px);
     height: 36px;
     width: 38px;
-    background: url("../images/listing/listing-top/arrow-big-bottom.svg") no-repeat; }
+    background: url("../images/listing/listing-top/arrow-big-bottom.svg") no-repeat;
+    display: none; }
 
 .listing-top__dropdown-container-active {
   color: #e31235; }
