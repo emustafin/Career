@@ -36,9 +36,37 @@
   }
 }
 
-.tagify__tag {
-  display: none;
+// Стили для фильтра выбора профессий (Листинг вакансий)
+.tagify--outside {
+  border: 0;
 }
+
+.tagify--outside .tagify__input {
+  order: -1;
+  flex: 100%;
+  border: 1px solid var(--tags-border-color);
+  margin-bottom: 1em;
+  transition: 0.1s;
+}
+
+// Стили для фильтра выбора профессий (Листинг вакансий)-конец
+
+.tagify--select {
+  & > .tagify__tag {
+    display: none;
+  }
+}
+
+.tagify--outside {
+  & > .tagify__input {
+    margin-bottom: 0;
+  }
+}
+
+// .tagify__tag {
+//   border: 1px solid #000;
+//   border-radius: 36%;
+// }
 
 .tagify__dropdown__wrapper {
   border: 1px solid transparent;

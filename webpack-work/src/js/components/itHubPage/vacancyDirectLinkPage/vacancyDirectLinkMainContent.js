@@ -1,4 +1,5 @@
 import { smothScrollingToBlock } from '../../../index';
+import { vacancyDirectLinkHeader } from '../../../index';
 
 export class VacancyDirecLinkMainContent {
   constructor(el) {
@@ -19,6 +20,6 @@ export class VacancyDirecLinkMainContent {
   }
   scrollToForm(event) {
     event.preventDefault();
-    smothScrollingToBlock(this.form);
+    smothScrollingToBlock(this.form, vacancyDirectLinkHeader);
   }
 }
