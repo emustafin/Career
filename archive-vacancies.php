@@ -12,7 +12,44 @@ global $wp_query;
 $count_posts = wp_count_posts('vacancies');
 $published_posts = $count_posts->publish;
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+
+$vaccat_terms = get_terms( 'vaccat' );
+$town_terms = get_terms( 'town' );
+$level_terms = get_terms( 'level' );
+
+foreach( $level_terms as $level_term ):
+    $level_arr[$level_term->slug] = $level_term->name;
+endforeach;
+
+foreach( $town_terms as $town_term ):
+    $town_arr[$town_term->slug] = $town_term->name;
+endforeach;
+
+foreach( $vaccat_terms as $vaccat_term ):
+    $vaccat_arr[$vaccat_term->slug] = $vaccat_term->name;
+endforeach;
+
+$args = array(
+    'post_type'         => 'vacancies',
+    'posts_per_page'    => -1,
+    'post_status'       => 'publish'
+);
+$all_vacancies = new WP_Query( $args );
+if ( $all_vacancies->have_posts() ) {
+    while ( $all_vacancies->have_posts() ) {
+        $all_vacancies->the_post();
+        $vacancy_titles .= get_the_title().',';
+    }
+}
+wp_reset_postdata();
 ?>
+
+<script>
+    var level_arr = '<?= json_encode( $level_arr ); ?>';
+    var town_arr = '<?= json_encode( $town_arr ); ?>';
+    var vaccat_arr = '<?= json_encode( $vaccat_arr ); ?>';
+    var vacancy_titles = '<?= $vacancy_titles; ?>';
+</script>
 
 <!-- Section Listing-Top -->
 <section class="listing-top">
@@ -102,8 +139,7 @@ $paged = get_query_var('paged') ? get_query_var('paged') : 1;
                         height="10"
                         viewBox="0 0 10 10"
                         fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
+                        xmlns="http://www.w3.org/2000/svg">
                         <path
                         d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
                         fill="black"
@@ -119,25 +155,25 @@ $paged = get_query_var('paged') ? get_query_var('paged') : 1;
                 <div class="profession__filter-item-select">
                     <input type="hidden" id="listing__level-select" />
                     <input
-                    class="selectMode listing__level-select"
-                    name="tags-select-mode"
-                    placeholder="Выбери специализацию"
+                        class="selectMode listing__level-select"
+                        name="tags-select-mode"
+                        placeholder="Выбери специализацию"
                     />
 
                     <div class="listing__filter-item-select-arrow">
-                    <svg
-                        class="listing__filter-item-select-arrow-image"
-                        width="10"
-                        height="10"
-                        viewBox="0 0 10 10"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                        d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
-                        fill="black"
-                        />
-                    </svg>
+                        <svg
+                            class="listing__filter-item-select-arrow-image"
+                            width="10"
+                            height="10"
+                            viewBox="0 0 10 10"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                            d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
+                            fill="black"
+                            />
+                        </svg>
                     </div>
                 </div>
                 <div class="listing__filter-item-border-bottom">
