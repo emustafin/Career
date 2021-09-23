@@ -771,7 +771,6 @@ if( is_front_page() ){
     const currentLevels = JSON.parse(levels);
     const currentCities = JSON.parse(towns);
 
-
     // Страница IT
     const idPageTagifyLevelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
     const idPageTagifyCityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
@@ -816,12 +815,23 @@ if( is_front_page() ){
       idPageCityInput.value = currentValue;
     })
 
+  </script>
+  <?php
+} else{
+  ?>
+  <script>
     // Страница Листинга вакансий
     const listingTagifyLevelInput = document.querySelector('.listing__level-select');
     const listingTagifyCityInput = document.querySelector('.listing__city-select');
 
     const listingLevelInput = document.querySelector('#listing__level-select');
     const listingCityInput = document.querySelector('#listing__city-select');
+
+    // Данные для фильтров
+    const currentLevels = JSON.parse(level_arr);
+    const currentCities = JSON.parse(town_arr);
+    const currentVaccat = JSON.parse(vaccat_arr);
+    const currentVacancyTitles = JSON.parse(vacancy_titles); // ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
 
     // Инициализация селекта Уровень
     const listingLevelSelect = new Tagify(listingTagifyLevelInput, {
@@ -860,13 +870,6 @@ if( is_front_page() ){
       }
       listingCityInput.value = currentValue;
     })
-
-
-
-
-
-
-
   </script>
   <?php
 }

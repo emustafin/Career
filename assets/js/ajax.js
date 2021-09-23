@@ -30,7 +30,7 @@ $(document).ready(function() {
 
                     $('#town').val(-1);
                     $('#level').val(-1);
-                    $('.tagify__input').html(''3);
+                    $('.tagify__input').html('');
 
                     var xxx = '';
                     if( data.vaccat_slug != undefined ){

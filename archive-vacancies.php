@@ -48,7 +48,7 @@ wp_reset_postdata();
     var level_arr = '<?= json_encode( $level_arr ); ?>';
     var town_arr = '<?= json_encode( $town_arr ); ?>';
     var vaccat_arr = '<?= json_encode( $vaccat_arr ); ?>';
-    var vacancy_titles = '<?= $vacancy_titles; ?>';
+    var vacancy_titles = '<?= json_encode( $vacancy_titles ); ?>';
 </script>
 
 <!-- Section Listing-Top -->
