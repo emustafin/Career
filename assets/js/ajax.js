@@ -68,13 +68,13 @@ $(document).ready(function() {
         filtering();
     });
 
-    $('#level').on( 'change', function(e){
+    idPageLevelSelect.on( 'change', function(e){
 
         e.preventDefault();
         filtering();
     });
 
-    $('#town').on( 'change', function(e){
+    idPageCitySelect.on( 'change', function(e){
 
         e.preventDefault();
         filtering();

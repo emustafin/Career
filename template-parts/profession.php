@@ -136,9 +136,8 @@
                             </select>
                              -->
                              
-                             <input type="hidden" id="level" />
+                             <input type="hidden" id="level" value="-1"/>
                              <input
-                                id="level"
                                 class="selectMode profession__level-select"
                                 name="tags-select-mode"
                                 placeholder="Выбери уровень"
@@ -213,9 +212,8 @@
                             </select>
                              -->
 
-                             <input type="hidden" id="town" />
+                             <input type="hidden" id="town" value="-1"/>
                              <input
-                                id="town"
                                 name="tags-select-mode"
                                 class="selectMode profession__city-select"
                                 placeholder="Выбери город"

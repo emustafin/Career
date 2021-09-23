@@ -761,63 +761,63 @@
     </div>
     <!-- //Form section -->
 
+<?php
+if( is_front_page() ){
+  ?>
+  <script>
+    const currentLevels = JSON.parse(levels);
+    const currentCities = JSON.parse(towns);
+    const idPageTagifyLevelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
+    const idPageTagifyCityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
+
+    const idPageLevelInput = document.querySelector('#level')
+    const idPageCityInput = document.querySelector('#town')
+
+
+    // Инициализация селекта выбора уровня
+    const idPageLevelSelect = new Tagify(idPageTagifyLevelInput, {
+      enforceWhitelist: true,
+      mode: 'select',
+      whitelist: Object.values(currentLevels),
+    });
+
+    idPageLevelSelect.on('change', () => {
+      let currentValue;
+
+      for (let prop in currentLevels) {
+        if (currentLevels[prop] === JSON.parse(idPageTagifyLevelInput.value)[0].value) {
+          currentValue = prop
+        }
+      }
+      idPageLevelInput.value = currentValue;
+    })
+
+    // Инициализация селекта выбора города
+    const idPageCitySelect= new Tagify(idPageTagifyCityInput, {
+      enforceWhitelist: true,
+      mode: 'select',
+      whitelist: ['Москва'],
+    });
+
+    idPageCitySelect.on('change', () => {
+      let currentValue;
+
+      for (let prop in currentCities) {
+        if (currentCities[prop] === JSON.parse(idPageTagifyCityInput.value)[0].value) {
+          currentValue = prop
+        }
+      }
+      idPageCityInput.value = currentValue;
+    })
+
+
+
+  </script>
+  <?php
+}
+?>
 <?php wp_footer(); ?>
 
-    <?php
-    if( is_front_page() ){
-      ?>
-      <script>
-        const currentLevels = JSON.parse(levels);
-        const currentCities = JSON.parse(towns);
-        const idPageTagifyLevelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
-        const idPageTagifyCityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
-
-        const idPageLevelInput = document.querySelector('#level')
-        const idPageCityInput = document.querySelector('#town')
-
-
-        // Инициализация селекта выбора уровня
-        const idPageLevelSelect = new Tagify(idPageTagifyLevelInput, {
-          enforceWhitelist: true,
-          mode: 'select',
-          whitelist: Object.values(currentLevels),
-        });
-
-        idPageLevelSelect.on('change', () => {
-          let currentValue;
-
-          for (let prop in currentLevels) {
-            if (currentLevels[prop] === JSON.parse(idPageTagifyLevelInput.value)[0].value) {
-              currentValue = prop
-            }
-          }
-          idPageLevelInput.value = currentValue;
-        })
-
-        // Инициализация селекта выбора города
-        const idPageCitySelect= new Tagify(idPageTagifyCityInput, {
-          enforceWhitelist: true,
-          mode: 'select',
-          whitelist: ['Москва'],
-        });
-
-        idPageCitySelect.on('change', () => {
-          let currentValue;
-
-          for (let prop in currentCities) {
-            if (currentCities[prop] === JSON.parse(idPageTagifyCityInput.value)[0].value) {
-              currentValue = prop
-            }
-          }
-          idPageCityInput.value = currentValue;
-        })
-
-
-
-      </script>
-      <?php
-    }
-    ?>
 
     </body>
 </html>
