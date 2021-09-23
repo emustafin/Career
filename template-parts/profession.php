@@ -137,7 +137,7 @@
                              <input
                                 class="selectMode profession__level-select"
                                 name="tags-select-mode"
-                                placeholder=""
+                                placeholder="Выбери уровень"
                                 value=""
                             />
 
@@ -212,7 +212,7 @@
                              <input
                                 name="tags-select-mode"
                                 class="selectMode profession__city-select"
-                                placeholder=""
+                                placeholder="Выбери город"
                                 value=""
                             />
                             <div class="profession__filter-item-select-arrow">
