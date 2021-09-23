@@ -22,7 +22,7 @@ $paged = get_query_var('paged') ? get_query_var('paged') : 1;
         <span class="listing-top__counter"><?= $published_posts; ?></span>
         </h2>
         <div class="listing-top__dropdown">
-            <div class="listing-top__dropdown-container">
+            <!-- <div class="listing-top__dropdown-container">
                 <span class="listing-top__in">в</span>
                 <span class="listing-top__where">IT-хабе</span>
             </div>
@@ -56,7 +56,7 @@ $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 
                 <span class="listing-top__counter-list-item">162</span>
                 </p>
-            </div>
+            </div> -->
         </div>
 
         <div class="listing-top__filters-wrapper">
