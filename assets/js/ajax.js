@@ -23,14 +23,14 @@ $(document).ready(function() {
             success: function (response) {
                 if( true == response.success ){
                     $('#actually_vacancies').html( response.html );
-                    // $('.profession__menu-item').removeClass('profession__menu-item-active');
-                    // $('h2.profession__title').text('');
                     $('.can_work_remotely').prop('checked', false);
                     $('.can_without_experience').prop('checked', false);
 
                     $('#town').val(-1);
                     $('#level').val(-1);
-                    $('.tagify__input').html('');
+
+                    idPageLevelSelect.removeAllTags();
+                    idPageCitySelect.removeAllTags();
 
                     var xxx = '';
                     if( data.vaccat_slug != undefined ){
@@ -259,7 +259,10 @@ $(document).ready(function() {
                         xxx = xxx+'&vaccat_slug='+vaccat_slug;
                     }
                     if( data.top__profession != '' ){
-                        xxx = xxx+'&s='+top__profession;
+                        var prof = top__profession.split(",");
+                        for (let index = 0; index < prof.length; index++) {
+                            xxx = xxx+'&s[]='+prof[index];
+                        }
                     }
 
                     if( xxx != '' ){
@@ -360,9 +363,13 @@ $(document).ready(function() {
                     $('.archive_without_experience').prop('checked', false);
                     $('.archive_remotely').prop('checked', false);
 
+                    professionListingSelect.removeAllTags();
+                    specializationListingSelect.removeAllTags();
+                    listingLevelSelect.removeAllTags();
+                    listingCitySelect.removeAllTags();
+
                     $('#town').val(-1);
                     $('#level').val(-1);
-                    $('.tagify__input').html('');
 
                     window.history.pushState('', '', window.location.origin + window.location.pathname );
                 }
