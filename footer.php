@@ -300,7 +300,10 @@ if( is_front_page() ){
       whitelist: currentProfessionList,
       dropdown: {
       position: "input",
-      enabled : 0 // always opens dropdown when input gets focus
+      enabled : 0, // always opens dropdown when input gets focus
+      dropdown: {
+        maxItems: 5,
+        },
       }
     })
 

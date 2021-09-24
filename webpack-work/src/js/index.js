@@ -8,7 +8,7 @@ import './components/animation';
 import './components/itHubPage/Tab';
 import './components/itHubPage/animationSvgTab';
 import { Select } from './components/itHubPage/select';
-import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
+// import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
 // import { ScrollTo } from './components/itHubPage/scroll';
 import { Form } from './components/itHubPage/form';
 import { RunningLine } from './components/itHubPage/runningLine';
@@ -20,6 +20,7 @@ import { VacancyDirecLinkMainContent } from './components/itHubPage/vacancyDirec
 import { VacancyDirecLinkNewsBlock } from './components/itHubPage/vacancyDirectLinkPage/vacancyDirectLinkNews';
 import { CustomSelectInProfessionBlock } from './components/itHubPage/customSelect';
 import { ListingFilters } from './components/itHubPage/vacancyListingPage/listingFilters';
+import { Intern } from './components/itHubPage/intern';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -54,6 +55,7 @@ export const vacancyDirectLinkHeader = document.querySelector(
 const listingPageFilters = document.querySelector(
   '.listing-top__filters-wrapper'
 );
+const intern = document.querySelector('.intern');
 
 // const tabContainer = document.querySelector('.tab-content');
 
@@ -72,6 +74,7 @@ new VacancyDirecLinkMainContent(vacancyDirectLinkMainContent);
 new VacancyDirecLinkNewsBlock(vacancyDirectLinkNews);
 new CustomSelectInProfessionBlock(professionCustomSelect);
 new ListingFilters(listingPageFilters);
+new Intern(intern);
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
 
@@ -81,10 +84,10 @@ const selectSecond = document.getElementById('custom-select-first');
 new Select(selectGreen);
 new Select(selectSecond);
 
-const togls = document.getElementById('svg-toggle-activate');
-const triger = document.getElementById('my-sticky-element');
+// const togls = document.getElementById('svg-toggle-activate');
+// const triger = document.getElementById('my-sticky-element');
 
-new SvgToggleAnimate(triger, togls);
+// new SvgToggleAnimate(triger, togls);
 // new ScrollTo('.create-future__button', '.goal', false);
 
 // Слушатели событий, установленные на Body
@@ -143,4 +146,37 @@ export function smothScrollingToBlock(block, header) {
       clearInterval(interval);
     }
   }, 1);
+}
+
+// Анимация переключателей (внутренние шарики)
+export function swichersAnimation(header, block, swichers) {
+  return function () {
+    const offset = 40;
+    let headerHeight = header.clientHeight;
+    const swichersCollection = swichers;
+
+    if (window.innerWidth <= 479) {
+      headerHeight = 0;
+    }
+
+    const topOffset = block.offsetTop - headerHeight;
+
+    if (
+      window.scrollY >= topOffset - offset &&
+      window.scrollY <= topOffset + offset
+    ) {
+      setTimeout(() => {
+        swichersCollection[0].classList.toggle('intern__inside-circle-active');
+      }, 0);
+      setTimeout(() => {
+        swichersCollection[1].classList.toggle('intern__inside-circle-active');
+      }, 1000);
+      setTimeout(() => {
+        swichersCollection[2].classList.toggle('intern__inside-circle-active');
+      }, 2000);
+      setTimeout(() => {
+        swichersCollection[3].classList.toggle('intern__inside-circle-active');
+      }, 3000);
+    }
+  };
 }
