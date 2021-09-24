@@ -351,7 +351,7 @@ $(document).ready(function() {
                     $('#level').val(-1);
                     $('.tagify__input').html('');
 
-                    window.history.pushState('', '', window.location.origin + window.location.pathname + xxx );
+                    window.history.pushState('', '', window.location.origin + window.location.pathname );
                 }
             },
         });

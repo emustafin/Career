@@ -133,6 +133,7 @@ wp_reset_postdata();
                         class="selectMode listing__specialization-select"
                         name="tags-select-mode"
                         placeholder="Выбери специализацию"
+                        value=""
                     />
                     <div class="listing__filter-item-select-arrow">
                     <svg
@@ -159,7 +160,7 @@ wp_reset_postdata();
                     <input
                         class="selectMode listing__level-select"
                         name="tags-select-mode"
-                        placeholder="Выбери специализацию"
+                        placeholder="Выбери уровень"
                     />
 
                     <div class="listing__filter-item-select-arrow">
@@ -194,7 +195,7 @@ wp_reset_postdata();
                     <input
                     class="selectMode listing__city-select"
                     name="tags-select-mode"
-                    placeholder="Выбери специализацию"
+                    placeholder="Выбери город"
                     />
 
                     <div class="listing__filter-item-select-arrow">
