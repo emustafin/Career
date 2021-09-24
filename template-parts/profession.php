@@ -187,13 +187,13 @@
                             -->
                         </div>
 
-                        <!-- 
+                        
                             <label class="profession__filter-checbox-wrapper-mobile">
                                 <input class="profession__filter-input can_without_experience" type="checkbox" <?= $can_without_experience; ?>/>
                                 Без опыта
                                 <span class="profession__filter-checbox-value"></span>
                             </label> 
-                        -->
+                       
                     </div>
 
                     <div class="profession__filter-item">
@@ -261,13 +261,13 @@
                             -->
                         </div>
 
-                        <!-- 
+                        
                             <label class="profession__filter-checbox-wrapper-mobile">
                                 <input class="profession__filter-input can_work_remotely" type="checkbox" <?= $can_work_remotely; ?>/>
                                 Удалённо
                                 <span class="profession__filter-checbox-value"></span>
                             </label> 
-                        -->
+                       
                     </div>
 
                     <div class="profession__checkbox-container">

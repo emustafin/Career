@@ -5231,7 +5231,7 @@
   .profession__filter-item {
     max-width: 240px; }
   .profession__checkbox-container {
-    display: block; }
+    display: none; }
   .profession__filter-checbox-wrapper-mobile {
     display: block; }
   .profession__filter-wrapper {
