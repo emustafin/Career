@@ -5889,7 +5889,7 @@
   line-height: 24px;
   width: 100%;
   overflow: auto;
-  z-index: 11;
+  z-index: 12;
   transition: 0.3s;
   transform: translateX(100%); }
 

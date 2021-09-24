@@ -47,7 +47,7 @@ const vacancyDirectLinkNews = document.querySelector(
 const professionCustomSelect = document.querySelector(
   '.profession__filter-wrapper'
 );
-const headerItPage = document.querySelector('.it-header');
+export const headerItPage = document.querySelector('.it-header');
 export const vacancyDirectLinkHeader = document.querySelector(
   '.direct-link__header'
 );

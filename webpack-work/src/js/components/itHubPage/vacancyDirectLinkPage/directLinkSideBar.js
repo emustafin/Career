@@ -1,5 +1,6 @@
 import { smothScrollingToBlock } from '../../../index';
 import { vacancyDirectLinkHeader } from '../../../index';
+import { headerItPage } from '../../../index';
 
 export class VacancyDirecLinkSideBar {
   constructor(el) {
@@ -14,6 +15,7 @@ export class VacancyDirecLinkSideBar {
     this.copyLinkButton = this.el.querySelector(
       '.direct-link__header-head-copy'
     );
+    this.header = vacancyDirectLinkHeader || headerItPage;
 
     // Обработчики событий
     this.sideBarResponseButton.addEventListener(
@@ -24,7 +26,7 @@ export class VacancyDirecLinkSideBar {
   }
   scrollToForm(event) {
     event.preventDefault();
-    smothScrollingToBlock(this.form, vacancyDirectLinkHeader);
+    smothScrollingToBlock(this.form, this.header);
   }
 
   async copyLink(event) {
