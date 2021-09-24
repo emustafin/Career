@@ -149,6 +149,8 @@ $(document).ready(function() {
                     $('.profession__title').attr( 'originhref', window.location.origin + window.location.pathname + xxx );
                     $('.vacancy__headline-title').attr( 'origin_url', window.location.origin + window.location.pathname + xxx );
                     window.history.pushState('', '', window.location.origin + window.location.pathname + xxx );
+                } else{
+                    $('#actually_vacancies').html( 'К сожалению вакансий не найдено!' );
                 }
             },
         });
@@ -263,7 +265,7 @@ $(document).ready(function() {
 
                     window.history.pushState('', '', window.location.origin + window.location.pathname + xxx );
                 } else{
-                    $('#archive_vacancies').html( 'К сожалению вакансии не найдено!' );
+                    $('#archive_vacancies').html( 'К сожалению вакансий не найдено!' );
                     $('.products__show-more').fadeOut();
                 }
             },
