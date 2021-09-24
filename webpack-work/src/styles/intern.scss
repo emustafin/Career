@@ -573,13 +573,25 @@
 
 .svg-toggle__btn {
   position: relative;
-  display: flex;
+  // display: flex;
 }
 
-.svg-toggle .svg-toggle__btn svg:nth-child(2) {
+// .svg-toggle .svg-toggle__btn svg:nth-child(2) {
+//   position: absolute;
+//   top: 11px;
+//   left: 10px;
+// }
+
+.intern__inside-circle,
+.intern__inside-circle-active {
   position: absolute;
   top: 11px;
   left: 10px;
+  transition: all 1s ease 0s;
+}
+
+.intern__inside-circle-active {
+  left: 150px;
 }
 
 @media (max-width: 768px) {

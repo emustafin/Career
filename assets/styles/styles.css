@@ -3506,13 +3506,17 @@
   margin-bottom: 15px; }
 
 .svg-toggle__btn {
-  position: relative;
-  display: flex; }
+  position: relative; }
 
-.svg-toggle .svg-toggle__btn svg:nth-child(2) {
+.intern__inside-circle,
+.intern__inside-circle-active {
   position: absolute;
   top: 11px;
-  left: 10px; }
+  left: 10px;
+  transition: all 1s ease 0s; }
+
+.intern__inside-circle-active {
+  left: 150px; }
 
 @media (max-width: 768px) {
   .svg-toggle-line {
