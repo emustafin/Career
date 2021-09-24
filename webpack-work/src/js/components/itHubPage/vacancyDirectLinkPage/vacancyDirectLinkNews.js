@@ -28,8 +28,8 @@ export class VacancyDirecLinkNewsBlock {
         },
       },
       navigation: {
-        nextEl: '.vacancy__news-btn-prev',
-        prevEl: '.vacancy__news-btn-next',
+        nextEl: '.vacancy__news-btn-next',
+        prevEl: '.vacancy__news-btn-prev',
       },
     });
   }

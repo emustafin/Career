@@ -373,6 +373,10 @@ class Vacancies {
 
             if( 'default' != $_POST['default'] ){
 
+                if( null != $_POST['top__profession'] ){
+                    $args['s'] = explode( ",", $_POST['top__profession'] );
+                }
+
                 if( null != $_POST['vaccat_slug'] ){
                     $args['tax_query'][] = array(
                         'taxonomy' => 'vaccat',
@@ -429,17 +433,7 @@ class Vacancies {
                         );
                     }
                 }
-            } else{
-                if( null != $_POST['vaccat_slug'] ){
-                    $args['tax_query'][] = array(
-                        'taxonomy' => 'vaccat',
-                        'field'    => 'slug',
-                        'terms'    => $_POST['vaccat_slug']
-                    );
-                }
             }
-
-
             $actually_vacancies_by = new \WP_Query( $args );
 
             if ( $actually_vacancies_by->have_posts() ) {

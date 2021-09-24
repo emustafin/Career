@@ -258,6 +258,9 @@ $(document).ready(function() {
                     if( data.vaccat_slug != undefined ){
                         xxx = xxx+'&vaccat_slug='+vaccat_slug;
                     }
+                    if( data.top__profession != '' ){
+                        xxx = xxx+'&s='+top__profession;
+                    }
 
                     if( xxx != '' ){
                         xxx = '?'+xxx;
@@ -330,7 +333,7 @@ $(document).ready(function() {
         $('#archive_vacancies').html( '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>' );
         
         var data = {
-            action: 'get_profession__menu_items',
+            action: 'archive_get_profession__menu_items',
             default: 'default',
         };
     
@@ -343,6 +346,16 @@ $(document).ready(function() {
             success: function (response) {
                 if( true == response.success ){
                     $('#archive_vacancies').html( response.html );
+
+                    paged = 1;
+                    query_vars = response.query_vars;
+                    max_num_pages = response.max_num_pages;
+
+                    if( response.max_num_pages == 1 ){
+                        $('.products__show-more').fadeOut();
+                    } else{
+                        $('.products__show-more').fadeIn();
+                    }
                     
                     $('.archive_without_experience').prop('checked', false);
                     $('.archive_remotely').prop('checked', false);
@@ -354,6 +367,10 @@ $(document).ready(function() {
                     window.history.pushState('', '', window.location.origin + window.location.pathname );
                 }
             },
+            error: function (request, status, error) {
+                $('#archive_vacancies').html( 'К сожалению вакансий не найдено!' );
+                $('.products__show-more').fadeOut();
+            }
         });
     })
     
