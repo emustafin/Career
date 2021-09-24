@@ -3791,6 +3791,9 @@
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
 
+.tagify--outside.listing-top__profession-filter > .tagify__input {
+  min-height: 35px; }
+
 .tagify--outside.listing-top__profession-filter > .tagify__tag {
   border: 0.5px solid #969696;
   box-sizing: border-box;
@@ -4253,6 +4256,8 @@
     line-height: 20px; }
   .tagify.tagify--select > .tagify__input {
     min-height: 30px; }
+  .tagify--outside.listing-top__profession-filter > .tagify__input {
+    min-height: 31px; }
   .listing-top {
     margin-bottom: 72px;
     padding-top: 112px; }

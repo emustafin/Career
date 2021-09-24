@@ -823,35 +823,93 @@ if( is_front_page() ){
     // Страница Листинга вакансий
     const listingTagifyLevelInput = document.querySelector('.listing__level-select');
     const listingTagifyCityInput = document.querySelector('.listing__city-select');
+    const listingTagifySpecializationgInput = document.querySelector('.selectMode.listing__specialization-select');
+    const listingTagifyProfessionInput = document.querySelector('.listing-top__profession-filter');
 
     const listingLevelInput = document.querySelector('#listing__level-select');
     const listingCityInput = document.querySelector('#listing__city-select');
+    const listingspecializationInput = document.querySelector('#listing__specialization-select');
+    const listingProfessionInput = document.querySelector('#listing-top__profession-filter')
+
+
 
     // Данные для фильтров
-    const currentLevels = JSON.parse(level_arr);
-    const currentCities = JSON.parse(town_arr);
-    const currentVaccat = JSON.parse(vaccat_arr); // Специализации
-    const currentVacancyTitles = JSON.parse(vacancy_titles); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
+    const currentLevelsDataListing = JSON.parse(level_arr);
+    const currentCitiesDataListing = JSON.parse(town_arr);
+    const currentVaccatDataListing = JSON.parse(vaccat_arr); // Специализации
+    const currentVacancyTitlesDataListing = JSON.parse(vacancy_titles); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
 
+    
+    // Инициализация селекта Профессии
+    const stringVacancyesToArray = currentVacancyTitlesDataListing.split(',');
+    const currentProfessionList = stringVacancyesToArray.filter((profession) => profession !== '');
+
+    const professionListingSelect = new Tagify(listingTagifyProfessionInput, {
+      whitelist: currentProfessionList,
+      dropdown: {
+      position: "input",
+      enabled : 0 // always opens dropdown when input gets focus
+      }
+    })
+
+    professionListingSelect.on('change', () => {
+      let selectedProfessionList = [];
+
+      if (listingTagifyProfessionInput.value === '') {
+        selectedProfessionList = [];
+        listingProfessionInput.value = '';
+        return
+      } 
+
+      const savedInInputProfessions = JSON.parse(listingTagifyProfessionInput.value);
+
+      for (let profession of savedInInputProfessions) {
+        selectedProfessionList.push(profession.value)
+      }
+
+      listingProfessionInput.value = selectedProfessionList
+    })
+    
+    // Инициализация селекта Специализация
+    const specializationListingSelect = new Tagify(listingTagifySpecializationgInput, {
+      enforceWhitelist: true,
+      mode: 'select',
+      whitelist: Object.values(currentVaccatDataListing),
+      userInput: false,
+    })
+
+    specializationListingSelect.on('change', () => {
+      let currentValue;
+
+      for (let prop in currentVaccatDataListing) {
+        if (currentVaccatDataListing[prop] === JSON.parse(listingTagifySpecializationgInput.value)[0].value) {
+          currentValue = prop
+        }
+      }
+      listingspecializationInput.value = currentValue;
+    })
+
+    
     // Инициализация селекта Уровень
     const listingLevelSelect = new Tagify(listingTagifyLevelInput, {
       enforceWhitelist: true,
       mode: 'select',
-      whitelist: Object.values(currentLevels),
+      whitelist: Object.values(currentLevelsDataListing),
       userInput: false,
     });
 
     listingLevelSelect.on('change', () => {
       let currentValue;
 
-      for (let prop in currentLevels) {
-        if (currentLevels[prop] === JSON.parse(listingTagifyLevelInput.value)[0].value) {
+      
+      for (let prop in currentLevelsDataListing) {
+        if (currentLevelsDataListing[prop] === JSON.parse(listingTagifyLevelInput.value)[0].value) {
           currentValue = prop
         }
       }
       listingLevelInput.value = currentValue;
     })
-
+    
     // Инициализация селекта Город
     const listingCitySelect = new Tagify(listingTagifyCityInput, {
       enforceWhitelist: true,
@@ -859,17 +917,20 @@ if( is_front_page() ){
       whitelist: ['Москва'],
       userInput: false,
     });
-
+    
     listingCitySelect.on('change', () => {
       let currentValue;
-
-      for (let prop in currentCities) {
-        if (currentCities[prop] === JSON.parse(listingTagifyCityInput.value)[0].value) {
+      
+      for (let prop in currentCitiesDataListing) {
+        if (currentCitiesDataListing[prop] === JSON.parse(listingTagifyCityInput.value)[0].value) {
           currentValue = prop
         }
       }
       listingCityInput.value = currentValue;
     })
+
+
+
   </script>
   <?php
 }

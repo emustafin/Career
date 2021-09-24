@@ -18,21 +18,21 @@ export class ListingFilters {
     );
 
     // Инициализация селекта выбора Профессии
-    this.professionSelect = new Tagify(this.professionFilter, {
-      whitelist: ['foo', 'bar', 'baz'],
-      dropdown: {
-        position: 'input',
-        enabled: 0,
-      },
-    });
+    // this.professionSelect = new Tagify(this.professionFilter, {
+    //   whitelist: ['foo', 'bar', 'baz'],
+    //   dropdown: {
+    //     position: 'input',
+    //     enabled: 0,
+    //   },
+    // });
 
     // Инициализация селекта выбора Специализации
-    this.specializationSelect = new Tagify(this.specializationFilter, {
-      enforceWhitelist: true,
-      mode: 'select',
-      whitelist: ['first option', 'second option', 'third option'],
-      userInput: false,
-    });
+    // this.specializationSelect = new Tagify(this.specializationFilter, {
+    //   enforceWhitelist: true,
+    //   mode: 'select',
+    //   whitelist: ['first option', 'second option', 'third option'],
+    //   userInput: false,
+    // });
 
     // Инициализация селекта выбора Уровня
     // this.levelSelect = new Tagify(this.levelFilter, {
