@@ -269,7 +269,7 @@ if( is_front_page() ){
 
   </script>
   <?php
-} else{
+} elseif( is_post_type_archive('vacancies') ){
   ?>
   <script>
     // Страница Листинга вакансий
