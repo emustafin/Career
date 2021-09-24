@@ -192,5 +192,169 @@ $(document).ready(function() {
             },
         });
     }
+
+
+
+
+
+    // архивный фильтр
+    function archive_filtering(){
+
+        $('#archive_vacancies').html( '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>' );
+
+        var top__profession = $('#listing-top__profession-filter').val();
+        var vaccat_slug = $('#listing__specialization-select').val();
+        var level_slug = $('#listing__level-select').val();
+        var city_slug = $('#listing__city-select').val();
+        var archive_without_experience = $('.archive_without_experience').prop("checked");
+        var archive_remotely = $('.archive_remotely').prop("checked");
+        
+        var data = {
+            action: 'archive_get_profession__menu_items',
+            top__profession : top__profession,
+            vaccat_slug : vaccat_slug,
+            level_slug: level_slug,
+            city_slug : city_slug,
+            archive_without_experience : archive_without_experience,
+            archive_remotely : archive_remotely,
+        };
+    
+        $.ajax({
+            type: 'POST',
+            url: ajax.url,
+            data: data,
+            dataType: 'json',
+            cache: 'false',
+            success: function (response) {
+                if( true == response.success ){
+                    $('#archive_vacancies').html( response.html );
+
+                    paged = 1;
+                    query_vars = response.query_vars;
+                    max_num_pages = response.max_num_pages;
+
+                    if( response.max_num_pages == 1 ){
+                        $('.products__show-more').fadeOut();
+                    } else{
+                        $('.products__show-more').fadeIn();
+                    }
+
+                    // TODO
+                    var xxx = '';
+                    if( data.archive_without_experience != false ){
+                        xxx = xxx+'&archive_without_experience=true';
+                    }
+                    if( data.archive_remotely != false ){
+                        xxx = xxx+'&archive_remotely=true';
+                    }
+                    if( data.level_slug != '-1' ){
+                        xxx = xxx+'&level_slug='+level_slug;
+                    }
+                    if( data.city_slug != '-1' ){
+                        xxx = xxx+'&city_slug='+city_slug;
+                    }
+                    if( data.vaccat_slug != undefined ){
+                        xxx = xxx+'&vaccat_slug='+vaccat_slug;
+                    }
+
+                    if( xxx != '' ){
+                        xxx = '?'+xxx;
+                    }
+
+                    window.history.pushState('', '', window.location.origin + window.location.pathname + xxx );
+                } else{
+                    $('#archive_vacancies').html( 'К сожалению вакансии не найдено!' );
+                    $('.products__show-more').fadeOut();
+                }
+            },
+        });
+    }
+
+    // Инициализация селекта Профессии
+    if( typeof professionListingSelect !== 'undefined' ){
+        professionListingSelect.on( 'change', function(e){
+    
+            e.preventDefault();
+            archive_filtering();
+        });
+    }
+
+    // Инициализация селекта Специализация
+    if( typeof specializationListingSelect !== 'undefined' ){
+        specializationListingSelect.on( 'change', function(e){
+    
+            e.preventDefault();
+            archive_filtering();
+        });
+    }
+
+    // Инициализация селекта Уровень
+    if( typeof listingLevelSelect !== 'undefined' ){
+        listingLevelSelect.on( 'change', function(e){
+    
+            e.preventDefault();
+            archive_filtering();
+        });
+    }
+
+    // Инициализация селекта Город
+    if( typeof listingCitySelect !== 'undefined' ){
+        listingCitySelect.on( 'change', function(e){
+    
+            e.preventDefault();
+            archive_filtering();
+        });
+    }
+
+    // чекбокс Без опыта
+    $('.archive_without_experience').on( 'change', function(e){
+
+        e.preventDefault();
+        archive_filtering();
+    });
+
+    // чекбокс Удалённо
+    $('.archive_remotely').on( 'change', function(e){
+
+        e.preventDefault();
+        archive_filtering();
+    });
+
+    // сбросить фильтры
+    $('#archive_clear_all_filters').on( 'click', function(e){
+
+        e.preventDefault();
+
+        $('#archive_vacancies').html( '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>' );
+        var vaccat_slug = $('.profession__menu-item.profession__menu-item-active').attr('data-vaccat_slug');
+        
+        var data = {
+            action: 'get_profession__menu_items',
+            default: 'default',
+            vaccat_slug : vaccat_slug
+        };
+    
+        $.ajax({
+            type: 'POST',
+            url: ajax.url,
+            data: data,
+            dataType: 'json',
+            cache: 'false',
+            success: function (response) {
+                if( true == response.success ){
+                    $('#archive_vacancies').html( response.html );
+                    
+                    $('.archive_without_experience').prop('checked', false);
+                    $('.archive_remotely').prop('checked', false);
+
+                    $('#town').val(-1);
+                    $('#level').val(-1);
+                    $('.tagify__input').html('');
+
+                    window.history.pushState('', '', window.location.origin + window.location.pathname + xxx );
+                }
+            },
+        });
+    })
     
 });

@@ -17,6 +17,8 @@ $vaccat_terms = get_terms( 'vaccat' );
 $town_terms = get_terms( 'town' );
 $level_terms = get_terms( 'level' );
 
+$town_arr = array();
+
 foreach( $level_terms as $level_term ):
     $level_arr[$level_term->slug] = $level_term->name;
 endforeach;
@@ -153,7 +155,7 @@ wp_reset_postdata();
             <div class="listing-top__filter-item">
                 <p class="profession__filter-item-title">Уровень</p>
                 <div class="profession__filter-item-select">
-                    <input type="hidden" id="listing__level-select" />
+                    <input type="hidden" id="listing__level-select" value="-1"/>
                     <input
                         class="selectMode listing__level-select"
                         name="tags-select-mode"
@@ -178,7 +180,7 @@ wp_reset_postdata();
                 </div>
                 <div class="listing__filter-item-border-bottom">
                     <label class="profession__filter-checbox-listing">
-                    <input class="profession__filter-input" type="checkbox" />
+                    <input class="profession__filter-input archive_without_experience" type="checkbox" />
                     Без опыта
                     <span class="profession__filter-checbox-value"></span>
                     </label>
@@ -188,7 +190,7 @@ wp_reset_postdata();
             <div class="listing-top__filter-item">
                 <p class="profession__filter-item-title">Город</p>
                 <div class="profession__filter-item-select">
-                    <input type="hidden" id="listing__city-select" />
+                    <input type="hidden" id="listing__city-select" value="-1"/>
                     <input
                     class="selectMode listing__city-select"
                     name="tags-select-mode"
@@ -214,14 +216,14 @@ wp_reset_postdata();
 
                 <div class="listing__filter-item-border-bottom">
                     <label class="profession__filter-checbox-listing">
-                    <input class="profession__filter-input" type="checkbox" />
+                    <input class="profession__filter-input archive_remotely" type="checkbox" />
                     Удалённо
                     <span class="profession__filter-checbox-value"></span>
                     </label>
                 </div>
             </div>
 
-            <button class="listing-top__filter-item-button-reset">
+            <button id="archive_clear_all_filters" class="listing-top__filter-item-button-reset">
                 Сбросить фильтры
             </button>
         </div>
