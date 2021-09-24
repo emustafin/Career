@@ -326,12 +326,10 @@ $(document).ready(function() {
         e.preventDefault();
 
         $('#archive_vacancies').html( '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>' );
-        var vaccat_slug = $('.profession__menu-item.profession__menu-item-active').attr('data-vaccat_slug');
         
         var data = {
             action: 'get_profession__menu_items',
             default: 'default',
-            vaccat_slug : vaccat_slug
         };
     
         $.ajax({
