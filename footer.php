@@ -223,7 +223,7 @@ if( is_front_page() ){
     const currentLevels = JSON.parse(levels);
     const currentCities = JSON.parse(towns);
 
-    // Страница IT
+        // Страница IT
     const idPageTagifyLevelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
     const idPageTagifyCityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
     const idPageLevelInput = document.querySelector('#level')
@@ -238,7 +238,11 @@ if( is_front_page() ){
     });
 
     idPageLevelSelect.on('change', () => {
+
+      if (idPageTagifyLevelInput.value === '') return;
+
       let currentValue;
+
 
       for (let prop in currentLevels) {
         if (currentLevels[prop] === JSON.parse(idPageTagifyLevelInput.value)[0].value) {
@@ -247,6 +251,7 @@ if( is_front_page() ){
       }
       idPageLevelInput.value = currentValue;
     })
+
 
     // Инициализация селекта выбора города
     const idPageCitySelect= new Tagify(idPageTagifyCityInput, {
@@ -257,6 +262,10 @@ if( is_front_page() ){
     });
 
     idPageCitySelect.on('change', () => {
+
+      if (idPageTagifyCityInput.value === '') return;
+
+
       let currentValue;
 
       for (let prop in currentCities) {
@@ -267,11 +276,14 @@ if( is_front_page() ){
       idPageCityInput.value = currentValue;
     })
 
+
+
   </script>
   <?php
 } elseif( is_post_type_archive('vacancies') ){
   ?>
   <script>
+
     // Страница Листинга вакансий
     const listingTagifyLevelInput = document.querySelector('.listing__level-select');
     const listingTagifyCityInput = document.querySelector('.listing__city-select');
@@ -333,16 +345,7 @@ if( is_front_page() ){
       userInput: false,
     })
 
-    specializationListingSelect.on('change', () => {
-      let currentValue;
-
-      for (let prop in currentVaccatDataListing) {
-        if (currentVaccatDataListing[prop] === JSON.parse(listingTagifySpecializationgInput.value)[0].value) {
-          currentValue = prop
-        }
-      }
-      listingspecializationInput.value = currentValue;
-    })
+    specializationListingSelect.on('change', selectValueFromSingleSelect(currentVaccatDataListing, listingTagifySpecializationgInput, listingspecializationInput))
 
     
     // Инициализация селекта Уровень
@@ -353,17 +356,8 @@ if( is_front_page() ){
       userInput: false,
     });
 
-    listingLevelSelect.on('change', () => {
-      let currentValue;
+    listingLevelSelect.on('change', selectValueFromSingleSelect(currentLevelsDataListing, listingTagifyLevelInput, listingLevelInput))
 
-      
-      for (let prop in currentLevelsDataListing) {
-        if (currentLevelsDataListing[prop] === JSON.parse(listingTagifyLevelInput.value)[0].value) {
-          currentValue = prop
-        }
-      }
-      listingLevelInput.value = currentValue;
-    })
     
     // Инициализация селекта Город
     const listingCitySelect = new Tagify(listingTagifyCityInput, {
@@ -373,16 +367,24 @@ if( is_front_page() ){
       userInput: false,
     });
     
-    listingCitySelect.on('change', () => {
-      let currentValue;
-      
-      for (let prop in currentCitiesDataListing) {
-        if (currentCitiesDataListing[prop] === JSON.parse(listingTagifyCityInput.value)[0].value) {
-          currentValue = prop
+    listingCitySelect.on('change', selectValueFromSingleSelect(currentCitiesDataListing, listingTagifyCityInput, listingCityInput))
+
+
+    // Функция выбора элемента из выпадающего списка
+    function selectValueFromSingleSelect(data, tagifyInput, targetInput) {
+      return function() {
+        if (tagifyInput.value === '') return;
+
+        let currentValue;
+
+        for (let prop in data) {
+          if (data[prop] === JSON.parse(tagifyInput.value)[0].value) {
+            currentValue = prop
+          }
         }
+        targetInput.value = currentValue;
       }
-      listingCityInput.value = currentValue;
-    })
+    }
 
 
 
