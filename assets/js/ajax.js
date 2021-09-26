@@ -102,8 +102,8 @@ $(document).ready(function() {
         var town_slug = $('#town').val();
         var level_slug = $('#level').val();
         var vaccat_slug = $('.profession__menu-item.profession__menu-item-active').attr('data-vaccat_slug');
-        var can_without_experience = $('.can_without_experience').prop("checked");
-        var can_work_remotely = $('.can_work_remotely').prop("checked");
+        var can_without_experience = $('.can_without_experience').is(':checked');
+        var can_work_remotely = $('.can_work_remotely').is(':checked');
         
         var data = {
             action: 'get_profession__menu_items',
@@ -208,8 +208,8 @@ $(document).ready(function() {
         var vaccat_slug = $('#listing__specialization-select').val();
         var level_slug = $('#listing__level-select').val();
         var city_slug = $('#listing__city-select').val();
-        var archive_without_experience = $('.archive_without_experience').prop("checked");
-        var archive_remotely = $('.archive_remotely').prop("checked");
+        var archive_without_experience = $('.archive_without_experience').is(':checked');
+        var archive_remotely = $('.archive_remotely').is(':checked');
         
         var data = {
             action: 'archive_get_profession__menu_items',

@@ -253,7 +253,6 @@ class Vacancies {
                 }
             }
 
-
             $actually_vacancies_by = new \WP_Query( $args );
 
             if ( $actually_vacancies_by->have_posts() ) {
