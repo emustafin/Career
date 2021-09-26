@@ -73,7 +73,7 @@
             "key": "field_61280260676dc",
             "label": "Можно без опыта?",
             "name": "can_without_experience",
-            "type": "true_false",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -82,11 +82,22 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
+            "choices": {
+                "can_without_experience": "Можно без опыта",
+                "experience-is-available": "Опыт имеется",
+                "more-than-1-year-experience": "Опыт более 1 года",
+                "experience-over-2-years": "Опыт более 2х лет",
+                "experience-over-3-years": "Опыт более 3х лет",
+                "experience-over-3-4-years": "Опыт более 3-4х лет",
+                "experience-over-5-years": "Опыт более 5ти лет"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
             "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "return_format": "array",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_612802a4676dd",
@@ -271,5 +282,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631823308
+    "modified": 1632692846
 }

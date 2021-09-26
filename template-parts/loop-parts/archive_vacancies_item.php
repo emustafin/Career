@@ -1,6 +1,6 @@
 <?php
-$experience = 'Требуется опыт';
-if( get_field( 'map_full_adress', $vacancy_item_id ) ) $experience = 'Можно без опыта';
+$experience = 'Опыт не требуется';
+if( get_field( 'can_without_experience', $vacancy_item_id ) ) $experience = get_field( 'can_without_experience', $vacancy_item_id )['label'];
 
 // TODO надо будет посмотреть и переделать
 $k = 1;

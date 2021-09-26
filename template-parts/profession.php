@@ -25,7 +25,7 @@
             if( NotEmptyGetParam('town_slug') )                 $town_slug = $_GET['town_slug'];
             if( NotEmptyGetParam('level_slug') )                $level_slug = $_GET['level_slug'];
             if( NotEmptyGetParam('can_work_remotely') )         $can_work_remotely = 'checked';
-            if( NotEmptyGetParam('can_without_experience') )    $can_without_experience = 'checked';
+            if( NotEmptyGetParam('can_without_experience') && true == $_GET['can_without_experience'] ) $can_without_experience = 'checked';
 
             $profession__title = '';
 
@@ -317,6 +317,18 @@
                                 'taxonomy' => 'level',
                                 'field'    => 'slug',
                                 'terms'    => $level_slug
+                            );
+                        }
+
+                        if( $can_without_experience == true ){
+                            $args['meta_query'] = 
+                            array(
+                                'relation'		=> 'AND',
+                                array(
+                                    'key'		=> 'can_without_experience',
+                                    'value'		=> 'can_without_experience',
+                                    'compare'	=> '='
+                                )
                             );
                         }
 
