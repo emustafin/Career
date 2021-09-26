@@ -165,10 +165,10 @@ if( get_field( 'can_without_experience', $post_id ) ){
                     ?>
                     <div class="vacancy__description-block">
                         <div class="vacancy__description-title">
-                        <p class="vacancy__description-title-text"><?= get_sub_field('item_title'); ?></p>
+                        <p class="vacancy__description-title-text"><?php echo get_sub_field('item_title'); ?></p>
                         </div>
                         <div class="vacancy__description-list">
-                        <?= get_sub_field('item_contect'); ?>
+                        <?php echo get_sub_field('item_contect'); ?>
                         </div>
                     </div>
                     <?php
@@ -350,12 +350,12 @@ if( get_field( 'can_without_experience', $post_id ) ){
                         ?>
                         <div class="vacancy__positions-item">
                             <div class="vacancy__item-positions-name-block">
-                                <a href="<? the_permalink($post_id); ?>" class="vacancy__item-positions-name">
-                                    <?= get_the_title($post_id); ?>
+                                <a href="<?php the_permalink($post_id); ?>" class="vacancy__item-positions-name">
+                                    <?php echo get_the_title($post_id); ?>
                                 </a>
                                 <div class="vacancy__bread-crumbs-block">
-                                <a href="<?= get_permalink( $first_vaccat->term_id ); ?>" class="vacancy__bread-crumbs-item">IT-хаб</a>
-                                    <span class="vacancy__bread-crumbs-item"><?= $first_vaccat->name; ?></span>
+                                <a href="<?php echo get_permalink( $first_vaccat->term_id ); ?>" class="vacancy__bread-crumbs-item">IT-хаб</a>
+                                    <span class="vacancy__bread-crumbs-item"><?php echo $first_vaccat->name; ?></span>
                                 </div>
                             </div>
 
@@ -363,17 +363,17 @@ if( get_field( 'can_without_experience', $post_id ) ){
                                 <p class="vacancy__item-positions-price">
                                 от
                                 <span class="vacancy__item-positions-price-value">
-                                    <?= get_field( 'money_from', $post_id ); ?>
+                                    <?php echo get_field( 'money_from', $post_id ); ?>
                                 </span>
                                 <span class="vacancy__item-positions-currency">₽</span>
                                 </p>
                                 <p class="vacancy__item-positions-experience">
-                                    <?= $experience; ?>
+                                    <?php echo $experience; ?>
                                 </p>
                             </div>
 
                             <div class="vacancy__item-positions-location-block">
-                                <p class="vacancy__item-positions-city"><?= $town_names; ?></p>
+                                <p class="vacancy__item-positions-city"><?php echo $town_names; ?></p>
                                 <?php
                                 if( get_field( 'can_work_remotely', $post_id ) ){
                                     ?>

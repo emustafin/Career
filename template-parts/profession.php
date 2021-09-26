@@ -4,7 +4,7 @@
         <div id="vaccat_items" class="profession__header">
             <p class="profession__question">Что подходит тебе?</p>
             
-            <?
+            <?php
             $vaccat_terms = get_terms( 'vaccat' );
             $town_terms = get_terms( 'town' );
             $level_terms = get_terms( 'level' );
@@ -33,7 +33,7 @@
                 
                 <nav class="profession__menu">
                     
-                <? foreach( $vaccat_terms as $vaccat_term ):
+                <?php foreach( $vaccat_terms as $vaccat_term ):
 
                     $profession__technology = '';
                     if( get_field( 'vaccat_tehnologies', $vaccat_term ) ){
@@ -59,38 +59,38 @@
                     ?>
 
                     <span 
-                        data-vaccat_info='<?= json_encode($vaccat_data); ?>' 
-                        data-vaccat_slug="<?= $vaccat_term->slug; ?>" 
-                        class="cursor-pointer profession__menu-item <?= $active_class; ?>"
+                        data-vaccat_info='<?php echo json_encode($vaccat_data); ?>' 
+                        data-vaccat_slug="<?php echo $vaccat_term->slug; ?>" 
+                        class="cursor-pointer profession__menu-item <?php echo $active_class; ?>"
                     >
-                        <?= $vaccat_term->name; ?>
+                        <?php echo $vaccat_term->name; ?>
                     </span>
 
-                <? endforeach; ?>
+                <?php endforeach; ?>
                 </nav>
             <?php endif; ?>
         </div>
 
-        <h2 class="profession__title"><?= $profession__title; ?></h2>
+        <h2 class="profession__title"><?php echo $profession__title; ?></h2>
 
         <div class="profession__content">
             <div class="profession__side-bar">
                 <div class="profession__side-bar-text-wrapper">
                     <div id="profession__description" class="profession__side-bar-text">
-                        <?= term_description( $first_vaccat->term_id, 'vaccat' ); ?>
+                        <?php echo term_description( $first_vaccat->term_id, 'vaccat' ); ?>
                     </div>
                     <p class="profession__side-bar-text">Мы используем</p>
                     <div id="profession__tehnology" class="profession__side-bar-image-tools-wrapper">
-                        <? if( get_field( 'vaccat_tehnologies', $first_vaccat ) != null ):
+                        <?php if( get_field( 'vaccat_tehnologies', $first_vaccat ) != null ):
                             foreach (get_field( 'vaccat_tehnologies', $first_vaccat ) as $tech) : ?>
-                            <div class="profession__technology-item <?= $tech['value']; ?>"><?= $tech['label']; ?></div>
-                        <?  endforeach; 
+                            <div class="profession__technology-item <?php echo $tech['value']; ?>"><?php echo $tech['label']; ?></div>
+                        <?php  endforeach; 
                            endif;?>
                     </div>
 
                     <!-- 
-                        <a id="profession__permalink_mob" href="<?= get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy-mobile">
-                            <span id="profession__count_mob" class="profession__side-bar-vacancy-value"><?= $first_vaccat->count; ?></span>
+                        <a id="profession__permalink_mob" href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy-mobile">
+                            <span id="profession__count_mob" class="profession__side-bar-vacancy-value"><?php echo $first_vaccat->count; ?></span>
                             вакансии в
                             <span class="profession__side-bar-vacancy-value">
                                 Менеджменте
@@ -101,8 +101,8 @@
                 </div>
 
                 <!-- 
-                    <a id="profession__permalink" href="<?= get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy">
-                        <span id="profession__count" class="profession__side-bar-vacancy-value"><?= $first_vaccat->count; ?></span>
+                    <a id="profession__permalink" href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy">
+                        <span id="profession__count" class="profession__side-bar-vacancy-value"><?php echo $first_vaccat->count; ?></span>
                         вакансии в
                         <span class="profession__side-bar-vacancy-value">
                         Менеджменте
@@ -112,7 +112,7 @@
                 -->
 
                 <div class="profession__side-bar-image-wrapper">
-                    <img id="profession__img" class="profession__side-bar-image" src="<?= get_field( 'vaccat_img', $first_vaccat ); ?>" alt="management"/>
+                    <img id="profession__img" class="profession__side-bar-image" src="<?php echo get_field( 'vaccat_img', $first_vaccat ); ?>" alt="management"/>
                 </div>
             </div>
 
@@ -125,13 +125,13 @@
                             <select name="level" id="level">
                                 <option value="-1">Выберите уровень</option>
 
-                                <? $level_arr = array();
+                                <?php $level_arr = array();
                                 foreach( $level_terms as $level_term ):
                                     $selected = '';
                                     $level_arr[$level_term->slug] = $level_term->name;
                                     if( $level_slug == $level_term->slug ) $selected = 'selected'; ?>
-                                    <option value="<?= $level_term->slug; ?>" <?= $selected; ?>><?= $level_term->name; ?></option>
-                                <? endforeach; ?>
+                                    <option value="<?php echo $level_term->slug; ?>" <?php echo $selected; ?>><?php echo $level_term->name; ?></option>
+                                <?php endforeach; ?>
 
                             </select>
                              -->
@@ -162,7 +162,7 @@
 
 
                             <script>
-                                var levels = '<?= json_encode( $level_arr ); ?>';
+                                var levels = '<?php echo json_encode( $level_arr ); ?>';
                             </script>
                             <!-- 
                                 <p class="profession__filter-item-select-value">
@@ -171,7 +171,7 @@
                                 <div class="profession__filter-item-select-arrow">
                                 <img
                                     class="profession__filter-item-select-arrow-image"
-                                    src="<?= THEME_URL; ?>/assets/images/arrows/arrow-bottom.svg"
+                                    src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-bottom.svg"
                                     alt="arrow-bottom"
                                 />
                                 </div>
@@ -189,7 +189,7 @@
 
                         
                             <label class="profession__filter-checbox-wrapper-mobile">
-                                <input class="profession__filter-input can_without_experience" type="checkbox" <?= $can_without_experience; ?>/>
+                                <input class="profession__filter-input can_without_experience" type="checkbox" <?php echo $can_without_experience; ?>/>
                                 Без опыта
                                 <span class="profession__filter-checbox-value"></span>
                             </label> 
@@ -207,7 +207,7 @@
                                 foreach( $town_terms as $town_term ):
                                     $towns_array[$town_term->slug] = $town_term->name;
                                     if( $town_slug == $town_term->slug ) $selected = 'selected'; ?>
-                                        <option value="<?= $town_term->slug; ?>" <?= $selected; ?>><?= $town_term->name; ?></option>
+                                        <option value="<?php echo $town_term->slug; ?>" <?php echo $selected; ?>><?php echo $town_term->name; ?></option>
                                 <?php endforeach; ?>
                             </select>
                              -->
@@ -236,14 +236,14 @@
                             </div>
 
                             <script>
-                               var towns = '<?= json_encode( $towns_array ); ?>';
+                               var towns = '<?php echo json_encode( $towns_array ); ?>';
                             </script>
                             <!-- 
                                 <p class="profession__filter-item-select-value">Любой</p>
                                 <div class="profession__filter-item-select-arrow">
                                 <img
                                     class="profession__filter-item-select-arrow-image"
-                                    src="<?= THEME_URL; ?>/assets/images/arrows/arrow-bottom.svg"
+                                    src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-bottom.svg"
                                     alt="arrow-bottom"
                                 />
                                 </div>
@@ -263,7 +263,7 @@
 
                         
                             <label class="profession__filter-checbox-wrapper-mobile">
-                                <input class="profession__filter-input can_work_remotely" type="checkbox" <?= $can_work_remotely; ?>/>
+                                <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $can_work_remotely; ?>/>
                                 Удалённо
                                 <span class="profession__filter-checbox-value"></span>
                             </label> 
@@ -272,13 +272,13 @@
 
                     <div class="profession__checkbox-container">
                     <label class="profession__filter-checbox-wrapper">
-                        <input class="profession__filter-input can_work_remotely" type="checkbox" <?= $can_work_remotely; ?>/>
+                        <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $can_work_remotely; ?>/>
                         Удалённо
                         <span class="profession__filter-checbox-value"></span>
                     </label>
 
                     <label class="profession__filter-checbox-wrapper">
-                        <input class="profession__filter-input can_without_experience" type="checkbox"  <?= $can_without_experience; ?>/>
+                        <input class="profession__filter-input can_without_experience" type="checkbox"  <?php echo $can_without_experience; ?>/>
                         Без опыта
                         <span class="profession__filter-checbox-value"></span>
                     </label>

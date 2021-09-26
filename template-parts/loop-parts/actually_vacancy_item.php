@@ -96,7 +96,7 @@ if( get_field( 'can_without_experience', $vacancy_item_id ) ){
         <?php //var_dump(get_field( 'can_without_experience', $vacancy_item_id ));
         if( get_field( 'can_without_experience', $vacancy_item_id ) ){
             ?>
-            <p class="profession__job-expiriens"><?= get_field( 'can_without_experience', $vacancy_item_id )['label']; ?></p>
+            <p class="profession__job-expiriens"><?php echo get_field( 'can_without_experience', $vacancy_item_id )['label']; ?></p>
             <?php
         }
         ?>

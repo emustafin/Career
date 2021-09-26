@@ -91,7 +91,7 @@ $reviews = new WP_Query( $args );
                                         <span class="upgrade__main-name"><?php the_title(); ?> </span>,
                                         <br />
                                         <span class="upgrade__main-profession"
-                                        ><?= get_field('proffesion'); ?></span
+                                        ><?php echo get_field('proffesion'); ?></span
                                         >
                                     </p>
                                 </div>
@@ -110,8 +110,8 @@ $reviews = new WP_Query( $args );
 
                                             ?>
                                             <div class="upgrade__way-item">
-                                                <p class="upgrade__way-year"><?= get_sub_field('year'); ?></p>
-                                                <p class="upgrade__way-job"><?= get_sub_field('proff'); ?></p>
+                                                <p class="upgrade__way-year"><?php echo get_sub_field('year'); ?></p>
+                                                <p class="upgrade__way-job"><?php echo get_sub_field('proff'); ?></p>
                                             </div>
 
                                             <?php
@@ -137,7 +137,7 @@ $reviews = new WP_Query( $args );
 
                                             while( have_rows('career_way') ) : the_row();
                                                 ?>
-                                                <p class="upgrade__way-text"><?= get_sub_field('year'); ?> <?= get_sub_field('proff'); ?></p>
+                                                <p class="upgrade__way-text"><?php echo get_sub_field('year'); ?> <?php echo get_sub_field('proff'); ?></p>
                                                 <?php
                                             endwhile;
                                         endif;
@@ -178,7 +178,7 @@ $reviews = new WP_Query( $args );
                                         <p class="upgrade__slider-next-name">
                                         <?php the_title(); ?><span>,</span>
                                         </p>
-                                        <p class="upgrade__slider-next-job"><?= get_field('proffesion', $post->ID ); ?></p>
+                                        <p class="upgrade__slider-next-job"><?php echo get_field('proffesion', $post->ID ); ?></p>
                                     </div>
                                 </div>
                                 <?php
@@ -202,7 +202,7 @@ $reviews = new WP_Query( $args );
                                     <p class="upgrade__slider-next-name">
                                     <?php the_title(); ?><span>,</span>
                                     </p>
-                                    <p class="upgrade__slider-next-job"><?= get_field('proffesion', $post->ID ); ?></p>
+                                    <p class="upgrade__slider-next-job"><?php echo get_field('proffesion', $post->ID ); ?></p>
                                 </div>
                             </div>
                             <?php
