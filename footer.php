@@ -234,7 +234,7 @@ if( is_front_page() ){
     const currentLevels = JSON.parse(levels);
     const currentCities = JSON.parse(towns);
 
-        // Страница IT
+    // Страница IT
     const idPageTagifyLevelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
     const idPageTagifyCityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
     const idPageLevelInput = document.querySelector('#level')
@@ -268,7 +268,7 @@ if( is_front_page() ){
     const idPageCitySelect= new Tagify(idPageTagifyCityInput, {
       enforceWhitelist: true,
       mode: 'select',
-      whitelist: ['Москва'],
+      whitelist: ['Любой','Москва'],
       userInput: false,
     });
 
@@ -374,7 +374,7 @@ if( is_front_page() ){
     const listingCitySelect = new Tagify(listingTagifyCityInput, {
       enforceWhitelist: true,
       mode: 'select',
-      whitelist: ['Москва'],
+      whitelist: ['Любой', 'Москва'],
       userInput: false,
     });
     
