@@ -24,6 +24,7 @@ foreach( $level_terms as $level_term ):
     $level_arr[$level_term->slug] = $level_term->name;
 endforeach;
 
+$town_arr['-1'] = 'Любой';
 foreach( $town_terms as $town_term ):
     $town_arr[$town_term->slug] = $town_term->name;
 endforeach;
