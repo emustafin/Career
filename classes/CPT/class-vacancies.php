@@ -228,7 +228,7 @@ class Vacancies {
                     if( isset($args['meta_query']) ){
                         $args['meta_query'][] = array(
                             'key'		=> 'can_without_experience',
-                            'value'		=> true,
+                            'value'		=> 'can_without_experience',
                             'compare'	=> '='
                         );
                     } else{
@@ -237,7 +237,7 @@ class Vacancies {
                             'relation'		=> 'AND',
                             array(
                                 'key'		=> 'can_without_experience',
-                                'value'		=> true,
+                                'value'		=> 'can_without_experience',
                                 'compare'	=> '='
                             )
                         );
@@ -252,7 +252,6 @@ class Vacancies {
                     );
                 }
             }
-
 
             $actually_vacancies_by = new \WP_Query( $args );
 
@@ -418,7 +417,7 @@ class Vacancies {
                     if( isset($args['meta_query']) ){
                         $args['meta_query'][] = array(
                             'key'		=> 'can_without_experience',
-                            'value'		=> true,
+                            'value'		=> 'can_without_experience',
                             'compare'	=> '='
                         );
                     } else{
@@ -427,7 +426,7 @@ class Vacancies {
                             'relation'		=> 'AND',
                             array(
                                 'key'		=> 'can_without_experience',
-                                'value'		=> true,
+                                'value'		=> 'can_without_experience',
                                 'compare'	=> '='
                             )
                         );

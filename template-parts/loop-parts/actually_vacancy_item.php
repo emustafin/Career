@@ -64,10 +64,10 @@ if( is_array( $town_terms ) ){
 }
 $popup_info['town'] = $town_names;
 
-if( get_field( 'map_full_adress', $vacancy_item_id ) ){
-    $popup_info['experience'] = 'не требуется';
+if( get_field( 'can_without_experience', $vacancy_item_id ) ){
+    $popup_info['experience'] = get_field( 'can_without_experience', $vacancy_item_id )['label'];
 } else{
-    $popup_info['experience'] = 'требуется опыт';
+    $popup_info['experience'] = get_field( 'can_without_experience', $vacancy_item_id )['label'];
 }
 
 ?>
@@ -93,10 +93,10 @@ if( get_field( 'map_full_adress', $vacancy_item_id ) ){
         </p>
 
 
-        <?php
+        <?php //var_dump(get_field( 'can_without_experience', $vacancy_item_id ));
         if( get_field( 'can_without_experience', $vacancy_item_id ) ){
             ?>
-            <p class="profession__job-expiriens">Можно без опыта</p>
+            <p class="profession__job-expiriens"><?php echo get_field( 'can_without_experience', $vacancy_item_id )['label']; ?></p>
             <?php
         }
         ?>

@@ -47,10 +47,10 @@ wp_reset_postdata();
 ?>
 
 <script>
-    var level_arr = '<?= json_encode( $level_arr ); ?>';
-    var town_arr = '<?= json_encode( $town_arr ); ?>';
-    var vaccat_arr = '<?= json_encode( $vaccat_arr ); ?>';
-    var vacancy_titles = '<?= json_encode( $vacancy_titles ); ?>';
+    var level_arr = '<?php echo json_encode( $level_arr ); ?>';
+    var town_arr = '<?php echo json_encode( $town_arr ); ?>';
+    var vaccat_arr = '<?php echo json_encode( $vaccat_arr ); ?>';
+    var vacancy_titles = '<?php echo json_encode( $vacancy_titles ); ?>';
 </script>
 
 <!-- Section Listing-Top -->
@@ -58,7 +58,7 @@ wp_reset_postdata();
     <div class="page-container">
         <h2 class="listing-top__title">
         Вакансии
-        <span class="listing-top__counter"><?= $published_posts; ?></span>
+        <span class="listing-top__counter"><?php echo $published_posts; ?></span>
         </h2>
         <div class="listing-top__dropdown">
             <!-- <div class="listing-top__dropdown-container">
@@ -301,9 +301,9 @@ wp_reset_postdata();
                         </div>
                     </div>
                     <!-- //Banner S-->
-                <? endif; ?>
+                <?php endif; ?>
 
-                <? if( $i == 5 ): ?>
+                <?php if( $i == 5 ): ?>
                     <!-- Section Banner-L -->
                     <div class="banner-l">
                         <div class="banner-l__content">
@@ -398,9 +398,9 @@ wp_reset_postdata();
                         </div>
                     </div>
                     <!-- //Section Banner-L -->
-                <? endif; ?>
+                <?php endif; ?>
 
-                <? if( $i == 7 ): ?>
+                <?php if( $i == 7 ): ?>
                     <!-- Section Subscribe -->
                     <div class="position-subscribe">
                         <div class="position-subscribe__side-bar"></div>
@@ -434,7 +434,7 @@ wp_reset_postdata();
                         </div>
                     </div>
                     <!-- //Section Subscribe -->
-                <? endif; ?>
+                <?php endif; ?>
 
             <?php //$i++; 
                 endwhile;  ?>
@@ -454,9 +454,9 @@ wp_reset_postdata();
     </div>
 </div>
 <script>
-    var paged = '<?= $paged; ?>';
-    var query_vars = '<?= json_encode($wp_query->query_vars); ?>';
-    var max_num_pages = '<?= json_encode($wp_query->max_num_pages); ?>';
+    var paged = '<?php echo $paged; ?>';
+    var query_vars = '<?php echo json_encode($wp_query->query_vars); ?>';
+    var max_num_pages = '<?php echo json_encode($wp_query->max_num_pages); ?>';
 </script>
 <!-- //Button Show-more -->
 

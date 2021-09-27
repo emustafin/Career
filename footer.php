@@ -309,7 +309,7 @@ if( is_front_page() ){
     const currentProfessionList = stringVacancyesToArray.filter((profession) => profession !== '');
 
     const professionListingSelect = new Tagify(listingTagifyProfessionInput, {
-      whitelist: currentProfessionList,
+      // whitelist: currentProfessionList,
       dropdown: {
       position: "input",
       enabled : 0, // always opens dropdown when input gets focus

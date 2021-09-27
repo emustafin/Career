@@ -5,7 +5,7 @@
     <div class="goal__title-wrapper">
         <p class="goal-goal">Наша цель</p>
         <h2 class="goal__title">
-            <?= get_sub_field('title'); ?>
+            <?php echo get_sub_field('title'); ?>
         </h2>
         <a href="#" class="goal__button">хочу работать с вами!</a>
     </div>
@@ -14,7 +14,7 @@
         <div class="goal__side-block">
         <div class="goal__side-block-container">
             <p class="goal__item-text">
-                <?= get_sub_field('description'); ?>
+                <?php echo get_sub_field('description'); ?>
             </p>
         </div>
         </div>
@@ -29,7 +29,7 @@
               <div class="goal__slide-buttons-mobile">
               <button class="why-are-we__slide-arrow">
                   <img
-                  src="<?= THEME_URL; ?>/assets/images/advantages/small-arrow-left.svg"
+                  src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-left.svg"
                   alt="Arrow-right"
                   />
               </button>
@@ -42,7 +42,7 @@
 
               <button class="why-are-we__slide-arrow">
                   <img
-                  src="<?= THEME_URL; ?>/assets/images/advantages/small-arrow-right.svg"
+                  src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-right.svg"
                   alt="Arrow-right"
                   />
               </button>
@@ -50,9 +50,9 @@
           </div>
           <div class="goal__wrapper">
               <div class="goal__item">
-                  <h3 class="goal__item-title"><?= get_sub_field('block_title_1'); ?></h3>
+                  <h3 class="goal__item-title"><?php echo get_sub_field('block_title_1'); ?></h3>
                   <p class="goal__item-text">
-                      <?= get_sub_field('block_description_1'); ?>
+                      <?php echo get_sub_field('block_description_1'); ?>
                   </p>
                   <div class="goal__item-image-container">
                       <svg class="circle" width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,9 +62,9 @@
               </div>
 
               <div class="goal__item">
-                  <h3 class="goal__item-title"><?= get_sub_field('block_title_2'); ?></h3>
+                  <h3 class="goal__item-title"><?php echo get_sub_field('block_title_2'); ?></h3>
                   <p class="goal__item-text">
-                      <?= get_sub_field('block_description_2'); ?>
+                      <?php echo get_sub_field('block_description_2'); ?>
                   </p>
                   <div class="goal__item-image-container">
                       <div class="two-horizontal-circle">
@@ -75,9 +75,9 @@
               </div>
 
               <div class="goal__item">
-                  <h3 class="goal__item-title"><?= get_sub_field('block_title_3'); ?></h3>
+                  <h3 class="goal__item-title"><?php echo get_sub_field('block_title_3'); ?></h3>
                   <p class="goal__item-text">
-                      <?= get_sub_field('block_description_3'); ?>
+                      <?php echo get_sub_field('block_description_3'); ?>
                   </p>
                   <div class="goal__item-image-container">
                     <div class="three-circle">
@@ -89,9 +89,9 @@
               </div>
 
               <div class="goal__item">
-                  <h3 class="goal__item-title"><?= get_sub_field('block_title_4'); ?></h3>
+                  <h3 class="goal__item-title"><?php echo get_sub_field('block_title_4'); ?></h3>
                   <p class="goal__item-text">
-                      <?= get_sub_field('block_description_4'); ?>
+                      <?php echo get_sub_field('block_description_4'); ?>
                   </p>
                   <div class="goal__item-image-container">
                       <div class="circle-in-circle">
@@ -114,9 +114,9 @@
             </div>
             <div class="goal__wrapper">
               <div class="goal__item">
-                <h3 class="goal__item-title"><?= get_sub_field('block_title_1'); ?></h3>
+                <h3 class="goal__item-title"><?php echo get_sub_field('block_title_1'); ?></h3>
                 <p class="goal__item-text">
-                    <?= get_sub_field('block_description_1'); ?>
+                    <?php echo get_sub_field('block_description_1'); ?>
                 </p>
                 <div class="goal__item-image-container">
                   <svg
@@ -139,9 +139,9 @@
               </div>
 
               <div class="goal__item">
-                <h3 class="goal__item-title"><?= get_sub_field('block_title_2'); ?></h3>
+                <h3 class="goal__item-title"><?php echo get_sub_field('block_title_2'); ?></h3>
                 <p class="goal__item-text">
-                    <?= get_sub_field('block_description_2'); ?>
+                    <?php echo get_sub_field('block_description_2'); ?>
                 </p>
                 <div class="goal__item-image-container">
                   <div class="two-horizontal-circle">
@@ -164,9 +164,9 @@
               </div>
 
               <div class="goal__item">
-                <h3 class="goal__item-title"><?= get_sub_field('block_title_3'); ?></h3>
+                <h3 class="goal__item-title"><?php echo get_sub_field('block_title_3'); ?></h3>
                 <p class="goal__item-text">
-                    <?= get_sub_field('block_description_3'); ?>
+                    <?php echo get_sub_field('block_description_3'); ?>
                 </p>
                 <div class="goal__item-image-container">
                   <div class="three-circle">
@@ -202,9 +202,9 @@
               </div>
 
               <div class="goal__item">
-                <h3 class="goal__item-title"><?= get_sub_field('block_title_4'); ?></h3>
+                <h3 class="goal__item-title"><?php echo get_sub_field('block_title_4'); ?></h3>
                 <p class="goal__item-text">
-                    <?= get_sub_field('block_description_4'); ?>
+                    <?php echo get_sub_field('block_description_4'); ?>
                 </p>
                 <div class="goal__item-image-container">
                   <div class="circle-in-circle">
@@ -243,7 +243,7 @@
               <div class="goal__slide-buttons-mobile">
                 <button class="why-are-we__slide-arrow" data-name="prev">
                   <img
-                  src="<?= THEME_URL; ?>/assets/images/advantages/small-arrow-left.svg"
+                  src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-left.svg"
                     alt="Arrow-right"
                   />
                 </button>
@@ -257,7 +257,7 @@
 
                 <button class="why-are-we__slide-arrow" data-name="next">
                   <img
-                  src="<?= THEME_URL; ?>/assets/images/advantages/small-arrow-right.svg"
+                  src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-right.svg"
                     alt="Arrow-right"
                   />
                 </button>
@@ -265,9 +265,9 @@
             </div>
             <div class="goal__wrapper goal__wrapper-mobile swiper-wrapper">
               <div class="goal__item swiper-slide">
-                <h3 class="goal__item-title"><?= get_sub_field('block_title_1'); ?></h3>
+                <h3 class="goal__item-title"><?php echo get_sub_field('block_title_1'); ?></h3>
                 <p class="goal__item-text">
-                <?= get_sub_field('block_description_1'); ?>
+                <?php echo get_sub_field('block_description_1'); ?>
                 </p>
                 <div class="goal__item-image-container">
                   <svg
@@ -290,9 +290,9 @@
               </div>
 
               <div class="goal__item swiper-slide">
-                <h3 class="goal__item-title"><?= get_sub_field('block_title_2'); ?></h3>
+                <h3 class="goal__item-title"><?php echo get_sub_field('block_title_2'); ?></h3>
                 <p class="goal__item-text">
-                <?= get_sub_field('block_description_2'); ?>
+                <?php echo get_sub_field('block_description_2'); ?>
                 </p>
                 <div class="goal__item-image-container">
                   <div class="two-horizontal-circle">
@@ -315,9 +315,9 @@
               </div>
 
               <div class="goal__item swiper-slide">
-                <h3 class="goal__item-title"><?= get_sub_field('block_title_3'); ?></h3>
+                <h3 class="goal__item-title"><?php echo get_sub_field('block_title_3'); ?></h3>
                 <p class="goal__item-text">
-                <?= get_sub_field('block_description_3'); ?>
+                <?php echo get_sub_field('block_description_3'); ?>
                 </p>
                 <div class="goal__item-image-container">
                   <div class="three-circle">
@@ -353,9 +353,9 @@
               </div>
 
               <div class="goal__item swiper-slide">
-                <h3 class="goal__item-title"><?= get_sub_field('block_title_4'); ?></h3>
+                <h3 class="goal__item-title"><?php echo get_sub_field('block_title_4'); ?></h3>
                 <p class="goal__item-text">
-                <?= get_sub_field('block_description_4'); ?>
+                <?php echo get_sub_field('block_description_4'); ?>
                 </p>
                 <div class="goal__item-image-container">
                   <div class="circle-in-circle">

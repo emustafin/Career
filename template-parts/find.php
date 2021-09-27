@@ -1,7 +1,7 @@
 <!-- Find vacansies Section -->
 <section class="find">
   <h2 class="find__title">
-    <a href="https://career.dev64.ru/vacancies/" class="find__title-link">
+    <a href="/vacancies/" class="find__title-link">
       <span class="find__link-aroow">Найти вакансию</span>
       <span class="find__link-aroow">Найти вакансию</span>
       <span class="find__link-aroow">Найти вакансию</span>
@@ -29,7 +29,7 @@
 
         <img
         class="find__video-preview"
-        src="<?= THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-1.png"
+        src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/video-capture-1.png"
         alt="Preview"
         />
     </div>
@@ -46,11 +46,11 @@
               class="find__video-slide find__video-slide-active swiper-slide"
               data-name="/wp-content/uploads/2021/09/3-rolik.mp4"
               data-prevew="#ВКЛЮЧАЙБУДУЩЕЕ: HIGHLOAD, ДЕРЖИСЬ! РАЗНОСИМ МОНОЛИТНУЮ СИСТЕМУ"
-              data-image="<?= THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder1.png"
+              data-image="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder1.png"
               >
               <img
                 class="find__video-slide-image"
-                src="<?= THEME_URL; ?>/assets/images/find-vacancies/slider/image1.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image1.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -60,12 +60,12 @@
               class="find__video-slide  swiper-slide"
               data-name="/wp-content/uploads/2021/09/6-rolik.mp4"
               data-prevew="#ВКЛЮЧАЙБУДУЩЕЕ: ЗАКАЗ ТОВАРА ПОД КАПОТОМ - СТРОИМ БЕСШОВНЫЙ ONE RETAIL  ОПЫТ"
-              data-image="<?= THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder2.png"
+              data-image="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder2.png"
 
               >
               <img
                 class="find__video-slide-image"
-                src="<?= THEME_URL; ?>/assets/images/find-vacancies/slider/image2.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image2.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -75,12 +75,12 @@
               class="find__video-slide  swiper-slide"
               data-name="/wp-content/uploads/2021/09/5-rolik.mp4"
               data-prevew="#ВКЛЮЧАЙБУДУЩЕЕ: АНАЛИТИКИ В М.ВИДЕО-ЭЛЬДОРАДО ВОПЛОЩАЮТ СВОИ ИДЕИ В РЕАЛЬНОСТЬ"
-              data-image="<?= THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder3.png"
+              data-image="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder3.png"
 
               >
               <img
                 class="find__video-slide-image"
-                src="<?= THEME_URL; ?>/assets/images/find-vacancies/slider/image3.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image3.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -90,11 +90,11 @@
               class="find__video-slide  swiper-slide"
               data-name="/wp-content/uploads/2021/09/4-rolik.mp4"
               data-prevew="#ВКЛЮЧАЙБУДУЩЕЕ: НЕЙРОСЕТЬ ЗНАЕТ О ТЕБЕ ВСЕ ВСЕГО ЗА ПАРУ ШАГОВ ПО МАГАЗИНУ"
-              data-image="<?= THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder4.png"
+              data-image="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder4.png"
               >
               <img
                 class="find__video-slide-image"
-                src="<?= THEME_URL; ?>/assets/images/find-vacancies/slider/image4.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image4.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -104,11 +104,11 @@
               class="find__video-slide  swiper-slide"
               data-name="/wp-content/uploads/2021/09/2-rolik.mp4"
               data-prevew="#ВКЛЮЧАЙБУДУЩЕЕ: ЭЛЕКТРОННЫЙ ПОМОЩНИК, КОТОРЫЙ ВЫПОЛНЯЕТ ВСЕ РУТИННЫЕ ЗАДАЧИ ВМЕСТО ТЕБЯ"
-              data-image="<?= THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder5.png"
+              data-image="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder5.png"
             >
               <img
                 class="find__video-slide-image"
-                src="<?= THEME_URL; ?>/assets/images/find-vacancies/slider/image5.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image5.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -118,12 +118,12 @@
               class="find__video-slide  swiper-slide"
               data-name="/wp-content/uploads/2021/09/1-rolik.mp4"
               data-prevew="#ВКЛЮЧАЙБУДУЩЕЕ: HR&DIGITAL EMPLOYEE EXPERIENCE - СТРОИМ ЭКОСИСТЕМУ ДЛЯ СОТРУДНИКОВ"
-              data-image="<?= THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder6.png"
+              data-image="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder6.png"
 
             >
               <img
                 class="find__video-slide-image"
-                src="<?= THEME_URL; ?>/assets/images/find-vacancies/slider/image6.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image6.png"
                 alt="slide-image"
               />
               <div class="find__video-slide-progress"></div>
@@ -151,7 +151,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-                src="<?= THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder1.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder1.png"
                 alt="Image"
               />
 
@@ -181,7 +181,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-                src="<?= THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder2.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder2.png"
                 alt="Image"
               />
 
@@ -211,7 +211,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-                src="<?= THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder3.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder3.png"
                 alt="Image"
               />
 
@@ -241,7 +241,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-                src="<?= THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder4.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder4.png"
                 alt="Image"
               />
 
@@ -271,7 +271,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-                src="<?= THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder5.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder5.png"
                 alt="Image"
               />
 
@@ -301,7 +301,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-                src="<?= THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder6.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder6.png"
                 alt="Image"
               />
 
@@ -331,7 +331,7 @@
 
               <img
                 class="find__video-slide-mobile-image"
-                src="<?= THEME_URL; ?>/assets/images/find-vacancies/slider/image3.png"
+                src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image3.png"
                 alt="Image"
               />
 
