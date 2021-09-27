@@ -258,12 +258,15 @@ $(document).ready(function() {
                     if( data.vaccat_slug != undefined ){
                         xxx = xxx+'&vaccat_slug='+vaccat_slug;
                     }
-                    if( data.top__profession != '' ){
-                        var prof = top__profession.split(",");
-                        for (let index = 0; index < prof.length; index++) {
-                            xxx = xxx+'&s[]='+prof[index];
-                        }
+                    if( data.top__profession != undefined ){
+                        xxx = xxx+'&s='+top__profession;
                     }
+                    // if( data.top__profession != '' ){
+                    //     var prof = top__profession.split(",");
+                    //     for (let index = 0; index < prof.length; index++) {
+                    //         xxx = xxx+'&s[]='+prof[index];
+                    //     }
+                    // }
 
                     if( xxx != '' ){
                         xxx = '?'+xxx;

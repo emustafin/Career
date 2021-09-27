@@ -125,7 +125,7 @@
                             <select name="level" id="level">
                                 <option value="-1">Выберите уровень</option>
 
-                                <?php $level_arr = array();
+                                <?php $level_arr = array( '-1' => 'Любой' );
                                 foreach( $level_terms as $level_term ):
                                     $selected = '';
                                     $level_arr[$level_term->slug] = $level_term->name;
