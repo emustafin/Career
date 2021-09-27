@@ -84,7 +84,7 @@
             },
             "choices": {
                 "can_without_experience": "Можно без опыта",
-                "experience-is-available": "Опыт имеется",
+                "experience-is-available": "Требуется опыт",
                 "more-than-1-year-experience": "Опыт более 1 года",
                 "experience-over-2-years": "Опыт более 2х лет",
                 "experience-over-3-years": "Опыт более 3х лет",
@@ -282,5 +282,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1632692846
+    "modified": 1632732268
 }
