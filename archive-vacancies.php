@@ -19,14 +19,17 @@ $level_terms = get_terms( 'level' );
 
 $town_arr = array();
 
+$level_arr['-1'] = 'Любой';
 foreach( $level_terms as $level_term ):
     $level_arr[$level_term->slug] = $level_term->name;
 endforeach;
 
+$town_arr['-1'] = 'Любой';
 foreach( $town_terms as $town_term ):
     $town_arr[$town_term->slug] = $town_term->name;
 endforeach;
 
+$vaccat_arr['-1'] = 'Любая';
 foreach( $vaccat_terms as $vaccat_term ):
     $vaccat_arr[$vaccat_term->slug] = $vaccat_term->name;
 endforeach;

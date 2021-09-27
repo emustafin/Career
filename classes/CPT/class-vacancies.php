@@ -187,7 +187,7 @@ class Vacancies {
             );
 
             if( 'default' != $_POST['default'] ){
-                if( null != $_POST['vaccat_slug'] ){
+                if( null != $_POST['vaccat_slug'] && '-1'!= $_POST['vaccat_slug']  ){
                     $args['tax_query'][] = array(
                         'taxonomy' => 'vaccat',
                         'field'    => 'slug',
@@ -244,7 +244,7 @@ class Vacancies {
                     }
                 }
             } else{
-                if( null != $_POST['vaccat_slug'] ){
+                if( null != $_POST['vaccat_slug'] && '-1'!= $_POST['vaccat_slug']  ){
                     $args['tax_query'][] = array(
                         'taxonomy' => 'vaccat',
                         'field'    => 'slug',
@@ -289,6 +289,7 @@ class Vacancies {
                         $('.flyout .vacancy__office-map-image').attr( 'src', vacancy_info.img_map );
                         $('.flyout .vacancy__office-adress-text').html( vacancy_info.map_full_adress );
                         $('.flyout .vacancy__meta-info-sum').html( vacancy_info.money_from );
+                        $('.flyout .vacancy__meta-info-sum-after').html( vacancy_info.gross );
                         $('.flyout #vaccat_info_vacancy').html( vacancy_info.vaccat );
                         $('.flyout #town_info_vacancy').html( vacancy_info.town );
                         $('.flyout #experience_important').html( vacancy_info.experience );
@@ -373,10 +374,10 @@ class Vacancies {
             if( 'default' != $_POST['default'] ){
 
                 if( null != $_POST['top__profession'] ){
-                    $args['s'] = explode( ",", $_POST['top__profession'] );
+                    $args['s'] = $_POST['top__profession'];
                 }
 
-                if( null != $_POST['vaccat_slug'] ){
+                if( null != $_POST['vaccat_slug'] && '-1'!= $_POST['vaccat_slug'] ){
                     $args['tax_query'][] = array(
                         'taxonomy' => 'vaccat',
                         'field'    => 'slug',

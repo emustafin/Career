@@ -258,12 +258,15 @@ $(document).ready(function() {
                     if( data.vaccat_slug != undefined ){
                         xxx = xxx+'&vaccat_slug='+vaccat_slug;
                     }
-                    if( data.top__profession != '' ){
-                        var prof = top__profession.split(",");
-                        for (let index = 0; index < prof.length; index++) {
-                            xxx = xxx+'&s[]='+prof[index];
-                        }
+                    if( data.top__profession != undefined ){
+                        xxx = xxx+'&s='+top__profession;
                     }
+                    // if( data.top__profession != '' ){
+                    //     var prof = top__profession.split(",");
+                    //     for (let index = 0; index < prof.length; index++) {
+                    //         xxx = xxx+'&s[]='+prof[index];
+                    //     }
+                    // }
 
                     if( xxx != '' ){
                         xxx = '?'+xxx;
@@ -334,6 +337,16 @@ $(document).ready(function() {
         e.preventDefault();
 
         $('#archive_vacancies').html( '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>' );
+        $('.archive_without_experience').prop('checked', false);
+        $('.archive_remotely').prop('checked', false);
+
+        professionListingSelect.removeAllTags();
+        specializationListingSelect.removeAllTags();
+        listingLevelSelect.removeAllTags();
+        listingCitySelect.removeAllTags();
+
+        $('#town').val(-1);
+        $('#level').val(-1);
         
         var data = {
             action: 'archive_get_profession__menu_items',
@@ -360,17 +373,6 @@ $(document).ready(function() {
                         $('.products__show-more').fadeIn();
                     }
                     
-                    $('.archive_without_experience').prop('checked', false);
-                    $('.archive_remotely').prop('checked', false);
-
-                    professionListingSelect.removeAllTags();
-                    specializationListingSelect.removeAllTags();
-                    listingLevelSelect.removeAllTags();
-                    listingCitySelect.removeAllTags();
-
-                    $('#town').val(-1);
-                    $('#level').val(-1);
-
                     window.history.pushState('', '', window.location.origin + window.location.pathname );
                 }
             },

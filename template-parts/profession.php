@@ -125,7 +125,7 @@
                             <select name="level" id="level">
                                 <option value="-1">Выберите уровень</option>
 
-                                <?php $level_arr = array();
+                                <?php $level_arr = array( '-1' => 'Любой' );
                                 foreach( $level_terms as $level_term ):
                                     $selected = '';
                                     $level_arr[$level_term->slug] = $level_term->name;
@@ -202,8 +202,7 @@
 <!-- 
                             <select name="town" id="town">
                                 <option value="-1">Выберите город</option>
-                                <?php
-                                $towns_array = array();
+                                <?php $towns_array = array( '-1' => 'Любой' );
                                 foreach( $town_terms as $town_term ):
                                     $towns_array[$town_term->slug] = $town_term->name;
                                     if( $town_slug == $town_term->slug ) $selected = 'selected'; ?>

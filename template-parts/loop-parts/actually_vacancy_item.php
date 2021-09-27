@@ -1,9 +1,15 @@
 <?php
+if( get_field( 'not_gross', $vacancy_item_id) ):
+    $gross = '<span> - не гросс</span>';
+else:
+    $gross = '<span> - гросс</span>';
+endif;
 $popup_info = array(
     'title'                     => get_the_title( $vacancy_item_id ),
     'content'                   => get_the_content( $vacancy_item_id ),
     'img'                       => get_the_post_thumbnail_url( $vacancy_item_id, 'full' ),
     'money_from'                => number_format( get_field( 'money_from', $vacancy_item_id ), 0, ',', ' '),
+    'gross'                     => $gross,
     'vacancy_project'           => get_field( 'vacancy_project', $vacancy_item_id ),
     'can_without_experience'    => get_field( 'can_without_experience', $vacancy_item_id ),
     'can_work_remotely'         => get_field( 'can_work_remotely', $vacancy_item_id ),
@@ -90,6 +96,11 @@ if( get_field( 'can_without_experience', $vacancy_item_id ) ){
             от
             <span class="profession__job-price-value"><?php echo number_format( get_field( 'money_from', $vacancy_item_id ), 0, ',', ' '); ?></span>
             <span class="profession__currency">&#8381;</span>
+            <?php if( get_field( 'not_gross', $vacancy_item_id) ): ?>
+                <span> - не гросс</span>
+            <?php else: ?>
+                <span> - гросс</span>
+            <?php endif; ?>
         </p>
 
 
