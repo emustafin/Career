@@ -6,26 +6,32 @@
       <div class="svg-toggle" id="svg-toggle-activate">
         <div class="svg-toggle-line">
           <div class="svg-toggle__btn">
-            <svg width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#76BC21"/></svg>
+            <svg class="intern__outside-oval" width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#76BC21"/></svg>
             <svg class="intern__inside-circle" width="111" height="111" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.16 55.856c0 29.551 23.936 53.507 53.463 53.507 29.526 0 53.462-23.956 53.462-53.507S85.149 2.349 55.623 2.349C26.097 2.349 2.16 26.305 2.16 55.856zM55.624.976C25.34.977.79 25.547.79 55.857c0 30.309 24.55 54.879 54.833 54.879 30.283 0 54.832-24.57 54.832-54.88 0-30.308-24.549-54.878-54.832-54.878z" fill="#76BC21"/></svg>
           </div>
-          <svg class="svg-toggle__arrow" width="166" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z" fill="#76BC21"/></svg>
+          <div class="svg-toggle__arrow-container">
+            <svg class="svg-toggle__arrow" width="166" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z" fill="#76BC21"/></svg>
+          </div>
           <div class="svg-toggle__btn">
-            <svg width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#E31235"/></svg>
+            <svg class="intern__outside-oval" width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#E31235"/></svg>
             <svg class="intern__inside-circle" width="111" height="111" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.16 55.856c0 29.551 23.936 53.507 53.463 53.507 29.526 0 53.462-23.956 53.462-53.507S85.149 2.349 55.623 2.349C26.097 2.349 2.16 26.305 2.16 55.856zM55.624.976C25.34.977.79 25.547.79 55.857c0 30.309 24.55 54.879 54.833 54.879 30.283 0 54.832-24.57 54.832-54.88 0-30.308-24.549-54.878-54.832-54.878z" fill="#E31235"/></svg>
           </div>
-          <svg class="svg-toggle__arrow" width="166" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z" fill="#E31235"/></svg>
+          <div class="svg-toggle__arrow-container">
+            <svg class="svg-toggle__arrow" width="166" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z" fill="#E31235"/></svg>
+          </div>
 
         </div>
 
         <div class="svg-toggle-line">
           <div class="svg-toggle__btn">
-            <svg width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#E31235"/></svg>
+            <svg class="intern__outside-oval" width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#E31235"/></svg>
             <svg class="intern__inside-circle" width="111" height="111" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.16 55.856c0 29.551 23.936 53.507 53.463 53.507 29.526 0 53.462-23.956 53.462-53.507S85.149 2.349 55.623 2.349C26.097 2.349 2.16 26.305 2.16 55.856zM55.624.976C25.34.977.79 25.547.79 55.857c0 30.309 24.55 54.879 54.833 54.879 30.283 0 54.832-24.57 54.832-54.88 0-30.308-24.549-54.878-54.832-54.878z" fill="#E31235"/></svg>
           </div>
-          <svg class="svg-toggle__arrow" width="166" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z" fill="#E31235"/></svg>
+          <div class="svg-toggle__arrow-container">
+            <svg class="svg-toggle__arrow" width="166" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z" fill="#E31235"/></svg>
+          </div>
           <div class="svg-toggle__btn">
-            <svg width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#76BC21"/></svg>
+            <svg class="intern__outside-oval" width="272" height="132" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M205.622 1.372H65.799c-35.583 0-64.428 28.87-64.428 64.483s28.845 64.483 64.428 64.483h139.823c35.583 0 64.429-28.87 64.429-64.483S241.205 1.372 205.622 1.372zM65.799 0C29.46 0 0 29.484 0 65.855s29.46 65.855 65.8 65.855h139.822c36.34 0 65.8-29.484 65.8-65.855 0-36.37-29.46-65.855-65.8-65.855H65.799z" fill="#76BC21"/></svg>
             <svg class="intern__inside-circle" width="111" height="111" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.16 55.856c0 29.551 23.936 53.507 53.463 53.507 29.526 0 53.462-23.956 53.462-53.507S85.149 2.349 55.623 2.349C26.097 2.349 2.16 26.305 2.16 55.856zM55.624.976C25.34.977.79 25.547.79 55.857c0 30.309 24.55 54.879 54.833 54.879 30.283 0 54.832-24.57 54.832-54.88 0-30.308-24.549-54.878-54.832-54.878z" fill="#76BC21"/></svg>
           </div>
         </div>

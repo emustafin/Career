@@ -457,12 +457,6 @@
     padding: 0 8px;
   }
 
-  .intern__header-background {
-    max-width: 220px;
-    right: -20px;
-    padding-top: 20%;
-  }
-
   .intern__header-text {
     max-width: 100%;
     padding-right: 8px;
@@ -595,13 +589,13 @@
 }
 
 @media (max-width: 768px) {
-  .svg-toggle-line {
-    display: none;
+  // .svg-toggle-line {
+  //   display: none;
 
-    &_768 {
-      display: flex;
-    }
-  }
+  //   &_768 {
+  //     display: flex;
+  //   }
+  // }
   //
   .intern__header-background {
     max-width: 500px;
@@ -616,25 +610,25 @@
     margin-top: 8px;
   }
 
-  .svg-toggle .svg-toggle__btn svg:nth-child(2) {
-    position: absolute;
-    top: 4px;
-    left: 5px;
-  }
+  // .svg-toggle .svg-toggle__btn svg:nth-child(2) {
+  //   position: absolute;
+  //   top: 4px;
+  //   left: 5px;
+  // }
 }
 
 @media (max-width: 320px) {
-  .svg-toggle-line {
-    display: none;
+  // .svg-toggle-line {
+  //   display: none;
 
-    &_768 {
-      display: none;
-    }
+  //   &_768 {
+  //     display: none;
+  //   }
 
-    &_320 {
-      display: flex;
-    }
-  }
+  //   &_320 {
+  //     display: flex;
+  //   }
+  // }
   //
   .intern__header-background {
     max-width: 300px;
@@ -652,11 +646,11 @@
     max-width: 300px;
   }
 
-  .svg-toggle .svg-toggle__btn svg:nth-child(2) {
-    position: absolute;
-    top: 2px;
-    left: 3px;
-  }
+  // .svg-toggle .svg-toggle__btn svg:nth-child(2) {
+  //   position: absolute;
+  //   top: 2px;
+  //   left: 3px;
+  // }
 }
 
 .intern-no-events {
@@ -777,6 +771,60 @@
       max-width: 100%;
     }
   }
+
+  // Стили для анимации. Начало
+
+  .intern__header-background {
+    max-width: 747px;
+    overflow: hidden;
+  }
+
+  .intern__outside-oval {
+    transform: scale(0.75) translateX(-45px);
+  }
+
+  .intern__inside-circle {
+    transform: scale(0.75);
+    left: -3px;
+    top: 10px;
+  }
+
+  .intern__inside-circle-active {
+    left: 95px;
+  }
+
+  .svg-toggle-line {
+    height: 100px;
+  }
+
+  .svg-toggle-line:nth-child(2) {
+    justify-content: flex-start;
+    left: 193px;
+  }
+
+  .svg-toggle__btn {
+    width: 204px;
+  }
+
+  .svg-toggle__btn,
+  .svg-toggle__arrow-container {
+    margin-right: 16px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .svg-toggle__arrow-container {
+    width: 120px;
+    height: 24px;
+    overflow: hidden;
+  }
+
+  .svg-toggle__arrow {
+    transform: scale(0.75) translateX(-37px);
+  }
+  // Стили для анимации. Конец
 }
 
 // Styles block widthout events for 1024px
@@ -792,6 +840,48 @@
   .intern-no-events__news-block {
     margin-bottom: 32px;
   }
+
+  // Стили для анимации. Начало
+  .intern__header-background {
+    max-width: 592px;
+    right: -60px;
+  }
+
+  .svg-toggle__arrow {
+    transform: scale(0.6) translateX(-65px);
+  }
+
+  .intern__outside-oval {
+    transform: scale(0.6) translate(-90px, -45px);
+  }
+
+  .intern__inside-circle {
+    transform: scale(0.6) translateY(-45px);
+    left: -14px;
+  }
+
+  .intern__inside-circle-active {
+    left: 65px;
+  }
+
+  .svg-toggle__btn {
+    width: 164px;
+  }
+
+  .svg-toggle__btn {
+    height: 80px;
+  }
+
+  .svg-toggle-line {
+    height: auto;
+  }
+
+  .svg-toggle-line:nth-child(2) {
+    left: 150px;
+    top: 0;
+  }
+
+  // Стили для анимации. Конец
 }
 
 // Styles block widthout events for 768px
@@ -840,6 +930,47 @@
   }
 }
 
+// Стили для анимации 768px. Начало
+@media (max-width: 768px) {
+  .intern__header-background {
+    max-width: 440px;
+    right: -30px;
+    top: -8px;
+  }
+
+  .svg-toggle__btn {
+    width: 117px;
+    height: 57px;
+  }
+
+  .intern__outside-oval {
+    transform: scale(0.43) translate(-182px, -89px);
+  }
+
+  .intern__inside-circle {
+    transform: scale(0.43) translateY(-88px);
+    left: -25px;
+  }
+
+  .intern__inside-circle-active {
+    left: 28px;
+  }
+
+  .svg-toggle__arrow {
+    transform: scale(0.43) translateX(-123px);
+  }
+
+  .svg-toggle-line:nth-child(2) {
+    left: 110px;
+  }
+
+  .svg-toggle__arrow-container {
+    max-width: 69px;
+  }
+}
+
+// Стили для анимации. Конец
+
 // Styles block widthout events for 320px
 @media (max-width: 620px) {
   .intern-no-events {
@@ -872,4 +1003,42 @@
   .intern-no-events__date-block {
     padding: 0 8px;
   }
+  // Стили для анимации. Начало
+  .intern__header-background {
+    max-width: 220px;
+  }
+
+  .intern__outside-oval {
+    transform: scale(0.21) translate(-517px, -251px);
+  }
+
+  .intern__inside-circle {
+    transform: scale(0.21) translateY(-250px);
+    left: -42px;
+  }
+
+  .intern__inside-circle-active {
+    left: -15px;
+  }
+
+  .svg-toggle__btn {
+    width: 57px;
+    height: 28px;
+    margin-right: 5px;
+  }
+
+  .svg-toggle__arrow-container {
+    margin-right: 5px;
+    width: 35px;
+  }
+
+  .svg-toggle__arrow {
+    transform: scale(0.21) translateX(-325px);
+  }
+
+  .svg-toggle-line:nth-child(2) {
+    left: 53px;
+  }
+
+  // Стили для анимации. Конец
 }
