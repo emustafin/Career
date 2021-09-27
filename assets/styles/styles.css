@@ -6022,8 +6022,8 @@
 
 .form__form-name {
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  padding-bottom: 8px;
-  margin-bottom: 16px; }
+  margin-bottom: 16px;
+  padding-bottom: 8px; }
 
 .form__form-name-value {
   font-size: 12px;
@@ -6098,6 +6098,11 @@
   position: relative;
   cursor: pointer; }
 
+.form__filter-item-select-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 10px; }
+
 .form__value1,
 .form__value2 {
   height: 0;
@@ -6131,7 +6136,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: 0.3s; }
+  .form__dropdown-list-item:hover {
+    background: rgba(0, 0, 0, 0.1); }
 
 .form__dropdown-item-position {
   pointer-events: none; }

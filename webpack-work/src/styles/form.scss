@@ -81,8 +81,8 @@
 
 .form__form-name {
   border-bottom: 1px solid $blackColorOpacity-05;
-  padding-bottom: 8px;
   margin-bottom: 16px;
+  padding-bottom: 8px;
 }
 
 .form__form-name-value {
@@ -169,6 +169,12 @@
   cursor: pointer;
 }
 
+.form__filter-item-select-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+}
+
 .form__value1,
 .form__value2 {
   height: 0;
@@ -208,6 +214,11 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
 }
 
 .form__dropdown-item-position {
