@@ -47,6 +47,7 @@
                 <span class="vacancy__meta-info-sum">80 000</span>
                 ₽
                 </span>
+                <span class="vacancy__meta-info-sum-after"></span>
             </div>
             <div class="vacancy__meta-info-item">
                 <span class="vacancy__meta-info-title">Опыт</span>
