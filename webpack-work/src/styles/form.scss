@@ -428,3 +428,21 @@
 .form__content-right-bar-100 {
   width: 100%;
 }
+
+a.cd-upload-btn{
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Suisse Intl;
+  font-size: 12px;
+  line-height: 12px;
+  text-decoration: underline;
+}
+
+.codedropz-upload-inner span{
+  display: none;
+}
+.codedropz-upload-inner h3{
+  font-family: Suisse Intl;
+  // font-size: 16px;
+  // line-height: 20px;
+  color: #000000;
+}
