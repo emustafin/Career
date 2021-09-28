@@ -297,6 +297,21 @@ if( is_front_page() ){
       idPageCityInput.value = currentValue;
     })
 
+      // Отправка анкеты на сервер
+  const form = document.querySelector('#wpcf7-f437-o2')
+  
+  form.addEventListener( 'wpcf7submit', function( event ) {
+    const submitBtn = document.querySelector('.wpcf7-form-control.wpcf7-submit.form__response');
+    const answerTitle = document.querySelector('.form__response-block')
+
+    const result = event.detail;
+
+    if (result.status === 'mail_sent')
+      submitBtn.style.display = 'none';
+      answerTitle.style.display = 'block';
+  }, false );
+
+
 
 
   </script>
@@ -409,9 +424,14 @@ if( is_front_page() ){
 
 
 
+
+
   </script>
   <?php
 }
+
+
+
 ?>
 <?php wp_footer(); ?>
 
