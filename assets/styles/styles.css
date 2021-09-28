@@ -6094,6 +6094,14 @@
     height: 9px;
     background: url("../images/form/arrow-right.svg") no-repeat; }
 
+.form__response-block {
+  max-width: 464px;
+  display: none; }
+
+.form__response-title {
+  font-size: 32px;
+  line-height: 40px; }
+
 .form__dropdown {
   position: relative;
   cursor: pointer; }
@@ -6252,13 +6260,31 @@
   .form__file-uploader {
     margin-bottom: 16px; }
   .form__header {
-    margin-bottom: 24px; } }
+    margin-bottom: 24px; }
+  .form__response-title {
+    font-size: 24px;
+    line-height: 28px; } }
 
 .form__file-uploader .wpcf7-form-control-wrap.upload-file-803 {
-  max-width: 500px; }
+  width: 100%; }
 
 .cd-upload-btn {
   color: #000; }
+
+.dnd-upload-status .dnd-upload-details .dnd-progress-bar span {
+  background: #969696; }
+
+.name > span {
+  color: #000000; }
+
+.codedropz-upload-handler {
+  border: 1px dashed #969696; }
+
+.form__file-uploader {
+  margin-bottom: 10px; }
+
+.form__content-right-bar-100 {
+  width: 100%; }
 
 .direct-link__header {
   overflow: hidden;
