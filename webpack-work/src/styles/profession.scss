@@ -322,6 +322,7 @@
 
 .profession__side-bar-image-wrapper {
   max-width: 416px;
+  margin-top: auto;
 
   & > .profession__side-bar-image {
     width: 100%;
@@ -469,6 +470,7 @@
   padding-bottom: 32px;
   padding-top: 8px;
   transition: 0.2s;
+  cursor: pointer;
 
   &:first-child {
     border-top: 1px solid transparent;

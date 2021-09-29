@@ -5009,7 +5009,8 @@
   display: none; }
 
 .profession__side-bar-image-wrapper {
-  max-width: 416px; }
+  max-width: 416px;
+  margin-top: auto; }
   .profession__side-bar-image-wrapper > .profession__side-bar-image {
     width: 100%; }
 
@@ -5133,7 +5134,8 @@
   border-top: 1px solid #969696;
   padding-bottom: 32px;
   padding-top: 8px;
-  transition: 0.2s; }
+  transition: 0.2s;
+  cursor: pointer; }
   .profession__job-item:first-child {
     border-top: 1px solid transparent; }
   .profession__job-item:last-child {
