@@ -89,7 +89,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     Розничные магазины
                   </a>
                   <a
-                    href="https://job.mvideoeldorado.ru/office"
+                    href="https://jobinme.mvideoeldorado.ru/office"
                     class="it-header__directions-dropdown-item"
                     target="blank"
                   >
