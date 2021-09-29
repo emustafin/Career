@@ -5637,10 +5637,13 @@
   display: none; }
 
 .upgrade__way-wrapper {
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; }
 
 .upgrade__way-item {
-  margin-right: 9px; }
+  margin-right: 9px;
+  margin-bottom: 16px; }
 
 .upgrade__way-arrow-block {
   margin-right: 17px;
@@ -5740,7 +5743,7 @@
     max-width: 594px; }
   .upgrade__way-item,
   .upgrade__way-arrow-block {
-    margin: 0; }
+    margin-right: 0; }
   .upgrade__way-wrapper {
     justify-content: space-between; }
   .upgrade__slider-next-block {

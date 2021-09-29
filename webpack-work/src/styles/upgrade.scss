@@ -241,10 +241,13 @@
 
 .upgrade__way-wrapper {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .upgrade__way-item {
   margin-right: 9px;
+  margin-bottom: 16px;
 }
 
 .upgrade__way-arrow-block {
@@ -395,7 +398,7 @@
 
   .upgrade__way-item,
   .upgrade__way-arrow-block {
-    margin: 0;
+    margin-right: 0;
   }
 
   .upgrade__way-wrapper {
