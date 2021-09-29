@@ -67,7 +67,7 @@
                 <div class="footer__item-social-item">
                   <a href="https://vk.com/myjobby" class="footer__item-social-link" target="blank">ВК</a>
                   <a href="https://www.youtube.com/user/wwwmvideoru" class="footer__item-social-link" target="blank">YouTube</a>
-                  <a href="https://www.instagram.com/mvideo_ru/" class="footer__item-social-link" target="blank">Instagram</a>
+                  <a href="https://www.instagram.com/myjobby/" class="footer__item-social-link" target="blank">Instagram</a>
                 </div>
               </div>
             </div>
@@ -89,8 +89,8 @@
 
           <div class="footer__item">
             <p class="footer__item-title">Направления</p>
-            <a target="blank" href="https://jobinme.mvideoeldorado.ru/it" class="footem__item-directions-link">IT-департамент</a>
-            <a target="blank" href="https://jobinme.mvideoeldorado.ru/mvideo" class="footem__item-directions-link"
+            <a target="blank" href="https://emlifewp.mvideoeldorado.ru/" class="footem__item-directions-link">IT-департамент</a>
+            <a target="blank" href="https://job.mvideoeldorado.ru/shops" class="footem__item-directions-link"
               >Розничные магазины</a
             >
             <a target="blank" href="https://jobinme.mvideoeldorado.ru/office" class="footem__item-directions-link"
@@ -99,7 +99,7 @@
             <a target="blank" href="https://jobinme.mvideoeldorado.ru/logistics" class="footem__item-directions-link"
               >Сервис и логистика</a
             >
-            <a target="blank" href="https://jobinme.mvideoeldorado.ru/" class="footem__item-directions-link">Студентам</a>
+            <a target="blank" href="https://job.mvideoeldorado.ru/students" class="footem__item-directions-link">Студентам</a>
 
             <p class="footer__info-text">Made by Annti + AmberLabs</p>
           </div>

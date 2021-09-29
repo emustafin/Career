@@ -88,7 +88,7 @@ $reviews = new WP_Query( $args );
                                         />
                                     </div>
                                     <p class="upgrade__main-job">
-                                        <span class="upgrade__main-name"><?php the_title(); ?> </span>,
+                                        <span class="upgrade__main-name"><?php the_title(); ?></span>,
                                         <br />
                                         <span class="upgrade__main-profession"
                                         ><?php echo get_field('proffesion'); ?></span
