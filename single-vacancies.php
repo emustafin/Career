@@ -87,7 +87,7 @@ if( get_field( 'can_without_experience', $post_id ) ){
                 <span class="direct-link__vacancy-price"><?php echo $money_from; ?></span>
                 <span>₽</span>
                 <?php if( get_field( 'not_gross', $post_id) ): ?>
-                    <span> - не гросс</span>
+                    <span> - нет</span>
                 <?php else: ?>
                     <span> - гросс</span>
                 <?php endif; ?>
@@ -134,7 +134,7 @@ if( get_field( 'can_without_experience', $post_id ) ){
                 <span class="direct-link__vacancy-price"><?php echo $money_from; ?></span>
                 <span>₽</span>
                 <?php if( get_field( 'not_gross', $post_id) ): ?>
-                    <span> - не гросс</span>
+                    <span> - нет</span>
                 <?php else: ?>
                     <span> - гросс</span>
                 <?php endif; ?>
@@ -377,7 +377,7 @@ if( get_field( 'can_without_experience', $post_id ) ){
                                 </span>
                                 <span class="vacancy__item-positions-currency">₽</span>
                                 <?php if( get_field( 'not_gross', $post_id) ): ?>
-                                    <span> - не гросс</span>
+                                    <span> - нет</span>
                                 <?php else: ?>
                                     <span> - гросс</span>
                                 <?php endif; ?>

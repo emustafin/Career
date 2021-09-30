@@ -1,6 +1,6 @@
 <?php
 if( get_field( 'not_gross', $vacancy_item_id) ):
-    $gross = '<span> - не гросс</span>';
+    $gross = '<span> - нет</span>';
 else:
     $gross = '<span> - гросс</span>';
 endif;
@@ -97,7 +97,7 @@ if( get_field( 'can_without_experience', $vacancy_item_id ) ){
             <span class="profession__job-price-value"><?php echo number_format( get_field( 'money_from', $vacancy_item_id ), 0, ',', ' '); ?></span>
             <span class="profession__currency">&#8381;</span>
             <?php if( get_field( 'not_gross', $vacancy_item_id) ): ?>
-                <span> - не гросс</span>
+                <span> - нет</span>
             <?php else: ?>
                 <span> - гросс</span>
             <?php endif; ?>

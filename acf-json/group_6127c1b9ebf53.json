@@ -50,7 +50,7 @@
         },
         {
             "key": "field_6151d8054c0e2",
-            "label": "Не гросс",
+            "label": "Нет",
             "name": "not_gross",
             "type": "true_false",
             "instructions": "",
@@ -301,5 +301,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1632754859
+    "modified": 1633014284
 }
