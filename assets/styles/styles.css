@@ -2168,6 +2168,15 @@
   .vacancy__news-item-image-block {
     height: auto; } }
 
+.wpcf7-form-control-wrap {
+  width: 100%; }
+
+.codedropz-upload-inner {
+  white-space: inherit; }
+
+.codedropz-upload-container {
+  padding: 20px 20px; }
+
 .footer {
   padding-top: 40px;
   padding-bottom: 24px;
@@ -2969,7 +2978,6 @@
 .it-header,
 .listing-header {
   position: fixed;
-  top: 0;
   left: 0;
   right: 0;
   z-index: 12;
