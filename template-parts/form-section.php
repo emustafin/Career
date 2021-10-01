@@ -47,6 +47,10 @@
         }
         ?>
 
+        <script>
+            var info_product_directions = '<?php echo $info_product_directions; ?>'; // Направление
+            var info_vaccat = '<?php echo $info_vaccat; ?>'; // Специализация
+        </script>
         <div id="popup_form" class="form__content-right-bar-wrapper">
             <div class="form__content-right-bar form__content-right-bar-100">
             <?php echo do_shortcode('[contact-form-7 id="289" title="Анкета"]'); ?>
