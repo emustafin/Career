@@ -25,40 +25,40 @@ export class Form {
     );
 
     // Инициализация селекта Тагифай в анкете. Поле "Город"
-    // this.citySelect = new Tagify(this.formCitySelect, {
-    //   enforceWhitelist: true,
-    //   mode: 'select',
-    //   whitelist: ['Москва', 'Санкт-Петербург', 'Ростов-на-Дону'],
-    //   userInput: false,
-    // });
+    this.citySelect = new Tagify(this.formCitySelect, {
+      enforceWhitelist: true,
+      mode: 'select',
+      whitelist: ['Москва', 'Санкт-Петербург', 'Ростов-на-Дону'],
+      userInput: false,
+    });
 
     // Инициализация селекта Тагифай в анкете. Поле "Направление"
-    // this.directionSelect = new Tagify(this.formDirectionSelect, {
-    //   enforceWhitelist: true,
-    //   mode: 'select',
-    //   whitelist: [
-    //     'IT-департамент',
-    //     'Розничные магазины',
-    //     'Центральный офиc',
-    //     'Сервис и логистика',
-    //     'Студентам',
-    //   ],
-    //   userInput: false,
-    // });
+    this.directionSelect = new Tagify(this.formDirectionSelect, {
+      enforceWhitelist: true,
+      mode: 'select',
+      whitelist: [
+        'IT-департамент',
+        'Розничные магазины',
+        'Центральный офиc',
+        'Сервис и логистика',
+        'Студентам',
+      ],
+      userInput: false,
+    });
 
     // Инициализация селекта Тагифай в анкете. Поле "Специализация"
-    // this.spezialisationSelect = new Tagify(this.formSpezialisationSelect, {
-    //   enforceWhitelist: true,
-    //   mode: 'select',
-    //   whitelist: [
-    //     'Java',
-    //     'Product manager',
-    //     'Project manager',
-    //     'QA',
-    //     'Аналитика',
-    //   ],
-    //   userInput: false,
-    // });
+    this.spezialisationSelect = new Tagify(this.formSpezialisationSelect, {
+      enforceWhitelist: true,
+      mode: 'select',
+      whitelist: [
+        'Java',
+        'Product manager',
+        'Project manager',
+        'QA',
+        'Аналитика',
+      ],
+      userInput: false,
+    });
 
     this.init();
   }
