@@ -49,13 +49,7 @@
         }
         wp_reset_postdata();
 
-        $info_vaccat = '
-        <div class="form__dropdown-list-item">
-            <p class="form__dropdown-item-position">Любая</p>
-            <div class="form__dropdown-item-checked">
-            <img class="form__dropdown-item-checked-image" src="'.THEME_URL.'/assets/images/form/check.svg" alt="Check"></img>
-            </div>
-        </div>';
+        $info_vaccat = '';
         $terms = get_terms( 'vaccat' );
         if( $terms && ! is_wp_error($terms) ){
             foreach( $terms as $term ){
