@@ -79,7 +79,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     href="/"
                     class="it-header__directions-dropdown-item"
                     target="blank"
-                    >IT-департамент
+                    >IT и продукты
                   </a>
                   <a
                     href="https://job.mvideoeldorado.ru/shops"

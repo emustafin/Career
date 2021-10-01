@@ -548,7 +548,8 @@
   font-size: 18px;
   line-height: 24px;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  overflow: hidden; }
 
 .direction__title {
   font-size: 160px;
@@ -580,6 +581,14 @@
 .direction__products-wrapper {
   width: 100%;
   display: flex; }
+
+.tab-item-content,
+.tab-item-content-hidden {
+  display: block;
+  transition: 0.3s; }
+
+.tab-item-content-hidden {
+  transform: translateX(110%); }
 
 .direction__tribe-description {
   margin-bottom: 72px; }
@@ -5193,7 +5202,8 @@
   margin-right: auto;
   position: relative;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  pointer-events: none; }
 
 .profession__show-more {
   color: #000000;
@@ -5226,7 +5236,8 @@
   width: 100%;
   max-width: 310px;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  pointer-events: none; }
 
 .profession__job-expiriens {
   margin-top: auto; }
@@ -5649,14 +5660,16 @@
 .upgrade__way-wrapper {
   display: flex;
   flex-wrap: wrap;
-  align-items: center; }
+  align-items: center;
+  justify-content: space-around; }
 
 .upgrade__way-item {
-  margin-right: 9px;
-  margin-bottom: 16px; }
+  margin-right: 16px;
+  margin-bottom: 16px;
+  max-width: 30%; }
 
 .upgrade__way-arrow-block {
-  margin-right: 17px;
+  margin-right: 16px;
   padding-top: 5px; }
 
 .upgrade__slider-next-block {
@@ -5751,11 +5764,6 @@
     width: 81%; }
   .upgrade__way-wrapper {
     max-width: 594px; }
-  .upgrade__way-item,
-  .upgrade__way-arrow-block {
-    margin-right: 0; }
-  .upgrade__way-wrapper {
-    justify-content: space-between; }
   .upgrade__slider-next-block {
     width: 8%;
     max-width: 40px; }
@@ -5805,7 +5813,7 @@
   .upgrade__way-wrapper {
     width: 100%;
     max-width: 100%;
-    justify-content: flex-start; }
+    justify-content: space-around; }
   .upgrade__way-item {
     margin-right: 9px; }
   .upgrade__way-arrow-block {
@@ -6310,7 +6318,7 @@ a.cd-upload-btn {
   display: none; }
 
 .codedropz-upload-inner h3 {
-  font-family: Suisse Intl;
+  font-family: suisse;
   color: #000000; }
 
 .direct-link__header {
