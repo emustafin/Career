@@ -32,7 +32,7 @@
 
 .direct-link__container {
   padding: 0 16px;
-  margin-top: 132px;
+  padding-top: 132px;
 }
 
 .direct-link__vacancy-description-block-mobile {
@@ -178,7 +178,7 @@
   }
 
   .direct-link__container {
-    margin-top: 108px;
+    padding-top: 108px;
   }
 
   .vacancy__news,
@@ -224,7 +224,7 @@
   }
 
   .direct-link__container {
-    margin-top: 100px;
+    padding-top: 100px;
   }
 
   .direct-link__headline-link {
@@ -251,7 +251,9 @@
 // Styles for 768px
 @media (max-width: 990px) {
   .direct-link__container {
-    padding: 0 8px;
+    padding-top: 100px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   .direct-link__side-bar {
@@ -304,15 +306,6 @@
     line-height: 16px;
   }
 
-  .direct-link__container {
-    margin-top: 0;
-  }
-
-  .direct-link__header {
-    position: static;
-    margin-bottom: 16px;
-  }
-
   .direct-link__vacancy-container {
     margin-bottom: 16px;
   }
@@ -342,5 +335,16 @@
 
   .direct-link__headline-link {
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 479px) {
+  .direct-link__container {
+    padding-top: 0;
+  }
+
+  .direct-link__header {
+    position: static;
+    margin-bottom: 16px;
   }
 }
