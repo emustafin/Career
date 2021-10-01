@@ -20,7 +20,9 @@ function TC() : \Career\Core { //phpcs:ignore
 }
 TC();
 
-
+function NotEmptyGetParam( $param ){
+	return !empty($_GET) && !empty($_GET[ $param ]) && null != $_GET[ $param ];
+}
 
 add_action('wpcf7_mail_sent', function ($cf7) {
 

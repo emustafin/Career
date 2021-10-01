@@ -18,12 +18,21 @@
             "layouts": {
                 "layout_612a42fd2f1f0": {
                     "key": "layout_612a42fd2f1f0",
+                    "name": "create-future",
+                    "label": "Первый экран (спираль)",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_614a0de24ad79": {
+                    "key": "layout_614a0de24ad79",
                     "name": "why-are-we",
                     "label": "Кто мы?",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_612a43bf91f96",
+                            "key": "field_614a0de24ad7a",
                             "label": "Заголовок",
                             "name": "title",
                             "type": "text",
@@ -42,7 +51,7 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_612a44a791f99",
+                            "key": "field_614a0de24ad7b",
                             "label": "Слайды",
                             "name": "slides",
                             "type": "repeater",
@@ -61,7 +70,7 @@
                             "button_label": "",
                             "sub_fields": [
                                 {
-                                    "key": "field_612a44b891f9a",
+                                    "key": "field_614a0de24ad7c",
                                     "label": "Название",
                                     "name": "title",
                                     "type": "text",
@@ -80,7 +89,7 @@
                                     "maxlength": ""
                                 },
                                 {
-                                    "key": "field_612a44c391f9b",
+                                    "key": "field_614a0de24ad7d",
                                     "label": "Описание",
                                     "name": "desription",
                                     "type": "textarea",
@@ -99,7 +108,7 @@
                                     "new_lines": ""
                                 },
                                 {
-                                    "key": "field_612a44d791f9c",
+                                    "key": "field_614a0de24ad7e",
                                     "label": "Изображение",
                                     "name": "img",
                                     "type": "image",
@@ -460,5 +469,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1631629735
+    "modified": 1632243196
 }

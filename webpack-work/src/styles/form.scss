@@ -10,7 +10,7 @@
   line-height: 24px;
   width: 100%;
   overflow: auto;
-  z-index: 11;
+  z-index: 12;
   transition: 0.3s;
   transform: translateX(100%);
 }
@@ -81,8 +81,8 @@
 
 .form__form-name {
   border-bottom: 1px solid $blackColorOpacity-05;
-  padding-bottom: 8px;
   margin-bottom: 16px;
+  padding-bottom: 8px;
 }
 
 .form__form-name-value {
@@ -99,7 +99,7 @@
   width: 100%;
 }
 
-.form__input-checkbox input{
+.form__input-checkbox input {
   display: none;
 }
 
@@ -125,7 +125,7 @@
     opacity: 0;
   }
 }
-.form__input-checkbox span{
+.form__input-checkbox span {
   margin-left: 0;
 }
 .form__input-checkbox input:checked ~ .wpcf7-list-item-label::before {
@@ -164,9 +164,25 @@
   }
 }
 
+.form__response-block {
+  max-width: 464px;
+  display: none;
+}
+
+.form__response-title {
+  font-size: 32px;
+  line-height: 40px;
+}
+
 .form__dropdown {
   position: relative;
   cursor: pointer;
+}
+
+.form__filter-item-select-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
 }
 
 .form__value1,
@@ -208,6 +224,11 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
 }
 
 .form__dropdown-item-position {
@@ -374,11 +395,54 @@
   .form__header {
     margin-bottom: 24px;
   }
+
+  .form__response-title {
+    font-size: 24px;
+    line-height: 28px;
+  }
 }
 
 .form__file-uploader .wpcf7-form-control-wrap.upload-file-803 {
-  max-width: 500px;
+  width: 100%;
 }
 .cd-upload-btn {
   color: #000;
+}
+
+.dnd-upload-status .dnd-upload-details .dnd-progress-bar span {
+  background: #969696;
+}
+
+.name > span {
+  color: $mainColor;
+}
+
+.codedropz-upload-handler {
+  border: 1px dashed #969696;
+}
+
+.form__file-uploader {
+  margin-bottom: 10px;
+}
+
+.form__content-right-bar-100 {
+  width: 100%;
+}
+
+a.cd-upload-btn{
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Suisse Intl;
+  font-size: 12px;
+  line-height: 12px;
+  text-decoration: underline;
+}
+
+.codedropz-upload-inner span{
+  display: none;
+}
+.codedropz-upload-inner h3{
+  font-family: Suisse Intl;
+  // font-size: 16px;
+  // line-height: 20px;
+  color: #000000;
 }

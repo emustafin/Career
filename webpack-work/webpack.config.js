@@ -57,6 +57,14 @@ module.exports = {
       filename: 'vacancy-direct-link.html',
       template: './vacancy-direct-link.html',
     }),
+    new HTMLWebpackPlugin({
+      filename: 'listing-metro.html',
+      template: './listing-metro.html',
+    }),
+    new HTMLWebpackPlugin({
+      filename: 'retail-main.html',
+      template: './retail-main.html',
+    }),
     new MiniCssExtractPlugin({
       filename: 'styles/styles.css',
     }),

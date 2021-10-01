@@ -1,5 +1,85 @@
 // @import './styles.scss';
 
+// Стили для Tagify
+.tagify {
+  --tag-bg: transparent;
+  --tag-hover: transparent;
+  --tag-remove-bg: transparent;
+  --tagify-dd-color-primary: transparent;
+}
+
+.tagify {
+  width: 100%;
+  border: none;
+  margin-top: 0;
+
+  &::after {
+    display: none;
+  }
+}
+
+.tagify__input {
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-top: 4px;
+  padding-bottom: 8px;
+  background: var(--tag-bg);
+
+  &::after {
+    display: none;
+  }
+
+  &:hover {
+    background: var(--tag-hover);
+  }
+}
+
+// Стили для фильтра выбора профессий (Листинг вакансий)
+.tagify--outside {
+  border: 0;
+}
+
+.tagify--outside .tagify__input {
+  order: -1;
+  flex: 100%;
+  border: 1px solid var(--tags-border-color);
+  margin-bottom: 1em;
+  transition: 0.1s;
+}
+
+// Стили для фильтра выбора профессий (Листинг вакансий)-конец
+
+.tagify--select {
+  & > .tagify__tag {
+    display: none;
+  }
+}
+
+.tagify--outside {
+  & > .tagify__input {
+    margin-bottom: 0;
+  }
+}
+
+// .tagify__tag {
+//   border: 1px solid #000;
+//   border-radius: 36%;
+// }
+
+.tagify__dropdown__wrapper {
+  border: 1px solid transparent;
+}
+
+.tagify__dropdown__item {
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: $mainColor;
+  }
+}
+// Стили для Tagify
+
 .profession {
   margin-bottom: 192px;
   overflow: hidden;
@@ -25,7 +105,6 @@
   justify-content: flex-end;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
 }
 
 .profession__menu-item,
@@ -47,6 +126,12 @@
   letter-spacing: -0.03em;
   margin-top: 24px;
   margin-bottom: 96px;
+}
+
+#clear_all_filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profession__content {
@@ -237,6 +322,7 @@
 
 .profession__side-bar-image-wrapper {
   max-width: 416px;
+  margin-top: auto;
 
   & > .profession__side-bar-image {
     width: 100%;
@@ -257,7 +343,6 @@
 .profession__filter-wrapper {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
   margin-bottom: 64px;
   font-size: 18px;
   line-height: 24px;
@@ -265,17 +350,17 @@
 
 .profession__checkbox-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.profession__filter-item,
-.listing-top__filter-item {
+.profession__filter-item {
   width: 100%;
   max-width: 304px;
   margin-right: 16px;
   border-bottom: 1px solid $blackColorOpacity-05;
   position: relative;
   cursor: pointer;
-  padding-bottom: 8px;
 
   &:last-child {
     margin-right: 0;
@@ -285,6 +370,15 @@
 .profession__filter-item-select {
   display: flex;
   justify-content: space-between;
+}
+
+.profession__filter-item-select-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 50%;
 }
 
 .profession__filter-item-select-list {
@@ -304,7 +398,7 @@
   font-size: 12px;
   line-height: 12px;
   color: $blackColorOpacity-05;
-  margin-bottom: 4px;
+  // margin-bottom: 4px;
 }
 
 .profession__filter-input {
@@ -376,6 +470,7 @@
   padding-bottom: 32px;
   padding-top: 8px;
   transition: 0.2s;
+  cursor: pointer;
 
   &:first-child {
     border-top: 1px solid transparent;
@@ -659,7 +754,7 @@
 
   .profession__menu {
     // width: max-content;
-    justify-content: flex-start;
+    width: 100%;
   }
 }
 
@@ -839,6 +934,9 @@
   .profession__filter-checbox-wrapper-mobile {
     line-height: 19px;
   }
+  .profession__filter-checbox-wrapper {
+    margin-bottom: 5px;
+  }
 
   .profession__filter-wrapper {
     margin-bottom: 32px;
@@ -892,5 +990,43 @@
 
   .profession__question {
     margin-bottom: 16px;
+  }
+}
+
+.loader-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #000;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
   }
 }

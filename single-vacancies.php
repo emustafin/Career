@@ -13,7 +13,7 @@ $content = get_the_content( $post_id );
 $img = get_the_post_thumbnail_url( $post_id, 'full' );
 $money_from = number_format( get_field( 'money_from', $post_id ), 0, ',', ' ');
 $vacancy_project = get_field( 'vacancy_project', $post_id );
-$can_without_experience = get_field( 'can_without_experience', $post_id );
+$can_without_experience = get_field( 'can_without_experience', $post_id )['label'];
 $can_work_remotely = get_field( 'can_work_remotely', $post_id );
 $img_map = get_field( 'img_map', $post_id );
 $map_full_adress = get_field( 'map_full_adress', $post_id );
@@ -49,10 +49,10 @@ if( is_array( $town_terms ) ){
 	}
 }
 
-if( get_field( 'map_full_adress', $post_id ) ){
-    $experience = 'не требуется';
+if( get_field( 'can_without_experience', $post_id ) ){
+    $experience = get_field( 'can_without_experience', $post_id )['label'];
 } else{
-    $experience = 'требуется опыт';
+    $experience = get_field( 'can_without_experience', $post_id )['label'];
 }
 
 ?>
@@ -86,6 +86,11 @@ if( get_field( 'map_full_adress', $post_id ) ){
                 <span>от</span>
                 <span class="direct-link__vacancy-price"><?php echo $money_from; ?></span>
                 <span>₽</span>
+                <?php if( get_field( 'not_gross', $post_id) ): ?>
+                    <span> - нет</span>
+                <?php else: ?>
+                    <span> - гросс</span>
+                <?php endif; ?>
             </p>
             </div>
 
@@ -128,6 +133,11 @@ if( get_field( 'map_full_adress', $post_id ) ){
                 <span>от</span>
                 <span class="direct-link__vacancy-price"><?php echo $money_from; ?></span>
                 <span>₽</span>
+                <?php if( get_field( 'not_gross', $post_id) ): ?>
+                    <span> - нет</span>
+                <?php else: ?>
+                    <span> - гросс</span>
+                <?php endif; ?>
             </p>
             </div>
 
@@ -165,10 +175,10 @@ if( get_field( 'map_full_adress', $post_id ) ){
                     ?>
                     <div class="vacancy__description-block">
                         <div class="vacancy__description-title">
-                        <p class="vacancy__description-title-text"><?= get_sub_field('item_title'); ?></p>
+                        <p class="vacancy__description-title-text"><?php echo get_sub_field('item_title'); ?></p>
                         </div>
                         <div class="vacancy__description-list">
-                        <?= get_sub_field('item_contect'); ?>
+                        <?php echo get_sub_field('item_contect'); ?>
                         </div>
                     </div>
                     <?php
@@ -342,20 +352,20 @@ if( get_field( 'map_full_adress', $post_id ) ){
                             }
                         }
 
-                        if( get_field( 'map_full_adress', $post_id ) ){
-                            $experience = 'не требуется';
+                        if( get_field( 'can_without_experience', $post_id ) ){
+                            $experience = get_field( 'can_without_experience', $post_id )['label'];
                         } else{
-                            $experience = 'требуется опыт';
+                            $experience = get_field( 'can_without_experience', $post_id )['label'];
                         }
                         ?>
                         <div class="vacancy__positions-item">
                             <div class="vacancy__item-positions-name-block">
-                                <a href="<? the_permalink($post_id); ?>" class="vacancy__item-positions-name">
-                                    <?= get_the_title($post_id); ?>
+                                <a href="<?php the_permalink($post_id); ?>" class="vacancy__item-positions-name">
+                                    <?php echo get_the_title($post_id); ?>
                                 </a>
                                 <div class="vacancy__bread-crumbs-block">
-                                <a href="<?= get_permalink( $first_vaccat->term_id ); ?>" class="vacancy__bread-crumbs-item">IT-хаб</a>
-                                    <span class="vacancy__bread-crumbs-item"><?= $first_vaccat->name; ?></span>
+                                <a href="<?php echo get_permalink( $first_vaccat->term_id ); ?>" class="vacancy__bread-crumbs-item">IT-хаб</a>
+                                    <span class="vacancy__bread-crumbs-item"><?php echo $first_vaccat->name; ?></span>
                                 </div>
                             </div>
 
@@ -363,17 +373,22 @@ if( get_field( 'map_full_adress', $post_id ) ){
                                 <p class="vacancy__item-positions-price">
                                 от
                                 <span class="vacancy__item-positions-price-value">
-                                    <?= get_field( 'money_from', $post_id ); ?>
+                                    <?php echo get_field( 'money_from', $post_id ); ?>
                                 </span>
                                 <span class="vacancy__item-positions-currency">₽</span>
+                                <?php if( get_field( 'not_gross', $post_id) ): ?>
+                                    <span> - нет</span>
+                                <?php else: ?>
+                                    <span> - гросс</span>
+                                <?php endif; ?>
                                 </p>
                                 <p class="vacancy__item-positions-experience">
-                                    <?= $experience; ?>
+                                    <?php echo $experience; ?>
                                 </p>
                             </div>
 
                             <div class="vacancy__item-positions-location-block">
-                                <p class="vacancy__item-positions-city"><?= $town_names; ?></p>
+                                <p class="vacancy__item-positions-city"><?php echo $town_names; ?></p>
                                 <?php
                                 if( get_field( 'can_work_remotely', $post_id ) ){
                                     ?>
@@ -398,7 +413,7 @@ if( get_field( 'map_full_adress', $post_id ) ){
 
 <!-- Vacancy News-block -->
 <div class="vacancy__news-block-desktop">
-    <div class="vacancy__news swiper newsSlider">
+    <div class="vacancy__news swiper newsSliderDirectLink">
         <div class="vacancy__news-title">
             <div class="vacancy__news-tabs">
             <a href="#" class="vacancy__news-link vacancy__news-link-active">

@@ -19,6 +19,12 @@ class Vacancies {
 
         add_action( 'wp_ajax_get_profession__menu_items', [$this, 'get_profession__menu_items'] );
 		add_action( 'wp_ajax_nopriv_get_profession__menu_items', [$this, 'get_profession__menu_items'] );
+
+        add_action( 'wp_ajax_archive_show_more_items', [$this, 'archive_show_more_items'] );
+		add_action( 'wp_ajax_nopriv_archive_show_more_items', [$this, 'archive_show_more_items'] );
+
+        add_action( 'wp_ajax_archive_get_profession__menu_items', [$this, 'archive_get_profession__menu_items'] );
+		add_action( 'wp_ajax_nopriv_archive_get_profession__menu_items', [$this, 'archive_get_profession__menu_items'] );
 	}
 
     /**
@@ -181,7 +187,7 @@ class Vacancies {
             );
 
             if( 'default' != $_POST['default'] ){
-                if( null != $_POST['vaccat_slug'] ){
+                if( null != $_POST['vaccat_slug'] && '-1'!= $_POST['vaccat_slug']  ){
                     $args['tax_query'][] = array(
                         'taxonomy' => 'vaccat',
                         'field'    => 'slug',
@@ -222,7 +228,7 @@ class Vacancies {
                     if( isset($args['meta_query']) ){
                         $args['meta_query'][] = array(
                             'key'		=> 'can_without_experience',
-                            'value'		=> true,
+                            'value'		=> 'can_without_experience',
                             'compare'	=> '='
                         );
                     } else{
@@ -231,14 +237,21 @@ class Vacancies {
                             'relation'		=> 'AND',
                             array(
                                 'key'		=> 'can_without_experience',
-                                'value'		=> true,
+                                'value'		=> 'can_without_experience',
                                 'compare'	=> '='
                             )
                         );
                     }
                 }
+            } else{
+                if( null != $_POST['vaccat_slug'] && '-1'!= $_POST['vaccat_slug']  ){
+                    $args['tax_query'][] = array(
+                        'taxonomy' => 'vaccat',
+                        'field'    => 'slug',
+                        'terms'    => $_POST['vaccat_slug']
+                    );
+                }
             }
-
 
             $actually_vacancies_by = new \WP_Query( $args );
 
@@ -247,54 +260,198 @@ class Vacancies {
                     $actually_vacancies_by->the_post();
                     $vacancy_item_id = get_the_ID();
                     ob_start();
-                    include(THEME_DIR . '/template-parts/actually_vacancy_item.php');
+                    include(THEME_DIR . '/template-parts/loop-parts/actually_vacancy_item.php');
                     $html .= ob_get_clean();
                 }
             }
 
-            $html .= "
-            <script>
-                $('.profession__title').attr('originhref',window.location.href);
-                $('.profession__job-title').on( 'click', function(e){
+            if( '' != $html ){
+
+                $result = true;
+
+                $html .= "
+                <script>
+                    $('.profession__title').attr('originhref',window.location.href);
+                    $('.profession__job-title').on( 'click', function(e){
+                        
+                        var vacancy_info = $(this).attr('data-info');
+                        vacancy_info = jQuery.parseJSON( vacancy_info );
+                        console.log(vacancy_info.url);
+                        
+                        var origin_location = window.location.href;
+                        
+                        $('.flyout .vacancy__headline-title').attr( 'origin_url', origin_location );
+                        $('.flyout .vacancy__headline-title').html( vacancy_info.title );
+                        $('.flyout .vacancy__video-container img').attr( 'src', vacancy_info.img );
+                        $('.flyout .vacancy__intro-description').html( vacancy_info.content );
+                        $('.flyout #vacancy_project').html( vacancy_info.vacancy_project );
+                        $('.flyout #expectations').html( vacancy_info.expectations );
+                        $('.flyout .vacancy__office-map-image').attr( 'src', vacancy_info.img_map );
+                        $('.flyout .vacancy__office-adress-text').html( vacancy_info.map_full_adress );
+                        $('.flyout .vacancy__meta-info-sum').html( vacancy_info.money_from );
+                        $('.flyout .vacancy__meta-info-sum-after').html( vacancy_info.gross );
+                        $('.flyout #vaccat_info_vacancy').html( vacancy_info.vaccat );
+                        $('.flyout #town_info_vacancy').html( vacancy_info.town );
+                        $('.flyout #experience_important').html( vacancy_info.experience );
+                        
+                        window.history.pushState( '', '', vacancy_info.url );
+                    })
                     
-                    var vacancy_info = $(this).attr('data-info');
-                    vacancy_info = jQuery.parseJSON( vacancy_info );
-                    console.log(vacancy_info.url);
+                    $('.vacancy__header-head-link-main').on( 'click', function(e){
+                        var origin_location = $('.profession__title').attr('originhref');
+                        window.history.pushState( '', '', origin_location );
+                    })
                     
-                    var origin_location = window.location.href;
-                    
-                    $('.flyout .vacancy__headline-title').attr( 'origin_url', origin_location );
-                    $('.flyout .vacancy__headline-title').html( vacancy_info.title );
-                    $('.flyout .vacancy__video-container img').attr( 'src', vacancy_info.img );
-                    $('.flyout .vacancy__intro-description').html( vacancy_info.content );
-                    $('.flyout #vacancy_project').html( vacancy_info.vacancy_project );
-                    $('.flyout #expectations').html( vacancy_info.expectations );
-                    $('.flyout .vacancy__office-map-image').attr( 'src', vacancy_info.img_map );
-                    $('.flyout .vacancy__office-adress-text').html( vacancy_info.map_full_adress );
-                    $('.flyout .vacancy__meta-info-sum').html( vacancy_info.money_from );
-                    $('.flyout #vaccat_info_vacancy').html( vacancy_info.vaccat );
-                    $('.flyout #town_info_vacancy').html( vacancy_info.town );
-                    $('.flyout #experience_important').html( vacancy_info.experience );
-                    
-                    window.history.pushState( '', '', vacancy_info.url );
-                })
-                
-                $('.vacancy__header-head-link-main').on( 'click', function(e){
-                    var origin_location = $('.profession__title').attr('originhref');
-                    window.history.pushState( '', '', origin_location );
-                })
-                
-                $('.flyout__side-bar').on( 'click', function(e){
-                    var origin_location = $('.profession__title').attr('originhref');
-                    window.history.pushState( '', '', origin_location );
-                })
-            </script>
-            ";
+                    $('.flyout__side-bar').on( 'click', function(e){
+                        var origin_location = $('.profession__title').attr('originhref');
+                        window.history.pushState( '', '', origin_location );
+                    })
+                </script>
+                ";
+            } else{
+                $result = false;
+            }
+
+
+            if( '' != $html ){
+                $return = array(
+                    'success' 	=> $result,
+                    'html' 	=> $html,
+                );
+        
+                wp_send_json($return);
+            }
+        }
+    }
+
+    public function archive_show_more_items() {
+
+        $html = '';
+        if( !empty( $_POST ) ){
+
+            $args = json_decode( $_POST['query_vars'] );
+            $paged = $_POST['paged']+1;
+            $args['paged'] = $paged;
+            $args['post_type'] = 'vacancies';
+
+
+            $archive_vacancies = new \WP_Query( $args );
+
+            if ( $archive_vacancies->have_posts() ) {
+                while ( $archive_vacancies->have_posts() ) {
+                    $archive_vacancies->the_post();
+                    $vacancy_item_id = get_the_ID();
+
+                    ob_start();
+                    include(THEME_DIR . '/template-parts/loop-parts/archive_vacancies_item.php');
+                    $html .= ob_get_clean();
+                }
+            }
 
             if( '' != $html ){
                 $return = array(
                     'success' 	=> true,
                     'html' 	=> $html,
+                    'paged' => $paged
+                );
+        
+                wp_send_json($return);
+            }
+        }
+    }
+
+    public function archive_get_profession__menu_items() {
+
+        $html = '';
+        if( !empty( $_POST ) ){
+
+            $args = array(
+                'post_type'         => 'vacancies',
+                'posts_per_page'    => 10,
+                'post_status'       => 'publish'
+            );
+
+            if( 'default' != $_POST['default'] ){
+
+                if( null != $_POST['top__profession'] ){
+                    $args['s'] = $_POST['top__profession'];
+                }
+
+                if( null != $_POST['vaccat_slug'] && '-1'!= $_POST['vaccat_slug'] ){
+                    $args['tax_query'][] = array(
+                        'taxonomy' => 'vaccat',
+                        'field'    => 'slug',
+                        'terms'    => $_POST['vaccat_slug']
+                    );
+                }
+    
+                if( '-1' != $_POST['city_slug'] ){
+                    $args['tax_query'][] = array(
+                        'taxonomy' => 'town',
+                        'field'    => 'slug',
+                        'terms'    => $_POST['city_slug']
+                    );
+                }
+
+                if( '-1' != $_POST['level_slug'] ){
+                    $args['tax_query'][] = array(
+                        'taxonomy' => 'level',
+                        'field'    => 'slug',
+                        'terms'    => $_POST['level_slug']
+                    );
+                }
+
+                if( $_POST['archive_remotely'] == 'true' ){
+                    $args['meta_query'] = 
+                    array(
+                        'relation'		=> 'AND',
+                        array(
+                            'key'		=> 'can_work_remotely',
+                            'value'		=> true,
+                            'compare'	=> '='
+                        )
+                    );
+                }
+
+                if( $_POST['archive_without_experience'] == 'true' ){
+
+                    if( isset($args['meta_query']) ){
+                        $args['meta_query'][] = array(
+                            'key'		=> 'can_without_experience',
+                            'value'		=> 'can_without_experience',
+                            'compare'	=> '='
+                        );
+                    } else{
+                        $args['meta_query'] = 
+                        array(
+                            'relation'		=> 'AND',
+                            array(
+                                'key'		=> 'can_without_experience',
+                                'value'		=> 'can_without_experience',
+                                'compare'	=> '='
+                            )
+                        );
+                    }
+                }
+            }
+            $actually_vacancies_by = new \WP_Query( $args );
+
+            if ( $actually_vacancies_by->have_posts() ) {
+                while ( $actually_vacancies_by->have_posts() ) {
+                    $actually_vacancies_by->the_post();
+                    $vacancy_item_id = get_the_ID();
+                    ob_start();
+                    include(THEME_DIR . '/template-parts/loop-parts/archive_vacancies_item.php');
+                    $html .= ob_get_clean();
+                }
+            }
+
+            if( '' != $html ){
+                $return = array(
+                    'success' 	=> true,
+                    'html' 	=> $html,
+                    'query_vars'  => $actually_vacancies_by->query_vars,
+                    'max_num_pages' => $actually_vacancies_by->max_num_pages,
                 );
         
                 wp_send_json($return);

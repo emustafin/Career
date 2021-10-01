@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://unpkg.com/@yaireo/tagify"></script>
+    <script src="https://unpkg.com/@yaireo/tagify@3.1.0/dist/tagify.polyfills.min.js"></script>
+    <link
+      href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link
       href="./images/favicon/favicon.svg"
       rel="shortcut icon"
@@ -19,16 +27,65 @@
       <div class="container">
         <div class="it-header__wrapper">
           <div class="it-header__item">
-            <div class="it-header__directions">
+            <div class="it-header__directions" data-name="closed">
               <p class="it-header__directions-title">Направления</p>
-              <span class="it-header__directions-value">(5)</span>
+              <span class="it-header__directions-value"></span>
               <div class="it-header__directions-arrow">
-                <img
-                  class="it-header__directions-image"
-                  src="./images/arrows/arrow-bottom.svg"
-                  alt="directions"
-                />
+                <svg
+                  class="it-header__arrow-bottom"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 10 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.58237 7.56905V0.925293H4.38237V7.53389L1.42421 4.57574L0.575684 5.42426L4.22213 9.07071C4.65171 9.50029 5.34819 9.50029 5.77776 9.07071L9.42421 5.42426L8.57568 4.57574L5.58237 7.56905Z"
+                    fill="black"
+                  />
+                </svg>
               </div>
+
+              <!-- Дропдаун "НАПРАВЛЕНИЯ" -->
+              <div class="it-header__directions-dropdown-wrapper">
+                <div class="it-header__directions-dropdown-list">
+                  <a
+                    href="https://emlifewp.mvideoeldorado.ru/"
+                    class="it-header__directions-dropdown-item"
+                    target="blank"
+                    >IT-департамент
+                  </a>
+                  <a
+                    href="https://job.mvideoeldorado.ru/shops"
+                    class="it-header__directions-dropdown-item"
+                    target="blank"
+                  >
+                    Розничные магазины
+                  </a>
+                  <a
+                    href="https://job.mvideoeldorado.ru/office"
+                    class="it-header__directions-dropdown-item"
+                    target="blank"
+                  >
+                    Центральный офиc
+                  </a>
+                  <a
+                    href="https://jobinme.mvideoeldorado.ru/logistics"
+                    class="it-header__directions-dropdown-item"
+                    target="blank"
+                  >
+                    Сервис и логистика
+                  </a>
+                  <a
+                    href="https://job.mvideoeldorado.ru/students"
+                    class="it-header__directions-dropdown-item"
+                    target="blank"
+                  >
+                    Студентам
+                  </a>
+                </div>
+              </div>
+              <!-- //Дропдаун "НАПРАВЛЕНИЯ" -->
             </div>
           </div>
 
@@ -54,67 +111,67 @@
           <a href="#" class="it-header__button">Заполнить анкету</a>
         </div>
       </div>
-
-      <div class="create-future">
-        <!-- <div class="create-future__image"> -->
-        <div class="spiral__wrap">
-          <div class="spiral__wrap_twist">
-            <img
-              src="./images/create-future/spiral_anim.svg"
-              class="spiral__img"
-              alt=""
-            />
-          </div>
-        </div>
-        <!-- </div> -->
-        <div class="create-future__container">
-          <div class="create-future__title-wrapper">
-            <h2 class="create-future__title">
-              Создавай <br />
-              будущее
-            </h2>
-            <div class="text-animate create-future__typing-title">
-              <div class="text-animate_desktop">
-                <div id="typed-strings">
-                  <span>идея за&nbsp;идеей</span>
-                  <span>проект за&nbsp;проектом</span>
-                  <span>код за&nbsp;кодом</span>
-                </div>
-
-                <div class="text-typing">
-                  <span id="typed"></span>
-                </div>
-              </div>
-            </div>
-            <!--            <h2 class="create-future__typing-title">-->
-            <!--              идея <br />-->
-            <!--              за идеей-->
-            <!--            </h2>-->
-
-            <!--            <h2 class="create-future__typing-title-mobile">идея за идеей</h2>-->
-
-            <a href="#" class="create-future__button" id="create-future__button"
-              >узнай, как именно</a
-            >
-          </div>
-
-          <p class="create-future__text">
-            Мы не только кодим — мы трансформируем традиционный розничный бизнес
-            в Retail Tech: генерим инновации, пилим собственную платформу
-            микросервисов, развиваем культуру стартапа.
-          </p>
-
-          <p class="create-future__text-mobile">
-            Мы не только кодим — <br />
-            мы трансформируем традиционный розничный бизнес в Retail Tech:
-            генерим инновации, пилим собственную платформу микросервисов,
-            развиваем культуру стартапа.
-          </p>
-        </div>
-      </div>
-      <!-- <div class="create-future__gradient"></div> -->
     </header>
     <!-- Header -->
+
+    <!-- Block-prevew (Spiral) -->
+    <div class="create-future">
+      <div class="spiral__wrap">
+        <div class="spiral__wrap_twist">
+          <img
+            src="./images/create-future/spiral_anim.svg"
+            class="spiral__img"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="create-future__container">
+        <div class="create-future__title-wrapper">
+          <h2 class="create-future__title">
+            Создавай <br />
+            будущее
+          </h2>
+          <div class="text-animate create-future__typing-title">
+            <div class="text-animate_desktop">
+              <div id="typed-strings">
+                <span>идея за&nbsp;идеей</span>
+                <span>проект за&nbsp;проектом</span>
+                <span>код за&nbsp;кодом</span>
+              </div>
+
+              <div class="text-typing">
+                <span id="typed"></span>
+              </div>
+            </div>
+          </div>
+          <!--            <h2 class="create-future__typing-title">-->
+          <!--              идея <br />-->
+          <!--              за идеей-->
+          <!--            </h2>-->
+
+          <!--            <h2 class="create-future__typing-title-mobile">идея за идеей</h2>-->
+
+          <a href="#" class="create-future__button" id="create-future__button"
+            >узнай, как именно</a
+          >
+        </div>
+
+        <p class="create-future__text">
+          Мы не только кодим — мы трансформируем традиционный розничный бизнес в
+          Retail Tech: генерим инновации, пилим собственную платформу
+          микросервисов, развиваем культуру стартапа.
+        </p>
+
+        <p class="create-future__text-mobile">
+          Мы не только кодим — <br />
+          мы трансформируем традиционный розничный бизнес в Retail Tech: генерим
+          инновации, пилим собственную платформу микросервисов, развиваем
+          культуру стартапа.
+        </p>
+      </div>
+      <div class="create-future__gradient"></div>
+    </div>
+    <!-- //Block-prevew (Spiral) -->
 
     <!--  Slider "Why are we"  -->
     <section class="why-are-we">
@@ -691,7 +748,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
           <!-- //Goal main block - Mobile -->
@@ -815,17 +871,31 @@
               <div class="profession__filter-item">
                 <p class="profession__filter-item-title">Уровень</p>
                 <div class="profession__filter-item-select">
-                  <p class="profession__filter-item-select-value">
+                  <input type="hidden" id="level" />
+                  <input
+                    class="selectMode profession__level-select"
+                    name="tags-select-mode"
+                    placeholder=""
+                  />
+                  <!-- <p class="profession__filter-item-select-value">
                     Junior, Senior
-                  </p>
+                  </p> -->
                   <div class="profession__filter-item-select-arrow">
-                    <img
+                    <svg
                       class="profession__filter-item-select-arrow-image"
-                      src="./images/arrows/arrow-bottom.svg"
-                      alt="arrow-bottom"
-                    />
+                      width="10"
+                      height="10"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
+                        fill="black"
+                      />
+                    </svg>
                   </div>
-                  <div class="profession__filter-item-select-list hide">
+                  <!-- <div class="profession__filter-item-select-list hide">
                     <p class="profession__filter-item-select-list-item">
                       Junior, Senior
                     </p>
@@ -833,7 +903,7 @@
                     <p class="profession__filter-item-select-list-item">
                       Middle
                     </p>
-                  </div>
+                  </div> -->
                 </div>
 
                 <label class="profession__filter-checbox-wrapper-mobile">
@@ -846,15 +916,32 @@
               <div class="profession__filter-item">
                 <p class="profession__filter-item-title">Город</p>
                 <div class="profession__filter-item-select">
+                  <input type="hidden" id="town" />
+                  <!-- 
                   <p class="profession__filter-item-select-value">Любой</p>
+                   -->
+                  <input
+                    name="tags-select-mode"
+                    class="selectMode profession__city-select"
+                    placeholder=""
+                    value=""
+                  />
                   <div class="profession__filter-item-select-arrow">
-                    <img
+                    <svg
                       class="profession__filter-item-select-arrow-image"
-                      src="./images/arrows/arrow-bottom.svg"
-                      alt="arrow-bottom"
-                    />
+                      width="10"
+                      height="10"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
+                        fill="black"
+                      />
+                    </svg>
                   </div>
-                  <div class="profession__filter-item-select-list hide">
+                  <!-- <div class="profession__filter-item-select-list hide">
                     <p class="profession__filter-item-select-list-item">
                       Любой
                     </p>
@@ -864,7 +951,7 @@
                     <p class="profession__filter-item-select-list-item">
                       Санкт-Петербург
                     </p>
-                  </div>
+                  </div> -->
                 </div>
 
                 <label class="profession__filter-checbox-wrapper-mobile">
@@ -1550,394 +1637,8 @@
               продукта
             </a>
           </div>
-          <!--        tab content 2-->
-
-          <!-- <div class="direction__main-content tab-item-content" data-tab-uid="2">
-            <div class="direction__tribe-description">
-              <div class="direction__choosed tab-choice">
-                <p class="direction__choosed-item">B2R</p>
-              </div>
-
-              <div class="direction__description-container">
-                <div class="direction__director-container-mobile">
-                  <div class="direction__director-image-block-mobile">
-                    <img
-                      src="./images/direction/director.png"
-                      alt=""
-                      class="direction__director-image"
-                    />
-                  </div>
-                  <div class="direction__director-name-wrapper">
-                    <p class="direction__director-name">
-                      Андрей Пчелинцев<span>,</span>
-                    </p>
-                    <p class="direction__director-name">СРО трайба B2C</p>
-                  </div>
-                </div>
-
-                <p class="direction__description-text">
-                  Наш трайб объединяет профессионализм и стремление
-                  к постоянному развитию. Мы амбициозны, любим то, что делаем,
-                  и верим, что создаём продукты, меняющие привычный способ
-                  покупки онлайн на суперконкурентном рынке.
-                </p>
-                <p class="direction__description-text">
-                  В каждом из наших каналов (web & app) есть множество
-                  продуктов: Лояльность, Личный кабинет, Сделка, Промо,
-                  Поиск и другие, которые помогают миллионам клиентов ежедневно
-                  получать свой дофамин от покупок. Многие из них совершенно
-                  уникальные и инновационные, позволяющие персонализировать опыт
-                  покупателя в масштабе.
-                </p>
-
-                <a href="#" class="direction__description-link-mobile"
-                  >Развернуть текст</a
-                >
-              </div>
-
-              <div class="direction__director-container">
-                <div class="direction__director-image-block">
-                  <img
-                    src="./images/direction/director.png"
-                    alt=""
-                    class="direction__director-image"
-                  />
-                </div>
-                <p class="direction__director-name">
-                  Андрей Пчелинцев<span>,</span>
-                </p>
-                <p class="direction__director-name">СРО трайба B2C</p>
-              </div>
-            </div>
-
-            <div class="direction__products-wrapper">
-              <div class="direction__products-container">
-                <p class="direction__products-title">Продукты трайба</p>
-              </div>
-
-              <div class="direction__products-table-wrapper">
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Selection/Search (МПоиск)</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Selection</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Deal</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Платформа WEB</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Маркетплейс</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">App In Store</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Персонализация</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Content</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">CVM</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="direction__products-link-mobile">
-              еще
-              <span class="direction__products-link-mobile-number">3</span>
-              продукта
-            </a>
-          </div> -->
-
-          <!--          3-->
-          <!-- <div class="tab-item-content" data-tab-uid='3'>
-            <div class="direction__tribe-description">
-              <div class="direction__choosed tab-choice">
-                <p class="direction__choosed-item">Сервисы/B2Pay</p>
-              </div>
-
-              <div class="direction__description-container">
-                <div class="direction__director-container-mobile">
-                  <div class="direction__director-image-block-mobile">
-                    <img
-                      src="./images/direction/director.png"
-                      alt=""
-                      class="direction__director-image"
-                    />
-                  </div>
-                  <div class="direction__director-name-wrapper">
-                    <p class="direction__director-name">
-                      Андрей Пчелинцев<span>,</span>
-                    </p>
-                    <p class="direction__director-name">СРО трайба B2C</p>
-                  </div>
-                </div>
-
-                <p class="direction__description-text">
-                  Наш трайб объединяет профессионализм и стремление
-                  к постоянному развитию. Мы амбициозны, любим то, что делаем,
-                  и верим, что создаём продукты, меняющие привычный способ
-                  покупки онлайн на суперконкурентном рынке.
-                </p>
-                <p class="direction__description-text">
-                  В каждом из наших каналов (web & app) есть множество
-                  продуктов: Лояльность, Личный кабинет, Сделка, Промо,
-                  Поиск и другие, которые помогают миллионам клиентов ежедневно
-                  получать свой дофамин от покупок. Многие из них совершенно
-                  уникальные и инновационные, позволяющие персонализировать опыт
-                  покупателя в масштабе.
-                </p>
-
-                <a href="#" class="direction__description-link-mobile"
-                  >Развернуть текст</a
-                >
-              </div>
-
-              <div class="direction__director-container">
-                <div class="direction__director-image-block">
-                  <img
-                    src="./images/direction/director.png"
-                    alt=""
-                    class="direction__director-image"
-                  />
-                </div>
-                <p class="direction__director-name">
-                  Андрей Пчелинцев<span>,</span>
-                </p>
-                <p class="direction__director-name">СРО трайба B2C</p>
-              </div>
-            </div>
-
-            <div class="direction__products-wrapper">
-              <div class="direction__products-container">
-                <p class="direction__products-title">Продукты трайба</p>
-              </div>
-
-              <div class="direction__products-table-wrapper">
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Selection/Search (МПоиск)</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Selection</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Deal</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Платформа WEB</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Маркетплейс</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">App In Store</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Персонализация</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Content</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">CVM</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="direction__products-link-mobile">
-              еще
-              <span class="direction__products-link-mobile-number">3</span>
-              продукта
-            </a>
-          </div> -->
-
-          <!--        4-->
-          <!-- <div class="tab-item-content" data-tab-uid='4'>
-          <div class="direction__tribe-description">
-            <div class="direction__choosed tab-choice">
-              <p class="direction__choosed-item">ИТ</p>
-            </div>
-
-              <div class="direction__description-container">
-                <div class="direction__director-container-mobile">
-                  <div class="direction__director-image-block-mobile">
-                    <img
-                      src="./images/direction/director.png"
-                      alt=""
-                      class="direction__director-image"
-                    />
-                  </div>
-                  <div class="direction__director-name-wrapper">
-                    <p class="direction__director-name">
-                      Андрей Пчелинцев<span>,</span>
-                    </p>
-                    <p class="direction__director-name">СРО трайба B2C</p>
-                  </div>
-                </div>
-
-                <p class="direction__description-text">
-                  Наш трайб объединяет профессионализм и стремление
-                  к постоянному развитию. Мы амбициозны, любим то, что делаем,
-                  и верим, что создаём продукты, меняющие привычный способ
-                  покупки онлайн на суперконкурентном рынке.
-                </p>
-                <p class="direction__description-text">
-                  В каждом из наших каналов (web & app) есть множество
-                  продуктов: Лояльность, Личный кабинет, Сделка, Промо,
-                  Поиск и другие, которые помогают миллионам клиентов ежедневно
-                  получать свой дофамин от покупок. Многие из них совершенно
-                  уникальные и инновационные, позволяющие персонализировать опыт
-                  покупателя в масштабе.
-                </p>
-
-                <a href="#" class="direction__description-link-mobile"
-                  >Развернуть текст</a
-                >
-              </div>
-
-              <div class="direction__director-container">
-                <div class="direction__director-image-block">
-                  <img
-                    src="./images/direction/director.png"
-                    alt=""
-                    class="direction__director-image"
-                  />
-                </div>
-                <p class="direction__director-name">
-                  Андрей Пчелинцев<span>,</span>
-                </p>
-                <p class="direction__director-name">СРО трайба B2C</p>
-              </div>
-            </div>
-
-            <div class="direction__products-wrapper">
-              <div class="direction__products-container">
-                <p class="direction__products-title">Продукты трайба</p>
-              </div>
-
-              <div class="direction__products-table-wrapper">
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Selection/Search (МПоиск)</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Selection</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Deal</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Платформа WEB</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Маркетплейс</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">App In Store</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Персонализация</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">Content</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-
-                <div class="direction__products-table-item">
-                  <p class="direction__item-title">CVM</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                  <p class="direction__item-text">Пара слов о продукте</p>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="direction__products-link-mobile">
-              еще
-              <span class="direction__products-link-mobile-number">3</span>
-              продукта
-            </a>
-          </div>
-        </div>
-      </div> -->
         </div>
       </div>
-      <!--      </div>-->
-
-      <!--      </div>-->
     </section>
     <!--  //Product Direction Section  -->
 
@@ -2413,7 +2114,7 @@
     <!-- Find vacansies Section -->
     <section class="find">
       <h2 class="find__title">
-        <a href="#" class="find__title-link">
+        <a href="https://career.dev64.ru/vacancies/" class="find__title-link">
           <span class="find__link-aroow">Найти вакансию</span>
           <span class="find__link-aroow">Найти вакансию</span>
           <span class="find__link-aroow">Найти вакансию</span>
@@ -2427,10 +2128,7 @@
         <div class="find__video-container">
           <!-- Сюда вставлять видео -->
           <video class="find__video" data-name="pause">
-            <source
-              class="find__video-src"
-              src="./images/find-vacancies/videos/video1.mp4"
-            />
+            <source class="find__video-src" src="" />
           </video>
 
           <button class="find__video-control" data-name="pause"></button>
@@ -2454,7 +2152,7 @@
         <div class="find__video-slides-container swiper desktop-slider">
           <div class="find__video-slides-row swiper-wrapper">
             <div
-              class="find__video-slide find__video-slide-active swiper-slide"
+              class="find__video-slide swiper-slide"
               data-name="./images/find-vacancies/videos/video1.mp4"
               data-prevew="#включайбудущее с М.Видео: Андрей Ревяшко"
               data-image="./images/find-vacancies/video-placeholders/placeholder1.png"
@@ -2468,7 +2166,7 @@
             </div>
 
             <div
-              class="find__video-slide swiper-slide"
+              class="find__video-slide find__video-slide-active swiper-slide"
               data-name="./images/find-vacancies/videos/video2.mp4"
               data-prevew="#ВКЛЮЧАЙБУДУЩЕЕ: HR&DIGITAL EMPLOYEE EXPERIENCE - СТРОИМ ЭКОСИСТЕМУ ДЛЯ СОТРУДНИКОВ"
               data-image="./images/find-vacancies/video-placeholders/placeholder2.png"
@@ -2558,13 +2256,13 @@
 
       <div class="find__slides-mobile-container swiper mobile-slider">
         <div class="find__video-slides-row-mobile swiper-wrapper">
-          <div class="find__video-slide-mobile swiper-slide">
+          <div
+            class="find__video-slide-mobile swiper-slide"
+            data-video="./images/find-vacancies/videos/video1.mp4"
+          >
             <div class="find__video-slide-mobile-video">
               <video class="find__video-player-mobile hide" data-name="play">
-                <source
-                  class="find__video-player-mobile-location"
-                  src="./images/find-vacancies/videos/video1.mp4"
-                />
+                <source class="find__video-player-mobile-location" src="" />
               </video>
 
               <img
@@ -2585,13 +2283,13 @@
             </a>
           </div>
 
-          <div class="find__video-slide-mobile swiper-slide">
+          <div
+            class="find__video-slide-mobile swiper-slide"
+            data-video="./images/find-vacancies/videos/video2.mp4"
+          >
             <div class="find__video-slide-mobile-video" data-name="play">
               <video class="find__video-player-mobile hide">
-                <source
-                  class="find__video-player-mobile-location"
-                  src="./images/find-vacancies/videos/video2.mp4"
-                />
+                <source class="find__video-player-mobile-location" src="" />
               </video>
 
               <img
@@ -2613,13 +2311,13 @@
             </a>
           </div>
 
-          <div class="find__video-slide-mobile swiper-slide">
+          <div
+            class="find__video-slide-mobile swiper-slide"
+            data-video="./images/find-vacancies/videos/video3.mp4"
+          >
             <div class="find__video-slide-mobile-video" data-name="play">
               <video class="find__video-player-mobile hide">
-                <source
-                  class="find__video-player-mobile-location"
-                  src="./images/find-vacancies/videos/video3.mp4"
-                />
+                <source class="find__video-player-mobile-location" src="" />
               </video>
 
               <img
@@ -2641,13 +2339,13 @@
             </a>
           </div>
 
-          <div class="find__video-slide-mobile swiper-slide">
+          <div
+            class="find__video-slide-mobile swiper-slide"
+            data-video="./images/find-vacancies/videos/video4.mp4"
+          >
             <div class="find__video-slide-mobile-video">
               <video class="find__video-player-mobile hide" data-name="play">
-                <source
-                  class="find__video-player-mobile-location"
-                  src="./images/find-vacancies/videos/video4.mp4"
-                />
+                <source class="find__video-player-mobile-location" src="" />
               </video>
 
               <img
@@ -2668,13 +2366,13 @@
             </a>
           </div>
 
-          <div class="find__video-slide-mobile swiper-slide">
+          <div
+            class="find__video-slide-mobile swiper-slide"
+            data-video="./images/find-vacancies/videos/video5.mp4"
+          >
             <div class="find__video-slide-mobile-video" data-name="play">
               <video class="find__video-player-mobile hide">
-                <source
-                  class="find__video-player-mobile-location"
-                  src="./images/find-vacancies/videos/video5.mp4"
-                />
+                <source class="find__video-player-mobile-location" src="" />
               </video>
 
               <img
@@ -2696,13 +2394,13 @@
             </a>
           </div>
 
-          <div class="find__video-slide-mobile swiper-slide">
+          <div
+            class="find__video-slide-mobile swiper-slide"
+            data-video="./images/find-vacancies/videos/video6.mp4"
+          >
             <div class="find__video-slide-mobile-video" data-name="play">
               <video class="find__video-player-mobile hide">
-                <source
-                  class="find__video-player-mobile-location"
-                  src="./images/find-vacancies/videos/video6.mp4"
-                />
+                <source class="find__video-player-mobile-location" src="" />
               </video>
 
               <img
@@ -2724,13 +2422,13 @@
             </a>
           </div>
 
-          <div class="find__video-slide-mobile swiper-slide">
+          <div
+            class="find__video-slide-mobile swiper-slide"
+            data-video="./images/find-vacancies/videos/video3.mp4"
+          >
             <div class="find__video-slide-mobile-video" data-name="play">
               <video class="find__video-player-mobile hide">
-                <source
-                  class="find__video-player-mobile-location"
-                  src="./images/find-vacancies/videos/video3.mp4"
-                />
+                <source class="find__video-player-mobile-location" src="" />
               </video>
 
               <img
@@ -2765,6 +2463,7 @@
             <div class="svg-toggle-line">
               <div class="svg-toggle__btn">
                 <svg
+                  class="intern__outside-oval"
                   width="272"
                   height="132"
                   fill="none"
@@ -2778,6 +2477,7 @@
                   />
                 </svg>
                 <svg
+                  class="intern__inside-circle"
                   width="111"
                   height="111"
                   fill="none"
@@ -2791,20 +2491,23 @@
                   />
                 </svg>
               </div>
-              <svg
-                class="svg-toggle__arrow"
-                width="166"
-                height="24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z"
-                  fill="#76BC21"
-                />
-              </svg>
+              <div class="svg-toggle__arrow-container">
+                <svg
+                  class="svg-toggle__arrow"
+                  width="166"
+                  height="24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z"
+                    fill="#76BC21"
+                  />
+                </svg>
+              </div>
               <div class="svg-toggle__btn">
                 <svg
+                  class="intern__outside-oval"
                   width="272"
                   height="132"
                   fill="none"
@@ -2818,6 +2521,7 @@
                   />
                 </svg>
                 <svg
+                  class="intern__inside-circle"
                   width="111"
                   height="111"
                   fill="none"
@@ -2831,23 +2535,26 @@
                   />
                 </svg>
               </div>
-              <svg
-                class="svg-toggle__arrow"
-                width="166"
-                height="24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z"
-                  fill="#E31235"
-                />
-              </svg>
+              <div class="svg-toggle__arrow-container">
+                <svg
+                  class="svg-toggle__arrow"
+                  width="166"
+                  height="24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z"
+                    fill="#E31235"
+                  />
+                </svg>
+              </div>
             </div>
 
             <div class="svg-toggle-line">
               <div class="svg-toggle__btn">
                 <svg
+                  class="intern__outside-oval"
                   width="272"
                   height="132"
                   fill="none"
@@ -2861,6 +2568,7 @@
                   />
                 </svg>
                 <svg
+                  class="intern__inside-circle"
                   width="111"
                   height="111"
                   fill="none"
@@ -2874,20 +2582,23 @@
                   />
                 </svg>
               </div>
-              <svg
-                class="svg-toggle__arrow"
-                width="166"
-                height="24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z"
-                  fill="#E31235"
-                />
-              </svg>
+              <div class="svg-toggle__arrow-container">
+                <svg
+                  class="svg-toggle__arrow"
+                  width="166"
+                  height="24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M163.198 13.026H.354v-1.372h162.844l-9.797-9.805.97-.97 11.451 11.46-11.451 11.462-.97-.97 9.797-9.805z"
+                    fill="#E31235"
+                  />
+                </svg>
+              </div>
               <div class="svg-toggle__btn">
                 <svg
+                  class="intern__outside-oval"
                   width="272"
                   height="132"
                   fill="none"
@@ -2901,6 +2612,7 @@
                   />
                 </svg>
                 <svg
+                  class="intern__inside-circle"
                   width="111"
                   height="111"
                   fill="none"
@@ -4089,13 +3801,48 @@
                   type="text"
                   value="Санкт-Петербург"
                 />
+
+                <!-- 
+                <input type="hidden" id="form__town" />
+                <input
+                  name="tags-select-mode"
+                  class="selectMode form__city-select"
+                  placeholder="Выбери город"
+                  value=""
+                />
+ -->
               </div>
 
               <div class="form__form-name">
                 <p class="form__form-name-value">Направление</p>
                 <div class="form__dropdown">
                   <p class="form__dropdown-result">IT-хаб</p>
-                  <input type="text" class="form__value1" />
+
+                  <input type="hidden" class="form__value1" />
+                  <!--                   
+                  <input
+                    name="tags-select-mode"
+                    class="selectMode form__direction-select"
+                    placeholder="Выбери направление"
+                    value=""
+                  />
+                  <div class="form__filter-item-select-arrow">
+                    <svg
+                      class="profession__filter-item-select-arrow-image"
+                      width="10"
+                      height="10"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+                   -->
+
                   <div class="form__dropdown-list hide">
                     <div class="form__dropdown-list-item">
                       <p class="form__dropdown-item-position">IT-хаб</p>
@@ -4141,8 +3888,32 @@
                   <p class="form__dropdown-result">
                     Менеджер по управлению технической поддержкой SAP
                   </p>
-                  <input type="text" class="form__value2" />
 
+                  <input type="hidden" class="form__value2" />
+
+                  <!--                   
+                  <input
+                    name="tags-select-mode"
+                    class="selectMode form__spezialisation-select"
+                    placeholder="Выбери специализацию"
+                    value=""
+                  />
+                  <div class="form__filter-item-select-arrow">
+                    <svg
+                      class="profession__filter-item-select-arrow-image"
+                      width="10"
+                      height="10"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+ -->
                   <div class="form__dropdown-list hide">
                     <div class="form__dropdown-list-item">
                       <p class="form__dropdown-item-position">
@@ -4229,6 +4000,11 @@
                 </a>
               </label>
               <a href="#" class="form__response">отправить</a>
+              <div class="form__response-block">
+                <h2 class="form__response-title">
+                  Спасибо за отклик! Скоро ответим!
+                </h2>
+              </div>
             </div>
           </div>
         </div>
