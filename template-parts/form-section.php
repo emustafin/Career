@@ -69,7 +69,7 @@
         );
         ?>
 
-        <div class="form__content-right-bar-wrapper">
+        <div id="popup_form" class="form__content-right-bar-wrapper">
             <div class="form__content-right-bar form__content-right-bar-100">
             <?php echo do_shortcode('[contact-form-7 id="289" title="Анкета"]'); ?>
             <!-- Вставить разметку об успешной отправке -->

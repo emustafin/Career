@@ -321,7 +321,7 @@ if( is_front_page() ){
 <?php wp_footer(); ?>
 <script>
   // Отправка анкеты на сервер
-  const form = document.querySelector('#wpcf7-f289-o2')
+  const form = document.querySelector('#popup_form .wpcf7')
   
   form.addEventListener( 'wpcf7submit', function( event ) {
     const submitBtn = document.querySelector('.wpcf7-form-control.wpcf7-submit.form__response');
