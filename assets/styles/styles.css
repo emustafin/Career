@@ -5202,7 +5202,8 @@
   margin-right: auto;
   position: relative;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  pointer-events: none; }
 
 .profession__show-more {
   color: #000000;
@@ -5235,7 +5236,8 @@
   width: 100%;
   max-width: 310px;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  pointer-events: none; }
 
 .profession__job-expiriens {
   margin-top: auto; }

@@ -77,11 +77,10 @@ if( get_field( 'can_without_experience', $vacancy_item_id ) ){
 }
 
 ?>
-<div class="profession__job-item" data-vacancy_id="<?php echo $vacancy_item_id; ?>" >
+<div class="profession__job-item" data-vacancy_id="<?php echo $vacancy_item_id; ?>" data-info='<?php echo json_encode($popup_info); ?>'>
     <div class="profession__job-title-container">
         <div class="profession__job-title"
         data-vacancy_id="<?php echo $vacancy_item_id; ?>"
-        data-info='<?php echo json_encode($popup_info); ?>'
         ><?php echo get_the_title($vacancy_item_id); ?></div>
 
         <div class="profession__bread-crumbs">

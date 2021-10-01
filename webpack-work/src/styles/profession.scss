@@ -540,6 +540,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  pointer-events: none;
 }
 
 .profession__show-more {
@@ -579,6 +580,7 @@
   max-width: 310px;
   display: flex;
   flex-direction: column;
+  pointer-events: none;
 }
 
 .profession__job-expiriens {

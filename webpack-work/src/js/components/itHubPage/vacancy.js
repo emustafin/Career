@@ -129,7 +129,7 @@ export class Vacancy {
 }
 
 function vacancyClickHandler(event) {
-  if (event.target.classList.contains('profession__job-title')) {
+  if (event.target.classList.contains('profession__job-item')) {
     event.preventDefault();
     this.openFlyout();
   }
