@@ -76,7 +76,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="it-header__directions-dropdown-wrapper">
                 <div class="it-header__directions-dropdown-list">
                   <a
-                    href="https://emlifewp.mvideoeldorado.ru/"
+                    href="/"
                     class="it-header__directions-dropdown-item"
                     target="blank"
                     >IT-департамент
