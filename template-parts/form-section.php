@@ -48,8 +48,72 @@
         ?>
 
         <script>
+            const cities = ['Любой', 'Москва']
             var info_product_directions = '<?php echo $info_product_directions; ?>'; // Направление
             var info_vaccat = '<?php echo $info_vaccat; ?>'; // Специализация
+
+            // Данные для фильтров
+            const dataDirection = JSON.parse(info_product_directions)
+            const dataSpecialization = JSON.parse(info_vaccat)            
+            
+            // Инициализация селекта Тагифай в анкете. Поле "Город"
+            const formCityTagifyInput = document.querySelector('input[name=tags-select-mode].form__city-select');
+            const formCityInput = document.querySelector('#form__town');
+
+
+            const formCitySelect = new Tagify(formCityTagifyInput, {
+            enforceWhitelist: true,
+            mode: 'select',
+            whitelist: ['Любой', 'Москва'],
+            userInput: false,
+            });
+
+            formCitySelect.on('change', selectValueFromSingleSelect(cities, formCityTagifyInput, formCityInput))
+
+            // Инициализация селекта Тагифай в анкете. Поле "Направление"
+            const directionFormTagifyInput = document.querySelector('input[name=tags-select-mode].form__direction-select');
+            const directionFormInput = document.querySelector('.form__value1')
+
+            const directionSelect = new Tagify(directionFormTagifyInput, {
+            enforceWhitelist: true,
+            mode: 'select',
+            whitelist: ['IT-департамент', 'Розничные магазины', 'Центральный офиc', 'Сервис и логистика', 'Студентам'],
+            userInput: false,
+            });
+
+            formCitySelect.on('change', selectValueFromSingleSelect(dataDirection, directionFormTagifyInput, directionFormInput))
+
+            // Инициализация селекта Тагифай в анкете. Поле "Специализация"
+            const specializationFormTagifyInput = document.querySelector('input[name=tags-select-mode].form__spezialisation-select');
+            const specializationFormInput = document.querySelector('.form__value2');
+
+            const spezialisationSelect = new Tagify(specializationFormTagifyInput, {
+            enforceWhitelist: true,
+            mode: 'select',
+            whitelist: ['Java', 'Product manager', 'Project manager', 'QA', 'Аналитика'],
+            userInput: false,
+            });
+
+
+            formCitySelect.on('change', selectValueFromSingleSelect(dataSpecialization, specializationFormTagifyInput, specializationFormInput))
+
+
+            // Функция выбора элемента из выпадающего списка
+            function selectValueFromSingleSelect(data, tagifyInput, targetInput) {
+            return function() {
+                if (tagifyInput.value === '') return;
+
+                let currentValue;
+
+                for (let prop in data) {
+                if (data[prop] === JSON.parse(tagifyInput.value)[0].value) {
+                    currentValue = prop
+                }
+                }
+                targetInput.value = currentValue;
+                }
+            }
+
         </script>
         <div id="popup_form" class="form__content-right-bar-wrapper">
             <div class="form__content-right-bar form__content-right-bar-100">
