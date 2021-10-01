@@ -6045,6 +6045,8 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   margin-bottom: 16px;
   padding-bottom: 8px; }
+  .form__form-name:nth-child(5), .form__form-name:nth-child(6) {
+    padding-bottom: 0; }
 
 .form__form-name-value {
   font-size: 12px;
