@@ -2,17 +2,19 @@
     <!--  Footer  -->
     <footer class="footer">
       <div class="container">
-        <!-- <div class="footer__title-container">
+        <div class="footer__title-container">
           <h2 class="footer__title">Хочешь стать частью команды?</h2>
-          <div class="footer__search-block">
+          <form method="GET" action="/vacancies/" class="footer__search-block">
             <input
+              name="s"
               class="footer__search-field"
               type="text"
               placeholder="найти вакансию"
+              value=""
             />
             <button class="footer__search-button"></button>
-          </div>
-        </div> -->
+          </form>
+        </div>
 
         <div class="footer__wrapper">
           <div class="footer__item">
