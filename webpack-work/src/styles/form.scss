@@ -83,6 +83,11 @@
   border-bottom: 1px solid $blackColorOpacity-05;
   margin-bottom: 16px;
   padding-bottom: 8px;
+
+  &:nth-child(5),
+  &:nth-child(6) {
+    padding-bottom: 0;
+  }
 }
 
 .form__form-name-value {
