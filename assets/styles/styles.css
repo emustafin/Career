@@ -548,7 +548,8 @@
   font-size: 18px;
   line-height: 24px;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  overflow: hidden; }
 
 .direction__title {
   font-size: 160px;
@@ -580,6 +581,14 @@
 .direction__products-wrapper {
   width: 100%;
   display: flex; }
+
+.tab-item-content,
+.tab-item-content-hidden {
+  display: block;
+  transition: 0.3s; }
+
+.tab-item-content-hidden {
+  transform: translateX(110%); }
 
 .direction__tribe-description {
   margin-bottom: 72px; }
