@@ -229,6 +229,7 @@ if( is_front_page() ){
     const currentVaccatDataListing = JSON.parse(vaccat_arr); // Специализации
     const currentVacancyTitlesDataListing = JSON.parse(vacancy_titles); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
 
+    // console.log(town_arr);
     
     // Инициализация селекта Профессии
     const stringVacancyesToArray = currentVacancyTitlesDataListing.split(',');
