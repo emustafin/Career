@@ -111,8 +111,6 @@
                 }
                 }
                 targetInput.value = currentValue;
-
-                console.log(targetInput.value, 1);
                 }
             }
 
