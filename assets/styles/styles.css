@@ -5660,14 +5660,16 @@
 .upgrade__way-wrapper {
   display: flex;
   flex-wrap: wrap;
-  align-items: center; }
+  align-items: center;
+  justify-content: space-around; }
 
 .upgrade__way-item {
-  margin-right: 9px;
-  margin-bottom: 16px; }
+  margin-right: 16px;
+  margin-bottom: 16px;
+  max-width: 30%; }
 
 .upgrade__way-arrow-block {
-  margin-right: 17px;
+  margin-right: 16px;
   padding-top: 5px; }
 
 .upgrade__slider-next-block {
@@ -5762,11 +5764,6 @@
     width: 81%; }
   .upgrade__way-wrapper {
     max-width: 594px; }
-  .upgrade__way-item,
-  .upgrade__way-arrow-block {
-    margin-right: 0; }
-  .upgrade__way-wrapper {
-    justify-content: space-between; }
   .upgrade__slider-next-block {
     width: 8%;
     max-width: 40px; }
@@ -5816,7 +5813,7 @@
   .upgrade__way-wrapper {
     width: 100%;
     max-width: 100%;
-    justify-content: flex-start; }
+    justify-content: space-around; }
   .upgrade__way-item {
     margin-right: 9px; }
   .upgrade__way-arrow-block {
