@@ -5,9 +5,9 @@ import { Advantages } from './components/itHubPage/advantages';
 import { CareerUpgrade } from './components/itHubPage/upgrade';
 import { VideoPlayer } from './components/itHubPage/videoPlayer';
 import './components/animation';
-import './components/itHubPage/Tab';
-import './components/itHubPage/animationSvgTab';
-import { Select } from './components/itHubPage/select';
+// import './components/itHubPage/Tab';
+// import './components/itHubPage/animationSvgTab';
+// import { Select } from './components/itHubPage/select';
 // import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
 // import { ScrollTo } from './components/itHubPage/scroll';
 import { Form } from './components/itHubPage/form';
@@ -21,6 +21,7 @@ import { VacancyDirecLinkNewsBlock } from './components/itHubPage/vacancyDirectL
 import { CustomSelectInProfessionBlock } from './components/itHubPage/customSelect';
 import { ListingFilters } from './components/itHubPage/vacancyListingPage/listingFilters';
 import { Intern } from './components/itHubPage/intern';
+import { Direction } from './components/itHubPage/direction';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -56,6 +57,7 @@ const listingPageFilters = document.querySelector(
   '.listing-top__filters-wrapper'
 );
 const intern = document.querySelector('.intern');
+const direction = document.querySelector('.direction');
 
 // const tabContainer = document.querySelector('.tab-content');
 
@@ -75,14 +77,15 @@ new VacancyDirecLinkNewsBlock(vacancyDirectLinkNews);
 new CustomSelectInProfessionBlock(professionCustomSelect);
 new ListingFilters(listingPageFilters);
 new Intern(intern);
+new Direction(direction);
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
 
-const selectGreen = document.querySelector('.custom-select');
-const selectSecond = document.getElementById('custom-select-first');
+// const selectGreen = document.querySelector('.custom-select');
+// const selectSecond = document.getElementById('custom-select-first');
 
-new Select(selectGreen);
-new Select(selectSecond);
+// new Select(selectGreen);
+// new Select(selectSecond);
 
 // const togls = document.getElementById('svg-toggle-activate');
 // const triger = document.getElementById('my-sticky-element');
