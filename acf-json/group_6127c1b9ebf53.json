@@ -50,7 +50,7 @@
         },
         {
             "key": "field_6151d8054c0e2",
-            "label": "Нет",
+            "label": "ЗП Net",
             "name": "not_gross",
             "type": "true_false",
             "instructions": "",
@@ -301,5 +301,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1633014284
+    "modified": 1633086356
 }

@@ -333,6 +333,7 @@ class Vacancies {
             $paged = $_POST['paged']+1;
             $args['paged'] = $paged;
             $args['post_type'] = 'vacancies';
+            $args['post_status'] = 'publish';
 
 
             $archive_vacancies = new \WP_Query( $args );

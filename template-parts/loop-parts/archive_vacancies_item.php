@@ -60,10 +60,8 @@ if( is_array( $vaccat_terms ) ){
         от
         <span class="position__payment-value"><?php echo number_format( get_field( 'money_from', $vacancy_item_id ), 0, ',', ' '); ?></span>
         <span class="position__currency">&#8381;</span>
-        <?php if( get_field( 'not_gross', $vacancy_item_id) ): ?>
-            <span> - нет</span>
-        <?php else: ?>
-            <span> - гросс</span>
+        <?php if( !get_field( 'not_gross', $vacancy_item_id) ): ?>
+            <span> - Гросс</span>
         <?php endif; ?>
         </p>
 

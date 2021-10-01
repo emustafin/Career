@@ -29,7 +29,6 @@ foreach( $town_terms as $town_term ):
     $town_arr[$town_term->slug] = $town_term->name;
 endforeach;
 
-$vaccat_arr['-1'] = 'Любая';
 foreach( $vaccat_terms as $vaccat_term ):
     $vaccat_arr[$vaccat_term->slug] = $vaccat_term->name;
 endforeach;
@@ -108,6 +107,7 @@ wp_reset_postdata();
                     name="tags-outside"
                     class="tagify--outside listing-top__profession-filter"
                     placeholder="Выбери профессию"
+                    value="<?php echo $_GET['s']; ?>"
                 />
 
                 <svg
@@ -446,9 +446,14 @@ wp_reset_postdata();
     </div>
 </div>
 
-
+<?php 
+if( $wp_query->max_num_pages > $paged ): 
+    $button_show_more_display = 'display:flex;';
+else:
+    $button_show_more_display = 'display:none;';
+endif; ?>
 <!-- Button Show-more -->
-<div class="products__show-more">
+<div class="products__show-more" style="<?php echo $button_show_more_display; ?>">
     <div href="#" class="position__show-more-button">
         показать ещё
         <svg class="position__show-more-button-link" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
