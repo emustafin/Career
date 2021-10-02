@@ -362,41 +362,40 @@ if( is_front_page() ){
   const formCityInput = document.querySelector('#form__town');
 
 
-  const formCitySelect = new Tagify(formCityTagifyInput, {
+  const formCitySelect = new Tagify(formCityInput, {
       enforceWhitelist: true,
       mode: 'select',
       whitelist: ['Любой', 'Москва'],
       userInput: false,
   });
 
-  formCitySelect.on('change', selectValueFromSingleSelect(cities, formCityTagifyInput, formCityInput))
+  formCitySelect.on('change', selectValueFromSingleSelect(cities, formCityInput, formCityInput))
 
   // Инициализация селекта Тагифай в анкете. Поле "Направление"
   const directionFormTagifyInput = document.querySelector('input[name=tags-select-mode].form__direction-select');
   const directionFormInput = document.querySelector('.form__value1')
 
-  const directionSelect = new Tagify(directionFormTagifyInput, {
+  const directionSelect = new Tagify(directionFormInput, {
       enforceWhitelist: true,
       mode: 'select',
       whitelist: dataDirection,
       userInput: false,
   });
 
-  formCitySelect.on('change', selectValueFromSingleSelect(dataDirection, directionFormTagifyInput, directionFormInput))
+  directionSelect.on('change', selectValueFromSingleSelect(dataDirection, directionFormInput, directionFormInput))
 
   // Инициализация селекта Тагифай в анкете. Поле "Специализация"
   const specializationFormTagifyInput = document.querySelector('input[name=tags-select-mode].form__spezialisation-select');
   const specializationFormInput = document.querySelector('.form__value2');
 
-  const spezialisationSelect = new Tagify(specializationFormTagifyInput, {
+  const spezialisationSelect = new Tagify(specializationFormInput, {
       enforceWhitelist: true,
       mode: 'select',
       whitelist: dataSpecialization,
       userInput: false,
   });
 
-
-  formCitySelect.on('change', selectValueFromSingleSelect(dataSpecialization, specializationFormTagifyInput, specializationFormInput))
+  spezialisationSelect.on('change', selectValueFromSingleSelect(dataSpecialization, specializationFormInput, specializationFormInput))
 </script>
 
     </body>

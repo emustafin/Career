@@ -6134,11 +6134,6 @@
   right: 0;
   bottom: 10px; }
 
-.form__value1,
-.form__value2 {
-  height: 0;
-  position: absolute; }
-
 .form__dropdown-result {
   position: relative;
   pointer-events: none; }
