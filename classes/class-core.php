@@ -45,6 +45,7 @@ final class Core {
 		new CPT\Vacancies();
 		new CPT\Reviews();
 		new CPT\Product_directions();
+		new Menu\Menu();
 	}
 
 	/**

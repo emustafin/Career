@@ -75,40 +75,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <!-- Дропдаун "НАПРАВЛЕНИЯ" -->
               <div class="it-header__directions-dropdown-wrapper">
                 <div class="it-header__directions-dropdown-list">
-                  <a
-                    href="/"
-                    class="it-header__directions-dropdown-item"
-                    target="blank"
-                    >IT и продукты
-                  </a>
-                  <a
-                    href="https://job.mvideoeldorado.ru/shops"
-                    class="it-header__directions-dropdown-item"
-                    target="blank"
-                  >
-                    Розничные магазины
-                  </a>
-                  <a
-                    href="https://jobinme.mvideoeldorado.ru/office"
-                    class="it-header__directions-dropdown-item"
-                    target="blank"
-                  >
-                    Центральный офиc
-                  </a>
-                  <a
-                    href="https://jobinme.mvideoeldorado.ru/logistics"
-                    class="it-header__directions-dropdown-item"
-                    target="blank"
-                  >
-                    Сервис и логистика
-                  </a>
-                  <a
-                    href="https://job.mvideoeldorado.ru/students"
-                    class="it-header__directions-dropdown-item"
-                    target="blank"
-                  >
-                    Студентам
-                  </a>
+                  <?php
+                  $menu_name = 'primary';
+                  $locations = get_nav_menu_locations();
+                  $menu_items = wp_get_nav_menu_items( $locations[ $menu_name ] );
+                  foreach ($menu_items as $item) :?>
+
+                    <a href="<?php echo $item->url;?>" class="it-header__directions-dropdown-item" target="blank"><?php echo $item->title;?></a>
+
+                  <?php endforeach; ?>
+                  
                 </div>
               </div>
               <!-- //Дропдаун "НАПРАВЛЕНИЯ" -->
