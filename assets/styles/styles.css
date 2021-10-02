@@ -6323,6 +6323,9 @@ a.cd-upload-btn {
   font-family: suisse;
   color: #000000; }
 
+input#form__town {
+  display: none; }
+
 .direct-link__header {
   overflow: hidden;
   padding: 16px 0;
