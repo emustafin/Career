@@ -6045,6 +6045,8 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   margin-bottom: 16px;
   padding-bottom: 8px; }
+  .form__form-name:nth-child(5), .form__form-name:nth-child(6) {
+    padding-bottom: 0; }
 
 .form__form-name-value {
   font-size: 12px;
@@ -6131,11 +6133,6 @@
   position: absolute;
   right: 0;
   bottom: 10px; }
-
-.form__value1,
-.form__value2 {
-  height: 0;
-  position: absolute; }
 
 .form__dropdown-result {
   position: relative;
@@ -6320,6 +6317,9 @@ a.cd-upload-btn {
 .codedropz-upload-inner h3 {
   font-family: suisse;
   color: #000000; }
+
+input#form__town {
+  display: none; }
 
 .direct-link__header {
   overflow: hidden;

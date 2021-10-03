@@ -83,6 +83,11 @@
   border-bottom: 1px solid $blackColorOpacity-05;
   margin-bottom: 16px;
   padding-bottom: 8px;
+
+  &:nth-child(5),
+  &:nth-child(6) {
+    padding-bottom: 0;
+  }
 }
 
 .form__form-name-value {
@@ -187,8 +192,8 @@
 
 .form__value1,
 .form__value2 {
-  height: 0;
-  position: absolute;
+  // height: 0;
+  // position: absolute;
 }
 
 .form__dropdown-result {
@@ -445,4 +450,7 @@ a.cd-upload-btn {
   // font-size: 16px;
   // line-height: 20px;
   color: #000000;
+}
+input#form__town{
+  display: none;
 }

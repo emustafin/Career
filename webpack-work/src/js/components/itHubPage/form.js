@@ -79,47 +79,47 @@ export class Form {
     }, 300);
   }
 
-  openDropdown(event) {
-    this.closeDropdown();
-    event.target.lastElementChild.classList.remove('hide');
-  }
+  // openDropdown(event) {
+  //   this.closeDropdown();
+  //   event.target.lastElementChild.classList.remove('hide');
+  // }
 
-  closeDropdown() {
-    this.dropdowns.forEach((dropdown) => {
-      dropdown.lastElementChild.classList.add('hide');
-    });
-  }
+  // closeDropdown() {
+  //   this.dropdowns.forEach((dropdown) => {
+  //     dropdown.lastElementChild.classList.add('hide');
+  //   });
+  // }
 
-  selectDropdownItem(event) {
-    const currentDropdownItem = event.target;
-    const selectedValue = currentDropdownItem.firstElementChild.innerText;
-    const textField = currentDropdownItem.closest('.form__dropdown-list')
-      .previousElementSibling.previousElementSibling;
-    const checkIcon = currentDropdownItem.lastElementChild;
+  // selectDropdownItem(event) {
+  //   const currentDropdownItem = event.target;
+  //   const selectedValue = currentDropdownItem.firstElementChild.innerText;
+  //   const textField = currentDropdownItem.closest('.form__dropdown-list')
+  //     .previousElementSibling.previousElementSibling;
+  //   const checkIcon = currentDropdownItem.lastElementChild;
 
-    textField.textContent = selectedValue;
+  //   textField.textContent = selectedValue;
 
-    if (
-      currentDropdownItem.closest('.form__form-name').firstElementChild
-        .textContent === 'Направление'
-    ) {
-      this.input1.value = selectedValue;
-    }
+  //   if (
+  //     currentDropdownItem.closest('.form__form-name').firstElementChild
+  //       .textContent === 'Направление'
+  //   ) {
+  //     this.input1.value = selectedValue;
+  //   }
 
-    if (
-      currentDropdownItem.closest('.form__form-name').firstElementChild
-        .textContent === 'Специализация'
-    ) {
-      this.input2.value = selectedValue;
-    }
+  //   if (
+  //     currentDropdownItem.closest('.form__form-name').firstElementChild
+  //       .textContent === 'Специализация'
+  //   ) {
+  //     this.input2.value = selectedValue;
+  //   }
 
-    checkIcon.classList.add('form__dropdown-item-checked-active');
+  //   checkIcon.classList.add('form__dropdown-item-checked-active');
 
-    setTimeout(() => {
-      checkIcon.classList.remove('form__dropdown-item-checked-active');
-      currentDropdownItem.closest('.form__dropdown-list').classList.add('hide');
-    }, 50);
-  }
+  //   setTimeout(() => {
+  //     checkIcon.classList.remove('form__dropdown-item-checked-active');
+  //     currentDropdownItem.closest('.form__dropdown-list').classList.add('hide');
+  //   }, 50);
+  // }
 }
 
 function formClickHandler(event) {
@@ -130,16 +130,16 @@ function formClickHandler(event) {
     event.preventDefault();
     this.closeForm();
   }
-  if (event.target.classList.contains('form__dropdown')) {
-    this.openDropdown(event);
-  }
-  if (event.target.classList.contains('form__dropdown-list-item')) {
-    this.selectDropdownItem(event);
-  }
-  if (
-    event.target.closest('.form__content') &&
-    !event.target.classList.contains('form__dropdown')
-  ) {
-    this.closeDropdown();
-  }
+  // if (event.target.classList.contains('form__dropdown')) {
+  //   this.openDropdown(event);
+  // }
+  // if (event.target.classList.contains('form__dropdown-list-item')) {
+  //   this.selectDropdownItem(event);
+  // }
+  // if (
+  //   event.target.closest('.form__content') &&
+  //   !event.target.classList.contains('form__dropdown')
+  // ) {
+  //   this.closeDropdown();
+  // }
 }
