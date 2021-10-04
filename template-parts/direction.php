@@ -14,6 +14,8 @@ $product_directions = new WP_Query( $args );
           направления
         </h2>
 
+        <!-- Кастомный селект, который делал Никита -->
+<!-- 
         <div class="custom-select" id="custom-select-first">
           <span class="custom-select__label">Выбери направление</span>
           <span class="custom-select__change-select"><?php echo get_the_title($product_directions->posts[0]->ID); ?></span>
@@ -34,6 +36,22 @@ $product_directions = new WP_Query( $args );
             </ul>
           </div>
         </div>
+ -->
+        <div class="direction__select-container-mobile" data-name="closed">
+          <p class="direction__select-title">Выбери направление</p>
+          <div class="direction__select-field"><?php echo get_the_title($product_directions->posts[0]->ID); ?></div>
+          <div class="direction__select-list-wrapper hide" >
+            <ul class="direction__select">
+            <?php if ( $product_directions->have_posts() ):
+                while ( $product_directions->have_posts() ): $product_directions->the_post(); ?>
+              <li class="direction__select-item <?php echo $active; ?>" data-tab-uid="<?php the_ID(); ?>" data-value="<?php the_title(); ?>"><?php the_title(); ?></li>
+
+              <?php endwhile;
+              endif;?>
+            </ul>
+          </div>
+        </div>
+
 
         <div class="direction__content-wrapper tab-content">
           <div class="direction__side-bar">
@@ -75,37 +93,28 @@ $product_directions = new WP_Query( $args );
 
                     <div class="direction__description-container">
                       <div class="direction__director-container-mobile">
-                        <div class="direction__director-block">
-                          <div class="direction__director-image-block-mobile">
-                            <img
-                              src="<?php echo get_the_post_thumbnail_url(); ?>"
-                              alt="director"
-                              class="direction__director-image"
-                            />
-                          </div>
-                          <div class="direction__director-name-wrapper">
-                            <p class="direction__director-name">
-                              <?php echo get_field( 'director_name' ); ?><span>,</span>
-                            </p>
-                            <p class="direction__director-name"><?php echo get_field( 'director_position' ); ?></p>
-                          </div>
-                        </div>
 
-                        <div class="direction__director-block">
-                          <div class="direction__director-image-block-mobile">
-                            <img
-                              src="<?php echo get_the_post_thumbnail_url(); ?>"
-                              alt="director"
-                              class="direction__director-image"
-                            />
-                          </div>
-                          <div class="direction__director-name-wrapper">
-                            <p class="direction__director-name">
-                              <?php echo get_field( 'director_name' ); ?><span>,</span>
-                            </p>
-                            <p class="direction__director-name"><?php echo get_field( 'director_position' ); ?></p>
-                          </div>
-                        </div>
+                         <?php if( have_rows('people') ):
+                        while( have_rows('people') ) : the_row();
+                            $sub_value = get_sub_field('sub_field'); ?>
+
+                            <div class="direction__director-block">
+                              <div class="direction__director-image-block">
+                                <img
+                                  src="<?php echo get_sub_field('img'); ?>"
+                                  alt="director"
+                                  class="direction__director-image"
+                                />
+                              </div>
+                              <p class="direction__director-name">
+                                <?php echo get_sub_field('director_name'); ?><span>,</span>
+                              </p>
+                              <p class="direction__director-name"><?php echo get_sub_field('director_position'); ?></p>
+                            </div>
+
+                        <?php endwhile;
+                      endif; ?>
+
                       </div>
 
                       <div class="direction__description-text">
