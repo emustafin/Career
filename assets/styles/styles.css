@@ -1409,6 +1409,10 @@
 .vacancy__intro-description {
   width: 50%; }
 
+.vacancy__intro-description > span,
+.vacancy__description-list > ul > li > span {
+  display: block; }
+
 .vacancy__video-container {
   width: 100%;
   max-width: 280px;
@@ -1418,7 +1422,6 @@
 
 .vacancy__intro-description-text {
   width: 100%;
-  max-width: 464px;
   margin-bottom: 24px; }
   .vacancy__intro-description-text:last-child {
     margin-bottom: 0; }
@@ -1436,10 +1439,12 @@
   width: 100%;
   max-width: 454px; }
 
-.vacancy__description-list-item {
+.vacancy__description-list-item,
+.vacancy__description-list > ul > li {
   list-style: disc;
   margin-bottom: 20px; }
-  .vacancy__description-list-item:last-child {
+  .vacancy__description-list-item:last-child,
+  .vacancy__description-list > ul > li:last-child {
     margin-bottom: 0; }
 
 .vacancy__office {
@@ -1976,10 +1981,10 @@
     display: flex;
     justify-content: space-around; }
     .vacancy__meta-info:first-child {
-      width: 65%;
+      width: 50%;
       margin-right: 16px; }
     .vacancy__meta-info:last-child {
-      width: 35%; }
+      width: 50%; }
   .vacancy__meta-info-item {
     margin-right: 16px; }
     .vacancy__meta-info-item:last-child {
@@ -1989,17 +1994,14 @@
   .vacancy__video,
   .vacancy__description-title {
     width: 30%;
-    max-width: 220px;
     margin-right: 28px; }
   .vacancy__intro-description,
   .vacancy__description-list {
-    width: 69%;
-    max-width: 504px; }
-  .vacancy__intro-description-text {
-    max-width: 504px; }
+    width: 70%; }
   .vacancy__description-list-wrapper {
     max-width: 494px; }
-  .vacancy__description-list-item {
+  .vacancy__description-list-item,
+  .vacancy__description-list > ul > li {
     margin-left: 15px; }
   .vacancy__office-map {
     padding-right: 12px; }
@@ -2017,9 +2019,9 @@
     max-width: 96px;
     height: 96px; }
   .vacancy__form-title-block {
-    width: 33%; }
+    width: 30%; }
   .vacancy__form-inner-block {
-    width: 67%; }
+    width: 70%; }
   .vacancy__response {
     margin-top: 36px; }
   .vacancy__positions-item {
@@ -2057,8 +2059,10 @@
   .vacancy__meta-info-item {
     margin-right: 0; }
   .vacancy__header-head-copy-mobile {
-    max-width: 160px;
-    padding-right: 18px; }
+    max-width: 180px;
+    padding-right: 18px;
+    font-size: 16px;
+    line-height: 20px; }
   .vacancy__intro,
   .vacancy__header,
   .vacancy__description,
@@ -2110,7 +2114,8 @@
   .vacancy__office-content {
     padding-top: 16px; }
   .vacancy__description-list-item,
-  .vacancy__news-title-info {
+  .vacancy__news-title-info,
+  .vacancy__description-list > ul > li {
     margin-bottom: 8px; }
   .vacancy__office-adress {
     margin-bottom: 0; }
@@ -5661,7 +5666,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around; }
+  justify-content: flex-start; }
 
 .upgrade__way-item {
   margin-right: 16px;
