@@ -190,11 +190,11 @@
   bottom: 10px;
 }
 
-.form__value1,
-.form__value2 {
-  // height: 0;
-  // position: absolute;
-}
+// .form__value1,
+// .form__value2 {
+//   height: 0;
+//   position: absolute;
+// }
 
 .form__dropdown-result {
   position: relative;
@@ -436,7 +436,7 @@
 
 a.cd-upload-btn {
   color: rgba(0, 0, 0, 0.5);
-  font-family: Suisse Intl;
+  font-family: Suisse;
   font-size: 12px;
   line-height: 12px;
   text-decoration: underline;
@@ -451,6 +451,6 @@ a.cd-upload-btn {
   // line-height: 20px;
   color: #000000;
 }
-input#form__town{
+input#form__town {
   display: none;
 }

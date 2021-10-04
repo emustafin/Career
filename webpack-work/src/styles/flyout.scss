@@ -166,6 +166,11 @@
   width: 50%;
 }
 
+.vacancy__intro-description > span,
+.vacancy__description-list > ul > li > span {
+  display: block;
+}
+
 .vacancy__video-container {
   width: 100%;
   max-width: 280px;
@@ -176,7 +181,6 @@
 
 .vacancy__intro-description-text {
   width: 100%;
-  max-width: 464px;
   margin-bottom: 24px;
 
   &:last-child {
@@ -203,7 +207,8 @@
   max-width: 454px;
 }
 
-.vacancy__description-list-item {
+.vacancy__description-list-item,
+.vacancy__description-list > ul > li {
   list-style: disc;
   margin-bottom: 20px;
 
@@ -927,12 +932,12 @@
     justify-content: space-around;
 
     &:first-child {
-      width: 65%;
+      width: 50%;
       margin-right: 16px;
     }
 
     &:last-child {
-      width: 35%;
+      width: 50%;
     }
   }
 
@@ -951,25 +956,20 @@
   .vacancy__video,
   .vacancy__description-title {
     width: 30%;
-    max-width: 220px;
     margin-right: 28px;
   }
 
   .vacancy__intro-description,
   .vacancy__description-list {
-    width: 69%;
-    max-width: 504px;
-  }
-
-  .vacancy__intro-description-text {
-    max-width: 504px;
+    width: 70%;
   }
 
   .vacancy__description-list-wrapper {
     max-width: 494px;
   }
 
-  .vacancy__description-list-item {
+  .vacancy__description-list-item,
+  .vacancy__description-list > ul > li {
     margin-left: 15px;
   }
 
@@ -1001,11 +1001,11 @@
   }
 
   .vacancy__form-title-block {
-    width: 33%;
+    width: 30%;
   }
 
   .vacancy__form-inner-block {
-    width: 67%;
+    width: 70%;
   }
 
   .vacancy__response {
@@ -1070,8 +1070,10 @@
   }
 
   .vacancy__header-head-copy-mobile {
-    max-width: 160px;
+    max-width: 180px;
     padding-right: 18px;
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .vacancy__intro,
@@ -1143,7 +1145,8 @@
   }
 
   .vacancy__description-list-item,
-  .vacancy__news-title-info {
+  .vacancy__news-title-info,
+  .vacancy__description-list > ul > li {
     margin-bottom: 8px;
   }
 
