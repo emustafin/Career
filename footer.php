@@ -91,7 +91,7 @@
 
           <div class="footer__item">
             <p class="footer__item-title">Направления</p>
-            <a target="blank" href="https://emlifewp.mvideoeldorado.ru/" class="footem__item-directions-link">IT-департамент</a>
+            <a target="blank" href="https://emlifewp.mvideoeldorado.ru/" class="footem__item-directions-link">IT и продукты</a>
             <a target="blank" href="https://job.mvideoeldorado.ru/shops" class="footem__item-directions-link"
               >Розничные магазины</a
             >

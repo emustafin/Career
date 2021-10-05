@@ -133,10 +133,11 @@
               <div class="intern-no-events__news-block">
 
                 <a href="<?php echo $url_from_habr0; ?>" target="_blank" class="intern-no-events__news-card-main">
-                  <div class="intern-no-events__card-image-block">
+                  <div class="intern-no-events__card-image-block loading">
                     <img
                       class="intern-no-events__card-image"
-                      src="<?php echo $thumbnail_url; ?>"
+                      data-src="<?php echo $thumbnail_url; ?>"
+                      src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                       alt="News"
                     />
                   </div>
@@ -159,10 +160,11 @@
                   }
                   ?>
                   <a href="<?php echo $url_from_habr1; ?>" target="_blank" class="intern-no-events__news-card-second">
-                    <div class="intern-no-events__card-image-block">
+                    <div class="intern-no-events__card-image-block loading">
                       <img
                         class="intern-no-events__card-image"
-                        src="<?php echo $thumbnail_url; ?>"
+                        data-src="<?php echo $thumbnail_url; ?>"
+                        src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                         alt="News"
                       />
                     </div>
@@ -192,10 +194,11 @@
                   }
                   ?>
                   <a href="<?php echo $url_from_habr2; ?>" target="_blank" class="intern-no-events__news-card-main">
-                    <div class="intern-no-events__card-image-block">
+                    <div class="intern-no-events__card-image-block loading">
                       <img
                         class="intern-no-events__card-image"
-                        src="<?php echo $thumbnail_url; ?>"
+                        data-src="<?php echo $thumbnail_url; ?>"
+                        src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                         alt="News"
                       />
                     </div>
@@ -221,10 +224,11 @@
                   }
                   ?>
                   <a href="<?php echo $url_from_habr3; ?>" target="_blank" class="intern-no-events__news-card-second">
-                    <div class="intern-no-events__card-image-block">
+                    <div class="intern-no-events__card-image-block loading">
                       <img
                         class="intern-no-events__card-image"
-                        src="<?php echo $thumbnail_url; ?>"
+                        data-src="<?php echo $thumbnail_url; ?>"
+                        src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                         alt="News"
                       />
                     </div>
