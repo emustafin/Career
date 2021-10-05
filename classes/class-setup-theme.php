@@ -91,6 +91,13 @@ class Setup_Theme {
 		wp_enqueue_script( self::THEME_ID . "ajax-js", THEME_URL . "/assets/js/ajax.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "bundle-js", THEME_URL . "/assets/bundle.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "popup_vacancy-js", THEME_URL . "/assets/js/popup_vacancy.js", [], THEME_VSN, true );
+		wp_enqueue_script( self::THEME_ID . "footer-js", THEME_URL . "/assets/js/footer.js", [], THEME_VSN, true );
+		if( is_front_page() ){
+			wp_enqueue_script( self::THEME_ID . "frontpage-js", THEME_URL . "/assets/js/frontpage.js", [], THEME_VSN, true );
+		}
+		if( is_post_type_archive('vacancies') ){
+			wp_enqueue_script( self::THEME_ID . "vacanciespage-js", THEME_URL . "/assets/js/vacanciespage.js", [], THEME_VSN, true );
+		}
 		wp_localize_script(
 			self::THEME_ID . 'ajax-js',
 			'ajax',
