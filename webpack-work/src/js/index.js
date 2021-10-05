@@ -77,7 +77,7 @@ new VacancyDirecLinkNewsBlock(vacancyDirectLinkNews);
 new CustomSelectInProfessionBlock(professionCustomSelect);
 new ListingFilters(listingPageFilters);
 new Intern(intern);
-new Direction(direction);
+const itPageDirection = new Direction(direction);
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
 
@@ -97,6 +97,7 @@ new Direction(direction);
 document.body.addEventListener('click', (event) => {
   headerComponent.closeSelect();
   vacancyListingComponent.closeHeaderSelect();
+  itPageDirection.closeMobileSelect();
 
   if (
     event.target.classList.contains('it-header__button') ||

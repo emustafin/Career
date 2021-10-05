@@ -210,6 +210,7 @@
   line-height: 12px;
   color: $blackColorOpacity-05;
   margin-bottom: 4px;
+  pointer-events: none;
 }
 
 .direction__select-list-wrapper {
@@ -228,15 +229,17 @@
 .direction__select-item {
   cursor: pointer;
   margin: 4px 0;
-  border-bottom: 1px solid $blackColorOpacity-05;
+  padding: 4px 0;
+  transition: 0.3s;
 
-  &:last-child {
-    border-bottom: none;
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
   }
 }
 
 .direction__select-field {
   position: relative;
+  pointer-events: none;
 
   &::after {
     content: '';
@@ -415,6 +418,16 @@
     margin-bottom: 64px;
     font-size: 14px;
     line-height: 16px;
+  }
+
+  .direction__select-field {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .direction__choosed-item {
+    font-size: 24px;
+    line-height: 28px;
   }
 
   .direction__title {
