@@ -28,7 +28,7 @@ export class VacancyDirecLinkMainContent {
       this.scrollToForm.bind(this)
     );
 
-    // this.setProgress();
+    this.setProgress();
   }
   scrollToForm(event) {
     event.preventDefault();
@@ -36,7 +36,6 @@ export class VacancyDirecLinkMainContent {
   }
 
   setProgress() {
-    console.log(this.video);
     this.video.play();
   }
 }
