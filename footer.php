@@ -19,9 +19,10 @@
         <div class="footer__wrapper">
           <div class="footer__item">
             <div class="footer__item-wrapper">
-              <a href="/" class="footer__logo-link">
+              <a href="/" class="footer__logo-link loading">
                 <img
-                  src="<?php echo THEME_URL; ?>/assets/images/footer/footer__logo.svg"
+                  data-src="<?php echo THEME_URL; ?>/assets/images/footer/footer__logo.svg"
+                  src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                   alt="Logo"
                   class="footer__logo"
                 />
@@ -107,9 +108,10 @@
           </div>
         </div>
 
-        <a href="/" class="footer__logo-link-mobile">
+        <a href="/" class="footer__logo-link-mobile loading">
           <img
-            src="<?php echo THEME_URL; ?>/assets/images/footer/footer__logo.svg"
+            data-src="<?php echo THEME_URL; ?>/assets/images/footer/footer__logo.svg"
+            src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
             alt="Logo"
             class="footer__logo"
           />

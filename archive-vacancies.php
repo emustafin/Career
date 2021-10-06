@@ -516,10 +516,11 @@ endif; ?>
 
 
                 <a href="<?php echo $url_from_habr; ?>" target="_blank" class="vacancy__news-item swiper-slide">
-                    <div class="vacancy__news-item-image-block">
+                    <div class="vacancy__news-item-image-block loading">
                         <img
                         class="vacancy__news-image"
-                        src="<?php echo $thumbnail_url; ?>"
+                        data-src="<?php echo $thumbnail_url; ?>"
+                        src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                         alt="News"
                         />
                     </div>
@@ -583,10 +584,11 @@ endif; ?>
                 ?>
 
                 <a href="<?php echo $url_from_habr; ?>" target="_blank"class="vacancy__news-item">
-                    <div class="vacancy__news-item-image-block">
+                    <div class="vacancy__news-item-image-block loading">
                         <img
                         class="vacancy__news-image"
-                        src="<?php echo $thumbnail_url; ?>"
+                        data-src="<?php echo $thumbnail_url; ?>"
+                        src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                         alt="News"
                         />
                     </div>

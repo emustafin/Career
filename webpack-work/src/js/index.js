@@ -193,6 +193,7 @@ function isIntersecting(target) {
   const docViewBottom = docViewTop + window.innerHeight;
   const elemTop = docViewTop + target.getBoundingClientRect().top;
   const elemBottom = elemTop + target.height;
+
   return (
     (elemTop <= docViewBottom && elemTop >= docViewTop) ||
     (elemBottom <= docViewBottom && elemBottom >= docViewTop)
