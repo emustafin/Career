@@ -151,7 +151,7 @@ if( get_field( 'can_without_experience', $post_id ) ){
         <div class="vacancy__intro">
         <div class="vacancy__video">
             <div class="vacancy__video-container">
-            <video class="vacancy__video-preview" muted="muted">
+                <video class="vacancy__video-preview" muted="muted">
                   <source
                     src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4"
                   />

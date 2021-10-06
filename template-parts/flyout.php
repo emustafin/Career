@@ -65,7 +65,25 @@
         <div class="vacancy__intro">
         <div class="vacancy__video">
             <div class="vacancy__video-container">
-            <img src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-intro/intro-bg.png" alt="">
+            <video class="vacancy__video-preview" muted="muted">
+                  <source
+                    src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4"
+                  />
+                </video>
+                <svg class="vacancy__progress-container" viewBox="0 0 280 280">
+                  <circle
+                    class="vacancy__progress-bar"
+                    stroke="#E31235"
+                    stroke-width="2"
+                    cx="140"
+                    cy="140"
+                    r="139"
+                    fill="transparent"
+                  ></circle>
+                </svg>
+
+
+            <!-- <img src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-intro/intro-bg.png" alt=""> -->
             </div>
         </div>
         <div class="vacancy__intro-description">
