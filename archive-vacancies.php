@@ -463,7 +463,7 @@ endif; ?>
 </div>
 <script>
     var paged = '<?php echo $paged; ?>';
-    var query_vars = '<?php echo json_encode($wp_query->query_vars); ?>';
+    var query_vars = `<?php echo json_encode($wp_query->query_vars); ?>`;
     var max_num_pages = '<?php echo json_encode($wp_query->max_num_pages); ?>';
 </script>
 <!-- //Button Show-more -->
