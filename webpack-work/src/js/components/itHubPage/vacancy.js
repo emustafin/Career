@@ -12,6 +12,10 @@ export class Vacancy {
       '.vacancy__header-head-copy'
     );
     this.newsSlider;
+    // this.progressBar = this.el.querySelector('.vacancy__progress-bar');
+    // this.progressRadius = this.progressBar.r.baseVal.value;
+
+    // console.log(this.el);
 
     this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
 

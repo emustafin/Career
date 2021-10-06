@@ -1441,9 +1441,25 @@
 .vacancy__video-container {
   width: 100%;
   max-width: 280px;
-  min-height: 280px;
   border-radius: 50%;
-  background: url("../images/flyout/flyout-intro/intro-bg.png") no-repeat; }
+  overflow: hidden;
+  position: relative;
+  display: flex; }
+
+.vacancy__video-placeholder {
+  display: block;
+  width: 100%; }
+
+.vacancy__video-preview {
+  width: 100%; }
+
+.vacancy__progress-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: rotate(-90deg); }
 
 .vacancy__intro-description-text {
   width: 100%;
@@ -1949,9 +1965,7 @@
   .vacancy__news {
     margin-bottom: 64px; }
   .vacancy__video-container {
-    max-width: 220px;
-    min-height: 220px;
-    background: url("../images/flyout/flyout-intro/intro-bg.png") center/contain no-repeat; }
+    max-width: 220px; }
   .vacancy__office-content-bottom {
     flex-wrap: wrap; }
   .vacancy__office-location-wrapper {
