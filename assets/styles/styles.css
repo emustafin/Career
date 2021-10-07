@@ -1445,6 +1445,8 @@
   overflow: hidden;
   position: relative;
   display: flex; }
+  .vacancy__video-container:hover > .vacancy__video-sound {
+    transform: translate(-50%, 0); }
 
 .vacancy__video-placeholder {
   display: block;
@@ -1453,13 +1455,26 @@
 .vacancy__video-preview {
   width: 100%; }
 
+.vacancy__video-sound-muted,
+.vacancy__video-sound-loud {
+  pointer-events: none; }
+
 .vacancy__progress-container {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  transform: rotate(-90deg); }
+  transform: rotate(-90deg);
+  pointer-events: none; }
+
+.vacancy__video-sound {
+  position: absolute;
+  left: 50%;
+  bottom: 11px;
+  transform: translate(-50%, 200%);
+  cursor: pointer;
+  transition: 0.3s; }
 
 .vacancy__intro-description-text {
   width: 100%;

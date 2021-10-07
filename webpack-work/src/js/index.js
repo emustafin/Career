@@ -186,7 +186,7 @@ export function swichersAnimation(header, block, swichers) {
 }
 
 // Отложенная загрузка изображений
-const lazyImages = document.querySelectorAll('img[data-src]');
+const lazyImages = document.querySelectorAll('[data-src]');
 
 function isIntersecting(target) {
   const docViewTop = window.pageYOffset;
@@ -207,10 +207,12 @@ const checkImages = function () {
       target.parentNode.classList.contains('loading')
     ) {
       target.src = target.getAttribute('data-src');
-      target.onload = () => {
-        target.parentNode.classList.remove('loading');
-        target.removeAttribute('data-src');
-      };
+      // target.onload = () => {
+      //   target.parentNode.classList.remove('loading');
+      //   target.removeAttribute('data-src');
+      // };
+      target.parentNode.classList.remove('loading');
+      target.removeAttribute('data-src');
     }
   });
 };
