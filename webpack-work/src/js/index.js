@@ -184,3 +184,38 @@ export function swichersAnimation(header, block, swichers) {
     }
   };
 }
+
+// Отложенная загрузка изображений
+const lazyImages = document.querySelectorAll('[data-src]');
+
+function isIntersecting(target) {
+  const docViewTop = window.pageYOffset;
+  const docViewBottom = docViewTop + window.innerHeight;
+  const elemTop = docViewTop + target.getBoundingClientRect().top;
+  const elemBottom = elemTop + target.height;
+
+  return (
+    (elemTop <= docViewBottom && elemTop >= docViewTop) ||
+    (elemBottom <= docViewBottom && elemBottom >= docViewTop)
+  );
+}
+
+const checkImages = function () {
+  lazyImages.forEach((target) => {
+    if (
+      isIntersecting(target) &&
+      target.parentNode.classList.contains('loading')
+    ) {
+      target.src = target.getAttribute('data-src');
+      // target.onload = () => {
+      //   target.parentNode.classList.remove('loading');
+      //   target.removeAttribute('data-src');
+      // };
+      target.parentNode.classList.remove('loading');
+      target.removeAttribute('data-src');
+    }
+  });
+};
+
+window.onload = checkImages;
+window.onscroll = checkImages;

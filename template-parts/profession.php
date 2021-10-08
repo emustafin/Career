@@ -111,8 +111,8 @@
                     </a> 
                 -->
 
-                <div class="profession__side-bar-image-wrapper">
-                    <img id="profession__img" class="profession__side-bar-image" src="<?php echo get_field( 'vaccat_img', $first_vaccat ); ?>" alt="management"/>
+                <div class="profession__side-bar-image-wrapper loading">
+                    <img id="profession__img" class="profession__side-bar-image" data-src="<?php echo get_field( 'vaccat_img', $first_vaccat ); ?>" alt="management" src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"/>
                 </div>
             </div>
 

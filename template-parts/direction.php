@@ -99,9 +99,10 @@ $product_directions = new WP_Query( $args );
                             $sub_value = get_sub_field('sub_field'); ?>
 
                             <div class="direction__director-block">
-                              <div class="direction__director-image-block">
+                              <div class="direction__director-image-block loading">
                                 <img
-                                  src="<?php echo get_sub_field('img'); ?>"
+                                  data-src="<?php echo get_sub_field('img'); ?>"
+                                  src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                   alt="director"
                                   class="direction__director-image"
                                 />
@@ -121,7 +122,7 @@ $product_directions = new WP_Query( $args );
                         <?php the_content(); ?>
                       </div>
 
-                      <a href="#" class="direction__description-link-mobile">Развернуть текст</a>
+                      <!-- <a href="#" class="direction__description-link-mobile">Развернуть текст</a> -->
                     </div>
 
                     <div class="direction__director-container">
@@ -131,9 +132,10 @@ $product_directions = new WP_Query( $args );
                             $sub_value = get_sub_field('sub_field'); ?>
 
                             <div class="direction__director-block">
-                              <div class="direction__director-image-block">
+                              <div class="direction__director-image-block loading">
                                 <img
-                                  src="<?php echo get_sub_field('img'); ?>"
+                                  data-src="<?php echo get_sub_field('img'); ?>"
+                                  src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                   alt="director"
                                   class="direction__director-image"
                                 />

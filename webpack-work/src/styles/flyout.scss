@@ -174,9 +174,48 @@
 .vacancy__video-container {
   width: 100%;
   max-width: 280px;
-  min-height: 280px;
+  // max-height: 280px;
   border-radius: 50%;
-  background: url('../images/flyout/flyout-intro/intro-bg.png') no-repeat;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+
+  &:hover > .vacancy__video-sound {
+    transform: translate(-50%, 0);
+  }
+}
+
+.vacancy__video-placeholder {
+  display: block;
+  width: 100%;
+}
+
+.vacancy__video-preview {
+  width: 100%;
+}
+
+.vacancy__video-sound-muted,
+.vacancy__video-sound-loud {
+  pointer-events: none;
+}
+
+.vacancy__progress-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.vacancy__video-sound {
+  position: absolute;
+  left: 50%;
+  bottom: 11px;
+  transform: translate(-50%, 200%);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .vacancy__intro-description-text {
@@ -833,9 +872,7 @@
 
   .vacancy__video-container {
     max-width: 220px;
-    min-height: 220px;
-    background: url('../images/flyout/flyout-intro/intro-bg.png') center /
-      contain no-repeat;
+    // max-height: 220px;
   }
 
   .vacancy__office-content-bottom {

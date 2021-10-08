@@ -13,7 +13,21 @@ export class Vacancy {
     );
     this.newsSlider;
 
+    this.progressBar = this.flyout.querySelector('.vacancy__progress-bar');
+    this.progressRadius = this.progressBar.r.baseVal.value;
+    this.progressBarLength = 2 * Math.PI * this.progressRadius;
+
+    this.progressBar.style.strokeDasharray = `${this.progressBarLength} ${this.progressBarLength}`;
+    this.progressBar.style.strokeDashoffset = this.progressBarLength;
+    this.video = this.flyout.querySelector('.vacancy__video-preview');
+    this.videoContainer = this.flyout.querySelector(
+      '.vacancy__video-container'
+    );
+    this.btnMuted = this.flyout.querySelector('.vacancy__video-sound-muted');
+    this.btnLoud = this.flyout.querySelector('.vacancy__video-sound-loud');
+
     this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
+    this.videoContainer.addEventListener('click', this.turnOnSound.bind(this));
 
     this.init();
     this.resizeFlyout();
@@ -65,6 +79,7 @@ export class Vacancy {
   closeFlyout(event) {
     event.preventDefault();
     this.flyoutSideBar.style.background = 'transparent';
+    this.stopFlyoutVideo();
 
     setTimeout(() => {
       document.body.style.overflow = 'visible';
@@ -126,11 +141,78 @@ export class Vacancy {
 
     await navigator.clipboard.writeText(link);
   }
+
+  setVideoProgress() {
+    if (this.video.autoplay === true) {
+      setInterval(() => {
+        const progress = (this.video.currentTime / this.video.duration) * 100;
+        let offset =
+          this.progressBarLength - (progress / 100) * this.progressBarLength;
+        this.progressBar.style.strokeDashoffset = offset;
+
+        if (this.video.currentTime === this.video.duration) {
+          this.video.currentTime = 0;
+        }
+      }, 50);
+    }
+  }
+
+  playFlyoutVideo() {
+    this.videoContainer.classList.remove('loading');
+    // this.videoContainer.dataset.name = 'loud';
+    this.video.src =
+      '/wp-content/themes/career_theme/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4';
+    this.video.setAttribute('autoplay', true);
+    this.setVideoProgress();
+  }
+
+  stopFlyoutVideo() {
+    this.video.pause();
+
+    setTimeout(() => {
+      this.video.removeAttribute('autoplay');
+      this.videoContainer.classList.add('loading');
+      this.videoContainer.dataset.name = 'muted';
+      this.video.src =
+        '/wp-content/themes/career_theme/assets/images/Lazy-loading/1x1.png';
+      this.btnMuted.classList.remove('hide');
+      this.btnLoud.classList.add('hide');
+      this.video.muted = true;
+    }, 300);
+  }
+
+  turnOnSound(event) {
+    if (
+      (event.target.classList.contains('vacancy__video-preview') &&
+        this.videoContainer.dataset.name === 'muted') ||
+      (event.target.classList.contains('vacancy__video-sound') &&
+        this.videoContainer.dataset.name === 'muted')
+    ) {
+      this.video.muted = false;
+      this.btnMuted.classList.add('hide');
+      this.btnLoud.classList.remove('hide');
+      this.videoContainer.dataset.name = 'loud';
+    } else if (
+      (event.target.classList.contains('vacancy__video-preview') &&
+        this.videoContainer.dataset.name === 'loud') ||
+      (event.target.classList.contains('vacancy__video-sound') &&
+        this.videoContainer.dataset.name === 'loud')
+    ) {
+      this.video.muted = true;
+      this.btnMuted.classList.remove('hide');
+      this.btnLoud.classList.add('hide');
+      this.videoContainer.dataset.name = 'muted';
+    }
+  }
 }
 
 function vacancyClickHandler(event) {
   if (event.target.classList.contains('profession__job-item')) {
     event.preventDefault();
     this.openFlyout();
+
+    if (this.flyout.classList.contains('flyout__active')) {
+      this.playFlyoutVideo();
+    }
   }
 }

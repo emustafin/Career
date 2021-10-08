@@ -34,10 +34,11 @@ $reviews = new WP_Query( $args );
                                     $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
                                 }
                                 ?>
-                                <div class="upgrade__slider-prev-image swiper-slide">
+                                <div class="upgrade__slider-prev-image swiper-slide loading">
                                     <img
                                     class="upgrade__slider-prev-picture"
-                                    src="<?php echo $thumbnail_url; ?>"
+                                    data-src="<?php echo $thumbnail_url; ?>"
+                                    src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                     alt="Photo"
                                     />
                                 </div>
@@ -49,10 +50,11 @@ $reviews = new WP_Query( $args );
                                         $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
                                     }
                                     ?>
-                                    <div class="upgrade__slider-prev-image swiper-slide">
+                                    <div class="upgrade__slider-prev-image swiper-slide loading">
                                         <img
                                         class="upgrade__slider-prev-picture"
-                                        src="<?php echo $thumbnail_url; ?>"
+                                        data-src="<?php echo $thumbnail_url; ?>"
+                                        src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                         alt="Photo"
                                         />
                                     </div>
@@ -80,10 +82,11 @@ $reviews = new WP_Query( $args );
                             ?>
                             <div class="upgrade__middle-image-item swiper-slide">
                                 <div class="upgrade__middle-image-item-container">
-                                    <div class="upgrade__middle-image">
+                                    <div class="upgrade__middle-image loading">
                                         <img
                                         class="upgrade__main-image"
-                                        src="<?php echo $thumbnail_url; ?>"
+                                        data-src="<?php echo $thumbnail_url; ?>"
+                                        src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                         alt="Photo"
                                         />
                                     </div>
@@ -167,10 +170,11 @@ $reviews = new WP_Query( $args );
                                 }
                                 ?>
                                 <div class="upgrade__slider-next-item swiper-slide">
-                                    <div class="upgrade__slider-next-item-image-block">
+                                    <div class="upgrade__slider-next-item-image-block loading">
                                         <img
                                         class="upgrade__slider-next-item-image"
-                                        src="<?php echo $thumbnail_url; ?>"
+                                        data-src="<?php echo $thumbnail_url; ?>"
+                                        src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                         alt="Image"
                                         />
                                     </div>
@@ -191,10 +195,11 @@ $reviews = new WP_Query( $args );
                             }
                             ?>
                             <div class="upgrade__slider-next-item swiper-slide">
-                                <div class="upgrade__slider-next-item-image-block">
+                                <div class="upgrade__slider-next-item-image-block loading">
                                     <img
                                     class="upgrade__slider-next-item-image"
-                                    src="<?php echo $thumbnail_url; ?>"
+                                    data-src="<?php echo $thumbnail_url; ?>"
+                                    src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                     alt="Image"
                                     />
                                 </div>

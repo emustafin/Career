@@ -110,6 +110,12 @@ export class Direction {
   }
 
   closeMobileSelect() {
+    if (
+      this.mobileSelectWrapper === null ||
+      this.mobileSelectWrapper === undefined
+    )
+      return;
+
     if (this.mobileSelectWrapper.dataset.name === 'open') {
       this.mobileSelectList.classList.add('hide');
       this.mobileSelectWrapper.dataset.name = 'closed';

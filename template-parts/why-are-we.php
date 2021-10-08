@@ -55,10 +55,11 @@ $slides = get_sub_field('slides');
                             </p>
                         </div>
 
-                        <div class="why-are-we__slide-image-wrapper">
+                        <div class="why-are-we__slide-image-wrapper loading">
                             <img
                                 class="why-are-we__slide-image"
-                                src="<?php echo $slides[$i]['img']; ?>"
+                                data-src="<?php echo $slides[$i]['img']; ?>"
+                                src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                 alt="Img Slide"
                             />
                         </div>

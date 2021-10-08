@@ -237,10 +237,11 @@
                 </p>
               </div>
 
-              <div class="why-are-we__slide-image-wrapper">
+              <div class="why-are-we__slide-image-wrapper loading">
                 <img
                   class="why-are-we__slide-image"
-                  src="./images/create-future/slider/focus.png"
+                  data-src="./images/create-future/slider/focus.png"
+                  src="./images/Lazy-loading/1x1.png"
                   alt="Фокус на цифру"
                 />
               </div>
@@ -263,10 +264,11 @@
                 </p>
               </div>
 
-              <div class="why-are-we__slide-image-wrapper">
+              <div class="why-are-we__slide-image-wrapper loading">
                 <img
                   class="why-are-we__slide-image"
-                  src="./images/create-future/slider/forever.png"
+                  data-src="./images/create-future/slider/forever.png"
+                  src="./images/Lazy-loading/1x1.png"
                   alt="Удаленка навсегда"
                 />
               </div>
@@ -292,10 +294,11 @@
                 >
               </div>
 
-              <div class="why-are-we__slide-image-wrapper">
+              <div class="why-are-we__slide-image-wrapper loading">
                 <img
                   class="why-are-we__slide-image"
-                  src="./images/create-future/slider/stack.png"
+                  data-src="./images/create-future/slider/stack.png"
+                  src="./images/Lazy-loading/1x1.png"
                   alt="Современный стек"
                 />
               </div>
@@ -322,10 +325,11 @@
                 >
               </div>
 
-              <div class="why-are-we__slide-image-wrapper">
+              <div class="why-are-we__slide-image-wrapper loading">
                 <img
                   class="why-are-we__slide-image"
-                  src="./images/create-future/slider/startup.png"
+                  data-src="./images/create-future/slider/startup.png"
+                  src="./images/Lazy-loading/1x1.png"
                   alt="Культура стартапа"
                 />
               </div>
@@ -857,10 +861,11 @@
               <span class="profession__side-bar-vacancy-value-arrow"></span>
             </a>
 
-            <div class="profession__side-bar-image-wrapper">
+            <div class="profession__side-bar-image-wrapper loading">
               <img
                 class="profession__side-bar-image"
-                src="./images/management/management.png"
+                data-src="./images/management/management.png"
+                src="./images/Lazy-loading/1x1.png"
                 alt="management"
               />
             </div>
@@ -1306,75 +1311,29 @@
           Продуктовые <br />
           направления
         </h2>
-
-        <div class="custom-select" id="custom-select-first">
-          <span class="custom-select__label">Уровень</span>
-          <span class="custom-select__change-select"> Junior </span>
-          <div class="custom-select__select-list-wrap">
-            <ul class="custom-select__select-list">
-              <li
-                class="custom-select__select-list-item tab-list-item"
-                data-value="Junior1"
-                data-tab-uid="1"
-              >
-                Junior
-                <svg
-                  class="custom-select__list-icon"
-                  width="16"
-                  height="16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M6.5 10.151l5.576-5.575.849.848L6.5 11.848 3.076 8.425l.849-.848L6.5 10.15z"
-                    fill="#000"
-                  />
-                </svg>
+        <div class="direction__select-container-mobile">
+          <p class="direction__select-title">Выбери направление</p>
+          <div class="direction__select-field">B2C</div>
+          <div class="direction__select-list-wrapper hide">
+            <ul class="direction__select">
+              <li class="direction__select-item" data-tab-uid="1">B2C</li>
+              <li class="direction__select-item" data-tab-uid="2">B2R</li>
+              <li class="direction__select-item" data-tab-uid="1">
+                Сервисы/B2Pay
               </li>
-              <li
-                class="custom-select__select-list-item tab-list-item"
-                data-value="Middle"
-                data-tab-uid="2"
-              >
-                Middle
-                <svg
-                  class="custom-select__list-icon"
-                  width="16"
-                  height="16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M6.5 10.151l5.576-5.575.849.848L6.5 11.848 3.076 8.425l.849-.848L6.5 10.15z"
-                    fill="#000"
-                  />
-                </svg>
+              <li class="direction__select-item" data-tab-uid="2">ИТ</li>
+              <li class="direction__select-item" data-tab-uid="1">ОЦТ</li>
+              <li class="direction__select-item" data-tab-uid="2">
+                Реалокатор
               </li>
-              <li
-                class="custom-select__select-list-item tab-list-item"
-                data-value="Senior"
-                data-tab-uid="3"
-              >
-                Senior
-                <svg
-                  class="custom-select__list-icon"
-                  width="16"
-                  height="16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M6.5 10.151l5.576-5.575.849.848L6.5 11.848 3.076 8.425l.849-.848L6.5 10.15z"
-                    fill="#000"
-                  />
-                </svg>
+              <li class="direction__select-item" data-tab-uid="1">Коммерция</li>
+              <li class="direction__select-item" data-tab-uid="2">
+                Работа с мерчантами
               </li>
+              <li class="direction__select-item" data-tab-uid="1">Финансы</li>
+              <li class="direction__select-item" data-tab-uid="2">HR и АХД</li>
+              <li class="direction__select-item" data-tab-uid="1">Логистика</li>
+              <li class="direction__select-item" data-tab-uid="2">Эльдорадо</li>
             </ul>
           </div>
         </div>
@@ -1410,70 +1369,70 @@
 
               <div
                 class="direction__direction-item tab-list-item"
-                data-tab-uid="3"
+                data-tab-uid="1"
               >
                 <p class="direction__direction">Сервисы/B2Pay</p>
               </div>
 
               <div
                 class="direction__direction-item tab-list-item"
-                data-tab-uid="4"
+                data-tab-uid="2"
               >
                 <p class="direction__direction">ИТ</p>
               </div>
 
               <div
                 class="direction__direction-item tab-list-item"
-                data-tab-uid="5"
+                data-tab-uid="1"
               >
                 <p class="direction__direction">ОЦТ</p>
               </div>
 
               <div
                 class="direction__direction-item tab-list-item"
-                data-tab-uid="6"
+                data-tab-uid="2"
               >
                 <p class="direction__direction">Реалокатор</p>
               </div>
 
               <div
                 class="direction__direction-item tab-list-item"
-                data-tab-uid="7"
+                data-tab-uid="1"
               >
                 <p class="direction__direction">Коммерция</p>
               </div>
 
               <div
                 class="direction__direction-item tab-list-item"
-                data-tab-uid="8"
+                data-tab-uid="2"
               >
                 <p class="direction__direction">Работа с мерчантами</p>
               </div>
 
               <div
                 class="direction__direction-item tab-list-item"
-                data-tab-uid="9"
+                data-tab-uid="1"
               >
                 <p class="direction__direction">Финансы</p>
               </div>
 
               <div
                 class="direction__direction-item tab-list-item"
-                data-tab-uid="10"
+                data-tab-uid="2"
               >
                 <p class="direction__direction">HR и АХД</p>
               </div>
 
               <div
                 class="direction__direction-item tab-list-item"
-                data-tab-uid="11"
+                data-tab-uid="1"
               >
                 <p class="direction__direction">Логистика</p>
               </div>
 
               <div
                 class="direction__direction-item tab-list-item"
-                data-tab-uid="12"
+                data-tab-uid="2"
               >
                 <p class="direction__direction">Эльдорадо</p>
               </div>
@@ -1490,9 +1449,12 @@
                 <div class="direction__description-container">
                   <div class="direction__director-container-mobile">
                     <div class="direction__director-block">
-                      <div class="direction__director-image-block-mobile">
+                      <div
+                        class="direction__director-image-block-mobile loading"
+                      >
                         <img
-                          src="./images/direction/director.png"
+                          data-src="./images/direction/director.png"
+                          src="./images/Lazy-loading/1x1.png"
                           alt=""
                           class="direction__director-image"
                         />
@@ -1506,9 +1468,12 @@
                     </div>
 
                     <div class="direction__director-block">
-                      <div class="direction__director-image-block-mobile">
+                      <div
+                        class="direction__director-image-block-mobile loading"
+                      >
                         <img
-                          src="./images/direction/director.png"
+                          data-src="./images/direction/director.png"
+                          src="./images/Lazy-loading/1x1.png"
                           alt=""
                           class="direction__director-image"
                         />
@@ -1544,9 +1509,10 @@
 
                 <div class="direction__director-container">
                   <div class="direction__director-block">
-                    <div class="direction__director-image-block">
+                    <div class="direction__director-image-block loading">
                       <img
-                        src="./images/direction/director.png"
+                        data-src="./images/direction/director.png"
+                        src="./images/Lazy-loading/1x1.png"
                         alt=""
                         class="direction__director-image"
                       />
@@ -1558,9 +1524,10 @@
                   </div>
 
                   <div class="direction__director-block">
-                    <div class="direction__director-image-block">
+                    <div class="direction__director-image-block loading">
                       <img
-                        src="./images/direction/director.png"
+                        data-src="./images/direction/director.png"
+                        src="./images/Lazy-loading/1x1.png"
                         alt=""
                         class="direction__director-image"
                       />
@@ -1573,6 +1540,110 @@
                 </div>
               </div>
             </div>
+
+            <!-- Template tab -->
+            <div class="tab-item-content" data-tab-uid="2">
+              <div class="direction__tribe-description">
+                <div class="direction__choosed tab-choice">
+                  <p class="direction__choosed-item">B2R</p>
+                </div>
+
+                <div class="direction__description-container">
+                  <div class="direction__director-container-mobile">
+                    <div class="direction__director-block">
+                      <div
+                        class="direction__director-image-block-mobile loading"
+                      >
+                        <img
+                          data-src="./images/direction/director.png"
+                          src="./images/Lazy-loading/1x1.png"
+                          alt=""
+                          class="direction__director-image"
+                        />
+                      </div>
+                      <div class="direction__director-name-wrapper">
+                        <p class="direction__director-name">
+                          Андрей Пчелинцев<span>,</span>
+                        </p>
+                        <p class="direction__director-name">СРО трайба B2C</p>
+                      </div>
+                    </div>
+
+                    <div class="direction__director-block">
+                      <div
+                        class="direction__director-image-block-mobile loading"
+                      >
+                        <img
+                          data-src="./images/direction/director.png"
+                          src="./images/Lazy-loading/1x1.png"
+                          alt=""
+                          class="direction__director-image"
+                        />
+                      </div>
+                      <div class="direction__director-name-wrapper">
+                        <p class="direction__director-name">
+                          Андрей Пчелинцев<span>,</span>
+                        </p>
+                        <p class="direction__director-name">СРО трайба B2C</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p class="direction__description-text">
+                    Наш трайб объединяет профессионализм и стремление
+                    к постоянному развитию. Мы амбициозны, любим то, что делаем,
+                    и верим, что создаём продукты, меняющие привычный способ
+                    покупки онлайн на суперконкурентном рынке.
+                  </p>
+                  <p class="direction__description-text">
+                    В каждом из наших каналов (web & app) есть множество
+                    продуктов: Лояльность, Личный кабинет, Сделка, Промо,
+                    Поиск и другие, которые помогают миллионам клиентов
+                    ежедневно получать свой дофамин от покупок. Многие
+                    из них совершенно уникальные и инновационные, позволяющие
+                    персонализировать опыт покупателя в масштабе.
+                  </p>
+
+                  <a href="#" class="direction__description-link-mobile"
+                    >Развернуть текст</a
+                  >
+                </div>
+
+                <div class="direction__director-container">
+                  <div class="direction__director-block">
+                    <div class="direction__director-image-block loading">
+                      <img
+                        data-src="./images/direction/director.png"
+                        src="./images/Lazy-loading/1x1.png"
+                        alt=""
+                        class="direction__director-image"
+                      />
+                    </div>
+                    <p class="direction__director-name">
+                      Андрей Пчелинцев<span>,</span>
+                    </p>
+                    <p class="direction__director-name">СРО трайба B2C</p>
+                  </div>
+
+                  <div class="direction__director-block">
+                    <div class="direction__director-image-block loading">
+                      <img
+                        data-src="./images/direction/director.png"
+                        src="./images/Lazy-loading/1x1.png"
+                        alt=""
+                        class="direction__director-image"
+                      />
+                    </div>
+                    <p class="direction__director-name">
+                      Андрей Пчелинцев<span>,</span>
+                    </p>
+                    <p class="direction__director-name">СРО трайба B2C</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- //Template tab -->
 
             <div class="direction__products-wrapper">
               <div class="direction__products-container">
@@ -1672,10 +1743,13 @@
                   "
                 >
                   <div class="upgrade__slider-prev-image-row swiper-wrapper">
-                    <div class="upgrade__slider-prev-image swiper-slide">
+                    <div
+                      class="upgrade__slider-prev-image swiper-slide loading"
+                    >
                       <img
                         class="upgrade__slider-prev-picture"
-                        src="./images/direction/director.png"
+                        data-src="./images/direction/director.png"
+                        src="./images/Lazy-loading/1x1.png"
                         alt="Photo"
                       />
                     </div>
@@ -1711,10 +1785,11 @@
               <div class="upgrade__middle-image-row swiper-wrapper">
                 <div class="upgrade__middle-image-item swiper-slide">
                   <div class="upgrade__middle-image-item-container">
-                    <div class="upgrade__middle-image">
+                    <div class="upgrade__middle-image loading">
                       <img
                         class="upgrade__main-image"
-                        src="./images/upgrade/upgrade-image.png"
+                        data-src="./images/upgrade/upgrade-image.png"
+                        src="./images/Lazy-loading/1x1.png"
                         alt="Photo"
                       />
                     </div>
@@ -1792,10 +1867,11 @@
 
                 <div class="upgrade__middle-image-item swiper-slide">
                   <div class="upgrade__middle-image-item-container">
-                    <div class="upgrade__middle-image">
+                    <div class="upgrade__middle-image loading">
                       <img
                         class="upgrade__main-image"
-                        src="./images/upgrade/upgrade-image.png"
+                        data-src="./images/upgrade/upgrade-image.png"
+                        src="./images/Lazy-loading/1x1.png"
                         alt="Photo"
                       />
                     </div>
@@ -1864,10 +1940,11 @@
 
                 <div class="upgrade__middle-image-item swiper-slide">
                   <div class="upgrade__middle-image-item-container">
-                    <div class="upgrade__middle-image">
+                    <div class="upgrade__middle-image loading">
                       <img
                         class="upgrade__main-image"
-                        src="./images/upgrade/upgrade-image.png"
+                        data-src="./images/upgrade/upgrade-image.png"
+                        src="./images/Lazy-loading/1x1.png"
                         alt="Photo"
                       />
                     </div>
@@ -2012,10 +2089,11 @@
               <div class="upgrade__slider-next-block-wrapper swiper nextSlider">
                 <div class="upgrade__slider-next-row swiper-wrapper">
                   <div class="upgrade__slider-next-item swiper-slide">
-                    <div class="upgrade__slider-next-item-image-block">
+                    <div class="upgrade__slider-next-item-image-block loading">
                       <img
                         class="upgrade__slider-next-item-image"
-                        src="./images/direction/director.png"
+                        data-src="./images/direction/director.png"
+                        src="./images/Lazy-loading/1x1.png"
                         alt="Image"
                       />
                     </div>
@@ -2028,10 +2106,11 @@
                   </div>
 
                   <div class="upgrade__slider-next-item swiper-slide">
-                    <div class="upgrade__slider-next-item-image-block">
+                    <div class="upgrade__slider-next-item-image-block loading">
                       <img
                         class="upgrade__slider-next-item-image"
-                        src="./images/direction/director.png"
+                        data-src="./images/direction/director.png"
+                        src="./images/Lazy-loading/1x1.png"
                         alt="Image"
                       />
                     </div>
@@ -2044,10 +2123,11 @@
                   </div>
 
                   <div class="upgrade__slider-next-item swiper-slide">
-                    <div class="upgrade__slider-next-item-image-block">
+                    <div class="upgrade__slider-next-item-image-block loading">
                       <img
                         class="upgrade__slider-next-item-image"
-                        src="./images/direction/director.png"
+                        data-src="./images/direction/director.png"
+                        src="./images/Lazy-loading/1x1.png"
                         alt="Image"
                       />
                     </div>
@@ -2060,10 +2140,11 @@
                   </div>
 
                   <div class="upgrade__slider-next-item swiper-slide">
-                    <div class="upgrade__slider-next-item-image-block">
+                    <div class="upgrade__slider-next-item-image-block loading">
                       <img
                         class="upgrade__slider-next-item-image"
-                        src="./images/direction/director.png"
+                        data-src="./images/direction/director.png"
+                        src="./images/Lazy-loading/1x1.png"
                         alt="Image"
                       />
                     </div>
@@ -3151,7 +3232,70 @@
           <!-- Vacancy Intro-block -->
           <div class="vacancy__intro">
             <div class="vacancy__video">
-              <div class="vacancy__video-container"></div>
+              <div class="vacancy__video-container loading" data-name="muted">
+                <video
+                  class="vacancy__video-preview"
+                  muted
+                  loop
+                  src="./images/Lazy-loading/1x1.png"
+                ></video>
+                <!-- <img
+                class="vacancy__video-placeholder"
+                src="./images/flyout/flyout-intro/intro-bg.png"
+                alt="Image"
+                title="Видео"
+              /> -->
+                <svg class="vacancy__progress-container" viewBox="0 0 280 280">
+                  <circle
+                    class="vacancy__progress-bar"
+                    stroke="#E31235"
+                    stroke-width="2"
+                    cx="140"
+                    cy="140"
+                    r="139"
+                    fill="transparent"
+                  ></circle>
+                </svg>
+                <div class="vacancy__video-sound">
+                  <svg
+                    class="vacancy__video-sound-muted"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.67721 10.2L3.87721 12H1.49902V6H4.90794L10.499 0V5.37819L8.69902 7.17819V4.57196L5.69098 7.8H3.29902V10.2H5.67721Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M10.499 9.62083L8.69902 11.4208V13.428L7.73083 12.389L6.45724 13.6626L10.499 18V9.62083Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M15.8633 0.863525L0.863281 15.8635L2.13607 17.1363L17.1361 2.13632L15.8633 0.863525Z"
+                      fill="white"
+                    />
+                  </svg>
+
+                  <svg
+                    class="vacancy__video-sound-loud hide"
+                    width="16"
+                    height="18"
+                    viewBox="0 0 16 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M3.90891 12L9.5 18V0L3.90891 6H0.5V12H3.90891ZM2.3 10.2H4.69196L7.7 13.428V4.57196L4.69196 7.8H2.3V10.2ZM13.8507 8.99992C13.8507 7.16006 12.6276 5.89965 11.8643 5.13632L13.137 3.86353L13.1672 3.8937C13.9211 4.64702 15.6507 6.37546 15.6507 8.99992C15.6507 11.6244 13.9211 13.3528 13.1672 14.1061L13.137 14.1363L11.8643 12.8635C12.6276 12.1002 13.8507 10.8398 13.8507 8.99992ZM12.1137 9C12.1137 9.40043 11.8284 10.125 11 10.125V7.875C11.8284 7.875 12.1137 8.59957 12.1137 9Z"
+                      fill="white"
+                    />
+                  </svg>
+                </div>
+              </div>
             </div>
             <div class="vacancy__intro-description">
               <p class="vacancy__intro-description-text">
@@ -4012,11 +4156,10 @@
     </div>
     <!-- //Form section -->
 
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <link
       rel="stylesheet"
       href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
     />
-
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   </body>
 </html>

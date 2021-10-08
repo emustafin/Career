@@ -2,7 +2,6 @@ $('.profession__title').attr('originhref', window.location.href);
 $('.profession__job-item').on('click', function (e) {
   var vacancy_info = $(this).attr('data-info');
   vacancy_info = jQuery.parseJSON(vacancy_info);
-  console.log(vacancy_info.url);
 
   var origin_location = window.location.href;
 
