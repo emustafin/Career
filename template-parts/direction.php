@@ -122,7 +122,7 @@ $product_directions = new WP_Query( $args );
                         <?php the_content(); ?>
                       </div>
 
-                      <a href="#" class="direction__description-link-mobile">Развернуть текст</a>
+                      <!-- <a href="#" class="direction__description-link-mobile">Развернуть текст</a> -->
                     </div>
 
                     <div class="direction__director-container">
