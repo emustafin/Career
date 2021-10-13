@@ -104,36 +104,6 @@ $reviews = new WP_Query( $args );
                                 </div>
 
                                 <div class="upgrade__way-wrapper">
-
-                                    <?php
-                                    $k = 1;
-                                    if( have_rows('career_way') ):
-
-                                        while( have_rows('career_way') ) : the_row();
-
-                                            ?>
-                                            <div class="upgrade__way-item">
-                                                <p class="upgrade__way-year"><?php echo get_sub_field('year'); ?></p>
-                                                <p class="upgrade__way-job"><?php echo get_sub_field('proff'); ?></p>
-                                            </div>
-
-                                            <?php
-                                            if( $k < count(get_field('career_way')) ):
-                                                ?>
-                                                <div class="upgrade__way-arrow-block">
-                                                    <img
-                                                    src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-right.svg"
-                                                    alt="Arrow"
-                                                    class="upgrade__way-arrow"
-                                                    />
-                                                </div>
-                                                <?php
-                                            endif;
-                                            $k++;
-                                        endwhile;
-                                    endif;
-                                    ?>
-
                                     <div class="upgrade__way-mobile">
                                         <?php
                                         if( have_rows('career_way') ):
@@ -146,6 +116,49 @@ $reviews = new WP_Query( $args );
                                         endif;
                                         ?>
                                     </div>
+
+                                    <?php
+                                    $k = 1;
+                                    if( have_rows('career_way') ):
+
+                                        while( have_rows('career_way') ) : the_row();
+
+                                            ?>
+                                            <div class="upgrade__way-item">
+                                                <p class="upgrade__way-year"><?php echo get_sub_field('year'); ?></p>
+                                                <p class="upgrade__way-job"><?php echo get_sub_field('proff'); ?></p>
+                                                <svg
+                                                    class="upgrade__way-arrow"
+                                                    width="14"
+                                                    height="10"
+                                                    viewBox="0 0 14 10"
+                                                    fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                    <path
+                                                        d="M11.5515 4.39999L8.57574 1.42426L9.42426 0.575729L13.8485 4.99999L9.42426 9.42426L8.57574 8.57573L11.5515 5.59999H0V4.39999H11.5515Z"
+                                                        fill="black"
+                                                    />
+                                                </svg>
+                                            </div>
+
+                                            <?php
+                                            if( $k < count(get_field('career_way')) ):
+                                                ?>
+                                                <!-- <div class="upgrade__way-arrow-block">
+                                                    <img
+                                                    src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-right.svg"
+                                                    alt="Arrow"
+                                                    class="upgrade__way-arrow"
+                                                    />
+                                                </div> -->
+                                                <?php
+                                            endif;
+                                            $k++;
+                                        endwhile;
+                                    endif;
+                                    ?>
+
                                 </div>
                             </div>
                             <?php
