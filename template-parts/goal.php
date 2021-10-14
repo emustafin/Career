@@ -452,10 +452,18 @@
 
               <div class="goal__slide-buttons-mobile">
                 <button class="why-are-we__slide-arrow" data-name="prev">
-                  <img
-                  src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-left.svg"
-                    alt="Arrow-right"
-                  />
+                <svg
+                    width="14"
+                    height="10"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.57563 0.575745L0.151367 5.00001L4.57563 9.42427L5.42416 8.57574L2.44842 5.60001H13.9999V4.40001H2.44842L5.42416 1.42427L4.57563 0.575745Z"
+                      fill="black"
+                    />
+                  </svg>
                 </button>
 
                 <p class="why-are-we__slide-number-mobile">
@@ -466,10 +474,18 @@
                 </p>
 
                 <button class="why-are-we__slide-arrow" data-name="next">
-                  <img
-                  src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-right.svg"
-                    alt="Arrow-right"
-                  />
+                <svg
+                    width="14"
+                    height="10"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.5515 4.39999L8.57574 1.42426L9.42426 0.575729L13.8485 4.99999L9.42426 9.42426L8.57574 8.57573L11.5515 5.59999H0V4.39999H11.5515Z"
+                      fill="black"
+                    />
+                  </svg>
                 </button>
               </div>
             </div>
