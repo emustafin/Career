@@ -201,6 +201,8 @@ function isIntersecting(target) {
 }
 
 const checkImages = function () {
+  console.log(1);
+
   lazyImages.forEach((target) => {
     if (
       isIntersecting(target) &&
@@ -218,4 +220,7 @@ const checkImages = function () {
 };
 
 window.onload = checkImages;
-window.onscroll = checkImages;
+// window.onscroll = checkImages;
+window.addEventListener('scroll', checkImages);
+
+console.log(window);
