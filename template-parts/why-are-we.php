@@ -10,7 +10,18 @@ $slides = get_sub_field('slides');
 
         <div class="why-are-we__slide-buttons-mobile">
             <button class="why-are-we__slide-arrow why-are-we__slide-btn-prev" data-name="prev" >
-            <img src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-left.svg" alt="Arrow-right" />
+                <svg
+                width="14"
+                height="10"
+                viewBox="0 0 14 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                >
+                <path
+                    d="M4.57661 0.575729L0.152344 4.99999L4.57661 9.42426L5.42514 8.57573L2.4494 5.59999H14.0009V4.39999H2.4494L5.42514 1.42426L4.57661 0.575729Z"
+                    fill="black"
+                />
+                </svg>
             </button>
 
             <p class="why-are-we__slide-number-mobile">
@@ -20,10 +31,18 @@ $slides = get_sub_field('slides');
             </p>
 
             <button class="why-are-we__slide-arrow why-are-we__slide-btn-next" data-name="next">
-            <img
-                src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-right.svg"
-                alt="Arrow-right"
-            />
+                <svg
+                width="14"
+                height="10"
+                viewBox="0 0 14 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                >
+                <path
+                    d="M11.5515 4.39999L8.57574 1.42426L9.42426 0.575729L13.8485 4.99999L9.42426 9.42426L8.57574 8.57573L11.5515 5.59999H0V4.39999H11.5515Z"
+                    fill="black"
+                />
+                </svg>
             </button>
         </div>
     </div>

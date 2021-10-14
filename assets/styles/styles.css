@@ -66,14 +66,13 @@
   transform: rotate(-2deg);
   box-shadow: 16px 2px 24px rgba(0, 0, 0, 0.03);
   transition: 0.3s; }
-  .create-future__button::after {
-    content: '';
+  .create-future__button > svg {
     position: absolute;
     top: calc(50% - 4.5px);
     right: 19px;
     width: 9px;
     height: 9px;
-    background: url("../images/create-future/arrow-bottom.svg") center/cover no-repeat; }
+    pointer-events: none; }
   .create-future__button:hover {
     transform: rotate(0); }
 
@@ -208,7 +207,7 @@
     width: 216px;
     left: 162px;
     bottom: -26px; }
-    .create-future__button::after {
+    .create-future__button > svg {
       top: calc(50% - 3.5px);
       right: 19px; }
   .create-future__title-wrapper {
@@ -238,7 +237,7 @@
     width: 216px;
     bottom: -23px;
     left: 55px; }
-    .create-future__button::after {
+    .create-future__button > svg {
       top: calc(50% - 3.5px);
       right: 19px; }
   .create-future__gradient {
@@ -406,6 +405,8 @@
 
 .why-are-we__slide-arrow {
   overflow: hidden; }
+  .why-are-we__slide-arrow > svg {
+    pointer-events: none; }
 
 .why-are-we__slide-arrow.swiper-button-next {
   right: 0; }
@@ -432,14 +433,13 @@
   width: -moz-fit-content;
   width: fit-content;
   margin-bottom: 40px; }
-  .why-are-we__slide-link::after {
-    content: '';
+  .why-are-we__slide-link > svg {
     position: absolute;
     right: 5px;
-    top: calc(50% - 4.5px);
+    top: calc(50% - 3px);
     width: 14px;
     height: 9px;
-    background: url("../images/advantages/arrow-small.svg"); }
+    pointer-events: none; }
 
 .why-are-we__slide-arrow {
   background: transparent; }
@@ -3067,9 +3067,10 @@
 
 .it-header__logo {
   display: block;
-  max-width: 139.5px;
-  height: 24px;
-  background: url("../images/header/header-logo.svg") center/cover no-repeat; }
+  width: 139.5px;
+  height: 24px; }
+  .it-header__logo > svg {
+    pointer-events: none; }
 
 .it-header__phone-mobile {
   display: block;
@@ -3078,14 +3079,14 @@
   font-size: 14px;
   line-height: 16px;
   color: #000000; }
-  .it-header__phone-mobile::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 15px;
-    height: 15px;
-    background: url("../images/header/phone.svg") center/cover no-repeat; }
+
+.it-header__phone-mobile-icon {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  width: 13px;
+  height: 13px;
+  pointer-events: none; }
 
 .it-header__directions {
   display: flex;
@@ -3183,10 +3184,7 @@
   .it-header__button {
     display: none; }
   .it-header__item-mobile {
-    display: block; }
-  .it-header__logo {
-    width: 117.27px;
-    height: 20px; } }
+    display: block; } }
 
 @media (max-width: 479px) {
   .it-header,
@@ -3194,7 +3192,13 @@
     position: static; }
   .it-header__item {
     font-size: 14px;
-    line-height: 16px; } }
+    line-height: 16px; }
+  .it-header__logo {
+    width: 117.27px;
+    height: 20px; }
+    .it-header__logo > svg {
+      width: 117.27px;
+      height: 20px; } }
 
 .intern {
   margin-bottom: 96px;
