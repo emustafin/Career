@@ -197,6 +197,14 @@
     width: 24px;
     height: 24px;
   }
+
+  & > svg {
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .jira::before {

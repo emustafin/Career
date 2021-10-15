@@ -1444,8 +1444,9 @@
   position: relative;
   width: 280px;
   height: 280px;
-  -webkit-transform: translateZ(0);
-  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%); }
+  transform: translateZ(0);
+  -webkit-mask-image: radial-gradient(circle, white 100%, black 100%);
+          mask-image: radial-gradient(circle, white 100%, black 100%); }
   .vacancy__video-container:hover > .vacancy__video-sound {
     transform: translate(-50%, 0); }
 
@@ -5209,6 +5210,37 @@
   .prometheus::before,
   .swagger::before {
     content: '';
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 24px;
+    height: 24px; }
+  .profession__technology-item > svg,
+  .jira > svg,
+  .confluence > svg,
+  .google-docs > svg,
+  .sap > svg,
+  .slack > svg,
+  .miro > svg,
+  .gradle > svg,
+  .jenkins > svg,
+  .docker > svg,
+  .sonar-qube > svg,
+  .spring > svg,
+  .gitlab > svg,
+  .PostgreSQL > svg,
+  .HP-QualityCenter > svg,
+  .postman > svg,
+  .ibm > svg,
+  .ansible > svg,
+  .kubernetes > svg,
+  .clickhouse > svg,
+  .terraform > svg,
+  .figma > svg,
+  .grafana > svg,
+  .elk > svg,
+  .prometheus > svg,
+  .swagger > svg {
     position: absolute;
     left: 0;
     top: -2px;
