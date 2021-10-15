@@ -1439,12 +1439,13 @@
   display: block; }
 
 .vacancy__video-container {
-  width: 100%;
-  max-width: 280px;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  display: flex; }
+  width: 280px;
+  height: 280px;
+  -webkit-transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%); }
   .vacancy__video-container:hover > .vacancy__video-sound {
     transform: translate(-50%, 0); }
 
@@ -1453,7 +1454,11 @@
   width: 100%; }
 
 .vacancy__video-preview {
-  width: 100%; }
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; }
 
 .vacancy__video-sound-muted,
 .vacancy__video-sound-loud {
@@ -1980,7 +1985,8 @@
   .vacancy__news {
     margin-bottom: 64px; }
   .vacancy__video-container {
-    max-width: 220px; }
+    width: 220px;
+    height: 220px; }
   .vacancy__office-content-bottom {
     flex-wrap: wrap; }
   .vacancy__office-location-wrapper {
@@ -5315,8 +5321,7 @@
 .profession__side-bar-vacancy-value-arrow {
   display: inline-block;
   width: 14px;
-  height: 9px;
-  background: url("../images/management/arrow-right.svg"); }
+  height: 9px; }
 
 .profession__main-content {
   width: 66.66%; }
@@ -5404,18 +5409,16 @@
   width: 16px;
   height: 16px;
   border: 1px solid #000000; }
-  .profession__filter-checbox-value::before {
-    content: '';
+  .profession__filter-checbox-value > svg {
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: url("../images/management/check.svg") center/cover no-repeat;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     opacity: 0;
-    transition: 0.2s; }
+    transition: 0.2s;
+    pointer-events: none; }
 
-.profession__filter-input:checked + .profession__filter-checbox-value::before {
+.profession__filter-input:checked + .profession__filter-checbox-value > svg {
   opacity: 1; }
 
 .profession__filter-reset {
@@ -5463,15 +5466,13 @@
   color: rgba(0, 0, 0, 0.5);
   position: relative;
   padding-right: 15px; }
-  .profession__crumb::after {
-    content: '';
+  .profession__crumb > svg {
     position: absolute;
     right: 0;
     top: calc(50% - 3px);
     width: 11px;
-    height: 7px;
-    background: url("../images/management/arrow-bread-crumb.svg") no-repeat; }
-  .profession__crumb:last-child::after {
+    height: 7px; }
+  .profession__crumb:last-child > svg {
     display: none; }
 
 .profession__job-department {
@@ -5503,14 +5504,13 @@
   padding: 10px 36px 10px 16px;
   transition: 0.2s;
   opacity: 0; }
-  .profession__more-info::before {
-    content: '';
+  .profession__more-info > svg {
     position: absolute;
-    top: calc(50% - 4.5px);
+    top: calc(50% - 3px);
     right: 17px;
     width: 14px;
     height: 9px;
-    background: url("../images/management/arrow-right.svg") center/cover no-repeat; }
+    pointer-events: none; }
 
 .profession__job-price-container,
 .profession__location-container {
@@ -5556,14 +5556,13 @@
   width: max-content;
   padding-right: 20px;
   margin-top: 24px; }
-  .profession__location-map::after {
-    content: '';
+  .profession__location-map > svg {
     position: absolute;
-    top: calc(50% - 4.5px);
+    top: calc(50% - 3px);
     right: 0;
     width: 14px;
     height: 9px;
-    background: url("../images/management/arrow-right.svg"); }
+    pointer-events: none; }
 
 @media (max-width: 1440px) {
   .profession__header {

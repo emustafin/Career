@@ -95,7 +95,11 @@
                             <span class="profession__side-bar-vacancy-value">
                                 Менеджменте
                             </span>
-                            <span class="profession__side-bar-vacancy-value-arrow"></span>
+                            <span class="profession__side-bar-vacancy-value-arrow">
+                                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.5515 4.39995L8.57574 1.42421L9.42426 0.575684L13.8485 4.99995L9.42426 9.42421L8.57574 8.57568L11.5515 5.59995H0V4.39995H11.5515Z" fill="black"/>
+                                </svg>
+                            </span>
                         </a> 
                     -->
                 </div>
@@ -107,7 +111,11 @@
                         <span class="profession__side-bar-vacancy-value">
                         Менеджменте
                         </span>
-                        <span class="profession__side-bar-vacancy-value-arrow"></span>
+                        <span class="profession__side-bar-vacancy-value-arrow">
+                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.5515 4.39995L8.57574 1.42421L9.42426 0.575684L13.8485 4.99995L9.42426 9.42421L8.57574 8.57568L11.5515 5.59995H0V4.39995H11.5515Z" fill="black"/>
+                            </svg>
+                        </span>
                     </a> 
                 -->
 
@@ -191,7 +199,21 @@
                             <label class="profession__filter-checbox-wrapper-mobile">
                                 <input class="profession__filter-input can_without_experience" type="checkbox" <?php echo $can_without_experience; ?>/>
                                 Без опыта
-                                <span class="profession__filter-checbox-value"></span>
+                                <span class="profession__filter-checbox-value">
+                                    <!-- <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                        <path
+                                            d="M12.5 5L6.5 11L3.5 8"
+                                            stroke="black"
+                                            stroke-width="1.2"
+                                        />
+                                    </svg> -->
+                                </span>
                             </label> 
                        
                     </div>
@@ -264,7 +286,21 @@
                             <label class="profession__filter-checbox-wrapper-mobile">
                                 <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $can_work_remotely; ?>/>
                                 Удалённо
-                                <span class="profession__filter-checbox-value"></span>
+                                <span class="profession__filter-checbox-value">
+                                <!-- <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                    <path
+                                        d="M12.5 5L6.5 11L3.5 8"
+                                        stroke="black"
+                                        stroke-width="1.2"
+                                    />
+                                </svg> -->
+                                </span>
                             </label> 
                        
                     </div>
@@ -273,13 +309,41 @@
                     <label class="profession__filter-checbox-wrapper">
                         <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $can_work_remotely; ?>/>
                         Удалённо
-                        <span class="profession__filter-checbox-value"></span>
+                        <span class="profession__filter-checbox-value">
+                        <!-- <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            >
+                            <path
+                                d="M12.5 5L6.5 11L3.5 8"
+                                stroke="black"
+                                stroke-width="1.2"
+                            />
+                        </svg> -->
+                        </span>
                     </label>
 
                     <label class="profession__filter-checbox-wrapper">
                         <input class="profession__filter-input can_without_experience" type="checkbox"  <?php echo $can_without_experience; ?>/>
                         Без опыта
-                        <span class="profession__filter-checbox-value"></span>
+                        <span class="profession__filter-checbox-value">
+                        <!-- <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            >
+                            <path
+                                d="M12.5 5L6.5 11L3.5 8"
+                                stroke="black"
+                                stroke-width="1.2"
+                            />
+                        </svg> -->
+                        </span>
                     </label>
                     </div>
 

@@ -217,6 +217,7 @@ const checkImages = function () {
   });
 };
 
-window.onload = checkImages;
+// window.onload = checkImages;
 // window.onscroll = checkImages;
 window.addEventListener('scroll', checkImages);
+window.addEventListener('DOMContentLoaded', checkImages);
