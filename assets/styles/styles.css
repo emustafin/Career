@@ -6391,14 +6391,13 @@
   color: #000000;
   position: relative;
   padding-left: 20px; }
-  .form__link-back::before {
-    content: '';
+  .form__link-back > svg {
     position: absolute;
     left: 0;
     top: calc(50% - 4.5px);
     width: 14px;
     height: 9px;
-    background: url("../images/form/arrow-left.svg") no-repeat; }
+    pointer-events: none; }
 
 .form__content-wrapper {
   display: flex; }
