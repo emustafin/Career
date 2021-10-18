@@ -6768,14 +6768,13 @@ input#form__town {
   position: relative;
   font-size: 18px;
   line-height: 24px; }
-  .direct-link__header-head-copy::before {
-    content: '';
+  .direct-link__header-head-copy > svg {
     position: absolute;
     right: 0;
     top: calc(50% - 4.5px);
     width: 14px;
     height: 9px;
-    background: url("../images/flyout/flyout-header/link.svg") left/contain no-repeat; }
+    pointer-events: none; }
 
 .direct-link__vacancy-description-block {
   margin-top: 32px; }
@@ -6798,14 +6797,13 @@ input#form__town {
   border-radius: 36px;
   background: #ffffff;
   position: relative; }
-  .direct-link__vacancy-link::after {
-    content: '';
+  .direct-link__vacancy-link > svg {
     position: absolute;
     right: 16px;
     top: calc(50% - 4.5px);
     width: 14px;
     height: 9px;
-    background: url("../images/flyout/flyout-header/arrow-right.svg") no-repeat; }
+    pointer-events: none; }
 
 .direct-link__content {
   width: 67%; }
@@ -6829,14 +6827,13 @@ input#form__town {
   border-radius: 36px;
   background: #ffffff;
   transform: translateY(-10px); }
-  .direct-link__headline-link::after {
-    content: '';
+  .direct-link__headline-link > svg {
     position: absolute;
     right: 15px;
     top: calc(50% - 4.5px);
     width: 14px;
     height: 9px;
-    background: url("../images/flyout/flyout-header/arrow-right.svg") no-repeat; }
+    pointer-events: none; }
 
 @media (max-width: 1500px) {
   .direct-link__header {
