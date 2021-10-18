@@ -56,15 +56,13 @@
   padding-left: 20px;
   position: relative;
 
-  &::before {
-    content: '';
+  & > svg {
     position: absolute;
     left: 0;
     top: calc(50% - 4.5px);
     width: 14px;
     height: 9px;
-    background: url('../images/flyout/flyout-header/arrow-left.svg') left /
-      contain no-repeat;
+    pointer-events: none;
   }
 }
 
@@ -83,15 +81,13 @@
   font-size: 18px;
   line-height: 24px;
 
-  &::before {
-    content: '';
+  & > svg {
     position: absolute;
     right: 0;
     top: calc(50% - 4.5px);
     width: 14px;
     height: 9px;
-    background: url('../images/flyout/flyout-header/link.svg') left / contain
-      no-repeat;
+    pointer-events: none;
   }
 }
 
@@ -121,14 +117,13 @@
   color: $mainColor;
   transform: translateY(-10px);
 
-  &::before {
-    content: '';
+  & > svg {
     position: absolute;
     right: 17px;
-    top: calc(50% - 4.5px);
+    top: calc(50% - 3px);
     width: 14px;
     height: 9px;
-    background: url('../images/flyout/flyout-header/arrow-right.svg') no-repeat;
+    pointer-events: none;
   }
 }
 
@@ -351,14 +346,13 @@
   padding-right: 20px;
   color: $mainColor;
 
-  &::after {
-    content: '';
+  & > svg {
     position: absolute;
     right: 0;
     top: calc(50% - 4.5px);
     width: 13px;
     height: 9px;
-    background: url('../images/flyout/flyout-office/arrow-right.svg') no-repeat;
+    pointer-events: none;
   }
 }
 
@@ -441,11 +435,18 @@
 
 .vacancy__remote-image {
   display: block;
-  width: 100%;
+  width: 127px;
+  height: 142px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .vacancy__remote-image-container {
-  max-width: 156px;
+  width: 156px;
+  height: 156px;
+  position: relative;
 }
 
 // Sytles for Vacancy-Form block
@@ -631,18 +632,16 @@
   display: inline-block;
   position: relative;
 
-  &::after {
-    content: '';
+  & > svg {
     position: absolute;
     right: 0;
     top: calc(50% - 3.5px);
     width: 11px;
     height: 7px;
-    background: url('../images/flyout/flyout-positions/arrow-right.svg')
-      no-repeat;
+    pointer-events: none;
   }
 
-  &:last-child::after {
+  &:last-child > svg {
     display: none;
   }
 }
@@ -698,15 +697,21 @@
 .vacancy__news-btn-next {
   width: 16px;
   height: 16px;
+  background: transparent;
+  position: relative;
+
+  & > svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 10px;
+    pointer-events: none;
+  }
 }
 
 .vacancy__news-btn-prev {
   margin-right: 16px;
-  background: url('../images/flyout/flyout-news/arrow-left.svg') no-repeat;
-}
-
-.vacancy__news-btn-next {
-  background: url('../images/flyout/flyout-news/arrow-right.svg') no-repeat;
 }
 
 .vacancy__news-row {
@@ -811,7 +816,13 @@
   }
 
   .vacancy__remote-image-container {
-    max-width: 96px;
+    width: 96px;
+    height: 96px;
+  }
+
+  .vacancy__remote-image {
+    width: 78px;
+    height: 89px;
   }
 
   .vacancy__form-title {
@@ -932,9 +943,14 @@
   }
 
   .vacancy__remote-image-container {
-    max-width: 108px;
+    width: 108px;
     height: 108px;
     display: flex;
+  }
+
+  .vacancy__remote-image {
+    width: 88px;
+    height: 98px;
   }
 
   .vacancy__form-title {
@@ -1049,8 +1065,13 @@
   }
 
   .vacancy__remote-image-container {
-    max-width: 96px;
+    width: 96px;
     height: 96px;
+  }
+
+  .vacancy__remote-image {
+    width: 78px;
+    height: 88px;
   }
 
   .vacancy__form-title-block {
@@ -1231,8 +1252,13 @@
     position: absolute;
     top: 0;
     right: 0;
-    max-width: 80px;
+    width: 80px;
     height: 80px;
+  }
+
+  .vacancy__remote-image {
+    width: 65px;
+    height: 73px;
   }
 
   .vacancy__form-input {

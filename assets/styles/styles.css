@@ -1379,15 +1379,14 @@
   color: #000000;
   padding-left: 20px;
   position: relative; }
-  .vacancy__header-head-link-main::before,
-  .vacancy__header-head-link-vacancy::before {
-    content: '';
+  .vacancy__header-head-link-main > svg,
+  .vacancy__header-head-link-vacancy > svg {
     position: absolute;
     left: 0;
     top: calc(50% - 4.5px);
     width: 14px;
     height: 9px;
-    background: url("../images/flyout/flyout-header/arrow-left.svg") left/contain no-repeat; }
+    pointer-events: none; }
 
 .vacancy__header-head-link-vacancy {
   transform: translateX(20px); }
@@ -1401,15 +1400,14 @@
   position: relative;
   font-size: 18px;
   line-height: 24px; }
-  .vacancy__header-head-copy::before,
-  .vacancy__header-head-copy-mobile::before {
-    content: '';
+  .vacancy__header-head-copy > svg,
+  .vacancy__header-head-copy-mobile > svg {
     position: absolute;
     right: 0;
     top: calc(50% - 4.5px);
     width: 14px;
     height: 9px;
-    background: url("../images/flyout/flyout-header/link.svg") left/contain no-repeat; }
+    pointer-events: none; }
 
 .vacancy__header-head-copy-mobile {
   display: none; }
@@ -1433,14 +1431,13 @@
   background: #ffffff;
   color: #000000;
   transform: translateY(-10px); }
-  .vacancy__headline-link::before {
-    content: '';
+  .vacancy__headline-link > svg {
     position: absolute;
     right: 17px;
-    top: calc(50% - 4.5px);
+    top: calc(50% - 3px);
     width: 14px;
     height: 9px;
-    background: url("../images/flyout/flyout-header/arrow-right.svg") no-repeat; }
+    pointer-events: none; }
 
 .vacancy__header-meta {
   display: flex; }
@@ -1611,15 +1608,14 @@
   max-width: 196px;
   padding-right: 20px;
   color: #000000; }
-  .vacancy__office-content-link::after,
-  .vacancy__office-content-link-mobile::after {
-    content: '';
+  .vacancy__office-content-link > svg,
+  .vacancy__office-content-link-mobile > svg {
     position: absolute;
     right: 0;
     top: calc(50% - 4.5px);
     width: 13px;
     height: 9px;
-    background: url("../images/flyout/flyout-office/arrow-right.svg") no-repeat; }
+    pointer-events: none; }
 
 .vacancy__office-content-link-mobile {
   display: none; }
@@ -1689,10 +1685,17 @@
 
 .vacancy__remote-image {
   display: block;
-  width: 100%; }
+  width: 127px;
+  height: 142px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
 
 .vacancy__remote-image-container {
-  max-width: 156px; }
+  width: 156px;
+  height: 156px;
+  position: relative; }
 
 .vacancy__form {
   display: flex; }
@@ -1843,15 +1846,14 @@
   margin-right: 5px;
   display: inline-block;
   position: relative; }
-  .vacancy__bread-crumbs-item::after {
-    content: '';
+  .vacancy__bread-crumbs-item > svg {
     position: absolute;
     right: 0;
     top: calc(50% - 3.5px);
     width: 11px;
     height: 7px;
-    background: url("../images/flyout/flyout-positions/arrow-right.svg") no-repeat; }
-  .vacancy__bread-crumbs-item:last-child::after {
+    pointer-events: none; }
+  .vacancy__bread-crumbs-item:last-child > svg {
     display: none; }
 
 .vacancy__item-positions-experience,
@@ -1894,14 +1896,20 @@
 .vacancy__news-btn-prev,
 .vacancy__news-btn-next {
   width: 16px;
-  height: 16px; }
+  height: 16px;
+  background: transparent;
+  position: relative; }
+  .vacancy__news-btn-prev > svg,
+  .vacancy__news-btn-next > svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 10px;
+    pointer-events: none; }
 
 .vacancy__news-btn-prev {
-  margin-right: 16px;
-  background: url("../images/flyout/flyout-news/arrow-left.svg") no-repeat; }
-
-.vacancy__news-btn-next {
-  background: url("../images/flyout/flyout-news/arrow-right.svg") no-repeat; }
+  margin-right: 16px; }
 
 .vacancy__news-row {
   display: flex;
@@ -1978,7 +1986,11 @@
   .vacancy__remote-info {
     max-width: 392px; }
   .vacancy__remote-image-container {
-    max-width: 96px; }
+    width: 96px;
+    height: 96px; }
+  .vacancy__remote-image {
+    width: 78px;
+    height: 89px; }
   .vacancy__form-title {
     font-size: 56px;
     line-height: 60px; }
@@ -2046,9 +2058,12 @@
   .vacancy__remote-info {
     max-width: 341px; }
   .vacancy__remote-image-container {
-    max-width: 108px;
+    width: 108px;
     height: 108px;
     display: flex; }
+  .vacancy__remote-image {
+    width: 88px;
+    height: 98px; }
   .vacancy__form-title {
     font-size: 32px;
     line-height: 36px; }
@@ -2112,8 +2127,11 @@
     margin-left: 0;
     max-width: 100%; }
   .vacancy__remote-image-container {
-    max-width: 96px;
+    width: 96px;
     height: 96px; }
+  .vacancy__remote-image {
+    width: 78px;
+    height: 88px; }
   .vacancy__form-title-block {
     width: 30%; }
   .vacancy__form-inner-block {
@@ -2231,8 +2249,11 @@
     position: absolute;
     top: 0;
     right: 0;
-    max-width: 80px;
+    width: 80px;
     height: 80px; }
+  .vacancy__remote-image {
+    width: 65px;
+    height: 73px; }
   .vacancy__form-input {
     font-size: 14px;
     line-height: 16px; }
