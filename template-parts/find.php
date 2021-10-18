@@ -2,12 +2,76 @@
 <section class="find">
   <h2 class="find__title">
     <a href="/vacancies/" class="find__title-link">
-      <span class="find__link-aroow">Найти вакансию</span>
-      <span class="find__link-aroow">Найти вакансию</span>
-      <span class="find__link-aroow">Найти вакансию</span>
-      <span class="find__link-aroow">Найти вакансию</span>
-      <span class="find__link-aroow">Найти вакансию</span>
-      <span class="find__link-aroow">Найти вакансию</span>
+    <span class="find__link-aroow">
+            Найти вакансию
+            <svg
+              width="84"
+              height="90"
+              viewBox="0 0 84 90"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M65.7846 39.1794H0V51.1794H65.4363L36.1088 80.7808L44.6334 89.2265L80.7768 52.7456C85.0245 48.4582 85.0245 41.549 80.7768 37.2617L44.6334 0.780762L36.1088 9.22652L65.7846 39.1794Z"
+              />
+            </svg>
+          </span>
+          <span class="find__link-aroow">
+            Найти вакансию
+            <svg
+              width="84"
+              height="90"
+              viewBox="0 0 84 90"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M65.7846 39.1794H0V51.1794H65.4363L36.1088 80.7808L44.6334 89.2265L80.7768 52.7456C85.0245 48.4582 85.0245 41.549 80.7768 37.2617L44.6334 0.780762L36.1088 9.22652L65.7846 39.1794Z"
+              />
+            </svg>
+          </span>
+          <span class="find__link-aroow">
+            Найти вакансию
+            <svg
+              width="84"
+              height="90"
+              viewBox="0 0 84 90"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M65.7846 39.1794H0V51.1794H65.4363L36.1088 80.7808L44.6334 89.2265L80.7768 52.7456C85.0245 48.4582 85.0245 41.549 80.7768 37.2617L44.6334 0.780762L36.1088 9.22652L65.7846 39.1794Z"
+              />
+            </svg>
+          </span>
+          <span class="find__link-aroow">
+            Найти вакансию
+            <svg
+              width="84"
+              height="90"
+              viewBox="0 0 84 90"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M65.7846 39.1794H0V51.1794H65.4363L36.1088 80.7808L44.6334 89.2265L80.7768 52.7456C85.0245 48.4582 85.0245 41.549 80.7768 37.2617L44.6334 0.780762L36.1088 9.22652L65.7846 39.1794Z"
+              />
+            </svg>
+          </span>
+          <span class="find__link-aroow">
+            Найти вакансию
+            <svg
+              width="84"
+              height="90"
+              viewBox="0 0 84 90"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M65.7846 39.1794H0V51.1794H65.4363L36.1088 80.7808L44.6334 89.2265L80.7768 52.7456C85.0245 48.4582 85.0245 41.549 80.7768 37.2617L44.6334 0.780762L36.1088 9.22652L65.7846 39.1794Z"
+              />
+            </svg>
+          </span>
     </a>
   </h2>
 
@@ -22,7 +86,18 @@
         />
         </video>
 
-        <button class="find__video-control" data-name="pause"></button>
+        <button class="find__video-control" data-name="pause">
+          
+          <svg class="find__video-control-paused" width="68" height="120" viewBox="0 0 68 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.5 0V120H3.5V0H0.5Z" fill="white"/>
+            <path d="M64.5 0V120H67.5V0H64.5Z" fill="white"/>
+          </svg>
+
+          
+          <svg class="find__video-control-played" width="114" height="126" viewBox="0 0 114 126" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 0.450684L113.089 63L0.5 125.549V0.450684ZM3.5 5.54923V120.451L106.911 63L3.5 5.54923Z" fill="white"/>
+          </svg>
+        </button>
         <button class="find__sound-control" data-name="turn-of">
         Выключить звук
         </button>
@@ -38,7 +113,18 @@
         <p class="find__video-title">
         #включайбудущее с М.Видео: Андрей Ревяшко
         </p>
-        <a href="#" class="find__video-play-button">Воспроизвести</a>
+        <a href="#" class="find__video-play-button">
+          Воспроизвести
+          <svg
+              width="12"
+              height="10"
+              viewBox="0 0 12 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M1 1L10 5L1 9V1Z" stroke="white" stroke-width="1.2" />
+            </svg>
+        </a>
     </div>
 
     <div class="find__video-slides-container swiper desktop-slider">
@@ -166,7 +252,35 @@
               <button
                 class="find__video-slide-mobile-button"
                 data-name="play"
-              ></button>
+              >
+              <svg
+                  class="find__video-slide-mobile-button-paused"
+                  width="68"
+                  height="120"
+                  viewBox="0 0 68 120"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0.5 0V120H3.5V0H0.5Z" fill="white" />
+                  <path d="M64.5 0V120H67.5V0H64.5Z" fill="white" />
+                </svg>
+
+                <svg
+                  class="find__video-slide-mobile-button-played"
+                  width="45"
+                  height="50"
+                  viewBox="0 0 45 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0.90332 0.787354L44.486 25L0.90332 49.2126V0.787354ZM2.06461 2.76098V47.239L42.0948 25L2.06461 2.76098Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
               <div class="find__mobile-progress"></div>
             </div>
 
@@ -197,7 +311,35 @@
               <button
                 class="find__video-slide-mobile-button"
                 data-name="play"
-              ></button>
+              >
+              <svg
+                  class="find__video-slide-mobile-button-paused"
+                  width="68"
+                  height="120"
+                  viewBox="0 0 68 120"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0.5 0V120H3.5V0H0.5Z" fill="white" />
+                  <path d="M64.5 0V120H67.5V0H64.5Z" fill="white" />
+                </svg>
+
+                <svg
+                  class="find__video-slide-mobile-button-played"
+                  width="45"
+                  height="50"
+                  viewBox="0 0 45 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0.90332 0.787354L44.486 25L0.90332 49.2126V0.787354ZM2.06461 2.76098V47.239L42.0948 25L2.06461 2.76098Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
               <div class="find__mobile-progress"></div>
             </div>
 
@@ -228,7 +370,35 @@
               <button
                 class="find__video-slide-mobile-button"
                 data-name="play"
-              ></button>
+              >
+              <svg
+                  class="find__video-slide-mobile-button-paused"
+                  width="68"
+                  height="120"
+                  viewBox="0 0 68 120"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0.5 0V120H3.5V0H0.5Z" fill="white" />
+                  <path d="M64.5 0V120H67.5V0H64.5Z" fill="white" />
+                </svg>
+
+                <svg
+                  class="find__video-slide-mobile-button-played"
+                  width="45"
+                  height="50"
+                  viewBox="0 0 45 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0.90332 0.787354L44.486 25L0.90332 49.2126V0.787354ZM2.06461 2.76098V47.239L42.0948 25L2.06461 2.76098Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
               <div class="find__mobile-progress"></div>
             </div>
 
@@ -259,7 +429,35 @@
               <button
                 class="find__video-slide-mobile-button"
                 data-name="play"
-              ></button>
+              >
+              <svg
+                  class="find__video-slide-mobile-button-paused"
+                  width="68"
+                  height="120"
+                  viewBox="0 0 68 120"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0.5 0V120H3.5V0H0.5Z" fill="white" />
+                  <path d="M64.5 0V120H67.5V0H64.5Z" fill="white" />
+                </svg>
+
+                <svg
+                  class="find__video-slide-mobile-button-played"
+                  width="45"
+                  height="50"
+                  viewBox="0 0 45 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0.90332 0.787354L44.486 25L0.90332 49.2126V0.787354ZM2.06461 2.76098V47.239L42.0948 25L2.06461 2.76098Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
               <div class="find__mobile-progress"></div>
             </div>
 
@@ -290,7 +488,35 @@
               <button
                 class="find__video-slide-mobile-button"
                 data-name="play"
-              ></button>
+              >
+              <svg
+                  class="find__video-slide-mobile-button-paused"
+                  width="68"
+                  height="120"
+                  viewBox="0 0 68 120"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0.5 0V120H3.5V0H0.5Z" fill="white" />
+                  <path d="M64.5 0V120H67.5V0H64.5Z" fill="white" />
+                </svg>
+
+                <svg
+                  class="find__video-slide-mobile-button-played"
+                  width="45"
+                  height="50"
+                  viewBox="0 0 45 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0.90332 0.787354L44.486 25L0.90332 49.2126V0.787354ZM2.06461 2.76098V47.239L42.0948 25L2.06461 2.76098Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
               <div class="find__mobile-progress"></div>
             </div>
 
@@ -321,7 +547,35 @@
               <button
                 class="find__video-slide-mobile-button"
                 data-name="play"
-              ></button>
+              >
+              <svg
+                  class="find__video-slide-mobile-button-paused"
+                  width="68"
+                  height="120"
+                  viewBox="0 0 68 120"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0.5 0V120H3.5V0H0.5Z" fill="white" />
+                  <path d="M64.5 0V120H67.5V0H64.5Z" fill="white" />
+                </svg>
+
+                <svg
+                  class="find__video-slide-mobile-button-played"
+                  width="45"
+                  height="50"
+                  viewBox="0 0 45 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0.90332 0.787354L44.486 25L0.90332 49.2126V0.787354ZM2.06461 2.76098V47.239L42.0948 25L2.06461 2.76098Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
               <div class="find__mobile-progress"></div>
             </div>
 
@@ -352,7 +606,35 @@
               <button
                 class="find__video-slide-mobile-button"
                 data-name="play"
-              ></button>
+              >
+              <svg
+                  class="find__video-slide-mobile-button-paused"
+                  width="68"
+                  height="120"
+                  viewBox="0 0 68 120"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0.5 0V120H3.5V0H0.5Z" fill="white" />
+                  <path d="M64.5 0V120H67.5V0H64.5Z" fill="white" />
+                </svg>
+
+                <svg
+                  class="find__video-slide-mobile-button-played"
+                  width="45"
+                  height="50"
+                  viewBox="0 0 45 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0.90332 0.787354L44.486 25L0.90332 49.2126V0.787354ZM2.06461 2.76098V47.239L42.0948 25L2.06461 2.76098Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
               <div class="find__mobile-progress"></div>
             </div>
 

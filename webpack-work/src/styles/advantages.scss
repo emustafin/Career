@@ -119,6 +119,10 @@
 
 .why-are-we__slide-arrow {
   overflow: hidden;
+
+  & > svg {
+    pointer-events: none;
+  }
 }
 
 .why-are-we__slide-arrow.swiper-button-next {
@@ -149,14 +153,13 @@
   width: fit-content;
   margin-bottom: 40px;
 
-  &::after {
-    content: '';
+  & > svg {
     position: absolute;
     right: 5px;
-    top: calc(50% - 4.5px);
+    top: calc(50% - 3px);
     width: 14px;
     height: 9px;
-    background: url('../images/advantages/arrow-small.svg');
+    pointer-events: none;
   }
 }
 

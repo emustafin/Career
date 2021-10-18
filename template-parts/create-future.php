@@ -29,7 +29,22 @@
         </div>
         </div>
     </div>
-        <a class="create-future__button">узнай, как именно</a>
+    <a href="#" class="create-future__button" id="create-future__button">
+            узнай, как именно
+
+            <svg
+              width="9"
+              height="10"
+              viewBox="0 0 9 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.22036 7.19075L4.9885 0.551038L3.78923 0.592918L4.01987 7.19749L0.960273 4.34438L0.141875 5.222L3.91336 8.73897C4.35767 9.15329 5.05372 9.12898 5.46805 8.68468L8.98501 4.91319L8.10739 4.09479L5.22036 7.19075Z"
+                fill="black"
+              />
+            </svg>
+          </a>
     </div>
 
     <p class="create-future__text">

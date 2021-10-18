@@ -79,15 +79,13 @@
   box-shadow: 16px 2px 24px rgba(0, 0, 0, 0.03);
   transition: 0.3s;
 
-  &::after {
-    content: '';
+  & > svg {
     position: absolute;
     top: calc(50% - 4.5px);
     right: 19px;
     width: 9px;
     height: 9px;
-    background: url('../images/create-future/arrow-bottom.svg') center / cover
-      no-repeat;
+    pointer-events: none;
   }
 
   &:hover {
@@ -272,7 +270,7 @@
     left: 162px;
     bottom: -26px;
 
-    &::after {
+    & > svg {
       top: calc(50% - 3.5px);
       right: 19px;
     }
@@ -318,7 +316,7 @@
     bottom: -23px;
     left: 55px;
 
-    &::after {
+    & > svg {
       top: calc(50% - 3.5px);
       right: 19px;
     }

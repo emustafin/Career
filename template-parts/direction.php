@@ -38,6 +38,19 @@ $product_directions = new WP_Query( $args );
         </div>
  -->
         <div class="direction__select-container-mobile" data-name="closed">
+        <svg
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
+              fill="black"
+            />
+          </svg>
+
           <p class="direction__select-title">Выбери направление</p>
           <div class="direction__select-field"><?php echo get_the_title($product_directions->posts[0]->ID); ?></div>
           <div class="direction__select-list-wrapper hide" >
@@ -69,7 +82,20 @@ $product_directions = new WP_Query( $args );
                   if( 1 == $i ) $active = 'direction__direction-item-active'; ?>
 
                   <div class="direction__direction-item tab-list-item <?php echo $active; ?>" data-tab-uid="<?php the_ID(); ?>">
-                    <p class="direction__direction"><?php the_title(); ?></p>
+                  <p class="direction__direction"><?php the_title(); ?></p>
+                  
+                  <svg
+                    width="14"
+                    height="10"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.5515 4.39995L8.57574 1.42421L9.42426 0.575684L13.8485 4.99995L9.42426 9.42421L8.57574 8.57568L11.5515 5.59995H0V4.39995H11.5515Z"
+                      fill="black"
+                    />
+                  </svg>
                   </div>
 
                   <?php $i++;

@@ -38,7 +38,15 @@ export class RunningLine {
 
   monitoringChatchingLinkWidth() {
     window.addEventListener('resize', () => {
-      this.runningLineItemWidth = this.runningLine.lastElementChild.clientWidth;
+      if (window.innerWidth > 1600) {
+        this.runningLineItemWidth = 1418;
+      } else if (window.innerWidth > 1280 && window.innerWidth < 1600) {
+        this.runningLineItemWidth = 1143;
+      } else if (window.innerWidth > 760 && window.innerWidth < 1280) {
+        this.runningLineItemWidth = 778;
+      } else {
+        this.runningLineItemWidth = 326;
+      }
     });
   }
 }
