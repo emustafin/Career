@@ -925,30 +925,31 @@
   display: flex;
   justify-content: flex-end;
   color: #000000;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
   white-space: nowrap; }
   .find__title-link:hover {
     color: #e31235; }
-  .find__title-link:hover > .find__link-aroow::before {
-    background: url("../images/find-vacancies/link-arrow-red.svg") left/contain no-repeat; }
+  .find__title-link:hover > .find__link-aroow > svg {
+    fill: #e31235;
+    stroke: #e31235; }
 
 .find__link-aroow {
   display: block;
   padding-left: 52px;
   padding-right: 140px;
   position: relative;
-  pointer-events: none; }
-  .find__link-aroow::before {
-    content: '';
+  pointer-events: none;
+  transition: 0.3s;
+  width: 1418px; }
+  .find__link-aroow > svg {
     position: absolute;
     right: 0;
     bottom: 10px;
     width: 84px;
     height: 88px;
-    background: url("../images/find-vacancies/link-arrow.svg") left/contain no-repeat;
-    transition: color 0.3s; }
+    transition: color 0.3s;
+    fill: black;
+    stroke: black;
+    transition: 0.3s; }
 
 .find__block-video,
 .find__block-video-active {
@@ -1019,10 +1020,23 @@
   width: 67px;
   height: 120px;
   cursor: pointer;
-  background: url("../images/find-vacancies/pause.svg") center/contain no-repeat;
+  background: transparent;
   transition: 0.3s;
   opacity: 0;
   z-index: -1; }
+  .find__video-control > svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 67px;
+    height: 120px;
+    pointer-events: none; }
+
+.find__video-control-paused {
+  display: block; }
+
+.find__video-control-played {
+  display: none; }
 
 .find__video-slides-container.swiper,
 .find__video-slides-container-active.swiper {
@@ -1106,14 +1120,13 @@
   line-height: 24px;
   padding-left: 17px;
   position: relative; }
-  .find__video-play-button::before {
-    content: '';
+  .find__video-play-button > svg {
     position: absolute;
     left: 0;
     top: calc(50% - 4px);
     width: 9px;
     height: 8px;
-    background: url("../images/find-vacancies/play.svg") left/contain no-repeat; }
+    pointer-events: none; }
 
 .find__arrow-next,
 .find__arrow-next-active {
@@ -1123,9 +1136,16 @@
   width: 120px;
   height: 16px;
   background-color: transparent;
-  background: url("../images/find-vacancies/arrow-long-white.svg") center/contain no-repeat;
   z-index: 3;
   transition: 0.3s; }
+  .find__arrow-next > svg,
+  .find__arrow-next-active > svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 16px;
+    pointer-events: none; }
 
 .find__arrow-next-active {
   bottom: -50px;
@@ -1139,6 +1159,11 @@
     font-size: 124px;
     line-height: 112px;
     margin-bottom: 88px; }
+  .find__link-aroow {
+    width: 1143px; }
+    .find__link-aroow > svg {
+      width: 65px;
+      height: 68px; }
   .find__video-play-box {
     max-width: 720px; }
   .find__video-title {
@@ -1174,8 +1199,9 @@
     margin-bottom: 70px; }
   .find__link-aroow {
     padding-right: 73px;
-    padding-left: 30px; }
-    .find__link-aroow::before {
+    padding-left: 30px;
+    width: 778px; }
+    .find__link-aroow > svg {
       width: 42px;
       height: 44px; }
   .find__video-play-box {
@@ -1222,8 +1248,9 @@
     line-height: 38px; }
   .find__link-aroow {
     padding-left: 15px;
-    padding-right: 35px; }
-    .find__link-aroow::before {
+    padding-right: 35px;
+    width: 326px; }
+    .find__link-aroow > svg {
       width: 17px;
       height: 17px; }
   .find__block-video {
@@ -1267,8 +1294,19 @@
     transform: translate(-50%, -50%);
     width: 44px;
     height: 48px;
-    background: url("../images/find-vacancies/play-mobile.svg") left/contain no-repeat;
+    background: transparent;
     z-index: 3; }
+    .find__video-slide-mobile-button > svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 44px;
+      height: 48px;
+      pointer-events: none; }
+  .find__video-slide-mobile-button-paused {
+    display: none; }
+  .find__video-slide-mobile-button-played {
+    display: block; }
   .find__video-slide-mobile-video {
     margin-bottom: 16px; }
   .find__video-player-mobile {
