@@ -200,7 +200,7 @@
                                 <input class="profession__filter-input can_without_experience" type="checkbox" <?php echo $can_without_experience; ?>/>
                                 Без опыта
                                 <span class="profession__filter-checbox-value">
-                                    <!-- <svg
+                                    <svg
                                         width="16"
                                         height="16"
                                         viewBox="0 0 16 16"
@@ -212,7 +212,7 @@
                                             stroke="black"
                                             stroke-width="1.2"
                                         />
-                                    </svg> -->
+                                    </svg>
                                 </span>
                             </label> 
                        
@@ -287,7 +287,7 @@
                                 <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $can_work_remotely; ?>/>
                                 Удалённо
                                 <span class="profession__filter-checbox-value">
-                                <!-- <svg
+                                <svg
                                     width="16"
                                     height="16"
                                     viewBox="0 0 16 16"
@@ -299,7 +299,7 @@
                                         stroke="black"
                                         stroke-width="1.2"
                                     />
-                                </svg> -->
+                                </svg>
                                 </span>
                             </label> 
                        
@@ -310,7 +310,7 @@
                         <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $can_work_remotely; ?>/>
                         Удалённо
                         <span class="profession__filter-checbox-value">
-                        <!-- <svg
+                        <svg
                             width="16"
                             height="16"
                             viewBox="0 0 16 16"
@@ -322,7 +322,7 @@
                                 stroke="black"
                                 stroke-width="1.2"
                             />
-                        </svg> -->
+                        </svg>
                         </span>
                     </label>
 
@@ -330,7 +330,7 @@
                         <input class="profession__filter-input can_without_experience" type="checkbox"  <?php echo $can_without_experience; ?>/>
                         Без опыта
                         <span class="profession__filter-checbox-value">
-                        <!-- <svg
+                        <svg
                             width="16"
                             height="16"
                             viewBox="0 0 16 16"
@@ -342,7 +342,7 @@
                                 stroke="black"
                                 stroke-width="1.2"
                             />
-                        </svg> -->
+                        </svg>
                         </span>
                     </label>
                     </div>

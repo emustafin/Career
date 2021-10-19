@@ -4178,15 +4178,15 @@
 
 .listing-top__where {
   padding-right: 55px; }
-  .listing-top__where::after {
-    content: '';
+  .listing-top__where > svg {
     position: absolute;
     right: 0;
     top: calc(50% - 14px);
     height: 36px;
     width: 38px;
-    background: url("../images/listing/listing-top/arrow-big-bottom.svg") no-repeat;
-    display: none; }
+    pointer-events: none; }
+  .listing-top__where > span {
+    pointer-events: none; }
 
 .listing-top__dropdown-container-active {
   color: #e31235; }
@@ -4324,6 +4324,7 @@
   padding-top: 8px;
   border-top: 1px solid rgba(0, 0, 0, 0.5);
   display: flex;
+  cursor: pointer;
   transition: 0.3s; }
   .position__card-item:last-child {
     margin-bottom: 0; }

@@ -64,9 +64,23 @@ wp_reset_postdata();
         </h2>
         <div class="listing-top__dropdown">
             <!-- <div class="listing-top__dropdown-container">
-                <span class="listing-top__in">в</span>
-                <span class="listing-top__where">IT-хабе</span>
-            </div>
+                    <span class="listing-top__in">в</span>
+                    <span class="listing-top__where">
+                        <span> IT-хабе </span>
+                        <svg
+                        width="38"
+                        height="36"
+                        viewBox="0 0 38 36"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                            d="M16.3663 28.118V0.159515H21.4663V27.9699L34.0469 15.5057L37.6363 19.1287L22.1319 34.4897C20.3098 36.2949 17.3734 36.2949 15.5513 34.4897L0.046875 19.1287L3.63632 15.5057L16.3663 28.118Z"
+                            fill="black"
+                        />
+                        </svg>
+                    </span>
+                </div>
 
             <div class="listing-top__dropdown-list hide">
                 <p class="listing-top__dropdown-list-item">
@@ -186,7 +200,22 @@ wp_reset_postdata();
                     <label class="profession__filter-checbox-listing">
                     <input class="profession__filter-input archive_without_experience" type="checkbox" />
                     Без опыта
-                    <span class="profession__filter-checbox-value"></span>
+                    <span class="profession__filter-checbox-value">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12.5 5L6.5 11L3.5 8"
+                        stroke="black"
+                        stroke-width="1.2"
+                      />
+                    </svg>
+
+                    </span>
                     </label>
                 </div>
             </div>
@@ -222,7 +251,22 @@ wp_reset_postdata();
                     <label class="profession__filter-checbox-listing">
                     <input class="profession__filter-input archive_remotely" type="checkbox" />
                     Удалённо
-                    <span class="profession__filter-checbox-value"></span>
+                    <span class="profession__filter-checbox-value">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12.5 5L6.5 11L3.5 8"
+                        stroke="black"
+                        stroke-width="1.2"
+                      />
+                    </svg>
+
+                    </span>
                     </label>
                 </div>
             </div>
@@ -479,8 +523,34 @@ endif; ?>
             <!-- <a href="#" class="vacancy__news-link">События</a> -->
             </div>
             <div class="vacancy__news-arrows">
-            <button class="vacancy__news-btn-prev"></button>
-            <button class="vacancy__news-btn-next"></button>
+            <button class="vacancy__news-btn-prev">
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.57661 0.575745L0.152344 5.00001L4.57661 9.42427L5.42514 8.57574L2.4494 5.60001H14.0009V4.40001H2.4494L5.42514 1.42427L4.57661 0.575745Z"
+                    fill="black"
+                  />
+                </svg>
+            </button>
+            <button class="vacancy__news-btn-next">
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5515 4.40001L8.57574 1.42427L9.42426 0.575745L13.8485 5.00001L9.42426 9.42427L8.57574 8.57574L11.5515 5.60001H0L0 4.40001H11.5515Z"
+                    fill="black"
+                  />
+                </svg>
+            </button>
             </div>
             <a href="#" class="vacancy__news-link-mobile"> Все новости </a>
         </div>
@@ -555,8 +625,35 @@ endif; ?>
             <a href="#" class="vacancy__news-link">События</a>
             </div>
             <div class="vacancy__news-arrows">
-            <button class="vacancy__news-btn-prev"></button>
-            <button class="vacancy__news-btn-next"></button>
+            <button class="vacancy__news-btn-prev">
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.57661 0.575745L0.152344 5.00001L4.57661 9.42427L5.42514 8.57574L2.4494 5.60001H14.0009V4.40001H2.4494L5.42514 1.42427L4.57661 0.575745Z"
+                    fill="black"
+                  />
+                </svg>
+            </button>
+            <button class="vacancy__news-btn-next">
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5515 4.40001L8.57574 1.42427L9.42426 0.575745L13.8485 5.00001L9.42426 9.42427L8.57574 8.57574L11.5515 5.60001H0L0 4.40001H11.5515Z"
+                    fill="black"
+                  />
+                </svg>
+
+            </button>
             </div>
             <a href="#" class="vacancy__news-link-mobile"> Все новости </a>
         </div>
