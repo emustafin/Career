@@ -8884,10 +8884,18 @@ body {
 .cursor-pointer {
   cursor: pointer; }
 
+body > div:first-child,
+body > div.responsive-wrapper {
+  display: none !important; }
+
 @media (max-width: 768px) {
   .container {
     padding: 8px;
     position: relative; } }
+
+@media screen and (max-width: 600px) {
+  #wpadminbar {
+    position: fixed; } }
 
 
 /*# sourceMappingURL=styles.css.map*/

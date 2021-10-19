@@ -138,10 +138,10 @@ body {
   cursor: pointer;
 }
 
-// body > div:first-child,
-// body > div.responsive-wrapper {
-//   display: none !important;
-// }
+body > div:first-child,
+body > div.responsive-wrapper {
+  display: none !important;
+}
 
 @media (max-width: 768px) {
   .container {
@@ -150,8 +150,8 @@ body {
   }
 }
 
-// @media screen and (max-width: 600px) {
-//   #wpadminbar {
-//     position: absolute;
-//   }
-// }
+@media screen and (max-width: 600px) {
+  #wpadminbar {
+    position: fixed;
+  }
+}
