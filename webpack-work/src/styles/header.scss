@@ -42,13 +42,13 @@
   position: relative;
   width: 132px;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 24px;
   color: $mainColor;
 }
 
 .it-header__phone-mobile-icon {
   position: absolute;
-  top: 2px;
+  top: 5px;
   right: 0;
   width: 13px;
   height: 13px;
@@ -177,7 +177,8 @@
   }
 
   .it-header__item-mobile {
-    display: block;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 
