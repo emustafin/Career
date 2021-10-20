@@ -1032,3 +1032,18 @@
     opacity: 0;
   }
 }
+#vacancy_popup{
+  position: relative;
+}
+#vacancy_popup .loader-wrapp{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+#vacancy_popup .loader-wrapp .loader-bg{
+  height: 100%;
+}
