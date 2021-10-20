@@ -15,8 +15,7 @@
     <div class="create-future__container">
     <div class="create-future__title-wrapper">
         <h2 class="create-future__title">
-        Создавай <br />
-        будущее
+            Создавай будущее
         </h2>
 
         <div class="text-animate create-future__typing-title">
