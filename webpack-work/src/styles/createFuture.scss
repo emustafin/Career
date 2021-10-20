@@ -139,7 +139,7 @@
   justify-content: center;
   margin-top: -300px;
   margin-left: -300px;
-  animation: spin 4s infinite linear;
+  animation: rotate-spiral 4s infinite linear;
 }
 
 .spiral__img {
@@ -149,11 +149,24 @@
   height: auto;
 }
 
-@keyframes spin {
+@keyframes rotate-spiral {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
   100% {
-    transform: rotate(-360deg);
+    transform: rotate(360deg);
   }
 }
+
 .text-typing {
   //height: 260px;
   position: absolute;

@@ -116,8 +116,8 @@
   justify-content: center;
   margin-top: -300px;
   margin-left: -300px;
-  -webkit-animation: spin 4s infinite linear;
-          animation: spin 4s infinite linear; }
+  -webkit-animation: rotate-spiral 4s infinite linear;
+          animation: rotate-spiral 4s infinite linear; }
 
 .spiral__img {
   margin-top: -300px;
@@ -125,13 +125,29 @@
   width: auto;
   height: auto; }
 
-@-webkit-keyframes spin {
+@-webkit-keyframes rotate-spiral {
+  0% {
+    transform: rotate(0); }
+  25% {
+    transform: rotate(90deg); }
+  50% {
+    transform: rotate(180deg); }
+  75% {
+    transform: rotate(270deg); }
   100% {
-    transform: rotate(-360deg); } }
+    transform: rotate(360deg); } }
 
-@keyframes spin {
+@keyframes rotate-spiral {
+  0% {
+    transform: rotate(0); }
+  25% {
+    transform: rotate(90deg); }
+  50% {
+    transform: rotate(180deg); }
+  75% {
+    transform: rotate(270deg); }
   100% {
-    transform: rotate(-360deg); } }
+    transform: rotate(360deg); } }
 
 .text-typing {
   position: absolute; }
@@ -3032,6 +3048,9 @@
 
 /*Заменить на необходимый*/
 /*Анимации*/
+@-webkit-keyframes spin {
+  100% {
+    transform: rotate(-360deg); } }
 @keyframes spin {
   100% {
     transform: rotate(-360deg); } }
@@ -3381,12 +3400,12 @@
   position: relative;
   width: 132px;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 24px;
   color: #000000; }
 
 .it-header__phone-mobile-icon {
   position: absolute;
-  top: 2px;
+  top: 5px;
   right: 0;
   width: 13px;
   height: 13px;
@@ -3488,7 +3507,8 @@
   .it-header__button {
     display: none; }
   .it-header__item-mobile {
-    display: block; } }
+    display: flex;
+    justify-content: flex-end; } }
 
 @media (max-width: 479px) {
   .it-header,
@@ -6970,6 +6990,8 @@ input#form__town {
   .direct-link {
     font-size: 14px;
     line-height: 16px; }
+  .direct-link__button {
+    display: none; }
   .direct-link__vacancy-container {
     margin-bottom: 16px; }
   .direct-link__vacancy-description-block-mobile {
