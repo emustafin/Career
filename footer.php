@@ -258,7 +258,24 @@
             >
             <a target="blank" href="https://job.mvideoeldorado.ru/students" class="footem__item-directions-link">Студентам</a>
 
-            <p class="footer__info-text">Made by Annti + AmberLabs</p>
+            <div class="footer__info-text">
+              Made by
+              <a
+                class="footer__info-link"
+                href="https://annti.design"
+                target="blank"
+                >
+                Annti
+              </a>
+              +
+              <a
+                class="footer__info-link"
+                href="https://amberlabs.ru"
+                target="blank"
+                >
+                AmberLabs
+              </a>
+            </div>
           </div>
         </div>
 
@@ -300,7 +317,24 @@
           </div>
 
           <div class="footer__info-block-item-mobile">
-            <p class="footer__info-text-mobile">Made by Annti + AmberLabs</p>
+          <div class="footer__info-text-mobile">
+              Made by
+              <a
+                class="footer__info-link"
+                href="https://annti.design"
+                target="blank"
+              >
+                Annti
+              </a>
+              +
+              <a
+                class="footer__info-link"
+                href="https://amberlabs.ru"
+                target="blank"
+              >
+                AmberLabs
+              </a>
+            </div>
           </div>
         </div>
       </div>
