@@ -60,6 +60,7 @@ const listingPageFilters = document.querySelector(
 const intern = document.querySelector('.intern');
 const direction = document.querySelector('.direction');
 const footerPage = document.querySelector('.footer');
+const flyoutVacancy = document.querySelector('.vacancy');
 
 // const tabContainer = document.querySelector('.tab-content');
 
@@ -224,3 +225,4 @@ const checkImages = function () {
 // window.onscroll = checkImages;
 window.addEventListener('scroll', checkImages);
 window.addEventListener('DOMContentLoaded', checkImages);
+flyoutVacancy.addEventListener('scroll', checkImages);

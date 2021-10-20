@@ -103,10 +103,12 @@
         </button>
 
         <img
-        class="find__video-preview"
-        data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder1.png"
-        src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
-        alt="Preview"
+          class="find__video-preview"
+          data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder1.png"
+          src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
+          alt="Preview"
+          width="2000"
+          height="1125"
         />
     </div>
     <div class="find__video-play-box">
@@ -140,6 +142,8 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image1.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="slide-image"
+                width="200"
+                height="113"
               />
               <div class="find__video-slide-progress"></div>
             </div>
@@ -156,6 +160,8 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image2.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="slide-image"
+                width="200"
+                height="113"
               />
               <div class="find__video-slide-progress"></div>
             </div>
@@ -172,6 +178,8 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image3.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="slide-image"
+                width="200"
+                height="113"
               />
               <div class="find__video-slide-progress"></div>
             </div>
@@ -187,6 +195,8 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image4.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="slide-image"
+                width="200"
+                height="113"
               />
               <div class="find__video-slide-progress"></div>
             </div>
@@ -202,6 +212,8 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image5.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="slide-image"
+                width="200"
+                height="113"
               />
               <div class="find__video-slide-progress"></div>
             </div>
@@ -218,6 +230,8 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image6.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="slide-image"
+                width="200"
+                height="113"
               />
               <div class="find__video-slide-progress"></div>
             </div>
@@ -225,7 +239,23 @@
           </div>
         </div>
 
-    <button class="find__arrow-next"></button>
+    <button class="find__arrow-next">
+    <svg
+            width="120"
+            height="10"
+            viewBox="0 0 120 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M117.793 5.50004H0V4.50004H117.793L114.646 1.35359L115.354 0.646484L119.354 4.64648L119.707 5.00004L119.354 5.35359L115.354 9.35359L114.646 8.64648L117.793 5.50004Z"
+              fill="white"
+            />
+          </svg>
+
+    </button>
     </div>
 
     <div class="find__slides-mobile-container swiper mobile-slider">
@@ -247,6 +277,8 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder1.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="Image"
+                width="500"
+                height="280"
               />
 
               <button
@@ -306,6 +338,8 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder2.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="Image"
+                width="500"
+                height="280"
               />
 
               <button
@@ -365,6 +399,8 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder3.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="Image"
+                width="500"
+                height="280"
               />
 
               <button
@@ -424,6 +460,8 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder4.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="Image"
+                width="500"
+                height="280"
               />
 
               <button
@@ -483,6 +521,8 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder5.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="Image"
+                width="500"
+                height="280"
               />
 
               <button
@@ -542,6 +582,8 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder6.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="Image"
+                width="500"
+                height="280"
               />
 
               <button
@@ -601,6 +643,8 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image3.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="Image"
+                width="500"
+                height="280"
               />
 
               <button

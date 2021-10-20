@@ -35,6 +35,7 @@ $blackColorOpacity-05: rgba(0, 0, 0, 0.5);
   font-family: suisse;
   src: url('../fonts/SuisseIntl-Regular.woff') format('woff'),
     url('../fonts/SuisseIntl-Regular.woff2') format('woff2');
+  font-display: swap;
 }
 
 // сброс стилей

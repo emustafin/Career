@@ -169,6 +169,8 @@
                       data-src="<?php echo $thumbnail_url; ?>"
                       src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                       alt="News"
+                      width="1000"
+                      height="563"
                     />
                   </div>
                   <h2 class="intern-no-events__title"><?php echo $actually_news->posts[0]->post_title; ?></h2>
@@ -196,6 +198,8 @@
                         data-src="<?php echo $thumbnail_url; ?>"
                         src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                         alt="News"
+                        width="1000"
+                        height="563"
                       />
                     </div>
                     <h2 class="intern-no-events__title"><?php echo $actually_news->posts[1]->post_title; ?></h2>
@@ -230,6 +234,8 @@
                         data-src="<?php echo $thumbnail_url; ?>"
                         src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                         alt="News"
+                        width="1000"
+                        height="563"
                       />
                     </div>
                     <h2 class="intern-no-events__title"><?php echo $actually_news->posts[2]->post_title; ?></h2>
@@ -260,6 +266,8 @@
                         data-src="<?php echo $thumbnail_url; ?>"
                         src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                         alt="News"
+                        width="1000"
+                        height="563"
                       />
                     </div>
                     <h2 class="intern-no-events__title"><?php echo $actually_news->posts[3]->post_title; ?></h2>

@@ -40,6 +40,8 @@ $reviews = new WP_Query( $args );
                                     data-src="<?php echo $thumbnail_url; ?>"
                                     src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                     alt="Photo"
+                                    width="100"
+                                    height="100"
                                     />
                                 </div>
                                 <?php
@@ -56,6 +58,8 @@ $reviews = new WP_Query( $args );
                                         data-src="<?php echo $thumbnail_url; ?>"
                                         src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                         alt="Photo"
+                                        width="100"
+                                        height="100"
                                         />
                                     </div>
                                     <?php
@@ -88,6 +92,8 @@ $reviews = new WP_Query( $args );
                                         data-src="<?php echo $thumbnail_url; ?>"
                                         src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                         alt="Photo"
+                                        width="100"
+                                        height="100"
                                         />
                                     </div>
                                     <p class="upgrade__main-job">
@@ -189,6 +195,8 @@ $reviews = new WP_Query( $args );
                                         data-src="<?php echo $thumbnail_url; ?>"
                                         src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                         alt="Image"
+                                        width="100"
+                                        height="100"
                                         />
                                     </div>
                                     <div class="upgrade__slider-next-name-text-wrapper">
@@ -214,6 +222,8 @@ $reviews = new WP_Query( $args );
                                     data-src="<?php echo $thumbnail_url; ?>"
                                     src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                     alt="Image"
+                                    width="100"
+                                    height="100"
                                     />
                                 </div>
                                 <div class="upgrade__slider-next-name-text-wrapper">

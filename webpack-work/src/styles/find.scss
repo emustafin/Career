@@ -109,6 +109,7 @@
 .find__video-preview {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 .find__video {
@@ -221,6 +222,7 @@
 .find__video-slide-image {
   display: block;
   width: 100%;
+  height: auto;
   pointer-events: none;
 }
 
@@ -516,6 +518,7 @@
   .find__video-slide-mobile-image {
     display: block;
     width: 100%;
+    height: auto;
     transition: 0.3s;
   }
 

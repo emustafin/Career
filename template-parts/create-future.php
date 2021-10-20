@@ -6,7 +6,10 @@
             <img 
             src="<?php echo THEME_URL; ?>/assets/images/create-future/spiral_anim.svg"
             class="spiral__img"
-            alt="">
+            alt="spiral"
+            width="1000"
+            height="1000"
+            >
         </div>
     </div>
     <div class="create-future__container">
