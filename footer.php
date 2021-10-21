@@ -246,7 +246,6 @@
 
           <div class="footer__item">
             <p class="footer__item-title">Направления</p>
-
             <?php
             $menu_name = 'footer';
             $locations = get_nav_menu_locations();
@@ -257,7 +256,7 @@
               <a target="blank" href="<?php echo $item->url;?>" class="footem__item-directions-link"><?php echo $item->title;?></a>
 
             <?php endforeach; endif; ?>
-
+            
             <div class="footer__info-text">
               Made by
               <a
