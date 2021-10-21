@@ -4396,7 +4396,8 @@
   flex-direction: column;
   width: 100%;
   max-width: 608px;
-  margin-right: 16px; }
+  margin-right: 16px;
+  pointer-events: none; }
 
 .position__job-title {
   color: #000000;
@@ -4430,21 +4431,24 @@
 .position__bread-crumbs-block {
   width: 100%;
   max-width: 304px;
-  margin-right: 16px; }
+  margin-right: 16px;
+  pointer-events: none; }
 
 .position__payment-container {
   width: 100%;
   max-width: 304px;
   margin-right: 16px;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  pointer-events: none; }
 
 .position__job-expiriens {
   margin-top: auto; }
 
 .position__location-container {
   width: 100%;
-  max-width: 304px; }
+  max-width: 304px;
+  pointer-events: none; }
 
 .position__location-city-metro,
 .position__location-city-metro-sokoln,

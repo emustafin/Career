@@ -304,6 +304,7 @@
   width: 100%;
   max-width: 608px;
   margin-right: 16px;
+  pointer-events: none;
 }
 
 .position__job-title {
@@ -347,6 +348,7 @@
   width: 100%;
   max-width: 304px;
   margin-right: 16px;
+  pointer-events: none;
 }
 
 .position__payment-container {
@@ -355,6 +357,7 @@
   margin-right: 16px;
   display: flex;
   flex-direction: column;
+  pointer-events: none;
 }
 
 .position__job-expiriens {
@@ -364,6 +367,7 @@
 .position__location-container {
   width: 100%;
   max-width: 304px;
+  pointer-events: none;
 }
 
 .position__location-city-metro,
