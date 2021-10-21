@@ -12,7 +12,7 @@ if( is_array( $vaccat_terms ) ){
     }
 }
 ?>
-<div class="position__card-item">
+<div class="position__card-item" data-vacancy_id="<?php echo get_the_ID(); ?>">
 <!--     
     <a href="<?php echo get_the_permalink($vacancy_item_id); ?>" class="position__info-link">
         посмотреть вакансию

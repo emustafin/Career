@@ -1,11 +1,29 @@
 $('.profession__title').attr('originhref', window.location.href);
+var origin_location = window.location.href;
+
 $('.profession__job-item').on('click', function (e) {
   
   $('#vacancy_popup .loader-wrapp').css( 'display','block' );
-  var origin_location = window.location.href;
-
   post_id = $(this).attr('data-vacancy_id');
+  load_popup_vacancy( post_id );
+});
+$('.position__card-item').on('click', function (e) {
+  
+  $('#vacancy_popup .loader-wrapp').css( 'display','block' );
+  post_id = $(this).attr('data-vacancy_id');
+  load_popup_vacancy( post_id );
+});
 
+$('.vacancy__header-head-link-main').on('click', function (e) {
+  window.history.pushState('', '', origin_location);
+});
+
+$('.flyout__side-bar').on('click', function (e) {
+  window.history.pushState('', '', origin_location);
+});
+
+
+function load_popup_vacancy( post_id ){
   var data = {
       action: 'get_vacancy_data',
       post_id : post_id
@@ -19,6 +37,8 @@ $('.profession__job-item').on('click', function (e) {
       cache: 'false',
       success: function (response) {
           if( true == response.success ){
+
+            $('.profession__title').attr('originhref', origin_location);
 
             $('.flyout .vacancy__headline-title').attr('origin_url', origin_location);
             $('.flyout .vacancy__headline-title').html(response.title);
@@ -42,14 +62,4 @@ $('.profession__job-item').on('click', function (e) {
           }
       },
   });
-});
-
-$('.vacancy__header-head-link-main').on('click', function (e) {
-  var origin_location = $('.profession__title').attr('originhref');
-  window.history.pushState('', '', origin_location);
-});
-
-$('.flyout__side-bar').on('click', function (e) {
-  var origin_location = $('.profession__title').attr('originhref');
-  window.history.pushState('', '', origin_location);
-});
+}
