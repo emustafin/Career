@@ -27,6 +27,8 @@ export class Listing {
     this.currentDirection = this.el.querySelector('.listing-top__where');
     this.vacancyValue = '';
 
+    console.dir(this.currentDirection.firstElementChild);
+
     // Слушатели событий
     this.headerSelect.addEventListener(
       'click',
@@ -96,7 +98,7 @@ export class Listing {
         if (event.target === item) {
           this.vacancyValue = item.nextElementSibling.textContent;
           this.vacancyCounter.textContent = this.vacancyValue;
-          this.currentDirection.textContent = item.innerText;
+          this.currentDirection.firstElementChild.innerText = item.innerText;
           this.closeDropdown();
         }
       });

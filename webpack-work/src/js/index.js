@@ -22,6 +22,7 @@ import { CustomSelectInProfessionBlock } from './components/itHubPage/customSele
 import { ListingFilters } from './components/itHubPage/vacancyListingPage/listingFilters';
 import { Intern } from './components/itHubPage/intern';
 import { Direction } from './components/itHubPage/direction';
+import { FooterPage } from './components/itHubPage/footer';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -58,6 +59,8 @@ const listingPageFilters = document.querySelector(
 );
 const intern = document.querySelector('.intern');
 const direction = document.querySelector('.direction');
+const footerPage = document.querySelector('.footer');
+const flyoutVacancy = document.querySelector('.vacancy');
 
 // const tabContainer = document.querySelector('.tab-content');
 
@@ -78,6 +81,7 @@ new CustomSelectInProfessionBlock(professionCustomSelect);
 new ListingFilters(listingPageFilters);
 new Intern(intern);
 const itPageDirection = new Direction(direction);
+new FooterPage(footerPage);
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
 
@@ -221,3 +225,4 @@ const checkImages = function () {
 // window.onscroll = checkImages;
 window.addEventListener('scroll', checkImages);
 window.addEventListener('DOMContentLoaded', checkImages);
+flyoutVacancy.addEventListener('scroll', checkImages);

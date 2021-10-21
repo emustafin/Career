@@ -131,6 +131,8 @@ $product_directions = new WP_Query( $args );
                                   src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                   alt="director"
                                   class="direction__director-image"
+                                  width="100"
+                                  height="100"
                                 />
                               </div>
                               <p class="direction__director-name">
@@ -164,6 +166,8 @@ $product_directions = new WP_Query( $args );
                                   src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                   alt="director"
                                   class="direction__director-image"
+                                  width="100"
+                                  height="100"
                                 />
                               </div>
                               <p class="direction__director-name">

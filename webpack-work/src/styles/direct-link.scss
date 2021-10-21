@@ -83,15 +83,13 @@
   font-size: 18px;
   line-height: 24px;
 
-  &::before {
-    content: '';
+  & > svg {
     position: absolute;
     right: 0;
     top: calc(50% - 4.5px);
     width: 14px;
     height: 9px;
-    background: url('../images/flyout/flyout-header/link.svg') left / contain
-      no-repeat;
+    pointer-events: none;
   }
 }
 
@@ -123,14 +121,13 @@
   background: $whiteColor;
   position: relative;
 
-  &::after {
-    content: '';
+  & > svg {
     position: absolute;
     right: 16px;
     top: calc(50% - 4.5px);
     width: 14px;
     height: 9px;
-    background: url('../images/flyout/flyout-header/arrow-right.svg') no-repeat;
+    pointer-events: none;
   }
 }
 
@@ -160,14 +157,13 @@
   background: $whiteColor;
   transform: translateY(-10px);
 
-  &::after {
-    content: '';
+  & > svg {
     position: absolute;
     right: 15px;
     top: calc(50% - 4.5px);
     width: 14px;
     height: 9px;
-    background: url('../images/flyout/flyout-header/arrow-right.svg') no-repeat;
+    pointer-events: none;
   }
 }
 
@@ -304,6 +300,10 @@
   .direct-link {
     font-size: 14px;
     line-height: 16px;
+  }
+
+  .direct-link__button {
+    display: none;
   }
 
   .direct-link__vacancy-container {
