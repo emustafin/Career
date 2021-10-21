@@ -24,6 +24,7 @@ import { Intern } from './components/itHubPage/intern';
 import { Direction } from './components/itHubPage/direction';
 import { FooterPage } from './components/itHubPage/footer';
 import { ListingVacansiesContainer } from './components/itHubPage/vacancyListingPage/listingVacansiesPopup';
+import { ItVacanciesContainer } from './components/itHubPage/vacancyContainer';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
@@ -65,6 +66,9 @@ const flyoutVacancy = document.querySelector('.vacancy');
 const listingVacansiesContainer = document.querySelector(
   '.position__card-wrapper'
 );
+const itPageVacancyContainer = document.querySelector(
+  '.profession__job-wrapper'
+);
 
 // const tabContainer = document.querySelector('.tab-content');
 
@@ -87,6 +91,7 @@ new Intern(intern);
 const itPageDirection = new Direction(direction);
 new FooterPage(footerPage);
 new ListingVacansiesContainer(listingVacansiesContainer);
+new ItVacanciesContainer(itPageVacancyContainer);
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
 
