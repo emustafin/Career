@@ -246,18 +246,18 @@
 
           <div class="footer__item">
             <p class="footer__item-title">Направления</p>
-            <a target="blank" href="/" class="footem__item-directions-link">IT и продукты</a>
-            <a target="blank" href="https://job.mvideoeldorado.ru/shops" class="footem__item-directions-link"
-              >Розничные магазины</a
-            >
-            <a target="blank" href="https://jobinme.mvideoeldorado.ru/office" class="footem__item-directions-link"
-              >Центральный офиc</a
-            >
-            <a target="blank" href="https://jobinme.mvideoeldorado.ru/logistics" class="footem__item-directions-link"
-              >Сервис и логистика</a
-            >
-            <a target="blank" href="https://job.mvideoeldorado.ru/students" class="footem__item-directions-link">Студентам</a>
 
+            <?php
+            $menu_name = 'footer';
+            $locations = get_nav_menu_locations();
+            $menu_items = wp_get_nav_menu_items( $locations[ $menu_name ] );
+            if( $menu_items ):
+              foreach ($menu_items as $item) :?>
+
+              <a target="blank" href="<?php echo $item->url;?>" class="footem__item-directions-link"><?php echo $item->title;?></a>
+
+            <?php endforeach; endif; ?>
+            
             <div class="footer__info-text">
               Made by
               <a
