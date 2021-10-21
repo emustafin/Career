@@ -6,14 +6,16 @@
             <img 
             src="<?php echo THEME_URL; ?>/assets/images/create-future/spiral_anim.svg"
             class="spiral__img"
-            alt="">
+            alt="spiral"
+            width="1000"
+            height="1000"
+            >
         </div>
     </div>
     <div class="create-future__container">
     <div class="create-future__title-wrapper">
         <h2 class="create-future__title">
-        Создавай <br />
-        будущее
+            Создавай будущее
         </h2>
 
         <div class="text-animate create-future__typing-title">

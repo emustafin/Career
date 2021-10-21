@@ -54,17 +54,19 @@
 .listing-top__where {
   padding-right: 55px;
 
-  &::after {
-    content: '';
+  & > svg {
     position: absolute;
     right: 0;
     top: calc(50% - 14px);
     height: 36px;
     width: 38px;
-    background: url('../images/listing/listing-top/arrow-big-bottom.svg')
-      no-repeat;
+    pointer-events: none;
 
-    display: none;
+    // display: none;
+  }
+
+  & > span {
+    pointer-events: none;
   }
 }
 
@@ -253,6 +255,7 @@
   padding-top: 8px;
   border-top: 1px solid $blackColorOpacity-05;
   display: flex;
+  cursor: pointer;
   transition: 0.3s;
 
   &:last-child {
@@ -301,6 +304,7 @@
   width: 100%;
   max-width: 608px;
   margin-right: 16px;
+  pointer-events: none;
 }
 
 .position__job-title {
@@ -344,6 +348,7 @@
   width: 100%;
   max-width: 304px;
   margin-right: 16px;
+  pointer-events: none;
 }
 
 .position__payment-container {
@@ -352,6 +357,7 @@
   margin-right: 16px;
   display: flex;
   flex-direction: column;
+  pointer-events: none;
 }
 
 .position__job-expiriens {
@@ -361,6 +367,7 @@
 .position__location-container {
   width: 100%;
   max-width: 304px;
+  pointer-events: none;
 }
 
 .position__location-city-metro,

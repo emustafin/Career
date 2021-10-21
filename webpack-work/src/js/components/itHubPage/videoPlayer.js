@@ -59,11 +59,29 @@ export class VideoPlayer {
       slide.classList.contains('find__video-slide-active')
     );
     const prevewImage = activeSlide.dataset.image;
-    const prevewText = activeSlide.dataset.prevew;
+    const prevewText = activeSlide.dataset.prevew.toLowerCase();
+    let prevewTitle = '';
+
+    for (let i = 0; i < prevewText.length; i++) {
+      if (
+        prevewText[i - 2] === ':' ||
+        prevewText[i - 2] === '!' ||
+        prevewText[i - 2] === '.'
+      ) {
+        prevewTitle += prevewText[i].toUpperCase();
+      } else {
+        prevewTitle += prevewText[i];
+      }
+    }
+
+    const currentTitle = prevewTitle.replaceAll(
+      'м.вИдео-эльдорадо',
+      'М.Видео-Эльдорадо'
+    );
 
     this.prevewImage.style.width = document.documentElement.clientWidth + 'px';
     this.prevewImage.src = prevewImage;
-    this.prevewText.textContent = prevewText;
+    this.prevewText.textContent = currentTitle;
   }
 
   resizePrevewImage() {

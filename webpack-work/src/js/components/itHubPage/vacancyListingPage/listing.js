@@ -96,7 +96,7 @@ export class Listing {
         if (event.target === item) {
           this.vacancyValue = item.nextElementSibling.textContent;
           this.vacancyCounter.textContent = this.vacancyValue;
-          this.currentDirection.textContent = item.innerText;
+          this.currentDirection.firstElementChild.innerText = item.innerText;
           this.closeDropdown();
         }
       });

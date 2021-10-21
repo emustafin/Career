@@ -16,7 +16,7 @@ if( is_array( $vaccat_terms ) ){
         <div class="profession__bread-crumbs">
             <a href="#" class="profession__crumb">
                 IT-департамент
-                <!-- <svg
+                <svg
                         width="12"
                         height="8"
                         viewBox="0 0 12 8"
@@ -27,7 +27,7 @@ if( is_array( $vaccat_terms ) ){
                           d="M9.4136 3.55008L7.1818 1.31828L7.8182 0.681885L11.1364 4.00008L7.8182 7.31828L7.1818 6.68189L9.4136 4.45008H0.75V3.55008H9.4136Z"
                           fill="rgba(0, 0, 0, 0.5)"
                         />
-                    </svg> -->
+                    </svg>
 
             </a>
             <a href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__crumb">
