@@ -107,6 +107,7 @@
           data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder1.png"
           src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
           alt="Preview"
+          title="Включай будущее"
           width="2000"
           height="1125"
         />
@@ -142,6 +143,7 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image1.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="slide-image"
+                title="Включай будущее"
                 width="200"
                 height="113"
               />
@@ -160,6 +162,7 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image2.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="slide-image"
+                title="Включай будущее"
                 width="200"
                 height="113"
               />
@@ -178,6 +181,7 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image3.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="slide-image"
+                title="Включай будущее"
                 width="200"
                 height="113"
               />
@@ -195,6 +199,7 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image4.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="slide-image"
+                title="Включай будущее"
                 width="200"
                 height="113"
               />
@@ -212,6 +217,7 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image5.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="slide-image"
+                title="Включай будущее"
                 width="200"
                 height="113"
               />
@@ -230,6 +236,7 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image6.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="slide-image"
+                title="Включай будущее"
                 width="200"
                 height="113"
               />
@@ -277,6 +284,7 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder1.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="Image"
+                title="Включай будущее"
                 width="500"
                 height="280"
               />
@@ -338,6 +346,7 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder2.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="Image"
+                title="Включай будущее"
                 width="500"
                 height="280"
               />
@@ -399,6 +408,7 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder3.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="Image"
+                title="Включай будущее"
                 width="500"
                 height="280"
               />
@@ -460,6 +470,7 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder4.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="Image"
+                title="Включай будущее"
                 width="500"
                 height="280"
               />
@@ -521,6 +532,7 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder5.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="Image"
+                title="Включай будущее"
                 width="500"
                 height="280"
               />
@@ -582,6 +594,7 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/video-placeholders/placeholder6.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="Image"
+                title="Включай будущее"
                 width="500"
                 height="280"
               />
@@ -643,6 +656,7 @@
                 data-src="<?php echo THEME_URL; ?>/assets/images/find-vacancies/slider/image3.png"
                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 alt="Image"
+                title="Включай будущее"
                 width="500"
                 height="280"
               />

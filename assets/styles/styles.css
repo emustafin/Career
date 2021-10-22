@@ -5580,7 +5580,7 @@
   .profession__job-item:first-child {
     border-top: 1px solid transparent; }
   .profession__job-item:last-child {
-    padding-bottom: 0; }
+    margin-bottom: 0; }
   .profession__job-item:hover .profession__job-title {
     color: #e31235; }
   .profession__job-item:hover {

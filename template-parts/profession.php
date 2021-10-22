@@ -120,7 +120,7 @@
                 -->
 
                 <div class="profession__side-bar-image-wrapper loading">
-                    <img id="profession__img" class="profession__side-bar-image" data-src="<?php echo get_field( 'vaccat_img', $first_vaccat ); ?>" alt="management" src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png" width="1000" height="563"/>
+                    <img id="profession__img" class="profession__side-bar-image" data-src="<?php echo get_field( 'vaccat_img', $first_vaccat ); ?>" alt="management" title="Профессии" src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png" width="1000" height="563"/>
                 </div>
             </div>
 

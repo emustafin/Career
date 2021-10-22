@@ -58,6 +58,7 @@ $reviews = new WP_Query( $args );
                                         data-src="<?php echo $thumbnail_url; ?>"
                                         src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                         alt="Photo"
+                                        title="Наши истории успеха"
                                         width="100"
                                         height="100"
                                         />
@@ -92,6 +93,7 @@ $reviews = new WP_Query( $args );
                                         data-src="<?php echo $thumbnail_url; ?>"
                                         src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                         alt="Photo"
+                                        title="Наши истории успеха"
                                         width="100"
                                         height="100"
                                         />
@@ -195,6 +197,7 @@ $reviews = new WP_Query( $args );
                                         data-src="<?php echo $thumbnail_url; ?>"
                                         src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                         alt="Image"
+                                        title="Наши истории успеха"
                                         width="100"
                                         height="100"
                                         />
@@ -222,6 +225,7 @@ $reviews = new WP_Query( $args );
                                     data-src="<?php echo $thumbnail_url; ?>"
                                     src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                     alt="Image"
+                                    title="Наши истории успеха"
                                     width="100"
                                     height="100"
                                     />

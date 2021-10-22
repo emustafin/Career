@@ -7,6 +7,7 @@
             src="<?php echo THEME_URL; ?>/assets/images/create-future/spiral_anim.svg"
             class="spiral__img"
             alt="spiral"
+            title="Создавай будущее"
             width="1000"
             height="1000"
             >
