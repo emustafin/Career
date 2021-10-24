@@ -46,6 +46,11 @@ final class Core {
 		new CPT\Reviews();
 		new CPT\Product_directions();
 		new Menu\Menu();
+
+		new API\WPcf7_Mail();
+		new API\Skillaz_Vacancies_Find();
+		new API\Skillaz_Org_Structure();
+
 	}
 
 	/**
