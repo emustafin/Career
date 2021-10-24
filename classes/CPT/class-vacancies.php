@@ -80,7 +80,7 @@ class Vacancies {
 			'publicly_queryable'    => true,
 			'show_in_admin_bar'     => true,
 			'can_export'            => true,
-            'taxonomies'            => array( 'vaccat', 'town', 'level' ),
+            'taxonomies'            => array( 'relationship', 'vaccat', 'town', 'level' ),
 			'has_archive'           => true,
 			'show_in_rest'          => true,
 		);
@@ -93,6 +93,34 @@ class Vacancies {
      * Register taxonomies.
     */
     public function create_taxonomies() {
+
+        register_taxonomy( 'relationship', ['vacancies'], array(
+            'label'                 => '',
+            'labels'                => array(
+                'name'              => 'Отношение',
+                'singular_name'     => 'Отношение',
+                'search_items'      => 'Поиск Отношения',
+                'all_items'         => 'Все Отношения',
+                'view_item '        => 'Просмотр Отношения',
+                'parent_item'       => 'Родительскоя Отношение',
+                'parent_item_colon' => 'Родительскоя Отношение:',
+                'edit_item'         => 'Изменить Отношение',
+                'update_item'       => 'Обновить Отношение',
+                'add_new_item'      => 'Добавить новое Отношение',
+                'new_item_name'     => 'Название нового Отношения',
+                'menu_name'         => 'Отношение',
+            ),
+            'description'           => '',
+            'public'                => true,
+            'hierarchical'          => true,
+            'rewrite'               => false,
+            'query_var'             => 'relationship',
+            'capabilities'          => array(),
+            'meta_box_cb'           => 'post_categories_meta_box', 
+            'show_admin_column'     => true, 
+            'show_in_rest'          => true,
+            'rest_base'             => null,
+        ) );
 
         register_taxonomy( 'vaccat', ['vacancies'], array(
             'label'                 => '',
