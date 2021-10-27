@@ -4359,24 +4359,25 @@
   border-top: 1px solid rgba(0, 0, 0, 0.5);
   display: flex;
   cursor: pointer;
-  transition: 0.3s; }
+  transition: 0.3s;
+  overflow: hidden; }
   .position__card-item:last-child {
     margin-bottom: 0; }
 
 .position__info-link {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
   padding: 10px 32px 10px 16px;
+  width: 185px;
   background: #ffffff;
   color: #000000;
   border-radius: 36px;
   font-size: 12px;
   line-height: 12px;
   z-index: 1;
-  transition: 0.3s;
-  opacity: 0; }
+  opacity: 0;
+  pointer-events: none; }
 
 .position__card-item:hover {
   border-top: 1px solid #e31235; }
@@ -5570,14 +5571,16 @@
   font-size: 18px;
   line-height: 24px;
   border-top: 1px solid #969696;
-  padding-bottom: 32px;
+  margin-bottom: 32px;
   padding-top: 8px;
   transition: 0.2s;
-  cursor: pointer; }
+  cursor: pointer;
+  position: relative;
+  overflow: hidden; }
   .profession__job-item:first-child {
     border-top: 1px solid transparent; }
   .profession__job-item:last-child {
-    padding-bottom: 0; }
+    margin-bottom: 0; }
   .profession__job-item:hover .profession__job-title {
     color: #e31235; }
   .profession__job-item:hover {
@@ -5630,16 +5633,17 @@
 
 .profession__more-info {
   position: absolute;
-  right: -100%;
-  bottom: -16px;
-  width: 195px;
+  top: 0;
+  left: 0;
+  width: 185px;
   color: #000000;
   font-size: 12px;
   line-height: 12px;
   border-radius: 36px;
   background: #ffffff;
   padding: 10px 36px 10px 16px;
-  transition: 0.2s;
+  z-index: 1;
+  pointer-events: none;
   opacity: 0; }
   .profession__more-info > svg {
     position: absolute;
@@ -5723,7 +5727,7 @@
   .profession__filter-item {
     max-width: 224px; }
   .profession__job-item {
-    padding-bottom: 24px; }
+    margin-bottom: 24px; }
   .profession__side-bar-text,
   .profession__side-bar-vacancy {
     margin-bottom: 24px; }

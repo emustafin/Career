@@ -473,17 +473,19 @@
   font-size: 18px;
   line-height: 24px;
   border-top: 1px solid #969696;
-  padding-bottom: 32px;
+  margin-bottom: 32px;
   padding-top: 8px;
   transition: 0.2s;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 
   &:first-child {
     border-top: 1px solid transparent;
   }
 
   &:last-child {
-    padding-bottom: 0;
+    margin-bottom: 0;
   }
 
   &:hover .profession__job-title {
@@ -554,16 +556,20 @@
 
 .profession__more-info {
   position: absolute;
-  right: -100%;
-  bottom: -16px;
-  width: 195px;
+  // right: -100%;
+  // bottom: -16px;
+  top: 0;
+  left: 0;
+  width: 185px;
   color: $mainColor;
   font-size: 12px;
   line-height: 12px;
   border-radius: 36px;
   background: $whiteColor;
   padding: 10px 36px 10px 16px;
-  transition: 0.2s;
+  // transition: 0.2s;
+  z-index: 1;
+  pointer-events: none;
   opacity: 0;
 
   & > svg {
@@ -670,7 +676,7 @@
   }
 
   .profession__job-item {
-    padding-bottom: 24px;
+    margin-bottom: 24px;
   }
 
   .profession__side-bar-text,

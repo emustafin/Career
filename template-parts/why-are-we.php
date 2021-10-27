@@ -80,6 +80,7 @@ $slides = get_sub_field('slides');
                                 data-src="<?php echo $slides[$i]['img']; ?>"
                                 src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                                 alt="Img Slide"
+                                title="Наши преимущества"
                                 width="1000"
                                 height="563"
                             />
