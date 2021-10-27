@@ -592,6 +592,7 @@ endif; ?>
                             data-src="<?php echo $thumbnail_url; ?>"
                             src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                             alt="News"
+                            title="Новости"
                             width="500"
                             height="280"
                         />
@@ -689,6 +690,7 @@ endif; ?>
                             data-src="<?php echo $thumbnail_url; ?>"
                             src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                             alt="News"
+                            title="Новости"
                             width="500"
                             height="280"
                         />

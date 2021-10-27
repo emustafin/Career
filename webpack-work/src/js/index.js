@@ -23,13 +23,15 @@ import { ListingFilters } from './components/itHubPage/vacancyListingPage/listin
 import { Intern } from './components/itHubPage/intern';
 import { Direction } from './components/itHubPage/direction';
 import { FooterPage } from './components/itHubPage/footer';
+import { ListingVacansiesContainer } from './components/itHubPage/vacancyListingPage/listingVacansiesPopup';
+import { ItVacanciesContainer } from './components/itHubPage/vacancyContainer';
 
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
 require.context('../fonts', true, /\.(ttf|woff|woff2)$/);
 
 // Глобальные переменные
-const profession = document.querySelector('.profession');
+export const profession = document.querySelector('.profession');
 const ourAdvantages = document.querySelector('.why-are-we');
 const listingPage = document.querySelector('.listing');
 const upgradeSection = document.querySelector('.upgrade');
@@ -61,6 +63,12 @@ const intern = document.querySelector('.intern');
 const direction = document.querySelector('.direction');
 const footerPage = document.querySelector('.footer');
 const flyoutVacancy = document.querySelector('.vacancy');
+const listingVacansiesContainer = document.querySelector(
+  '.position__card-wrapper'
+);
+const itPageVacancyContainer = document.querySelector(
+  '.profession__job-wrapper'
+);
 
 // const tabContainer = document.querySelector('.tab-content');
 
@@ -82,6 +90,8 @@ new ListingFilters(listingPageFilters);
 new Intern(intern);
 const itPageDirection = new Direction(direction);
 new FooterPage(footerPage);
+new ListingVacansiesContainer(listingVacansiesContainer);
+new ItVacanciesContainer(itPageVacancyContainer);
 
 // new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
 
@@ -225,4 +235,7 @@ const checkImages = function () {
 // window.onscroll = checkImages;
 window.addEventListener('scroll', checkImages);
 window.addEventListener('DOMContentLoaded', checkImages);
-flyoutVacancy.addEventListener('scroll', checkImages);
+
+if (flyoutVacancy) {
+  flyoutVacancy.addEventListener('scroll', checkImages);
+}
