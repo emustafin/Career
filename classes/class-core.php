@@ -49,7 +49,8 @@ final class Core {
 
 		new API\WPcf7_Mail();
 		new API\Skillaz_Vacancies_Find();
-		new API\Skillaz_Org_Structure();
+		// new API\Skillaz_Org_Structure();
+		new API\Skillaz_Candidates();
 
 	}
 
