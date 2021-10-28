@@ -8,6 +8,7 @@ export class ListingVacansiesContainer {
 
     this.vacancyInstance = new Vacancy(this.el);
     this.flyout = this.vacancyInstance.flyout;
+    
     this.vacancyItems = [];
 
     this.el.addEventListener('click', this.openFlyout.bind(this));

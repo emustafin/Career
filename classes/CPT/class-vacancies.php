@@ -25,6 +25,9 @@ class Vacancies {
 
         add_action( 'wp_ajax_archive_get_profession__menu_items', [$this, 'archive_get_profession__menu_items'] );
 		add_action( 'wp_ajax_nopriv_archive_get_profession__menu_items', [$this, 'archive_get_profession__menu_items'] );
+
+        add_action( 'wp_ajax_get_vacancy_data', [$this, 'get_vacancy_data'] );
+		add_action( 'wp_ajax_nopriv_get_vacancy_data', [$this, 'get_vacancy_data'] );
 	}
 
     /**
@@ -271,41 +274,51 @@ class Vacancies {
 
                 $html .= "
                 <script>
-                    $('.profession__title').attr('originhref',window.location.href);
-                    $('.profession__job-title').on( 'click', function(e){
-                        
-                        var vacancy_info = $(this).attr('data-info');
-                        vacancy_info = jQuery.parseJSON( vacancy_info );
-                        console.log(vacancy_info.url);
-                        
+                    $('.profession__title').attr('originhref', window.location.href);
+                    $('.profession__job-item').on('click', function (e) {
+                    
+                        $('#vacancy_popup .loader-wrapp').css( 'display','block' );
                         var origin_location = window.location.href;
                         
-                        $('.flyout .vacancy__headline-title').attr( 'origin_url', origin_location );
-                        $('.flyout .vacancy__headline-title').html( vacancy_info.title );
-                        $('.flyout .vacancy__video-container img').attr( 'src', vacancy_info.img );
-                        $('.flyout .vacancy__intro-description').html( vacancy_info.content );
-                        $('.flyout #vacancy_project').html( vacancy_info.vacancy_project );
-                        $('.flyout #expectations').html( vacancy_info.expectations );
-                        $('.flyout .vacancy__office-map-image').attr( 'src', vacancy_info.img_map );
-                        $('.flyout .vacancy__office-adress-text').html( vacancy_info.map_full_adress );
-                        $('.flyout .vacancy__meta-info-sum').html( vacancy_info.money_from );
-                        $('.flyout .vacancy__meta-info-sum-after').html( vacancy_info.gross );
-                        $('.flyout #vaccat_info_vacancy').html( vacancy_info.vaccat );
-                        $('.flyout #town_info_vacancy').html( vacancy_info.town );
-                        $('.flyout #experience_important').html( vacancy_info.experience );
+                        post_id = $(this).attr('data-vacancy_id');
                         
-                        window.history.pushState( '', '', vacancy_info.url );
-                    })
-                    
-                    $('.vacancy__header-head-link-main').on( 'click', function(e){
-                        var origin_location = $('.profession__title').attr('originhref');
-                        window.history.pushState( '', '', origin_location );
-                    })
-                    
-                    $('.flyout__side-bar').on( 'click', function(e){
-                        var origin_location = $('.profession__title').attr('originhref');
-                        window.history.pushState( '', '', origin_location );
-                    })
+                        var data = {
+                            action: 'get_vacancy_data',
+                            post_id : post_id
+                        };
+                        
+                        $.ajax({
+                            type: 'POST',
+                            url: ajax.url,
+                            data: data,
+                            dataType: 'json',
+                            cache: 'false',
+                            success: function (response) {
+                                if( true == response.success ){
+                        
+                                    $('.flyout .vacancy__headline-title').attr('origin_url', origin_location);
+                                    $('.flyout .vacancy__headline-title').html(response.title);
+                                    $('.flyout .vacancy__video-container img').attr('src', response.img);
+                                    $('.flyout .vacancy__intro-description').html(response.content);
+                                    $('.flyout #vacancy_project').html(response.vacancy_project);
+                                    $('.flyout #expectations').html(response.expectations);
+                                    $('.flyout #can_work_remotely').html(response.can_work_remotely);
+                                    $('.flyout .vacancy__office-map-image').attr('src', response.img_map);
+                                    $('.flyout .vacancy__office-adress-text').html(response.map_full_adress);
+                                    $('.flyout .vacancy__meta-info-sum').html(response.money_from);
+                                    $('.flyout .vacancy__meta-info-sum-after').html(response.gross);
+                                    $('.flyout #vaccat_info_vacancy').html(response.vaccat);
+                                    $('.flyout #town_info_vacancy').html(response.town);
+                                    $('.flyout #experience_important').html(response.experience);
+                        
+                                    $('#vacancy_popup .loader-wrapp').css( 'display','none' );
+                                
+                                    window.history.pushState('', '', response.url);
+                        
+                                }
+                            },
+                        });
+                    });
                 </script>
                 ";
             } else{
@@ -458,5 +471,124 @@ class Vacancies {
                 wp_send_json($return);
             }
         }
+    }
+
+    public function get_vacancy_data(){
+
+        $html = '';
+        if( !empty( $_POST ) ){
+
+            $vacancy_item_id = $_POST['post_id'];
+
+            if( get_field( 'not_gross', $vacancy_item_id) ):
+                $gross = '';
+            else:
+                $gross = '<span> - Гросс</span>';
+            endif;
+
+            $title                     = get_the_title( $vacancy_item_id );
+            $content                   = get_the_content( '','',$vacancy_item_id );
+            $can_work_remotely         = '';
+            $img                       = get_the_post_thumbnail_url( $vacancy_item_id, 'full' );
+            $money_from                = number_format( get_field( 'money_from', $vacancy_item_id ), 0, ',', ' ');
+            $gross                     = $gross;
+            // $vacancy_project           = get_field( 'vacancy_project', $vacancy_item_id );
+            $img_map                   = get_field( 'img_map', $vacancy_item_id );
+            $map_full_adress           = get_field( 'map_full_adress', $vacancy_item_id );
+            $url                       = get_post_permalink( $vacancy_item_id );
+
+            $expectations = '';
+            if( have_rows('vacancy_repeater', $vacancy_item_id) ):
+
+                while( have_rows('vacancy_repeater', $vacancy_item_id) ) : the_row();
+
+                    $expectations .= '<div class="vacancy__description-block">
+                        <div class="vacancy__description-title">
+                        <p class="vacancy__description-title-text">'.get_sub_field('item_title').'</p>
+                        </div>
+                        <div class="vacancy__description-list">
+                        '.get_sub_field('item_contect').'
+                        </div>
+                    </div>';
+                endwhile;
+            endif;
+
+            $k = 1;
+            $vaccat_names = '';
+            $vaccat_terms = get_the_terms( $vacancy_item_id, 'vaccat' );
+            if( is_array( $vaccat_terms ) ){
+                foreach( $vaccat_terms as $vaccat_term ){
+                    $vaccat_names .= $vaccat_term->name;
+                    
+                    if( $k != count( $vaccat_terms ) ){
+                        $vaccat_names .= ', ';
+                    }
+                    $k++;
+                }
+            }
+
+            $k = 1;
+            $town_names = '';
+            $town_terms = get_the_terms( $vacancy_item_id, 'town' );
+            if( is_array( $town_terms ) ){
+                foreach( $town_terms as $town_term ){
+                    $town_names .= $town_term->name;
+                    
+                    if( $k != count( $town_terms ) ){
+                        $town_names .= ', ';
+                    }
+                    $k++;
+                }
+            }
+
+            if( get_field( 'can_without_experience', $vacancy_item_id ) ){
+                $can_without_experience = get_field( 'can_without_experience', $vacancy_item_id )['label'];
+            } else{
+                $can_without_experience = get_field( 'can_without_experience', $vacancy_item_id )['label'];
+            }
+
+            if( get_field( 'can_work_remotely', $vacancy_item_id ) ){
+                $can_work_remotely = '
+                <!-- Vacancy Remote-block -->
+                <div class="vacancy__remote">
+                    <div class="vacancy__remote-title-wrapper">
+                        <h2 class="vacancy__remote-title">Работай откуда угодно</h2>
+                        <p class="vacancy__remote-info">
+                        На этой позиции можно работать удалённо и не ходить в офис.
+                        Нужно иметь разрешение на работу в России.
+                        </p>
+                    </div>
+                    <div class="vacancy__remote-image-container">
+                        <img
+                        class="vacancy__remote-image"
+                        src="'.THEME_URL.'/assets/images/flyout/flyout-remote/palm.svg"
+                        alt="Picture"
+                        />
+                    </div>
+                </div>
+                <!-- //Vacancy Remote-block -->
+                ';
+            }
+            
+            $return = array(
+                'success'           => true,
+                'title'             => $title,
+                'img'               => $img,
+                'content'           => $content,
+                'expectations'      => $expectations,
+                'can_work_remotely' => $can_work_remotely,
+                'img_map'           => $img_map,
+                'map_full_adress'   => $map_full_adress,
+                'money_from'        => $money_from,
+                'gross'             => $gross,
+                'vaccat'            => $vaccat_names,
+                'town'              => $town_names,
+                'experience'        => $can_without_experience,
+                'url'               => $url,
+            );
+    
+            wp_send_json($return);
+        }
+
     }
 }
