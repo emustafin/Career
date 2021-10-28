@@ -26,6 +26,16 @@ import { FooterPage } from './components/itHubPage/footer';
 import { ListingVacansiesContainer } from './components/itHubPage/vacancyListingPage/listingVacansiesPopup';
 import { ItVacanciesContainer } from './components/itHubPage/vacancyContainer';
 
+// Импорт классов страницы Розницы
+import { CreateRetailFutureComponent } from './components/retail/createRetailFuture';
+import { RetailMission } from './components/retail/retailMissionBlock';
+import { RetailBrands } from './components/retail/retailBrandsBlock';
+import { RetailPosition } from './components/retail/retailPositionBlock';
+import { RetailQuote } from './components/retail/retailQuote';
+import { RetailInternship } from './components/retail/retailInternship';
+import { RetailAdvantages } from './components/retail/retailAdvantages';
+import { RetailFooter } from './components/retail/retailFooter';
+
 // Перенос изображений
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
 require.context('../fonts', true, /\.(ttf|woff|woff2)$/);
@@ -70,7 +80,18 @@ const itPageVacancyContainer = document.querySelector(
   '.profession__job-wrapper'
 );
 
-// const tabContainer = document.querySelector('.tab-content');
+// Страница 404
+const page404 = document.querySelector('.page-404');
+
+// Страница Розницы
+const createFutureBlock = document.querySelector('.retail__preview');
+export const retailMissionBlock = document.querySelector('.retail__mission');
+export const retailBrands = document.querySelector('.brands');
+export const retailPosition = document.querySelector('.retail__position');
+export const retailQuote = document.querySelector('.retail__quote-container');
+export const retailIntern = document.querySelector('.retail__internship');
+export const retailAdvantages = document.querySelector('.retail__advantages');
+export const retailFooter = document.querySelector('.retail__footer');
 
 new Vacancy(profession);
 new Advantages(ourAdvantages);
@@ -93,19 +114,15 @@ new FooterPage(footerPage);
 new ListingVacansiesContainer(listingVacansiesContainer);
 new ItVacanciesContainer(itPageVacancyContainer);
 
-// new Tab(tabContainer, 'direction__direction-item-active', document.getElementById('tab-list__select'));
-
-// const selectGreen = document.querySelector('.custom-select');
-// const selectSecond = document.getElementById('custom-select-first');
-
-// new Select(selectGreen);
-// new Select(selectSecond);
-
-// const togls = document.getElementById('svg-toggle-activate');
-// const triger = document.getElementById('my-sticky-element');
-
-// new SvgToggleAnimate(triger, togls);
-// new ScrollTo('.create-future__button', '.goal', false);
+// Инициализация классов страницы Розницы
+new CreateRetailFutureComponent(createFutureBlock);
+new RetailMission(retailMissionBlock);
+new RetailBrands(retailBrands);
+new RetailPosition(retailPosition);
+new RetailQuote(retailQuote);
+new RetailInternship(retailIntern);
+new RetailAdvantages(retailAdvantages);
+new RetailFooter(retailFooter);
 
 // Слушатели событий, установленные на Body
 document.body.addEventListener('click', (event) => {
