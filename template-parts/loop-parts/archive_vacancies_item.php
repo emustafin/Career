@@ -12,8 +12,7 @@ if( is_array( $vaccat_terms ) ){
     }
 }
 ?>
-<div class="position__card-item">
-    
+<div class="position__card-item" data-vacancy_id="<?php echo get_the_ID(); ?>">
     <a href="<?php echo get_the_permalink($vacancy_item_id); ?>" class="position__info-link">
         Посмотреть вакансию
         <svg class="position__link-arrow-black" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
