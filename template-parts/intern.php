@@ -156,7 +156,7 @@
               $thumbnail_url = get_the_post_thumbnail_url( $actually_news->posts[0]->ID, 'full' );
               if( false == $thumbnail_url ) $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
 
-              $url_from_habr0 = get_permalink( $actually_news->posts[0]->ID );
+              $url_from_habr0 = get_habr_url( $actually_news->posts[0]->ID );
               if( null != get_field( 'url_from_habr', $actually_news->posts[0]->ID ) ) 
                 $url_from_habr0 = get_field( 'url_from_habr', $actually_news->posts[0]->ID ); ?>
 
@@ -189,7 +189,7 @@
                   if( null != get_field( 'url_from_habr', $actually_news->posts[1]->ID ) ){
                     $url_from_habr1 = get_field( 'url_from_habr', $actually_news->posts[1]->ID );
                   } else{
-                    $url_from_habr1 = get_permalink( $actually_news->posts[1]->ID );
+                    $url_from_habr1 = get_habr_url( $actually_news->posts[1]->ID );
                   }
                   ?>
                   <a href="<?php echo $url_from_habr1; ?>" target="_blank" class="intern-no-events__news-card-second">
@@ -226,7 +226,7 @@
                   if( null != get_field( 'url_from_habr', $actually_news->posts[2]->ID ) ){
                     $url_from_habr2 = get_field( 'url_from_habr', $actually_news->posts[2]->ID );
                   } else{
-                    $url_from_habr2 = get_permalink( $actually_news->posts[2]->ID );
+                    $url_from_habr2 = get_habr_url( $actually_news->posts[2]->ID );
                   }
                   ?>
                   <a href="<?php echo $url_from_habr2; ?>" target="_blank" class="intern-no-events__news-card-main">
@@ -259,7 +259,7 @@
                   if( null != get_field( 'url_from_habr', $actually_news->posts[3]->ID ) ){
                     $url_from_habr3 = get_field( 'url_from_habr', $actually_news->posts[3]->ID );
                   } else{
-                    $url_from_habr3 = get_permalink( $actually_news->posts[3]->ID );
+                    $url_from_habr3 = get_habr_url( $actually_news->posts[3]->ID );
                   }
                   ?>
                   <a href="<?php echo $url_from_habr3; ?>" target="_blank" class="intern-no-events__news-card-second">

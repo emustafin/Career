@@ -101,5 +101,22 @@ function NotEmptyGetParam( $param ){
 // 	$result = curl_exec($ch);  
 // 	curl_close($ch);
 // 	// file_put_contents( 'xxx.txt', print_r( $result,true ), FILE_APPEND );
-
 // });
+function get_habr_url( $post_id ){
+
+	$finded_url = '';  
+	$pattern = '~[a-z]+://\S+~';
+	$content = get_the_content( '', '', $post_id );
+
+	if($num_found = preg_match_all($pattern, $content, $out)){
+		foreach ($out[0] as $surl) {
+
+			if( strpos( $surl, 'Читать') != false && strpos( $surl, 'ttps://habr.com') != false ){
+				$finded_url = str_replace( '">Читать', '', $surl );
+				break;
+			}
+		}
+	}
+
+	return $finded_url;  
+}

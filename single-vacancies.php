@@ -466,7 +466,7 @@ if( get_field( 'can_without_experience', $post_id ) ){
                 if( null != get_field( 'url_from_habr' ) ){
                     $url_from_habr = get_field( 'url_from_habr' );
                 } else{
-                    $url_from_habr = get_permalink();
+                    $url_from_habr = get_habr_url( $news_item_id );
                 }
                 ?>
 
@@ -564,7 +564,7 @@ if( get_field( 'can_without_experience', $post_id ) ){
                 if( null != get_field( 'url_from_habr' ) ){
                     $url_from_habr = get_field( 'url_from_habr' );
                 } else{
-                    $url_from_habr = get_permalink();
+                    $url_from_habr = get_habr_url( $news_item_id );
                 }
                 ?>
 
