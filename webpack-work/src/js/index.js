@@ -53,7 +53,7 @@ const runningLine = document.querySelector('.find__title');
 const vacancyDirectLinkSideBar = document.querySelector(
   '.direct-link__side-bar'
 );
-const vacancyDirectLinkMainContent = document.querySelector(
+export const vacancyDirectLinkMainContent = document.querySelector(
   '.direct-link__content'
 );
 const vacancyDirectLinkNews = document.querySelector(

@@ -67,11 +67,17 @@
 
 .direct-link__content-wrapper {
   display: flex;
+  justify-content: flex-end;
 }
 
 .direct-link__side-bar {
-  width: 33%;
+  width: 30%;
   padding-top: 16px;
+
+  position: fixed;
+  top: 112px;
+  left: 16px;
+  transition: 0.3s;
 }
 
 .direct-link__header-head-copy {
@@ -120,6 +126,8 @@
   border-radius: 36px;
   background: $whiteColor;
   position: relative;
+  transition: 0.3s;
+  opacity: 0;
 
   & > svg {
     position: absolute;
