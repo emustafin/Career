@@ -6,6 +6,7 @@ Template Name: Розница
 <?php get_header(); ?>
 
 <!-- Весь контент все что после header и перед footer -->
+
     <!-- Prevew section -->
     <section class="retail__preview">
       <h2 class="retail__preview-title">Создавай ритейл будущего!</h2>
@@ -60,7 +61,7 @@ Template Name: Розница
 
         <div class="retail__mvideo-image-block">
           <img
-            src="<?php echo THEME_URL; ?>/assets/images/retail/preview/mvideo-img.png"
+            src="./images/retail/preview/mvideo-img.png"
             alt="Mvideo"
             title="Mvideo"
           />
@@ -102,7 +103,7 @@ Template Name: Розница
 
         <div class="retail__eldorado-image-block">
           <img
-            src="<?php echo THEME_URL; ?>/assets/images/retail/preview/eldorado-img.png"
+            src="./images/retail/preview/eldorado-img.png"
             alt="Mvideo"
             title="Eldorado"
           />
@@ -456,7 +457,7 @@ Template Name: Розница
             <div class="goal__slide-buttons-mobile">
               <button class="why-are-we__slide-arrow" data-name="prev">
                 <img
-                  src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-left.svg"
+                  src="./images/advantages/small-arrow-left.svg"
                   alt="Arrow-right"
                 />
               </button>
@@ -467,7 +468,7 @@ Template Name: Розница
 
               <button class="why-are-we__slide-arrow" data-name="next">
                 <img
-                  src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-right.svg"
+                  src="./images/advantages/small-arrow-right.svg"
                   alt="Arrow-right"
                 />
               </button>
@@ -625,7 +626,7 @@ Template Name: Розница
             <div class="goal__slide-buttons-mobile">
               <button class="why-are-we__slide-arrow" data-name="prev">
                 <img
-                  src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-left.svg"
+                  src="./images/advantages/small-arrow-left.svg"
                   alt="Arrow-right"
                 />
               </button>
@@ -639,7 +640,7 @@ Template Name: Розница
 
               <button class="why-are-we__slide-arrow" data-name="next">
                 <img
-                  src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-right.svg"
+                  src="./images/advantages/small-arrow-right.svg"
                   alt="Arrow-right"
                 />
               </button>
@@ -796,36 +797,193 @@ Template Name: Розница
         <div class="brands__head-title">
           <div class="brands__navigation-container">
             <p class="brands__navigation-title">Выбери, что нравится тебе</p>
-            <button class="brands__navigation-button" data-name="mvideo">
-              М.Видео
-            </button>
             <button
               class="brands__navigation-button brands__navigation-button-active"
-              data-name="eldorado"
+              data-name="mvideo"
             >
+              М.Видео
+            </button>
+            <button class="brands__navigation-button" data-name="eldorado">
               Эльдорадо
             </button>
           </div>
 
-          <div class="brands__headline">
+          <div class="brands__headline mvideo">
+            <h2 class="brands__headline-title">М.Видео</h2>
+            <h2
+              class="brands__headline-title brands__headline-title-brand-mvideo"
+            >
+              Заряжай <br />на впечатления
+            </h2>
+          </div>
+
+          <div class="brands__headline eldorado hide">
             <h2 class="brands__headline-title">Эльдорадо</h2>
-            <h2 class="brands__headline-title brands__headline-title-brand">
+            <h2
+              class="
+                brands__headline-title brands__headline-title-brand-eldorado
+              "
+            >
               Заряжай <br />на результат
             </h2>
           </div>
         </div>
 
-        <div class="brands__head-image-container">
+        <div class="brands__head-image-container eldorado hide">
           <img
             class="brands__head-image"
-            src="<?php echo THEME_URL; ?>/assets/images/retail/brands/brand-eldorado.png"
+            src="./images/retail/brands/brand-eldorado.png"
             alt="brand"
-            title="Элдорадо"
+            title="Эльдорадо"
+          />
+        </div>
+        <div class="brands__head-image-container mvideo">
+          <img
+            class="brands__head-image"
+            src="./images/retail/brands/brands-mvideo.png"
+            alt="brand"
+            title="М.Видео"
           />
         </div>
       </div>
 
-      <div class="brands__content">
+      <div class="brands__content mvideo">
+        <div class="brands__content-side-bar">
+          <p class="brands__content-text">
+            Работа в магазинах М. Видео — это твоя возможность заряжать клиентов
+            на новые впечатления.
+          </p>
+          <p class="brands__content-text">
+            Стань экспертом технологий, работая с новейшей техникой и командой
+            профессионалов.
+          </p>
+
+          <div class="brands__content-statistic-wrapper">
+            <div class="brands__content-statistic-item">
+              <h2
+                class="
+                  brands__content-statistic-item-title
+                  brands__content-statistic-item-title-mvideo
+                "
+              >
+                562
+              </h2>
+              <p class="brands__content-statistic-item-text">
+                магазина по всей стране
+              </p>
+            </div>
+
+            <div class="brands__content-statistic-item">
+              <h2
+                class="
+                  brands__content-statistic-item-title
+                  brands__content-statistic-item-title-mvideo
+                "
+              >
+                86%
+              </h2>
+              <p class="brands__content-statistic-item-text">
+                менеджеров вырасли внутри компании
+              </p>
+            </div>
+
+            <div class="brands__content-statistic-item">
+              <h2
+                class="
+                  brands__content-statistic-item-title
+                  brands__content-statistic-item-title-mvideo
+                "
+              >
+                100%
+              </h2>
+              <p class="brands__content-statistic-item-text">
+                людей знают бренд М.Видео*
+              </p>
+            </div>
+          </div>
+          <p class="brands__content-research">
+            *по данным количественного маркетингового трекингового исследования,
+            проведённого ООО «Миллвард Браун АРМИ-Маркетинг», в период
+            с 13.01.2020 г. по 27.12.2020 г. среди 9599 респондентов,
+            проживающих в 260 городах России с численностью населения свыше
+            100 тысяч человек.
+          </p>
+        </div>
+
+        <div class="brands__content-slider-container">
+          <div class="brands__content-slider">
+            <div class="brands__content-slider-row">
+              <div class="brands__content-slider-item">
+                <div class="brands__content-slider-item-image-container">
+                  <img
+                    class="brands__content-slider-item-image"
+                    src="./images/retail/brands/brands__slider-img.png"
+                    alt="slide"
+                    title="slide-image"
+                  />
+                </div>
+
+                <p class="brands__content-slider-item-text">
+                  В наших магазинах продаётся только самая современная техника —
+                  сможешь прикоснуться к ней первым!
+                </p>
+              </div>
+
+              <div class="brands__content-slider-item">
+                <div class="brands__content-slider-item-image-container">
+                  <img
+                    class="brands__content-slider-item-image"
+                    src="./images/retail/brands/brands__slider-img.png"
+                    alt="slide"
+                    title="slide-image"
+                  />
+                </div>
+
+                <p class="brands__content-slider-item-text">
+                  В наших магазинах продаётся только самая современная техника —
+                  сможешь прикоснуться к ней первым!
+                </p>
+              </div>
+            </div>
+
+            <div class="brands__content-slider-button-container">
+              <button class="brands__content-slider-button-prev">
+                <svg
+                  width="88"
+                  height="10"
+                  viewBox="0 0 88 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4.64652 0.646484L0.646522 4.64648L0.292969 5.00004L0.646522 5.35359L4.64652 9.35359L5.35363 8.64648L2.20714 5.5H88V4.5H2.20722L5.35363 1.35359L4.64652 0.646484Z"
+                    fill="black"
+                  />
+                </svg>
+              </button>
+              <button class="brands__content-slider-button-next">
+                <svg
+                  width="88"
+                  height="10"
+                  viewBox="0 0 88 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M85.7929 5.50004H0V4.50004H85.7929L82.6464 1.35359L83.3536 0.646484L87.3536 4.64648L87.7071 5.00004L87.3536 5.35359L83.3536 9.35359L82.6464 8.64648L85.7929 5.50004Z"
+                    fill="black"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="brands__content eldorado hide">
         <div class="brands__content-side-bar">
           <p class="brands__content-text">
             Ставишь амбициозные цели для развития? Тогда драйв Эльдорадо у тебя
@@ -839,21 +997,42 @@ Template Name: Розница
 
           <div class="brands__content-statistic-wrapper">
             <div class="brands__content-statistic-item">
-              <h2 class="brands__content-statistic-item-title">612</h2>
+              <h2
+                class="
+                  brands__content-statistic-item-title
+                  brands__content-statistic-item-title-eldorado
+                "
+              >
+                612
+              </h2>
               <p class="brands__content-statistic-item-text">
                 магазинов по всей стране
               </p>
             </div>
 
             <div class="brands__content-statistic-item">
-              <h2 class="brands__content-statistic-item-title">81%</h2>
+              <h2
+                class="
+                  brands__content-statistic-item-title
+                  brands__content-statistic-item-title-eldorado
+                "
+              >
+                81%
+              </h2>
               <p class="brands__content-statistic-item-text">
                 менеджеров вырасли внутри компании
               </p>
             </div>
 
             <div class="brands__content-statistic-item">
-              <h2 class="brands__content-statistic-item-title">99%</h2>
+              <h2
+                class="
+                  brands__content-statistic-item-title
+                  brands__content-statistic-item-title-eldorado
+                "
+              >
+                99%
+              </h2>
               <p class="brands__content-statistic-item-text">
                 людей знают бренд Эльдорадо*
               </p>
@@ -875,7 +1054,23 @@ Template Name: Розница
                 <div class="brands__content-slider-item-image-container">
                   <img
                     class="brands__content-slider-item-image"
-                    src="<?php echo THEME_URL; ?>/assets/images/retail/brands/brands-gallery-eldorado.png"
+                    src="./images/retail/brands/brands-gallery-eldorado.png"
+                    alt="slide"
+                    title="slide-image"
+                  />
+                </div>
+
+                <p class="brands__content-slider-item-text">
+                  В наших магазинах продаётся только самая современная техника —
+                  сможешь прикоснуться к ней первым!
+                </p>
+              </div>
+
+              <div class="brands__content-slider-item">
+                <div class="brands__content-slider-item-image-container">
+                  <img
+                    class="brands__content-slider-item-image"
+                    src="./images/retail/brands/brands-gallery-eldorado.png"
                     alt="slide"
                     title="slide-image"
                   />
@@ -930,31 +1125,36 @@ Template Name: Розница
 
     <!-- Section positions -->
     <section class="retail__position">
-      <div class="retail__position-title-wrapper">
+      <div class="retail__position-title-wrapper mvideo">
         <h2 class="retail__position-title">Присоединяйся к</h2>
-        <h2 class="retail__position-title-brand">команде Эльдорадо</h2>
+        <h2 class="retail__position-title-brand-mvideo">команде М.Видео</h2>
       </div>
 
-      <div class="retail__position-content">
+      <div class="retail__position-title-wrapper eldorado hide">
+        <h2 class="retail__position-title">Присоединяйся к</h2>
+        <h2 class="retail__position-title-brand-eldorado">команде Эльдорадо</h2>
+      </div>
+
+      <div class="retail__position-content mvideo">
         <div class="retail__position-side-bar">
           <p class="retail__position-side-bar-title">Начать карьеру просто</p>
 
           <div class="retail__position-side-bar-item">
-            <h3 class="retail__position-side-bar-item-title">01</h3>
+            <h3 class="retail__position-side-bar-item-title-mvideo">01</h3>
             <p class="retail__position-side-bar-text">
               Выбери подходящую тебе вакансию
             </p>
           </div>
 
           <div class="retail__position-side-bar-item">
-            <h3 class="retail__position-side-bar-item-title">02</h3>
+            <h3 class="retail__position-side-bar-item-title-mvideo">02</h3>
             <p class="retail__position-side-bar-text">
               Найди на карте удобный для работы магазин
             </p>
           </div>
 
           <div class="retail__position-side-bar-item">
-            <h3 class="retail__position-side-bar-item-title">03</h3>
+            <h3 class="retail__position-side-bar-item-title-mvideo">03</h3>
             <p class="retail__position-side-bar-text">
               Заполни простую анкету и дождись нашего звонка!
             </p>
@@ -1015,6 +1215,22 @@ Template Name: Розница
                   </svg>
                 </a>
               </div>
+              <a href="#" class="retail__position-item-button">
+                больше о направлении
+
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                    fill="black"
+                  />
+                </svg>
+              </a>
             </div>
 
             <div class="retail__position-list-item">
@@ -1048,6 +1264,23 @@ Template Name: Розница
                   </svg>
                 </a>
               </div>
+
+              <a href="#" class="retail__position-item-button">
+                больше о направлении
+
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                    fill="black"
+                  />
+                </svg>
+              </a>
             </div>
 
             <div class="retail__position-list-item">
@@ -1081,6 +1314,22 @@ Template Name: Розница
                   </svg>
                 </a>
               </div>
+              <a href="#" class="retail__position-item-button">
+                больше о направлении
+
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                    fill="black"
+                  />
+                </svg>
+              </a>
             </div>
 
             <div class="retail__position-list-item">
@@ -1114,6 +1363,22 @@ Template Name: Розница
                   </svg>
                 </a>
               </div>
+              <a href="#" class="retail__position-item-button">
+                больше о направлении
+
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                    fill="black"
+                  />
+                </svg>
+              </a>
             </div>
 
             <div class="retail__position-list-item">
@@ -1147,6 +1412,319 @@ Template Name: Розница
                   </svg>
                 </a>
               </div>
+              <a href="#" class="retail__position-item-button">
+                больше о направлении
+
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                    fill="black"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="retail__position-content eldorado hide">
+        <div class="retail__position-side-bar">
+          <p class="retail__position-side-bar-title">Начать карьеру просто</p>
+
+          <div class="retail__position-side-bar-item">
+            <h3 class="retail__position-side-bar-item-title-eldorado">01</h3>
+            <p class="retail__position-side-bar-text">
+              Выбери подходящую тебе вакансию
+            </p>
+          </div>
+
+          <div class="retail__position-side-bar-item">
+            <h3 class="retail__position-side-bar-item-title-eldorado">02</h3>
+            <p class="retail__position-side-bar-text">
+              Найди на карте удобный для работы магазин
+            </p>
+          </div>
+
+          <div class="retail__position-side-bar-item">
+            <h3 class="retail__position-side-bar-item-title-eldorado">03</h3>
+            <p class="retail__position-side-bar-text">
+              Заполни простую анкету и дождись нашего звонка!
+            </p>
+          </div>
+        </div>
+
+        <div class="retail__position-content-bar">
+          <div class="retail__position-headline">
+            <p class="retail__position-headline-text">Наши вакансии</p>
+            <a href="#" class="retail__position-headline-link">
+              Все вакансии
+
+              <svg
+                class="retail__position-headline-link-arrow"
+                width="14"
+                height="10"
+                viewBox="0 0 14 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                  fill="black"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="retail__position-list">
+            <div class="retail__position-list-item">
+              <div class="retail__position-item-position">
+                <p class="retail__position-item-position-title">
+                  Старший кассир
+                </p>
+              </div>
+
+              <div class="retail__position-item-description">
+                <p class="retail__position-description-text">
+                  Главный человек в компании! Правая рука покупателя, может
+                  подобрать идеальный гаджет одной левой.
+                </p>
+
+                <a href="#" class="retail__position-description-link">
+                  <span class="retail__position-value">343</span>
+                  вакансии
+                  <svg
+                    class="retail__position-headline-link-arrow"
+                    width="14"
+                    height="10"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                      fill="black"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <a href="#" class="retail__position-item-button">
+                больше о направлении
+
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                    fill="black"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <div class="retail__position-list-item">
+              <div class="retail__position-item-position">
+                <p class="retail__position-item-position-title">
+                  Старший продавец
+                </p>
+              </div>
+
+              <div class="retail__position-item-description">
+                <p class="retail__position-description-text">
+                  Главный человек в компании! Правая рука покупателя, может
+                  подобрать идеальный гаджет одной левой.
+                </p>
+
+                <a href="#" class="retail__position-description-link">
+                  <span class="retail__position-value">343</span>
+                  вакансии
+                  <svg
+                    class="retail__position-headline-link-arrow"
+                    width="14"
+                    height="10"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                      fill="black"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <a href="#" class="retail__position-item-button">
+                больше о направлении
+
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                    fill="black"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <div class="retail__position-list-item">
+              <div class="retail__position-item-position">
+                <p class="retail__position-item-position-title">
+                  Продавец-консультант
+                </p>
+              </div>
+
+              <div class="retail__position-item-description">
+                <p class="retail__position-description-text">
+                  Главный человек в компании! Правая рука покупателя, может
+                  подобрать идеальный гаджет одной левой.
+                </p>
+
+                <a href="#" class="retail__position-description-link">
+                  <span class="retail__position-value">343</span>
+                  вакансии
+                  <svg
+                    class="retail__position-headline-link-arrow"
+                    width="14"
+                    height="10"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                      fill="black"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <a href="#" class="retail__position-item-button">
+                больше о направлении
+
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                    fill="black"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <div class="retail__position-list-item">
+              <div class="retail__position-item-position">
+                <p class="retail__position-item-position-title">
+                  Менеджер торговой секции
+                </p>
+              </div>
+
+              <div class="retail__position-item-description">
+                <p class="retail__position-description-text">
+                  Главный человек в компании! Правая рука покупателя, может
+                  подобрать идеальный гаджет одной левой.
+                </p>
+
+                <a href="#" class="retail__position-description-link">
+                  <span class="retail__position-value">343</span>
+                  вакансии
+                  <svg
+                    class="retail__position-headline-link-arrow"
+                    width="14"
+                    height="10"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                      fill="black"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <a href="#" class="retail__position-item-button">
+                больше о направлении
+
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                    fill="black"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <div class="retail__position-list-item">
+              <div class="retail__position-item-position">
+                <p class="retail__position-item-position-title">
+                  Специалист по клиентскому сервису
+                </p>
+              </div>
+
+              <div class="retail__position-item-description">
+                <p class="retail__position-description-text">
+                  Главный человек в компании! Правая рука покупателя, может
+                  подобрать идеальный гаджет одной левой.
+                </p>
+
+                <a href="#" class="retail__position-description-link">
+                  <span class="retail__position-value">343</span>
+                  вакансии
+                  <svg
+                    class="retail__position-headline-link-arrow"
+                    width="14"
+                    height="10"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                      fill="black"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <a href="#" class="retail__position-item-button">
+                больше о направлении
+
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                    fill="black"
+                  />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
@@ -1155,27 +1733,52 @@ Template Name: Розница
     <!-- //Section positions -->
 
     <!-- Section quote -->
-    <div class="retail__quote">
-      <img
-        class="retail__video-placeholder"
-        src="<?php echo THEME_URL; ?>/assets/images/retail/quote/quote__placeholder-eldorado.png"
-        alt="placeholder"
-        title="Видео"
-      />
+    <div class="retail__quote-container">
+      <div class="retail__quote mvideo">
+        <img
+          class="retail__video-placeholder"
+          src="./images/retail/quote/quote__placeholder-mvideo.png"
+          alt="placeholder"
+          title="Видео"
+        />
 
-      <div class="retail__quote-wrapper">
-        <p class="retail__quote-text">
-          «Эльдорадо» развивается очень быстро. Мне нравится, что мы внедряем
-          много новых проектов в максимально короткие сроки. Например, гибкие
-          графики и система электронного учёта рабочего времени, IVR — система
-          электронной оценки качества обслуживания.
-        </p>
+        <div class="retail__quote-wrapper">
+          <p class="retail__quote-text">
+            В «М.Видео» у каждого есть шанс развиваться и расти по карьерной
+            лестнице. Руководители всегда поддерживают это стремление
+            и направляют в нужное русло. Поэтому у нас сложился дружный и
+            энергичный коллектив.
+          </p>
 
-        <span class="retail__quote-author">Алексей Мерзляков</span
-        ><span>,</span>
-        <p class="retail__quote-author-post">Директор дивизиона «Север»</p>
+          <span class="retail__quote-author">Алексей Мерзляков</span
+          ><span>,</span>
+          <p class="retail__quote-author-post">Директор дивизиона «Север»</p>
+        </div>
+      </div>
+
+      <div class="retail__quote eldorado hide">
+        <img
+          class="retail__video-placeholder"
+          src="./images/retail/quote/quote__placeholder-eldorado.png"
+          alt="placeholder"
+          title="Видео"
+        />
+
+        <div class="retail__quote-wrapper">
+          <p class="retail__quote-text">
+            «Эльдорадо» развивается очень быстро. Мне нравится, что мы внедряем
+            много новых проектов в максимально короткие сроки. Например, гибкие
+            графики и система электронного учёта рабочего времени, IVR — система
+            электронной оценки качества обслуживания.
+          </p>
+
+          <span class="retail__quote-author">Алексей Мерзляков</span
+          ><span>,</span>
+          <p class="retail__quote-author-post">Директор дивизиона «Север»</p>
+        </div>
       </div>
     </div>
+
     <!-- //Section quote -->
 
     <!-- Section internship -->
@@ -1201,7 +1804,16 @@ Template Name: Розница
             </svg>
           </a>
         </div>
-        <div class="retail__internship-text-wrapper">
+        <div class="retail__internship-text-wrapper mvideo">
+          <p class="retail__internship-text">
+            Вместе с М.Видео ты можешь учиться и одновременно работать.
+            Будь лучшим и достигай большего, учись у настоящих профессионалов
+            своего дела и получи реальный опыт решения серьёзных задач
+            в компании.
+          </p>
+        </div>
+
+        <div class="retail__internship-text-wrapper eldorado hide">
           <p class="retail__internship-text">
             Вместе с Эльдорадо ты можешь учиться и одновременно работать. Будь
             лучшим и достигай большего, учись у настоящих профессионалов своего
@@ -1348,12 +1960,7 @@ Template Name: Розница
               </svg>
             </div>
 
-            <div
-              class="
-                retail__internship-shop-icon-eldorado
-                retail__internship-icon-active
-              "
-            >
+            <div class="retail__internship-shop-icon-eldorado">
               <svg
                 width="34"
                 height="35"
@@ -1368,7 +1975,12 @@ Template Name: Розница
               </svg>
             </div>
 
-            <div class="retail__internship-shop-icon-mvideo">
+            <div
+              class="
+                retail__internship-shop-icon-mvideo
+                retail__internship-icon-active
+              "
+            >
               <svg
                 class="retail__internship-shop-icon"
                 width="48"
@@ -1466,7 +2078,7 @@ Template Name: Розница
                   <div class="upgrade__slider-prev-image swiper-slide">
                     <img
                       class="upgrade__slider-prev-picture"
-                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
+                      src="./images/direction/director.png"
                       alt="Photo"
                     />
                   </div>
@@ -1474,14 +2086,14 @@ Template Name: Розница
                   <div class="upgrade__slider-prev-image swiper-slide">
                     <img
                       class="upgrade__slider-prev-picture"
-                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
+                      src="./images/direction/director.png"
                       alt="Photo"
                     />
                   </div>
                   <div class="upgrade__slider-prev-image swiper-slide">
                     <img
                       class="upgrade__slider-prev-picture"
-                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
+                      src="./images/direction/director.png"
                       alt="Photo"
                     />
                   </div>
@@ -1489,7 +2101,7 @@ Template Name: Розница
                   <div class="upgrade__slider-prev-image swiper-slide">
                     <img
                       class="upgrade__slider-prev-picture"
-                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
+                      src="./images/direction/director.png"
                       alt="Photo"
                     />
                   </div>
@@ -1505,7 +2117,7 @@ Template Name: Розница
                   <div class="upgrade__middle-image">
                     <img
                       class="upgrade__main-image"
-                      src="<?php echo THEME_URL; ?>/assets/images/upgrade/upgrade-image.png"
+                      src="./images/upgrade/upgrade-image.png"
                       alt="Photo"
                     />
                   </div>
@@ -1652,7 +2264,7 @@ Template Name: Розница
                   <div class="upgrade__middle-image">
                     <img
                       class="upgrade__main-image"
-                      src="<?php echo THEME_URL; ?>/assets/images/upgrade/upgrade-image.png"
+                      src="./images/upgrade/upgrade-image.png"
                       alt="Photo"
                     />
                   </div>
@@ -1799,7 +2411,7 @@ Template Name: Розница
                   <div class="upgrade__middle-image">
                     <img
                       class="upgrade__main-image"
-                      src="<?php echo THEME_URL; ?>/assets/images/upgrade/upgrade-image.png"
+                      src="./images/upgrade/upgrade-image.png"
                       alt="Photo"
                     />
                   </div>
@@ -1946,7 +2558,7 @@ Template Name: Розница
                   <div class="upgrade__middle-image">
                     <img
                       class="upgrade__main-image"
-                      src="<?php echo THEME_URL; ?>/assets/images/upgrade/upgrade-image.png"
+                      src="./images/upgrade/upgrade-image.png"
                       alt="Photo"
                     />
                   </div>
@@ -2097,7 +2709,7 @@ Template Name: Розница
                   <div class="upgrade__slider-next-item-image-block">
                     <img
                       class="upgrade__slider-next-item-image"
-                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
+                      src="./images/direction/director.png"
                       alt="Image"
                     />
                   </div>
@@ -2113,7 +2725,7 @@ Template Name: Розница
                   <div class="upgrade__slider-next-item-image-block">
                     <img
                       class="upgrade__slider-next-item-image"
-                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
+                      src="./images/direction/director.png"
                       alt="Image"
                     />
                   </div>
@@ -2129,7 +2741,7 @@ Template Name: Розница
                   <div class="upgrade__slider-next-item-image-block">
                     <img
                       class="upgrade__slider-next-item-image"
-                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
+                      src="./images/direction/director.png"
                       alt="Image"
                     />
                   </div>
@@ -2145,7 +2757,7 @@ Template Name: Розница
                   <div class="upgrade__slider-next-item-image-block">
                     <img
                       class="upgrade__slider-next-item-image"
-                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
+                      src="./images/direction/director.png"
                       alt="Image"
                     />
                   </div>
