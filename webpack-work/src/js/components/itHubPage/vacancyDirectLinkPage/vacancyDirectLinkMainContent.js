@@ -12,6 +12,9 @@ export class VacancyDirecLinkMainContent {
     this.contentResponseButton = this.el.querySelector(
       '.direct-link__headline-link'
     );
+    this.copyLinkButtonMobile = this.el.querySelector(
+      '.direct-link__header-head-copy-mobile'
+    );
     this.header = vacancyDirectLinkHeader || headerItPage;
 
     this.progressBar = this.el.querySelector('.vacancy__progress-bar');
