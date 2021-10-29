@@ -210,103 +210,7 @@ if( get_field( 'can_without_experience', $post_id ) ){
         </a>
         </div>
 
-        <!-- Vacancy Intro-block -->
-        <div class="vacancy__intro">
-        <div class="vacancy__video">
-            <div class="vacancy__video-container loading" data-name="muted">
-            <video
-                  class="vacancy__video-preview"
-                  muted
-                  data-src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4"
-                  src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
-                  autoplay
-                  loop
-                ></video>
-                <svg class="vacancy__progress-container" viewBox="0 0 280 280">
-                  <circle
-                    class="vacancy__progress-bar"
-                    stroke="#E31235"
-                    stroke-width="2"
-                    cx="140"
-                    cy="140"
-                    r="139"
-                    fill="transparent"
-                  ></circle>
-                </svg>
-
-                <div class="vacancy__video-sound">
-                  <svg
-                    class="vacancy__video-sound-muted"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5.67721 10.2L3.87721 12H1.49902V6H4.90794L10.499 0V5.37819L8.69902 7.17819V4.57196L5.69098 7.8H3.29902V10.2H5.67721Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M10.499 9.62083L8.69902 11.4208V13.428L7.73083 12.389L6.45724 13.6626L10.499 18V9.62083Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M15.8633 0.863525L0.863281 15.8635L2.13607 17.1363L17.1361 2.13632L15.8633 0.863525Z"
-                      fill="white"
-                    />
-                  </svg>
-
-                  <svg
-                    class="vacancy__video-sound-loud hide"
-                    width="16"
-                    height="18"
-                    viewBox="0 0 16 18"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M3.90891 12L9.5 18V0L3.90891 6H0.5V12H3.90891ZM2.3 10.2H4.69196L7.7 13.428V4.57196L4.69196 7.8H2.3V10.2ZM13.8507 8.99992C13.8507 7.16006 12.6276 5.89965 11.8643 5.13632L13.137 3.86353L13.1672 3.8937C13.9211 4.64702 15.6507 6.37546 15.6507 8.99992C15.6507 11.6244 13.9211 13.3528 13.1672 14.1061L13.137 14.1363L11.8643 12.8635C12.6276 12.1002 13.8507 10.8398 13.8507 8.99992ZM12.1137 9C12.1137 9.40043 11.8284 10.125 11 10.125V7.875C11.8284 7.875 12.1137 8.59957 12.1137 9Z"
-                      fill="white"
-                    />
-                  </svg>
-                </div>
-
-                <!-- <img src="<?php echo $img; ?>" alt=""> -->
-            </div>
-        </div>
-        <div class="vacancy__intro-description">
-            <?php echo $content; ?>
-        </div>
-        </div>
-        <!-- //Vacancy Intro-block -->
-
-        <!-- Vacancy Description-block -->
-        <div class="vacancy__description">
-
-            <?php
-            if( have_rows('vacancy_repeater') ):
-
-                while( have_rows('vacancy_repeater') ) : the_row();
-
-                    ?>
-                    <div class="vacancy__description-block">
-                        <div class="vacancy__description-title">
-                        <p class="vacancy__description-title-text"><?php echo get_sub_field('item_title'); ?></p>
-                        </div>
-                        <div class="vacancy__description-list">
-                        <?php echo get_sub_field('item_contect'); ?>
-                        </div>
-                    </div>
-                    <?php
-                endwhile;
-            endif;
-            ?>
-
-        </div>
-        <!-- //Vacancy Description-block -->
+        <?php include(THEME_DIR . '/template-parts/vacancy-content.php'); ?>
 
         <!-- Vacancy Office-block -->
         <!-- <div class="vacancy__office">
@@ -391,51 +295,6 @@ if( get_field( 'can_without_experience', $post_id ) ){
             </div>
         </div> -->
         <!-- //Vacancy Office-block -->
-
-        <?php
-        if( get_field( 'can_work_remotely', $post_id ) ){
-            ?>
-            <!-- Vacancy Remote-block -->
-            <div class="vacancy__remote">
-                <div class="vacancy__remote-title-wrapper">
-                    <h2 class="vacancy__remote-title">Работай откуда угодно</h2>
-                    <p class="vacancy__remote-info">
-                    На этой позиции можно работать удалённо и не ходить в офис.
-                    Нужно иметь разрешение на работу в России.
-                    </p>
-                </div>
-                <div class="vacancy__remote-image-container">
-                    <svg
-                        class="vacancy__remote-image"
-                        width="128"
-                        height="144"
-                        viewBox="0 0 128 144"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                        d="M61.7063 59.0752C47.375 72.8418 21.9244 106.33 21.9244 143.589M21.3733 2.30084C24.1468 2.30084 25.2939 4.32359 27.0608 6.84128C28.7351 4.32359 29.8821 2.30084 32.7483 2.30084M0.0585938 8.91183C2.83215 8.91183 3.9792 10.9346 5.74609 13.4523C7.42038 10.9346 8.56744 8.91183 11.4336 8.91183M60.3733 59.1757C64.2727 49.6472 73.7169 42.9257 84.7483 42.9257C93.7829 42.9257 101.753 47.4341 106.484 54.3007C107.53 55.8182 108.417 57.451 109.123 59.1757H60.3733ZM60.3733 59.1757C60.8112 58.1056 61.3187 57.071 61.8908 56.0773M60.3733 59.1757H16.4983C20.3977 49.6472 29.8419 42.9257 40.8733 42.9257C44.2953 42.9257 47.5645 43.5725 50.5629 44.7492L61.8908 56.0773M63.2085 59.1757H62.1969L66.2996 106.096C67.9562 105.243 69.5055 104.217 70.9262 103.043C77.3544 97.7312 81.1516 89.3987 80.3646 80.3984C80.2143 78.6802 79.9038 77.0149 79.4492 75.4164L63.2085 59.1757ZM63.2085 59.1757H84.2946C86.7653 60.4167 89.0847 62.07 91.1498 64.135C97.5382 70.5235 99.9859 79.3471 98.4761 87.548C98.1425 89.3605 97.6155 91.1426 96.895 92.8612L63.2085 59.1757ZM61.8908 56.0773C63.103 53.972 64.6039 52.0505 66.3402 50.3655C66.8558 43.0324 64.2873 35.4929 58.6464 29.8519C50.8461 22.0516 39.4151 20.1264 29.9202 24.1067L61.8908 56.0773ZM127.382 13.2937C127.382 20.2622 121.733 25.9113 114.764 25.9113C107.796 25.9113 102.147 20.2622 102.147 13.2937C102.147 6.32514 107.796 0.676025 114.764 0.676025C121.733 0.676025 127.382 6.32514 127.382 13.2937Z"
-                        stroke="#76BC21"
-                        stroke-width="1.2"
-                        />
-                    </svg>
-                </div>
-            </div>
-            <!-- //Vacancy Remote-block -->
-            <?php
-        }
-        ?>
-
-        <!-- Vacancy Form-block -->
-        <div class="vacancy__form">
-        <div class="vacancy__form-title-block">
-            <h2 class="vacancy__form-title">Расскажи нам о себе</h2>
-        </div>
-        <div class="vacancy__form-inner-block">
-            <?php echo do_shortcode('[contact-form-7 id="224" title="Popap Vacancy"]'); ?>
-        </div>
-        </div>
-        <!-- //Vacancy Form-block -->
 
         <?php
         if( '' != get_field('related_vacancies') ){
@@ -607,7 +466,7 @@ if( get_field( 'can_without_experience', $post_id ) ){
                 if( null != get_field( 'url_from_habr' ) ){
                     $url_from_habr = get_field( 'url_from_habr' );
                 } else{
-                    $url_from_habr = get_permalink();
+                    $url_from_habr = get_habr_url( $news_item_id );
                 }
                 ?>
 
@@ -705,7 +564,7 @@ if( get_field( 'can_without_experience', $post_id ) ){
                 if( null != get_field( 'url_from_habr' ) ){
                     $url_from_habr = get_field( 'url_from_habr' );
                 } else{
-                    $url_from_habr = get_permalink();
+                    $url_from_habr = get_habr_url( $news_item_id );
                 }
                 ?>
 
