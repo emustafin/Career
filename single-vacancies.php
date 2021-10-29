@@ -188,7 +188,7 @@ if( get_field( 'can_without_experience', $post_id ) ){
             <p class="direct-link__vacancy-argument"><?php echo $experience; ?></p>
             </div>
         </div>
-        <a href="#" class="direct-link__header-head-copy">
+        <a href="#" class="direct-link__header-head-copy direct-link__header-head-copy-mobile">
             Скопировать ссылку
               <svg
                 width="14"
