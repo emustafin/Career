@@ -1000,6 +1000,10 @@
   .profession__question {
     margin-bottom: 16px;
   }
+
+  .profession__more-info {
+    display: none;
+  }
 }
 
 .loader-bg {
@@ -1039,18 +1043,18 @@
     opacity: 0;
   }
 }
-#vacancy_popup{
+#vacancy_popup {
   position: relative;
 }
-#vacancy_popup .loader-wrapp{
+#vacancy_popup .loader-wrapp {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 100vh;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
-#vacancy_popup .loader-wrapp .loader-bg{
+#vacancy_popup .loader-wrapp .loader-bg {
   height: 100%;
 }
