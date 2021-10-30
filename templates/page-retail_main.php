@@ -61,7 +61,7 @@ Template Name: Розница
 
         <div class="retail__mvideo-image-block">
           <img
-            src="./images/retail/preview/mvideo-img.png"
+            src="<?php echo THEME_URL; ?>/assets/images/retail/preview/mvideo-img.png"
             alt="Mvideo"
             title="Mvideo"
           />
@@ -103,7 +103,7 @@ Template Name: Розница
 
         <div class="retail__eldorado-image-block">
           <img
-            src="./images/retail/preview/eldorado-img.png"
+            src="<?php echo THEME_URL; ?>/assets/images/retail/preview/eldorado-img.png"
             alt="Mvideo"
             title="Eldorado"
           />
@@ -457,7 +457,7 @@ Template Name: Розница
             <div class="goal__slide-buttons-mobile">
               <button class="why-are-we__slide-arrow" data-name="prev">
                 <img
-                  src="./images/advantages/small-arrow-left.svg"
+                  src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-left.svg"
                   alt="Arrow-right"
                 />
               </button>
@@ -468,7 +468,7 @@ Template Name: Розница
 
               <button class="why-are-we__slide-arrow" data-name="next">
                 <img
-                  src="./images/advantages/small-arrow-right.svg"
+                  src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-right.svg"
                   alt="Arrow-right"
                 />
               </button>
@@ -626,7 +626,7 @@ Template Name: Розница
             <div class="goal__slide-buttons-mobile">
               <button class="why-are-we__slide-arrow" data-name="prev">
                 <img
-                  src="./images/advantages/small-arrow-left.svg"
+                  src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-left.svg"
                   alt="Arrow-right"
                 />
               </button>
@@ -640,7 +640,7 @@ Template Name: Розница
 
               <button class="why-are-we__slide-arrow" data-name="next">
                 <img
-                  src="./images/advantages/small-arrow-right.svg"
+                  src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-right.svg"
                   alt="Arrow-right"
                 />
               </button>
@@ -832,7 +832,7 @@ Template Name: Розница
         <div class="brands__head-image-container eldorado hide">
           <img
             class="brands__head-image"
-            src="./images/retail/brands/brand-eldorado.png"
+            src="<?php echo THEME_URL; ?>/assets/images/retail/brands/brand-eldorado.png"
             alt="brand"
             title="Эльдорадо"
           />
@@ -840,7 +840,7 @@ Template Name: Розница
         <div class="brands__head-image-container mvideo">
           <img
             class="brands__head-image"
-            src="./images/retail/brands/brands-mvideo.png"
+            src="<?php echo THEME_URL; ?>/assets/images/retail/brands/brands-mvideo.png"
             alt="brand"
             title="М.Видео"
           />
@@ -917,7 +917,7 @@ Template Name: Розница
                 <div class="brands__content-slider-item-image-container">
                   <img
                     class="brands__content-slider-item-image"
-                    src="./images/retail/brands/brands__slider-img.png"
+                    src="<?php echo THEME_URL; ?>/assets/images/retail/brands/brands__slider-img.png"
                     alt="slide"
                     title="slide-image"
                   />
@@ -933,7 +933,7 @@ Template Name: Розница
                 <div class="brands__content-slider-item-image-container">
                   <img
                     class="brands__content-slider-item-image"
-                    src="./images/retail/brands/brands__slider-img.png"
+                    src="<?php echo THEME_URL; ?>/assets/images/retail/brands/brands__slider-img.png"
                     alt="slide"
                     title="slide-image"
                   />
@@ -1054,7 +1054,7 @@ Template Name: Розница
                 <div class="brands__content-slider-item-image-container">
                   <img
                     class="brands__content-slider-item-image"
-                    src="./images/retail/brands/brands-gallery-eldorado.png"
+                    src="<?php echo THEME_URL; ?>/assets/images/retail/brands/brands-gallery-eldorado.png"
                     alt="slide"
                     title="slide-image"
                   />
@@ -1070,7 +1070,7 @@ Template Name: Розница
                 <div class="brands__content-slider-item-image-container">
                   <img
                     class="brands__content-slider-item-image"
-                    src="./images/retail/brands/brands-gallery-eldorado.png"
+                    src="<?php echo THEME_URL; ?>/assets/images/retail/brands/brands-gallery-eldorado.png"
                     alt="slide"
                     title="slide-image"
                   />
@@ -1737,7 +1737,7 @@ Template Name: Розница
       <div class="retail__quote mvideo">
         <img
           class="retail__video-placeholder"
-          src="./images/retail/quote/quote__placeholder-mvideo.png"
+          src="<?php echo THEME_URL; ?>/assets/images/retail/quote/quote__placeholder-mvideo.png"
           alt="placeholder"
           title="Видео"
         />
@@ -1759,7 +1759,7 @@ Template Name: Розница
       <div class="retail__quote eldorado hide">
         <img
           class="retail__video-placeholder"
-          src="./images/retail/quote/quote__placeholder-eldorado.png"
+          src="<?php echo THEME_URL; ?>/assets/images/retail/quote/quote__placeholder-eldorado.png"
           alt="placeholder"
           title="Видео"
         />
@@ -1960,7 +1960,7 @@ Template Name: Розница
               </svg>
             </div>
 
-            <div class="retail__internship-shop-icon-eldorado">
+            <div class="retail__internship-shop-icon-eldorado eldorado hide">
               <svg
                 width="34"
                 height="35"
@@ -1975,12 +1975,7 @@ Template Name: Розница
               </svg>
             </div>
 
-            <div
-              class="
-                retail__internship-shop-icon-mvideo
-                retail__internship-icon-active
-              "
-            >
+            <div class="retail__internship-shop-icon-mvideo mvideo">
               <svg
                 class="retail__internship-shop-icon"
                 width="48"
@@ -2009,9 +2004,9 @@ Template Name: Розница
         </p>
       </div>
 
-      <div class="retail__advantages-content-bar">
+      <div class="retail__advantages-content-bar mvideo">
         <div class="retail__advantages-content-item">
-          <div class="retail__advantages-number">01</div>
+          <div class="retail__advantages-number-mvideo">01</div>
           <div class="retail__advantages-description-block">
             <h2 class="retail__advantages-description-title">
               Современные технологии
@@ -2025,7 +2020,7 @@ Template Name: Розница
         </div>
 
         <div class="retail__advantages-content-item">
-          <div class="retail__advantages-number">02</div>
+          <div class="retail__advantages-number-mvideo">02</div>
           <div class="retail__advantages-description-block">
             <h2 class="retail__advantages-description-title">
               Обучение и развитие
@@ -2039,7 +2034,50 @@ Template Name: Розница
         </div>
 
         <div class="retail__advantages-content-item">
-          <div class="retail__advantages-number">03</div>
+          <div class="retail__advantages-number-mvideo">03</div>
+          <div class="retail__advantages-description-block">
+            <h2 class="retail__advantages-description-title">
+              Забота о сотрудниках
+            </h2>
+            <p class="retail__advantages-description-text">
+              Только официальное оформление и белая зарплата, гибкие программы
+              социальной поддержки, корпоративные скидки у партнеров.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="retail__advantages-content-bar eldorado hide">
+        <div class="retail__advantages-content-item">
+          <div class="retail__advantages-number-eldorado">01</div>
+          <div class="retail__advantages-description-block">
+            <h2 class="retail__advantages-description-title">
+              Современные технологии
+            </h2>
+            <p class="retail__advantages-description-text">
+              И это не пустые слова — мы уже внедрили Data Science
+              в планирование логистики и закупок и работаем над цифровизацией и
+              персонализацией покупательского опыта в магазинах.
+            </p>
+          </div>
+        </div>
+
+        <div class="retail__advantages-content-item">
+          <div class="retail__advantages-number-eldorado">02</div>
+          <div class="retail__advantages-description-block">
+            <h2 class="retail__advantages-description-title">
+              Обучение и развитие
+            </h2>
+            <p class="retail__advantages-description-text">
+              Мы проводим внутренние конкурсы и воркшопы и поощряем любые
+              инициативы сотрудников. У каждого человека в команде есть свой
+              индивидуальный план развития.
+            </p>
+          </div>
+        </div>
+
+        <div class="retail__advantages-content-item">
+          <div class="retail__advantages-number-eldorado">03</div>
           <div class="retail__advantages-description-block">
             <h2 class="retail__advantages-description-title">
               Забота о сотрудниках
@@ -2078,7 +2116,7 @@ Template Name: Розница
                   <div class="upgrade__slider-prev-image swiper-slide">
                     <img
                       class="upgrade__slider-prev-picture"
-                      src="./images/direction/director.png"
+                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                       alt="Photo"
                     />
                   </div>
@@ -2086,14 +2124,14 @@ Template Name: Розница
                   <div class="upgrade__slider-prev-image swiper-slide">
                     <img
                       class="upgrade__slider-prev-picture"
-                      src="./images/direction/director.png"
+                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                       alt="Photo"
                     />
                   </div>
                   <div class="upgrade__slider-prev-image swiper-slide">
                     <img
                       class="upgrade__slider-prev-picture"
-                      src="./images/direction/director.png"
+                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                       alt="Photo"
                     />
                   </div>
@@ -2101,7 +2139,7 @@ Template Name: Розница
                   <div class="upgrade__slider-prev-image swiper-slide">
                     <img
                       class="upgrade__slider-prev-picture"
-                      src="./images/direction/director.png"
+                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                       alt="Photo"
                     />
                   </div>
@@ -2117,7 +2155,7 @@ Template Name: Розница
                   <div class="upgrade__middle-image">
                     <img
                       class="upgrade__main-image"
-                      src="./images/upgrade/upgrade-image.png"
+                      src="<?php echo THEME_URL; ?>/assets/images/upgrade/upgrade-image.png"
                       alt="Photo"
                     />
                   </div>
@@ -2264,7 +2302,7 @@ Template Name: Розница
                   <div class="upgrade__middle-image">
                     <img
                       class="upgrade__main-image"
-                      src="./images/upgrade/upgrade-image.png"
+                      src="<?php echo THEME_URL; ?>/assets/images/upgrade/upgrade-image.png"
                       alt="Photo"
                     />
                   </div>
@@ -2411,7 +2449,7 @@ Template Name: Розница
                   <div class="upgrade__middle-image">
                     <img
                       class="upgrade__main-image"
-                      src="./images/upgrade/upgrade-image.png"
+                      src="<?php echo THEME_URL; ?>/assets/images/upgrade/upgrade-image.png"
                       alt="Photo"
                     />
                   </div>
@@ -2558,7 +2596,7 @@ Template Name: Розница
                   <div class="upgrade__middle-image">
                     <img
                       class="upgrade__main-image"
-                      src="./images/upgrade/upgrade-image.png"
+                      src="<?php echo THEME_URL; ?>/assets/images/upgrade/upgrade-image.png"
                       alt="Photo"
                     />
                   </div>
@@ -2709,7 +2747,7 @@ Template Name: Розница
                   <div class="upgrade__slider-next-item-image-block">
                     <img
                       class="upgrade__slider-next-item-image"
-                      src="./images/direction/director.png"
+                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                       alt="Image"
                     />
                   </div>
@@ -2725,7 +2763,7 @@ Template Name: Розница
                   <div class="upgrade__slider-next-item-image-block">
                     <img
                       class="upgrade__slider-next-item-image"
-                      src="./images/direction/director.png"
+                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                       alt="Image"
                     />
                   </div>
@@ -2741,7 +2779,7 @@ Template Name: Розница
                   <div class="upgrade__slider-next-item-image-block">
                     <img
                       class="upgrade__slider-next-item-image"
-                      src="./images/direction/director.png"
+                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                       alt="Image"
                     />
                   </div>
@@ -2757,7 +2795,7 @@ Template Name: Розница
                   <div class="upgrade__slider-next-item-image-block">
                     <img
                       class="upgrade__slider-next-item-image"
-                      src="./images/direction/director.png"
+                      src="<?php echo THEME_URL; ?>/assets/images/direction/director.png"
                       alt="Image"
                     />
                   </div>
