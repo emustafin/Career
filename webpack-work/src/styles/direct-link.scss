@@ -1,3 +1,5 @@
+// @import './styles.scss';
+
 .direct-link__header {
   overflow: hidden;
   padding: 16px 0;
@@ -145,7 +147,7 @@
 
 .direct-link__header-headline {
   margin-bottom: 96px;
-  max-width: 1150px;
+  width: 80%;
 }
 
 .direct-link__headline-title {
@@ -239,6 +241,7 @@
 
   .direct-link__header-headline {
     margin-bottom: 64px;
+    width: 65%;
   }
 
   .direct-link__wrapper {
