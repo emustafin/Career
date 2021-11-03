@@ -1,3 +1,5 @@
+// @import './styles.scss';
+
 .flyout,
 .flyout__active {
   position: fixed;
@@ -46,7 +48,6 @@
 
 .vacancy__header-head-links {
   width: 100%;
-  max-width: 209px;
 }
 
 .vacancy__header-head-link-main,
@@ -151,6 +152,10 @@
   margin-bottom: 96px;
 }
 
+.vacancy__description-block {
+  overflow: hidden;
+}
+
 // Styles for Flyout-Intro
 .vacancy__intro {
   display: flex;
@@ -248,9 +253,12 @@
   width: 50%;
 }
 
+.vacancy__advantages-slider-navigation-mobile {
+  display: none;
+}
+
 .vacancy__description-list-wrapper {
   width: 100%;
-  max-width: 454px;
 }
 
 .vacancy__description-list-item,
@@ -261,6 +269,27 @@
   &:last-child {
     margin-bottom: 0;
   }
+}
+
+.vacancy__advantages-item {
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #969696;
+  position: relative;
+}
+
+.vacancy__advantages-item-title {
+  font-size: 40px;
+  line-height: 44px;
+  margin-bottom: 8px;
+}
+
+.vacancy__advantages-item-image {
+  position: absolute;
+  top: 0;
+  left: -72px;
+  width: 56px;
+  height: 56px;
 }
 
 // Styles for flyout Office
@@ -452,6 +481,7 @@
 // Sytles for Vacancy-Form block
 .vacancy__form {
   display: flex;
+  overflow: hidden;
 }
 
 .vacancy__form-title-block,
@@ -537,22 +567,19 @@
   border: 1px solid $mainColor;
   transform: translateY(1px);
 
-  &::before {
-    content: '';
+  & > svg {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.6);
     width: 16px;
     height: 16px;
-    background: url('../images/flyout/flyout-form/check.svg') center / contain
-      no-repeat;
     transition: opacity 0.2s;
     opacity: 0;
   }
 }
 
-.vacancy__input-checkbox:checked ~ .vacncy__checkbox::before {
+.vacancy__input-checkbox:checked ~ .vacncy__checkbox > svg {
   opacity: 1;
 }
 
@@ -575,14 +602,12 @@
   margin-top: 16px;
   color: $mainColor;
 
-  &::before {
-    content: '';
+  & > svg {
     position: absolute;
     right: 17px;
     top: calc(50% - 4.5px);
     width: 14px;
     height: 9px;
-    background: url('../images/flyout/flyout-form/arrow-right.svg') no-repeat;
   }
 }
 
@@ -649,6 +674,32 @@
 .vacancy__item-positions-experience,
 .vacancy__item-positions-location {
   margin-top: auto;
+}
+
+.vacancy__item-positions-location-metro-item,
+.vacancy__metro-socolnicheskaya-line,
+.vacancy__metro-arbatsko-pokrovskaya-line {
+  padding-left: 12px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: calc(50% - 4px);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #000;
+  }
+}
+
+.vacancy__metro-socolnicheskaya-line::before {
+  background: #e42313;
+}
+
+.vacancy__metro-arbatsko-pokrovskaya-line::before {
+  background: #0072ba;
 }
 
 // Styles for News block
@@ -853,6 +904,11 @@
   .vacancy__news-item-image-block {
     height: 210px;
   }
+
+  .vacancy__advantages-item-title {
+    font-size: 32px;
+    line-height: 40px;
+  }
 }
 
 // Styles for 1024px
@@ -957,6 +1013,7 @@
   .vacancy__form-title {
     font-size: 32px;
     line-height: 36px;
+    width: 328px;
   }
 
   .vacancy__response {
@@ -1029,13 +1086,13 @@
     margin-right: 28px;
   }
 
+  .vacancy__description-title-text {
+    width: 80%;
+  }
+
   .vacancy__intro-description,
   .vacancy__description-list {
     width: 70%;
-  }
-
-  .vacancy__description-list-wrapper {
-    max-width: 494px;
   }
 
   .vacancy__description-list-item,
@@ -1103,6 +1160,15 @@
 
   .vacancy__news-item-image-block {
     height: 165px;
+  }
+
+  .vacancy__advantages-item {
+    width: 90%;
+    margin-left: auto;
+  }
+
+  .vacancy__advantages-item-image {
+    left: -65px;
   }
 }
 
@@ -1199,7 +1265,6 @@
   }
 
   .vacancy__intro-description-text,
-  .vacancy__description-title-text,
   .vacancy__office-map-title,
   .vacancy__office-map-selectors,
   .vacancy__office-content-top,
@@ -1209,6 +1274,56 @@
   .vacancy__item-positions-name-block,
   .vacancy__item-positions-price {
     margin-bottom: 16px;
+  }
+
+  .vacancy__description-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .vacancy__advantages-slider-navigation-mobile {
+    display: flex;
+    align-items: center;
+  }
+
+  .vacancy__advantages-slider-prev,
+  .vacancy__advantages-slider-next {
+    background: transparent;
+  }
+
+  .vacancy__advantages-slider-prev,
+  .vacancy__advantages-slider-counter {
+    margin-right: 8px;
+  }
+
+  .vacancy__advantages-item-wrapper {
+    display: flex;
+    width: 270%;
+  }
+
+  .vacancy__advantages-item {
+    display: flex;
+    flex-direction: column;
+    margin-right: 16px;
+    margin-left: 0;
+    width: 30%;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .vacancy__advantages-item-description {
+    margin-bottom: 16px;
+  }
+
+  .vacancy__advantages-item-image {
+    position: relative;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    margin-top: auto;
   }
 
   .vacancy__office-map {
@@ -1319,14 +1434,12 @@
     padding-right: 20px;
     position: relative;
 
-    &::after {
-      content: '';
+    & > svg {
       position: absolute;
       right: 0;
       top: calc(50% - 4.5px);
       width: 14px;
       height: 9px;
-      background: url('../images/flyout/flyout-news/arrow-right.svg') no-repeat;
     }
   }
 
