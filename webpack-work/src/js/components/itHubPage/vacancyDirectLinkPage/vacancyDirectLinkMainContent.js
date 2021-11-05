@@ -64,20 +64,24 @@ export class VacancyDirecLinkMainContent {
       (event.target.classList.contains('vacancy__video-sound') &&
         this.videoContainer.dataset.name === 'muted')
     ) {
-      this.video.muted = false;
-      this.btnMuted.classList.add('hide');
-      this.btnLoud.classList.remove('hide');
-      this.videoContainer.dataset.name = 'loud';
+      setTimeout(() => {
+        this.video.muted = false;
+        this.btnMuted.classList.add('hide');
+        this.btnLoud.classList.remove('hide');
+        this.videoContainer.dataset.name = 'loud';
+      }, 50);
     } else if (
       (event.target.classList.contains('vacancy__video-preview') &&
         this.videoContainer.dataset.name === 'loud') ||
       (event.target.classList.contains('vacancy__video-sound') &&
         this.videoContainer.dataset.name === 'loud')
     ) {
-      this.video.muted = true;
-      this.btnMuted.classList.remove('hide');
-      this.btnLoud.classList.add('hide');
-      this.videoContainer.dataset.name = 'muted';
+      setTimeout(() => {
+        this.video.muted = true;
+        this.btnMuted.classList.remove('hide');
+        this.btnLoud.classList.add('hide');
+        this.videoContainer.dataset.name = 'muted';
+      }, 50);
     }
   }
 }
