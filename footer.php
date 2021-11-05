@@ -247,7 +247,7 @@
           <div class="footer__item">
             <p class="footer__item-title">Направления</p>
             <?php
-            $menu_name = 'footer';
+            $menu_name = 'primary';
             $locations = get_nav_menu_locations();
             $menu_items = wp_get_nav_menu_items( $locations[ $menu_name ] );
             if( $menu_items ):
