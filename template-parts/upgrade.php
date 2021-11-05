@@ -5,6 +5,10 @@ $args = array(
     'post_status'       => 'publish',
 );
 
+if( '' != $relation ){
+    $args['relation'] = $relation;
+}
+
 $reviews = new WP_Query( $args );
 ?>
 <!--  Career Upgrade Section  -->

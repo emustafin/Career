@@ -33,6 +33,7 @@ if( have_rows('content_blocks') ):
         break;
 
       case 'upgrade':
+        $relation = 'it';
         include(THEME_DIR . '/template-parts/upgrade.php');
         break;
 
