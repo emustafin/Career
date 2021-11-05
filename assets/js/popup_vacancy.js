@@ -43,7 +43,10 @@ function load_popup_vacancy( post_id ){
             $('.flyout .vacancy__headline-title').attr('origin_url', origin_location);
             $('.flyout .vacancy__headline-title').html(response.title);
             $('.flyout .vacancy__video-container img').attr('src', response.img);
+            $('.flyout .vacancy__video-container .vacancy__video-preview').attr('data-src', response.data_src_video);
+            $('.flyout .vacancy__video-container .vacancy__video-preview').attr('src', response.data_src_video);
             $('.flyout .vacancy__intro-description').html(response.content);
+            $('.flyout #flexible_schedule').html(response.flexible_schedule);
             $('.flyout #vacancy_project').html(response.vacancy_project);
             $('.flyout #expectations').html(response.expectations);
             $('.flyout #can_work_remotely').html(response.can_work_remotely);
