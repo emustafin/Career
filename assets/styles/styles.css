@@ -1383,8 +1383,7 @@
   margin-bottom: 56px; }
 
 .vacancy__header-head-links {
-  width: 100%;
-  max-width: 209px; }
+  width: 100%; }
 
 .vacancy__header-head-link-main,
 .vacancy__header-head-link-vacancy {
@@ -1472,6 +1471,9 @@
 .vacancy__news {
   margin-bottom: 96px; }
 
+.vacancy__description-block {
+  overflow: hidden; }
+
 .vacancy__intro {
   display: flex; }
 
@@ -1542,9 +1544,11 @@
 .vacancy__description-list {
   width: 50%; }
 
+.vacancy__advantages-slider-navigation-mobile {
+  display: none; }
+
 .vacancy__description-list-wrapper {
-  width: 100%;
-  max-width: 454px; }
+  width: 100%; }
 
 .vacancy__description-list-item,
 .vacancy__description-list > ul > li {
@@ -1553,6 +1557,24 @@
   .vacancy__description-list-item:last-child,
   .vacancy__description-list > ul > li:last-child {
     margin-bottom: 0; }
+
+.vacancy__advantages-item {
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #969696;
+  position: relative; }
+
+.vacancy__advantages-item-title {
+  font-size: 40px;
+  line-height: 44px;
+  margin-bottom: 8px; }
+
+.vacancy__advantages-item-image {
+  position: absolute;
+  top: 0;
+  left: -72px;
+  width: 56px;
+  height: 56px; }
 
 .vacancy__office {
   display: flex; }
@@ -1711,7 +1733,8 @@
   position: relative; }
 
 .vacancy__form {
-  display: flex; }
+  display: flex;
+  overflow: hidden; }
 
 .vacancy__form-title-block,
 .vacancy__form-inner-block {
@@ -1782,19 +1805,17 @@
   height: 16px;
   border: 1px solid #000000;
   transform: translateY(1px); }
-  .vacncy__checkbox::before {
-    content: '';
+  .vacncy__checkbox > svg {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.6);
     width: 16px;
     height: 16px;
-    background: url("../images/flyout/flyout-form/check.svg") center/contain no-repeat;
     transition: opacity 0.2s;
     opacity: 0; }
 
-.vacancy__input-checkbox:checked ~ .vacncy__checkbox::before {
+.vacancy__input-checkbox:checked ~ .vacncy__checkbox > svg {
   opacity: 1; }
 
 .vacancy__form-politics {
@@ -1814,14 +1835,12 @@
   line-height: 24px;
   margin-top: 16px;
   color: #000000; }
-  .vacancy__response::before {
-    content: '';
+  .vacancy__response > svg {
     position: absolute;
     right: 17px;
     top: calc(50% - 4.5px);
     width: 14px;
-    height: 9px;
-    background: url("../images/flyout/flyout-form/arrow-right.svg") no-repeat; }
+    height: 9px; }
 
 .vacancy__positions-title {
   margin-bottom: 32px; }
@@ -1872,6 +1891,29 @@
 .vacancy__item-positions-experience,
 .vacancy__item-positions-location {
   margin-top: auto; }
+
+.vacancy__item-positions-location-metro-item,
+.vacancy__metro-socolnicheskaya-line,
+.vacancy__metro-arbatsko-pokrovskaya-line {
+  padding-left: 12px;
+  position: relative; }
+  .vacancy__item-positions-location-metro-item::before,
+  .vacancy__metro-socolnicheskaya-line::before,
+  .vacancy__metro-arbatsko-pokrovskaya-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: calc(50% - 4px);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #000; }
+
+.vacancy__metro-socolnicheskaya-line::before {
+  background: #e42313; }
+
+.vacancy__metro-arbatsko-pokrovskaya-line::before {
+  background: #0072ba; }
 
 .vacancy__news {
   overflow: hidden;
@@ -2020,7 +2062,10 @@
   .vacancy__news-item {
     max-width: 360px; }
   .vacancy__news-item-image-block {
-    height: 210px; } }
+    height: 210px; }
+  .vacancy__advantages-item-title {
+    font-size: 32px;
+    line-height: 40px; } }
 
 @media (max-width: 1250px) {
   .vacancy__header-head,
@@ -2080,7 +2125,8 @@
     height: 98px; }
   .vacancy__form-title {
     font-size: 32px;
-    line-height: 36px; }
+    line-height: 36px;
+    width: 328px; }
   .vacancy__response {
     font-size: 18px;
     line-height: 18px;
@@ -2120,11 +2166,11 @@
   .vacancy__description-title {
     width: 30%;
     margin-right: 28px; }
+  .vacancy__description-title-text {
+    width: 80%; }
   .vacancy__intro-description,
   .vacancy__description-list {
     width: 70%; }
-  .vacancy__description-list-wrapper {
-    max-width: 494px; }
   .vacancy__description-list-item,
   .vacancy__description-list > ul > li {
     margin-left: 15px; }
@@ -2161,7 +2207,12 @@
   .vacancy__news-item {
     max-width: 280px; }
   .vacancy__news-item-image-block {
-    height: 165px; } }
+    height: 165px; }
+  .vacancy__advantages-item {
+    width: 90%;
+    margin-left: auto; }
+  .vacancy__advantages-item-image {
+    left: -65px; } }
 
 @media (max-width: 670px) {
   .vacancy__header-head-copy,
@@ -2227,7 +2278,6 @@
   .vacancy__video-container {
     margin: 0 auto; }
   .vacancy__intro-description-text,
-  .vacancy__description-title-text,
   .vacancy__office-map-title,
   .vacancy__office-map-selectors,
   .vacancy__office-content-top,
@@ -2237,6 +2287,38 @@
   .vacancy__item-positions-name-block,
   .vacancy__item-positions-price {
     margin-bottom: 16px; }
+  .vacancy__description-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px; }
+  .vacancy__advantages-slider-navigation-mobile {
+    display: flex;
+    align-items: center; }
+  .vacancy__advantages-slider-prev,
+  .vacancy__advantages-slider-next {
+    background: transparent; }
+  .vacancy__advantages-slider-prev,
+  .vacancy__advantages-slider-counter {
+    margin-right: 8px; }
+  .vacancy__advantages-item-wrapper {
+    display: flex;
+    width: 270%; }
+  .vacancy__advantages-item {
+    display: flex;
+    flex-direction: column;
+    margin-right: 16px;
+    margin-left: 0;
+    width: 30%; }
+    .vacancy__advantages-item:last-child {
+      margin-right: 0; }
+  .vacancy__advantages-item-description {
+    margin-bottom: 16px; }
+  .vacancy__advantages-item-image {
+    position: relative;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    margin-top: auto; }
   .vacancy__office-map {
     padding-right: 8px; }
   .vacancy__office-content {
@@ -2302,14 +2384,12 @@
     color: #000000;
     padding-right: 20px;
     position: relative; }
-    .vacancy__news-link-mobile::after {
-      content: '';
+    .vacancy__news-link-mobile > svg {
       position: absolute;
       right: 0;
       top: calc(50% - 4.5px);
       width: 14px;
-      height: 9px;
-      background: url("../images/flyout/flyout-news/arrow-right.svg") no-repeat; }
+      height: 9px; }
   .vacancy__news-item-image-block {
     height: auto; } }
 
@@ -3465,7 +3545,8 @@
 .it-header__phone {
   color: #000000; }
 
-.it-header__button {
+.it-header__button,
+.direct-link__header-button {
   display: block;
   width: 162px;
   text-align: center;
@@ -3478,6 +3559,9 @@
   font-size: 16px;
   line-height: 20px;
   color: #000000; }
+
+.direct-link__header-button {
+  top: 4px; }
 
 @media (max-width: 1440px) {
   .it-header__item {
@@ -3494,7 +3578,8 @@
     width: 50%; }
   .it-header__item:first-child,
   .it-header__item:nth-child(3),
-  .it-header__button {
+  .it-header__button,
+  .direct-link__header-button {
     display: none; }
   .it-header__item-mobile {
     display: flex;
@@ -5843,7 +5928,7 @@
   .profession__filter-item {
     width: 100%;
     min-width: 100%;
-    margin-left: 8px;
+    margin-left: 0;
     margin-bottom: 42px;
     padding-bottom: 8px; }
   .profession__filter-reset {
@@ -5887,7 +5972,9 @@
     font-size: 14px;
     line-height: 16px; }
   .profession__question {
-    margin-bottom: 16px; } }
+    margin-bottom: 16px; }
+  .profession__more-info {
+    display: none; } }
 
 .loader-bg {
   display: flex;
@@ -6845,11 +6932,16 @@ input#form__town {
   line-height: 24px; }
 
 .direct-link__content-wrapper {
-  display: flex; }
+  display: flex;
+  justify-content: flex-end; }
 
 .direct-link__side-bar {
-  width: 33%;
-  padding-top: 16px; }
+  width: 30%;
+  padding-top: 16px;
+  position: fixed;
+  top: 112px;
+  left: 16px;
+  transition: 0.3s; }
 
 .direct-link__header-head-copy {
   display: inline-block;
@@ -6887,7 +6979,9 @@ input#form__town {
   padding: 8px 40px 8px 16px;
   border-radius: 36px;
   background: #ffffff;
-  position: relative; }
+  position: relative;
+  transition: 0.3s;
+  opacity: 0; }
   .direct-link__vacancy-link > svg {
     position: absolute;
     right: 16px;
@@ -6901,7 +6995,7 @@ input#form__town {
 
 .direct-link__header-headline {
   margin-bottom: 96px;
-  max-width: 1150px; }
+  width: 80%; }
 
 .direct-link__headline-title {
   display: inline;
@@ -6963,7 +7057,8 @@ input#form__town {
     line-height: 18px;
     transform: translateY(-3px); }
   .direct-link__header-headline {
-    margin-bottom: 64px; }
+    margin-bottom: 64px;
+    width: 65%; }
   .direct-link__wrapper > .it-header__item:nth-child(4) {
     display: none; }
   .direct-link__vacancy-item {
@@ -7302,13 +7397,22 @@ input#form__town {
     margin-bottom: 0;
     border-bottom: none; }
 
-.retail__advantages-number {
+.retail__advantages-number-mvideo,
+.retail__advantages-number-eldorado {
   font-size: 160px;
   line-height: 144px;
   letter-spacing: -0.03em;
   font-feature-settings: 'tnum' on, 'lnum' on, 'zero' on;
-  margin-right: 65px;
+  margin-right: auto; }
+
+.retail__advantages-number-mvideo {
   color: #e31235; }
+
+.retail__advantages-number-eldorado {
+  color: #76bc21; }
+
+.retail__advantages-description-block {
+  width: 75%; }
 
 .retail__advantages-description-title {
   font-size: 40px;
@@ -7316,14 +7420,15 @@ input#form__town {
   margin-bottom: 24px; }
 
 .retail__advantages-description-text {
-  width: 736px; }
+  width: 78%; }
 
 @media (max-width: 1440px) {
   .retail__advantages {
     margin-bottom: 144px;
     font-size: 16px;
     line-height: 20px; }
-  .retail__advantages-number {
+  .retail__advantages-number-mvideo,
+  .retail__advantages-number-eldorado {
     font-size: 132px;
     line-height: 120px; }
   .retail__advantages-description-title {
@@ -7331,18 +7436,20 @@ input#form__town {
     line-height: 40px;
     margin-bottom: 16px; }
   .retail__advantages-description-text {
-    max-width: 480px; } }
+    width: 70%; } }
 
 @media (max-width: 1024px) {
   .retail__advantages {
     margin-bottom: 143px; }
-  .retail__advantages-number {
+  .retail__advantages-number-mvideo,
+  .retail__advantages-number-eldorado {
     font-size: 80px;
-    line-height: 72px;
-    margin-right: 63px; }
+    line-height: 72px; }
   .retail__advantages-content-item {
     padding-bottom: 32px;
-    margin-bottom: 36px; } }
+    margin-bottom: 36px; }
+  .retail__advantages-description-text {
+    width: 100%; } }
 
 @media (max-width: 768px) {
   .retail__advantages {
@@ -7356,8 +7463,8 @@ input#form__town {
     max-width: 240px; }
   .retail__advantages-side-bar {
     margin-bottom: 40px; }
-  .retail__advantages-number {
-    margin-right: 141px; } }
+  .retail__advantages-description-block {
+    width: 67%; } }
 
 @media (max-width: 550px) {
   .retail__advantages {
@@ -7368,7 +7475,8 @@ input#form__town {
     max-width: 100%; }
   .retail__advantages-side-bar {
     margin-bottom: 24px; }
-  .retail__advantages-number {
+  .retail__advantages-number-mvideo,
+  .retail__advantages-number-eldorado {
     margin-right: 8px;
     font-size: 36px;
     line-height: 38px; }
@@ -7378,7 +7486,9 @@ input#form__town {
     line-height: 28px; }
   .retail__advantages-content-item {
     padding-bottom: 24px;
-    margin-bottom: 28px; } }
+    margin-bottom: 28px; }
+  .retail__advantages-description-block {
+    width: 81.5%; } }
 
 .brands {
   font-size: 18px;
@@ -7872,15 +7982,11 @@ input#form__town {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: -1;
   transition: 0.3s; }
   .retail__internship-shop-icon-eldorado > svg,
   .retail__internship-shop-icon-mvideo > svg,
   .retail__internship-icon-active > svg {
     transform: scale(2); }
-
-.retail__internship-icon-active {
-  z-index: 1; }
 
 @media (max-width: 1650px) {
   .retail__internship {

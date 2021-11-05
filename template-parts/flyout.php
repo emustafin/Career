@@ -143,7 +143,14 @@
         <!-- //Vacancy header-block -->
 
         <div class="popup_vacancy_content">
-            <?php $post_id = get_the_ID(); include(THEME_DIR . '/template-parts/vacancy-content.php'); ?>
+            <?php 
+            $post_id = get_the_ID(); 
+            $relationship_terms = get_the_terms( $post_id, 'relationship' );
+            if( is_array( $relationship_terms ) ){
+                $current_relationship = $relationship_terms[0]->slug;
+            }
+            include(THEME_DIR . '/template-parts/vacancy-content.php'); 
+            ?>
         </div>
 
     </div>
