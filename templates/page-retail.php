@@ -45,6 +45,7 @@ if( have_rows('content_blocks') ):
         break;
 
       case 'retail__upgrade':
+        $relation = 'roznica';
         include(THEME_DIR . '/template-parts/upgrade.php');
         break;
 

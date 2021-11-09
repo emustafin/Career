@@ -398,29 +398,6 @@
                             "maxlength": "",
                             "rows": "",
                             "new_lines": ""
-                        },
-                        {
-                            "key": "field_612a4f8aa369f",
-                            "label": "Отзывы",
-                            "name": "reviews",
-                            "type": "relationship",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "post_type": "",
-                            "taxonomy": "",
-                            "filters": [
-                                "search"
-                            ],
-                            "elements": "",
-                            "min": "",
-                            "max": "",
-                            "return_format": "id"
                         }
                     ],
                     "min": "",
@@ -469,5 +446,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1632243196
+    "modified": 1636102075
 }
