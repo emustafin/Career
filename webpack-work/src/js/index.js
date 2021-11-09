@@ -165,6 +165,7 @@ retailBrandsBlock.getAllBrandsTabs([
   { name: 'eldorado', elements: retailFooter.eldoradoFromFooter },
 ]);
 
+//-------------------------------------------------------------------------
 // Слушатели событий, установленные на Body
 document.body.addEventListener('click', (event) => {
   headerComponent.closeSelect();
