@@ -1,6 +1,6 @@
-export class Goals {
-  constructor(el) {
-    this.el = el;
+export class ItHubGoalsBlock {
+  constructor(className) {
+    this.el = document.querySelector(className);
 
     if (this.el === null || this.el === undefined) return;
 

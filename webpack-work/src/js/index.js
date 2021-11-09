@@ -1,30 +1,36 @@
-// Экспорт классов
-import { Vacancy } from './components/itHubPage/vacancy';
-import { Listing } from './components/itHubPage/vacancyListingPage/listing';
-import { Advantages } from './components/itHubPage/advantages';
-import { CareerUpgrade } from './components/itHubPage/upgrade';
-import { VideoPlayer } from './components/itHubPage/videoPlayer';
-import './components/animation';
-// import './components/itHubPage/Tab';
-// import './components/itHubPage/animationSvgTab';
-// import { Select } from './components/itHubPage/select';
-// import { SvgToggleAnimate } from './components/itHubPage/animationSvgTab';
-// import { ScrollTo } from './components/itHubPage/scroll';
+// Импорт классов страницы IT
+import { ItHubVacancyBlock } from './components/itHubPage/itHubVacancyBlock';
+import { ItHubPageAdvantagesBlock } from './components/itHubPage/itHubPageAdvantagesBlock';
+import { ItHubPageCareerUpgradeBlock } from './components/itHubPage/itHubCareerUpgrade';
+import { ItHubVideoPlayerBlock } from './components/itHubPage/itHubVideoPlayerBlock';
+import { ItHubRunningLineBlock } from './components/itHubPage/itHubRunningLine';
+import { ItHubGoalsBlock } from './components/itHubPage/itHubGoalsBlock';
+import { ItHubPageCustomSelectInProfessionBlock } from './components/itHubPage/itHubPagecustomSelectInVacancy';
+import { ItHubInternshipBlock } from './components/itHubPage/itHubInternship';
+import { ItHubDirectionBlock } from './components/itHubPage/itHubDirectionBlock';
+import { ItHubVacanciesContainerInProfessionBlock } from './components/itHubPage/itHubVacancyContainerInProfessionBlock';
+
 import { Form } from './components/itHubPage/form';
-import { RunningLine } from './components/itHubPage/runningLine';
-// import { VacancyDirectLink } from './components/itHubPage/vacancyDirectLink';
-import { Goals } from './components/itHubPage/goals';
+
+import { ListingVacancyPage } from './components/itHubPage/vacancyListingPage/listingVacancyPage';
+import { ListingVacancyFiltersBlock } from './components/itHubPage/vacancyListingPage/listingVacancyFiltersBlock';
+import { ListingVacansiesPagePopup } from './components/itHubPage/vacancyListingPage/listingVacansiesPopup';
+
 import { Header } from './components/itHubPage/header';
+
+import { Footer } from './components/itHubPage/footer';
+
+//-----------------------------------------------------------
+// Вакансия по прямой ссылке. Разобраться с экспортами внутри компонентов cайд-бар и основной контент!!!!!!!!
 import { VacancyDirecLinkSideBar } from './components/itHubPage/vacancyDirectLinkPage/directLinkSideBar';
 import { VacancyDirecLinkMainContent } from './components/itHubPage/vacancyDirectLinkPage/vacancyDirectLinkMainContent';
 import { VacancyDirecLinkNewsBlock } from './components/itHubPage/vacancyDirectLinkPage/vacancyDirectLinkNews';
-import { CustomSelectInProfessionBlock } from './components/itHubPage/customSelect';
-import { ListingFilters } from './components/itHubPage/vacancyListingPage/listingFilters';
-import { Intern } from './components/itHubPage/intern';
-import { Direction } from './components/itHubPage/direction';
-import { FooterPage } from './components/itHubPage/footer';
-import { ListingVacansiesContainer } from './components/itHubPage/vacancyListingPage/listingVacansiesPopup';
-import { ItVacanciesContainer } from './components/itHubPage/vacancyContainer';
+//----------------------------------------------------------
+
+//--------------------------------------------------
+// Печатная машинка в блоке IT-создавай будущее (Вынести в отдельный компонент)
+import './components/animation';
+//-----------------------------------------------
 
 // Импорт классов страницы Розницы
 import { CreateRetailFutureComponent } from './components/retail/createRetailFuture';
@@ -36,74 +42,89 @@ import { RetailInternshipBlock } from './components/retail/retailInternship';
 import { RetailAdvantagesBlock } from './components/retail/retailAdvantages';
 import { RetailFooter } from './components/retail/retailFooter';
 
-// Перенос изображений
+// Перенос изображений и шрифтов в Dist
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
 require.context('../fonts', true, /\.(ttf|woff|woff2)$/);
 
 // Глобальные переменные
-const header = document.querySelector('.it-header');
-export const profession = document.querySelector('.profession');
-const ourAdvantages = document.querySelector('.why-are-we');
-const listingPage = document.querySelector('.listing');
-const upgradeSection = document.querySelector('.upgrade');
-const videoPlayerBlock = document.querySelector('.find');
-const form = document.querySelector('.form');
-const directLink = document.querySelector('.direct-link');
-const goalBlock = document.querySelector('.goal');
-const runningLine = document.querySelector('.find__title');
-const vacancyDirectLinkSideBar = document.querySelector(
-  '.direct-link__side-bar'
-);
+//------------------------------------------------------------------------
+// Разобраться с экспортами!!!!!!!!!!!!!!!! Передать в компонент через функцию компонента (Функцию надо будет создать!!!)
+export const headerItPage = document.querySelector('.it-header');
 export const vacancyDirectLinkMainContent = document.querySelector(
   '.direct-link__content'
 );
-const vacancyDirectLinkNews = document.querySelector(
-  '.vacancy__news-block-desktop'
-);
-const professionCustomSelect = document.querySelector(
-  '.profession__filter-wrapper'
-);
-export const headerItPage = document.querySelector('.it-header');
+export const profession = document.querySelector('.profession');
 export const vacancyDirectLinkHeader = document.querySelector(
   '.direct-link__header'
 );
-const listingPageFilters = document.querySelector(
-  '.listing-top__filters-wrapper'
-);
-const intern = document.querySelector('.intern');
-const direction = document.querySelector('.direction');
-const footerPage = document.querySelector('.footer');
-const flyoutVacancy = document.querySelector('.vacancy');
-const listingVacansiesContainer = document.querySelector(
-  '.position__card-wrapper'
-);
-const itPageVacancyContainer = document.querySelector(
-  '.profession__job-wrapper'
-);
+
+// -------------------------------------------------------------------------
+// Закомментированные переменные можно удалить:
+
+// const listingPage = document.querySelector('.listing');
+// const ourAdvantages = document.querySelector('.why-are-we');
+// const upgradeSection = document.querySelector('.upgrade');
+// const videoPlayerBlock = document.querySelector('.find');
+// const form = document.querySelector('.form');
+// const runningLine = document.querySelector('.find__title');
+// const goalBlock = document.querySelector('.goal');
+// const vacancyDirectLinkSideBar = document.querySelector(
+//   '.direct-link__side-bar'
+// );
+// const vacancyDirectLinkNews = document.querySelector(
+//   '.vacancy__news-block-desktop'
+// );
+// const professionCustomSelect = document.querySelector(
+//   '.profession__filter-wrapper'
+// );
+// const listingPageFilters = document.querySelector(
+//   '.listing-top__filters-wrapper'
+// );
+// const intern = document.querySelector('.intern');
+// const direction = document.querySelector('.direction');
+// const footerPage = document.querySelector('.footer');
+// const directLink = document.querySelector('.direct-link');
+// const listingVacansiesContainer = document.querySelector(
+//   '.position__card-wrapper'
+// );
+// const itPageVacancyContainer = document.querySelector(
+//   '.profession__job-wrapper'
+// );
+//---------------------------------------------------------------------------
 
 // Страница 404
 const page404 = document.querySelector('.page-404');
 
-new Vacancy(profession);
-new Advantages(ourAdvantages);
-new CareerUpgrade(upgradeSection);
-new VideoPlayer(videoPlayerBlock);
-new Form(form);
-new RunningLine(runningLine);
-const vacancyListingComponent = new Listing(listingPage);
-// new VacancyDirectLink(directLink);
-new Goals(goalBlock);
-const headerComponent = new Header(headerItPage);
-new VacancyDirecLinkSideBar(vacancyDirectLinkSideBar);
+//--------------------------------------------------
+// Проведен рефакторинг
+const vacancyListingComponent = new ListingVacancyPage('.listing');
+new ListingVacancyFiltersBlock('.listing-top__filters-wrapper');
+new ListingVacansiesPagePopup('.position__card-wrapper');
+
+new ItHubPageAdvantagesBlock('.why-are-we');
+new ItHubPageCareerUpgradeBlock('.upgrade');
+new ItHubVideoPlayerBlock('.find');
+new ItHubRunningLineBlock('.find__title');
+const itHubPageGoalBlock = new ItHubGoalsBlock('.goal');
+new ItHubPageCustomSelectInProfessionBlock('.profession__filter-wrapper');
+new ItHubInternshipBlock('.intern');
+const itPageDirection = new ItHubDirectionBlock('.direction');
+new ItHubVacanciesContainerInProfessionBlock('.profession__job-wrapper');
+
+new Form('.form');
+
+const headerComponent = new Header('.it-header');
+
+new Footer('.footer');
+
+new VacancyDirecLinkSideBar('.direct-link__side-bar');
+new VacancyDirecLinkNewsBlock('.vacancy__news-block-desktop');
+
+//--------------------------------------------------------
+// Не получилось изменить входной параметр (выдает ошибку - некорректный селектор)
 new VacancyDirecLinkMainContent(vacancyDirectLinkMainContent);
-new VacancyDirecLinkNewsBlock(vacancyDirectLinkNews);
-new CustomSelectInProfessionBlock(professionCustomSelect);
-new ListingFilters(listingPageFilters);
-new Intern(intern);
-const itPageDirection = new Direction(direction);
-new FooterPage(footerPage);
-new ListingVacansiesContainer(listingVacansiesContainer);
-new ItVacanciesContainer(itPageVacancyContainer);
+const itHubPageVacancy = new ItHubVacancyBlock(profession);
+//-----------------------------------------------------------
 
 // Инициализация классов страницы Розницы
 const retailCreateFuture = new CreateRetailFutureComponent('.retail__preview');
@@ -115,8 +136,8 @@ const retailInternshipBlock = new RetailInternshipBlock('.retail__internship');
 const retailAdvantagesBlock = new RetailAdvantagesBlock('.retail__advantages');
 const retailFooter = new RetailFooter('.retail__footer');
 
-retailCreateFuture.registerParameters(header, retailMissionBlock);
-retailMissionBlock.registerParameters(retailBrandsBlock, header);
+retailCreateFuture.registerParameters(headerItPage, retailMissionBlock);
+retailMissionBlock.registerParameters(retailBrandsBlock, headerItPage);
 retailBrandsBlock.getAllBrandsTabs([
   { name: 'mvideo', elements: retailBrandsBlock.mvideoFromBrandsPage },
   { name: 'eldorado', elements: retailBrandsBlock.eldoradoFromBrandsPage },
@@ -144,6 +165,7 @@ retailBrandsBlock.getAllBrandsTabs([
   { name: 'eldorado', elements: retailFooter.eldoradoFromFooter },
 ]);
 
+//-------------------------------------------------------------------------
 // Слушатели событий, установленные на Body
 document.body.addEventListener('click', (event) => {
   headerComponent.closeSelect();
@@ -160,15 +182,16 @@ document.body.addEventListener('click', (event) => {
 
   if (event.target.classList.contains('create-future__button')) {
     event.preventDefault();
-    smothScrollingToBlock(goalBlock, headerItPage);
+    smothScrollingToBlock(itHubPageGoalBlock.el, headerItPage);
   }
 
   if (event.target.classList.contains('goal__button')) {
     event.preventDefault();
-    smothScrollingToBlock(profession, headerItPage);
+    smothScrollingToBlock(itHubPageVacancy.el, headerItPage);
   }
 });
 
+//---------------------------------------------------------------------------------
 // Открыть анкету выбора вакансии
 function openApplicationForm() {
   const form = document.querySelector('.form');
@@ -184,6 +207,7 @@ function openApplicationForm() {
   }, 300);
 }
 
+//-----------------------------------------------------------------------------------
 // Скролл до блока
 export function smothScrollingToBlock(block, header) {
   const offset = 16;
@@ -203,7 +227,8 @@ export function smothScrollingToBlock(block, header) {
   }, 1);
 }
 
-// Анимация переключателей (внутренние шарики)
+//-----------------------------------------------------------------------------------
+// Анимация переключателей (внутренние шарики) на странице IT
 export function swichersAnimation(header, block, swichers) {
   return function () {
     const offset = 40;
@@ -236,6 +261,7 @@ export function swichersAnimation(header, block, swichers) {
   };
 }
 
+//----------------------------------------------------------------------------------
 // Отложенная загрузка изображений
 const lazyImages = document.querySelectorAll('[data-src]');
 
@@ -258,21 +284,18 @@ const checkImages = function () {
       target.parentNode.classList.contains('loading')
     ) {
       target.src = target.getAttribute('data-src');
-      // target.onload = () => {
-      //   target.parentNode.classList.remove('loading');
-      //   target.removeAttribute('data-src');
-      // };
       target.parentNode.classList.remove('loading');
       target.removeAttribute('data-src');
     }
   });
 };
 
-// window.onload = checkImages;
-// window.onscroll = checkImages;
 window.addEventListener('scroll', checkImages);
 window.addEventListener('DOMContentLoaded', checkImages);
+
+const flyoutVacancy = document.querySelector('.vacancy');
 
 if (flyoutVacancy) {
   flyoutVacancy.addEventListener('scroll', checkImages);
 }
+//----------------------------------------------------------------------------------

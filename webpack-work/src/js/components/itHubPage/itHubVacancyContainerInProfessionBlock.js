@@ -1,6 +1,6 @@
-export class ItVacanciesContainer {
-  constructor(el) {
-    this.el = el;
+export class ItHubVacanciesContainerInProfessionBlock {
+  constructor(className) {
+    this.el = document.querySelector(className);
 
     if (!this.el) return;
 

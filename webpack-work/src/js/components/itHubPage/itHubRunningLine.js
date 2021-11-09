@@ -1,6 +1,6 @@
-export class RunningLine {
-  constructor(el) {
-    this.el = el;
+export class ItHubRunningLineBlock {
+  constructor(className) {
+    this.el = document.querySelector(className);
 
     if (this.el == null || this.el == undefined) return;
 

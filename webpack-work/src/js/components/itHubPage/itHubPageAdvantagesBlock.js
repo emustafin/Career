@@ -1,6 +1,6 @@
-export class Advantages {
-  constructor(el) {
-    this.el = el;
+export class ItHubPageAdvantagesBlock {
+  constructor(className) {
+    this.el = document.querySelector(className);
 
     if (this.el == null || this.el == undefined) return;
 
