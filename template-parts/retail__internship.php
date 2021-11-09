@@ -25,11 +25,6 @@ $eldorado_retail_internship = get_sub_field('eldorado_retail_internship');
         </svg>
       </a>
     </div>
-    <!-- <div class="retail__internship-text-wrapper">
-      <p class="retail__internship-text">
-        <?php echo get_sub_field('description'); ?>
-      </p>
-    </div> -->
 
     <div class="retail__internship-text-wrapper mvideo">
       <div class="retail__internship-text">
