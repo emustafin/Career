@@ -759,7 +759,7 @@ if( get_field( 'can_without_experience', $post_id ) ){
                   muted
                   autoplay
                   loop
-                  data-src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-intro/video/retail-video-preview.mp4"
+                  data-src="<?php echo THEME_URL; ?>/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4"
                   src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png"
                 ></video>
                 <svg class="vacancy__progress-container" viewBox="0 0 280 280">
