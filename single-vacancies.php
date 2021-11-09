@@ -521,8 +521,8 @@ if( is_array( $relationship_terms ) ){
 <!-- //Vacancy New-block-mobile -->
 
 <!-- Страница вакансии для блока "Розница" -->
-        <!-- Content -->
-        <div class="direct-link__container">
+    <!-- Content -->
+    <div class="direct-link__container">
       <div class="direct-link__content-wrapper">
         <div class="direct-link__side-bar">
           <a href="#" class="direct-link__header-head-copy">
