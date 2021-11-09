@@ -865,10 +865,10 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_617ac1bc0f596",
-                            "label": "Заголовок 1",
-                            "name": "title_1",
-                            "type": "text",
+                            "key": "field_618ae9c43a5de",
+                            "label": "М.Видео",
+                            "name": "",
+                            "type": "tab",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -877,17 +877,14 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "placement": "top",
+                            "endpoint": 0
                         },
                         {
-                            "key": "field_617ac1e70f597",
-                            "label": "Заголовок 2",
-                            "name": "title_2",
-                            "type": "text",
+                            "key": "field_618ae9893a5dd",
+                            "label": "М.Видео",
+                            "name": "mvideo_retail_position",
+                            "type": "group",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -896,17 +893,110 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_617ac1bc0f596",
+                                    "label": "Заголовок 1",
+                                    "name": "title_1",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_617ac1e70f597",
+                                    "label": "Заголовок 2",
+                                    "name": "title_2",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_617ac1f70f598",
+                                    "label": "Описание шага 1",
+                                    "name": "description_item_1",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": "",
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_617ac2090f599",
+                                    "label": "Описание шага 2",
+                                    "name": "description_item_2",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": "",
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_617ac20a0f59a",
+                                    "label": "Описание шага 3",
+                                    "name": "description_item_3",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": "",
+                                    "new_lines": ""
+                                }
+                            ]
                         },
                         {
-                            "key": "field_617ac1f70f598",
-                            "label": "Описание шага 1",
-                            "name": "description_item_1",
-                            "type": "textarea",
+                            "key": "field_618ae9cc3a5df",
+                            "label": "Эльдорадо",
+                            "name": "",
+                            "type": "tab",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -915,17 +1005,14 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": "",
-                            "new_lines": ""
+                            "placement": "top",
+                            "endpoint": 0
                         },
                         {
-                            "key": "field_617ac2090f599",
-                            "label": "Описание шага 2",
-                            "name": "description_item_2",
-                            "type": "textarea",
+                            "key": "field_618ae9d83a5e0",
+                            "label": "Эльдорадо",
+                            "name": "eldorado_retail_position",
+                            "type": "group",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -934,30 +1021,104 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": "",
-                            "new_lines": ""
-                        },
-                        {
-                            "key": "field_617ac20a0f59a",
-                            "label": "Описание шага 3",
-                            "name": "description_item_3",
-                            "type": "textarea",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": "",
-                            "new_lines": ""
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_618ae9d83a5e1",
+                                    "label": "Заголовок 1",
+                                    "name": "title_1",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_618ae9d83a5e2",
+                                    "label": "Заголовок 2",
+                                    "name": "title_2",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_618ae9d83a5e3",
+                                    "label": "Описание шага 1",
+                                    "name": "description_item_1",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": "",
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_618ae9d83a5e4",
+                                    "label": "Описание шага 2",
+                                    "name": "description_item_2",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": "",
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_618ae9d83a5e5",
+                                    "label": "Описание шага 3",
+                                    "name": "description_item_3",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": "",
+                                    "new_lines": ""
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -1299,5 +1460,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1636492492
+    "modified": 1636493845
 }
