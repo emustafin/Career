@@ -35,7 +35,7 @@
 
 // Styles for prev-block
 .upgrade__slider-prev-block {
-  margin-right: 32px;
+  // margin-right: 32px;
   width: 100%;
   max-width: 40px;
 }
@@ -97,7 +97,8 @@
   right: 0;
   top: 30%;
   width: 100%;
-  max-width: 290px;
+  // max-width: 290px;
+  width: 22%;
   height: 16px;
   overflow: hidden;
   background: rgba(243, 243, 243, 1);
@@ -232,6 +233,7 @@
   font-size: 16px;
   line-height: 27px;
   margin-bottom: 32px;
+  width: 98%;
 }
 
 .upgrade__way-mobile {
@@ -241,7 +243,7 @@
 .upgrade__way-wrapper {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 98%;
 }
 
 .upgrade__way-item {
@@ -347,7 +349,8 @@
   }
 
   .upgrade__middle-block-container {
-    width: 78%;
+    width: 70%;
+    margin-right: 32px;
   }
 
   .upgrade__middle-image {
@@ -369,7 +372,8 @@
   }
 
   .upgrade__slider-next-arrow {
-    max-width: 223px;
+    // max-width: 200px;
+    width: 22%;
   }
 }
 
@@ -474,7 +478,7 @@
   }
 
   .upgrade__middle-block-container {
-    width: 89.6%;
+    width: 85%;
     margin-right: 24px;
   }
 
@@ -543,6 +547,7 @@
 
   .upgrade__middle-block-container {
     margin-right: 8px;
+    width: 90%;
   }
 
   .upgrade__middle-image-item {
