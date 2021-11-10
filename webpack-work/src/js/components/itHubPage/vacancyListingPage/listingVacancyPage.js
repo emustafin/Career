@@ -1,6 +1,6 @@
-export class Listing {
-  constructor(el) {
-    this.el = el;
+export class ListingVacancyPage {
+  constructor(className) {
+    this.el = document.querySelector(className);
 
     if (this.el == null || this.el == undefined) return;
 

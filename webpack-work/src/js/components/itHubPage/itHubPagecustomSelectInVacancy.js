@@ -1,6 +1,6 @@
-export class CustomSelectInProfessionBlock {
-  constructor(el) {
-    this.el = el;
+export class ItHubPageCustomSelectInProfessionBlock {
+  constructor(className) {
+    this.el = document.querySelector(className);
 
     if (this.el === null || this.el === undefined) return;
 

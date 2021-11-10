@@ -1,14 +1,14 @@
-import { Vacancy } from '../vacancy';
+import { ItHubVacancyBlock } from '../itHubVacancyBlock';
 
-export class ListingVacansiesContainer {
-  constructor(el) {
-    this.el = el;
+export class ListingVacansiesPagePopup {
+  constructor(className) {
+    this.el = document.querySelector(className);
 
     if (!this.el) return;
 
-    this.vacancyInstance = new Vacancy(this.el);
+    this.vacancyInstance = new ItHubVacancyBlock(this.el);
     this.flyout = this.vacancyInstance.flyout;
-    
+
     this.vacancyItems = [];
 
     this.el.addEventListener('click', this.openFlyout.bind(this));

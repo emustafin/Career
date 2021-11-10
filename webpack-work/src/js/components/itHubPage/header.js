@@ -1,6 +1,6 @@
 export class Header {
-  constructor(el) {
-    this.el = el;
+  constructor(className) {
+    this.el = document.querySelector(className);
 
     if (this.el === null || this.el === undefined) return;
 

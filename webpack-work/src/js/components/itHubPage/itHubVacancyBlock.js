@@ -1,8 +1,8 @@
-export class Vacancy {
+export class ItHubVacancyBlock {
   constructor(el) {
     this.el = el;
 
-    if (this.el == null || this.el == undefined) return;
+    if (!this.el) return;
 
     this.flyout = document.querySelector('.flyout');
     this.flyoutSideBar = this.flyout.querySelector('.flyout__side-bar');

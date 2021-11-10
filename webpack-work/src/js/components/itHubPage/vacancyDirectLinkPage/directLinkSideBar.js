@@ -5,8 +5,8 @@ import { VacancyDirecLinkMainContent } from './vacancyDirectLinkMainContent';
 import { vacancyDirectLinkMainContent } from '../../../index';
 
 export class VacancyDirecLinkSideBar {
-  constructor(el) {
-    this.el = el;
+  constructor(className) {
+    this.el = document.querySelector(className);
 
     if (this.el === null || this.el === undefined) return;
 

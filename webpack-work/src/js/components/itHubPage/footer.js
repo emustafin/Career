@@ -1,6 +1,6 @@
-export class FooterPage {
-  constructor(el) {
-    this.el = el;
+export class Footer {
+  constructor(className) {
+    this.el = document.querySelector(className);
     this.emailAdress = this.el.querySelector('.footer__contact-mail');
     this.copyButton = this.el.querySelector('.footer__contact-button');
 

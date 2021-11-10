@@ -1,9 +1,9 @@
 import { swichersAnimation } from '../../index';
 import { headerItPage } from '../../index';
 
-export class Intern {
-  constructor(el) {
-    this.el = el;
+export class ItHubInternshipBlock {
+  constructor(className) {
+    this.el = document.querySelector(className);
 
     if (this.el === null || this.el === undefined) return;
 
