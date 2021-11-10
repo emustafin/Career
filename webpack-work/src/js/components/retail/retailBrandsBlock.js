@@ -229,9 +229,11 @@ export class RetailBrandsBlock {
     let currentEldoradoTabs = [];
 
     this.brandsTabs.forEach((tab) => {
-      tab.name === 'mvideo'
-        ? currentMvideoTabs.push(...tab.elements)
-        : currentEldoradoTabs.push(...tab.elements);
+      if (tab.elements) {
+        tab.name === 'mvideo'
+          ? currentMvideoTabs.push(...tab.elements)
+          : currentEldoradoTabs.push(...tab.elements);
+      }
     });
 
     if (this.activeBrand === this.mvideoBrand) {
