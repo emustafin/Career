@@ -11,8 +11,17 @@ export class RetailPositionBlock {
     this.eldoradoFromPositionPage = Array.from(
       this.el.querySelectorAll('.eldorado')
     );
+    this.vacancyItems = this.el.querySelectorAll('.retail__position-list-item');
 
     this.el.addEventListener('mouseover', this.getVacancyItems.bind(this));
+
+    this.vacancyItems.forEach((vacancy) => {
+      vacancy.addEventListener('click', () => {
+        const button = vacancy.querySelector('.retail__position-item-button');
+        const linkAddress = button.href;
+        document.location.href = linkAddress;
+      });
+    });
   }
   getVacancyItems(event) {
     if (event.target.classList.contains('retail__position-list-item')) {
