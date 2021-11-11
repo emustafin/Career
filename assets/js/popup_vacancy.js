@@ -13,6 +13,12 @@ $('.position__card-item').on('click', function (e) {
   post_id = $(this).attr('data-vacancy_id');
   load_popup_vacancy( post_id );
 });
+$('.retail__position-list-item').on('click', function (e) {
+  
+  $('#vacancy_popup .loader-wrapp').css( 'display','block' );
+  post_id = $(this).attr('data-vacancy_id');
+  load_popup_vacancy( post_id );
+});
 
 $('.vacancy__header-head-link-main').on('click', function (e) {
   window.history.pushState('', '', origin_location);

@@ -1,4 +1,4 @@
-<div class="retail__position-list-item">
+<div class="retail__position-list-item" data-vacancy_id="<?php echo $vacancy_item_id; ?>">
     <div class="retail__position-item-position">
     <p class="retail__position-item-position-title">
         <?php echo get_the_title( $vacancy_item_id ); ?>
