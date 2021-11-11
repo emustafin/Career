@@ -70,8 +70,15 @@ $eldorado_retail_position = get_sub_field('eldorado_retail_position');
               'post_type'         => 'vacancies',
               'posts_per_page'    => -1,
               'post_status'       => 'publish',
-              'relationship'      => 'it',
               'posts_per_page'    => 5,
+              'meta_query'        => array(
+                'relation'		=> 'AND',
+                array(
+                    'key'		=> 'check_mvideo_eldorado',
+                    'value'		=> 'mvideo',
+                    'compare'	=> '='
+                )
+              )
           );
 
           $retail_vacancies = new WP_Query( $args );
@@ -146,8 +153,15 @@ $eldorado_retail_position = get_sub_field('eldorado_retail_position');
               'post_type'         => 'vacancies',
               'posts_per_page'    => -1,
               'post_status'       => 'publish',
-              'relationship'      => 'roznica',
               'posts_per_page'    => 5,
+              'meta_query'        => array(
+                'relation'		=> 'AND',
+                array(
+                    'key'		=> 'check_mvideo_eldorado',
+                    'value'		=> 'eldorado',
+                    'compare'	=> '='
+                )
+              )
           );
 
           $retail_vacancies = new WP_Query( $args );

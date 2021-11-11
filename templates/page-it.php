@@ -4,7 +4,11 @@ Template Name: IT
 */
 ?>
 <?php get_header(); ?>
-
+<script>
+    var rel_type = 'it';
+    var vacancyid = '';
+    var sourceurl = '';
+</script>
 <?php
 
 if( have_rows('content_blocks') ):

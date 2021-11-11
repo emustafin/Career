@@ -4,7 +4,11 @@ Template Name: Retail
 */
 ?>
 <?php get_header(); ?>
-
+<script>
+    var rel_type = 'roznica';
+    var vacancyid = '';
+    var sourceurl = '';
+</script>
 <?php
 
 if( have_rows('content_blocks') ):

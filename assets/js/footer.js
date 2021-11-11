@@ -10,6 +10,14 @@ form.addEventListener( 'wpcf7submit', function( event ) {
   if (result.status === 'mail_sent')
     submitBtn.style.display = 'none';
     answerTitle.style.display = 'block';
+
+    setTimeout(setup_vars_for_forms, 1000);
+}, false );
+
+const form2 = document.querySelector('.vacancy__form-inner-block .wpcf7')
+
+form2.addEventListener( 'wpcf7submit', function( event ) {
+    setTimeout(setup_vars_for_forms, 1000);
 }, false );
 
 // Функция выбора элемента из выпадающего списка
@@ -71,3 +79,19 @@ const spezialisationSelect = new Tagify(specializationFormInput, {
 });
 
 spezialisationSelect.on('change', selectValueFromSingleSelect(dataSpecialization, specializationFormInput, specializationFormInput))
+
+function setup_vars_for_forms(){
+    
+    $('.rel_type').each(function( index ) {
+        $( this ).val(rel_type);
+    });
+    
+    $('.vacancyid').each(function( index ) {
+        $( this ).val(vacancyid);
+    });
+    
+    $('.sourceurl').each(function( index ) {
+        $( this ).val(sourceurl);
+    });
+}
+setup_vars_for_forms();

@@ -61,7 +61,11 @@ if( is_array( $relationship_terms ) ){
 }
 
 ?>
-
+<script>
+    var rel_type = '<?php echo $current_relationship; ?>';
+    var vacancyid = '<?php echo get_the_ID(); ?>';
+    var sourceurl = '<?php echo get_permalink(); ?>';
+</script>
 <div class="direct-link__container">
     <div class="direct-link__content-wrapper">
     <div class="direct-link__side-bar">

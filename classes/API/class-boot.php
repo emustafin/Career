@@ -21,6 +21,6 @@ class Boot {
 	
 	public function log( $content ){
 
-		file_put_contents( 'xxx.txt', print_r( $content, true ), FILE_APPEND );
+		file_put_contents( 'xxx2.txt', print_r( $content, true ), FILE_APPEND );
 	}
 }
