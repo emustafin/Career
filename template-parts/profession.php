@@ -356,7 +356,8 @@
                         $args = array(
                             'post_type'         => 'vacancies',
                             'posts_per_page'    => -1,
-                            'post_status'       => 'publish'
+                            'post_status'       => 'publish',
+                            'relationship'      => 'it'
                         );
 
                         if( '' != $vaccat_slug ){
