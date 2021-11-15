@@ -6,7 +6,11 @@
             if( 'roznica' == $current_relationship ){ 
                 $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/retail-video-preview.mp4';
             } elseif( 'it' == $current_relationship ){
-                $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4';
+                if( 'management' == $current_catgs ){
+                    $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/management-video-preview.mp4';
+                } else{
+                    $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4';
+                }
             } 
             $src_video = THEME_URL.'/assets/images/Lazy-loading/1x1.png';
             ?>
