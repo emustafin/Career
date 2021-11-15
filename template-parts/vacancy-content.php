@@ -3,14 +3,11 @@
     <div class="vacancy__video">
         <div class="vacancy__video-container loading" data-name="muted">
             <?php 
-            //TODO - решить оставлять этот кусок или где-то его использовать
             if( 'roznica' == $current_relationship ){ 
                 $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/retail-video-preview.mp4';
             } elseif( 'it' == $current_relationship ){
                 $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4';
-            } 
-            $data_src_video = '';
-            $src_video = '';
+            }
             ?>
             <video
                   class="vacancy__video-preview"
