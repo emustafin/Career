@@ -360,6 +360,8 @@ class Vacancies {
                                     $('.flyout #experience_important').html(response.experience);
                         
                                     $('#vacancy_popup .loader-wrapp').css( 'display','none' );
+
+                                    $('.vacancy').css( 'overflow', 'auto' );
                                 
                                     window.history.pushState('', '', response.url);
                         
