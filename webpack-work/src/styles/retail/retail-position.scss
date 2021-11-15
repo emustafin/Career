@@ -151,7 +151,6 @@
 
 .retail__position-description-text {
   max-width: 464px;
-  margin-bottom: 24px;
 }
 
 .retail__position-description-link {
@@ -159,8 +158,9 @@
   color: $mainColor;
   position: relative;
   padding-right: 23px;
+  margin-top: 24px;
 
-  opacity: 0;
+  display: none;
 }
 
 .retail__position-headline-link-arrow {

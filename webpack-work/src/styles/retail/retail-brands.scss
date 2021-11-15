@@ -26,6 +26,7 @@
   top: 0;
   right: 0;
   transition: 0.3s;
+  transform: translateX(8px);
 }
 
 .brands__navigation-container {
@@ -91,6 +92,10 @@
   max-width: 440px;
   margin-bottom: 24px;
   padding-right: 16px;
+
+  & > p:first-child {
+    margin-bottom: 24px;
+  }
 }
 
 .brands__content-statistic-wrapper {
@@ -169,7 +174,7 @@
 
 .brands__content-slider-button-container {
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   right: 0;
 }
 
@@ -278,12 +283,23 @@
     margin-bottom: 64px;
   }
 
+  //Оригинальные стили
+  // .brands__content-text {
+  //   max-width: 501px;
+  //   margin-bottom: 20px;
+
+  //   &:nth-child(2) {
+  //     margin-bottom: 40px;
+  //   }
+  // }
+
+  // Стили из ворд пресс
   .brands__content-text {
     max-width: 501px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 
-    &:nth-child(2) {
-      margin-bottom: 40px;
+    & > p:first-child {
+      margin-bottom: 20px;
     }
   }
 
@@ -364,12 +380,23 @@
     line-height: 16px;
   }
 
+  // Оригинальные стили
+  // .brands__content-text {
+  //   padding-right: 0;
+  //   margin-bottom: 16px;
+
+  //   &:nth-child(2) {
+  //     margin-bottom: 24px;
+  //   }
+  // }
+
+  // Стили из Вордпресс
   .brands__content-text {
     padding-right: 0;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 
-    &:nth-child(2) {
-      margin-bottom: 24px;
+    & > p:first-child {
+      margin-bottom: 16px;
     }
   }
 
@@ -380,7 +407,7 @@
   .brands__content-statistic-item {
     width: 100%;
     margin-right: 0;
-    margin-bottom: 16;
+    margin-bottom: 16px;
 
     &:last-child {
       margin-bottom: 0;

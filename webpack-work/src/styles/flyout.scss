@@ -104,8 +104,9 @@
 .vacancy__headline-title {
   font-size: 64px;
   line-height: 68px;
-  width: 100%;
-  max-width: 928px;
+  display: inline;
+  // width: 100%;
+  // max-width: 928px;
 }
 
 .vacancy__headline-link {
@@ -834,7 +835,7 @@
   }
 
   .vacancy__headline-link {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     font-size: 20px;
     line-height: 20px;
   }
@@ -921,7 +922,7 @@
   .vacancy__headline-title {
     font-size: 32px;
     line-height: 36px;
-    max-width: 498px;
+    // max-width: 498px;
   }
 
   .vacancy__headline-link {
@@ -1050,9 +1051,9 @@
     margin-bottom: 24px;
   }
 
-  .vacancy__headline-title {
-    max-width: 100%;
-  }
+  // .vacancy__headline-title {
+  //   max-width: 100%;
+  // }
 
   .vacancy__meta-info {
     display: flex;

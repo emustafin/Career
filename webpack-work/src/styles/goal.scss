@@ -169,6 +169,10 @@
   flex-direction: column;
 }
 
+.goal__item.swiper-slide {
+  width: 81.5%;
+}
+
 .goal__item-title {
   font-size: 40px;
   line-height: 44px;
@@ -182,6 +186,10 @@
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  & > p:first-child {
+    margin-bottom: 24px;
   }
 }
 
@@ -500,7 +508,7 @@
 
 .goal__item:hover .circle {
   transition: all 1s;
-  transform: scale(1.2);
+  transform: scale(0.9);
 }
 
 .circle-in-circle {
@@ -541,8 +549,8 @@
 
 .three-circle > svg.three-circle-big:nth-child(1) {
   position: absolute;
-  bottom: -10px;
-  left: -10px;
+  bottom: -8px;
+  left: -12px;
   transform: translate(0, 0);
   transition: all 1s;
 }
@@ -557,12 +565,12 @@
 /*three-circle заменить на необходимый*/
 .goal__item:hover svg.three-circle-big:nth-child(1) {
   transition: all 1s;
-  transform: translate(-10px, 10px);
+  transform: translate(-3px, 3px);
 }
 
 .goal__item:hover svg.three-circle-big:nth-child(3) {
   transition: all 1s;
-  transform: translate(10px, -15px);
+  transform: translate(3px, -3px);
 }
 
 .two-horizontal-circle__circle {
@@ -773,6 +781,10 @@
     margin-bottom: 32px;
   }
 
+  .goal__item {
+    margin-bottom: 0;
+  }
+
   .goal__item-text {
     font-size: 14px;
     line-height: 16px;
@@ -780,6 +792,10 @@
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    & > p:first-child {
+      margin-bottom: 16px;
     }
   }
 
