@@ -309,6 +309,26 @@ class Vacancies {
                         var origin_location = window.location.href;
                         
                         post_id = $(this).attr('data-vacancy_id');
+
+                        $('.flyout .vacancy__headline-title').attr('origin_url', '#');
+                        $('.flyout .vacancy__headline-title').html( '' );
+                        $('.flyout .vacancy__video-container img').attr('src', '#');
+                        $('.flyout .vacancy__video-container .vacancy__video-preview').attr('data-src', '#');
+                        $('.flyout .vacancy__video-container .vacancy__video-preview').attr('src', '#');
+                        $('.flyout .vacancy__intro-description').html( '' );
+                        $('.flyout #flexible_schedule').html( '' );
+                        $('.flyout #vacancy_project').html( '' );
+                        $('.flyout #expectations').html( '' );
+                        $('.flyout #can_work_remotely').html( '' );
+                        $('.flyout .vacancy__office-map-image').attr('src', '#');
+                        $('.flyout .vacancy__office-adress-text').html( '' );
+                        $('.flyout .vacancy__meta-info-sum').html( '' );
+                        $('.flyout .vacancy__meta-info-sum-after').html( '' );
+                        $('.flyout #vaccat_info_vacancy').html( '' );
+                        $('.flyout #town_info_vacancy').html( '' );
+                        $('.flyout #experience_important').html( '' );
+
+                        $('.vacancy').css( 'overflow', 'hidden' );
                         
                         var data = {
                             action: 'get_vacancy_data',
@@ -343,6 +363,8 @@ class Vacancies {
                                     $('.flyout #experience_important').html(response.experience);
                         
                                     $('#vacancy_popup .loader-wrapp').css( 'display','none' );
+
+                                    $('.vacancy').css( 'overflow', 'auto' );
                                 
                                     window.history.pushState('', '', response.url);
                         
