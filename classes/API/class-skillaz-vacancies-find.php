@@ -17,7 +17,7 @@ class Skillaz_Vacancies_Find extends Boot {
         $url = 'https://api-feature-mvideo.dev.skillaz.ru/open-api/objects/vacancies/find';
         $headers = array('Content-Type: application/json', 'Authorization: Bearer WXIGzUxm23bXoKv/AlbA8Lgmd3Yq3tsgpg5x5mMK77I=');
 
-        $result = self::init( $headers, $url, $content );
+        $result = self::init_post( $headers, $url, $content );
         self::finded_vacancies( $result );
 	}
 
@@ -30,7 +30,7 @@ class Skillaz_Vacancies_Find extends Boot {
         foreach ($items as $vacancy) {
             
             echo $i.' - '.$vacancy->Name.'<br>';
-            $vacancy_id = self::create_single_vacancy( $vacancy );
+            // $vacancy_id = self::create_single_vacancy( $vacancy );
             $i++;
         }
     }

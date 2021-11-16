@@ -90,7 +90,7 @@ class WPcf7_Mail extends Boot {
 
         $headers = array('Content-Type: application/json', 'Authorization: Bearer 66233397cc55c4714d52a78821c92910634e369cc3abee006304ccf6fb887097');
         
-        $result = self::init( $headers, $url, $content );
+        $result = self::init_post( $headers, $url, $content );
         self::log( $result );
     }
 
@@ -196,7 +196,7 @@ class WPcf7_Mail extends Boot {
         $content = json_encode($params);
 
         $headers = array('Content-Type: application/json', 'Authorization: Bearer WXIGzUxm23bXoKv/AlbA8Lgmd3Yq3tsgpg5x5mMK77I=');
-        $result = self::init( $headers, $url, $content );
+        $result = self::init_post( $headers, $url, $content );
         // var_dump($result);
         self::log( $result );
     }
