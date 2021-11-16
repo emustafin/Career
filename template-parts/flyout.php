@@ -149,6 +149,11 @@
             if( is_array( $relationship_terms ) ){
                 $current_relationship = $relationship_terms[0]->slug;
             }
+            $current_catgs = '';
+            $catgs_terms = get_the_terms( $post_id, 'vaccat' );
+            if( is_array( $catgs_terms ) ){
+                $current_catgs = $catgs_terms[0]->slug;
+            }
             include(THEME_DIR . '/template-parts/vacancy-content.php'); 
             ?>
         </div>
