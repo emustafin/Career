@@ -65,6 +65,16 @@
   }
 }
 
+.dnd-upload-status .dnd-upload-image {
+  border: none;
+}
+
+.dnd-upload-status .dnd-upload-image span.file {
+  background-image: url('/wp-content/themes/career_theme/assets/images/form/file.png');
+  width: 34px;
+  height: 34px;
+}
+
 //-------------------------------------------------------------------
 // Вариант 2.
 .wpcf7-not-valid-tip {
@@ -104,7 +114,8 @@
 .wpcf7-form-control-wrap.email-88,
 .wpcf7-form-control-wrap.mask-176,
 .wpcf7-form-control-wrap.text-931,
-.wpcf7-form-control-wrap.text-932 {
+.wpcf7-form-control-wrap.text-932,
+.wpcf7-form-control-wrap.text-name2 {
   display: flex;
 }
 
@@ -124,6 +135,8 @@
 // .tagify.tagify--select.wpcf7-form-control.wpcf7-text.form__value2.tagify--noTags.tagify--empty,
 // .wpcf7-form-control.wpcf7-text.form__information,
 // .wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email.form__form-input.wpcf7-not-valid,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value2,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value1,
 .form__form-input,
 .wpcf7-form-control.wpcf7-text.form__information,
 .tagify--noTags.tagify--empty,
@@ -132,6 +145,8 @@
   padding-bottom: 8px;
 }
 
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value2,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value1,
 .wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email.form__form-input,
 .wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__form-input,
 .wpcf7-form-control.wpcf7mf-mask.wpcf7-mask.wpcf7-validates-as-required.form__form-input,
