@@ -4,7 +4,7 @@ namespace Career\API;
 
 class Boot {
 
-	public function init( $headers, $url, $content ) {
+	public function init_post( $headers, $url, $content ) {
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -18,9 +18,21 @@ class Boot {
 
 		return $result;
 	}
+
+	public function init_get( $headers, $url ) {
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers); // отправка заголовков
+		$result = curl_exec($ch);  
+		curl_close($ch);
+
+		return $result;
+	}
 	
 	public function log( $content ){
 
-		file_put_contents( 'xxx2.txt', print_r( $content, true ), FILE_APPEND );
+		file_put_contents( 'xxx3.txt', print_r( $content, true ), FILE_APPEND );
 	}
 }
