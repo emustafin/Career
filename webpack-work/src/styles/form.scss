@@ -83,10 +83,19 @@
   margin-bottom: 16px;
   padding-bottom: 8px;
 
-  &:nth-child(5),
-  &:nth-child(6) {
-    padding-bottom: 0;
-  }
+  // &:nth-child(4),
+  // &:nth-child(5),
+  // &:nth-child(6) {
+  // }
+}
+
+.tagify.tagify--select > .tagify__input {
+  min-height: 20px;
+  padding-bottom: 0;
+}
+
+.tagify__dropdown__item {
+  line-height: 20px;
 }
 
 .form__form-name-value {
@@ -186,7 +195,8 @@
 .form__filter-item-select-arrow {
   position: absolute;
   right: 0;
-  bottom: 10px;
+  bottom: 12px;
+  height: 14px;
 }
 
 // .form__value1,
@@ -453,6 +463,8 @@ a.cd-upload-btn {
 input#form__town {
   display: none;
 }
-.rel_type, .vacancyid, .sourceurl{
+.rel_type,
+.vacancyid,
+.sourceurl {
   display: none !important;
 }
