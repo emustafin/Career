@@ -347,7 +347,10 @@ class Vacancies {
                                     $('.flyout .vacancy__headline-title').attr('origin_url', origin_location);
                                     $('.flyout .vacancy__headline-title').html(response.title);
                                     $('.flyout .vacancy__video-container img').attr('src', response.img);
+                                    $('.flyout .vacancy__video-container .vacancy__video-preview').attr('data-src', response.data_src_video);
+                                    $('.flyout .vacancy__video-container .vacancy__video-preview').attr('src', response.data_src_video);
                                     $('.flyout .vacancy__intro-description').html(response.content);
+                                    $('.flyout #flexible_schedule').html(response.flexible_schedule);
                                     $('.flyout #vacancy_project').html(response.vacancy_project);
                                     $('.flyout #expectations').html(response.expectations);
                                     $('.flyout #can_work_remotely').html(response.can_work_remotely);
@@ -539,6 +542,12 @@ class Vacancies {
             $relationship_terms = get_the_terms( $vacancy_item_id, 'relationship' );
             if( is_array( $relationship_terms ) ){
                 $current_relationship = $relationship_terms[0]->slug;
+            }
+
+            $current_catgs = '';
+            $catgs_terms = get_the_terms( $vacancy_item_id, 'vaccat' );
+            if( is_array( $catgs_terms ) ){
+                $current_catgs = $catgs_terms[0]->slug;
             }
 
             $title                     = get_the_title( $vacancy_item_id );
@@ -738,7 +747,11 @@ class Vacancies {
             if( 'roznica' == $current_relationship ){ 
                 $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/retail-video-preview.mp4';
             } elseif( 'it' == $current_relationship ){
-                $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4';
+                if( 'management' == $current_catgs ){
+                    $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/management-video-preview.mp4';
+                } else{
+                    $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4';
+                }
             }
 
             $content                   = get_the_content( '','',$vacancy_item_id );

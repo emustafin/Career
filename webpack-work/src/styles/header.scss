@@ -18,7 +18,7 @@
 }
 
 .it-header__item {
-  width: 32%;
+  width: 33.33%;
   font-size: 18px;
   line-height: 24px;
 }
@@ -79,10 +79,11 @@
   transition: 0.3s;
   background: $whiteColor;
   padding: 10px 0;
+  border-radius: 16px;
 }
 
 .it-header__directions-dropdown-list {
-  transform: translateY(-100%);
+  transform: translateY(-110%);
 }
 
 .it-header__directions-dropdown-list-active {
