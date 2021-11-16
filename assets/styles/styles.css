@@ -6536,6 +6536,107 @@
 .preview-option {
   opacity: 1 !important; }
 
+.form__form-name {
+  margin-bottom: 16px;
+  position: relative; }
+
+.form__form-mistake,
+.form__email-mistake {
+  color: #e31235;
+  background: #ffffff;
+  padding: 2px 8px;
+  box-shadow: 16px 2px 24px rgba(0, 0, 0, 0.03);
+  border-radius: 16px;
+  display: inline-block;
+  position: absolute;
+  bottom: calc(-50% + 12px);
+  right: 0;
+  display: none; }
+
+.form__form-mistake-message {
+  border-bottom: 1px solid #e31235; }
+  .form__form-mistake-message > .form__form-mistake {
+    display: block; }
+
+.form__form-mistake-email {
+  border-bottom: 1px solid #e31235; }
+  .form__form-mistake-email > .form__email-mistake {
+    display: block; }
+
+.form__checkbox-mistake {
+  color: #e31235; }
+  .form__checkbox-mistake > .wpcf7-form-control-wrap.checkbox-484
+> .wpcf7-form-control.wpcf7-checkbox.wpcf7-validates-as-required.form__input-checkbox
+> .wpcf7-list-item.first.last
+> .wpcf7-list-item-label {
+    border: 1px solid #e31235; }
+  .form__checkbox-mistake > .form__form-politics {
+    color: #e31235;
+    border-bottom: 1px solid #e31235; }
+
+.wpcf7-not-valid-tip {
+  color: #e31235;
+  background: #ffffff;
+  padding: 2px 8px;
+  box-shadow: 16px 2px 24px rgba(0, 0, 0, 0.03);
+  border-radius: 16px;
+  display: inline-block;
+  position: absolute;
+  bottom: calc(-50% + 4px);
+  right: 0; }
+
+.wpcf7-form-control-wrap.checkbox-484 > .wpcf7-not-valid-tip {
+  display: none; }
+
+.wpcf7-form-control-wrap.checkbox-484 > .wpcf7-not-valid-tip {
+  display: none; }
+
+.wpcf7-form-control-wrap.checkbox-484 > .wpcf7-not-valid {
+  border-bottom: none; }
+
+.wpcf7-not-valid > .wpcf7-list-item.first.last > .wpcf7-list-item-label {
+  border: 1px solid #e31235; }
+
+.wpcf7-form-control-wrap.text-town,
+.wpcf7-form-control-wrap.text-name,
+.wpcf7-form-control-wrap.email-88,
+.wpcf7-form-control-wrap.mask-176,
+.wpcf7-form-control-wrap.text-931,
+.wpcf7-form-control-wrap.text-932 {
+  display: flex; }
+
+.tagify--noTags.tagify--empty {
+  position: relative; }
+  .tagify--noTags.tagify--empty:nth-child(5) {
+    display: none; }
+
+.form__form-input,
+.wpcf7-form-control.wpcf7-text.form__information,
+.tagify--noTags.tagify--empty,
+.form__information,
+.form__form-input {
+  padding-bottom: 8px; }
+
+.wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email.form__form-input,
+.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__form-input,
+.wpcf7-form-control.wpcf7mf-mask.wpcf7-mask.wpcf7-validates-as-required.form__form-input,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.form__value1.tagify--noTags.tagify--empty,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.form__value2.tagify--noTags.tagify--empty,
+.wpcf7-form-control.wpcf7-text.form__information,
+.tagify--noTags.tagify--empty,
+.form__information,
+.form__form-input {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
+
+.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__form-input.wpcf7-not-valid,
+.wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email.form__form-input.wpcf7-not-valid,
+.wpcf7-not-valid,
+.tagify--noTags.tagify--empty.wpcf7-not-valid,
+.wpcf7-form-control.wpcf7mf-mask.wpcf7-mask.wpcf7-validates-as-required.form__form-input.wpcf7-not-valid,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value1.tagify--noTags.tagify--empty.wpcf7-not-valid,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value2.tagify--noTags.tagify--empty.wpcf7-not-valid {
+  border-bottom: 1px solid #e31235; }
+
 .form,
 .form-active {
   position: fixed;
@@ -6602,11 +6703,6 @@
 .form__text-left-bar {
   width: 100%;
   max-width: 624px; }
-
-.form__form-name {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  margin-bottom: 16px;
-  padding-bottom: 8px; }
 
 .tagify.tagify--select > .tagify__input {
   min-height: 20px;
