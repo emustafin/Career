@@ -214,7 +214,8 @@ class Vacancies {
             $args = array(
                 'post_type'         => 'vacancies',
                 'posts_per_page'    => 6,
-                'post_status'       => 'publish'
+                'post_status'       => 'publish',
+                'relationship'      => 'it'
             );
 
             if( 'default' != $_POST['default'] ){
@@ -400,6 +401,7 @@ class Vacancies {
             $args['paged'] = $paged;
             $args['post_type'] = 'vacancies';
             $args['post_status'] = 'publish';
+            $args['relationship'] = 'it';
 
 
             $archive_vacancies = new \WP_Query( $args );
@@ -435,7 +437,8 @@ class Vacancies {
             $args = array(
                 'post_type'         => 'vacancies',
                 'posts_per_page'    => 10,
-                'post_status'       => 'publish'
+                'post_status'       => 'publish',
+                'relationship'      => 'it'
             );
 
             if( 'default' != $_POST['default'] ){
