@@ -15,6 +15,8 @@ import { Form } from './components/itHubPage/form';
 import { ListingVacancyPage } from './components/itHubPage/vacancyListingPage/listingVacancyPage';
 import { ListingVacancyFiltersBlock } from './components/itHubPage/vacancyListingPage/listingVacancyFiltersBlock';
 import { ListingVacansiesPagePopup } from './components/itHubPage/vacancyListingPage/listingVacansiesPopup';
+import { ListingVacancyMapBlock } from './components/itHubPage/vacancyListingPage/listingPageMapBlock';
+import { ListingMapPageFilters } from './components/itHubPage/vacancyListingPage/listingFilters';
 
 import { Header } from './components/itHubPage/header';
 
@@ -100,6 +102,12 @@ const page404 = document.querySelector('.page-404');
 const vacancyListingComponent = new ListingVacancyPage('.listing');
 new ListingVacancyFiltersBlock('.listing-top__filters-wrapper');
 new ListingVacansiesPagePopup('.position__card-wrapper');
+new ListingVacancyMapBlock(
+  '.listing-metro__content-map',
+  '.listing-metro__content-list',
+  '.listing-top__filter-list-wrapper'
+);
+new ListingMapPageFilters('.listing-top__filters-wrapper-map');
 
 new ItHubPageAdvantagesBlock('.why-are-we');
 new ItHubPageCareerUpgradeBlock('.upgrade');
