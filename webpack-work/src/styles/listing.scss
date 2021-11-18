@@ -1,4 +1,20 @@
-// Styles for Listing-top section
+// @import './styles.scss';
+
+.tagify.tagify--outside.listing-top__profession-filter.tagify--noTags.tagify--empty {
+  border-bottom: none;
+}
+
+.tagify.tagify--select.selectMode.listing__specialization-select.tagify--noTags.tagify--empty,
+.tagify.tagify--select.selectMode.listing__city-select.tagify--noTags.tagify--empty {
+  padding-bottom: 14px;
+}
+
+.tagify.tagify--select.selectMode.listing__specialization-select,
+.tagify.tagify--select.selectMode.listing__city-select {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding-bottom: 12px;
+}
+
 .listing {
   font-size: 18px;
   line-height: 24px;
@@ -42,6 +58,12 @@
   position: relative;
 }
 
+.listing-top__dropdown-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 15px;
+}
+
 .listing-top__where,
 .listing-top__dropdown-list-item {
   cursor: pointer;
@@ -54,19 +76,17 @@
 .listing-top__where {
   padding-right: 55px;
 
-  & > svg {
+  &::after {
+    content: '';
     position: absolute;
     right: 0;
     top: calc(50% - 14px);
     height: 36px;
     width: 38px;
-    pointer-events: none;
+    background: url('../images/listing/listing-top/arrow-big-bottom.svg')
+      no-repeat;
 
-    // display: none;
-  }
-
-  & > span {
-    pointer-events: none;
+    display: none;
   }
 }
 
@@ -113,6 +133,40 @@
   }
 }
 
+.listing-top__filter-sity {
+  display: none;
+}
+
+.listing-top__filter-list-wrapper {
+  padding-top: 25px;
+  margin-left: auto;
+}
+
+.listing-top__filter-list-item {
+  display: flex;
+  justify-content: flex-end;
+  color: $blackColorOpacity-05;
+}
+
+.listing-top__filter-list-item-active {
+  color: $mainColor;
+
+  & > .listing-top__filter-list-item-arrow {
+    opacity: 1;
+  }
+}
+
+.listing-top__filter-list-item-arrow {
+  margin-right: 9px;
+  margin-top: 7px;
+  opacity: 0;
+}
+
+.listing-top__filter-list-item-arrow,
+.listing-top__filter-list-item-text {
+  pointer-events: none;
+}
+
 // Пробные стили для Тагифай
 .listing__filter-item-select-arrow {
   position: absolute;
@@ -122,8 +176,9 @@
 
 .listing__filter-item-border-bottom {
   height: 1px;
-  background: $blackColorOpacity-05;
+  // background: $blackColorOpacity-05;
   position: relative;
+  // display: none;
 }
 
 .listing-top__filter-item-search-icon {
@@ -255,9 +310,8 @@
   padding-top: 8px;
   border-top: 1px solid $blackColorOpacity-05;
   display: flex;
-  cursor: pointer;
   transition: 0.3s;
-  overflow: hidden;
+  cursor: pointer;
 
   &:last-child {
     margin-bottom: 0;
@@ -266,19 +320,18 @@
 
 .position__info-link {
   position: absolute;
-  top: 0;
-  left: 0;
-  // transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding: 10px 32px 10px 16px;
-  width: 185px;
   background: $whiteColor;
   color: $mainColor;
   border-radius: 36px;
   font-size: 12px;
   line-height: 12px;
   z-index: 1;
+  transition: 0.3s;
   opacity: 0;
-  pointer-events: none;
 }
 
 .position__card-item:hover {
@@ -914,6 +967,12 @@
     padding-right: 32px;
   }
 
+  .listing-top__dropdown-arrow {
+    right: 0;
+    bottom: -3px;
+    transform: scale(0.5);
+  }
+
   .listing-top__counter,
   .listing-top__counter-list-item {
     font-size: 16px;
@@ -1076,8 +1135,12 @@
 
     &:nth-child(2) {
       order: 3;
-      margin-right: 0;
+      margin-right: auto;
     }
+  }
+
+  .listing-top__specialization-on-map {
+    margin-right: auto;
   }
 
   .listing-top__filter-item-button-reset {

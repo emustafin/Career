@@ -4247,6 +4247,18 @@
   .svg-toggle-line:nth-child(2) {
     left: 53px; } }
 
+.tagify.tagify--outside.listing-top__profession-filter.tagify--noTags.tagify--empty {
+  border-bottom: none; }
+
+.tagify.tagify--select.selectMode.listing__specialization-select.tagify--noTags.tagify--empty,
+.tagify.tagify--select.selectMode.listing__city-select.tagify--noTags.tagify--empty {
+  padding-bottom: 14px; }
+
+.tagify.tagify--select.selectMode.listing__specialization-select,
+.tagify.tagify--select.selectMode.listing__city-select {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding-bottom: 12px; }
+
 .listing {
   font-size: 18px;
   line-height: 24px; }
@@ -4283,6 +4295,11 @@
   display: inline-block;
   position: relative; }
 
+.listing-top__dropdown-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 15px; }
+
 .listing-top__where,
 .listing-top__dropdown-list-item {
   cursor: pointer; }
@@ -4292,15 +4309,15 @@
 
 .listing-top__where {
   padding-right: 55px; }
-  .listing-top__where > svg {
+  .listing-top__where::after {
+    content: '';
     position: absolute;
     right: 0;
     top: calc(50% - 14px);
     height: 36px;
     width: 38px;
-    pointer-events: none; }
-  .listing-top__where > span {
-    pointer-events: none; }
+    background: url("../images/listing/listing-top/arrow-big-bottom.svg") no-repeat;
+    display: none; }
 
 .listing-top__dropdown-container-active {
   color: #e31235; }
@@ -4331,6 +4348,32 @@
   .listing-top__filter-item:last-child {
     margin-right: 0; }
 
+.listing-top__filter-sity {
+  display: none; }
+
+.listing-top__filter-list-wrapper {
+  padding-top: 25px;
+  margin-left: auto; }
+
+.listing-top__filter-list-item {
+  display: flex;
+  justify-content: flex-end;
+  color: rgba(0, 0, 0, 0.5); }
+
+.listing-top__filter-list-item-active {
+  color: #000000; }
+  .listing-top__filter-list-item-active > .listing-top__filter-list-item-arrow {
+    opacity: 1; }
+
+.listing-top__filter-list-item-arrow {
+  margin-right: 9px;
+  margin-top: 7px;
+  opacity: 0; }
+
+.listing-top__filter-list-item-arrow,
+.listing-top__filter-list-item-text {
+  pointer-events: none; }
+
 .listing__filter-item-select-arrow {
   position: absolute;
   right: 0;
@@ -4338,7 +4381,6 @@
 
 .listing__filter-item-border-bottom {
   height: 1px;
-  background: rgba(0, 0, 0, 0.5);
   position: relative; }
 
 .listing-top__filter-item-search-icon {
@@ -4438,26 +4480,25 @@
   padding-top: 8px;
   border-top: 1px solid rgba(0, 0, 0, 0.5);
   display: flex;
-  cursor: pointer;
   transition: 0.3s;
-  overflow: hidden; }
+  cursor: pointer; }
   .position__card-item:last-child {
     margin-bottom: 0; }
 
 .position__info-link {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding: 10px 32px 10px 16px;
-  width: 185px;
   background: #ffffff;
   color: #000000;
   border-radius: 36px;
   font-size: 12px;
   line-height: 12px;
   z-index: 1;
-  opacity: 0;
-  pointer-events: none; }
+  transition: 0.3s;
+  opacity: 0; }
 
 .position__card-item:hover {
   border-top: 1px solid #e31235; }
@@ -4939,6 +4980,10 @@
     top: calc(50% - 10px); }
   .listing-top__where {
     padding-right: 32px; }
+  .listing-top__dropdown-arrow {
+    right: 0;
+    bottom: -3px;
+    transform: scale(0.5); }
   .listing-top__counter,
   .listing-top__counter-list-item {
     font-size: 16px;
@@ -5037,7 +5082,9 @@
     margin-bottom: 24px; }
   .listing-top__filter-item:nth-child(2) {
     order: 3;
-    margin-right: 0; }
+    margin-right: auto; }
+  .listing-top__specialization-on-map {
+    margin-right: auto; }
   .listing-top__filter-item-button-reset {
     margin-bottom: -40px; }
   .listing-top__filter-item-selected {
@@ -6536,6 +6583,120 @@
 .preview-option {
   opacity: 1 !important; }
 
+.form__form-name {
+  margin-bottom: 16px;
+  position: relative; }
+
+.form__form-mistake,
+.form__email-mistake {
+  color: #e31235;
+  background: #ffffff;
+  padding: 2px 8px;
+  box-shadow: 16px 2px 24px rgba(0, 0, 0, 0.03);
+  border-radius: 16px;
+  display: inline-block;
+  position: absolute;
+  bottom: calc(-50% + 12px);
+  right: 0;
+  display: none; }
+
+.form__form-mistake-message {
+  border-bottom: 1px solid #e31235; }
+  .form__form-mistake-message > .form__form-mistake {
+    display: block; }
+
+.form__form-mistake-email {
+  border-bottom: 1px solid #e31235; }
+  .form__form-mistake-email > .form__email-mistake {
+    display: block; }
+
+.form__checkbox-mistake {
+  color: #e31235; }
+  .form__checkbox-mistake > .wpcf7-form-control-wrap.checkbox-484
+> .wpcf7-form-control.wpcf7-checkbox.wpcf7-validates-as-required.form__input-checkbox
+> .wpcf7-list-item.first.last
+> .wpcf7-list-item-label {
+    border: 1px solid #e31235; }
+  .form__checkbox-mistake > .form__form-politics {
+    color: #e31235;
+    border-bottom: 1px solid #e31235; }
+
+.dnd-upload-status .dnd-upload-image {
+  border: none; }
+
+.dnd-upload-status .dnd-upload-image span.file {
+  background-image: url("/wp-content/themes/career_theme/assets/images/form/file.png");
+  width: 34px;
+  height: 34px; }
+
+.wpcf7-not-valid-tip {
+  color: #e31235;
+  background: #ffffff;
+  padding: 2px 8px;
+  box-shadow: 16px 2px 24px rgba(0, 0, 0, 0.03);
+  border-radius: 16px;
+  display: inline-block;
+  position: absolute;
+  bottom: calc(-50% + 4px);
+  right: 0; }
+
+.wpcf7-form-control-wrap.checkbox-484 > .wpcf7-not-valid-tip {
+  display: none; }
+
+.wpcf7-form-control-wrap.checkbox-484 > .wpcf7-not-valid-tip {
+  display: none; }
+
+.wpcf7-form-control-wrap.checkbox-484 > .wpcf7-not-valid {
+  border-bottom: none; }
+
+.wpcf7-not-valid > .wpcf7-list-item.first.last > .wpcf7-list-item-label {
+  border: 1px solid #e31235; }
+
+.wpcf7-form-control-wrap.text-town,
+.wpcf7-form-control-wrap.text-name,
+.wpcf7-form-control-wrap.email-88,
+.wpcf7-form-control-wrap.mask-176,
+.wpcf7-form-control-wrap.text-931,
+.wpcf7-form-control-wrap.text-932,
+.wpcf7-form-control-wrap.text-name2 {
+  display: flex; }
+
+.tagify--noTags.tagify--empty {
+  position: relative; }
+  .tagify--noTags.tagify--empty:nth-child(5) {
+    display: none; }
+
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value2,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value1,
+.form__form-input,
+.wpcf7-form-control.wpcf7-text.form__information,
+.tagify--noTags.tagify--empty,
+.form__information,
+.form__form-input {
+  padding-bottom: 8px; }
+
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value2,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value1,
+.wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email.form__form-input,
+.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__form-input,
+.wpcf7-form-control.wpcf7mf-mask.wpcf7-mask.wpcf7-validates-as-required.form__form-input,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.form__value1.tagify--noTags.tagify--empty,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.form__value2.tagify--noTags.tagify--empty,
+.wpcf7-form-control.wpcf7-text.form__information,
+.tagify--noTags.tagify--empty,
+.form__information,
+.form__form-input {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
+
+.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__form-input.wpcf7-not-valid,
+.wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email.form__form-input.wpcf7-not-valid,
+.wpcf7-not-valid,
+.tagify--noTags.tagify--empty.wpcf7-not-valid,
+.wpcf7-form-control.wpcf7mf-mask.wpcf7-mask.wpcf7-validates-as-required.form__form-input.wpcf7-not-valid,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value1.tagify--noTags.tagify--empty.wpcf7-not-valid,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value2.tagify--noTags.tagify--empty.wpcf7-not-valid {
+  border-bottom: 1px solid #e31235; }
+
 .form,
 .form-active {
   position: fixed;
@@ -6602,11 +6763,6 @@
 .form__text-left-bar {
   width: 100%;
   max-width: 624px; }
-
-.form__form-name {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  margin-bottom: 16px;
-  padding-bottom: 8px; }
 
 .tagify.tagify--select > .tagify__input {
   min-height: 20px;
@@ -7149,14 +7305,32 @@ input#form__town {
   display: flex;
   font-size: 18px;
   line-height: 24px;
-  padding-left: 16px; }
+  margin-bottom: 24px;
+  transition: 0.3s; }
 
 .listing-metro__left-bar,
 .listing-metro__right-bar {
   width: 50%; }
 
 .listing-metro__left-bar {
-  padding-right: 16px; }
+  padding: 0 16px; }
+
+.listing-top__filter-item-button-reset-map {
+  bottom: -25px; }
+
+.listing-metro__link-to-shops {
+  color: #000000;
+  margin-bottom: 56px;
+  padding-left: 20px;
+  position: relative;
+  display: inline-block; }
+  .listing-metro__link-to-shops > svg {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 5px); }
+
+.listing-metro__link-to-shops-mobile {
+  display: none; }
 
 .listing-metro__location-place,
 .listing-metro__location-adress {
@@ -7207,25 +7381,36 @@ input#form__town {
 .listing-metro__profession-title {
   margin-bottom: 24px; }
 
+.listing-metro__location-on-map {
+  display: none; }
+
 .listing-metro__profession-container {
   margin-bottom: 24px; }
 
 .listing-metro__profession-item {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid #969696;
+  border-top: 1px solid #969696;
   padding-top: 8px;
-  padding-bottom: 24px;
-  cursor: pointer; }
-
-.listing-metro__profession-item:nth-child(2) {
-  border-top: 1px solid #969696; }
+  margin-bottom: 24px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s; }
+  .listing-metro__profession-item:hover {
+    border-top: 1px solid #e31235; }
+  .listing-metro__profession-item:hover > .listing-metro__profession-item-left-bar
+> .listing-metro__profession-name {
+    color: #e31235; }
+  .listing-metro__profession-item:last-child {
+    border-bottom: 1px solid #969696; }
 
 .listing-metro__profession-item-left-bar {
-  width: 70%; }
+  width: 70%;
+  pointer-events: none; }
 
 .listing-metro__profession-name {
-  margin-bottom: 6px; }
+  margin-bottom: 6px;
+  transition: 0.3s; }
 
 .listing-metro__profession-bread-crumbs {
   line-height: 12px; }
@@ -7242,10 +7427,56 @@ input#form__town {
   width: 30%; }
 
 .listing-metro__profession-conditions {
-  margin-bottom: 24px; }
+  margin-bottom: 24px;
+  pointer-events: none; }
 
 .listing-metro__profession-container-mobile {
   display: none; }
+
+.listing-metro__profession-item-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #ffffff;
+  padding: 10px 36px 10px 16px;
+  border-radius: 36px;
+  color: #000000; }
+  .listing-metro__profession-item-link > svg {
+    position: absolute;
+    right: 17px;
+    top: calc(50% - 5px); }
+
+.listing-metro__shops-list-title {
+  margin-bottom: 56px; }
+
+.listing-metro__shops-list-title-mobile {
+  display: none; }
+
+.listing-metro__shop {
+  border-top: 1px solid #969696;
+  padding-top: 16px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  transition: 0.3s; }
+  .listing-metro__shop:hover {
+    border-top: 1px solid #e31235; }
+  .listing-metro__shop:hover > .listing-metro__shop-title,
+  .listing-metro__shop:hover > .listing-metro__shop-address {
+    color: #e31235; }
+
+.listing-metro__shop-title {
+  margin-bottom: 24px;
+  pointer-events: none;
+  transition: 0.3s; }
+
+.listing-metro__shop-address {
+  max-width: 466px;
+  pointer-events: none;
+  transition: 0.3s; }
+
+.listing-metro__content-list-container {
+  width: 100%;
+  padding: 0 16px; }
 
 .listing-metro__map-wrapper {
   width: 100%;
@@ -7254,8 +7485,7 @@ input#form__town {
   padding-right: 16px; }
 
 .listing-metro__map-place {
-  padding-top: 100%;
-  background: url("../../images/listing/metro.png") center/cover no-repeat; }
+  height: 900px; }
 
 .listing-metro__map-button-plus,
 .listing-metro__map-button-minus {
@@ -7292,7 +7522,8 @@ input#form__town {
     margin-bottom: 0; }
 
 .listing-metro__shop-input {
-  display: none; }
+  display: none;
+  pointer-events: none; }
 
 .listing-metro__select-shop-checkbox {
   display: flex;
@@ -7301,7 +7532,8 @@ input#form__town {
   margin-right: 8px;
   width: 16px;
   height: 16px;
-  border: 1px solid #000000; }
+  border: 1px solid #000000;
+  pointer-events: none; }
 
 .listing-metro__select-shop-checkbox-image {
   opacity: 0;
@@ -7378,8 +7610,9 @@ input#form__town {
   margin-right: 8px; }
 
 .listing-metro__subscribe-block {
+  width: 50%;
   margin-bottom: 96px;
-  width: 67%; }
+  padding: 0 16px; }
 
 .listing-metro__subscribe-title {
   font-size: 40px;
@@ -7388,6 +7621,157 @@ input#form__town {
 
 .listing-metro__subscribe-text {
   margin-bottom: 32px; }
+
+@media (max-width: 1440px) {
+  .listing-metro__content {
+    font-size: 16px;
+    line-height: 20px; }
+  .listing-metro__map-place {
+    height: 688px; }
+  .listing-metro__link-to-shops {
+    margin-bottom: 40px; }
+  .listing-metro__location-place {
+    margin-bottom: 20px; } }
+
+@media (max-width: 1024px) {
+  .listing-metro__right-bar {
+    width: 47%; }
+  .listing-metro__left-bar {
+    width: 53%; }
+  .listing-metro__map-place {
+    height: 478px; }
+  .listing-metro__shop-title {
+    margin-bottom: 12px; }
+  .listing-metro__profession-item-left-bar,
+  .listing-metro__profession-item-right-bar {
+    width: 50%; }
+  .listing-metro__profession-item-left-bar {
+    padding-right: 8px; }
+  .listing-metro__link-to-shops,
+  .listing-metro__route-button {
+    margin-bottom: 32px; } }
+
+@media (max-width: 950px) {
+  .listing-top__filter-list-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    flex-direction: row;
+    width: 200px; }
+  .listing-top__filter-list-item:last-child {
+    margin-left: auto; }
+  .profession__filter-checbox-map {
+    left: auto;
+    right: -150px;
+    bottom: 8px; } }
+
+@media (max-width: 850px) {
+  .listing-metro__content-map {
+    flex-direction: column;
+    padding: 0 8px; }
+  .listing-metro__left-bar,
+  .listing-metro__right-bar {
+    width: 100%;
+    padding: 0; }
+  .listing-metro__right-bar {
+    order: -1;
+    margin-bottom: 64px; }
+  .listing-metro__map-wrapper {
+    padding: 0; }
+  .listing-metro__shops-list-title,
+  .listing-metro__link-to-shops {
+    display: none; }
+  .listing-metro__shops-list-title-mobile {
+    display: block;
+    margin-bottom: 32px; }
+  .listing-metro__link-to-shops-mobile {
+    display: block;
+    margin-left: 8px; }
+  .listing-metro__shop-title,
+  .listing-metro__shop-address {
+    width: 55%;
+    max-width: 100%; }
+  .listing-metro__map-place {
+    height: 502px; }
+  .listing-top__filters-wrapper-map {
+    margin-bottom: 100px; }
+  .listing-metro__profession-item-left-bar {
+    width: 30%; }
+  .listing-metro__profession-item-right-bar {
+    width: 70%;
+    display: flex;
+    padding-left: 16px;
+    padding-top: 10px; }
+  .listing-metro__profession-conditions {
+    width: 55%; }
+  .listing-metro__profession-expiriens {
+    width: 45%; }
+  .listing-metro__subscribe-block {
+    width: 75%;
+    margin-bottom: 64px;
+    padding: 0 8px; } }
+
+@media (max-width: 700px) {
+  .profession__filter-checbox-map {
+    left: 0;
+    right: auto;
+    bottom: -95px; }
+  .listing-top__filter-item-button-reset-map {
+    bottom: -30px; }
+  .listing-top__filter-list-wrapper {
+    right: auto;
+    bottom: -90px; } }
+
+@media (max-width: 550px) {
+  .listing-metro__content {
+    font-size: 14px;
+    line-height: 16px; }
+  .listing-metro__content-map {
+    padding: 0; }
+  .listing-metro__shops-list-title-mobile {
+    padding-left: 8px; }
+  .listing-metro__map-place {
+    height: 320px; }
+  .listing-metro__left-bar {
+    padding: 0 8px; }
+  .listing-metro__map-button-plus,
+  .listing-metro__map-button-minus {
+    display: none; }
+  .listing-metro__select-shop-container {
+    right: auto;
+    top: 8px;
+    left: 8px; }
+  .listing-metro__right-bar {
+    margin-bottom: 32px; }
+  .listing-metro__shop-title,
+  .listing-metro__shop-address {
+    width: 100%; }
+  .listing-metro__shop-title {
+    margin-bottom: 8px; }
+  .listing-metro__shop {
+    margin-bottom: 16px; }
+  .listing-metro__profession-item {
+    flex-wrap: wrap;
+    margin-bottom: 16px; }
+    .listing-metro__profession-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 16px; }
+  .listing-metro__profession-item-left-bar {
+    width: 100%;
+    margin-bottom: 10px; }
+  .listing-metro__profession-conditions,
+  .listing-metro__profession-expiriens {
+    width: 50%; }
+  .listing-metro__profession-conditions {
+    margin-bottom: 0; }
+  .listing-metro__profession-item-right-bar {
+    padding-left: 0;
+    width: 100%; }
+  .listing-metro__subscribe-block {
+    width: 100%;
+    margin-bottom: 32px; }
+  .listing-metro__profession-item-link {
+    display: none; } }
 
 .retail__advantages {
   display: flex;
@@ -9598,6 +9982,478 @@ input#form__town {
   .page-404__background-image-planet-right {
     top: 280px; } }
 
+.listing-metro__content {
+  display: flex;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 24px;
+  transition: 0.3s; }
+
+.listing-metro__left-bar,
+.listing-metro__right-bar {
+  width: 50%; }
+
+.listing-metro__left-bar {
+  padding: 0 16px; }
+
+.listing-top__filter-item-button-reset-map {
+  bottom: -25px; }
+
+.listing-metro__link-to-shops {
+  color: #000000;
+  margin-bottom: 56px;
+  padding-left: 20px;
+  position: relative;
+  display: inline-block; }
+  .listing-metro__link-to-shops > svg {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 5px); }
+
+.listing-metro__link-to-shops-mobile {
+  display: none; }
+
+.listing-metro__location-place,
+.listing-metro__location-adress {
+  display: block;
+  margin-bottom: 24px; }
+
+.listing-metro__route-button {
+  font-size: 18px;
+  line-height: 24px;
+  background: transparent;
+  display: block;
+  margin-bottom: 40px; }
+
+.listing-metro__location-metro-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 500px;
+  margin-bottom: 80px; }
+
+.listing-metro__location-metro-item {
+  padding-left: 12px;
+  position: relative;
+  margin-right: 30px; }
+  .listing-metro__location-metro-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: calc(50% - 4px);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%; }
+
+.listing-metro__location-metro-item.sokol-line::before {
+  background: #e42313; }
+
+.listing-metro__location-metro-item.arbat-line::before {
+  background: #0072ba; }
+
+.listing-metro__location-metro-item.mcd-line::before {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #df477c;
+  top: calc(50% - 6px); }
+
+.listing-metro__location-metro-time {
+  color: #969696; }
+
+.listing-metro__profession-title {
+  margin-bottom: 24px; }
+
+.listing-metro__location-on-map {
+  display: none; }
+
+.listing-metro__profession-container {
+  margin-bottom: 24px; }
+
+.listing-metro__profession-item {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid #969696;
+  padding-top: 8px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s; }
+  .listing-metro__profession-item:hover {
+    border-top: 1px solid #e31235; }
+  .listing-metro__profession-item:hover > .listing-metro__profession-item-left-bar
+> .listing-metro__profession-name {
+    color: #e31235; }
+  .listing-metro__profession-item:last-child {
+    border-bottom: 1px solid #969696; }
+
+.listing-metro__profession-item-left-bar {
+  width: 70%;
+  pointer-events: none; }
+
+.listing-metro__profession-name {
+  margin-bottom: 6px;
+  transition: 0.3s; }
+
+.listing-metro__profession-bread-crumbs {
+  line-height: 12px; }
+
+.listing-metro__profession-crumb {
+  font-size: 12px;
+  line-height: 12px;
+  color: rgba(0, 0, 0, 0.5); }
+
+.listing-metro__profession-crumb:last-child > .listing-metro__profession-crumb-arrow {
+  display: none; }
+
+.listing-metro__profession-item-right-bar {
+  width: 30%; }
+
+.listing-metro__profession-conditions {
+  margin-bottom: 24px;
+  pointer-events: none; }
+
+.listing-metro__profession-container-mobile {
+  display: none; }
+
+.listing-metro__profession-item-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #ffffff;
+  padding: 10px 36px 10px 16px;
+  border-radius: 36px;
+  color: #000000; }
+  .listing-metro__profession-item-link > svg {
+    position: absolute;
+    right: 17px;
+    top: calc(50% - 5px); }
+
+.listing-metro__shops-list-title {
+  margin-bottom: 56px; }
+
+.listing-metro__shops-list-title-mobile {
+  display: none; }
+
+.listing-metro__shop {
+  border-top: 1px solid #969696;
+  padding-top: 16px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  transition: 0.3s; }
+  .listing-metro__shop:hover {
+    border-top: 1px solid #e31235; }
+  .listing-metro__shop:hover > .listing-metro__shop-title,
+  .listing-metro__shop:hover > .listing-metro__shop-address {
+    color: #e31235; }
+
+.listing-metro__shop-title {
+  margin-bottom: 24px;
+  pointer-events: none;
+  transition: 0.3s; }
+
+.listing-metro__shop-address {
+  max-width: 466px;
+  pointer-events: none;
+  transition: 0.3s; }
+
+.listing-metro__content-list-container {
+  width: 100%;
+  padding: 0 16px; }
+
+.listing-metro__map-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding-right: 16px; }
+
+.listing-metro__map-place {
+  height: 900px; }
+
+.listing-metro__map-button-plus,
+.listing-metro__map-button-minus {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: #ffffff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 16px 2px 24px rgba(0, 0, 0, 0.03); }
+
+.listing-metro__map-button-minus {
+  top: 80px; }
+
+.listing-metro__select-shop-container {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  max-width: 246px; }
+
+.listing-metro__select-shop-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  cursor: pointer; }
+  .listing-metro__select-shop-item:last-child {
+    margin-bottom: 0; }
+
+.listing-metro__shop-input {
+  display: none;
+  pointer-events: none; }
+
+.listing-metro__select-shop-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #000000;
+  pointer-events: none; }
+
+.listing-metro__select-shop-checkbox-image {
+  opacity: 0;
+  transition: 0.3s; }
+
+.listing-metro__shop-input:checked
+~ .listing-metro__select-shop-checkbox
+> .listing-metro__select-shop-checkbox-image {
+  opacity: 1; }
+
+.listing-metro__look-another-store-container {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 16px 2px 24px rgba(0, 0, 0, 0.03);
+  max-width: 409px; }
+
+.listing-metro__look-another-store-title {
+  font-size: 32px;
+  line-height: 40px;
+  margin-bottom: 8px; }
+
+.listing-metro__look-another-text {
+  margin-bottom: 24px; }
+
+.listing-metro__show-another-shop,
+.listing-metro__not-show-another-shop {
+  padding: 8px 16px;
+  font-size: 20px;
+  line-height: 20px;
+  border-radius: 36px; }
+
+.listing-metro__show-another-shop {
+  background: #f3f3f3;
+  margin-right: 8px; }
+
+.listing-metro__not-show-another-shop {
+  background: transparent;
+  border: 1px solid #969696; }
+
+.listing-metro__shops-nearby-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 260px;
+  box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  background: #ffffff; }
+
+.listing-metro__nearest-store-container {
+  background: #f3f3f3;
+  display: flex;
+  border-radius: 16px 16px 0px 0px;
+  padding: 16px; }
+
+.listing-metro__nearest-store-item {
+  margin-right: 8px; }
+  .listing-metro__nearest-store-item:last-child {
+    margin-right: 0; }
+  .listing-metro__nearest-store-item:first-child {
+    padding-top: 5px; }
+
+.listing-metro__another-store-item {
+  padding: 8px 16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+
+.listing-metro__another-store-item-image {
+  margin-right: 8px; }
+
+.listing-metro__subscribe-block {
+  width: 50%;
+  margin-bottom: 96px;
+  padding: 0 16px; }
+
+.listing-metro__subscribe-title {
+  font-size: 40px;
+  line-height: 44px;
+  margin-bottom: 16px; }
+
+.listing-metro__subscribe-text {
+  margin-bottom: 32px; }
+
+@media (max-width: 1440px) {
+  .listing-metro__content {
+    font-size: 16px;
+    line-height: 20px; }
+  .listing-metro__map-place {
+    height: 688px; }
+  .listing-metro__link-to-shops {
+    margin-bottom: 40px; }
+  .listing-metro__location-place {
+    margin-bottom: 20px; } }
+
+@media (max-width: 1024px) {
+  .listing-metro__right-bar {
+    width: 47%; }
+  .listing-metro__left-bar {
+    width: 53%; }
+  .listing-metro__map-place {
+    height: 478px; }
+  .listing-metro__shop-title {
+    margin-bottom: 12px; }
+  .listing-metro__profession-item-left-bar,
+  .listing-metro__profession-item-right-bar {
+    width: 50%; }
+  .listing-metro__profession-item-left-bar {
+    padding-right: 8px; }
+  .listing-metro__link-to-shops,
+  .listing-metro__route-button {
+    margin-bottom: 32px; } }
+
+@media (max-width: 950px) {
+  .listing-top__filter-list-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    flex-direction: row;
+    width: 200px; }
+  .listing-top__filter-list-item:last-child {
+    margin-left: auto; }
+  .profession__filter-checbox-map {
+    left: auto;
+    right: -150px;
+    bottom: 8px; } }
+
+@media (max-width: 850px) {
+  .listing-metro__content-map {
+    flex-direction: column;
+    padding: 0 8px; }
+  .listing-metro__left-bar,
+  .listing-metro__right-bar {
+    width: 100%;
+    padding: 0; }
+  .listing-metro__right-bar {
+    order: -1;
+    margin-bottom: 64px; }
+  .listing-metro__map-wrapper {
+    padding: 0; }
+  .listing-metro__shops-list-title,
+  .listing-metro__link-to-shops {
+    display: none; }
+  .listing-metro__shops-list-title-mobile {
+    display: block;
+    margin-bottom: 32px; }
+  .listing-metro__link-to-shops-mobile {
+    display: block;
+    margin-left: 8px; }
+  .listing-metro__shop-title,
+  .listing-metro__shop-address {
+    width: 55%;
+    max-width: 100%; }
+  .listing-metro__map-place {
+    height: 502px; }
+  .listing-top__filters-wrapper-map {
+    margin-bottom: 100px; }
+  .listing-metro__profession-item-left-bar {
+    width: 30%; }
+  .listing-metro__profession-item-right-bar {
+    width: 70%;
+    display: flex;
+    padding-left: 16px;
+    padding-top: 10px; }
+  .listing-metro__profession-conditions {
+    width: 55%; }
+  .listing-metro__profession-expiriens {
+    width: 45%; }
+  .listing-metro__subscribe-block {
+    width: 75%;
+    margin-bottom: 64px;
+    padding: 0 8px; } }
+
+@media (max-width: 700px) {
+  .profession__filter-checbox-map {
+    left: 0;
+    right: auto;
+    bottom: -95px; }
+  .listing-top__filter-item-button-reset-map {
+    bottom: -30px; }
+  .listing-top__filter-list-wrapper {
+    right: auto;
+    bottom: -90px; } }
+
+@media (max-width: 550px) {
+  .listing-metro__content {
+    font-size: 14px;
+    line-height: 16px; }
+  .listing-metro__content-map {
+    padding: 0; }
+  .listing-metro__shops-list-title-mobile {
+    padding-left: 8px; }
+  .listing-metro__map-place {
+    height: 320px; }
+  .listing-metro__left-bar {
+    padding: 0 8px; }
+  .listing-metro__map-button-plus,
+  .listing-metro__map-button-minus {
+    display: none; }
+  .listing-metro__select-shop-container {
+    right: auto;
+    top: 8px;
+    left: 8px; }
+  .listing-metro__right-bar {
+    margin-bottom: 32px; }
+  .listing-metro__shop-title,
+  .listing-metro__shop-address {
+    width: 100%; }
+  .listing-metro__shop-title {
+    margin-bottom: 8px; }
+  .listing-metro__shop {
+    margin-bottom: 16px; }
+  .listing-metro__profession-item {
+    flex-wrap: wrap;
+    margin-bottom: 16px; }
+    .listing-metro__profession-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 16px; }
+  .listing-metro__profession-item-left-bar {
+    width: 100%;
+    margin-bottom: 10px; }
+  .listing-metro__profession-conditions,
+  .listing-metro__profession-expiriens {
+    width: 50%; }
+  .listing-metro__profession-conditions {
+    margin-bottom: 0; }
+  .listing-metro__profession-item-right-bar {
+    padding-left: 0;
+    width: 100%; }
+  .listing-metro__subscribe-block {
+    width: 100%;
+    margin-bottom: 32px; }
+  .listing-metro__profession-item-link {
+    display: none; } }
+
 @font-face {
   font-family: suisse;
   src: url("../fonts/SuisseIntl-Regular.woff") format("woff"), url("../fonts/SuisseIntl-Regular.woff2") format("woff2");
@@ -9685,6 +10541,9 @@ body {
 
 .hide {
   display: none; }
+
+.transparent {
+  opacity: 0; }
 
 .cursor-pointer {
   cursor: pointer; }
