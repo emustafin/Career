@@ -3,6 +3,30 @@
     "title": "Отзывы",
     "fields": [
         {
+            "key": "field_619958ad14031",
+            "label": "М.Видео\/Эльдорадо",
+            "name": "story-mvideo-eldorado",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "mvideo": "М.Видео",
+                "eldorado": "Эльдорадо"
+            },
+            "allow_null": 1,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_61431fa53edd0",
             "label": "Профессия",
             "name": "proffesion",
@@ -100,5 +124,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631789091
+    "modified": 1637439743
 }
