@@ -278,7 +278,13 @@
         <h2 class="vacancy__form-title">Расскажи нам о себе</h2>
     </div>
     <div class="vacancy__form-inner-block">
-        <?php echo do_shortcode('[contact-form-7 id="224" title="Popap Vacancy"]'); ?>
+        <?php 
+        if( 'it' == $current_relationship ){
+            echo do_shortcode('[contact-form-7 id="224" title="Popap Vacancy"]'); 
+        } elseif( 'roznica' == $current_relationship ){
+            echo do_shortcode('[contact-form-7 id="729" title="Popup vacancy V.Retail"]'); 
+        }
+        ?>
     </div>
 </div>
 <!-- //Vacancy Form-block -->

@@ -56,6 +56,7 @@ const formCityTagifyInput = document.querySelector(
   'input[name=tags-select-mode].form__city-select'
 );
 const formCityInput = document.querySelector('#form__town');
+const formCityInput_r = document.querySelector('#form__town_r');
 
 const formCitySelect = new Tagify(formCityInput, {
   enforceWhitelist: true,
@@ -68,6 +69,21 @@ formCitySelect.on(
   'change',
   selectValueFromSingleSelect(cities, formCityInput, formCityInput)
 );
+
+if( null != formCityInput_r ){
+
+  const formCitySelect_r = new Tagify(formCityInput_r, {
+    enforceWhitelist: true,
+    mode: 'select',
+    whitelist: ['Любой', 'Москва'],
+    userInput: false,
+  });
+  
+  formCitySelect_r.on(
+    'change',
+    selectValueFromSingleSelect(cities, formCityInput_r, formCityInput_r)
+  );
+}
 
 // Инициализация селекта Тагифай в анкете. Поле "Направление"
 const directionFormTagifyInput = document.querySelector(
