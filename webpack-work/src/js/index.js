@@ -42,6 +42,7 @@ import { RetailPositionBlock } from './components/retail/retailPositionBlock';
 import { RetailQuoteBlock } from './components/retail/retailQuote';
 import { RetailInternshipBlock } from './components/retail/retailInternship';
 import { RetailAdvantagesBlock } from './components/retail/retailAdvantages';
+import { RetailUpgradeBlock } from './components/retail/retailUpgrade';
 import { RetailFooter } from './components/retail/retailFooter';
 
 // Перенос изображений и шрифтов в Dist
@@ -142,6 +143,7 @@ const retailPositionBlock = new RetailPositionBlock('.retail__position');
 const retailQuote = new RetailQuoteBlock('.retail__quote-container');
 const retailInternshipBlock = new RetailInternshipBlock('.retail__internship');
 const retailAdvantagesBlock = new RetailAdvantagesBlock('.retail__advantages');
+const retailUpgradeBlock = new RetailUpgradeBlock('.upgrade');
 const retailFooter = new RetailFooter('.retail__footer');
 
 retailCreateFuture.registerParameters(headerItPage, retailMissionBlock);
@@ -168,6 +170,14 @@ retailBrandsBlock.getAllBrandsTabs([
   {
     name: 'eldorado',
     elements: retailAdvantagesBlock.eldoradoFromRetailAdvantages,
+  },
+  {
+    name: 'mvideo',
+    elements: retailUpgradeBlock.mvideoFromRetailUpgrade,
+  },
+  {
+    name: 'eldorado',
+    elements: retailUpgradeBlock.eldoradoFromRetailUpgrade,
   },
   { name: 'mvideo', elements: retailFooter.mvideoFromFooter },
   { name: 'eldorado', elements: retailFooter.eldoradoFromFooter },

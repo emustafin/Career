@@ -48,6 +48,33 @@ export class ItHubPageCareerUpgradeBlock {
       this.prevSlider.slideToLoop(this.nextSlider.realIndex);
       this.mainSlider.slideToLoop(this.nextSlider.realIndex);
     });
+    
+    this.prevSlider_eldorado = new Swiper('.swiperUpgrage_eldorado', {
+      // loop: true,
+    });
+
+    this.mainSlider_eldorado = new Swiper('.mainSlider_eldorado', {
+      // loop: true,
+    });
+
+    this.nextSlider_eldorado = new Swiper('.nextSlider_eldorado', {
+      // loop: true,
+    });
+
+    this.mainSlider_eldorado.on('slideChange', () => {
+      this.nextSlider_eldorado.slideToLoop(this.mainSlider_eldorado.realIndex);
+      this.prevSlider_eldorado.slideToLoop(this.mainSlider_eldorado.realIndex);
+    });
+
+    this.prevSlider_eldorado.on('slideChange', () => {
+      this.nextSlider_eldorado.slideToLoop(this.prevSlider_eldorado.realIndex);
+      this.mainSlider_eldorado.slideToLoop(this.prevSlider_eldorado.realIndex);
+    });
+
+    this.nextSlider.on('slideChange', () => {
+      this.prevSlider_eldorado.slideToLoop(this.nextSlider_eldorado.realIndex);
+      this.mainSlider_eldorado.slideToLoop(this.nextSlider_eldorado.realIndex);
+    });
 
     this.init();
   }
