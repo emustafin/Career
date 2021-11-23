@@ -1,7 +1,10 @@
 <?php
 $footer_classes = '';
-if( is_page('retail') )
+$current_relationship = 'it';
+if( is_page('retail') ){
   $footer_classes = 'retail__footer';
+  $current_relationship = 'roznica';
+}
 ?>
     <!--  Footer  -->
     <footer class="footer <?php echo $footer_classes; ?>">
