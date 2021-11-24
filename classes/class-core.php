@@ -43,6 +43,7 @@ final class Core {
 
 		new Setup_Theme();
 		new CPT\Vacancies();
+		new CPT\Vacancies_In_Town();
 		new CPT\Reviews();
 		new CPT\Product_directions();
 		new Menu\Menu();
