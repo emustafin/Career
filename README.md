@@ -2,17 +2,37 @@
 career
 
 Обновление темы:
-- скопировать нужные папки в отдельную папку, желательно с таким же названием - https://prnt.sc/1ucx9j9 -> https://prnt.sc/1ucxfoj
-- создать из этой папки ZIP-файл https://prnt.sc/1ucxj6s
-- зайти в админку сайта на вкладку Внешний вид->Темы https://prnt.sc/1ucxvgl и нажать "добавить" https://prnt.sc/1ucy4v0
-- затем нажать "загрузить тему"->выбрать файл->Установить - https://prnt.sc/1ucyakh
-- согласиться на замену текущей версии темы новой - https://prnt.sc/1ucyp42
-- если были изменены группы полей, то нужно зайти во вкладку "группы полей" на подстраницу "синхронизация доступна" https://prnt.sc/1ucyxsy если она доступна
-- выбрать необходимые поля, выбрать действие о синхронизации и применить - https://prnt.sc/1ucz4aw
+- скопировать нужные папки в отдельную папку, желательно с таким же названием - 
+    <img scr="/Docs/Img/Step 001.png" style="width:50%;">
+    ->
+    <img scr="/Docs/Img/Step 002.png" style="width:50%;">
+- создать из этой папки ZIP-файл
+    <img scr="/Docs/Img/Step 003.png" style="width:50%;">
+- зайти в админку сайта на вкладку Внешний вид->Темы
+    <img scr="/Docs/Img/Step 004.png" style="width:50%;">
+    и нажать "добавить"
+    <img scr="/Docs/Img/Step 005.png" style="width:50%;">
+- затем нажать "загрузить тему"->выбрать файл->Установить - 
+    <img scr="/Docs/Img/Step 006.png" style="width:50%;">
+- согласиться на замену текущей версии темы новой -
+    <img scr="/Docs/Img/Step 007.png" style="width:50%;">
+- если были изменены группы полей, то нужно зайти во вкладку "группы полей" на подстраницу "синхронизация доступна"
+    <img scr="/Docs/Img/Step 008.png" style="width:50%;">
+     если она доступна
+- выбрать необходимые поля, выбрать действие о синхронизации и применить -
+    <img scr="/Docs/Img/Step 009.png" style="width:50%;">
 
 Чтобы заменить любые записи(на примере вакансии):
-- на сайте career.mvideoeldorado.ru удалить текущие опубликованные на вкладке вакансии - https://prnt.sc/1uczf2h
-- подготовить экспорт новых вакансий на career.dev64.ru - https://prnt.sc/1uczpke
-- на сайте career.mvideoeldorado.ru запустить импорт https://prnt.sc/1uczrmr -> https://prnt.sc/1uczv16 -> https://prnt.sc/1uczwcv
+- на сайте career.mvideoeldorado.ru удалить текущие опубликованные на вкладке вакансии -
+    <img scr="/Docs/Img/Step 010.png" style="width:50%;">
+- подготовить экспорт новых вакансий на career.dev64.ru - 
+    <img scr="/Docs/Img/Step 011.png" style="width:50%;">
+- на сайте career.mvideoeldorado.ru запустить импорт
+    <img scr="/Docs/Img/Step 012.png" style="width:50%;">
+    ->
+    <img scr="/Docs/Img/Step 013.png" style="width:50%;">
+    ->
+    <img scr="/Docs/Img/Step 014.png" style="width:50%;">
 
-- если нужно изменить какой-то отдельный файл то можно зайти через WPide в админке сайта, выбрать файл, изменить и сохранить - https://prnt.sc/1ud00w9
+- если нужно изменить какой-то отдельный файл то можно зайти через WPide в админке сайта, выбрать файл, изменить и сохранить -
+    <img scr="/Docs/Img/Step 015.png" style="width:50%;">
