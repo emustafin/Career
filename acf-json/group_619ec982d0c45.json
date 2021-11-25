@@ -18,7 +18,9 @@
             "post_type": [
                 "vacancies"
             ],
-            "taxonomy": "",
+            "taxonomy": [
+                "relationship:roznica"
+            ],
             "filters": [
                 "search",
                 "taxonomy"
@@ -147,5 +149,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1637796429
+    "modified": 1637835337
 }
