@@ -70,7 +70,7 @@
 }
 
 .dnd-upload-status .dnd-upload-image span.file {
-  background-image: url('/wp-content/themes/career_theme/assets/images/form/file.png');
+  background-image: url("/wp-content/themes/career_theme/assets/images/form/file.png");
   width: 34px;
   height: 34px;
 }
@@ -87,6 +87,7 @@
   position: absolute;
   bottom: calc(-50% + 4px);
   right: 0;
+  font-size: 12px;
 }
 
 .wpcf7-form-control-wrap.checkbox-484 > .wpcf7-not-valid-tip {
@@ -288,14 +289,14 @@
   transform: translateY(1px);
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     width: 16px;
     height: 16px;
-    background: url('../images/form/check.svg') center / contain no-repeat;
+    background: url("../images/form/check.svg") center / contain no-repeat;
     transition: opacity 0.2s;
     opacity: 0;
   }
@@ -329,13 +330,13 @@
   color: $mainColor;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     right: 17px;
     top: calc(50% - 4.5px);
     width: 14px;
     height: 9px;
-    background: url('../images/form/arrow-right.svg') no-repeat;
+    background: url("../images/form/arrow-right.svg") no-repeat;
   }
 }
 
@@ -356,8 +357,8 @@
 
 .form__filter-item-select-arrow {
   position: absolute;
-  right: 0;
-  bottom: 12px;
+  right: 4px;
+  bottom: 18px;
   height: 14px;
 }
 
@@ -372,13 +373,13 @@
   pointer-events: none;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     right: 0;
     top: calc(50% - 4.5px);
     width: 9px;
     height: 9px;
-    background: url('../images/form/arrow-bottom.svg') no-repeat;
+    background: url("../images/form/arrow-bottom.svg") no-repeat;
   }
 }
 

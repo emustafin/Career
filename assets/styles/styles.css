@@ -7076,7 +7076,8 @@ section.intern {
   display: inline-block;
   position: absolute;
   bottom: calc(-50% + 4px);
-  right: 0; }
+  right: 0;
+  font-size: 12px; }
 
 .wpcf7-form-control-wrap.checkbox-484 > .wpcf7-not-valid-tip {
   display: none; }
@@ -7233,7 +7234,7 @@ section.intern {
   border: 1px solid #000000;
   transform: translateY(1px); }
   .wpcf7-list-item-label::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 50%;
     top: 50%;
@@ -7270,7 +7271,7 @@ section.intern {
   margin-top: 16px;
   color: #000000; }
   .form__response::before {
-    content: '';
+    content: "";
     position: absolute;
     right: 17px;
     top: calc(50% - 4.5px);
@@ -7292,15 +7293,15 @@ section.intern {
 
 .form__filter-item-select-arrow {
   position: absolute;
-  right: 0;
-  bottom: 12px;
+  right: 4px;
+  bottom: 18px;
   height: 14px; }
 
 .form__dropdown-result {
   position: relative;
   pointer-events: none; }
   .form__dropdown-result::before {
-    content: '';
+    content: "";
     position: absolute;
     right: 0;
     top: calc(50% - 4.5px);
