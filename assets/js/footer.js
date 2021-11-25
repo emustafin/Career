@@ -61,7 +61,7 @@ const formCityInput_r = document.querySelector('#form__town_r');
 const formCitySelect = new Tagify(formCityInput, {
   enforceWhitelist: true,
   mode: 'select',
-  whitelist: ['Любой', 'Москва'],
+  whitelist: ['Любой', 'Москва', 'Санкт-Петербург', 'Ростов на Дону'],
   userInput: false,
 });
 
@@ -75,7 +75,7 @@ if( null != formCityInput_r ){
   const formCitySelect_r = new Tagify(formCityInput_r, {
     enforceWhitelist: true,
     mode: 'select',
-    whitelist: ['Любой', 'Москва'],
+    whitelist: ['Любой', 'Москва', 'Санкт-Петербург', 'Ростов на Дону'],
     userInput: false,
   });
   
