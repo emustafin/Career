@@ -44,7 +44,7 @@ $eldorado_retail_position = get_sub_field('eldorado_retail_position');
     <div class="retail__position-content-bar">
       <div class="retail__position-headline">
         <p class="retail__position-headline-text">Наши вакансии</p>
-        <a href="#" class="retail__position-headline-link">
+        <!-- <a href="#" class="retail__position-headline-link">
           Все вакансии
 
           <svg
@@ -60,7 +60,7 @@ $eldorado_retail_position = get_sub_field('eldorado_retail_position');
               fill="black"
             />
           </svg>
-        </a>
+        </a> -->
       </div>
 
       <div class="retail__position-list">
@@ -127,7 +127,7 @@ $eldorado_retail_position = get_sub_field('eldorado_retail_position');
     <div class="retail__position-content-bar">
       <div class="retail__position-headline">
         <p class="retail__position-headline-text">Наши вакансии</p>
-        <a href="#" class="retail__position-headline-link">
+        <!-- <a href="#" class="retail__position-headline-link">
           Все вакансии
 
           <svg
@@ -143,7 +143,7 @@ $eldorado_retail_position = get_sub_field('eldorado_retail_position');
               fill="black"
             />
           </svg>
-        </a>
+        </a> -->
       </div>
 
       <div class="retail__position-list">
