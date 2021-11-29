@@ -406,7 +406,7 @@ Template Name: Розница
 
       <div class="retail__mission-right-block">
         <h2 class="retail__mission-title">
-          Наполняя мир технологиями, мы дарим людям время и вдохновение
+          Наполняя мир технологиями,мы дарим людям время и вдохновение
         </h2>
         <div class="retail__mission-btn-block">
           <button class="retail__mission-button">
