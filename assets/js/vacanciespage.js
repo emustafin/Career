@@ -78,7 +78,7 @@ listingLevelSelect.on('change', selectValueFromSingleSelect(currentLevelsDataLis
 const listingCitySelect = new Tagify(listingTagifyCityInput, {
   enforceWhitelist: true,
   mode: 'select',
-  whitelist: ['Любой', 'Москва'],
+  whitelist: ['Любой', 'Москва', 'Санкт-Петербург', 'Ростов на Дону'],
   userInput: false,
 });
 

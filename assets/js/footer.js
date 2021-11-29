@@ -58,17 +58,17 @@ const formCityTagifyInput = document.querySelector(
 const formCityInput = document.querySelector('#form__town');
 const formCityInput_r = document.querySelector('#form__town_r');
 
-const formCitySelect = new Tagify(formCityInput, {
-  enforceWhitelist: true,
-  mode: 'select',
-  whitelist: ['Любой', 'Москва', 'Санкт-Петербург', 'Ростов на Дону'],
-  userInput: false,
-});
+// const formCitySelect = new Tagify(formCityInput, {
+//   enforceWhitelist: true,
+//   mode: 'select',
+//   whitelist: ['Любой', 'Москва', 'Санкт-Петербург', 'Ростов на Дону'],
+//   userInput: false,
+// });
 
-formCitySelect.on(
-  'change',
-  selectValueFromSingleSelect(cities, formCityInput, formCityInput)
-);
+// formCitySelect.on(
+//   'change',
+//   selectValueFromSingleSelect(cities, formCityInput, formCityInput)
+// );
 
 if( null != formCityInput_r ){
 
