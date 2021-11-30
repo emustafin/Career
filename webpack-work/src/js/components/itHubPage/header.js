@@ -15,7 +15,7 @@ export class Header {
       '.it-header__directions-value'
     );
 
-    if( 'undefined' !== typeof headerSelect ){
+    if( null !== this.headerSelect ){
       // Слушатели событий
       this.headerSelect.addEventListener(
         'click',
