@@ -9,39 +9,28 @@
         <!-- Vacancy header-block -->
         <header class="vacancy__header">
         <div class="vacancy__header-head">
-            <div class="vacancy__header-head-links">
-            <a href="#" class="vacancy__header-head-link-main"> 
-                IT-хаб 
-                <svg
-                    width="14"
-                    height="10"
-                    viewBox="0 0 14 10"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4.57661 0.575745L0.152344 5.00001L4.57661 9.42427L5.42514 8.57574L2.4494 5.60001H14.0009V4.40001H2.4494L5.42514 1.42427L4.57661 0.575745Z"
-                      fill="black"
-                    />
-                  </svg>
-            </a>
-            <a href="#" class="vacancy__header-head-link-vacancy">
-                Вакансии в IT-хабе
+            
+            <?php
+                if( !is_archive() ){
+                    $template_name = get_post_meta( get_the_ID(), '_wp_page_template', true );
+                    if( 'templates/page-it.php' == $template_name || 'archive-vacancies.php' == $template_name ){
+                        $link_main = 'IT-хаб ';
+                        $link_vacancy = 'Вакансии в IT-хабе ';
+                    } elseif( 'templates/page-retail.php' == $template_name ) {
+                        $link_main = 'Розничные магазины ';
+                        $link_vacancy = 'Вакансии в Розничных магазинах ';
+                    } else{
+                        $link_main = 'Вернуться назад ';
+                        $link_vacancy = '';
+                    }
+                } else{
+                    // TODO Будет разделение на розницу/IT надо будет переделать
+                    $link_main = 'IT-хаб ';
+                    $link_vacancy = 'Вакансии в IT-хабе ';
+                }
+                include(THEME_DIR . '/template-parts/vacancy__header-head-links.php');
+            ?>
 
-                <svg
-                    width="14"
-                    height="10"
-                    viewBox="0 0 14 10"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4.57661 0.575745L0.152344 5.00001L4.57661 9.42427L5.42514 8.57574L2.4494 5.60001H14.0009V4.40001H2.4494L5.42514 1.42427L4.57661 0.575745Z"
-                      fill="black"
-                    />
-                  </svg>
-            </a>
-            </div>
             <a href="#" class="vacancy__header-head-copy">
                 Скопировать ссылку
 

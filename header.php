@@ -69,44 +69,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="container">
         <div class="it-header__wrapper">
 
-          <div class="it-header__item">
-            <div class="it-header__directions" data-name="closed">
-              <p class="it-header__directions-title">Направления</p>
-              <span class="it-header__directions-value"></span>
-              <div class="it-header__directions-arrow">
-                <svg
-                  class="it-header__arrow-bottom"
-                  width="10"
-                  height="10"
-                  viewBox="0 0 10 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5.58237 7.56905V0.925293H4.38237V7.53389L1.42421 4.57574L0.575684 5.42426L4.22213 9.07071C4.65171 9.50029 5.34819 9.50029 5.77776 9.07071L9.42421 5.42426L8.57568 4.57574L5.58237 7.56905Z"
-                    fill="black"
-                  />
-                </svg>
-              </div>
+          <?php if( is_single() ){ ?>
+            <?php
+              $relationship_terms = get_the_terms( get_the_ID(), 'relationship' );
+              if( is_array( $relationship_terms ) ){
+                $current_relationship = $relationship_terms[0]->slug;
+              }
+              if( 'it' == $current_relationship ){
+                  $link_main = 'IT-хаб ';
+                  $link_vacancy = 'Вакансии в IT-хабе ';
+              } elseif( 'roznica' == $current_relationship ) {
+                  $link_main = 'Розничные магазины ';
+                  $link_vacancy = 'Вакансии в Розничных магазинах ';
+              } else{
+                  $link_main = 'Вернуться назад ';
+                  $link_vacancy = '';
+              }
+              include(THEME_DIR . '/template-parts/vacancy__header-head-links.php');
+            ?>
+          <?php } else{ ?>
 
-              <!-- Дропдаун "НАПРАВЛЕНИЯ" -->
-              <div class="it-header__directions-dropdown-wrapper">
-                <div class="it-header__directions-dropdown-list">
-                  <?php
-                  $menu_name = 'primary';
-                  $locations = get_nav_menu_locations();
-                  $menu_items = wp_get_nav_menu_items( $locations[ $menu_name ] );
-                  foreach ($menu_items as $item) :?>
-
-                    <a href="<?php echo $item->url;?>" class="it-header__directions-dropdown-item" target="blank"><?php echo $item->title;?></a>
-
-                  <?php endforeach; ?>
-                  
+            <div class="it-header__item">
+              <div class="it-header__directions" data-name="closed">
+                <p class="it-header__directions-title">Направления</p>
+                <span class="it-header__directions-value"></span>
+                <div class="it-header__directions-arrow">
+                  <svg
+                    class="it-header__arrow-bottom"
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.58237 7.56905V0.925293H4.38237V7.53389L1.42421 4.57574L0.575684 5.42426L4.22213 9.07071C4.65171 9.50029 5.34819 9.50029 5.77776 9.07071L9.42421 5.42426L8.57568 4.57574L5.58237 7.56905Z"
+                      fill="black"
+                    />
+                  </svg>
                 </div>
+
+                  <!-- Дропдаун "НАПРАВЛЕНИЯ" -->
+                  <div class="it-header__directions-dropdown-wrapper">
+                    <div class="it-header__directions-dropdown-list">
+                      <?php
+                      $menu_name = 'primary';
+                      $locations = get_nav_menu_locations();
+                      $menu_items = wp_get_nav_menu_items( $locations[ $menu_name ] );
+                      foreach ($menu_items as $item) :?>
+
+                        <a href="<?php echo $item->url;?>" class="it-header__directions-dropdown-item" target="blank"><?php echo $item->title;?></a>
+
+                      <?php endforeach; ?>
+                      
+                    </div>
+                  </div>
+                  <!-- //Дропдаун "НАПРАВЛЕНИЯ" -->
+                
               </div>
-              <!-- //Дропдаун "НАПРАВЛЕНИЯ" -->
             </div>
-          </div>
+          <?php } ?>
 
 
           <div class="it-header__item">
