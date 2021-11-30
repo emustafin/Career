@@ -116,9 +116,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       $menu_name = 'primary';
                       $locations = get_nav_menu_locations();
                       $menu_items = wp_get_nav_menu_items( $locations[ $menu_name ] );
-                      foreach ($menu_items as $item) :?>
+                      foreach ($menu_items as $item) :
 
-                        <a href="<?php echo $item->url;?>" class="it-header__directions-dropdown-item" target="blank"><?php echo $item->title;?></a>
+                        $target_blank = '';
+                        $pos = strripos( $item->url, get_site_url() );
+                        if( $pos === false ){
+                          $target_blank = 'target="blank"';
+                        }
+                        
+                        ?>
+
+                        <a href="<?php echo $item->url;?>" class="it-header__directions-dropdown-item" <?php echo $target_blank; ?>><?php echo $item->title;?></a>
 
                       <?php endforeach; ?>
                       
