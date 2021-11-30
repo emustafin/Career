@@ -78,12 +78,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               if( 'it' == $current_relationship ){
                   $link_main = 'IT-хаб ';
                   $link_vacancy = 'Вакансии в IT-хабе ';
+                  $link_main_url = '/';
+                  $link_vacancy_url = '/vacancies/';
               } elseif( 'roznica' == $current_relationship ) {
                   $link_main = 'Розничные магазины ';
                   $link_vacancy = 'Вакансии в Розничных магазинах ';
+                  $link_main_url = '/retail/';
+                  $link_vacancy_url = '/vacancies/';
               } else{
                   $link_main = 'Вернуться назад ';
                   $link_vacancy = '';
+                  $link_main_url = '/';
+                  $link_vacancy_url = '/vacancies/';
               }
               ?>
               <div class="it-header__item">

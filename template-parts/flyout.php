@@ -18,18 +18,26 @@
                     if( 'templates/page-it.php' == $template_name || 'archive-vacancies.php' == $template_name ){
                         $link_main = 'IT-хаб ';
                         $link_vacancy = 'Вакансии в IT-хабе ';
+                        $link_main_url = '/';
+                        $link_vacancy_url = '/vacancies/';
                     } elseif( 'templates/page-retail.php' == $template_name ) {
                         $link_main = 'Розничные магазины ';
                         $link_vacancy = 'Вакансии в Розничных магазинах ';
                         $not_show_for_retail = 'display:none;';
+                        $link_main_url = '/retail/';
+                        $link_vacancy_url = '/vacancies/';
                     } else{
                         $link_main = 'Вернуться назад ';
                         $link_vacancy = '';
+                        $link_main_url = '/';
+                        $link_vacancy_url = '/vacancies/';
                     }
                 } else{
                     // TODO Будет разделение на розницу/IT надо будет переделать
                     $link_main = 'IT-хаб ';
                     $link_vacancy = 'Вакансии в IT-хабе ';
+                    $link_main_url = '/';
+                    $link_vacancy_url = '/vacancies/';
                 }
                 include(THEME_DIR . '/template-parts/vacancy__header-head-links.php');
             ?>
