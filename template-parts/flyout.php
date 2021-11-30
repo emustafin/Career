@@ -11,6 +11,8 @@
         <div class="vacancy__header-head">
             
             <?php
+                // TODO Временная переменная для удаления города и ЗП для розницы
+                $not_show_for_retail = 'display:block;';
                 if( !is_archive() ){
                     $template_name = get_post_meta( get_the_ID(), '_wp_page_template', true );
                     if( 'templates/page-it.php' == $template_name || 'archive-vacancies.php' == $template_name ){
@@ -19,6 +21,7 @@
                     } elseif( 'templates/page-retail.php' == $template_name ) {
                         $link_main = 'Розничные магазины ';
                         $link_vacancy = 'Вакансии в Розничных магазинах ';
+                        $not_show_for_retail = 'display:none;';
                     } else{
                         $link_main = 'Вернуться назад ';
                         $link_vacancy = '';
@@ -78,11 +81,9 @@
 
         <div class="vacancy__header-meta">
             <div class="vacancy__meta-info">
-            <div class="vacancy__meta-info-item">
+            <div class="vacancy__meta-info-item" style="<?php echo $not_show_for_retail; ?>">
                 <span class="vacancy__meta-info-title">Город</span>
-                <span id="town_info_vacancy" class="vacancy__meta-info-value"
-                >Петропавловск-Камчатский</span
-                >
+                <span id="town_info_vacancy" class="vacancy__meta-info-value">Петропавловск-Камчатский</span>
             </div>
             <div class="vacancy__meta-info-item">
                 <span class="vacancy__meta-info-title">Направление</span>
@@ -93,7 +94,7 @@
             </div>
 
             <div class="vacancy__meta-info">
-            <div class="vacancy__meta-info-item">
+            <div class="vacancy__meta-info-item" style="<?php echo $not_show_for_retail; ?>">
                 <span class="vacancy__meta-info-title">Заработная плата</span>
                 <span class="vacancy__meta-info-value">
                 от
