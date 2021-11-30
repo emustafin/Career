@@ -161,7 +161,7 @@ export class ItHubVacancyBlock {
     this.videoContainer.classList.remove('loading');
     // this.videoContainer.dataset.name = 'loud';
     this.video.src =
-      '/wp-content/themes/career_theme/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4';
+      '';
     this.video.setAttribute('autoplay', true);
     this.setVideoProgress();
   }
