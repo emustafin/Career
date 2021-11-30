@@ -277,7 +277,7 @@
     <div class="vacancy__form-title-block">
         <h2 class="vacancy__form-title">Расскажи нам о себе</h2>
     </div>
-    <div class="vacancy__form-inner-block">
+    <div id="vacancy_form" class="vacancy__form-inner-block">
         <?php 
         if( 'it' == $current_relationship ){
             echo do_shortcode('[contact-form-7 id="224" title="Popap Vacancy"]'); 
