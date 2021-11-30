@@ -85,8 +85,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   $link_main = 'Вернуться назад ';
                   $link_vacancy = '';
               }
-              include(THEME_DIR . '/template-parts/vacancy__header-head-links.php');
-            ?>
+              ?>
+              <div class="it-header__item">
+                <?php include(THEME_DIR . '/template-parts/vacancy__header-head-links.php'); ?>
+              </div>
           <?php } else{ ?>
 
             <div class="it-header__item">
