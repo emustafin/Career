@@ -14,6 +14,9 @@ export class Header {
     this.directionsValue = this.el.querySelector(
       '.it-header__directions-value'
     );
+    this.phoneTitle = this.el.querySelector('.it-header__contact-text');
+    this.phoneBlock = this.el.querySelector('.it-header__contact-us');
+    this.windowTopOffset = 50;
 
     // Слушатели событий
     this.headerSelect.addEventListener(
@@ -24,6 +27,8 @@ export class Header {
       item.addEventListener('click', this.closeSelect.bind(this))
     );
     this.directionsValue.textContent = `(${this.dropdownItems.length})`;
+
+    window.addEventListener('scroll', this.hidePhoneTitle.bind(this));
   }
 
   openSelect() {
@@ -55,5 +60,15 @@ export class Header {
   openOrCloseSelect() {
     this.openSelect();
     this.closeSelect();
+  }
+
+  hidePhoneTitle() {
+    if (window.scrollY > this.windowTopOffset) {
+      this.phoneBlock.classList.add('it-header__contact-us-to-top');
+      this.phoneTitle.classList.add('transparent');
+    } else {
+      this.phoneBlock.classList.remove('it-header__contact-us-to-top');
+      this.phoneTitle.classList.remove('transparent');
+    }
   }
 }

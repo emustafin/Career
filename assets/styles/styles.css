@@ -3486,6 +3486,13 @@
   height: 13px;
   pointer-events: none; }
 
+.it-header__contact-text,
+.it-header__contact-us {
+  transition: 0.3s; }
+
+.it-header__contact-us-to-top {
+  transform: translateY(-20px); }
+
 .it-header__directions {
   display: flex;
   align-items: center;
