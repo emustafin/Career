@@ -111,16 +111,16 @@ export class ItHubVacancyBlock {
         breakpoints: {
           767: {
             slidesPerView: 2.7,
-            spaceBetween: 30,
+            // spaceBetween: 30,
           },
 
           1024: {
             slidesPerView: 2.2,
-            spaceBetween: 30,
+            // spaceBetween: 30,
           },
           1440: {
             slidesPerView: 2.7,
-            spaceBetween: 40,
+            // spaceBetween: 40,
           },
         },
       });
