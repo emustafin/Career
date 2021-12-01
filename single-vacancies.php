@@ -66,6 +66,11 @@ if( is_array( $catgs_terms ) ){
     $current_catgs = $catgs_terms[0]->slug;
 }
 
+$not_show_for_retail = 'display:block;';
+if( 'roznica' == $current_relationship ){
+    $not_show_for_retail = 'display:none;';
+}
+
 ?>
 <script>
     var rel_type = '<?php echo $current_relationship; ?>';
@@ -98,11 +103,11 @@ if( is_array( $catgs_terms ) ){
 
         <div class="direct-link__vacancy-description-block">
         <div class="direct-link__vacancy-container">
-            <div class="direct-link__vacancy-item">
-            <p class="direct-link__vacancy-title">Город</p>
-            <p class="direct-link__vacancy-argument">
-                <?php echo $town_names; ?>
-            </p>
+            <div class="direct-link__vacancy-item" style="<?php echo $not_show_for_retail; ?>">
+                <p class="direct-link__vacancy-title">Город</p>
+                <p class="direct-link__vacancy-argument">
+                    <?php echo $town_names; ?>
+                </p>
             </div>
 
             <div class="direct-link__vacancy-item">
@@ -112,16 +117,16 @@ if( is_array( $catgs_terms ) ){
             </p>
             </div>
 
-            <div class="direct-link__vacancy-item">
-            <p class="direct-link__vacancy-title">Заработная плата</p>
-            <p class="direct-link__vacancy-argument">
-                <span>от</span>
-                <span class="direct-link__vacancy-price"><?php echo $money_from; ?></span>
-                <span>₽</span>
-                <?php if( !get_field( 'not_gross', $post_id) ): ?>
-                    <span> - Гросс</span>
-                <?php endif; ?>
-            </p>
+            <div class="direct-link__vacancy-item" style="<?php echo $not_show_for_retail; ?>">
+                <p class="direct-link__vacancy-title">Заработная плата</p>
+                <p class="direct-link__vacancy-argument">
+                    <span>от</span>
+                    <span class="direct-link__vacancy-price"><?php echo $money_from; ?></span>
+                    <span>₽</span>
+                    <?php if( !get_field( 'not_gross', $post_id) ): ?>
+                        <span> - Гросс</span>
+                    <?php endif; ?>
+                </p>
             </div>
 
             <div class="direct-link__vacancy-item">

@@ -631,3 +631,20 @@ input#form__town {
 .sourceurl {
   display: none !important;
 }
+.wpcf7-response-output{
+  display: none;
+}
+.vacancy__form-label_checkbox .wpcf7-not-valid{
+  border: unset !important;
+}
+.vacancy__form-label_checkbox .wpcf7-form-control-wrap{
+  display: inline;
+}
+.vacancy__form-label_checkbox .wpcf7-form-control-wrap .wpcf7-not-valid-tip{
+  width: 221px;
+  bottom: unset;
+  top: -30px;
+  right: unset;
+  left: 0;
+  display: none;
+}

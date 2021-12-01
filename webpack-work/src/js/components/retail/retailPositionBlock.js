@@ -71,7 +71,7 @@ export class RetailPositionBlock {
 
     //-----------------------------------------------------------------------------------------------
     // Управление звуком видео
-    this.video.addEventListener('click', this.turnOnSound.bind(this));
+    // this.video.addEventListener('click', this.turnOnSound.bind(this));
     this.soundButtonContainer.addEventListener(
       'click',
       this.turnOnSound.bind(this)

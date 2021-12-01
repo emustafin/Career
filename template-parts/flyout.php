@@ -9,39 +9,39 @@
         <!-- Vacancy header-block -->
         <header class="vacancy__header">
         <div class="vacancy__header-head">
-            <div class="vacancy__header-head-links">
-            <a href="#" class="vacancy__header-head-link-main"> 
-                IT-хаб 
-                <svg
-                    width="14"
-                    height="10"
-                    viewBox="0 0 14 10"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4.57661 0.575745L0.152344 5.00001L4.57661 9.42427L5.42514 8.57574L2.4494 5.60001H14.0009V4.40001H2.4494L5.42514 1.42427L4.57661 0.575745Z"
-                      fill="black"
-                    />
-                  </svg>
-            </a>
-            <a href="#" class="vacancy__header-head-link-vacancy">
-                Вакансии в IT-хабе
+            
+            <?php
+                // TODO Временная переменная для удаления города и ЗП для розницы
+                $not_show_for_retail = 'display:block;';
+                if( !is_archive() ){
+                    $template_name = get_post_meta( get_the_ID(), '_wp_page_template', true );
+                    if( 'templates/page-it.php' == $template_name || 'archive-vacancies.php' == $template_name ){
+                        $link_main = 'IT-хаб ';
+                        $link_vacancy = 'Вакансии в IT-хабе ';
+                        $link_main_url = '/';
+                        $link_vacancy_url = '/vacancies/';
+                    } elseif( 'templates/page-retail.php' == $template_name ) {
+                        $link_main = 'Розничные магазины ';
+                        $link_vacancy = 'Вакансии в Розничных магазинах ';
+                        $not_show_for_retail = 'display:none;';
+                        $link_main_url = '/retail/';
+                        $link_vacancy_url = '/vacancies/';
+                    } else{
+                        $link_main = 'Вернуться назад ';
+                        $link_vacancy = '';
+                        $link_main_url = '/';
+                        $link_vacancy_url = '/vacancies/';
+                    }
+                } else{
+                    // TODO Будет разделение на розницу/IT надо будет переделать
+                    $link_main = 'IT-хаб ';
+                    $link_vacancy = 'Вакансии в IT-хабе ';
+                    $link_main_url = '/';
+                    $link_vacancy_url = '/vacancies/';
+                }
+                include(THEME_DIR . '/template-parts/vacancy__header-head-links.php');
+            ?>
 
-                <svg
-                    width="14"
-                    height="10"
-                    viewBox="0 0 14 10"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4.57661 0.575745L0.152344 5.00001L4.57661 9.42427L5.42514 8.57574L2.4494 5.60001H14.0009V4.40001H2.4494L5.42514 1.42427L4.57661 0.575745Z"
-                      fill="black"
-                    />
-                  </svg>
-            </a>
-            </div>
             <a href="#" class="vacancy__header-head-copy">
                 Скопировать ссылку
 
@@ -89,11 +89,9 @@
 
         <div class="vacancy__header-meta">
             <div class="vacancy__meta-info">
-            <div class="vacancy__meta-info-item">
+            <div class="vacancy__meta-info-item" style="<?php echo $not_show_for_retail; ?>">
                 <span class="vacancy__meta-info-title">Город</span>
-                <span id="town_info_vacancy" class="vacancy__meta-info-value"
-                >Петропавловск-Камчатский</span
-                >
+                <span id="town_info_vacancy" class="vacancy__meta-info-value">Петропавловск-Камчатский</span>
             </div>
             <div class="vacancy__meta-info-item">
                 <span class="vacancy__meta-info-title">Направление</span>
@@ -104,7 +102,7 @@
             </div>
 
             <div class="vacancy__meta-info">
-            <div class="vacancy__meta-info-item">
+            <div class="vacancy__meta-info-item" style="<?php echo $not_show_for_retail; ?>">
                 <span class="vacancy__meta-info-title">Заработная плата</span>
                 <span class="vacancy__meta-info-value">
                 от
