@@ -506,7 +506,6 @@
 }
 
 .vacancy__form-name {
-  border-bottom: 1px solid $blackColorOpacity-05;
   padding-bottom: 8px;
   margin-bottom: 24px;
 
@@ -528,6 +527,7 @@
   background: transparent;
   font-size: 18px;
   line-height: 24px;
+  border-bottom: 1px solid $blackColorOpacity-05;
 }
 
 .vacancy__add-contact,
@@ -1451,6 +1451,7 @@
 
 .wpcf7-form-control-wrap {
   width: 100%;
+  display: flex;
 }
 
 .codedropz-upload-inner {

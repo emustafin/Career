@@ -57,6 +57,7 @@ export const vacancyDirectLinkMainContent = document.querySelector(
   '.direct-link__content'
 );
 export const profession = document.querySelector('.profession');
+export const retail__position = document.querySelector('.retail__position');
 export const vacancyDirectLinkHeader = document.querySelector(
   '.direct-link__header'
 );
@@ -132,7 +133,13 @@ new VacancyDirecLinkNewsBlock('.vacancy__news-block-desktop');
 //--------------------------------------------------------
 // Не получилось изменить входной параметр (выдает ошибку - некорректный селектор)
 new VacancyDirecLinkMainContent(vacancyDirectLinkMainContent);
-const itHubPageVacancy = new ItHubVacancyBlock(profession);
+if( null != profession ){
+  const itHubPageVacancy = new ItHubVacancyBlock(profession);
+} else{
+  if( null != retail__position ){
+    const itHubPageVacancy = new ItHubVacancyBlock(retail__position);
+  }
+}
 //-----------------------------------------------------------
 
 // Инициализация классов страницы Розницы

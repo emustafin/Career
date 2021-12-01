@@ -53,6 +53,9 @@ wp_reset_postdata();
     var town_arr = '<?php echo json_encode( $town_arr ); ?>';
     var vaccat_arr = '<?php echo json_encode( $vaccat_arr ); ?>';
     var vacancy_titles = '<?php echo json_encode( $vacancy_titles ); ?>';
+    var rel_type = 'it';
+    var vacancyid = '';
+    var sourceurl = '';
 </script>
 
 <!-- Section Listing-Top -->
