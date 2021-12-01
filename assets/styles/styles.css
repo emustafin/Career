@@ -1752,7 +1752,6 @@
   margin-bottom: 24px; }
 
 .vacancy__form-name {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   padding-bottom: 8px;
   margin-bottom: 24px; }
   .vacancy__form-name:nth-child(3) {
@@ -1769,7 +1768,8 @@
   width: 100%;
   background: transparent;
   font-size: 18px;
-  line-height: 24px; }
+  line-height: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
 
 .vacancy__add-contact,
 .vacancy__add-contact-active {
@@ -2390,7 +2390,8 @@
     height: auto; } }
 
 .wpcf7-form-control-wrap {
-  width: 100%; }
+  width: 100%;
+  display: flex; }
 
 .codedropz-upload-inner {
   white-space: inherit; }
@@ -7488,6 +7489,23 @@ input#form__town {
 .vacancyid,
 .sourceurl {
   display: none !important; }
+
+.wpcf7-response-output {
+  display: none; }
+
+.vacancy__form-label_checkbox .wpcf7-not-valid {
+  border: unset !important; }
+
+.vacancy__form-label_checkbox .wpcf7-form-control-wrap {
+  display: inline; }
+
+.vacancy__form-label_checkbox .wpcf7-form-control-wrap .wpcf7-not-valid-tip {
+  width: 221px;
+  bottom: unset;
+  top: -30px;
+  right: unset;
+  left: 0;
+  display: none; }
 
 .direct-link__header {
   overflow: hidden;

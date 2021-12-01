@@ -36,7 +36,7 @@ idPageLevelSelect.on('change', () => {
 const idPageCitySelect= new Tagify(idPageTagifyCityInput, {
   enforceWhitelist: true,
   mode: 'select',
-  whitelist: ['Любой','Москва'],
+  whitelist: ['Любой','Москва', 'Санкт-Петербург', 'Ростов на Дону'],
   userInput: false,
 });
 

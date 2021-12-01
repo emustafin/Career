@@ -15,15 +15,17 @@ export class Header {
       '.it-header__directions-value'
     );
 
-    // Слушатели событий
-    this.headerSelect.addEventListener(
-      'click',
-      this.openOrCloseSelect.bind(this)
-    );
-    this.dropdownItems.forEach((item) =>
-      item.addEventListener('click', this.closeSelect.bind(this))
-    );
-    this.directionsValue.textContent = `(${this.dropdownItems.length})`;
+    if( null !== this.headerSelect ){
+      // Слушатели событий
+      this.headerSelect.addEventListener(
+        'click',
+        this.openOrCloseSelect.bind(this)
+      );
+      this.dropdownItems.forEach((item) =>
+        item.addEventListener('click', this.closeSelect.bind(this))
+      );
+      this.directionsValue.textContent = `(${this.dropdownItems.length})`;
+    }
   }
 
   openSelect() {
