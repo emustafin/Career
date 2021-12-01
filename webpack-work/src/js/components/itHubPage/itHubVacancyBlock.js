@@ -111,16 +111,16 @@ export class ItHubVacancyBlock {
         breakpoints: {
           767: {
             slidesPerView: 2.7,
-            spaceBetween: 30,
+            // spaceBetween: 30,
           },
 
           1024: {
             slidesPerView: 2.2,
-            spaceBetween: 30,
+            // spaceBetween: 30,
           },
           1440: {
             slidesPerView: 2.7,
-            spaceBetween: 40,
+            // spaceBetween: 40,
           },
         },
       });
@@ -161,7 +161,7 @@ export class ItHubVacancyBlock {
     this.videoContainer.classList.remove('loading');
     // this.videoContainer.dataset.name = 'loud';
     this.video.src =
-      '/wp-content/themes/career_theme/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4';
+      '';
     this.video.setAttribute('autoplay', true);
     this.setVideoProgress();
   }

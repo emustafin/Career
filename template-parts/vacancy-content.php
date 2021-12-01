@@ -8,6 +8,10 @@
             } elseif( 'it' == $current_relationship ){
                 if( 'management' == $current_catgs ){
                     $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/management-video-preview.mp4';
+                } elseif( 'analyst' == $current_catgs ){
+                    $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/analytic-video-preview.mp4';
+                } elseif( 'other' == $current_catgs ){
+                    $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/analytic-video-preview.mp4';
                 } else{
                     $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4';
                 }
@@ -277,7 +281,7 @@
     <div class="vacancy__form-title-block">
         <h2 class="vacancy__form-title">Расскажи нам о себе</h2>
     </div>
-    <div class="vacancy__form-inner-block">
+    <div id="vacancy_form" class="vacancy__form-inner-block">
         <?php 
         if( 'it' == $current_relationship ){
             echo do_shortcode('[contact-form-7 id="224" title="Popap Vacancy"]'); 
