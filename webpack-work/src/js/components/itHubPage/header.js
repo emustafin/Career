@@ -5,6 +5,7 @@ export class Header {
     if (this.el === null || this.el === undefined) return;
 
     this.headerSelect = this.el.querySelector('.it-header__directions');
+    this.directionsArrow = this.el.querySelector('.it-header__directions-arrow');
     this.dropdowList = this.el.querySelector(
       '.it-header__directions-dropdown-list'
     );
@@ -31,6 +32,8 @@ export class Header {
       this.dropdowList.classList.add(
         'it-header__directions-dropdown-list-active'
       );
+      this.headerSelect.classList.add('it-header__directions-active')
+      this.directionsArrow.classList.add('it-header__directions-arrow-active')
 
       setTimeout(() => {
         this.headerSelect.dataset.name = 'opened';
@@ -45,7 +48,8 @@ export class Header {
       this.dropdowList.classList.remove(
         'it-header__directions-dropdown-list-active'
       );
-
+      this.headerSelect.classList.remove('it-header__directions-active')
+      this.directionsArrow.classList.remove('it-header__directions-arrow-active')
       setTimeout(() => {
         this.headerSelect.dataset.name = 'closed';
       }, 50);
