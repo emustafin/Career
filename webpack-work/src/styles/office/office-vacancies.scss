@@ -1,0 +1,37 @@
+.office__vacancies {
+  padding: 0 16px;
+  margin-bottom: 208px;
+}
+
+.office__filter-item-select {
+  border-bottom: 1px solid #969696;
+  padding-bottom: 6px;
+}
+
+// Styles for 1440px
+@media (max-width: 1440px) {
+  .office__vacancies {
+    margin-bottom: 160px;
+  }
+}
+
+// Styles for 1024px
+@media (max-width: 1024px) {
+  .office__vacancies {
+    margin-bottom: 140px;
+  }
+}
+
+// Styles for 768px
+@media (max-width: 768px) {
+  .office__vacancies {
+    padding: 0 8px;
+  }
+}
+
+// Styles for 320px
+@media (max-width: 479px) {
+  .office__vacancies {
+    margin-bottom: 64px;
+  }
+}
