@@ -60,8 +60,18 @@
   bottom: 0;
   height: 440px;
   width: 440px;
+  animation: rotate-logo 50s infinite;
+  z-index: 9999;
 }
+@keyframes rotate-logo {
+  0% {
+    transform: rotate(0deg);
+  }
 
+  100% {
+    transform: rotate(3600deg);
+  }
+}
 .retail__mvideo-icon-block-icon-image {
   position: absolute;
   bottom: 0;
@@ -103,6 +113,17 @@
   right: 16px;
   width: 440px;
   height: 440px;
+  animation: rotate-logo-back 50s infinite;
+  z-index: 9998;
+}
+@keyframes rotate-logo-back {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-3600deg);
+  }
 }
 
 .retail__eldorado-icon {
