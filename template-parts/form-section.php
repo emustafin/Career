@@ -62,7 +62,7 @@
         ?>
 
         <script>
-            const cities = ['Любой', 'Москва']
+            const cities = ['Любой', 'Москва', 'Санкт-Петербург', 'Ростов на Дону']
             var info_product_directions = '<?php echo json_encode( $info_product_directions ); ?>'; // Направление
             var info_vaccat = '<?php echo json_encode( $info_vaccat ); ?>'; // Специализация
         </script>

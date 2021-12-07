@@ -1,9 +1,20 @@
+$('#popup_form .wpcf7-submit').on( 'click', function(e){
+  $('#popup_form .vacancy__form-label_checkbox').css('color','#000000');
+  $('#popup_form  .vacancy__form-label_checkbox a').css('color','#000000');
+})
+
+$('#vacancy_form .wpcf7-submit').on( 'click', function(e){
+  $('#vacancy_form .vacancy__form-label_checkbox').css('color','#000000');
+  $('#vacancy_form  .vacancy__form-label_checkbox a').css('color','#000000');
+})
+
 // Отправка анкеты на сервер
 const form = document.querySelector('#popup_form .wpcf7');
 
 form.addEventListener(
   'wpcf7submit',
   function (event) {
+
     const submitBtn = document.querySelector(
       '.wpcf7-form-control.wpcf7-submit.form__response'
     );
@@ -11,7 +22,20 @@ form.addEventListener(
 
     const result = event.detail;
 
-    if (result.status === 'validation_failed') return;
+    if (result.status === 'validation_failed'){
+
+      var array = result.apiResponse.invalid_fields;
+      for (let index = 0; index < array.length; index++) {
+        var element = array[index];
+        if( -1 != element.error_id.indexOf('checkbox') ){
+          var label_checkbox = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox');
+          var label_checkbox_a = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox a');
+          label_checkbox.style.color = '#e31235';
+          label_checkbox_a.style.color = '#e31235';
+        }
+      }
+      return;
+    } 
 
     if (result.status === 'mail_sent') submitBtn.style.display = 'none';
     answerTitle.style.display = 'block';
@@ -21,11 +45,29 @@ form.addEventListener(
   false
 );
 
-const form2 = document.querySelector('.vacancy__form-inner-block .wpcf7');
+const form2 = document.querySelector('#vacancy_form .wpcf7');
 
 form2.addEventListener(
   'wpcf7submit',
   function (event) {
+
+    const result = event.detail;
+
+    if (result.status === 'validation_failed'){
+
+      var array = result.apiResponse.invalid_fields;
+      for (let index = 0; index < array.length; index++) {
+        let element = array[index];
+        if( -1 != element.error_id.indexOf('checkbox') ){
+          let label_checkbox = document.querySelector('#vacancy_form .vacancy__form-label_checkbox');
+          let label_checkbox_a = document.querySelector('#vacancy_form .vacancy__form-label_checkbox a');
+          label_checkbox.style.color = '#e31235';
+          label_checkbox_a.style.color = '#e31235';
+        }
+      }
+      return;
+    }
+
     setTimeout(setup_vars_for_forms, 1000);
   },
   false
@@ -56,18 +98,34 @@ const formCityTagifyInput = document.querySelector(
   'input[name=tags-select-mode].form__city-select'
 );
 const formCityInput = document.querySelector('#form__town');
+const formCityInput_r = document.querySelector('#form__town_r');
 
-const formCitySelect = new Tagify(formCityInput, {
-  enforceWhitelist: true,
-  mode: 'select',
-  whitelist: ['Любой', 'Москва'],
-  userInput: false,
-});
+// const formCitySelect = new Tagify(formCityInput, {
+//   enforceWhitelist: true,
+//   mode: 'select',
+//   whitelist: ['Любой', 'Москва', 'Санкт-Петербург', 'Ростов на Дону'],
+//   userInput: false,
+// });
 
-formCitySelect.on(
-  'change',
-  selectValueFromSingleSelect(cities, formCityInput, formCityInput)
-);
+// formCitySelect.on(
+//   'change',
+//   selectValueFromSingleSelect(cities, formCityInput, formCityInput)
+// );
+
+if( null != formCityInput_r ){
+
+  const formCitySelect_r = new Tagify(formCityInput_r, {
+    enforceWhitelist: true,
+    mode: 'select',
+    whitelist: ['Любой', 'Москва', 'Санкт-Петербург', 'Ростов на Дону'],
+    userInput: false,
+  });
+  
+  formCitySelect_r.on(
+    'change',
+    selectValueFromSingleSelect(cities, formCityInput_r, formCityInput_r)
+  );
+}
 
 // Инициализация селекта Тагифай в анкете. Поле "Направление"
 const directionFormTagifyInput = document.querySelector(

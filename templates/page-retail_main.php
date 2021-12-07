@@ -406,7 +406,7 @@ Template Name: Розница
 
       <div class="retail__mission-right-block">
         <h2 class="retail__mission-title">
-          Наполняя мир технологиями, мы дарим людям время и вдохновение
+          Наполняя мир технологиями,мы дарим людям время и вдохновение
         </h2>
         <div class="retail__mission-btn-block">
           <button class="retail__mission-button">
@@ -1164,7 +1164,7 @@ Template Name: Розница
         <div class="retail__position-content-bar">
           <div class="retail__position-headline">
             <p class="retail__position-headline-text">Наши вакансии</p>
-            <a href="#" class="retail__position-headline-link">
+            <!-- <a href="#" class="retail__position-headline-link">
               Все вакансии
 
               <svg
@@ -1180,7 +1180,7 @@ Template Name: Розница
                   fill="black"
                 />
               </svg>
-            </a>
+            </a> -->
           </div>
 
           <div class="retail__position-list">
@@ -1462,7 +1462,7 @@ Template Name: Розница
         <div class="retail__position-content-bar">
           <div class="retail__position-headline">
             <p class="retail__position-headline-text">Наши вакансии</p>
-            <a href="#" class="retail__position-headline-link">
+            <!-- <a href="#" class="retail__position-headline-link">
               Все вакансии
 
               <svg
@@ -1478,7 +1478,7 @@ Template Name: Розница
                   fill="black"
                 />
               </svg>
-            </a>
+            </a> -->
           </div>
 
           <div class="retail__position-list">
