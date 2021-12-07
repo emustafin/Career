@@ -68,15 +68,15 @@
   display: flex;
   align-items: center;
   position: relative;
-  width: max-content;
+  width: 198px;
   cursor: pointer;
   transition: 0.3s;
-  padding: 0px 16px 0px 16px;
+  padding: 16px 16px 0px 16px;
+  margin-top: -16px;
 }
 .it-header__directions-active {
   background-color: #fff;
   border-radius: 16px 16px 0px 0px;
-  padding: 16px 16px 0px 16px;
 }
 
 .it-header__directions-dropdown-wrapper {
@@ -108,7 +108,10 @@
 .it-header__directions-dropdown-item {
   color: $mainColor;
   display: block;
-  margin: 5px 0;
+  margin: 0px 0px 24px 0px;
+  &:last-child {
+    margin: 0;
+  }
   transition: 0.3s;
 
   pointer-events: visible;
