@@ -3501,13 +3501,20 @@
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 0px 16px 0px 16px; }
+
+.it-header__directions-active {
+  background-color: #fff;
+  border-radius: 16px 16px 0px 0px;
+  padding: 16px 16px 0px 16px; }
 
 .it-header__directions-dropdown-wrapper {
   position: absolute;
   left: 0;
   top: 100%;
-  width: 200%;
+  width: auto;
   overflow: hidden;
   z-index: 2;
   pointer-events: none; }
@@ -3516,8 +3523,8 @@
 .it-header__directions-dropdown-list-active {
   transition: 0.3s;
   background: #ffffff;
-  padding: 10px 0;
-  border-radius: 16px; }
+  padding: 10px 16px;
+  border-radius: 0px 0px 16px 16px; }
 
 .it-header__directions-dropdown-list {
   transform: translateY(-110%); }
@@ -3529,7 +3536,6 @@
   color: #000000;
   display: block;
   margin: 5px 0;
-  padding: 0 8px;
   transition: 0.3s;
   pointer-events: visible; }
   .it-header__directions-dropdown-item:hover {
@@ -3554,7 +3560,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 3px; }
+  padding-top: 3px;
+  transition: 0.3s; }
+
+.it-header__directions-arrow-active {
+  transform: scale(-1); }
 
 .it-header__phone {
   color: #000000; }
@@ -9620,7 +9630,22 @@ input#form__town {
   right: 360px;
   bottom: 0;
   height: 440px;
-  width: 440px; }
+  width: 440px;
+  -webkit-animation: rotate-logo 50s infinite;
+          animation: rotate-logo 50s infinite;
+  z-index: 9999; }
+
+@-webkit-keyframes rotate-logo {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(3600deg); } }
+
+@keyframes rotate-logo {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(3600deg); } }
 
 .retail__mvideo-icon-block-icon-image {
   position: absolute;
@@ -9656,7 +9681,22 @@ input#form__town {
   bottom: 176px;
   right: 16px;
   width: 440px;
-  height: 440px; }
+  height: 440px;
+  -webkit-animation: rotate-logo-back 50s infinite;
+          animation: rotate-logo-back 50s infinite;
+  z-index: 9998; }
+
+@-webkit-keyframes rotate-logo-back {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(-3600deg); } }
+
+@keyframes rotate-logo-back {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(-3600deg); } }
 
 .retail__eldorado-icon {
   bottom: -52px;
@@ -11927,8 +11967,9 @@ input#form__town {
   width: 33.33%; }
 
 .main-stability__text {
-  max-width: 552px;
-  margin-bottom: 32px; }
+  max-width: 552px; }
+  .main-stability__text p {
+    margin-bottom: 32px; }
 
 .main-stability__left-bar-link {
   color: #000000; }
@@ -11992,8 +12033,9 @@ input#form__town {
   .main-stability {
     margin-bottom: 128px; }
   .main-stability__text {
-    margin-bottom: 24px;
-    max-width: 302px; } }
+    max-width: 302px; }
+    .main-stability__text p {
+      margin-bottom: 24px; } }
 
 @media (max-width: 850px) {
   .main-stability {
@@ -12015,7 +12057,7 @@ input#form__town {
   .main-stability__text:nth-child(2),
   .main-stability__left-bar-link {
     display: none; }
-  .main-stability__text {
+  .main-stability__text p {
     margin-bottom: 0; }
   .main-stability__left-bar {
     margin-bottom: 8px; }
