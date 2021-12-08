@@ -17,36 +17,36 @@ if( have_rows('content_blocks') ):
     switch ( get_row_layout() ) {
 
       case 'create-future':
-        include(THEME_DIR . '/template-parts/create-future.php');
+        include(THEME_DIR . '/template-parts/it/create-future.php');
         break;
 
       case 'why-are-we':
-        include(THEME_DIR . '/template-parts/why-are-we.php');
+        include(THEME_DIR . '/template-parts/it/why-are-we.php');
         break;
 
       case 'goal':
-        include(THEME_DIR . '/template-parts/goal.php');
+        include(THEME_DIR . '/template-parts/it/goal.php');
         break;
 
       case 'profession':
-        include(THEME_DIR . '/template-parts/profession.php');
+        include(THEME_DIR . '/template-parts/it/profession.php');
         break;
 
       case 'direction':
-        include(THEME_DIR . '/template-parts/direction.php');
+        include(THEME_DIR . '/template-parts/it/direction.php');
         break;
 
       case 'upgrade':
         $relation = 'it';
-        include(THEME_DIR . '/template-parts/upgrade.php');
+        include(THEME_DIR . '/template-parts/common/upgrade.php');
         break;
 
       case 'find':
-        include(THEME_DIR . '/template-parts/find.php');
+        include(THEME_DIR . '/template-parts/it/find.php');
         break;
 
       case 'intern':
-        include(THEME_DIR . '/template-parts/intern.php');
+        include(THEME_DIR . '/template-parts/common/intern.php');
         break;
     }
 

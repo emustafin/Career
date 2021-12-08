@@ -230,7 +230,7 @@ if( 'roznica' == $current_relationship ){
         </a>
         </div>
 
-        <?php include(THEME_DIR . '/template-parts/vacancy-content.php'); ?>
+        <?php include(THEME_DIR . '/template-parts/single/vacancy-content.php'); ?>
 
         <?php
         if( '' != get_field('related_vacancies') ){
