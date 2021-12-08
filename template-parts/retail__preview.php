@@ -24,7 +24,8 @@
   </div>
 
   <div class="retail__mvideo-icon-block">
-    <svg
+   <div class="retail__mvideo-circle-block">
+   <svg
       class="retail__mvideo-icon-block-icon-image"
       width="440"
       height="440"
@@ -34,7 +35,6 @@
     >
       <circle cx="220" cy="220" r="219.5" stroke="#E31235" />
     </svg>
-
     <div class="retail__mvideo-icon">
       <svg
         width="56"
@@ -49,6 +49,10 @@
         />
       </svg>
     </div>
+   </div>
+    
+
+    
 
     <div class="retail__mvideo-image-block">
       <img
@@ -60,6 +64,7 @@
   </div>
 
   <div class="retail__eldorado-icon-block">
+    <div class="retail__eldorado-circle-block">
     <svg
       class="retail__eldorado-icon-block-icon-image"
       width="440"
@@ -76,7 +81,6 @@
         stroke="#76BC21"
       />
     </svg>
-
     <div class="retail__eldorado-icon">
       <svg
         width="39"
@@ -90,6 +94,7 @@
           fill="#76BC21"
         />
       </svg>
+    </div>
     </div>
 
     <div class="retail__eldorado-image-block">
