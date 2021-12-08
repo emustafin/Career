@@ -32,7 +32,16 @@ class WPcf7_Mail extends Boot {
         $params = array();
 
         if( $posted_data['text-name'] ){
+            $params['first_name'] = $posted_data['text-name'];
+        }
+        if( $posted_data['text-name'] ){
             $params['last_name'] = $posted_data['text-name'];
+        }
+        if( $posted_data['text-name2'] ){
+            $params['first_name'] = $posted_data['text-name2'];
+        }
+        if( $posted_data['text-name2'] ){
+            $params['last_name'] = $posted_data['text-name2'];
         }
         if( $posted_data['mask-176'] ){
             $params['phone'] = $posted_data['mask-176'];
