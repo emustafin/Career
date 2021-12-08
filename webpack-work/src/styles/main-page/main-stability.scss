@@ -15,9 +15,11 @@
   width: 33.33%;
 }
 
-.main-stability__text {
+.main-stability__text{
   max-width: 552px;
-  margin-bottom: 32px;
+  p{
+    margin-bottom: 32px;
+  }
 }
 
 .main-stability__left-bar-link {
@@ -104,8 +106,10 @@
   }
 
   .main-stability__text {
-    margin-bottom: 24px;
     max-width: 302px;
+    p{
+      margin-bottom: 24px;
+    }
   }
 }
 
@@ -143,7 +147,7 @@
     display: none;
   }
 
-  .main-stability__text {
+  .main-stability__text p{
     margin-bottom: 0;
   }
 

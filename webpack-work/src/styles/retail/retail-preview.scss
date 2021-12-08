@@ -60,8 +60,9 @@
   bottom: 0;
   height: 440px;
   width: 440px;
+}
+.retail__mvideo-circle-block {
   animation: rotate-logo 50s infinite;
-  z-index: 9999;
 }
 @keyframes rotate-logo {
   0% {
@@ -73,8 +74,8 @@
   }
 }
 .retail__mvideo-icon-block-icon-image {
-  position: absolute;
-  bottom: 0;
+  // position: absolute;
+  top: 0;
   left: 0;
 }
 
@@ -113,8 +114,11 @@
   right: 16px;
   width: 440px;
   height: 440px;
+  // animation: rotate-logo-back 50s infinite;
+  // z-index: 9998;
+}
+.retail__eldorado-circle-block {
   animation: rotate-logo-back 50s infinite;
-  z-index: 9998;
 }
 @keyframes rotate-logo-back {
   0% {
