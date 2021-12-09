@@ -16,6 +16,7 @@
   align-items: center;
   position: relative;
   padding: 16px 0;
+  transition: 0.3s;
 }
 
 .it-header__item {
@@ -62,7 +63,7 @@
 }
 
 .it-header__contact-us-to-top {
-  transform: translateY(-20px);
+  transform: translateY(-8px);
 }
 
 .it-header__directions {
@@ -73,7 +74,7 @@
   cursor: pointer;
   transition: 0.3s;
   padding: 16px 16px 0px 16px;
-  margin-top: -16px;
+  margin-top: -25px;
 }
 .it-header__directions-active {
   background-color: #fff;

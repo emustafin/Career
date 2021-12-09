@@ -3453,8 +3453,10 @@
 .it-header__wrapper {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   position: relative;
-  padding: 16px 0; }
+  padding: 16px 0;
+  transition: 0.3s; }
 
 .it-header__item {
   width: 33.33%;
@@ -3492,7 +3494,7 @@
   transition: 0.3s; }
 
 .it-header__contact-us-to-top {
-  transform: translateY(-20px); }
+  transform: translateY(-8px); }
 
 .it-header__directions {
   display: flex;
@@ -3502,7 +3504,7 @@
   cursor: pointer;
   transition: 0.3s;
   padding: 16px 16px 0px 16px;
-  margin-top: -16px; }
+  margin-top: -25px; }
 
 .it-header__directions-active {
   background-color: #fff;
@@ -9671,7 +9673,8 @@ input#form__town {
   max-width: 372px;
   position: absolute;
   bottom: 8px;
-  left: 15px; }
+  left: 15px;
+  z-index: -1; }
   .retail__mvideo-image-block > img {
     display: block;
     width: 100%; }
@@ -9707,7 +9710,8 @@ input#form__town {
 .retail__eldorado-image-block {
   position: absolute;
   bottom: 32px;
-  right: 1px; }
+  right: 1px;
+  z-index: -1; }
   .retail__eldorado-image-block > img {
     display: block;
     width: 100%; }
