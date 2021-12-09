@@ -609,7 +609,8 @@
 .tab-item-content,
 .tab-item-content-hidden {
   display: block;
-  transition: 0.3s; }
+  overflow: hidden;
+  transition: 0.5s; }
 
 .tab-item-content-hidden {
   transform: translateX(110%); }
