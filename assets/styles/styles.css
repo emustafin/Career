@@ -3453,6 +3453,7 @@
 .it-header__wrapper {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   position: relative;
   padding: 16px 0; }
 
@@ -9671,7 +9672,8 @@ input#form__town {
   max-width: 372px;
   position: absolute;
   bottom: 8px;
-  left: 15px; }
+  left: 15px;
+  z-index: -1; }
   .retail__mvideo-image-block > img {
     display: block;
     width: 100%; }
@@ -9707,7 +9709,8 @@ input#form__town {
 .retail__eldorado-image-block {
   position: absolute;
   bottom: 32px;
-  right: 1px; }
+  right: 1px;
+  z-index: -1; }
   .retail__eldorado-image-block > img {
     display: block;
     width: 100%; }
