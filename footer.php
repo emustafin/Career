@@ -377,12 +377,12 @@ if( is_page('retail') ){
 
     <?php if( !is_single() ): ?>
     <!-- Flyout section -->
-      <?php include(THEME_DIR . '/template-parts/flyout.php'); ?>
+      <?php include(THEME_DIR . '/template-parts/footer/flyout.php'); ?>
       <!-- //Flyout section -->
       <?php endif; ?>
       
     <!-- Form section -->
-      <?php include(THEME_DIR . '/template-parts/form-section.php'); ?>
+      <?php include(THEME_DIR . '/template-parts/footer/form-section.php'); ?>
     <!-- //Form section -->
 
     <?php wp_footer(); ?>

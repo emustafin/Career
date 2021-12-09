@@ -39,7 +39,7 @@
                     $link_main_url = '/';
                     $link_vacancy_url = '/vacancies/';
                 }
-                include(THEME_DIR . '/template-parts/vacancy__header-head-links.php');
+                include(THEME_DIR . '/template-parts/header/vacancy__header-head-links.php');
             ?>
 
             <a href="#" class="vacancy__header-head-copy">
@@ -152,7 +152,7 @@
             if( is_array( $catgs_terms ) ){
                 $current_catgs = $catgs_terms[0]->slug;
             }
-            include(THEME_DIR . '/template-parts/vacancy-content.php'); 
+            include(THEME_DIR . '/template-parts/single/vacancy-content.php'); 
             ?>
         </div>
 
