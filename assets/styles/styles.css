@@ -12409,7 +12409,8 @@ input#form__town {
 
 .logistic-career {
   padding: 0 16px;
-  margin-bottom: 200px; }
+  margin-bottom: 200px;
+  overflow: hidden; }
 
 .logistic-career__button {
   padding: 8px 16px;

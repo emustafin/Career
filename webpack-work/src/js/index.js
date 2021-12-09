@@ -45,6 +45,11 @@ import { RetailAdvantagesBlock } from './components/retail/retailAdvantages';
 import { RetailUpgradeBlock } from './components/retail/retailUpgrade';
 import { RetailFooter } from './components/retail/retailFooter';
 
+// Импорт классов со страницы "Сервис и Логистика"
+import { FirstScreenBlock } from './components/servece-and-logistic/logisticFirstScreenBlock';
+import { LogisticPageVacanciesBlock } from './components/servece-and-logistic/logisticVacanciesBlock';
+import { LogisticPageFlyout } from './components/servece-and-logistic/logisticFlyout';
+
 // Перенос изображений и шрифтов в Dist
 require.context('../images', true, /\.(png|jpg|svg|gif)$/);
 require.context('../fonts', true, /\.(ttf|woff|woff2)$/);
@@ -133,10 +138,10 @@ new VacancyDirecLinkNewsBlock('.vacancy__news-block-desktop');
 //--------------------------------------------------------
 // Не получилось изменить входной параметр (выдает ошибку - некорректный селектор)
 new VacancyDirecLinkMainContent(vacancyDirectLinkMainContent);
-if( null != profession ){
+if (null != profession) {
   const itHubPageVacancy = new ItHubVacancyBlock(profession);
-} else{
-  if( null != retail__position ){
+} else {
+  if (null != retail__position) {
     const itHubPageVacancy = new ItHubVacancyBlock(retail__position);
   }
 }
@@ -189,6 +194,11 @@ retailBrandsBlock.getAllBrandsTabs([
   { name: 'mvideo', elements: retailFooter.mvideoFromFooter },
   { name: 'eldorado', elements: retailFooter.eldoradoFromFooter },
 ]);
+
+// Инициализация классов на странице "Сервис и Логистика"
+new FirstScreenBlock('.logistic-stage');
+new LogisticPageVacanciesBlock('.retail__position-list');
+new LogisticPageFlyout('.flyout');
 
 //-------------------------------------------------------------------------
 // Слушатели событий, установленные на Body
