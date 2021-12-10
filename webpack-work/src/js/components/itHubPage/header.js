@@ -5,7 +5,9 @@ export class Header {
     if (this.el === null || this.el === undefined) return;
 
     this.headerSelect = this.el.querySelector('.it-header__directions');
-    this.directionsArrow = this.el.querySelector('.it-header__directions-arrow');
+    this.directionsArrow = this.el.querySelector(
+      '.it-header__directions-arrow'
+    );
     this.dropdowList = this.el.querySelector(
       '.it-header__directions-dropdown-list'
     );
@@ -17,6 +19,8 @@ export class Header {
     );
     this.phoneTitle = this.el.querySelector('.it-header__contact-text');
     this.phoneBlock = this.el.querySelector('.it-header__contact-us');
+    this.headerWrapper = this.el.querySelector('.it-header__wrapper');
+    this.headerButton = this.el.querySelector('.it-header__button');
     this.windowTopOffset = 50;
 
     if (null !== this.headerSelect) {
@@ -39,8 +43,8 @@ export class Header {
       this.dropdowList.classList.add(
         'it-header__directions-dropdown-list-active'
       );
-      this.headerSelect.classList.add('it-header__directions-active')
-      this.directionsArrow.classList.add('it-header__directions-arrow-active')
+      this.headerSelect.classList.add('it-header__directions-active');
+      this.directionsArrow.classList.add('it-header__directions-arrow-active');
 
       setTimeout(() => {
         this.headerSelect.dataset.name = 'opened';
@@ -55,8 +59,10 @@ export class Header {
       this.dropdowList.classList.remove(
         'it-header__directions-dropdown-list-active'
       );
-      this.headerSelect.classList.remove('it-header__directions-active')
-      this.directionsArrow.classList.remove('it-header__directions-arrow-active')
+      this.headerSelect.classList.remove('it-header__directions-active');
+      this.directionsArrow.classList.remove(
+        'it-header__directions-arrow-active'
+      );
       setTimeout(() => {
         this.headerSelect.dataset.name = 'closed';
       }, 50);
@@ -72,9 +78,19 @@ export class Header {
     if (window.scrollY > this.windowTopOffset) {
       this.phoneBlock.classList.add('it-header__contact-us-to-top');
       this.phoneTitle.classList.add('transparent');
+      this.headerWrapper.style.padding = '8px 0';
+      this.headerButton.style.top = '16px';
     } else {
       this.phoneBlock.classList.remove('it-header__contact-us-to-top');
       this.phoneTitle.classList.remove('transparent');
+      this.headerWrapper.style.padding = '16px 0';
+      this.headerButton.style.top = '22px';
+    }
+
+    if (window.scrollY > this.windowTopOffset && window.innerWidth <= 1100) {
+      this.headerButton.style.top = '8px';
+    } else {
+      this.headerButton.style.top = '16px';
     }
   }
 }

@@ -58,6 +58,10 @@ class WPcf7_Mail extends Boot {
 
         $externals_body = "";
         $account_source = "";
+        if( $posted_data['text-vacancyid'] ){
+            $externals_body .= "Название вакансии - ".get_the_title( $posted_data['text-vacancyid'] )."\n";
+            $externals_body .= "Ссылка на вакансию - ".get_permalink( $posted_data['text-vacancyid'] )."\n";
+        }
         if( $posted_data["text-town"] ){
             $externals_body .= "Город - ".json_decode( $posted_data["text-town"] )[0]->value."\n";
         }
@@ -90,7 +94,8 @@ class WPcf7_Mail extends Boot {
                     "data"=> [
                         "body" => "Тестовый кандидат\nТестируем новый карьерный сайт\n".$externals_body
                     ],
-                    "auth_type" => "NATIVE"
+                    "auth_type" => "NATIVE",
+                    "account_source" => 74
                 ]
             ];
         }
