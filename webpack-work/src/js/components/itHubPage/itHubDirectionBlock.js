@@ -11,6 +11,7 @@ export class ItHubDirectionBlock {
       '.direction__direction-item-active'
     );
     this.tabs = Array.from(this.el.querySelectorAll('.tab-item-content'));
+
     this.mobileSelectWrapper = this.el.querySelector(
       '.direction__select-container-mobile'
     );
@@ -25,6 +26,7 @@ export class ItHubDirectionBlock {
     );
     this.currentTabId = this.activeSwicher.dataset.tabUid;
 
+    this.tabs.forEach((tab) => (tab.style.display = 'block'));
     this.tabsParameters = this.getTabsData();
 
     this.tabs.forEach((tab) => tab.classList.add('tab-item-content-hidden'));
@@ -45,7 +47,6 @@ export class ItHubDirectionBlock {
           this.selectListItems,
           'direction__active-list-item'
         );
-        // this.setTabsHeight(this.currentTabId);
       });
     });
 
