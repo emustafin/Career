@@ -9,7 +9,9 @@ class Skillaz_Vacancies_Find extends Boot {
 		$params = array(
             "PageSize" => 0,
             "CurrentPage" => 0,
-            "UpdatedSince" => "2021-08-24T09:41:25.821Z",
+            "Data" => [
+                "ExtraData.NeedToPublishToEmLife" => true
+            ]
         );
     
         $content = json_encode($params);
