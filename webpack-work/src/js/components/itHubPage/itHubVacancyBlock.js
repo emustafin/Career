@@ -5,34 +5,39 @@ export class ItHubVacancyBlock {
     if (!this.el) return;
 
     this.flyout = document.querySelector('.flyout');
-    this.flyoutSideBar = this.flyout.querySelector('.flyout__side-bar');
-    this.flyOutContentBar = this.flyout.querySelector('.vacancy');
-    this.flyOutForm = this.flyout.querySelector('.vacancy__form');
-    this.vacancyCopyLink = this.flyout.querySelector(
-      '.vacancy__header-head-copy'
-    );
-    this.newsSlider;
+    if (this.flyout) {
+      this.flyoutSideBar = this.flyout.querySelector('.flyout__side-bar');
+      this.flyOutContentBar = this.flyout.querySelector('.vacancy');
+      this.flyOutForm = this.flyout.querySelector('.vacancy__form');
+      this.vacancyCopyLink = this.flyout.querySelector(
+        '.vacancy__header-head-copy'
+      );
+      this.newsSlider;
 
-    this.progressBar = this.flyout.querySelector('.vacancy__progress-bar');
-    this.progressRadius = this.progressBar.r.baseVal.value;
-    this.progressBarLength = 2 * Math.PI * this.progressRadius;
+      this.progressBar = this.flyout.querySelector('.vacancy__progress-bar');
+      this.progressRadius = this.progressBar.r.baseVal.value;
+      this.progressBarLength = 2 * Math.PI * this.progressRadius;
 
-    this.progressBar.style.strokeDasharray = `${this.progressBarLength} ${this.progressBarLength}`;
-    this.progressBar.style.strokeDashoffset = this.progressBarLength;
-    this.video = this.flyout.querySelector('.vacancy__video-preview');
-    this.videoContainer = this.flyout.querySelector(
-      '.vacancy__video-container'
-    );
-    this.btnMuted = this.flyout.querySelector('.vacancy__video-sound-muted');
-    this.btnLoud = this.flyout.querySelector('.vacancy__video-sound-loud');
+      this.progressBar.style.strokeDasharray = `${this.progressBarLength} ${this.progressBarLength}`;
+      this.progressBar.style.strokeDashoffset = this.progressBarLength;
+      this.video = this.flyout.querySelector('.vacancy__video-preview');
+      this.videoContainer = this.flyout.querySelector(
+        '.vacancy__video-container'
+      );
+      this.btnMuted = this.flyout.querySelector('.vacancy__video-sound-muted');
+      this.btnLoud = this.flyout.querySelector('.vacancy__video-sound-loud');
 
-    this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
-    this.videoContainer.addEventListener('click', this.turnOnSound.bind(this));
+      this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
+      this.videoContainer.addEventListener(
+        'click',
+        this.turnOnSound.bind(this)
+      );
 
-    this.init();
-    this.resizeFlyout();
-    this.flyOutInit();
-    this.newsSliderInit();
+      this.init();
+      this.resizeFlyout();
+      this.flyOutInit();
+      this.newsSliderInit();
+    }
   }
 
   init() {
@@ -160,8 +165,7 @@ export class ItHubVacancyBlock {
   playFlyoutVideo() {
     this.videoContainer.classList.remove('loading');
     // this.videoContainer.dataset.name = 'loud';
-    this.video.src =
-      '';
+    this.video.src = '';
     this.video.setAttribute('autoplay', true);
     this.setVideoProgress();
   }
