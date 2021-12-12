@@ -70,7 +70,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  width: 198px;
+  width: 220px;
   cursor: pointer;
   transition: 0.3s;
   padding: 16px 16px 0px 16px;
@@ -85,7 +85,7 @@
   position: absolute;
   left: 0;
   top: 100%;
-  width: auto;
+  width: 100%;
   overflow: hidden;
   z-index: 2;
   pointer-events: none;
@@ -95,8 +95,9 @@
 .it-header__directions-dropdown-list-active {
   transition: 0.3s;
   background: $whiteColor;
-  padding: 10px 16px;
   border-radius: 0px 0px 16px 16px;
+  padding-top: 12px;
+  overflow: hidden;
 }
 
 .it-header__directions-dropdown-list {
@@ -110,9 +111,12 @@
 .it-header__directions-dropdown-item {
   color: $mainColor;
   display: block;
-  margin: 0px 0px 24px 0px;
+  padding: 0 16px;
+  line-height: 44px;
+
   &:last-child {
-    margin: 0;
+    // margin: 0;
+    padding-bottom: 4px;
   }
   transition: 0.3s;
 
@@ -184,6 +188,11 @@
   .it-header__item {
     font-size: 16px;
     line-height: 20px;
+  }
+
+  .it-header__directions,
+  .it-header__directions-active {
+    width: 198px;
   }
 }
 
