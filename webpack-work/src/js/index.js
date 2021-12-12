@@ -158,7 +158,6 @@ const retailAdvantagesBlock = new RetailAdvantagesBlock('.retail__advantages');
 const retailUpgradeBlock = new RetailUpgradeBlock('.upgrade');
 const retailFooter = new RetailFooter('.retail__footer');
 
-retailCreateFuture.registerParameters(headerItPage, retailMissionBlock);
 retailMissionBlock.registerParameters(retailBrandsBlock, headerItPage);
 retailBrandsBlock.getAllBrandsTabs([
   { name: 'mvideo', elements: retailBrandsBlock.mvideoFromBrandsPage },

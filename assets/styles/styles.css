@@ -9488,8 +9488,7 @@ input#form__town {
   color: #000000;
   position: relative;
   padding-right: 23px;
-  margin-top: 24px;
-  display: block; }
+  margin-top: 24px; }
 
 .retail__position-headline-link-arrow {
   position: absolute;
@@ -10000,6 +9999,42 @@ input#form__town {
   .retail__why-us {
     padding-right: 0px;
     padding-left: 8px; } }
+
+.retail__career-upgrade {
+  margin-bottom: 192px;
+  padding: 0 16px; }
+
+@media (max-width: 1440px) {
+  .retail__career-upgrade {
+    margin-bottom: 144px; } }
+
+@media (max-width: 1024px) {
+  .retail__career-upgrade {
+    margin-bottom: 128px; } }
+
+@media (max-width: 770px) {
+  .retail__career-upgrade {
+    padding: 0 8px; } }
+
+@media (max-width: 479px) {
+  .retail__career-upgrade {
+    margin-bottom: 64px; } }
+
+.retail__running-line {
+  overflow: hidden;
+  margin-bottom: 114px; }
+
+@media (max-width: 1440px) {
+  .retail__running-line {
+    margin-bottom: 88px; } }
+
+@media (max-width: 1024px) {
+  .retail__running-line {
+    margin-bottom: 70px; } }
+
+@media (max-width: 479px) {
+  .retail__running-line {
+    margin-bottom: 32px; } }
 
 .page-404 {
   padding: 196px 16px 0 16px;

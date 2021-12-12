@@ -13,77 +13,85 @@ export class RetailPositionBlock {
     );
     this.vacancyItems = this.el.querySelectorAll('.retail__position-list-item');
     this.flyout = document.querySelector('.flyout');
-    this.flyOutContentBar = this.flyout.querySelector('.vacancy');
-    this.flyoutSideBar = this.flyout.querySelector('.flyout__side-bar');
-    this.flyoutButtonToMainPage = this.flyout.querySelector(
-      '.vacancy__header-head-link-main'
-    );
-    this.flyOutForm = this.flyout.querySelector('.vacancy__form');
 
-    this.progressBar = this.flyout.querySelector('.vacancy__progress-bar');
-    this.progressRadius = this.progressBar.r.baseVal.value;
-    this.progressBarLength = 2 * Math.PI * this.progressRadius;
+    if (this.flyout) {
+      this.flyOutContentBar = this.flyout.querySelector('.vacancy');
+      this.flyoutSideBar = this.flyout.querySelector('.flyout__side-bar');
+      this.flyoutButtonToMainPage = this.flyout.querySelector(
+        '.vacancy__header-head-link-main'
+      );
+      this.flyOutForm = this.flyout.querySelector('.vacancy__form');
 
-    this.progressBar.style.strokeDasharray = `${this.progressBarLength} ${this.progressBarLength}`;
-    this.progressBar.style.strokeDashoffset = this.progressBarLength;
-    this.video = this.flyout.querySelector('.vacancy__video-preview');
-    this.videoContainer = this.flyout.querySelector(
-      '.vacancy__video-container'
-    );
-    this.soundButtonContainer = this.flyout.querySelector(
-      '.vacancy__video-sound'
-    );
-    this.btnMuted = this.flyout.querySelector('.vacancy__video-sound-muted');
-    this.btnLoud = this.flyout.querySelector('.vacancy__video-sound-loud');
-    this.vacancyCopyLink = this.flyout.querySelector(
-      '.vacancy__header-head-copy'
-    );
-    this.responseButton = this.flyout.querySelector('.vacancy__headline-link');
+      this.progressBar = this.flyout.querySelector('.vacancy__progress-bar');
+      this.progressRadius = this.progressBar.r.baseVal.value;
+      this.progressBarLength = 2 * Math.PI * this.progressRadius;
 
-    this.el.addEventListener('mouseover', this.getVacancyItems.bind(this));
+      this.progressBar.style.strokeDasharray = `${this.progressBarLength} ${this.progressBarLength}`;
+      this.progressBar.style.strokeDashoffset = this.progressBarLength;
+      this.video = this.flyout.querySelector('.vacancy__video-preview');
+      this.videoContainer = this.flyout.querySelector(
+        '.vacancy__video-container'
+      );
+      this.soundButtonContainer = this.flyout.querySelector(
+        '.vacancy__video-sound'
+      );
+      this.btnMuted = this.flyout.querySelector('.vacancy__video-sound-muted');
+      this.btnLoud = this.flyout.querySelector('.vacancy__video-sound-loud');
+      this.vacancyCopyLink = this.flyout.querySelector(
+        '.vacancy__header-head-copy'
+      );
+      this.responseButton = this.flyout.querySelector(
+        '.vacancy__headline-link'
+      );
 
-    //--------------------------------------------------------------------------------------------
-    // Скрипт копирует ссылку на страницу вакансии и открывает ее.
+      this.el.addEventListener('mouseover', this.getVacancyItems.bind(this));
 
-    // this.vacancyItems.forEach((vacancy) => {
-    //   vacancy.addEventListener('click', () => {
-    //     const button = vacancy.querySelector('.retail__position-item-button');
-    //     const linkAddress = button.href;
-    //     document.location.href = linkAddress;
-    //   });
-    // });
+      //--------------------------------------------------------------------------------------------
+      // Скрипт копирует ссылку на страницу вакансии и открывает ее.
 
-    //-----------------------------------------------------------------------------------------------
-    // Скрипт для открытия попапа вакансии при клике на блоке вакансии
+      // this.vacancyItems.forEach((vacancy) => {
+      //   vacancy.addEventListener('click', () => {
+      //     const button = vacancy.querySelector('.retail__position-item-button');
+      //     const linkAddress = button.href;
+      //     document.location.href = linkAddress;
+      //   });
+      // });
 
-    this.vacancyItems.forEach((vacancy) => {
-      vacancy.addEventListener('click', this.openFlyout.bind(this));
-    });
+      //-----------------------------------------------------------------------------------------------
+      // Скрипт для открытия попапа вакансии при клике на блоке вакансии
 
-    //---------------------------------------------------------------------------------------------
-    // Скрипт для закрытия попапа вакансии
+      this.vacancyItems.forEach((vacancy) => {
+        vacancy.addEventListener('click', this.openFlyout.bind(this));
+      });
 
-    this.flyoutSideBar.addEventListener('click', this.closeFlyout.bind(this));
-    this.flyoutButtonToMainPage.addEventListener(
-      'click',
-      this.closeFlyout.bind(this)
-    );
+      //---------------------------------------------------------------------------------------------
+      // Скрипт для закрытия попапа вакансии
 
-    //-----------------------------------------------------------------------------------------------
-    // Управление звуком видео
-    // this.video.addEventListener('click', this.turnOnSound.bind(this));
-    this.soundButtonContainer.addEventListener(
-      'click',
-      this.turnOnSound.bind(this)
-    );
+      this.flyoutSideBar.addEventListener('click', this.closeFlyout.bind(this));
+      this.flyoutButtonToMainPage.addEventListener(
+        'click',
+        this.closeFlyout.bind(this)
+      );
 
-    //------------------------------------------------------------------------------------------------
-    // Копировать ссылку
-    this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
+      //-----------------------------------------------------------------------------------------------
+      // Управление звуком видео
+      // this.video.addEventListener('click', this.turnOnSound.bind(this));
+      this.soundButtonContainer.addEventListener(
+        'click',
+        this.turnOnSound.bind(this)
+      );
 
-    //---------------------------------------------------------------------------------------------------
-    // Скролл к форме
-    this.responseButton.addEventListener('click', this.scrollToForm.bind(this));
+      //------------------------------------------------------------------------------------------------
+      // Копировать ссылку
+      this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
+
+      //---------------------------------------------------------------------------------------------------
+      // Скролл к форме
+      this.responseButton.addEventListener(
+        'click',
+        this.scrollToForm.bind(this)
+      );
+    }
   }
   getVacancyItems(event) {
     if (event.target.classList.contains('retail__position-list-item')) {
