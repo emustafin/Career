@@ -18,6 +18,14 @@ class WPcf7_Mail extends Boot {
         if( $posted_data['text-rel_type'] ){
             $rel_type = $posted_data['text-rel_type'];
         }
+
+        if( empty( $_SESSION['send_post_id'] ) ){
+            $_SESSION['send_post_id'] = array( $posted_data['text-vacancyid'] );
+        } elseif( !in_array( $posted_data['text-vacancyid'], $_SESSION['send_post_id'] ) ){
+            $_SESSION['send_post_id'][] = $posted_data['text-vacancyid'];
+        } elseif( in_array( $posted_data['text-vacancyid'], $_SESSION['send_post_id'] ) ){
+            return false;
+        }
         
         if( 'it' == $rel_type ){
             self::sent_data_to_huntflow( $posted_data, $submission );
