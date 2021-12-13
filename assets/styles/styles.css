@@ -6650,7 +6650,11 @@ section.intern {
   display: flex;
   align-items: flex-start;
   position: relative;
-  width: 100%; }
+  width: 100%;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
   .slider__left {
     display: flex;
     position: absolute;
@@ -6727,7 +6731,8 @@ section.intern {
     transition: 0.2s;
     left: 0;
     width: 100%;
-    flex-shrink: 0; }
+    flex-shrink: 0;
+    padding: 0 2px; }
   .slider__list {
     margin: 20px;
     display: flex;
@@ -6777,6 +6782,7 @@ section.intern {
     .slider__way-year {
       display: block; }
     .slider__way-profession {
+      padding-right: 25px;
       display: block; }
     .slider__way-item {
       display: block;
