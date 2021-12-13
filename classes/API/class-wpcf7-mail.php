@@ -20,9 +20,9 @@ class WPcf7_Mail extends Boot {
         }
 
         if( empty( $_SESSION['send_post_id'] ) ){
-            $_SESSION['send_post_id'] = array( $posted_data['text-vacancyid'] );
+            $_SESSION['send_post_id'] = array( (int) $posted_data['text-vacancyid'] );
         } elseif( !in_array( $posted_data['text-vacancyid'], $_SESSION['send_post_id'] ) ){
-            $_SESSION['send_post_id'][] = $posted_data['text-vacancyid'];
+            $_SESSION['send_post_id'][] = (int) $posted_data['text-vacancyid'];
         } elseif( in_array( $posted_data['text-vacancyid'], $_SESSION['send_post_id'] ) ){
             return false;
         }
