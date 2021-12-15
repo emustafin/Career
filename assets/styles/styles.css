@@ -11919,21 +11919,21 @@ input#form__town {
 
 .main__running-line {
   overflow: hidden;
-  margin-bottom: 210px; }
+  margin-bottom: 114px; }
   .main__running-line > h2 {
     margin-bottom: 0; }
 
 @media (max-width: 1440px) {
   .main__running-line {
-    margin-bottom: 144px; } }
+    margin-bottom: 88px; } }
 
-@media (max-width: 1440px) {
+@media (max-width: 1024px) {
   .main__running-line {
-    margin-bottom: 134px; } }
+    margin-bottom: 70px; } }
 
 @media (max-width: 550px) {
   .main__running-line {
-    margin-bottom: 64px; } }
+    margin-bottom: 32px; } }
 
 .main-stability {
   font-size: 18px;
