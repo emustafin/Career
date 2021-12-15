@@ -5236,7 +5236,8 @@ section.intern {
   position: relative;
   color: #000000;
   font-size: 24px;
-  line-height: 24px; }
+  line-height: 24px;
+  cursor: pointer; }
 
 .position__show-more-button-link {
   position: absolute;
