@@ -32,17 +32,27 @@ class WPcf7_Mail extends Boot {
         $params = array();
 
         if( $posted_data['text-name'] ){
-            $params['first_name'] = $posted_data['text-name'];
+            $full_name = $posted_data['text-name'];
         }
         if( $posted_data['text-name'] ){
-            $params['last_name'] = $posted_data['text-name'];
+            $full_name = $posted_data['text-name'];
         }
         if( $posted_data['text-name2'] ){
-            $params['first_name'] = $posted_data['text-name2'];
+            $full_name = $posted_data['text-name2'];
         }
         if( $posted_data['text-name2'] ){
-            $params['last_name'] = $posted_data['text-name2'];
+            $full_name = $posted_data['text-name2'];
         }
+
+        $names = explode(" ", $full_name);
+
+        if( '' != $names[0] ){
+            $params['first_name'] = $names[0];
+        }
+        if( '' != $names[1] ){
+            $params['last_name'] = $names[1];
+        }
+        
         if( $posted_data['mask-176'] ){
             $params['phone'] = $posted_data['mask-176'];
         }
@@ -58,6 +68,10 @@ class WPcf7_Mail extends Boot {
 
         $externals_body = "";
         $account_source = "";
+        if( $posted_data['text-vacancyid'] ){
+            $externals_body .= "Название вакансии - ".get_the_title( $posted_data['text-vacancyid'] )."\n";
+            $externals_body .= "Ссылка на вакансию - ".get_permalink( $posted_data['text-vacancyid'] )."\n";
+        }
         if( $posted_data["text-town"] ){
             $externals_body .= "Город - ".json_decode( $posted_data["text-town"] )[0]->value."\n";
         }
@@ -68,7 +82,7 @@ class WPcf7_Mail extends Boot {
             $externals_body .= "Специализация - ".json_decode( $posted_data["text-932"] )[0]->value."\n";
         }
         if( $posted_data["text-341"] ){
-            $externals_body .= "Дополнительная информация - ".$posted_data["text-932"]."\n";
+            $externals_body .= "Дополнительная информация - ".$posted_data["text-341"]."\n";
         }
         if( $posted_data["upload-file-803"] ){
             foreach ($posted_data["upload-file-803"] as $file) {
@@ -88,9 +102,10 @@ class WPcf7_Mail extends Boot {
             $params['externals'] = [
                 [
                     "data"=> [
-                        "body" => "Тестовый кандидат\nТестируем новый карьерный сайт\n".$externals_body
+                        "body" => "Новая заявка кандидата\n".$externals_body
                     ],
-                    "auth_type" => "NATIVE"
+                    "auth_type" => "NATIVE",
+                    "account_source" => 74
                 ]
             ];
         }
