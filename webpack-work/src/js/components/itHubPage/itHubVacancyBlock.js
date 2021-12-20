@@ -55,6 +55,8 @@ export class ItHubVacancyBlock {
     setTimeout(() => {
       this.flyoutSideBar.style.background = 'rgba(0, 0, 0, 0.8)';
     }, 300);
+
+    setTimeout(() => this.stylizeNestedList(), 1000);
   }
 
   flyOutInit() {
@@ -206,6 +208,19 @@ export class ItHubVacancyBlock {
       this.btnMuted.classList.remove('hide');
       this.btnLoud.classList.add('hide');
       this.videoContainer.dataset.name = 'muted';
+    }
+  }
+
+  stylizeNestedList() {
+    const liFromNestedList = document.querySelectorAll(
+      '.vacancy__description-list > ul > li > ul > li'
+    );
+
+    if (liFromNestedList) {
+      liFromNestedList.forEach((li) => {
+        const parentLi = li.parentElement.parentElement;
+        parentLi.style.listStyle = 'none';
+      });
     }
   }
 }
