@@ -28,7 +28,7 @@ export class ListingVacansiesPagePopup {
   getVacancyItems(event) {
     if (event.target.classList.contains('position__card-item')) {
       this.vacancyItems = this.el.querySelectorAll('.position__card-item');
-      this.showButtonMoreAboutDirection(this.vacancyItems);//нужно решить баг с этой функцией
+      this.showButtonMoreAboutDirection(this.vacancyItems);
     }
   }
 
