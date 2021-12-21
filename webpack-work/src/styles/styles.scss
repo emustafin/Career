@@ -60,6 +60,7 @@ $blackColorOpacity-05: rgba(0, 0, 0, 0.5);
 @import './office/office-stage.scss';
 @import './office/office-vacancies.scss';
 @import './office/office-why-we-are.scss';
+@import './single.scss';
 
 @font-face {
   font-family: suisse;
@@ -154,7 +155,7 @@ body {
 }
 
 .container {
-  padding: 0 16px;
+  // padding: 0 16px;
 }
 
 .page-container {

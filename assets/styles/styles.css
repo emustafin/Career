@@ -3632,6 +3632,12 @@
       width: 117.27px;
       height: 20px; } }
 
+header .container .it-header__wrapper .it-header__item:nth-child(1) {
+  padding-left: 16px; }
+
+header .container .it-header__wrapper a.it-header__button {
+  margin-right: 16px; }
+
 .main-news-events .intern {
   margin-bottom: 96px;
   font-size: 18px;
@@ -14605,6 +14611,227 @@ input#form__town {
   .office__why-we-are {
     margin-bottom: 64px; } }
 
+section {
+  width: 100%;
+  font-style: normal;
+  font-weight: normal; }
+
+.post__name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  width: 100%;
+  padding-top: 132px; }
+
+.title__post {
+  position: static;
+  max-width: 66.67%;
+  left: 320px;
+  top: 0px;
+  font-size: 64px;
+  line-height: 68px;
+  text-align: center;
+  color: #000000; }
+
+.date__post {
+  font-size: 18px;
+  line-height: 24px;
+  padding-top: 32px;
+  text-align: center;
+  color: #000000; }
+
+.text__post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  margin-top: 96px;
+  width: 100%; }
+
+.section__text {
+  max-width: 33.33%;
+  margin: 0 auto; }
+
+section .section__text p {
+  font-size: 18px;
+  line-height: 24px;
+  color: #000000;
+  margin-bottom: 96px; }
+
+section.text__post img.news__pic {
+  margin-bottom: 96px; }
+
+section .section__quote {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 900px;
+  margin-bottom: 96px; }
+
+section .section__text__quote {
+  padding-top: 96px;
+  max-width: 65.6%;
+  margin: 0 auto;
+  position: relative;
+  left: 16.2%; }
+
+section .section__text__quote p.text_quote {
+  font-size: 64px;
+  line-height: 68px;
+  color: #FFFFFF; }
+
+section .section__text__quote p.author_quote {
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFFFFF;
+  margin-top: 32px; }
+
+.section__quote-two {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 96px;
+  margin-bottom: 192px;
+  padding-left: 163px; }
+
+.section__quote-two p.text__quote-two {
+  font-size: 40px;
+  max-width: 33.33%;
+  line-height: 44px; }
+
+.section__quote-two p.author_quote-two {
+  font-size: 18px;
+  line-height: 24px;
+  color: #969696;
+  margin-left: 24px; }
+
+@media (max-width: 1919px) {
+  .post__name {
+    padding-top: 108px; }
+  .title__post, section .section__text__quote p.text_quote {
+    font-size: 56px;
+    line-height: 60px; }
+  .date__post, section .section__text__quote p.author_quote, section .section__text p, .section__quote-two p.author_quote-two {
+    font-size: 16px;
+    line-height: 20px; }
+  section.text__post img.news__pic {
+    width: 960px;
+    height: 540px; }
+  .section__quote-two {
+    margin: 144px 0; }
+  .section__quote-two p.text__quote-two {
+    font-size: 32px;
+    line-height: 40px; }
+  section .section__text p, section.text__post img.news__pic {
+    margin-bottom: 72px; }
+  section .section__quote {
+    height: 810px; }
+  .section__quote-two {
+    margin-top: 72px;
+    margin-bottom: 144px; } }
+
+@media (max-width: 1439px) {
+  .post__name {
+    padding-top: 108px; }
+  .title__post {
+    max-width: 33.33%; }
+  .title__post, section .section__text__quote p.text_quote {
+    font-size: 32px;
+    line-height: 36px; }
+  section.text__post img.news__pic {
+    width: 680px;
+    height: 380px; }
+  section .section__text__quote {
+    max-width: 48.2%;
+    left: 7.2%;
+    padding-top: 72px; }
+  section .section__text p, section.text__post img.news__pic {
+    margin-bottom: 64px; }
+  section .section__text p, section.text__post img.news__pic {
+    margin-bottom: 64px; }
+  section .section__quote {
+    height: 540px; }
+  .section__quote-two {
+    margin-top: 64px;
+    margin-bottom: 128px; } }
+
+@media (max-width: 1023px) {
+  .title__post {
+    max-width: 67.19%; }
+  section.text__post .section__text {
+    max-width: 62.5%; }
+  section.text__post img.news__pic {
+    width: 640px;
+    height: 360px; }
+  section .section__quote {
+    height: 480px;
+    margin-bottom: 32px; }
+  section .section__text__quote {
+    max-width: 64.2%;
+    padding-top: 64px; }
+  section div.section__quote-two {
+    max-width: 80%;
+    flex-direction: column;
+    padding-left: 0;
+    align-items: flex-start; }
+  section div.section__quote-two p.text__quote-two {
+    max-width: 100%; }
+  section div.section__quote-two p.author_quote-two {
+    margin-left: 0;
+    margin-top: 16px; } }
+
+@media (max-width: 767px) {
+  section.text__post img.news__pic {
+    width: 100%;
+    height: 100%; }
+  section .section__text__quote {
+    max-width: 76.2%;
+    padding-top: 56px; }
+  section .section__text__quote p.text_quote {
+    font-size: 28px;
+    line-height: 30px; }
+  .section__text__quote p.author_quote {
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 28px; } }
+
+@media (max-width: 479px) {
+  .post__name {
+    padding-top: 4px; }
+  .title__post {
+    max-width: 95%; }
+  .text__post {
+    margin-top: 32px; }
+  .date__post {
+    font-size: 14px;
+    line-height: 16px;
+    padding-top: 24px; }
+  section.text__post .section__text {
+    max-width: 95%; }
+  section.text__post img.news__pic {
+    width: 360px;
+    height: 220px; }
+  section .section__text p, section.text__post img.news__pic {
+    margin-bottom: 32px; }
+  section .section__quote {
+    height: 320px; }
+  section .section__text__quote p.text_quote {
+    font-size: 20px;
+    line-height: 24px; }
+  section .section__text__quote {
+    max-width: 95%;
+    padding-top: 22px;
+    position: unset; }
+  section .section__text__quote p.author_quote {
+    font-size: 14px;
+    margin-top: 16px;
+    line-height: 16px; }
+  section div.section__quote-two {
+    max-width: 95%;
+    margin-bottom: 64px; } }
+
 @font-face {
   font-family: suisse;
   src: url("../fonts/SuisseIntl-Regular.woff") format("woff"), url("../fonts/SuisseIntl-Regular.woff2") format("woff2");
@@ -14683,9 +14910,6 @@ body {
   font-size: 16px;
   line-height: 20px;
   position: relative; }
-
-.container {
-  padding: 0 16px; }
 
 .page-container {
   padding: 0 16px; }

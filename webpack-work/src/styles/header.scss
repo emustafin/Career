@@ -242,3 +242,11 @@
     }
   }
 }
+
+header .container .it-header__wrapper .it-header__item:nth-child(1){
+  padding-left: 16px;
+}
+
+header .container .it-header__wrapper a.it-header__button {
+  margin-right: 16px;
+}
