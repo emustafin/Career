@@ -36,6 +36,8 @@ export class FlyoutFunctional {
     setTimeout(() => {
       this.flyoutSideBar.style.background = 'rgba(0, 0, 0, 0.8)';
     }, 300);
+
+    setTimeout(() => this.stylizeNestedList(), 1000);
   }
 
   flyOutInit() {
@@ -183,5 +185,18 @@ export class FlyoutFunctional {
       this.btnLoud.classList.add('hide');
       this.video.muted = true;
     }, 300);
+  }
+
+  stylizeNestedList() {
+    const liFromNestedList = document.querySelectorAll(
+      '.vacancy__description-list > ul > li > ul > li'
+    );
+
+    if (liFromNestedList) {
+      liFromNestedList.forEach((li) => {
+        const parentLi = li.parentElement.parentElement;
+        parentLi.style.listStyle = 'none';
+      });
+    }
   }
 }

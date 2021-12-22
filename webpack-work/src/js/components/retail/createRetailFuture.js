@@ -6,21 +6,16 @@ export class CreateRetailFutureComponent {
     if (!this.el) return;
 
     this.scrollButton = this.el.querySelector('.retail__preview-button');
-    this.header;
-    this.targetBlock;
-    this.smothScroll = new SmothScrollingToTargetBlock();
+    this.header = document.querySelector('.it-header');
+    this.targetBlock = document.querySelector('.brands');
+    this.smothScroll = new SmothScrollingToTargetBlock(
+      this.targetBlock,
+      this.header
+    );
 
     this.scrollButton.addEventListener(
       'click',
-      this.scrollToNextBlock.bind(this)
+      this.smothScroll.scrollToTargetBlock.bind(this)
     );
-  }
-  registerParameters(header, targetBlock) {
-    this.header = header;
-    this.targetBlock = targetBlock;
-  }
-
-  scrollToNextBlock() {
-    this.smothScroll.scrollToTargetBlock(this.targetBlock.el, this.header);
   }
 }

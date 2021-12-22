@@ -36,6 +36,7 @@ export class VacancyDirecLinkMainContent {
     this.videoContainer.addEventListener('click', this.turnOnSound.bind(this));
 
     this.setVideoProgress();
+    this.stylizeNestedList();
   }
   scrollToForm(event) {
     event.preventDefault();
@@ -82,6 +83,19 @@ export class VacancyDirecLinkMainContent {
         this.btnLoud.classList.add('hide');
         this.videoContainer.dataset.name = 'muted';
       }, 50);
+    }
+  }
+
+  stylizeNestedList() {
+    const liFromNestedList = this.el.querySelectorAll(
+      '.vacancy__description-list > ul > li > ul > li'
+    );
+
+    if (liFromNestedList) {
+      liFromNestedList.forEach((li) => {
+        const parentLi = li.parentElement.parentElement;
+        parentLi.style.listStyle = 'none';
+      });
     }
   }
 }

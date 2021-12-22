@@ -18,6 +18,7 @@ export class ItHubVideoPlayerBlock {
     this.soundControl = this.el.querySelector('.find__sound-control');
     this.prevewImage = this.el.querySelector('.find__video-preview');
     this.prevewText = this.el.querySelector('.find__video-title');
+    this.videoPlayButton = this.el.querySelector('.find__video-play-button');
 
     // mobile items
     this.mobileVideoSlides = Array.from(
@@ -79,9 +80,22 @@ export class ItHubVideoPlayerBlock {
       'М.Видео-Эльдорадо'
     );
 
-    this.prevewImage.style.width = document.documentElement.clientWidth + 'px';
-    this.prevewImage.src = prevewImage;
-    this.prevewText.textContent = currentTitle;
+    this.prevewImage.style.opacity = 0;
+    this.prevewText.style.opacity = 0;
+    this.videoPlayButton.style.opacity = 0;
+
+    setTimeout(() => {
+      this.prevewImage.style.width =
+        document.documentElement.clientWidth + 'px';
+      this.prevewImage.src = prevewImage;
+      this.prevewText.textContent = currentTitle;
+    }, 300);
+
+    setTimeout(() => {
+      this.prevewImage.style.opacity = 1;
+      this.prevewText.style.opacity = 1;
+      this.videoPlayButton.style.opacity = 1;
+    }, 350);
   }
 
   resizePrevewImage() {

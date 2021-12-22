@@ -1,0 +1,25 @@
+.retail__running-line {
+  overflow: hidden;
+  margin-bottom: 114px;
+}
+
+// Styles for 1440px
+@media (max-width: 1440px) {
+  .retail__running-line {
+    margin-bottom: 88px;
+  }
+}
+
+// Styles for 1024px
+@media (max-width: 1024px) {
+  .retail__running-line {
+    margin-bottom: 70px;
+  }
+}
+
+// Styles for 320px
+@media (max-width: 479px) {
+  .retail__running-line {
+    margin-bottom: 32px;
+  }
+}
