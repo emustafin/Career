@@ -185,3 +185,11 @@ function setup_vars_for_forms() {
   });
 }
 setup_vars_for_forms();
+
+
+// костыль для страницы розница, 
+// потому что при инициализации слайдера который скрыт 
+// высота всех элементов устанавливается 0
+jQuery( window ).bind( 'load', function(){
+  jQuery('.upgrade__content-wrapper.eldorado').addClass('hide');
+})

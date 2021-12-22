@@ -53,6 +53,11 @@ if( have_rows('content_blocks') ):
         include(THEME_DIR . '/template-parts/common/upgrade.php');
         break;
 
+      case 'running_title':
+        $relation = 'roznica';
+        include(THEME_DIR . '/template-parts/common/running-line.php');
+        break;
+
     }
 
   endwhile;

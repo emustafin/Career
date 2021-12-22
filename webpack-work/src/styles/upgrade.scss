@@ -146,6 +146,11 @@ $font-size: 16px;
   align-items: flex-start;
   position: relative;
   width: 100%;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
   &__left{
       display: flex;
       position: absolute;
@@ -236,6 +241,7 @@ $font-size: 16px;
       left: 0;
       width: 100%;
       flex-shrink: 0;
+      padding: 0 2px;
   }
 
   &__list{
@@ -304,6 +310,7 @@ $font-size: 16px;
           display: block;
       }
       &-profession{
+          padding-right: 25px;
           display: block;
       }
       &-item{

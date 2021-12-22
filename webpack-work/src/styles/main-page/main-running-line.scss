@@ -1,6 +1,6 @@
 .main__running-line {
   overflow: hidden;
-  margin-bottom: 210px;
+  margin-bottom: 114px;
 
   & > h2 {
     margin-bottom: 0;
@@ -10,20 +10,20 @@
 // Styles for 1440px
 @media (max-width: 1440px) {
   .main__running-line {
-    margin-bottom: 144px;
+    margin-bottom: 88px;
   }
 }
 
 // Styles for 1024px
-@media (max-width: 1440px) {
+@media (max-width: 1024px) {
   .main__running-line {
-    margin-bottom: 134px;
+    margin-bottom: 70px;
   }
 }
 
 // Styles for 320px
 @media (max-width: 550px) {
   .main__running-line {
-    margin-bottom: 64px;
+    margin-bottom: 32px;
   }
 }
