@@ -4725,7 +4725,8 @@ section.intern {
   border-bottom: none; }
 
 .tagify.tagify--select.selectMode.listing__specialization-select.tagify--noTags.tagify--empty,
-.tagify.tagify--select.selectMode.listing__city-select.tagify--noTags.tagify--empty {
+.tagify.tagify--select.selectMode.listing__city-select.tagify--noTags.tagify--empty,
+tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagify--empty {
   padding-bottom: 14px; }
 
 .tagify.tagify--select.selectMode.listing__specialization-select,
