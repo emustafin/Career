@@ -116,7 +116,7 @@ class Vacancies {
             'description'           => '',
             'public'                => true,
             'hierarchical'          => true,
-            'rewrite'               => false,
+            'rewrite'               => array('slug' => 'relationship', 'with_front' => false),
             'query_var'             => 'relationship',
             'capabilities'          => array(),
             'meta_box_cb'           => 'post_categories_meta_box', 

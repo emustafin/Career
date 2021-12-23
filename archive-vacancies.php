@@ -8,6 +8,7 @@
 get_header();
 
 global $wp_query;
+$primary_query = $wp_query;
 
 $count_posts = wp_count_posts('vacancies');
 $published_posts = $count_posts->publish;
@@ -287,8 +288,8 @@ wp_reset_postdata();
 <div class="position__card-wrapper">
     <div id="archive_vacancies" class="page-container">
 
-        <?php if(have_posts()) : ?>
-            <?php $i=1; while(have_posts()) : 
+        <?php if( have_posts()) : ?>
+            <?php $i=1; while( have_posts()) : 
                 the_post();
 
                 include(THEME_DIR . '/template-parts/loop-parts/archive_vacancies_item.php');
