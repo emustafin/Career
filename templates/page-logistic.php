@@ -29,7 +29,8 @@ if( have_rows('logistic_blocks') ):
         break;
 
       case 'directions_screen':
-        include(THEME_DIR . '/template-parts/logistic/directions_screen.php');
+        include(THEME_DIR . '/template-parts/it/profession.php');
+        // include(THEME_DIR . '/template-parts/logistic/directions_screen.php');
         break;
 
       case 'why-we-are':
