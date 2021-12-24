@@ -53,9 +53,10 @@
     </div>
   </div>
 
-  <div class="logistic-advantages__right-bar">
-    <div class="logistic-advantages__content-wrapper">
-      <div class="logistic-advantages__content-item">
+  <div class="logistic-advantages__right-bar swiper">
+    <div class="logistic-advantages__content-wrapper swiper-wrapper">
+
+      <div class="logistic-advantages__content-item swiper-slide">
         <div class="logistic-advantages__content-item-text"><?php echo get_sub_field('title_1'); ?></div>
 
         <div class="logistic-advantages__content-item-icon">
@@ -90,7 +91,7 @@
         </div>
       </div>
 
-      <div class="logistic-advantages__content-item">
+      <div class="logistic-advantages__content-item swiper-slide">
         <div class="logistic-advantages__content-item-text"><?php echo get_sub_field('title_2'); ?></div>
 
         <div class="logistic-advantages__content-item-icon">
@@ -138,7 +139,7 @@
         </div>
       </div>
 
-      <div class="logistic-advantages__content-item">
+      <div class="logistic-advantages__content-item swiper-slide">
         <div class="logistic-advantages__content-item-text"><?php echo get_sub_field('title_3'); ?></div>
 
         <div class="logistic-advantages__content-item-icon">
@@ -157,7 +158,7 @@
         </div>
       </div>
 
-      <div class="logistic-advantages__content-item">
+      <div class="logistic-advantages__content-item swiper-slide">
         <div class="logistic-advantages__content-item-text"><?php echo get_sub_field('title_4'); ?></div>
 
         <div class="logistic-advantages__content-item-icon">
@@ -181,7 +182,7 @@
         </div>
       </div>
 
-      <div class="logistic-advantages__content-item">
+      <div class="logistic-advantages__content-item swiper-slide">
         <div class="logistic-advantages__content-item-text"><?php echo get_sub_field('title_5'); ?></div>
 
         <div class="logistic-advantages__content-item-icon">
@@ -216,7 +217,7 @@
         </div>
       </div>
 
-      <div class="logistic-advantages__content-item">
+      <div class="logistic-advantages__content-item swiper-slide">
         <div class="logistic-advantages__content-item-text"><?php echo get_sub_field('title_6'); ?></div>
 
         <div class="logistic-advantages__content-item-icon">
@@ -235,7 +236,7 @@
         </div>
       </div>
 
-      <div class="logistic-advantages__content-item">
+      <div class="logistic-advantages__content-item swiper-slide">
         <div class="logistic-advantages__content-item-text"><?php echo get_sub_field('title_7'); ?></div>
 
         <div class="logistic-advantages__content-item-icon">
@@ -274,7 +275,7 @@
         </div>
       </div>
 
-      <div class="logistic-advantages__content-item">
+      <div class="logistic-advantages__content-item swiper-slide">
         <div class="logistic-advantages__content-item-text"><?php echo get_sub_field('title_8'); ?></div>
 
         <div class="logistic-advantages__content-item-icon">
@@ -292,6 +293,7 @@
           </svg>
         </div>
       </div>
+
     </div>
   </div>
 </div>

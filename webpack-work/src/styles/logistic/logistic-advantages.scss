@@ -30,9 +30,15 @@
   margin: 24px 16px;
   padding-bottom: 16px;
   border-bottom: 1px solid #969696;
-  width: calc(25% - 32px);
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  
+  @media (min-width: 478px) {
+    height: auto !important;
+    width: calc(25% - 32px) !important;
+  }
 }
 
 .logistic-advantages__content-item-text {
