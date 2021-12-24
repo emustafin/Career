@@ -45,6 +45,7 @@ final class Core {
 		new CPT\Vacancies();
 		new CPT\Reviews();
 		new CPT\Product_directions();
+		new CPT\News_and_events();
 		new Menu\Menu();
 
 		new API\WPcf7_Mail();
