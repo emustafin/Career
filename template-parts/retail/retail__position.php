@@ -70,7 +70,7 @@ $eldorado_retail_position = get_sub_field('eldorado_retail_position');
               'post_type'         => 'vacancies',
               'posts_per_page'    => -1,
               'post_status'       => 'publish',
-              'posts_per_page'    => 5,
+              'relationship'      => 'roznica',
               'meta_query'        => array(
                 'relation'		=> 'AND',
                 array(
@@ -153,7 +153,7 @@ $eldorado_retail_position = get_sub_field('eldorado_retail_position');
               'post_type'         => 'vacancies',
               'posts_per_page'    => -1,
               'post_status'       => 'publish',
-              'posts_per_page'    => 5,
+              'relationship'      => 'roznica',
               'meta_query'        => array(
                 'relation'		=> 'AND',
                 array(
