@@ -1,12 +1,12 @@
-$('#popup_form .wpcf7-submit').on( 'click', function(e){
-  $('#popup_form .vacancy__form-label_checkbox').css('color','#000000');
-  $('#popup_form  .vacancy__form-label_checkbox a').css('color','#000000');
-})
+document.querySelector('#popup_form .wpcf7-submit').onclick = function(e){
+  document.querySelector("#popup_form .vacancy__form-label_checkbox").style.color = "#000000";
+  document.querySelector("#popup_form  .vacancy__form-label_checkbox a").style.color = "#000000";
+};
 
-$('#vacancy_form .wpcf7-submit').on( 'click', function(e){
-  $('#vacancy_form .vacancy__form-label_checkbox').css('color','#000000');
-  $('#vacancy_form  .vacancy__form-label_checkbox a').css('color','#000000');
-})
+document.querySelector('#vacancy_form .wpcf7-submit').onclick = function(e){
+  document.querySelector("#vacancy_form .vacancy__form-label_checkbox").style.color = "#000000";
+  document.querySelector("#vacancy_form  .vacancy__form-label_checkbox a").style.color = "#000000";
+};
 
 // Отправка анкеты на сервер
 const form = document.querySelector('#popup_form .wpcf7');
@@ -172,16 +172,18 @@ spezialisationSelect.on(
 );
 
 function setup_vars_for_forms() {
-  $('.rel_type').each(function (index) {
-    $(this).val(rel_type);
-  });
 
-  $('.vacancyid').each(function (index) {
-    $(this).val(vacancyid);
-  });
+  document.getElementsByClassName('rel_type').forEach(
+    element => element.setAttribute('value',rel_type),
+  );
 
-  $('.sourceurl').each(function (index) {
-    $(this).val(sourceurl);
-  });
+  document.getElementsByClassName('vacancyid').forEach(
+    element => element.setAttribute('value',vacancyid),
+  );
+
+  document.getElementsByClassName('sourceurl').forEach(
+    element => element.setAttribute('value',sourceurl),
+  );
+
 }
 setup_vars_for_forms();
