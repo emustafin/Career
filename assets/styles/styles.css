@@ -14832,6 +14832,230 @@ section .section__text__quote p.author_quote {
     max-width: 95%;
     margin-bottom: 64px; } }
 
+h3.title__page-news {
+  padding-top: 135px;
+  font-size: 64px;
+  line-height: 68px;
+  margin-left: 16px; }
+
+.filter__block {
+  display: flex; }
+
+.filter__news {
+  margin-top: 64px;
+  width: 304px;
+  margin-left: 16px; }
+
+.title__filter {
+  font-size: 12px;
+  line-height: 12px;
+  color: #000000;
+  opacity: 0.5; }
+
+.container__filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
+
+.listing__filter-item-select-arrow-image {
+  position: absolute;
+  right: 0;
+  top: 12px; }
+
+.first__filter-news {
+  background: #f3f3f3;
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 4px;
+  padding-bottom: 8px; }
+
+.first__filter-news::-moz-placeholder {
+  color: #000; }
+
+.first__filter-news::-webkit-input-placeholder {
+  color: #000; }
+
+.drop__filter {
+  margin-left: 16px;
+  margin-top: 8px;
+  cursor: pointer; }
+
+.drop__btn {
+  font-size: 18px;
+  line-height: 24px;
+  color: #969696; }
+
+.container__filter .tagify {
+  flex-wrap: nowrap; }
+
+.container__filter tags.tagify span.tagify__input {
+  --placeholder-color: #000; }
+
+.news__events {
+  padding: 0 16px;
+  margin-top: 96px;
+  display: flex;
+  justify-content: flex-end; }
+
+.left__column {
+  width: 33%; }
+
+.right__column {
+  width: 67%; }
+
+.title__left-column {
+  font-size: 18px;
+  line-height: 24px; }
+
+.title__event-month {
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 56px;
+  margin-bottom: 32px;
+  margin-left: 16px; }
+
+.event__card {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  width: 544px;
+  padding-bottom: 36px;
+  margin-top: 32px; }
+
+.event__date {
+  font-size: 160px;
+  line-height: 144px;
+  letter-spacing: -0.03em;
+  font-feature-settings: 'tnum' on, 'lnum' on, 'zero' on; }
+
+.event__content {
+  margin-left: 16px; }
+
+.event__name {
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 12px; }
+
+.event__status {
+  font-size: 18px;
+  line-height: 24px;
+  color: #969696;
+  margin-bottom: 56px; }
+
+.event__link {
+  display: flex;
+  align-items: center;
+  color: #000; }
+
+.event__link:visited {
+  color: #000; }
+
+.event__link p {
+  font-size: 18px;
+  line-height: 24px;
+  margin-right: 5px; }
+
+.all__events {
+  margin-top: 56px; }
+
+.all__event-link {
+  font-size: 18px;
+  line-height: 24px;
+  color: #000; }
+
+.all__event-link:visited {
+  color: #000; }
+
+.title__card {
+  width: 960px;
+  font-size: 32px;
+  line-height: 40px;
+  margin: 8px 0; }
+
+.date__card {
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 40px; }
+
+.mini__news-card {
+  display: flex;
+  justify-content: space-between; }
+
+.mini__news-card .news__card {
+  width: 624px; }
+
+.mini__title-card {
+  font-size: 18px;
+  line-height: 24px; }
+
+.btn__more-news {
+  border: 1px solid #969696;
+  border-radius: 36px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 214px; }
+
+.btn__more-news p {
+  font-size: 24px;
+  line-height: 24px;
+  margin-right: 8px; }
+
+.left__column.fixed {
+  position: fixed;
+  left: 16px;
+  right: 50%;
+  margin-right: -50%; }
+
+.mini__news-card.swiper {
+  width: 1264px;
+  height: 476px; }
+
+.right__column .position__show-more-button {
+  cursor: pointer; }
+
+.container__filter .tagify--noTags.tagify--empty {
+  border: none; }
+
+@media (max-width: 767px) {
+  h3.title__page-news {
+    padding-top: 52px;
+    font-size: 32px;
+    line-height: 36px;
+    margin-left: 8px; }
+  .filter__block {
+    flex-direction: column;
+    margin-top: 8px; }
+  .filter__news {
+    margin-top: 16px;
+    margin-left: 8px; }
+  .drop__filter {
+    margin-left: 8px; }
+  .news__events {
+    margin-top: 32px;
+    padding: 0 8px; }
+  .left__column {
+    height: 100%;
+    width: 100%; }
+  .title__left-column {
+    font-size: 14px;
+    line-height: 16px; }
+  .title__event-month {
+    display: none; }
+  .event__card {
+    flex-direction: column;
+    margin-top: 24px;
+    width: 176px; }
+  .event__date {
+    font-size: 36px;
+    line-height: 38px; }
+  .event__content {
+    margin-left: 0; }
+  .event__swiper.swiper {
+    width: 304px;
+    height: 134px; } }
+
 @font-face {
   font-family: suisse;
   src: url("../fonts/SuisseIntl-Regular.woff") format("woff"), url("../fonts/SuisseIntl-Regular.woff2") format("woff2");
