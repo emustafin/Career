@@ -12,10 +12,16 @@
                     $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/analytic-video-preview.mp4';
                 } elseif( 'other' == $current_catgs ){
                     $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/analytic-video-preview.mp4';
+                } elseif( 'backend' == $current_catgs ){
+                    $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/backend-video-preview.mp4';
                 } else{
                     $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4';
                 }
-            } 
+            } else{
+                if( 'backend' == $current_catgs ){
+                    $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/backend-video-preview.mp4';
+                }
+            }
             $src_video = THEME_URL.'/assets/images/Lazy-loading/1x1.png';
             ?>
             <video
@@ -287,6 +293,8 @@
             echo do_shortcode('[contact-form-7 id="224" title="Popap Vacancy"]'); 
         } elseif( 'roznica' == $current_relationship ){
             echo do_shortcode('[contact-form-7 id="729" title="Popup vacancy V.Retail"]'); 
+        } else{
+            echo do_shortcode('[contact-form-7 id="224" title="Popap Vacancy"]'); 
         }
         ?>
     </div>

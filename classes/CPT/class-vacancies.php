@@ -910,8 +910,14 @@ class Vacancies {
                     $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/analytic-video-preview.mp4';
                 } elseif( 'other' == $current_catgs ){
                     $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/analytic-video-preview.mp4';
+                } elseif( 'backend' == $current_catgs ){
+                    $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/backend-video-preview.mp4';
                 } else{
                     $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/revyachko-preview.mp4';
+                }
+            } else{
+                if( 'backend' == $current_catgs ){
+                    $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/backend-video-preview.mp4';
                 }
             }
 
