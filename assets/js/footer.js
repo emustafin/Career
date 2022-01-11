@@ -1,12 +1,14 @@
-$('#popup_form .wpcf7-submit').on( 'click', function(e){
-  $('#popup_form .vacancy__form-label_checkbox').css('color','#000000');
-  $('#popup_form  .vacancy__form-label_checkbox a').css('color','#000000');
-})
+document.querySelector('#popup_form .wpcf7-submit').addEventListener("click", function(e) {
+  document.querySelector("#popup_form .vacancy__form-label_checkbox").style.color = "#000000";
+  document.querySelector("#popup_form  .vacancy__form-label_checkbox a").style.color = "#000000";
+  document.querySelector("#popup_form  .vacancy__form-label_checkbox a").style.borderBottom = "#000000 1px solid";
+}, false);
 
-$('#vacancy_form .wpcf7-submit').on( 'click', function(e){
-  $('#vacancy_form .vacancy__form-label_checkbox').css('color','#000000');
-  $('#vacancy_form  .vacancy__form-label_checkbox a').css('color','#000000');
-})
+document.querySelector('#vacancy_form .wpcf7-submit').addEventListener("click", function(e) {
+  document.querySelector("#vacancy_form .vacancy__form-label_checkbox").style.color = "#000000";
+  document.querySelector("#vacancy_form  .vacancy__form-label_checkbox a").style.color = "#000000";
+  document.querySelector("#vacancy_form  .vacancy__form-label_checkbox a").style.borderBottom = "#000000 1px solid";
+}, false);
 
 // Отправка анкеты на сервер
 const form = document.querySelector('#popup_form .wpcf7');
@@ -32,6 +34,7 @@ form.addEventListener(
           var label_checkbox_a = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox a');
           label_checkbox.style.color = '#e31235';
           label_checkbox_a.style.color = '#e31235';
+          label_checkbox_a.style.borderBottom = "#e31235 1px solid";
         }
       }
       return;
@@ -71,6 +74,7 @@ form2.addEventListener(
           let label_checkbox_a = document.querySelector('#vacancy_form .vacancy__form-label_checkbox a');
           label_checkbox.style.color = '#e31235';
           label_checkbox_a.style.color = '#e31235';
+          label_checkbox_a.style.borderBottom = "#e31235 1px solid";
         }
       }
       return;
@@ -192,18 +196,21 @@ spezialisationSelect.on(
 );
 
 function setup_vars_for_forms() {
-  $('.rel_type').each(function (index) {
-    $(this).val(rel_type);
-  });
 
-  $('.vacancyid').each(function (index) {
-    $(this).val(vacancyid);
-  });
+  document.querySelectorAll('rel_type').forEach(
+    element => element.setAttribute('value',rel_type),
+  );
 
-  $('.sourceurl').each(function (index) {
-    $(this).val(sourceurl);
-  });
-}
+  document.querySelectorAll('vacancyid').forEach(
+    element => element.setAttribute('value',vacancyid),
+  );
+
+  document.querySelectorAll('sourceurl').forEach(
+    element => element.setAttribute('value',sourceurl),
+  );
+
+};
+
 setup_vars_for_forms();
 
 

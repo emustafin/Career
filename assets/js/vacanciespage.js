@@ -34,7 +34,7 @@ const professionListingSelect = new Tagify(listingTagifyProfessionInput, {
   }
 })
 
-professionListingSelect.on('change', () => {
+listingTagifyProfessionInput.addEventListener('change', () => {
   let selectedProfessionList = [];
 
   if (listingTagifyProfessionInput.value === '') {
@@ -60,7 +60,7 @@ const specializationListingSelect = new Tagify(listingTagifySpecializationgInput
   userInput: false,
 })
 
-specializationListingSelect.on('change', selectValueFromSingleSelect(currentVaccatDataListing, listingTagifySpecializationgInput, listingspecializationInput))
+listingTagifySpecializationgInput.addEventListener('change', selectValueFromSingleSelect(currentVaccatDataListing, listingTagifySpecializationgInput, listingspecializationInput))
 
 
 // Инициализация селекта Уровень
@@ -71,7 +71,7 @@ const listingLevelSelect = new Tagify(listingTagifyLevelInput, {
   userInput: false,
 });
 
-listingLevelSelect.on('change', selectValueFromSingleSelect(currentLevelsDataListing, listingTagifyLevelInput, listingLevelInput))
+listingTagifyLevelInput.addEventListener('change', selectValueFromSingleSelect(currentLevelsDataListing, listingTagifyLevelInput, listingLevelInput))
 
 
 // Инициализация селекта Город
@@ -82,7 +82,7 @@ const listingCitySelect = new Tagify(listingTagifyCityInput, {
   userInput: false,
 });
 
-listingCitySelect.on('change', selectValueFromSingleSelect(currentCitiesDataListing, listingTagifyCityInput, listingCityInput))
+listingTagifyCityInput.addEventListener('change', selectValueFromSingleSelect(currentCitiesDataListing, listingTagifyCityInput, listingCityInput))
 
 
 // Функция выбора элемента из выпадающего списка

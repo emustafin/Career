@@ -206,7 +206,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </svg>
             </a>
           </div>
-
           <a href="#" class="it-header__button">Заполнить анкету</a>
         </div>
       </div>

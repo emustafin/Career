@@ -1,62 +1,72 @@
-$('.profession__title').attr('originhref', window.location.href);
-var origin_location = window.location.href;
+if(document.querySelector('.profession__title')){
+  document.querySelector('.profession__title').getAttribute('originhref', window.location.href);
+  var origin_location = window.location.href;
+}
 
-$('.profession__job-item').on('click', function (e) {
-  
-  $('#vacancy_popup .loader-wrapp').css( 'display','block' );
-  post_id = $(this).attr('data-vacancy_id');
-  load_popup_vacancy( post_id );
-});
-$('.position__card-item').on('click', function (e) {
-  
-  $('#vacancy_popup .loader-wrapp').css( 'display','block' );
-  post_id = $(this).attr('data-vacancy_id');
-  load_popup_vacancy( post_id );
-});
-$('.retail__position-list-item').on('click', function (e) {
-  
-  $('#vacancy_popup .loader-wrapp').css( 'display','block' );
-  post_id = $(this).attr('data-vacancy_id');
-  load_popup_vacancy( post_id );
-});
+if(document.querySelector('.profession__job-item')){
+  document.querySelector('.profession__job-item').addEventListener('click', function (e) {
+    document.querySelector('#vacancy_popup .loader-wrapp').style.display = "block";
+    post_id = this.getAttribute('data-vacancy_id');
+    load_popup_vacancy( post_id );
+  });
+}
 
-$('.vacancy__header-head-link-main').on('click', function (e) {
+if(document.querySelector('.position__card-item')){
+  document.querySelector('.position__card-item').addEventListener('click', function (e) {
+    document.querySelector('#vacancy_popup .loader-wrapp').style.display = "block";
+    post_id = this.getAttribute('data-vacancy_id');
+    load_popup_vacancy( post_id );
+});
+}
+
+if(document.querySelector('.retail__position-list-item')){
+  document.querySelector('.retail__position-list-item').addEventListener('click', function (e) {
+  document.querySelector('#vacancy_popup .loader-wrapp').style.display = "block";
+  post_id = this.getAttribute('data-vacancy_id');
+  load_popup_vacancy( post_id );
+});
+}
+
+if(document.querySelector('.vacancy__header-head-link-main')){
+document.querySelector('.vacancy__header-head-link-main').addEventListener('click', function (e) {
   window.history.pushState('', '', origin_location);
 });
+}
 
-$('.flyout__side-bar').on('click', function (e) {
+if(document.querySelector('.flyout__side-bar')){
+document.querySelector('.flyout__side-bar').addEventListener('click', function (e) {
   window.history.pushState('', '', origin_location);
 });
-
+}
 
 function load_popup_vacancy( post_id ){
 
-  $('.flyout .vacancy__headline-title').attr('origin_url', '#');
-  $('.flyout .vacancy__headline-title').html( '' );
-  $('.flyout .vacancy__video-container img').attr('src', '#');
-  $('.flyout .vacancy__video-container .vacancy__video-preview').attr('data-src', '#');
-  $('.flyout .vacancy__video-container .vacancy__video-preview').attr('src', '#');
-  $('.flyout .vacancy__intro-description').html( '' );
-  $('.flyout #flexible_schedule').html( '' );
-  $('.flyout #vacancy_project').html( '' );
-  $('.flyout #expectations').html( '' );
-  $('.flyout #can_work_remotely').html( '' );
-  $('.flyout .vacancy__office-map-image').attr('src', '#');
-  $('.flyout .vacancy__office-adress-text').html( '' );
-  $('.flyout .vacancy__meta-info-sum').html( '' );
-  $('.flyout .vacancy__meta-info-sum-after').html( '' );
-  $('.flyout #vaccat_info_vacancy').html( '' );
-  $('.flyout #town_info_vacancy').html( '' );
-  $('.flyout #experience_important').html( '' );
+  document.querySelector('.flyout .vacancy__headline-title').getAttribute('origin_url', '#');
+  document.querySelector('.flyout .vacancy__headline-title').innerhtml = '';
+  document.querySelector('.flyout .vacancy__video-container img').getAttribute('src', '#');
+  document.querySelector('.flyout .vacancy__video-container .vacancy__video-preview').getAttribute('data-src', '#');
+  document.querySelector('.flyout .vacancy__video-container .vacancy__video-preview').getAttribute('src', '#');
+  document.querySelector('.flyout .vacancy__intro-description').innerhtml = '';
+  document.querySelector('.flyout #flexible_schedule').innerhtml = '';
+  document.querySelector('.flyout #vacancy_project').innerhtml = '';
+  document.querySelector('.flyout #expectations').innerhtml = '';
+  document.querySelector('.flyout #can_work_remotely').innerhtml = '';
+  document.querySelector('.flyout .vacancy__office-map-image').getAttribute('src', '#');
+  document.querySelector('.flyout .vacancy__office-adress-text').innerhtml = '';
+  document.querySelector('.flyout .vacancy__meta-info-sum').innerhtml = '';
+  document.querySelector('.flyout .vacancy__meta-info-sum-after').innerhtml = '';
+  document.querySelector('.flyout #vaccat_info_vacancy').innerhtml = '';
+  document.querySelector('.flyout #town_info_vacancy').innerhtml = '';
+  document.querySelector('.flyout #experience_important').innerhtml = '';
 
-  $('.vacancy').css( 'overflow', 'hidden' );
+  document.querySelector('.vacancy').style.overflow = "hiden";
 
   var data = {
       action: 'get_vacancy_data',
       post_id : post_id
   };
 
-  $.ajax({
+  document.querySelector.ajax({
       type: 'POST',
       url: ajax.url,
       data: data,
@@ -65,29 +75,29 @@ function load_popup_vacancy( post_id ){
       success: function (response) {
           if( true == response.success ){
 
-            $('.profession__title').attr('originhref', origin_location);
+            document.querySelector('.profession__title').getAttribute('originhref', origin_location);
 
-            $('.flyout .vacancy__headline-title').attr('origin_url', origin_location);
-            $('.flyout .vacancy__headline-title').html(response.title);
-            $('.flyout .vacancy__video-container img').attr('src', response.img);
-            $('.flyout .vacancy__video-container .vacancy__video-preview').attr('data-src', response.data_src_video);
-            $('.flyout .vacancy__video-container .vacancy__video-preview').attr('src', response.data_src_video);
-            $('.flyout .vacancy__intro-description').html(response.content);
-            $('.flyout #flexible_schedule').html(response.flexible_schedule);
-            $('.flyout #vacancy_project').html(response.vacancy_project);
-            $('.flyout #expectations').html(response.expectations);
-            $('.flyout #can_work_remotely').html(response.can_work_remotely);
-            $('.flyout .vacancy__office-map-image').attr('src', response.img_map);
-            $('.flyout .vacancy__office-adress-text').html(response.map_full_adress);
-            $('.flyout .vacancy__meta-info-sum').html(response.money_from);
-            $('.flyout .vacancy__meta-info-sum-after').html(response.gross);
-            $('.flyout #vaccat_info_vacancy').html(response.vaccat);
-            $('.flyout #town_info_vacancy').html(response.town);
-            $('.flyout #experience_important').html(response.experience);
+            document.querySelector('.flyout .vacancy__headline-title').getAttribute('origin_url', origin_location);
+            document.querySelector('.flyout .vacancy__headline-title').innerhtml = response.title;
+            document.querySelector('.flyout .vacancy__video-container img').getAttribute('src', response.img);
+            document.querySelector('.flyout .vacancy__video-container .vacancy__video-preview').getAttribute('data-src', response.data_src_video);
+            document.querySelector('.flyout .vacancy__video-container .vacancy__video-preview').getAttribute('src', response.data_src_video);
+            document.querySelector('.flyout .vacancy__intro-description').innerhtml = response.content;
+            document.querySelector('.flyout #flexible_schedule').innerhtml = response.flexible_schedule;
+            document.querySelector('.flyout #vacancy_project').innerhtml = response.vacancy_project;
+            document.querySelector('.flyout #expectations').innerhtml = response.expectations;
+            document.querySelector('.flyout #can_work_remotely').innerhtml = response.can_work_remotely;
+            document.querySelector('.flyout .vacancy__office-map-image').getAttribute('src', response.img_map);
+            document.querySelector('.flyout .vacancy__office-adress-text').innerhtml = response.map_full_adress;
+            document.querySelector('.flyout .vacancy__meta-info-sum').innerhtml = response.money_from;
+            document.querySelector('.flyout .vacancy__meta-info-sum-after').innerhtml = response.gross;
+            document.querySelector('.flyout #vaccat_info_vacancy').innerhtml = response.vaccat;
+            document.querySelector('.flyout #town_info_vacancy').innerhtml = response.town;
+            document.querySelector('.flyout #experience_important').innerhtml = response.experience;
 
-            $('#vacancy_popup .loader-wrapp').css( 'display','none' );
+            document.querySelector('#vacancy_popup .loader-wrapp').style.display = "none";
 
-            $('.vacancy').css( 'overflow', 'auto' );
+            document.querySelector('.vacancy').style.overflow = "auto";
           
             window.history.pushState('', '', response.url);
 

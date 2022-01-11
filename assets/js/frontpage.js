@@ -16,7 +16,7 @@ const idPageLevelSelect = new Tagify(idPageTagifyLevelInput, {
   userInput: false,
 });
 
-idPageLevelSelect.on('change', () => {
+idPageTagifyLevelInput.addEventListener('change', () => {
 
   if (idPageTagifyLevelInput.value === '') return;
 
@@ -33,17 +33,15 @@ idPageLevelSelect.on('change', () => {
 
 
 // Инициализация селекта выбора города
-const idPageCitySelect= new Tagify(idPageTagifyCityInput, {
+const idPageCitySelect = new Tagify(idPageTagifyCityInput, {
   enforceWhitelist: true,
   mode: 'select',
   whitelist: ['Любой','Москва', 'Санкт-Петербург', 'Ростов на Дону'],
   userInput: false,
 });
 
-idPageCitySelect.on('change', () => {
-
+idPageTagifyCityInput.addEventListener('change', () => {
   if (idPageTagifyCityInput.value === '') return;
-
 
   let currentValue;
 
