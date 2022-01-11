@@ -498,35 +498,7 @@ $(document).ready(function() {
             }
 
             request.send( str );
-        
-            // $.ajax({
-            //     type: 'POST',
-            //     url: ajax.url,
-            //     data: data,
-            //     dataType: 'json',
-            //     cache: 'false',
-            //     success: function (response) {
-            //         if( true == response.success ){
-            //             $('#archive_vacancies').html( response.html );
 
-            //             paged = 1;
-            //             query_vars = response.query_vars;
-            //             max_num_pages = response.max_num_pages;
-
-            //             if( response.max_num_pages == 1 ){
-            //                 $('.products__show-more').fadeOut();
-            //             } else{
-            //                 $('.products__show-more').fadeIn();
-            //             }
-                        
-            //             window.history.pushState('', '', window.location.origin + window.location.pathname );
-            //         }
-            //     },
-            //     error: function (request, status, error) {
-            //         $('#archive_vacancies').html( 'К сожалению вакансий не найдено!' );
-            //         $('.products__show-more').fadeOut();
-            //     }
-            // });
         })
     }
     
