@@ -418,111 +418,116 @@ $(document).ready(function() {
     }
 
     // чекбокс Без опыта
-    document.querySelector('.archive_without_experience').addEventListener('change', event => {
-    
-        event.preventDefault();
-        archive_filtering();
-    });
+    if(document.querySelector('.archive_without_experience')){
+        document.querySelector('.archive_without_experience').addEventListener('change', event => {
+        
+            event.preventDefault();
+            archive_filtering();
+        });
+    }
 
     // чекбокс Удалённо
-    document.querySelector('.archive_remotely').addEventListener('change', event => {
-    
-        event.preventDefault();
-        archive_filtering();
-    });
+    if(document.querySelector('.archive_remotely')){
+        document.querySelector('.archive_remotely').addEventListener('change', event => {
+        
+            event.preventDefault();
+            archive_filtering();
+        });
+    }
 
     // сбросить фильтры
-    // $('#archive_clear_all_filters').on( 'click', function(e){
-    document.querySelector('#archive_clear_all_filters').addEventListener('click', event => {
+    if(document.querySelector('#archive_clear_all_filters')){
+        document.querySelector('#archive_clear_all_filters').addEventListener('click', event => {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        document.querySelector('#archive_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
-        document.querySelector('.archive_without_experience').checked = false;
-        document.querySelector('.archive_remotely').checked = false;
+            document.querySelector('#archive_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
+            document.querySelector('.archive_without_experience').checked = false;
+            document.querySelector('.archive_remotely').checked = false;
 
-        professionListingSelect.removeAllTags();
-        specializationListingSelect.removeAllTags();
-        listingLevelSelect.removeAllTags();
-        listingCitySelect.removeAllTags();
+            professionListingSelect.removeAllTags();
+            specializationListingSelect.removeAllTags();
+            listingLevelSelect.removeAllTags();
+            listingCitySelect.removeAllTags();
 
-        document.querySelector('#listing__city-select').value = -1;
-        document.querySelector('#listing__level-select').value = -1;
-        
-        var data = {
-            action: 'archive_get_profession__menu_items',
-            default: 'default',
-        };
+            document.querySelector('#listing__city-select').value = -1;
+            document.querySelector('#listing__level-select').value = -1;
+            
+            var data = {
+                action: 'archive_get_profession__menu_items',
+                default: 'default',
+            };
 
-        var fadeTarget = document.querySelector('.products__show-more');
+            var fadeTarget = document.querySelector('.products__show-more');
 
-        var request = new XMLHttpRequest();
-        request.open('POST', ajax.url, true);
-        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+            var request = new XMLHttpRequest();
+            request.open('POST', ajax.url, true);
+            request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 
-        request.onload = function() {
-            if (this.status >= 200 && this.status < 400) {
-                // Success!
-                var resp = JSON.parse(this.response);
-                if( true == resp.success ){
-                    document.querySelector('#archive_vacancies').innerHTML = resp.html;
+            request.onload = function() {
+                if (this.status >= 200 && this.status < 400) {
+                    // Success!
+                    var resp = JSON.parse(this.response);
+                    if( true == resp.success ){
+                        document.querySelector('#archive_vacancies').innerHTML = resp.html;
 
-                    paged = 1;
-                    query_vars = resp.query_vars;
-                    max_num_pages = resp.max_num_pages;
+                        paged = 1;
+                        query_vars = resp.query_vars;
+                        max_num_pages = resp.max_num_pages;
 
-                    if( resp.max_num_pages == 1 ){
-                        fadeTarget.style.opacity = 0;
+                        if( resp.max_num_pages == 1 ){
+                            fadeTarget.style.opacity = 0;
+                        } else{
+                            fadeTarget.style.opacity = 1;
+                        }
+                        
+                        window.history.pushState('', '', window.location.origin + window.location.pathname );
                     } else{
-                        fadeTarget.style.opacity = 1;
+                        document.querySelector('#archive_vacancies').innerHTML = 'К сожалению вакансий не найдено!';
+                        fadeTarget.style.opacity = 0;
                     }
-                    
-                    window.history.pushState('', '', window.location.origin + window.location.pathname );
-                } else{
-                    document.querySelector('#archive_vacancies').innerHTML = 'К сожалению вакансий не найдено!';
-                    fadeTarget.style.opacity = 0;
                 }
+            };
+
+            var str = "";
+            for (var key in data) {
+                if (str != "") {
+                    str += "&";
+                }
+                str += key + "=" + encodeURIComponent(data[key]);
             }
-        };
 
-        var str = "";
-        for (var key in data) {
-            if (str != "") {
-                str += "&";
-            }
-            str += key + "=" + encodeURIComponent(data[key]);
-        }
+            request.send( str );
+        
+            // $.ajax({
+            //     type: 'POST',
+            //     url: ajax.url,
+            //     data: data,
+            //     dataType: 'json',
+            //     cache: 'false',
+            //     success: function (response) {
+            //         if( true == response.success ){
+            //             $('#archive_vacancies').html( response.html );
 
-        request.send( str );
-    
-        // $.ajax({
-        //     type: 'POST',
-        //     url: ajax.url,
-        //     data: data,
-        //     dataType: 'json',
-        //     cache: 'false',
-        //     success: function (response) {
-        //         if( true == response.success ){
-        //             $('#archive_vacancies').html( response.html );
+            //             paged = 1;
+            //             query_vars = response.query_vars;
+            //             max_num_pages = response.max_num_pages;
 
-        //             paged = 1;
-        //             query_vars = response.query_vars;
-        //             max_num_pages = response.max_num_pages;
-
-        //             if( response.max_num_pages == 1 ){
-        //                 $('.products__show-more').fadeOut();
-        //             } else{
-        //                 $('.products__show-more').fadeIn();
-        //             }
-                    
-        //             window.history.pushState('', '', window.location.origin + window.location.pathname );
-        //         }
-        //     },
-        //     error: function (request, status, error) {
-        //         $('#archive_vacancies').html( 'К сожалению вакансий не найдено!' );
-        //         $('.products__show-more').fadeOut();
-        //     }
-        // });
-    })
+            //             if( response.max_num_pages == 1 ){
+            //                 $('.products__show-more').fadeOut();
+            //             } else{
+            //                 $('.products__show-more').fadeIn();
+            //             }
+                        
+            //             window.history.pushState('', '', window.location.origin + window.location.pathname );
+            //         }
+            //     },
+            //     error: function (request, status, error) {
+            //         $('#archive_vacancies').html( 'К сожалению вакансий не найдено!' );
+            //         $('.products__show-more').fadeOut();
+            //     }
+            // });
+        })
+    }
     
 });
