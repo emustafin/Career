@@ -1,5 +1,5 @@
 $ = jQuery;
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function(event) { 
 
     if(document.querySelector('#clear_all_filters')){
         document.querySelector('#clear_all_filters').addEventListener( 'click', function(e){
