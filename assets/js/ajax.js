@@ -1,4 +1,3 @@
-$ = jQuery;
 document.addEventListener("DOMContentLoaded", function(event) { 
 
     if(document.querySelector('#clear_all_filters')){

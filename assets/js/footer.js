@@ -217,6 +217,8 @@ setup_vars_for_forms();
 // костыль для страницы розница, 
 // потому что при инициализации слайдера который скрыт 
 // высота всех элементов устанавливается 0
-jQuery( window ).bind( 'load', function(){
-  jQuery('.upgrade__content-wrapper.eldorado').addClass('hide');
+window.addEventListener('load', function(){
+  if(document.querySelector('.upgrade__content-wrapper.eldorado')){
+    document.querySelector('.upgrade__content-wrapper.eldorado').classList.add('hide');
+  }
 })
