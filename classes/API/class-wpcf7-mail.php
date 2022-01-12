@@ -24,7 +24,7 @@ class WPcf7_Mail extends Boot {
             $_SESSION['send_post_id'][] = (int) $posted_data['text-vacancyid'];
         } elseif( in_array( $posted_data['text-vacancyid'], $_SESSION['send_post_id'] ) ){
             $result['api_send_status'] = 'data_false';
-            return $result;
+            return $response;
         }
         
         if( 'it' == $rel_type ){
@@ -45,7 +45,7 @@ class WPcf7_Mail extends Boot {
             }
         }
 
-        return $result;
+        return $response;
     }
 
     public function sent_data_to_huntflow( $posted_data ){
