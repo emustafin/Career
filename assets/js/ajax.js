@@ -75,13 +75,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 var vaccat_info = current_item.getAttribute('data-vaccat_info');
                 vaccat_info = jQuery.parseJSON( vaccat_info );
         
-                $('#profession__description').innerHTML = vaccat_info.profession__description;
-                $('#profession__tehnology').innerHTML = vaccat_info.profession__tehnology;
-                $('#profession__permalink').href = vaccat_info.profession__permalink;
-                $('#profession__permalink_mob').href = vaccat_info.profession__permalink;
-                $('#profession__count').innerHTML = vaccat_info.profession__count;
-                $('#profession__count_mob').innerHTML = vaccat_info.profession__count;
-                $('#profession__img').src = vaccat_info.profession__img;
+                document.querySelector('#profession__description').innerHTML = vaccat_info.profession__description;
+                document.querySelector('#profession__tehnology').innerHTML = vaccat_info.profession__tehnology;
+                document.querySelector('#profession__permalink').href = vaccat_info.profession__permalink;
+                document.querySelector('#profession__permalink_mob').href = vaccat_info.profession__permalink;
+                document.querySelector('#profession__count').innerHTML = vaccat_info.profession__count;
+                document.querySelector('#profession__count_mob').innerHTML = vaccat_info.profession__count;
+                document.querySelector('#profession__img').src = vaccat_info.profession__img;
     
             })
         })
@@ -237,10 +237,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 var resp = JSON.parse(this.response);
                 if( true == resp.success ){
                     document.querySelector('#archive_vacancies').innerHTML = document.querySelector('#archive_vacancies').innerHTML + resp.html;
-                    // $('#archive_vacancies').append( resp.html );
                     paged++;
                     if( paged == max_num_pages ){
-                        // $('.products__show-more').fadeOut();
 
                         var fadeTarget = document.querySelector('.profession__menu-item');
                         var fadeEffect = setInterval(function () {
@@ -320,11 +318,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     max_num_pages = resp.max_num_pages;
 
                     if( resp.max_num_pages == 1 ){
-                        $('.products__show-more').fadeOut();
                         var fadeTarget = document.querySelector('.products__show-more');
                         fadeTarget.style.opacity = 0;
                     } else{
-                        $('.products__show-more').fadeIn();
                         var fadeTarget = document.querySelector('.products__show-more');
                         fadeTarget.style.opacity = 1;
                     }

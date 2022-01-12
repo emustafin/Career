@@ -81,14 +81,14 @@ form2.addEventListener(
     }
 
     if ( result.apiResponse.api_send_status === 'data_sent' ) {
-      $('input.wpcf7-form-control.wpcf7-submit.vacancy__response').css('display','none');
-      $('#vacancy_form .form__form-message').html('Спасибо за отклик! Скоро ответим!');
-      $('#vacancy_form .form__form-message').css('display','block');
+      document.querySelector('input.wpcf7-form-control.wpcf7-submit.vacancy__response').style.display = 'none';
+      document.querySelector('#vacancy_form .form__form-message').innerHTML = 'Спасибо за отклик! Скоро ответим!';
+      document.querySelector('#vacancy_form .form__form-message').style.display = 'block';
     } else{
       if( result.apiResponse.api_send_status === 'data_false' ){
-        $('input.wpcf7-form-control.wpcf7-submit.vacancy__response').css('display','none');
-        $('#vacancy_form .form__form-message').html('Что-то пошло не так. Попробуйте позже.');
-        $('#vacancy_form .form__form-message').css('display','block');
+        document.querySelector('input.wpcf7-form-control.wpcf7-submit.vacancy__response').style.display = 'none';
+        document.querySelector('#vacancy_form .form__form-message').innerHTML = 'Что-то пошло не так. Попробуйте позже.';
+        document.querySelector('#vacancy_form .form__form-message').style.display = 'block';
       }
     }
 
