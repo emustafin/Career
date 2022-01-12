@@ -11,91 +11,95 @@ document.querySelector('#vacancy_form .wpcf7-submit').addEventListener("click", 
 }, false);
 
 // Отправка анкеты на сервер
-const form = document.querySelector('#popup_form .wpcf7');
+if(document.querySelector('#popup_form .wpcf7')){
+  const form = document.querySelector('#popup_form .wpcf7');
 
-form.addEventListener(
-  'wpcf7submit',
-  function (event) {
+  form.addEventListener(
+    'wpcf7submit',
+    function (event) {
 
-    const submitBtn = document.querySelector(
-      '.wpcf7-form-control.wpcf7-submit.form__response'
-    );
-    const answerTitle = document.querySelector('.form__response-block');
+      const submitBtn = document.querySelector(
+        '.wpcf7-form-control.wpcf7-submit.form__response'
+      );
+      const answerTitle = document.querySelector('.form__response-block');
 
-    const result = event.detail;
+      const result = event.detail;
 
-    if (result.status === 'validation_failed'){
+      if (result.status === 'validation_failed'){
 
-      var array = result.apiResponse.invalid_fields;
-      for (let index = 0; index < array.length; index++) {
-        var element = array[index];
-        if( -1 != element.error_id.indexOf('checkbox') ){
-          var label_checkbox = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox');
-          var label_checkbox_a = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox a');
-          label_checkbox.style.color = '#e31235';
-          label_checkbox_a.style.color = '#e31235';
-          label_checkbox_a.style.borderBottom = "#e31235 1px solid";
+        var array = result.apiResponse.invalid_fields;
+        for (let index = 0; index < array.length; index++) {
+          var element = array[index];
+          if( -1 != element.error_id.indexOf('checkbox') ){
+            var label_checkbox = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox');
+            var label_checkbox_a = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox a');
+            label_checkbox.style.color = '#e31235';
+            label_checkbox_a.style.color = '#e31235';
+            label_checkbox_a.style.borderBottom = "#e31235 1px solid";
+          }
         }
-      }
-      return;
-    } 
+        return;
+      } 
 
-    if ( result.apiResponse.api_send_status == 'data_sent' ) {
-      answerTitle.innerHTML = 'Спасибо за отклик! Скоро ответим!';
-      answerTitle.style.display = 'block';
-      submitBtn.style.display = 'none';
-    } else{
-      if( result.apiResponse.api_send_status == 'data_false' ){
+      if ( result.apiResponse.api_send_status == 'data_sent' ) {
+        answerTitle.innerHTML = 'Спасибо за отклик! Скоро ответим!';
         answerTitle.style.display = 'block';
-        answerTitle.innerHTML = 'Что-то пошло не так. Попробуйте позже.';
-      }
-    }
-
-    setTimeout(setup_vars_for_forms, 1000);
-  },
-  false
-);
-
-const form2 = document.querySelector('#vacancy_form .wpcf7');
-
-form2.addEventListener(
-  'wpcf7submit',
-  function (event) {
-
-    const result = event.detail;
-
-    if (result.status === 'validation_failed'){
-
-      var array = result.apiResponse.invalid_fields;
-      for (let index = 0; index < array.length; index++) {
-        let element = array[index];
-        if( -1 != element.error_id.indexOf('checkbox') ){
-          let label_checkbox = document.querySelector('#vacancy_form .vacancy__form-label_checkbox');
-          let label_checkbox_a = document.querySelector('#vacancy_form .vacancy__form-label_checkbox a');
-          label_checkbox.style.color = '#e31235';
-          label_checkbox_a.style.color = '#e31235';
-          label_checkbox_a.style.borderBottom = "#e31235 1px solid";
+        submitBtn.style.display = 'none';
+      } else{
+        if( result.apiResponse.api_send_status == 'data_false' ){
+          answerTitle.style.display = 'block';
+          answerTitle.innerHTML = 'Что-то пошло не так. Попробуйте позже.';
         }
       }
-      return;
-    }
 
-    if ( result.apiResponse.api_send_status === 'data_sent' ) {
-      document.querySelector('input.wpcf7-form-control.wpcf7-submit.vacancy__response').style.display = 'none';
-      document.querySelector('#vacancy_form .form__form-message').innerHTML = 'Спасибо за отклик! Скоро ответим!';
-      document.querySelector('#vacancy_form .form__form-message').style.display = 'block';
-    } else{
-      if( result.apiResponse.api_send_status === 'data_false' ){
-        document.querySelector('input.wpcf7-form-control.wpcf7-submit.vacancy__response').style.display = 'none';
-        document.querySelector('#vacancy_form .form__form-message').innerHTML = 'Что-то пошло не так. Попробуйте позже.';
-        document.querySelector('#vacancy_form .form__form-message').style.display = 'block';
+      setTimeout(setup_vars_for_forms, 1000);
+    },
+    false
+  );
+}
+
+if(document.querySelector('#vacancy_form .wpcf7')){
+  const form2 = document.querySelector('#vacancy_form .wpcf7');
+  
+  form2.addEventListener(
+    'wpcf7submit',
+    function (event) {
+  
+      const result = event.detail;
+  
+      if (result.status === 'validation_failed'){
+  
+        var array = result.apiResponse.invalid_fields;
+        for (let index = 0; index < array.length; index++) {
+          let element = array[index];
+          if( -1 != element.error_id.indexOf('checkbox') ){
+            let label_checkbox = document.querySelector('#vacancy_form .vacancy__form-label_checkbox');
+            let label_checkbox_a = document.querySelector('#vacancy_form .vacancy__form-label_checkbox a');
+            label_checkbox.style.color = '#e31235';
+            label_checkbox_a.style.color = '#e31235';
+            label_checkbox_a.style.borderBottom = "#e31235 1px solid";
+          }
+        }
+        return;
       }
-    }
-
-    setTimeout(setup_vars_for_forms, 1000);
-  },
-  false
-);
+  
+      if ( result.apiResponse.api_send_status === 'data_sent' ) {
+        document.querySelector('input.wpcf7-form-control.wpcf7-submit.vacancy__response').style.display = 'none';
+        document.querySelector('#vacancy_form .form__form-message').innerHTML = 'Спасибо за отклик! Скоро ответим!';
+        document.querySelector('#vacancy_form .form__form-message').style.display = 'block';
+      } else{
+        if( result.apiResponse.api_send_status === 'data_false' ){
+          document.querySelector('input.wpcf7-form-control.wpcf7-submit.vacancy__response').style.display = 'none';
+          document.querySelector('#vacancy_form .form__form-message').innerHTML = 'Что-то пошло не так. Попробуйте позже.';
+          document.querySelector('#vacancy_form .form__form-message').style.display = 'block';
+        }
+      }
+  
+      setTimeout(setup_vars_for_forms, 1000);
+    },
+    false
+  );
+}
 
 // Функция выбора элемента из выпадающего списка
 function selectValueFromSingleSelect(data, tagifyInput, targetInput) {
