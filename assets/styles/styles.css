@@ -1415,7 +1415,9 @@
   color: #000000;
   position: relative;
   font-size: 18px;
-  line-height: 24px; }
+  line-height: 24px;
+  margin-left: 16px;
+  margin-right: 16px; }
   .vacancy__header-head-copy > svg,
   .vacancy__header-head-copy-mobile > svg {
     position: absolute;
@@ -1472,7 +1474,9 @@
 .vacancy__form,
 .vacancy__positions,
 .vacancy__news {
-  margin-bottom: 96px; }
+  margin-bottom: 96px;
+  margin-left: 16px;
+  margin-right: 16px; }
 
 .vacancy__description-block {
   overflow: hidden; }
