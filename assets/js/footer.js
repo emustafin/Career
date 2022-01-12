@@ -40,8 +40,16 @@ form.addEventListener(
       return;
     } 
 
-    if (result.status === 'mail_sent') submitBtn.style.display = 'none';
-    answerTitle.style.display = 'block';
+    if ( result.apiResponse.api_send_status == 'data_sent' ) {
+      answerTitle.innerHTML = 'Спасибо за отклик! Скоро ответим!';
+      answerTitle.style.display = 'block';
+      submitBtn.style.display = 'none';
+    } else{
+      if( result.apiResponse.api_send_status == 'data_false' ){
+        answerTitle.style.display = 'block';
+        answerTitle.innerHTML = 'Что-то пошло не так. Попробуйте позже.';
+      }
+    }
 
     setTimeout(setup_vars_for_forms, 1000);
   },
@@ -70,6 +78,18 @@ form2.addEventListener(
         }
       }
       return;
+    }
+
+    if ( result.apiResponse.api_send_status === 'data_sent' ) {
+      $('input.wpcf7-form-control.wpcf7-submit.vacancy__response').css('display','none');
+      $('#vacancy_form .form__form-message').html('Спасибо за отклик! Скоро ответим!');
+      $('#vacancy_form .form__form-message').css('display','block');
+    } else{
+      if( result.apiResponse.api_send_status === 'data_false' ){
+        $('input.wpcf7-form-control.wpcf7-submit.vacancy__response').css('display','none');
+        $('#vacancy_form .form__form-message').html('Что-то пошло не так. Попробуйте позже.');
+        $('#vacancy_form .form__form-message').css('display','block');
+      }
     }
 
     setTimeout(setup_vars_for_forms, 1000);
@@ -192,3 +212,11 @@ function setup_vars_for_forms() {
 };
 
 setup_vars_for_forms();
+
+
+// костыль для страницы розница, 
+// потому что при инициализации слайдера который скрыт 
+// высота всех элементов устанавливается 0
+jQuery( window ).bind( 'load', function(){
+  jQuery('.upgrade__content-wrapper.eldorado').addClass('hide');
+})

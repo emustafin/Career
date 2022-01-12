@@ -1,3 +1,4 @@
+import { MobileSliderAdvantages } from './components/common/MobileSliderAdvantages';
 // Импорт классов страницы IT
 import { ItHubVacancyBlock } from './components/itHubPage/itHubVacancyBlock';
 import { ItHubPageAdvantagesBlock } from './components/itHubPage/itHubPageAdvantagesBlock';
@@ -17,6 +18,7 @@ import { ListingVacancyFiltersBlock } from './components/itHubPage/vacancyListin
 import { ListingVacansiesPagePopup } from './components/itHubPage/vacancyListingPage/listingVacansiesPopup';
 import { ListingVacancyMapBlock } from './components/itHubPage/vacancyListingPage/listingPageMapBlock';
 import { ListingMapPageFilters } from './components/itHubPage/vacancyListingPage/listingFilters';
+
 
 import { Header } from './components/itHubPage/header';
 
@@ -121,6 +123,9 @@ new ItHubPageCareerUpgradeBlock('.upgrade');
 new ItHubVideoPlayerBlock('.find');
 new ItHubRunningLineBlock('.find__title');
 const itHubPageGoalBlock = new ItHubGoalsBlock('.goal');
+
+new MobileSliderAdvantages('.logistic-advantages');
+
 new ItHubPageCustomSelectInProfessionBlock('.profession__filter-wrapper');
 new ItHubInternshipBlock('.intern');
 const itPageDirection = new ItHubDirectionBlock('.direction');
@@ -158,7 +163,6 @@ const retailAdvantagesBlock = new RetailAdvantagesBlock('.retail__advantages');
 const retailUpgradeBlock = new RetailUpgradeBlock('.upgrade');
 const retailFooter = new RetailFooter('.retail__footer');
 
-retailCreateFuture.registerParameters(headerItPage, retailMissionBlock);
 retailMissionBlock.registerParameters(retailBrandsBlock, headerItPage);
 retailBrandsBlock.getAllBrandsTabs([
   { name: 'mvideo', elements: retailBrandsBlock.mvideoFromBrandsPage },

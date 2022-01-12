@@ -1,52 +1,48 @@
 <?php 
 /*
-Template Name: Logistic
+Template Name: Office
 */
 ?>
 <?php get_header(); ?>
 <script>
-    var rel_type = 'logistic';
+    var rel_type = 'office';
     var vacancyid = '';
     var sourceurl = '';
 </script>
 <?php
 
-if( have_rows('logistic_blocks') ):
-  while ( have_rows('logistic_blocks') ) : the_row();
+if( have_rows('office_blocks') ):
+  while ( have_rows('office_blocks') ) : the_row();
 
     switch ( get_row_layout() ) {
 
       case 'main_screen':
-        include(THEME_DIR . '/template-parts/logistic/main_screen.php');
+        include(THEME_DIR . '/template-parts/office/main_screen.php');
         break;
 
-      case 'advantages_screen':
-        include(THEME_DIR . '/template-parts/logistic/advantages_screen.php');
+      case 'why-are-we':
+        include(THEME_DIR . '/template-parts/it/why-are-we.php');
         break;
 
-      case 'career_screen':
-        include(THEME_DIR . '/template-parts/logistic/career_screen.php');
-        break;
-
-      case 'directions_screen':
+      case 'profession':
         include(THEME_DIR . '/template-parts/it/profession.php');
-        // include(THEME_DIR . '/template-parts/logistic/directions_screen.php');
+        // include(THEME_DIR . '/template-parts/office/office__vacancies.php');
         break;
 
-      case 'why-we-are':
+      case 'reason':
         include(THEME_DIR . '/template-parts/logistic/why-we-are.php');
         break;
 
       case 'upgrade_screen':
-        $relation = 'logistic';
+        $relation = 'office';
         include(THEME_DIR . '/template-parts/common/upgrade.php');
         break;
 
-      case 'running_line_screen':
+      case 'running_line':
         include(THEME_DIR . '/template-parts/common/running-line.php');
         break;
 
-      case 'quote_screen':
+      case 'quote':
         include(THEME_DIR . '/template-parts/logistic/quote_screen.php');
         break;
 

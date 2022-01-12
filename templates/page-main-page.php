@@ -41,7 +41,7 @@ if( have_rows('mainpage_content') ):
         break;
 
       case 'running-line':
-        include(THEME_DIR . '/template-parts/mainpage/running-line.php');
+        include(THEME_DIR . '/template-parts/common/running-line.php');
         break;
 
       case 'news-events':

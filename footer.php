@@ -387,5 +387,21 @@ if( is_page('retail') ){
 
     <?php wp_footer(); ?>
 
+    <?php
+    if( !empty( $_SESSION['send_post_id'] ) ){
+      if( in_array( (string) get_the_ID(), $_SESSION['send_post_id'] ) || in_array( (int) get_the_ID(), $_SESSION['send_post_id'] ) ){
+        ?>
+        <script>
+          $ = jQuery;
+          $(document).ready(function() {
+            $('input.wpcf7-form-control.wpcf7-submit').css( 'display', 'none' );
+            $('#popup_form').append( '<h3>Вы уже откликались. Ваша заявка будет рассмотрена в скором времени.</h3>' );
+            $('#vacancy_form').append( '<h3>Вы уже откликались. Ваша заявка будет рассмотрена в скором времени.</h3>' );
+          })
+        </script>
+        <?php
+      }
+    }
+    ?>
     </body>
 </html>

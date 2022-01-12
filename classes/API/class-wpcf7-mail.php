@@ -6,11 +6,10 @@ class WPcf7_Mail extends Boot {
 
 	public function __construct() {
 
-		// add_action( 'wpcf7_mail_sent', [ $this, 'sent_data_to_huntflow'] );
-        add_action( 'wpcf7_after_flamingo', [ $this, 'sent_data_to_service'] );
+        add_filter( 'wpcf7_feedback_response', [ $this, 'sent_data_to_service' ], 10, 2 );
 	}
 
-    public function sent_data_to_service( $cf7 ){
+    public function sent_data_to_service( $response, $result ){
 
         $submission = \WPCF7_Submission::get_instance();
         $posted_data = $submission->get_posted_data();
@@ -18,15 +17,38 @@ class WPcf7_Mail extends Boot {
         if( $posted_data['text-rel_type'] ){
             $rel_type = $posted_data['text-rel_type'];
         }
+
+        if( empty( $_SESSION['send_post_id'] ) ){
+            $_SESSION['send_post_id'] = array( (int) $posted_data['text-vacancyid'] );
+        } elseif( !in_array( $posted_data['text-vacancyid'], $_SESSION['send_post_id'] ) ){
+            $_SESSION['send_post_id'][] = (int) $posted_data['text-vacancyid'];
+        } elseif( in_array( $posted_data['text-vacancyid'], $_SESSION['send_post_id'] ) ){
+            $result['api_send_status'] = 'data_false';
+            return $result;
+        }
         
         if( 'it' == $rel_type ){
-            self::sent_data_to_huntflow( $posted_data, $submission );
+            $send_result = self::sent_data_to_huntflow( $posted_data );
         } elseif( 'roznica' == $rel_type ){
-            self::sent_data_to_skillaz( $posted_data, $submission );
+            $send_result = self::sent_data_to_skillaz( $posted_data );
         }
+
+        
+        $result['api_send_status'] = 'data_sent';
+        if( isset( $send_result->IsOk ) ){
+            if( false == $send_result->IsOk ){
+                $result['api_send_status'] = 'data_false';
+            }
+        } elseif( isset( $send_result->doubles ) ){
+            if( !empty( $send_result->doubles[0]->double ) ){
+                $result['api_send_status'] = 'data_false';
+            }
+        }
+
+        return $result;
     }
 
-    public function sent_data_to_huntflow( $posted_data, $submission ){
+    public function sent_data_to_huntflow( $posted_data ){
 
         $url = 'https://mvideo-api.huntflow.ru/account/2/applicants';
         $params = array();
@@ -116,9 +138,11 @@ class WPcf7_Mail extends Boot {
         
         $result = self::init_post( $headers, $url, $content );
         self::log( $result );
+
+        return json_decode( $result );
     }
 
-    public function sent_data_to_skillaz( $posted_data, $submission ){
+    public function sent_data_to_skillaz( $posted_data ){
 
         $url = 'https://api-feature-mvideo.dev.skillaz.ru/open-api/objects/candidates';
         $params = array();
@@ -221,7 +245,8 @@ class WPcf7_Mail extends Boot {
 
         $headers = array('Content-Type: application/json', 'Authorization: Bearer WXIGzUxm23bXoKv/AlbA8Lgmd3Yq3tsgpg5x5mMK77I=');
         $result = self::init_post( $headers, $url, $content );
-        // var_dump($result);
         self::log( $result );
+
+        return json_decode( $result );
     }
 }

@@ -1,29 +1,25 @@
-.main__running-line {
+.retail__running-line {
   overflow: hidden;
   margin-bottom: 114px;
-
-  & > h2 {
-    margin-bottom: 0;
-  }
 }
 
 // Styles for 1440px
 @media (max-width: 1440px) {
-  .main__running-line {
+  .retail__running-line {
     margin-bottom: 88px;
   }
 }
 
 // Styles for 1024px
 @media (max-width: 1024px) {
-  .main__running-line {
+  .retail__running-line {
     margin-bottom: 70px;
   }
 }
 
 // Styles for 320px
-@media (max-width: 550px) {
-  .main__running-line {
+@media (max-width: 479px) {
+  .retail__running-line {
     margin-bottom: 32px;
   }
 }

@@ -4,7 +4,7 @@
  *
  * @package Career\Core
  */
-
+session_start();
 define( 'THEME_DIR', get_stylesheet_directory() );
 define( 'THEME_URL', get_stylesheet_directory_uri() );
 
