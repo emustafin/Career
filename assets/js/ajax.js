@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         
                 document.querySelector('h2.profession__title').innerHTML = current_item.innerHTML;
                 var vaccat_info = current_item.getAttribute('data-vaccat_info');
-                vaccat_info = jQuery.parseJSON( vaccat_info );
+                vaccat_info = JSON.parse( vaccat_info );
         
                 document.querySelector('#profession__description').innerHTML = vaccat_info.profession__description;
                 document.querySelector('#profession__tehnology').innerHTML = vaccat_info.profession__tehnology;
