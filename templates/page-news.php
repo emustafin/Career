@@ -46,18 +46,19 @@ Template Name: News & events
         <p class="title__left-column">
             Ближайшие события
         </p>
-        <div class="event__swiper">
-            <div class="event__card-wrapper">
+        <div class="event__swiper swiper">
+            <div class="event__card-wrapper swiper-wrapper">
                 <p class="title__event-month">
                     Сентябрь
                 </p>
-                <div class="event__card">
-                    <p class="event__date">
-                        12
-                    </p>
+                <div class="event__card swiper-slide">
+                    <div class="event__date">
+                        <p class="event__date-day">12</p>
+                        <p class="event__date-month">/09</p>
+                    </div>
                     <div class="event__content">
                         <p class="event__name">
-                            Митап по Data Science
+                            Митап по Data Science
                         </p>
                         <p class="event__status">
                             Онлайн
@@ -70,13 +71,14 @@ Template Name: News & events
                         </a>
                     </div>
                 </div>
-                <div class="event__card">
-                    <p class="event__date">
-                        13
-                    </p>
+                <div class="event__card swiper-slide">
+                    <div class="event__date">
+                        <p class="event__date-day">13</p>
+                        <p class="event__date-month">/09</p>
+                    </div>
                     <div class="event__content">
                         <p class="event__name">
-                            Митап по Data Science
+                            Митап по Data Science
                         </p>
                         <p class="event__status">
                             Онлайн
@@ -92,13 +94,14 @@ Template Name: News & events
                 <p class="title__event-month">
                     Октябрь
                 </p>
-                <div class="event__card">
-                    <p class="event__date">
-                        07
-                    </p>
+                <div class="event__card swiper-slide">
+                    <div class="event__date">
+                        <p class="event__date-day">07</p>
+                        <p class="event__date-month">/10</p>
+                    </div>
                     <div class="event__content">
                         <p class="event__name">
-                            Митап по Data Science
+                            Митап по Data Science
                         </p>
                         <p class="event__status">
                             Онлайн
@@ -111,13 +114,14 @@ Template Name: News & events
                         </a>
                     </div>
                 </div>
-                <div class="event__card">
-                    <p class="event__date">
-                        29
-                    </p>
+                <div class="event__card swiper-slide">
+                    <div class="event__date">
+                        <p class="event__date-day">29</p>
+                        <p class="event__date-month">/10</p>
+                    </div>
                     <div class="event__content">
                         <p class="event__name">
-                            Митап по Data Science
+                            Митап по Data Science
                         </p>
                         <p class="event__status">
                             Онлайн
@@ -144,65 +148,67 @@ Template Name: News & events
 
     <div class="right__column">
         <div class="news__card">
-            <img src="<?php echo get_template_directory_uri()?>/webpack-work/src/images/news/news__pic.png" alt="news-pic" class="news__card">
+            <img src="<?php echo get_template_directory_uri()?>/webpack-work/src/images/news/news__pic.png" alt="news-pic" class="news__card-img">
             <p class="title__card">
-                Группа «М.Видео-Эльдорадо» запустила программу стажировок для программистов
+                Группа «М.Видео-Эльдорадо» запустила программу стажировок для программистов
             </p>
             <p class="date__card">
                 16 июля 2021
             </p>
         </div>
-        <div class="news__card">
-            <img src="<?php echo get_template_directory_uri()?>/webpack-work/src/images/news/news__pic.png" alt="news-pic" class="news__card">
+        <!-- TODO удалить класс "news__card-hide" -->
+        <div class="news__card news__card-hide">
+            <img src="<?php echo get_template_directory_uri()?>/webpack-work/src/images/news/news__pic.png" alt="news-pic" class="news__card-img">
             <p class="title__card">
-                Группа «М.Видео-Эльдорадо» запустила программу стажировок для программистов
+                Группа «М.Видео-Эльдорадо» запустила программу стажировок для программистов
             </p>
             <p class="date__card">
                 16 июля 2021
             </p>
         </div>
-        <div class="news__card">
-            <img src="<?php echo get_template_directory_uri()?>/webpack-work/src/images/news/news__pic.png" alt="news-pic" class="news__card">
+        <!-- TODO удалить класс "news__card-hide" -->
+        <div class="news__card news__card-hide">
+            <img src="<?php echo get_template_directory_uri()?>/webpack-work/src/images/news/news__pic.png" alt="news-pic" class="news__card-img">
             <p class="title__card">
-                Группа «М.Видео-Эльдорадо» запустила программу стажировок для программистов
+                Группа «М.Видео-Эльдорадо» запустила программу стажировок для программистов
             </p>
             <p class="date__card">
                 16 июля 2021
             </p>
         </div>
-        <div class="mini__news-card swiper">
+        <div id="swiper__news-card" class="mini__news-card swiper">
             <div class="swiper-wrapper">
                 <div class="news__card swiper-slide">
-                    <img src="<?php echo get_template_directory_uri()?>/webpack-work/src/images/news/news__pic_1.png" alt="news-pic" class="news__card">
+                    <img src="<?php echo get_template_directory_uri()?>/webpack-work/src/images/news/news__pic_1.png" alt="news-pic" class="news__card-img">
                     <p class="mini__title-card">
-                        Группа «М.Видео-Эльдорадо» запустила программу стажировок для программистов
+                        Группа «М.Видео-Эльдорадо» запустила программу стажировок для программистов
                     </p>
                     <p class="date__card">
                         16 июля 2021
                     </p>
                 </div>
                 <div class="news__card swiper-slide">
-                    <img src="<?php echo get_template_directory_uri()?>/webpack-work/src/images/news/news__pic_2.png" alt="news-pic" class="news__card">
+                    <img src="<?php echo get_template_directory_uri()?>/webpack-work/src/images/news/news__pic_2.png" alt="news-pic" class="news__card-img">
                     <p class="mini__title-card">
-                        Группа «М.Видео-Эльдорадо» запустила программу стажировок для программистов
+                        Группа «М.Видео-Эльдорадо» запустила программу стажировок для программистов
                     </p>
                     <p class="date__card">
                         16 июля 2021
                     </p>
                 </div>
                 <div class="news__card swiper-slide">
-                    <img src="<?php echo get_template_directory_uri()?>/webpack-work/src/images/news/news__pic_1.png" alt="news-pic" class="news__card">
+                    <img src="<?php echo get_template_directory_uri()?>/webpack-work/src/images/news/news__pic_1.png" alt="news-pic" class="news__card-img">
                     <p class="mini__title-card">
-                        Группа «М.Видео-Эльдорадо» запустила программу стажировок для программистов
+                        Группа «М.Видео-Эльдорадо» запустила программу стажировок для программистов
                     </p>
                     <p class="date__card">
                         16 июля 2021
                     </p>
                 </div>
                 <div class="news__card swiper-slide">
-                    <img src="<?php echo get_template_directory_uri()?>/webpack-work/src/images/news/news__pic_2.png" alt="news-pic" class="news__card">
+                    <img src="<?php echo get_template_directory_uri()?>/webpack-work/src/images/news/news__pic_2.png" alt="news-pic" class="news__card-img">
                     <p class="mini__title-card">
-                        Группа «М.Видео-Эльдорадо» запустила программу стажировок для программистов
+                        Группа «М.Видео-Эльдорадо» запустила программу стажировок для программистов
                     </p>
                     <p class="date__card">
                         16 июля 2021

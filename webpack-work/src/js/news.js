@@ -1,4 +1,5 @@
-var input = document.querySelector('input[name=tags-theme]'),
+if (document.querySelector('input[name=tags-theme]')) {
+    var input = document.querySelector('input[name=tags-theme]'),
     tagify = new Tagify(input, {
         userInput: false,
         enforceWhitelist: true,
@@ -6,8 +7,10 @@ var input = document.querySelector('input[name=tags-theme]'),
         whitelist: ["IT", "Продажи", "Новости"],
         blacklist: ['foo', 'bar'],
     })
+}
 
-var input = document.querySelector('input[name=tags-date]'),
+if (document.querySelector('input[name=tags-date]')) {
+    var input = document.querySelector('input[name=tags-date]'),
     tagify = new Tagify(input, {
         userInput: false,
         enforceWhitelist: true,
@@ -15,6 +18,8 @@ var input = document.querySelector('input[name=tags-date]'),
         whitelist: ["За неделю", "За месяц", "За год"],
         blacklist: ['foo', 'bar'],
     })
+}
+
 
 const mediaQuery1024 = window.matchMedia('(min-width: 1024px)')
 if (mediaQuery1024.matches) {

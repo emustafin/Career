@@ -82,7 +82,19 @@ h3.title__page-news{
 
 .left__column{
     width: 33%;
-    // height: 1116px;
+}
+
+.left__column.fixed {
+    position: fixed;
+    left: 16px;
+    right: 50%;
+    margin-right: -50%;
+    margin-top: 32px;
+    width: 32.5%;
+}
+
+.event__card-wrapper.swiper-wrapper{
+    display: block;
 }
 
 .right__column{
@@ -99,7 +111,6 @@ h3.title__page-news{
     line-height: 24px;
     margin-top: 56px;
     margin-bottom: 32px;
-    margin-left: 16px;
 }
 
 
@@ -109,6 +120,7 @@ h3.title__page-news{
     width: 544px;
     padding-bottom: 36px;
     margin-top: 32px;
+    align-items: center;
 }
 
 .event__date{
@@ -116,6 +128,10 @@ h3.title__page-news{
     line-height: 144px;
     letter-spacing: -0.03em;
     font-feature-settings: 'tnum' on, 'lnum' on, 'zero' on;
+}
+
+.event__date-month{
+    display: none;
 }
 
 .event__content{
@@ -166,15 +182,19 @@ h3.title__page-news{
     color: #000; 
 }
 
-.news__card{
-
+.event__card-wrapper.swiper-wrapper{
+    width: 87.18%;
 }
 
 .title__card{
-    width: 960px;
+    width: 75.95%;
     font-size: 32px;
     line-height: 40px;
     margin: 8px 0;
+}
+
+.news__card-img{
+    width: 100%;
 }
 
 .date__card{
@@ -188,13 +208,10 @@ h3.title__page-news{
     justify-content: space-between;
 }
 
-.mini__news-card .news__card{
-    width: 624px;
-}
-
 .mini__title-card{
     font-size: 18px;
     line-height: 24px;
+    margin-bottom: 32px;
 }
 
 .btn__more-news{
@@ -212,16 +229,8 @@ h3.title__page-news{
     margin-right: 8px;
 }
 
-.left__column.fixed {
-    position: fixed;
-    left: 16px;
-    right: 50%;
-    margin-right: -50%;
-  }
-
 .mini__news-card.swiper{
-    width: 1264px;
-    height: 476px;
+    width: 100%;
 }
 
 .right__column .position__show-more-button{
@@ -232,27 +241,126 @@ h3.title__page-news{
     border: none;
 }
 
-@media (max-width: 1023px){
+// Styles for 1440px
+@media (max-width: 1919px) {
+
+    h3.title__page-news{
+        padding-top: 108px;
+        font-size: 56px;
+        line-height: 60px;
+    }
+
+    .filter__news{
+        margin-top: 48px;
+        width: 208px;
+    }
+
+    .first__filter-news,.drop__btn,.title__left-column,.title__event-month,.event__name,.event__link p,.all__event-link{
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .news__events{
+        margin-top: 72px;
+    }
+
+    .title__card{
+        width: 100%;
+    }
+
+    .event__card-wrapper.swiper-wrapper{
+        width: 82.76%;
+    }
+
+    .title__event-month{
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+
+    .event__card.swiper-slide{
+        padding-bottom: 24px;
+    }
+
+    .event__date{
+        font-size: 132px;
+        line-height: 120px;
+    }
+
+    .event__status{
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 40px;
+    }
+
+    .left__column.fixed{
+        width: 32.22%;
+    }
+
+    .mini__title-card {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 24px;
+    }
 
 }
 
-@media (max-width: 767px){
+// Styles for 1024px
+@media (max-width: 1439px) {
 
     h3.title__page-news{
-        padding-top: 52px;
+        padding-top: 100px;
+        font-size: 32px;
+        line-height: 36px;
+    }
+
+    .filter__news{
+        margin-top: 23px;
+    }
+
+    .news__events{
+        margin-top: 64px;
+    }
+
+    .event__date{
+        font-size: 80px;
+        line-height: 72px;
+    }
+
+    .event__name{
+        margin: 0;
+    }
+
+    .event__status{
+        margin-bottom: 32px;
+    }
+
+    .left__column.fixed {
+        width: 31.84%;
+    }
+
+    .event__card-wrapper.swiper-wrapper {
+        width: 92.65%;
+    }
+
+}
+
+// Styles for 768px
+@media (max-width: 1023px){
+    .event__card-wrapper.swiper-wrapper{
+        display: flex;
+    }
+
+    h3.title__page-news{
+        padding-top: 100px;
         font-size: 32px;
         line-height: 36px;
         margin-left: 8px;
     }
 
-    .filter__block{
-        flex-direction: column;
-        margin-top: 8px;
-    }
-
     .filter__news {
-        margin-top: 16px;
+        margin-top: 24px;
         margin-left: 8px;
+        width: 232px;
     }
 
     .drop__filter {
@@ -260,18 +368,14 @@ h3.title__page-news{
     }
 
     .news__events{
-        margin-top: 32px;
+        margin-top: 64px;
         padding: 0 8px;
+        flex-direction: column;
     }
 
     .left__column {
-        height: 100%;
-        width: 100%;    
-    }
-
-    .title__left-column {
-        font-size: 14px;
-        line-height: 16px;
+        width: 100%; 
+        position: relative;  
     }
 
     .title__event-month {
@@ -280,8 +384,102 @@ h3.title__page-news{
 
     .event__card {
         flex-direction: column;
+        margin-top: 40px;
+        padding-bottom: 16px;
+        align-items: flex-start;
+    }
+
+    .event__content{
+        margin: 0;
+    }
+
+    .event__date {
+        font-size: 80px;
+        line-height: 72px;
+        display: flex;
+    }
+
+    .event__date-month{
+        display: block;
+    }
+    
+    .event__swiper.swiper{
+        width: 100%;
+    }
+
+    .event__status{
+        margin-bottom: 24px;
+    }
+
+    .all__events{
+        position: absolute;
+        margin: 0;
+        right: 50%;
+        top: 0;
+        margin-right: -50%;
+    }
+
+    .right__column{
+        width: 100%;
+        margin-top: 64px;
+    }
+
+    .news__card-img{
+        width: 100%;
+    }
+
+
+    .date__card{
+        margin-bottom: 32px;
+    }
+
+    .mini__news-card.swiper{
+        width: 100%;
+    }
+
+    //TODO удалить класс 
+    .news__card-hide{
+        display: none;
+    }
+
+}
+
+// Styles for 320px
+@media (max-width: 767px){
+
+    h3.title__page-news{
+        padding-top: 52px;
+    }
+
+    .filter__block{
+        flex-direction: column;
+        margin-top: 8px;
+    }
+
+    .filter__news {
+        width: 304px;
+        margin-top: 16px;
+    }
+
+    .news__events{
+        margin-top: 32px;
+        padding: 0;
+    }
+
+    .left__column {
+        height: 100%;
+        width: 100%; 
+        position: relative;  
+        padding: 0 8px; 
+    }
+
+    .title__left-column {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .event__card {
         margin-top: 24px;
-        width: 176px;
     }
 
     .event__date {
@@ -293,9 +491,43 @@ h3.title__page-news{
         margin-left: 0;
     }
 
-    .event__swiper.swiper{
-        width: 304px;
-        height: 134px;
+    .title__event-month{
+        display: none;
+    }
+    
+    .event__card{
+        padding-bottom: 16px;
+        margin-right: 16px;
+    }
+
+    .event__name,.event__status,.event__link p,.all__event-link{
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .event__status{
+        margin-bottom: 24px;
+    }
+
+    .right__column{
+        margin-top: 32px;
+    }
+
+    .title__card{
+        font-size: 14px;
+        line-height: 16px;
+        margin: 12px 0 8px 8px;
+    }
+
+    .date__card{
+        font-size: 14px;
+        line-height: 16px;
+        margin-left: 8px;
+        margin-bottom: 24px;
+    }
+
+    .mini__news-card{
+        display: none;
     }
 
 }
