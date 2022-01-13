@@ -314,7 +314,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
             if (this.status >= 200 && this.status < 400) {
                 // Success!
                 var resp = JSON.parse(this.response);
-                document.querySelector('.loader-bg').remove();
+                if(document.querySelector('.loader-bg')){
+                    document.querySelector('.loader-bg').remove();
+                }
                 if( true == resp.success ){
                     document.querySelector('#archive_vacancies').innerHTML = document.querySelector('#archive_vacancies').innerHTML + resp.html;
 
