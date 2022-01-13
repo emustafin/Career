@@ -4755,7 +4755,8 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   padding-bottom: 14px; }
 
 .tagify.tagify--select.selectMode.listing__specialization-select,
-.tagify.tagify--select.selectMode.listing__city-select {
+.tagify.tagify--select.selectMode.listing__city-select,
+.tagify.tagify--select.selectMode.listing__level-select {
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   padding-bottom: 12px; }
 
@@ -7119,8 +7120,14 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 .wpcf7-form-control.wpcf7-text.form__information,
 .tagify--noTags.tagify--empty,
 .form__information,
-.form__form-input {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
+.form__form-input,
+.tagify--select {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  min-height: 29px;
+  border-color: rgba(0, 0, 0, 0.5) !important; }
+
+#popup_form .form__dropdown .tagify--select {
+  min-height: 32.2px; }
 
 .wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__form-input.wpcf7-not-valid,
 .wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email.form__form-input.wpcf7-not-valid,

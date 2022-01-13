@@ -1,5 +1,4 @@
-$ = jQuery;
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function(event) { 
 
     if(document.querySelector('#clear_all_filters')){
         document.querySelector('#clear_all_filters').addEventListener( 'click', function(e){
@@ -26,8 +25,14 @@ $(document).ready(function() {
                     var resp = JSON.parse(this.response);
                     if( true == resp.success ){
                         document.querySelector('#actually_vacancies').innerHTML = resp.html;
-                        document.querySelector('.can_work_remotely').checked = false;
-                        document.querySelector('.can_without_experience').checked = false;
+
+                        document.querySelectorAll('.can_work_remotely').forEach(item => {
+                            item.checked = false;
+                        });
+
+                        document.querySelectorAll('.can_without_experience').forEach(item => {
+                            item.checked = false;
+                        });
     
                         document.querySelector('#town').value = -1;
                         document.querySelector('#level').value = -1;
@@ -73,15 +78,15 @@ $(document).ready(function() {
         
                 document.querySelector('h2.profession__title').innerHTML = current_item.innerHTML;
                 var vaccat_info = current_item.getAttribute('data-vaccat_info');
-                vaccat_info = jQuery.parseJSON( vaccat_info );
+                vaccat_info = JSON.parse( vaccat_info );
         
-                $('#profession__description').innerHTML = vaccat_info.profession__description;
-                $('#profession__tehnology').innerHTML = vaccat_info.profession__tehnology;
-                $('#profession__permalink').href = vaccat_info.profession__permalink;
-                $('#profession__permalink_mob').href = vaccat_info.profession__permalink;
-                $('#profession__count').innerHTML = vaccat_info.profession__count;
-                $('#profession__count_mob').innerHTML = vaccat_info.profession__count;
-                $('#profession__img').src = vaccat_info.profession__img;
+                document.querySelector('#profession__description').innerHTML = vaccat_info.profession__description;
+                document.querySelector('#profession__tehnology').innerHTML = vaccat_info.profession__tehnology;
+                // document.querySelector('#profession__permalink').href = vaccat_info.profession__permalink;
+                // document.querySelector('#profession__permalink_mob').href = vaccat_info.profession__permalink;
+                // document.querySelector('#profession__count').innerHTML = vaccat_info.profession__count;
+                // document.querySelector('#profession__count_mob').innerHTML = vaccat_info.profession__count;
+                document.querySelector('#profession__img').src = vaccat_info.profession__img;
     
             })
         })
@@ -227,6 +232,8 @@ $(document).ready(function() {
             paged : paged
         };
 
+        paged++;
+
         var request = new XMLHttpRequest();
         request.open('POST', ajax.url, true);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
@@ -236,23 +243,13 @@ $(document).ready(function() {
                 // Success!
                 var resp = JSON.parse(this.response);
                 if( true == resp.success ){
-                    document.querySelector('#archive_vacancies').innerHTML = document.querySelector('#archive_vacancies').innerHTML + resp.html;
-                    // $('#archive_vacancies').append( resp.html );
-                    paged++;
-                    if( paged == max_num_pages ){
-                        // $('.products__show-more').fadeOut();
 
-                        var fadeTarget = document.querySelector('.profession__menu-item');
-                        var fadeEffect = setInterval(function () {
-                            if (!fadeTarget.style.opacity) {
-                                fadeTarget.style.opacity = 1;
-                            }
-                            if (fadeTarget.style.opacity > 0) {
-                                fadeTarget.style.opacity -= 0.1;
-                            } else {
-                                clearInterval(fadeEffect);
-                            }
-                        }, 200);
+                    if( '' != resp.html ){
+                        document.querySelector('#archive_vacancies').innerHTML = document.querySelector('#archive_vacancies').innerHTML + resp.html;
+                    }
+                    
+                    if( resp.paged == max_num_pages ){
+                        document.querySelector('.products__show-more').style.display = 'none';
                     }
                 }
             }
@@ -311,7 +308,9 @@ $(document).ready(function() {
             if (this.status >= 200 && this.status < 400) {
                 // Success!
                 var resp = JSON.parse(this.response);
-                document.querySelector('.loader-bg').remove();
+                if(document.querySelector('.loader-bg')){
+                    document.querySelector('.loader-bg').remove();
+                }
                 if( true == resp.success ){
                     document.querySelector('#archive_vacancies').innerHTML = document.querySelector('#archive_vacancies').innerHTML + resp.html;
 
@@ -320,11 +319,9 @@ $(document).ready(function() {
                     max_num_pages = resp.max_num_pages;
 
                     if( resp.max_num_pages == 1 ){
-                        $('.products__show-more').fadeOut();
                         var fadeTarget = document.querySelector('.products__show-more');
                         fadeTarget.style.opacity = 0;
                     } else{
-                        $('.products__show-more').fadeIn();
                         var fadeTarget = document.querySelector('.products__show-more');
                         fadeTarget.style.opacity = 1;
                     }
