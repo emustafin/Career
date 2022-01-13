@@ -345,8 +345,14 @@ class Vacancies {
                     'paged' => $paged
                 );
         
-                wp_send_json($return);
+            } else{
+                $return = array(
+                    'success' 	=> false,
+                    'html' 	=> '',
+                    'paged' => $paged
+                );
             }
+            wp_send_json($return);
         }
     }
 

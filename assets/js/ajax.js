@@ -232,6 +232,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
             paged : paged
         };
 
+        paged++;
+
         var request = new XMLHttpRequest();
         request.open('POST', ajax.url, true);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
@@ -241,21 +243,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 // Success!
                 var resp = JSON.parse(this.response);
                 if( true == resp.success ){
-                    document.querySelector('#archive_vacancies').innerHTML = document.querySelector('#archive_vacancies').innerHTML + resp.html;
-                    paged++;
-                    if( paged == max_num_pages ){
 
-                        var fadeTarget = document.querySelector('.profession__menu-item');
-                        var fadeEffect = setInterval(function () {
-                            if (!fadeTarget.style.opacity) {
-                                fadeTarget.style.opacity = 1;
-                            }
-                            if (fadeTarget.style.opacity > 0) {
-                                fadeTarget.style.opacity -= 0.1;
-                            } else {
-                                clearInterval(fadeEffect);
-                            }
-                        }, 200);
+                    if( '' != resp.html ){
+                        document.querySelector('#archive_vacancies').innerHTML = document.querySelector('#archive_vacancies').innerHTML + resp.html;
+                    }
+                    
+                    if( resp.paged == max_num_pages ){
+                        document.querySelector('.products__show-more').style.display = 'none';
                     }
                 }
             }
