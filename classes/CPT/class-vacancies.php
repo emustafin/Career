@@ -322,7 +322,7 @@ class Vacancies {
             $args['paged'] = $paged;
             $args['post_type'] = 'vacancies';
             $args['post_status'] = 'publish';
-            $args['relationship'] = 'it';
+            // $args['relationship'] = 'it';
 
 
             $archive_vacancies = new \WP_Query( $args );
