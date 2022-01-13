@@ -345,7 +345,7 @@
 }
 
 .profession__main-content {
-  width: 66.66%;
+  width: 66.95%;
 }
 
 .profession__filter-wrapper {
@@ -639,6 +639,10 @@
     height: 9px;
     pointer-events: none;
   }
+}
+
+.profession .container{
+  margin: 0 16px;
 }
 
 // Styles for 1440px

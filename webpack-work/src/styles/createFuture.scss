@@ -25,13 +25,15 @@
 }
 
 .create-future__container {
-  width: 68%;
+  width: 66.67%;
   display: flex;
+  margin-left: auto;
   margin-top: 32px;
 }
 
 .create-future__title-wrapper {
   position: relative;
+  width: 728px;
 }
 
 .create-future__title,
@@ -55,7 +57,8 @@
   font-size: 18px;
   line-height: 24px;
   margin-top: 180px;
-  padding-right: 16px;
+  position: relative;
+  right: 2%;
 }
 
 .create-future__text-mobile {

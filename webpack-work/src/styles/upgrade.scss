@@ -5,6 +5,10 @@
   font-size: 18px;
   line-height: 24px;
   overflow: hidden;
+
+  & > .container{
+    margin: 0 16px;
+  }
 }
 
 .upgrade__title {
@@ -19,7 +23,7 @@
 }
 
 .upgrade__side-bar {
-  width: 30.5%;
+  width: 29.24%;
 }
 
 .upgrade__text {
@@ -27,7 +31,7 @@
 }
 
 .upgrade__slider-wrapper {
-  width: 69.5%;
+  width: 70.76%;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -246,6 +250,7 @@ $font-size: 16px;
 
   &__list{
       margin: 20px;
+      margin-left: 32px;
       display: flex;
       flex-direction: row;
       align-items: flex-start;
