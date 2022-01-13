@@ -25,8 +25,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     var resp = JSON.parse(this.response);
                     if( true == resp.success ){
                         document.querySelector('#actually_vacancies').innerHTML = resp.html;
-                        document.querySelector('.can_work_remotely').checked = false;
-                        document.querySelector('.can_without_experience').checked = false;
+
+                        document.querySelectorAll('.can_work_remotely').forEach(item => {
+                            item.checked = false;
+                        });
+
+                        document.querySelectorAll('.can_without_experience').forEach(item => {
+                            item.checked = false;
+                        });
     
                         document.querySelector('#town').value = -1;
                         document.querySelector('#level').value = -1;
