@@ -322,7 +322,7 @@ class Vacancies {
             $args['paged'] = $paged;
             $args['post_type'] = 'vacancies';
             $args['post_status'] = 'publish';
-            // $args['relationship'] = 'it';
+            // $args['relationship'] = 'it'; //TODO переделать под Query правильный
 
 
             $archive_vacancies = new \WP_Query( $args );
@@ -365,7 +365,7 @@ class Vacancies {
                 'post_type'         => 'vacancies',
                 'posts_per_page'    => 10,
                 'post_status'       => 'publish',
-                'relationship'      => 'it'
+                // 'relationship'      => 'it' //TODO переделать под Query правильный
             );
 
             if( 'default' != $_POST['default'] ){
