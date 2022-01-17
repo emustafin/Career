@@ -182,7 +182,7 @@
 }
 
 // Styles for 1440px
-@media (max-width: 1440px) {
+@media (max-width: 1919px) {
   .create-future {
     padding-top: 72px;
     padding-bottom: 400px;
@@ -206,6 +206,7 @@
     max-width: 400px;
     margin-top: 145px;
     z-index: 1;
+    right: 0;
   }
 
   .create-future__button {
@@ -230,10 +231,14 @@
   .create-future__gradient {
     bottom: 0;
   }
+
+  .create-future__title-wrapper{
+    width: 560px;
+  }
 }
 
 // Styles for 1024px
-@media (max-width: 1100px) {
+@media (max-width: 1439px) {
   .create-future {
     padding-bottom: 396px;
     margin-bottom: 64px;
@@ -248,6 +253,7 @@
     left: 155px;
     bottom: 15px;
     z-index: 2;
+    position: relative;
   }
 
   .it-header__item:nth-child(3) {
@@ -271,10 +277,14 @@
   .spiral__img {
     margin-left: -280px;
   }
+
+  .create-future__title-wrapper{
+    width: 395px;
+  }
 }
 
 // Styles for 768px
-@media (max-width: 991px) {
+@media (max-width: 1023px) {
   .create-future {
     padding-bottom: 140px;
   }
@@ -305,6 +315,7 @@
     width: 216px;
     left: 162px;
     bottom: -26px;
+    position: absolute;
 
     & > svg {
       top: calc(50% - 3.5px);
@@ -363,7 +374,7 @@
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 767px) {
   .create-future {
     padding-top: 155px;
   }
@@ -394,18 +405,24 @@
 
   .create-future__text {
     display: block;
+    position: static;
     font-size: 14px;
     line-height: 16px;
     width: 100%;
     max-width: 100%;
     padding-left: 8px;
     padding-right: 8px;
-    //margin-top: 16px;
-    margin-top: 84px;
+    margin-top: 16px;
+    // margin-top: 84px;
   }
 
   .create-future__container {
     width: 100%;
+    margin-top: 0;
+  }
+
+  .create-future__title-wrapper{
+    padding-top: 0;
   }
 
   .create-future__button {
@@ -413,12 +430,12 @@
     line-height: 18px;
     width: 216px;
     left: 8px;
-    bottom: -210px;
+    bottom: -150px;
     z-index: 10;
   }
 
   .create-future {
-    padding-top: 124px;
+    padding-top: 155px;
     padding-bottom: 80px;
   }
 
@@ -436,5 +453,9 @@
   .spiral__wrap {
     top: -160px;
     left: -80px;
+  }
+
+  .text-typing{
+    position: relative;
   }
 }
