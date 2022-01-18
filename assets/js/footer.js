@@ -1,3 +1,5 @@
+var origin_location = window.location.href;
+
 document.querySelector('#popup_form .wpcf7-submit').addEventListener("click", function(e) {
   document.querySelector("#popup_form .vacancy__form-label_checkbox").style.color = "#000000";
   document.querySelector("#popup_form  .vacancy__form-label_checkbox a").style.color = "#000000";
