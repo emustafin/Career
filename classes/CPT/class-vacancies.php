@@ -317,13 +317,11 @@ class Vacancies {
         $html = '';
         if( !empty( $_POST ) ){
 
-            $args = json_decode( $_POST['query_vars'] );
+            $args = (array) json_decode( str_replace( "\\", '', $_POST['query_vars'] ) );
             $paged = $_POST['paged']+1;
             $args['paged'] = $paged;
             $args['post_type'] = 'vacancies';
             $args['post_status'] = 'publish';
-            // $args['relationship'] = 'it'; //TODO переделать под Query правильный
-
 
             $archive_vacancies = new \WP_Query( $args );
 
