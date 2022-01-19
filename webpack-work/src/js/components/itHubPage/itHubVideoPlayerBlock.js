@@ -32,7 +32,7 @@ export class ItHubVideoPlayerBlock {
     });
 
     this.mobileSlider = new Swiper('.mobile-slider', {
-      slidesPerView: 'auto',
+      slidesPerView: 1.13,
       spaceBetween: 16,
       loop: true,
     });
