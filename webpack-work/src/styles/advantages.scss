@@ -38,17 +38,17 @@
 .why-are-we__slide {
   display: flex;
   width: 25%;
+  justify-content: space-between;
 }
 
 .why-are-we__slide-info {
   display: flex;
   flex-direction: column;
-  margin-right: 16px;
-  width: calc(50% - 16px);
+  width: 50%;
 }
 
 .why-are-we__slide-image-wrapper {
-  width: 50%;
+  width: calc(50% - 16px);
   display: flex;
 }
 
@@ -181,7 +181,7 @@
 }
 
 // Styles for 1440px
-@media (max-width: 1440px) {
+@media (max-width: 1919px) {
   .why-are-we {
     margin-bottom: 144px;
   }
@@ -202,6 +202,10 @@
     font-size: 32px;
     line-height: 40px;
     margin-bottom: 16px;
+  }
+
+  .why-are-we__slide-image-wrapper{
+    width: 50%;
   }
 }
 
