@@ -8920,7 +8920,7 @@ input#form__town {
 
 .retail__internship-text {
   margin-left: auto;
-  width: 52%; }
+  width: 50.6%; }
 
 .retail__internship-image-block {
   width: 33.33%;
@@ -9086,7 +9086,9 @@ input#form__town {
     .retail__internship-shop-icon-eldorado > svg,
     .retail__internship-shop-icon-mvideo > svg,
     .retail__internship-icon-active > svg {
-      transform: scale(0.9); } }
+      transform: scale(0.9); }
+  .retail__internship-text {
+    width: 50.9%; } }
 
 @media (max-width: 930px) {
   .retail__internship {
