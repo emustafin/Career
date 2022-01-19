@@ -73,14 +73,6 @@ export class RetailPositionBlock {
         this.closeFlyout.bind(this)
       );
 
-      //-----------------------------------------------------------------------------------------------
-      // Управление звуком видео
-      // this.video.addEventListener('click', this.turnOnSound.bind(this));
-      this.soundButtonContainer.addEventListener(
-        'click',
-        this.turnOnSound.bind(this)
-      );
-
       //------------------------------------------------------------------------------------------------
       // Копировать ссылку
       this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
@@ -272,30 +264,6 @@ export class RetailPositionBlock {
       this.btnLoud.classList.add('hide');
       this.video.muted = true;
     }, 300);
-  }
-
-  turnOnSound(event) {
-    if (
-      (event.target.classList.contains('vacancy__video-preview') &&
-        this.videoContainer.dataset.name === 'muted') ||
-      (event.target.classList.contains('vacancy__video-sound') &&
-        this.videoContainer.dataset.name === 'muted')
-    ) {
-      this.video.muted = false;
-      this.btnMuted.classList.add('hide');
-      this.btnLoud.classList.remove('hide');
-      this.videoContainer.dataset.name = 'loud';
-    } else if (
-      (event.target.classList.contains('vacancy__video-preview') &&
-        this.videoContainer.dataset.name === 'loud') ||
-      (event.target.classList.contains('vacancy__video-sound') &&
-        this.videoContainer.dataset.name === 'loud')
-    ) {
-      this.video.muted = true;
-      this.btnMuted.classList.remove('hide');
-      this.btnLoud.classList.add('hide');
-      this.videoContainer.dataset.name = 'muted';
-    }
   }
 
   async copyLink(event) {

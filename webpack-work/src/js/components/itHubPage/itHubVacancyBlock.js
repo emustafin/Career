@@ -28,14 +28,9 @@ export class ItHubVacancyBlock {
       this.btnLoud = this.flyout.querySelector('.vacancy__video-sound-loud');
 
       this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
-      this.videoContainer.addEventListener(
-        'click',
-        this.turnOnSound.bind(this)
-      );
 
       this.init();
       this.resizeFlyout();
-      this.flyOutInit();
       this.newsSliderInit();
     }
   }
@@ -57,30 +52,6 @@ export class ItHubVacancyBlock {
     }, 300);
 
     setTimeout(() => this.stylizeNestedList(), 1000);
-  }
-
-  flyOutInit() {
-    this.flyout.addEventListener('click', (event) => {
-      if (
-        event.target.classList.contains('vacancy__header-head-link-main') ||
-        event.target.classList.contains('flyout__side-bar')
-      ) {
-        this.closeFlyout(event);
-      }
-
-      if (event.target.classList.contains('vacancy__headline-link')) {
-        event.preventDefault();
-        this.scrollToForm(this.flyOutForm);
-      }
-
-      if (event.target.classList.contains('vacancy__news-btn-prev')) {
-        this.newsSlider.slidePrev();
-      }
-
-      if (event.target.classList.contains('vacancy__news-btn-next')) {
-        this.newsSlider.slideNext();
-      }
-    });
   }
 
   closeFlyout(event) {
@@ -185,30 +156,6 @@ export class ItHubVacancyBlock {
       this.btnLoud.classList.add('hide');
       this.video.muted = true;
     }, 300);
-  }
-
-  turnOnSound(event) {
-    if (
-      (event.target.classList.contains('vacancy__video-preview') &&
-        this.videoContainer.dataset.name === 'muted') ||
-      (event.target.classList.contains('vacancy__video-sound') &&
-        this.videoContainer.dataset.name === 'muted')
-    ) {
-      this.video.muted = false;
-      this.btnMuted.classList.add('hide');
-      this.btnLoud.classList.remove('hide');
-      this.videoContainer.dataset.name = 'loud';
-    } else if (
-      (event.target.classList.contains('vacancy__video-preview') &&
-        this.videoContainer.dataset.name === 'loud') ||
-      (event.target.classList.contains('vacancy__video-sound') &&
-        this.videoContainer.dataset.name === 'loud')
-    ) {
-      this.video.muted = true;
-      this.btnMuted.classList.remove('hide');
-      this.btnLoud.classList.add('hide');
-      this.videoContainer.dataset.name = 'muted';
-    }
   }
 
   stylizeNestedList() {

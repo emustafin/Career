@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
 
+    var filter_buzy = 0;
+
     if(document.querySelector('#clear_all_filters')){
         document.querySelector('#clear_all_filters').addEventListener( 'click', function(e){
     
@@ -315,15 +317,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     document.querySelector('#archive_vacancies').innerHTML = document.querySelector('#archive_vacancies').innerHTML + resp.html;
 
                     paged = 1;
-                    query_vars = resp.query_vars;
+                    query_vars = JSON.stringify(resp.query_vars);
                     max_num_pages = resp.max_num_pages;
 
                     if( resp.max_num_pages == 1 ){
                         var fadeTarget = document.querySelector('.products__show-more');
-                        fadeTarget.style.opacity = 0;
+                        fadeTarget.style.display = 'none';
                     } else{
                         var fadeTarget = document.querySelector('.products__show-more');
-                        fadeTarget.style.opacity = 1;
+                        fadeTarget.style.display = 'flex';
                     }
 
                     // TODO
@@ -362,7 +364,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     document.querySelector('#archive_vacancies').innerHTML = 'К сожалению вакансий не найдено!';
 
                     var fadeTarget = document.querySelector('.products__show-more');
-                    fadeTarget.style.opacity = 0;
+                    fadeTarget.style.display = 'none';
                 }
             }
         };
@@ -382,8 +384,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if( typeof professionListingSelect !== 'undefined' ){
         listingTagifyProfessionInput.addEventListener('change', (e) => {
     
-            e.preventDefault();
-            archive_filtering();
+            if( filter_buzy == 0 ){
+                e.preventDefault();
+                archive_filtering();
+            }
         });
     }
 
@@ -391,8 +395,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if( typeof specializationListingSelect !== 'undefined' ){
         listingTagifySpecializationgInput.addEventListener('change', (e) => {
     
-            e.preventDefault();
-            archive_filtering();
+            if( filter_buzy == 0 ){
+                e.preventDefault();
+                archive_filtering();
+            }
         });
     }
 
@@ -400,8 +406,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if( typeof listingLevelSelect !== 'undefined' ){
         listingTagifyLevelInput.addEventListener('change', (e) => {
     
-            e.preventDefault();
-            archive_filtering();
+            if( filter_buzy == 0 ){
+                e.preventDefault();
+                archive_filtering();
+            }
         });
     }
 
@@ -409,8 +417,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if( typeof listingCitySelect !== 'undefined' ){
         listingTagifyCityInput.addEventListener('change', (e) => {
     
-            e.preventDefault();
-            archive_filtering();
+            if( filter_buzy == 0 ){
+                e.preventDefault();
+                archive_filtering();
+            }
         });
     }
 
@@ -418,8 +428,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if(document.querySelector('.archive_without_experience')){
         document.querySelector('.archive_without_experience').addEventListener('change', event => {
         
-            event.preventDefault();
-            archive_filtering();
+            if( filter_buzy == 0 ){
+                event.preventDefault();
+                archive_filtering();
+            }
         });
     }
 
@@ -427,8 +439,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if(document.querySelector('.archive_remotely')){
         document.querySelector('.archive_remotely').addEventListener('change', event => {
         
-            event.preventDefault();
-            archive_filtering();
+            if( filter_buzy == 0 ){
+                event.preventDefault();
+                archive_filtering();
+            }
         });
     }
 
@@ -437,6 +451,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.querySelector('#archive_clear_all_filters').addEventListener('click', event => {
 
             event.preventDefault();
+
+            filter_buzy = 1;
 
             document.querySelector('#archive_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
             document.querySelector('.archive_without_experience').checked = false;
@@ -462,6 +478,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
             request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 
             request.onload = function() {
+
+                filter_buzy = 0;
                 if (this.status >= 200 && this.status < 400) {
                     // Success!
                     var resp = JSON.parse(this.response);
@@ -469,20 +487,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         document.querySelector('#archive_vacancies').innerHTML = resp.html;
 
                         paged = 1;
-                        query_vars = resp.query_vars;
+                        query_vars = JSON.stringify(resp.query_vars);
                         max_num_pages = resp.max_num_pages;
 
-                        if( resp.max_num_pages == 1 ){
-                            fadeTarget.style.opacity = 0;
+                        if( resp.max_num_pages > 1 ){
+                            fadeTarget.style.display = 'flex';
                         } else{
-                            fadeTarget.style.opacity = 1;
+                            fadeTarget.style.display = 'none';
                         }
                         
-                        window.history.pushState('', '', window.location.origin + window.location.pathname );
                     } else{
                         document.querySelector('#archive_vacancies').innerHTML = 'К сожалению вакансий не найдено!';
-                        fadeTarget.style.opacity = 0;
+                        fadeTarget.style.display = 'none';
                     }
+                    window.history.pushState('', '', window.location.origin + window.location.pathname );
                 }
             };
 
