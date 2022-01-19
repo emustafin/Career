@@ -10053,10 +10053,10 @@ input#form__town {
      object-fit: cover; }
 
 .retail__quote-wrapper {
-  width: 60%;
+  width: 49.17%;
   position: absolute;
   top: 72px;
-  right: 120px;
+  right: 17.5;
   color: #ffffff; }
 
 .retail__quote-text {
@@ -10071,7 +10071,7 @@ input#form__town {
     font-size: 16px;
     line-height: 20px; }
   .retail__quote-wrapper {
-    width: 66.66%;
+    width: 65.56%;
     right: 16px; }
   .retail__quote-text {
     font-size: 56px;
@@ -10082,8 +10082,8 @@ input#form__town {
     margin-bottom: 64px; }
   .retail__quote-wrapper {
     top: 64px;
-    width: 60%;
-    right: 70px; }
+    width: 48.15%;
+    right: 18.55%; }
   .retail__quote-text {
     font-size: 32px;
     line-height: 36px;
@@ -10096,7 +10096,7 @@ input#form__town {
     min-height: 480px; }
   .retail__quote-wrapper {
     top: 32px;
-    width: 80%;
+    width: 64.2%;
     right: 16px; } }
 
 @media (max-width: 740px) {
