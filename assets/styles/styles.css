@@ -9174,7 +9174,7 @@ input#form__town {
   font-size: 160px;
   line-height: 144px;
   letter-spacing: -0.03em;
-  width: 83%;
+  width: 87%;
   position: relative;
   z-index: 1; }
 
@@ -9266,9 +9266,10 @@ input#form__town {
     min-height: 473px; }
   .retail__mission-title {
     font-size: 124px;
-    line-height: 112px; }
+    line-height: 112px;
+    width: 95%; }
   .retail__mission-btn-block {
-    width: 73%; }
+    width: 95%; }
   .retail__mission-button {
     font-size: 20px;
     line-height: 20px; }
@@ -9316,10 +9317,11 @@ input#form__town {
   .retail__mission-title {
     font-size: 88px;
     line-height: 80px;
-    width: 89%; }
+    width: 89.92%; }
   .retail__mission-button {
     font-size: 18px;
-    line-height: 18px; }
+    line-height: 18px;
+    transform: rotate(-2deg) translateY(0); }
   .retail__mission-left-block {
     width: 320px;
     height: 261px; }
@@ -9380,8 +9382,12 @@ input#form__town {
     height: 190px;
     right: 4px; }
   .retail__mission-title {
-    width: 100%;
+    width: 90%;
     z-index: 0; }
+  .retail__mission-btn-block {
+    width: 90%; }
+  .retail__mission-button {
+    transform: rotate(-2deg) translateY(-5px); }
   .retail__mission-tree-wrapper {
     right: auto;
     top: 4px;
@@ -9462,8 +9468,7 @@ input#form__town {
     margin-top: 16px; }
   .retail__mission-title {
     font-size: 36px;
-    line-height: 38px;
-    margin-bottom: 20px; }
+    line-height: 38px; }
   .retail__mission-button {
     margin-right: auto;
     margin-left: 0; } }
