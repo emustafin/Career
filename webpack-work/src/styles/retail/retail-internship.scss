@@ -56,7 +56,7 @@
 
 .retail__internship-text {
   margin-left: auto;
-  width: 52%;
+  width: 50.6%;
 }
 
 .retail__internship-image-block {
@@ -277,6 +277,10 @@
     & > svg {
       transform: scale(0.9);
     }
+  }
+
+  .retail__internship-text {
+    width: 50.9%;
   }
 }
 
