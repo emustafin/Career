@@ -86,12 +86,14 @@ class Setup_Theme {
 		wp_deregister_script( 'jquery' );
 
 		// Bring back jQuery for  now.
-		wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', [], '3.5.1', false );
+		// wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', [], '3.5.1', false );
 		wp_enqueue_script( self::THEME_ID . "swiper-js", THEME_URL . "/assets/js/swiper-bundle.min.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "ajax-js", THEME_URL . "/assets/js/ajax.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "bundle-js", THEME_URL . "/assets/bundle.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "popup_vacancy-js", THEME_URL . "/assets/js/popup_vacancy.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "footer-js", THEME_URL . "/assets/js/footer.js", [], THEME_VSN, true );
+		wp_enqueue_script( self::THEME_ID . "news.js", THEME_URL . "/webpack-work/src/js/news.js", [], THEME_VSN, true );
+		wp_enqueue_script( self::THEME_ID . "ITPage.js", THEME_URL . "/webpack-work/src/js/ITPage.js", [], THEME_VSN, true );
 		if( is_front_page() || is_page('logistic') || is_page('office') ){
 			wp_enqueue_script( self::THEME_ID . "frontpage-js", THEME_URL . "/assets/js/frontpage.js", [], THEME_VSN, true );
 		}

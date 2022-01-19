@@ -136,10 +136,12 @@ $product_directions = new WP_Query( $args );
                                   height="100"
                                 />
                               </div>
-                              <p class="direction__director-name">
-                                <?php echo get_sub_field('director_name'); ?><span>,</span>
-                              </p>
-                              <p class="direction__director-name"><?php echo get_sub_field('director_position'); ?></p>
+                              <div class="direction__director-wrap">
+                                <p class="direction__director-name">
+                                  <?php echo get_sub_field('director_name'); ?><span>,</span>
+                                </p>
+                                <p class="direction__director-name"><?php echo get_sub_field('director_position'); ?></p>
+                              </div>
                             </div>
 
                         <?php endwhile;

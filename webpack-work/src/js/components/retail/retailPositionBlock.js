@@ -61,7 +61,7 @@ export class RetailPositionBlock {
       // Скрипт для открытия попапа вакансии при клике на блоке вакансии
 
       this.vacancyItems.forEach((vacancy) => {
-        vacancy.addEventListener('click', this.openFlyout.bind(this));
+        vacancy.addEventListener('click', this.openFlyout.bind(this) );
       });
 
       //---------------------------------------------------------------------------------------------
@@ -71,14 +71,6 @@ export class RetailPositionBlock {
       this.flyoutButtonToMainPage.addEventListener(
         'click',
         this.closeFlyout.bind(this)
-      );
-
-      //-----------------------------------------------------------------------------------------------
-      // Управление звуком видео
-      // this.video.addEventListener('click', this.turnOnSound.bind(this));
-      this.soundButtonContainer.addEventListener(
-        'click',
-        this.turnOnSound.bind(this)
       );
 
       //------------------------------------------------------------------------------------------------
@@ -102,6 +94,90 @@ export class RetailPositionBlock {
     }
   }
 
+  load_popup_vacancy( post_id ){
+
+    document.querySelector('.flyout .vacancy__headline-title').setAttribute('origin_url', '#');
+    document.querySelector('.flyout .vacancy__headline-title').innerHTML = '';
+    // document.querySelector('.flyout .vacancy__video-container img').setAttribute('src', '#');
+    document.querySelector('.flyout .vacancy__video-container .vacancy__video-preview').setAttribute('data-src', '#');
+    document.querySelector('.flyout .vacancy__video-container .vacancy__video-preview').setAttribute('src', '#');
+    document.querySelector('.flyout .vacancy__intro-description').innerHTML = '';
+    document.querySelector('.flyout #flexible_schedule').innerHTML = '';
+    // document.querySelector('.flyout #vacancy_project').innerHTML = '';
+    document.querySelector('.flyout #expectations').innerHTML = '';
+    document.querySelector('.flyout #can_work_remotely').innerHTML = '';
+    if( document.querySelector('.flyout .vacancy__office-map-image') ){
+      document.querySelector('.flyout .vacancy__office-map-image').setAttribute('src', '#');
+    }
+    if( document.querySelector('.flyout .vacancy__office-adress-text') ){
+      document.querySelector('.flyout .vacancy__office-adress-text').innerHTML = '';
+    }
+    document.querySelector('.flyout .vacancy__meta-info-sum').innerHTML = '';
+    document.querySelector('.flyout .vacancy__meta-info-sum-after').innerHTML = '';
+    document.querySelector('.flyout #vaccat_info_vacancy').innerHTML = '';
+    document.querySelector('.flyout #town_info_vacancy').innerHTML = '';
+    document.querySelector('.flyout #experience_important').innerHTML = '';
+  
+    document.querySelector('.vacancy').style.overflow = "hiden";
+  
+    var data = {
+        action: 'get_vacancy_data',
+        post_id : post_id
+    };
+    
+    var request = new XMLHttpRequest();
+      request.open('POST', ajax.url, true);
+      request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+  
+      request.onload = function() {
+          if (this.status >= 200 && this.status < 400) {
+              // Success!
+              var resp = JSON.parse(this.response);
+              if( true == resp.success ){
+                // document.querySelector('.profession__title').setAttribute('originhref', origin_location);
+  
+                document.querySelector('.flyout .vacancy__headline-title').setAttribute('origin_url', origin_location);
+                document.querySelector('.flyout .vacancy__headline-title').innerHTML = resp.title;
+                // document.querySelector('.flyout .vacancy__video-container img').setAttribute('src', resp.img);
+                document.querySelector('.flyout .vacancy__video-container .vacancy__video-preview').setAttribute('data-src', resp.data_src_video);
+                document.querySelector('.flyout .vacancy__video-container .vacancy__video-preview').setAttribute('src', resp.data_src_video);
+                document.querySelector('.flyout .vacancy__intro-description').innerHTML = resp.content;
+                document.querySelector('.flyout #flexible_schedule').innerHTML = resp.flexible_schedule;
+                // document.querySelector('.flyout #vacancy_project').innerHTML = resp.vacancy_project;
+                document.querySelector('.flyout #expectations').innerHTML = resp.expectations;
+                document.querySelector('.flyout #can_work_remotely').innerHTML = resp.can_work_remotely;
+                if( document.querySelector('.flyout .vacancy__office-map-image') ){
+                  document.querySelector('.flyout .vacancy__office-map-image').setAttribute('src', resp.img_map);
+                }
+                if( document.querySelector('.flyout .vacancy__office-adress-text') ){
+                  document.querySelector('.flyout .vacancy__office-adress-text').innerHTML = resp.map_full_adress;
+                }
+                document.querySelector('.flyout .vacancy__meta-info-sum').innerHTML = resp.money_from;
+                document.querySelector('.flyout .vacancy__meta-info-sum-after').innerHTML = resp.gross;
+                document.querySelector('.flyout #vaccat_info_vacancy').innerHTML = resp.vaccat;
+                document.querySelector('.flyout #town_info_vacancy').innerHTML = resp.town;
+                document.querySelector('.flyout #experience_important').innerHTML = resp.experience;
+  
+                document.querySelector('#vacancy_popup .loader-wrapp').style.display = "none";
+  
+                document.querySelector('.vacancy').style.overflow = "auto";
+              
+                window.history.pushState('', '', resp.url);
+              }
+          }
+      };
+  
+      var str = "";
+      for (var key in data) {
+          if (str != "") {
+              str += "&";
+          }
+          str += key + "=" + encodeURIComponent(data[key]);
+      }
+  
+      request.send( str );
+  }
+
   showButtonMoreAboutDirection(vacancyCollection) {
     vacancyCollection.forEach((item) => {
       item.addEventListener('mousemove', (event) => {
@@ -114,7 +190,12 @@ export class RetailPositionBlock {
     });
   }
 
-  openFlyout() {
+  openFlyout( event ) {
+
+    document.querySelector('#vacancy_popup .loader-wrapp').style.display = "block";
+    var post_id = event.target.getAttribute('data-vacancy_id')
+    this.load_popup_vacancy( post_id );
+    
     this.flyout.classList.add('flyout__active');
     this.flyOutContentBar.scrollTop = 0;
 
@@ -183,30 +264,6 @@ export class RetailPositionBlock {
       this.btnLoud.classList.add('hide');
       this.video.muted = true;
     }, 300);
-  }
-
-  turnOnSound(event) {
-    if (
-      (event.target.classList.contains('vacancy__video-preview') &&
-        this.videoContainer.dataset.name === 'muted') ||
-      (event.target.classList.contains('vacancy__video-sound') &&
-        this.videoContainer.dataset.name === 'muted')
-    ) {
-      this.video.muted = false;
-      this.btnMuted.classList.add('hide');
-      this.btnLoud.classList.remove('hide');
-      this.videoContainer.dataset.name = 'loud';
-    } else if (
-      (event.target.classList.contains('vacancy__video-preview') &&
-        this.videoContainer.dataset.name === 'loud') ||
-      (event.target.classList.contains('vacancy__video-sound') &&
-        this.videoContainer.dataset.name === 'loud')
-    ) {
-      this.video.muted = true;
-      this.btnMuted.classList.remove('hide');
-      this.btnLoud.classList.add('hide');
-      this.videoContainer.dataset.name = 'muted';
-    }
   }
 
   async copyLink(event) {

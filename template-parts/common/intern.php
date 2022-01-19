@@ -2,7 +2,25 @@
 <section class="intern">
     <?php if( is_front_page() || is_page('office') ){ ?>
     <div class="intern__header">
-      <h2 class="intern__title">Приходи на стажировку!</h2>
+      <div class="intern__wrap">
+        <h2 class="intern__title">Приходи на стажировку!</h2>
+        <a href="#" class="intern__header-link">
+        заполнить анкету
+
+          <svg
+              width="14"
+              height="10"
+              viewBox="0 0 14 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.5515 4.39995L8.57574 1.42421L9.42426 0.575684L13.8485 4.99995L9.42426 9.42421L8.57574 8.57568L11.5515 5.59995H0V4.39995H11.5515Z"
+                fill="black"
+              />
+          </svg>
+      </a>
+      </div>
       <div class="intern__header-background" id="my-sticky-element">
         <div class="svg-toggle" id="svg-toggle-activate">
           <div class="svg-toggle-line">
@@ -98,22 +116,7 @@
           команде. Можно работать в офисе или удалённо. Мы даем опыт, который
           меняет будущее!
       </p>
-      <a href="#" class="intern__header-link">
-        заполнить анкету
-
-          <svg
-              width="14"
-              height="10"
-              viewBox="0 0 14 10"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M11.5515 4.39995L8.57574 1.42421L9.42426 0.575684L13.8485 4.99995L9.42426 9.42421L8.57574 8.57568L11.5515 5.59995H0V4.39995H11.5515Z"
-                fill="black"
-              />
-          </svg>
-      </a>
+      
     </div>
     <?php } ?>
 

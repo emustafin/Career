@@ -156,8 +156,15 @@
 .wpcf7-form-control.wpcf7-text.form__information,
 .tagify--noTags.tagify--empty,
 .form__information,
-.form__form-input {
+.form__form-input,
+.tagify--select {
   border-bottom: 1px solid $blackColorOpacity-05;
+  min-height: 29px;
+  border-color: $blackColorOpacity-05 !important;
+}
+
+#popup_form .form__dropdown .tagify--select{
+  min-height: 32.2px;
 }
 
 .wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__form-input.wpcf7-not-valid,
