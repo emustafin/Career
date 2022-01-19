@@ -403,10 +403,18 @@
   .goal__side-block-container {
     max-width: 262px;
   }
+
+  .goal__side-block{
+    width: 32.2%;
+  }
 }
 
 // Styles for 768px
 @media (max-width: 877px) {
+  .goal .container{
+    margin-left: 0;
+  }
+  
   .goal {
     margin-bottom: 128px;
   }
@@ -1001,5 +1009,10 @@
 
   .goal__micro-container {
     display: none;
+  }
+  
+  .goal__button{
+    bottom: -35px;
+    left: 0;
   }
 }

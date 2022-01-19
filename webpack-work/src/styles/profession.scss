@@ -345,7 +345,7 @@
 }
 
 .profession__main-content {
-  width: 66.95%;
+  width: 67.05%;
 }
 
 .profession__filter-wrapper {
@@ -977,7 +977,7 @@
   }
 
   .profession__location {
-    margin: 16px 0;
+    margin-top: 16px;
   }
 
   .profession__more-info {
@@ -1061,4 +1061,21 @@
 }
 #vacancy_popup .loader-wrapp .loader-bg {
   height: 100%;
+}
+
+@media (max-width: 1023px){
+  .profession .container{
+    margin: 0;
+  }
+
+  .profession__location-container,
+  .profession__job-title-container{
+    max-width: 100%;
+    width: 32.98%;
+  }
+
+  .profession__job-price-container{
+    max-width: 100%;
+    width: 34.04%;
+  }
 }

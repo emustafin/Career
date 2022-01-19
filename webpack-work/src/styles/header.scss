@@ -259,3 +259,13 @@ header .container .it-header__wrapper .it-header__item:nth-child(1){
 header .container .it-header__wrapper a.it-header__button {
   margin-right: 16px;
 }
+
+@media (max-width: 1023px){
+  header .container .it-header__wrapper .it-header__item:nth-child(1){
+    padding-left: 0;
+  }
+
+  header .container .it-header__wrapper a.it-header__button {
+    margin-right: 0;
+  }
+}

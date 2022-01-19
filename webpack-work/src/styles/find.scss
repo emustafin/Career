@@ -439,7 +439,7 @@
   .find__video-play-box {
     max-width: 504px;
     top: 50%;
-    left: 67%;
+    left: 73%;
   }
 
   .find__video-slide.swiper-slide {
@@ -482,7 +482,7 @@
     display: block;
     width: max-content;
     display: flex;
-    justify-content: flex-start;
+    // justify-content: flex-start;
   }
 
   .find__slides-mobile-container {
@@ -491,7 +491,6 @@
 
   .find__video-slide-mobile.swiper-slide {
     width: 100%;
-    max-width: 280px;
     margin-right: 16px;
   }
 
