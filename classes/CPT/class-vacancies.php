@@ -14,20 +14,7 @@ class Vacancies {
 	 */
 	public function __construct() {
 
-        add_action( 'init', [ $this, 'create_taxonomies' ], 90 );
 		add_action( 'init', [ $this, 'register' ] );
-
-        add_action( 'wp_ajax_get_profession__menu_items', [$this, 'get_profession__menu_items'] );
-		add_action( 'wp_ajax_nopriv_get_profession__menu_items', [$this, 'get_profession__menu_items'] );
-
-        add_action( 'wp_ajax_archive_show_more_items', [$this, 'archive_show_more_items'] );
-		add_action( 'wp_ajax_nopriv_archive_show_more_items', [$this, 'archive_show_more_items'] );
-
-        add_action( 'wp_ajax_archive_get_profession__menu_items', [$this, 'archive_get_profession__menu_items'] );
-		add_action( 'wp_ajax_nopriv_archive_get_profession__menu_items', [$this, 'archive_get_profession__menu_items'] );
-
-        add_action( 'wp_ajax_get_vacancy_data', [$this, 'get_vacancy_data'] );
-		add_action( 'wp_ajax_nopriv_get_vacancy_data', [$this, 'get_vacancy_data'] );
 	}
 
     /**
