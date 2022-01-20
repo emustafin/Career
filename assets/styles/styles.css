@@ -3508,10 +3508,11 @@
   align-items: center;
   position: relative;
   padding: 16px 0;
-  transition: 0.3s; }
+  transition: 0.3s;
+  margin: 0 16px; }
 
 .it-header__item {
-  width: 33.33%;
+  width: 33.05%;
   font-size: 18px;
   line-height: 24px; }
 
@@ -3659,7 +3660,11 @@
 
 @media (max-width: 991px) {
   .it-header__contact-us {
-    display: none; } }
+    display: none; }
+  header.it-header .container {
+    padding: 0; }
+  .it-header__wrapper {
+    margin: 0 8px; } }
 
 @media (max-width: 767px) {
   .it-header__item,
@@ -3687,12 +3692,6 @@
     .it-header__logo > svg {
       width: 117.27px;
       height: 20px; } }
-
-header .container .it-header__wrapper .it-header__item:nth-child(1) {
-  padding-left: 16px; }
-
-header .container .it-header__wrapper a.it-header__button {
-  margin-right: 16px; }
 
 @media (max-width: 1023px) {
   header .container .it-header__wrapper .it-header__item:nth-child(1) {
@@ -8373,13 +8372,13 @@ input#form__town {
   overflow: hidden; }
 
 .retail__advantages-side-bar {
-  width: 33.33%; }
+  width: 33.05%; }
 
 .retail__advantages-side-bar-text {
   max-width: 224px; }
 
 .retail__advantages-content-bar {
-  width: 66.66%; }
+  width: 66.95%; }
 
 .retail__advantages-content-item {
   padding-bottom: 40px;
@@ -10084,8 +10083,8 @@ input#form__town {
     margin-bottom: 64px; }
   .retail__quote-wrapper {
     top: 64px;
-    width: 48.15%;
-    right: 18.55%; }
+    width: 65.15%;
+    right: 1.4%; }
   .retail__quote-text {
     font-size: 32px;
     line-height: 36px;
@@ -10097,9 +10096,7 @@ input#form__town {
   .retail__quote {
     min-height: 480px; }
   .retail__quote-wrapper {
-    top: 32px;
-    width: 64.2%;
-    right: 16px; } }
+    top: 32px; } }
 
 @media (max-width: 740px) {
   .retail__quote-container {
