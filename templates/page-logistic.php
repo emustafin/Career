@@ -11,6 +11,8 @@ Template Name: Logistic
 </script>
 <?php
 
+$_modificator = 'logistics_';
+
 if( have_rows('logistic_blocks') ):
   while ( have_rows('logistic_blocks') ) : the_row();
 

@@ -11,6 +11,8 @@ Template Name: Retail
 </script>
 <?php
 
+$_modificator = 'retail_';
+
 if( have_rows('content_blocks') ):
   while ( have_rows('content_blocks') ) : the_row();
 

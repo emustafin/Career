@@ -11,6 +11,8 @@ Template Name: Office
 </script>
 <?php
 
+$_modificator = 'office_';
+
 if( have_rows('office_blocks') ):
   while ( have_rows('office_blocks') ) : the_row();
 

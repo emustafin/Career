@@ -11,6 +11,8 @@ Template Name: IT
 </script>
 <?php
 
+$_modificator = 'it_';
+
 if( have_rows('content_blocks') ):
   while ( have_rows('content_blocks') ) : the_row();
 
