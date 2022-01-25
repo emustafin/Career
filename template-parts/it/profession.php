@@ -15,6 +15,7 @@ $level_terms = get_terms( $_modificator.'level' );
             
             <?php
             $spc_data = (array) TC()->supporting->get_specialization_data( $specialization_terms, $_GET );
+
             $filter_params = (array) TC()->supporting->get_filter_params( $_GET );
 
             if( $specialization_terms && ! is_wp_error($specialization_terms) ): ?>

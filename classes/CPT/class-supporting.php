@@ -38,7 +38,7 @@ class Supporting {
             break;
         }
 
-        if( empty($_GET) ){
+        if( !empty($GET) ){
             if( $this->NotEmptyGetParam('specialization_slug') ) 
             $specialization_slug = $GET['specialization_slug'];
         }
