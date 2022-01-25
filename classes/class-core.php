@@ -27,6 +27,13 @@ final class Core {
 	protected static $instance = null;
 
 	/**
+	 * Supporting data.
+	 *
+	 * @var Supporting
+	 */
+	public $supporting = null;
+
+	/**
 	 * Add your class instances here
 	 *
 	 * Each class you want to make a part of core should be deсlared
@@ -48,6 +55,8 @@ final class Core {
 		new CPT\Product_directions();
 		new CPT\News_and_events();
 		new Menu\Menu();
+
+		$this->supporting = new CPT\Supporting();
 
 		new API\WPcf7_Mail();
 		new API\Skillaz_Vacancies_Find();
