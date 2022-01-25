@@ -1,5 +1,9 @@
 // @import './styles.scss';
 
+.page-container {
+  padding: 0 16px;
+}
+
 .tagify.tagify--outside.listing-top__profession-filter.tagify--noTags.tagify--empty {
   border-bottom: none;
 }
