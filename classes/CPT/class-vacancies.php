@@ -2,7 +2,7 @@
 /**
  * Init All CPT Vacancies
  *
- * @package Career\Core
+ * @package Career\CPT
  */
 
 namespace Career\CPT;

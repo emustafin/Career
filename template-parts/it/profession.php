@@ -1,4 +1,13 @@
-<!--  Profession  -->
+<?php
+/**
+ * Template-part Name: Profession
+ *
+ */
+$profession__title = '';
+$specialization_terms = get_terms( $_modificator.'specialization' );
+$town_terms = get_terms( $_modificator.'city' );
+$level_terms = get_terms( $_modificator.'level' );
+?>
 <section class="profession">
     <div class="container">
         <div id="vaccat_items" class="profession__header">

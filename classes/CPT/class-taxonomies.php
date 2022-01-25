@@ -2,7 +2,7 @@
 /**
  * Init and control CPT Reviews
  *
- * @package Career\Core
+ * @package Career\CPT
  */
 
 namespace Career\CPT;
