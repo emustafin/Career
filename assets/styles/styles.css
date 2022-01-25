@@ -1460,12 +1460,14 @@
 
 .vacancy__header-headline {
   margin-bottom: 56px;
-  position: relative; }
+  position: relative;
+  max-width: 74.3%; }
 
 .vacancy__headline-title {
   font-size: 64px;
   line-height: 68px;
-  display: inline; }
+  display: inline;
+  vertical-align: middle; }
 
 .vacancy__headline-link {
   display: inline-block;
@@ -1475,7 +1477,8 @@
   border-radius: 36px;
   background: #ffffff;
   color: #000000;
-  transform: translateY(-10px); }
+  position: relative;
+  vertical-align: text-top; }
   .vacancy__headline-link > svg {
     position: absolute;
     right: 17px;
@@ -1578,6 +1581,9 @@
 .vacancy__description-title,
 .vacancy__description-list {
   width: 50%; }
+
+.vacancy__description-list {
+  padding-left: 18px; }
 
 .vacancy__advantages-slider-navigation-mobile {
   display: none; }
@@ -7036,12 +7042,18 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   line-height: 24px; }
 
 .politics {
-  width: 66.66%;
+  width: 66.39%;
   font-family: Suisse Intl, sans-serif; }
   .politics__header {
     font-size: 64px;
     line-height: 68px;
     margin-bottom: 96px; }
+  @media (max-width: 1439px) {
+    .politics {
+      width: 66.17%; } }
+  @media (max-width: 1023px) {
+    .politics {
+      width: 66.31%; } }
 
 @media (max-width: 1440px) {
   .politics-wrap {
@@ -7052,7 +7064,8 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   .politics__header {
     font-size: 56px;
     line-height: 60px;
-    margin-bottom: 72px; } }
+    margin-bottom: 72px;
+    padding-right: 8px; } }
 
 @media (max-width: 1024px) {
   .politics-wrap {

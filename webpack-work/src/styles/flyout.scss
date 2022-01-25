@@ -101,12 +101,14 @@
 .vacancy__header-headline {
   margin-bottom: 56px;
   position: relative;
+  max-width: 74.3%;
 }
 
 .vacancy__headline-title {
   font-size: 64px;
   line-height: 68px;
   display: inline;
+  vertical-align: middle;
   // width: 100%;
   // max-width: 928px;
 }
@@ -119,7 +121,8 @@
   border-radius: 36px;
   background: $whiteColor;
   color: $mainColor;
-  transform: translateY(-10px);
+  position: relative;
+  vertical-align: text-top;
 
   & > svg {
     position: absolute;
@@ -256,6 +259,10 @@
 .vacancy__description-title,
 .vacancy__description-list {
   width: 50%;
+}
+
+.vacancy__description-list{
+  padding-left: 18px;
 }
 
 .vacancy__advantages-slider-navigation-mobile {
