@@ -5585,17 +5585,19 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
     line-height: 20px;
     transform: translate(8px, -8px); }
   .listing-top__filter-item:first-child,
-  .position__job-title-container,
   .banner-S__side-bar {
     max-width: 311px; }
+  .position__job-title-container {
+    max-width: 324px;
+    margin-right: 6px; }
   .listing-top__filter-item:first-child {
     padding-bottom: 0; }
     .listing-top__filter-item:first-child::after {
       top: 18px; }
   .position__bread-crumbs-block {
-    max-width: 150px; }
+    max-width: 154px; }
   .position__payment-container {
-    max-width: 170px; }
+    max-width: 154px; }
   .position__location-container {
     max-width: 326px; }
   .listing-top__filter-item {
@@ -5700,9 +5702,13 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
     display: block; }
   .position__job-title-container,
   .position__location-container {
-    max-width: 248px; }
+    max-width: 248px;
+    margin-right: 0; }
+  .position__job-title-container {
+    padding-right: 16px; }
   .position__payment-container {
-    max-width: 256px; }
+    max-width: 256px;
+    margin-right: 0; }
   .position__job-title {
     max-width: 232px; }
   .banner-S {
@@ -5781,13 +5787,15 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   .position__job-title-container {
     width: 100%;
     max-width: 100%;
-    margin-bottom: 16px; }
+    margin-bottom: 16px;
+    padding-right: 0; }
   .position__payment-container,
   .position__location-container {
     width: 50%;
     max-width: 50%;
-    margin-right: 0;
-    padding-right: 8px; }
+    margin-right: 0; }
+  .position__payment-container {
+    padding-right: 16px; }
   .banner-S {
     margin-bottom: 16px;
     padding-right: 8px;
