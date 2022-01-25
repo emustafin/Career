@@ -36,7 +36,6 @@ class Ajax {
                 'post_type'         => 'vacancies',
                 'posts_per_page'    => 6,
                 'post_status'       => 'publish',
-                'relationship'      => 'it'
             );
 
             if( 'default' != $_POST['default'] ){
@@ -184,7 +183,6 @@ class Ajax {
                 'post_type'         => 'vacancies',
                 'posts_per_page'    => 10,
                 'post_status'       => 'publish',
-                // 'relationship'      => 'it' //TODO переделать под Query правильный
             );
 
             if( 'default' != $_POST['default'] ){

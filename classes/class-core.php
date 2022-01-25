@@ -49,6 +49,7 @@ final class Core {
 		spl_autoload_register( __CLASS__ . '::autoload' );
 
 		new Setup_Theme();
+		new CPT\Ajax();
 		new CPT\Taxonomies();
 		new CPT\Vacancies();
 		new CPT\Reviews();
