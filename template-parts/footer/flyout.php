@@ -148,7 +148,7 @@
                 $current_relationship = $relationship_terms[0]->slug;
             }
             $current_catgs = '';
-            $catgs_terms = get_the_terms( $post_id, 'vaccat' );
+            $catgs_terms = get_the_terms( $post_id, 'specialization' );
             if( is_array( $catgs_terms ) ){
                 $current_catgs = $catgs_terms[0]->slug;
             }

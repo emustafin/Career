@@ -52,11 +52,11 @@
         }
         wp_reset_postdata();
 
-        $info_vaccat = array();
-        $terms = get_terms( 'vaccat' );
+        $info_specialization = array();
+        $terms = get_terms( 'specialization' );
         if( $terms && ! is_wp_error($terms) ){
             foreach( $terms as $term ){
-                $info_vaccat[] .= $term->name;
+                $info_specialization[] .= $term->name;
             }
         }
         ?>
@@ -64,7 +64,7 @@
         <script>
             const cities = ['Любой', 'Москва', 'Санкт-Петербург', 'Ростов на Дону']
             var info_product_directions = '<?php echo json_encode( $info_product_directions ); ?>'; // Направление
-            var info_vaccat = '<?php echo json_encode( $info_vaccat ); ?>'; // Специализация
+            var info_specialization = '<?php echo json_encode( $info_specialization ); ?>'; // Специализация
         </script>
         <div id="popup_form" class="form__content-right-bar-wrapper">
             <div class="form__content-right-bar form__content-right-bar-100">

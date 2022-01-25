@@ -121,7 +121,7 @@ function selectValueFromSingleSelect(data, tagifyInput, targetInput) {
 
 // Данные для фильтров
 const dataDirection = JSON.parse(info_product_directions);
-const dataSpecialization = JSON.parse(info_vaccat);
+const dataSpecialization = JSON.parse(info_specialization);
 
 // Инициализация селекта Тагифай в анкете. Поле "Город"
 const formCityTagifyInput = document.querySelector(
