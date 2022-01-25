@@ -1,11 +1,11 @@
 {
     "key": "group_6140a8ec989f8",
-    "title": "Направления вакансий (категория)",
+    "title": "Специализация вакансий",
     "fields": [
         {
             "key": "field_6140a9214d5d9",
             "label": "Изображение",
-            "name": "vaccat_img",
+            "name": "specialization_img",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -29,7 +29,7 @@
         {
             "key": "field_614339ce552ba",
             "label": "Технологии",
-            "name": "vaccat_tehnologies",
+            "name": "specialization_tehnologies",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -42,7 +42,7 @@
             "choices": {
                 "jira": "Jira",
                 "confluence": "Confluence",
-                "google-docs": "Google-docs",
+                "google-docs": "Google Docs",
                 "gitlab": "Gitlab",
                 "slack": "Slack",
                 "swagger": "Swagger",
@@ -80,7 +80,35 @@
             {
                 "param": "taxonomy",
                 "operator": "==",
-                "value": "vaccat"
+                "value": "it_specialization"
+            }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "retail_specialization"
+            }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "office_specialization"
+            }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "logistics_specialization"
+            }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "students_specialization"
             }
         ]
     ],
@@ -92,5 +120,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631867911
+    "modified": 1643110665
 }

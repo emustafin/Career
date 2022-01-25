@@ -1,55 +1,9 @@
 {
-    "key": "group_6127c1b9ebf53",
-    "title": "Вакансии",
+    "key": "group_61eabe86e8abd",
+    "title": "Вакансии логистики",
     "fields": [
         {
-            "key": "field_6127c207e39e2",
-            "label": "Есть ли метро",
-            "name": "check_metro",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "20",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_6127c243e39e3",
-            "label": "Метро",
-            "name": "metro_name",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6127c207e39e2",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "80",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
-            "key": "field_6151d8054c0e2",
+            "key": "field_61eabec0590b5",
             "label": "ЗП Net",
             "name": "not_gross",
             "type": "true_false",
@@ -57,7 +11,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "20",
+                "width": "15",
                 "class": "",
                 "id": ""
             },
@@ -68,7 +22,7 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_6127c1bf2eddc",
+            "key": "field_61eabebf590b4",
             "label": "ЗП от",
             "name": "money_from",
             "type": "number",
@@ -76,7 +30,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "20",
+                "width": "15",
                 "class": "",
                 "id": ""
             },
@@ -89,7 +43,28 @@
             "step": ""
         },
         {
-            "key": "field_61280260676dc",
+            "key": "field_61eabebe590b3",
+            "label": "ЗП до",
+            "name": "money_do",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "15",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 0,
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_61eabebd590b2",
             "label": "Можно без опыта?",
             "name": "can_without_experience",
             "type": "select",
@@ -119,7 +94,7 @@
             "placeholder": ""
         },
         {
-            "key": "field_612802a4676dd",
+            "key": "field_61eabeba590b1",
             "label": "Можно удаленно?",
             "name": "can_work_remotely",
             "type": "true_false",
@@ -127,7 +102,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "20",
+                "width": "15",
                 "class": "",
                 "id": ""
             },
@@ -138,7 +113,7 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_61851360c288c",
+            "key": "field_61eabeb9590b0",
             "label": "Гибкий график",
             "name": "flexible_schedule",
             "type": "true_false",
@@ -146,7 +121,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "20",
+                "width": "15",
                 "class": "",
                 "id": ""
             },
@@ -157,10 +132,10 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_618510b6d4e7f",
-            "label": "Вакансия розницы?",
-            "name": "is_retail_vacancy",
-            "type": "true_false",
+            "key": "field_61eabeb7590af",
+            "label": "Долгота",
+            "name": "longitude",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -169,60 +144,134 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
-            "key": "field_618b9c9198665",
-            "label": "М.Видео или Эльдорадо?",
-            "name": "check_mvideo_eldorado",
-            "type": "radio",
+            "key": "field_61eabeb6590ae",
+            "label": "Широта",
+            "name": "latitude",
+            "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_618510b6d4e7f",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "20",
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "mvideo": "М.Видео",
-                "eldorado": "Эльдорадо"
-            },
-            "allow_null": 0,
-            "other_choice": 0,
             "default_value": "",
-            "layout": "horizontal",
-            "return_format": "value",
-            "save_other_choice": 0
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
-            "key": "field_618510cfd4e80",
+            "key": "field_61eabeb5590ad",
+            "label": "Полный адрес",
+            "name": "map_full_adress",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61eabeb4590ac",
+            "label": "Регион",
+            "name": "region",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61eabeb2590ab",
+            "label": "Город",
+            "name": "city",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61eabea0590aa",
+            "label": "Улица",
+            "name": "street",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61eabe9c590a9",
+            "label": "Дом",
+            "name": "house",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61eabe9b590a2",
             "label": "«М.Видео-Эльдорадо» — это",
             "name": "mvideo-eldorado_eto",
             "type": "group",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_618510b6d4e7f",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -231,7 +280,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_61851112d4e81",
+                    "key": "field_61eabe9b590a3",
                     "label": "Заголовок 1",
                     "name": "mvideo_eldorado_title_1",
                     "type": "text",
@@ -250,7 +299,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_61851140d4e84",
+                    "key": "field_61eabe9b590a4",
                     "label": "Контент 1",
                     "name": "mvideo_eldorado_content_1",
                     "type": "textarea",
@@ -269,7 +318,7 @@
                     "new_lines": ""
                 },
                 {
-                    "key": "field_6185113dd4e82",
+                    "key": "field_61eabe9b590a5",
                     "label": "Заголовок 2",
                     "name": "mvideo_eldorado_title_2",
                     "type": "text",
@@ -288,7 +337,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_6185115cd4e86",
+                    "key": "field_61eabe9b590a6",
                     "label": "Контент 2",
                     "name": "mvideo_eldorado_content_2",
                     "type": "textarea",
@@ -307,7 +356,7 @@
                     "new_lines": ""
                 },
                 {
-                    "key": "field_6185113fd4e83",
+                    "key": "field_61eabe9b590a7",
                     "label": "Заголовок 3",
                     "name": "mvideo_eldorado_title_3",
                     "type": "text",
@@ -326,7 +375,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_6185115ed4e87",
+                    "key": "field_61eabe9b590a8",
                     "label": "Контент 3",
                     "name": "mvideo_eldorado_content_3",
                     "type": "textarea",
@@ -347,7 +396,7 @@
             ]
         },
         {
-            "key": "field_612f5bfa85e08",
+            "key": "field_61eabe9a5909f",
             "label": "Пункты контента",
             "name": "vacancy_repeater",
             "type": "repeater",
@@ -366,7 +415,7 @@
             "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_614393fe26e5e",
+                    "key": "field_61eabe9a590a0",
                     "label": "Название пункта",
                     "name": "item_title",
                     "type": "text",
@@ -385,7 +434,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_6143940926e5f",
+                    "key": "field_61eabe9a590a1",
                     "label": "Контент пункта",
                     "name": "item_contect",
                     "type": "wysiwyg",
@@ -406,7 +455,7 @@
             ]
         },
         {
-            "key": "field_612b6bf653ce6",
+            "key": "field_61eabe985909e",
             "label": "Изображение карты",
             "name": "img_map",
             "type": "image",
@@ -430,26 +479,7 @@
             "mime_types": ""
         },
         {
-            "key": "field_612b6c1053ce7",
-            "label": "Полный адрес",
-            "name": "map_full_adress",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_612b6c8653ce8",
+            "key": "field_61eabe975909d",
             "label": "Похожие вакансии",
             "name": "related_vacancies",
             "type": "relationship",
@@ -462,19 +492,24 @@
                 "id": ""
             },
             "post_type": [
-                "vacancies"
+                "it_vacancies",
+                "retail_vacancies",
+                "office_vacancies",
+                "logistics_vacancies"
             ],
             "taxonomy": "",
             "filters": [
                 "search"
             ],
-            "elements": "",
+            "elements": [
+                "featured_image"
+            ],
             "min": "",
             "max": "",
             "return_format": "id"
         },
         {
-            "key": "field_613665cbd3605",
+            "key": "field_61eabe945909c",
             "label": "Уникальный код",
             "name": "unique_code",
             "type": "text",
@@ -498,7 +533,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
+                "value": "logistics_vacancies"
             }
         ]
     ],
@@ -510,5 +545,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1642683612
+    "modified": 1642776905
 }
