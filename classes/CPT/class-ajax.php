@@ -49,37 +49,50 @@ class Ajax {
         $html = '';
         if( !empty( $_POST ) ){
 
+            $_modificator = $_POST['modificator'];
+
+            // Default args for ajax
             $args = array(
-                'post_type'         => 'vacancies',
+                'post_type'         => $_modificator.'vacancies',
                 'posts_per_page'    => 6,
                 'post_status'       => 'publish',
             );
 
+            // Check not clear all
             if( 'default' != $_POST['default'] ){
+
+                if( null != $_POST['top__profession'] ){
+                    $args['s'] = $_POST['top__profession'];
+                }
+
+                // Check and set specialization slug to args
                 if( null != $_POST['specialization_slug'] && '-1'!= $_POST['specialization_slug']  ){
                     $args['tax_query'][] = array(
-                        'taxonomy' => 'vaccat',
+                        'taxonomy' => $_modificator.'specialization',
                         'field'    => 'slug',
                         'terms'    => $_POST['specialization_slug']
                     );
                 }
     
+                // Check and set city term to args
                 if( '-1' != $_POST['town_slug'] ){
                     $args['tax_query'][] = array(
-                        'taxonomy' => 'town',
+                        'taxonomy' => $_modificator.'city',
                         'field'    => 'slug',
                         'terms'    => $_POST['town_slug']
                     );
                 }
 
+                // Check and set level term to args
                 if( '-1' != $_POST['level_slug'] ){
                     $args['tax_query'][] = array(
-                        'taxonomy' => 'level',
+                        'taxonomy' => $_modificator.'level',
                         'field'    => 'slug',
                         'terms'    => $_POST['level_slug']
                     );
                 }
 
+                // Check and set can_work_remotely checkbox flag to args
                 if( $_POST['can_work_remotely'] == 'true' ){
                     $args['meta_query'] = 
                     array(
@@ -92,6 +105,7 @@ class Ajax {
                     );
                 }
 
+                // Check and set can_without_experience checkbox flag to args
                 if( $_POST['can_without_experience'] == 'true' ){
 
                     if( isset($args['meta_query']) ){
@@ -113,9 +127,11 @@ class Ajax {
                     }
                 }
             } else{
+
+                // Clear all filter and check and set specialization slug to args
                 if( null != $_POST['specialization_slug'] && '-1'!= $_POST['specialization_slug']  ){
                     $args['tax_query'][] = array(
-                        'taxonomy' => 'vaccat',
+                        'taxonomy' => $_modificator.'specialization',
                         'field'    => 'slug',
                         'terms'    => $_POST['specialization_slug']
                     );
@@ -124,23 +140,11 @@ class Ajax {
 
             $actually_vacancies_by = new \WP_Query( $args );
 
-            if ( $actually_vacancies_by->have_posts() ) {
-                while ( $actually_vacancies_by->have_posts() ) {
-                    $actually_vacancies_by->the_post();
-                    $vacancy_item_id = get_the_ID();
-                    ob_start();
-                    include(THEME_DIR . '/template-parts/loop-parts/actually_vacancy_item.php');
-                    $html .= ob_get_clean();
-                }
-            }
-
-            $result = false;
-            if( '' != $html ) $result = true;
-
+            $html .= $this->get_html_templates_by_query( $actually_vacancies_by, $_modificator );
 
             if( '' != $html ){
                 $return = array(
-                    'success' 	=> $result,
+                    'success' 	=> true,
                     'html' 	=> $html,
                 );
         

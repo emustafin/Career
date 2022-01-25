@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
             document.querySelector('#actually_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
             var specialization_slug = document.querySelector('.profession__menu-item.profession__menu-item-active').getAttribute('data-specialization_slug');
-    
-    
+
             var data = {
-                action: 'get_profession__menu_items',
-                default: 'default',
-                specialization_slug : specialization_slug
+                action:                 'get_profession__menu_items',
+                default:                'default',
+                specialization_slug:    specialization_slug,
+                modificator:            modificator
             };
     
             var request = new XMLHttpRequest();
@@ -153,12 +153,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
         
         var data = {
-            action: 'get_profession__menu_items',
-            town_slug : town_slug,
-            level_slug : level_slug,
-            specialization_slug: specialization_slug,
-            can_without_experience : can_without_experience,
-            can_work_remotely : can_work_remotely,
+            action:                     'get_profession__menu_items',
+            town_slug:                  town_slug,
+            level_slug:                 level_slug,
+            specialization_slug:        specialization_slug,
+            can_without_experience:     can_without_experience,
+            can_work_remotely:          can_work_remotely,
+            modificator:                modificator
         };
 
         var request = new XMLHttpRequest();
