@@ -27,6 +27,23 @@ class Ajax {
 		add_action( 'wp_ajax_nopriv_get_vacancy_data', [$this, 'get_vacancy_data'] );
 	}
 
+    public function get_html_templates_by_query( $local_query, $_modificator = 'it_' ) {
+
+        $html = '';
+
+        if ( $local_query->have_posts() ) {
+            while ( $local_query->have_posts() ) {
+                $local_query->the_post();
+                $vacancy_item_id = get_the_ID();
+                ob_start();
+                include(THEME_DIR . '/template-parts/loop-parts/actually_vacancy_item.php');
+                $html .= ob_get_clean();
+            }
+        }
+
+        return $html;
+    }
+
     public function get_profession__menu_items() {
 
         $html = '';
