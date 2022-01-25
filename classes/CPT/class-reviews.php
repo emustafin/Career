@@ -105,7 +105,7 @@ class Reviews {
             'public'                => true,
             'hierarchical'          => true,
             'rewrite'               => false,
-            'query_var'             => 'relation',
+            'query_var'             => true,
             'capabilities'          => array(),
             'meta_box_cb'           => 'post_categories_meta_box', 
             'show_admin_column'     => true, 
