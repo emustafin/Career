@@ -6,6 +6,7 @@ Template Name: Logistic
 <?php get_header(); ?>
 <script>
     var rel_type = 'logistic';
+    var modificator = 'logistics_';
     var vacancyid = '';
     var sourceurl = '';
 </script>

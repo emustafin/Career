@@ -6,6 +6,7 @@ Template Name: IT
 <?php get_header(); ?>
 <script>
     var rel_type = 'it';
+    var modificator = 'it_';
     var vacancyid = '';
     var sourceurl = '';
 </script>

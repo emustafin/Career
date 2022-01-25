@@ -6,6 +6,7 @@ Template Name: Office
 <?php get_header(); ?>
 <script>
     var rel_type = 'office';
+    var modificator = 'office_';
     var vacancyid = '';
     var sourceurl = '';
 </script>

@@ -6,6 +6,7 @@ Template Name: Retail
 <?php get_header(); ?>
 <script>
     var rel_type = 'roznica';
+    var modificator = 'retail_';
     var vacancyid = '';
     var sourceurl = '';
 </script>
