@@ -8,13 +8,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
             e.preventDefault();
     
             document.querySelector('#actually_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
-            var vaccat_slug = document.querySelector('.profession__menu-item.profession__menu-item-active').getAttribute('data-vaccat_slug');
+            var specialization_slug = document.querySelector('.profession__menu-item.profession__menu-item-active').getAttribute('data-specialization_slug');
     
     
             var data = {
                 action: 'get_profession__menu_items',
                 default: 'default',
-                vaccat_slug : vaccat_slug
+                specialization_slug : specialization_slug
             };
     
             var request = new XMLHttpRequest();
@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         idPageCitySelect.removeAllTags();
     
                         var xxx = '';
-                        if( data.vaccat_slug != undefined ){
-                            xxx = '?vaccat_slug='+vaccat_slug;
+                        if( data.specialization_slug != undefined ){
+                            xxx = '?specialization_slug='+specialization_slug;
                         }
     
                         window.history.pushState('', '', window.location.origin + window.location.pathname + xxx );
@@ -79,16 +79,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 filtering();
         
                 document.querySelector('h2.profession__title').innerHTML = current_item.innerHTML;
-                var vaccat_info = current_item.getAttribute('data-vaccat_info');
-                vaccat_info = JSON.parse( vaccat_info );
+                var specialization_info = current_item.getAttribute('data-specialization_info');
+                specialization_info = JSON.parse( specialization_info );
         
-                document.querySelector('#profession__description').innerHTML = vaccat_info.profession__description;
-                document.querySelector('#profession__tehnology').innerHTML = vaccat_info.profession__tehnology;
-                // document.querySelector('#profession__permalink').href = vaccat_info.profession__permalink;
-                // document.querySelector('#profession__permalink_mob').href = vaccat_info.profession__permalink;
-                // document.querySelector('#profession__count').innerHTML = vaccat_info.profession__count;
-                // document.querySelector('#profession__count_mob').innerHTML = vaccat_info.profession__count;
-                document.querySelector('#profession__img').src = vaccat_info.profession__img;
+                document.querySelector('#profession__description').innerHTML = specialization_info.profession__description;
+                document.querySelector('#profession__tehnology').innerHTML = specialization_info.profession__tehnology;
+                // document.querySelector('#profession__permalink').href = specialization_info.profession__permalink;
+                // document.querySelector('#profession__permalink_mob').href = specialization_info.profession__permalink;
+                // document.querySelector('#profession__count').innerHTML = specialization_info.profession__count;
+                // document.querySelector('#profession__count_mob').innerHTML = specialization_info.profession__count;
+                document.querySelector('#profession__img').src = specialization_info.profession__img;
     
             })
         })
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         var town_slug = document.querySelector('#town').value;
         var level_slug = document.querySelector('#level').value;
-        var vaccat_slug = document.querySelector('.profession__menu-item.profession__menu-item-active').getAttribute('data-vaccat_slug');;
+        var specialization_slug = document.querySelector('.profession__menu-item.profession__menu-item-active').getAttribute('data-specialization_slug');
         
         var can_without_experience = false;
         document.querySelectorAll('.can_without_experience').forEach(item => {
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             action: 'get_profession__menu_items',
             town_slug : town_slug,
             level_slug : level_slug,
-            vaccat_slug: vaccat_slug,
+            specialization_slug: specialization_slug,
             can_without_experience : can_without_experience,
             can_work_remotely : can_work_remotely,
         };
@@ -186,8 +186,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     if( data.town_slug != '-1' ){
                         xxx = xxx+'&town_slug='+town_slug;
                     }
-                    if( data.vaccat_slug != undefined ){
-                        xxx = xxx+'&vaccat_slug='+vaccat_slug;
+                    if( data.specialization_slug != undefined ){
+                        xxx = xxx+'&specialization_slug='+specialization_slug;
                     }
 
                     if( xxx != '' ){
@@ -274,9 +274,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.querySelector('#archive_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
         
         var top__profession = document.querySelector('#listing-top__profession-filter').value;
-        var vaccat_slug = document.querySelector('#listing__specialization-select').value;
+        var specialization_slug = document.querySelector('#listing__specialization-select').value;
         var level_slug = document.querySelector('#listing__level-select').value;
-        var city_slug = document.querySelector('#listing__city-select').value;
+        var town_slug = document.querySelector('#listing__city-select').value;
 
         var archive_without_experience = false;
         document.querySelectorAll('.archive_without_experience').forEach(item => {
@@ -295,9 +295,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         var data = {
             action: 'archive_get_profession__menu_items',
             top__profession : top__profession,
-            vaccat_slug : vaccat_slug,
+            specialization_slug : specialization_slug,
             level_slug: level_slug,
-            city_slug : city_slug,
+            town_slug : town_slug,
             archive_without_experience : archive_without_experience,
             archive_remotely : archive_remotely,
         };
@@ -339,11 +339,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     if( data.level_slug != '-1' ){
                         xxx = xxx+'&level_slug='+level_slug;
                     }
-                    if( data.city_slug != '-1' ){
-                        xxx = xxx+'&city_slug='+city_slug;
+                    if( data.town_slug != '-1' ){
+                        xxx = xxx+'&town_slug='+town_slug;
                     }
-                    if( data.vaccat_slug != undefined ){
-                        xxx = xxx+'&vaccat_slug='+vaccat_slug;
+                    if( data.specialization_slug != undefined ){
+                        xxx = xxx+'&specialization_slug='+specialization_slug;
                     }
                     if( data.top__profession != undefined ){
                         xxx = xxx+'&s='+top__profession;

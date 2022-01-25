@@ -40,11 +40,11 @@ class Ajax {
             );
 
             if( 'default' != $_POST['default'] ){
-                if( null != $_POST['vaccat_slug'] && '-1'!= $_POST['vaccat_slug']  ){
+                if( null != $_POST['specialization_slug'] && '-1'!= $_POST['specialization_slug']  ){
                     $args['tax_query'][] = array(
                         'taxonomy' => 'vaccat',
                         'field'    => 'slug',
-                        'terms'    => $_POST['vaccat_slug']
+                        'terms'    => $_POST['specialization_slug']
                     );
                 }
     
@@ -97,11 +97,11 @@ class Ajax {
                     }
                 }
             } else{
-                if( null != $_POST['vaccat_slug'] && '-1'!= $_POST['vaccat_slug']  ){
+                if( null != $_POST['specialization_slug'] && '-1'!= $_POST['specialization_slug']  ){
                     $args['tax_query'][] = array(
                         'taxonomy' => 'vaccat',
                         'field'    => 'slug',
-                        'terms'    => $_POST['vaccat_slug']
+                        'terms'    => $_POST['specialization_slug']
                     );
                 }
             }
@@ -193,19 +193,19 @@ class Ajax {
                     $args['s'] = $_POST['top__profession'];
                 }
 
-                if( null != $_POST['vaccat_slug'] && '-1'!= $_POST['vaccat_slug'] ){
+                if( null != $_POST['specialization_slug'] && '-1'!= $_POST['specialization_slug'] ){
                     $args['tax_query'][] = array(
                         'taxonomy' => 'vaccat',
                         'field'    => 'slug',
-                        'terms'    => $_POST['vaccat_slug']
+                        'terms'    => $_POST['specialization_slug']
                     );
                 }
     
-                if( '-1' != $_POST['city_slug'] ){
+                if( '-1' != $_POST['town_slug'] ){
                     $args['tax_query'][] = array(
                         'taxonomy' => 'town',
                         'field'    => 'slug',
-                        'terms'    => $_POST['city_slug']
+                        'terms'    => $_POST['town_slug']
                     );
                 }
 
