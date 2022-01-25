@@ -10,69 +10,48 @@ $level_terms = get_terms( $_modificator.'level' );
 ?>
 <section class="profession">
     <div class="container">
-        <div id="vaccat_items" class="profession__header">
+        <div id="specialization_items" class="profession__header">
             <p class="profession__question">Что подходит тебе?</p>
             
             <?php
-            $vaccat_terms = get_terms( 'vaccat' );
-            $town_terms = get_terms( 'town' );
-            $level_terms = get_terms( 'level' );
+            $spc_data = (array) TC()->supporting->get_specialization_data( $specialization_terms, $_GET );
+            $filter_params = (array) TC()->supporting->get_filter_params( $_GET );
 
-            // TODO Иногда массив приходит без нулевого элемента
-            foreach ($vaccat_terms as $vaccat_term) {
-                $first_vaccat = $vaccat_term;
-                $vaccat_slug = $vaccat_term->slug;
-                break;
-            }
-
-            $town_slug = '';
-            $level_slug = '';
-            $can_work_remotely = '';
-            $can_without_experience = '';
-
-            if( NotEmptyGetParam('vaccat_slug') )               $vaccat_slug = $_GET['vaccat_slug'];
-            if( NotEmptyGetParam('town_slug') )                 $town_slug = $_GET['town_slug'];
-            if( NotEmptyGetParam('level_slug') )                $level_slug = $_GET['level_slug'];
-            if( NotEmptyGetParam('can_work_remotely') )         $can_work_remotely = 'checked';
-            if( NotEmptyGetParam('can_without_experience') && true == $_GET['can_without_experience'] ) $can_without_experience = 'checked';
-
-            $profession__title = '';
-
-            if( $vaccat_terms && ! is_wp_error($vaccat_terms) ): ?>
+            if( $specialization_terms && ! is_wp_error($specialization_terms) ): ?>
                 
                 <nav class="profession__menu">
                     
-                <?php foreach( $vaccat_terms as $vaccat_term ):
+                <?php foreach( $specialization_terms as $specialization_term ):
 
                     $profession__technology = '';
-                    if( get_field( 'vaccat_tehnologies', $vaccat_term ) ){
-                        foreach (get_field( 'vaccat_tehnologies', $vaccat_term ) as $tech) {
+                    if( get_field( 'specialization_tehnologies', $specialization_term ) ){
+                        foreach (get_field( 'specialization_tehnologies', $specialization_term ) as $tech) {
                             $profession__technology .= '<div class="profession__technology-item '.$tech['value'].'">'.$tech['label'].'</div>';
                         }
                     }
 
-                    $vaccat_data = array(
-                        'profession__description'   => term_description( $vaccat_term->term_id, 'vaccat' ),
+                    $specialization_data = array(
+                        'profession__description'   => term_description( $specialization_term->term_id, $_modificator.'specialization' ),
                         'profession__tehnology'     => $profession__technology,
-                        'profession__permalink'     => get_term_link( $vaccat_term->term_id, 'vaccat'),
-                        'profession__count'         => $vaccat_term->count,
-                        'profession__img'           => get_field( 'vaccat_img', $vaccat_term )
+                        'profession__permalink'     => get_term_link( $specialization_term->term_id, $_modificator.'specialization'),
+                        'profession__count'         => $specialization_term->count,
+                        'profession__img'           => get_field( 'specialization_img', $specialization_term )
                     );
                     
                     $active_class = '';
 
-                    if( $vaccat_term->slug == $vaccat_slug ){
+                    if( $specialization_term->slug == $spc_data['specialization_slug'] ){
                         $active_class = 'profession__menu-item-active';
-                        $profession__title = $vaccat_term->name;
+                        $profession__title = $specialization_term->name;
                     }
                     ?>
 
                     <span 
-                        data-vaccat_info='<?php echo json_encode($vaccat_data); ?>' 
-                        data-vaccat_slug="<?php echo $vaccat_term->slug; ?>" 
+                        data-specialization_info='<?php echo json_encode($specialization_data); ?>' 
+                        data-specialization_slug="<?php echo $specialization_term->slug; ?>" 
                         class="cursor-pointer profession__menu-item <?php echo $active_class; ?>"
                     >
-                        <?php echo $vaccat_term->name; ?>
+                        <?php echo $specialization_term->name; ?>
                     </span>
 
                 <?php endforeach; ?>
@@ -83,23 +62,30 @@ $level_terms = get_terms( $_modificator.'level' );
         <h2 class="profession__title"><?php echo $profession__title; ?></h2>
 
         <div class="profession__content">
+
             <div class="profession__side-bar">
+              <?php if( '' != $spc_data['first_specialization'] ){ ?>
+
                 <div class="profession__side-bar-text-wrapper">
                     <div id="profession__description" class="profession__side-bar-text">
-                        <?php echo term_description( $first_vaccat->term_id, 'vaccat' ); ?>
+                        <?php echo term_description( $spc_data['first_specialization']->term_id, $_modificator.'specialization' ); ?>
                     </div>
                     <p class="profession__side-bar-text">Мы используем</p>
                     <div id="profession__tehnology" class="profession__side-bar-image-tools-wrapper">
-                        <?php if( get_field( 'vaccat_tehnologies', $first_vaccat ) != null ):
-                            foreach (get_field( 'vaccat_tehnologies', $first_vaccat ) as $tech) : ?>
+                        <?php 
+                        if( get_field( 'specialization_tehnologies', $spc_data['first_specialization'] ) != null ):
+                          foreach (get_field( 'specialization_tehnologies', $spc_data['first_specialization'] ) as $tech) :
+                            ?>
                             <div class="profession__technology-item <?php echo $tech['value']; ?>"><?php echo $tech['label']; ?></div>
-                        <?php  endforeach; 
-                           endif;?>
+                            <?php  
+                          endforeach; 
+                        endif;
+                        ?>
                     </div>
 
-                    <!-- 
-                        <a id="profession__permalink_mob" href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy-mobile">
-                            <span id="profession__count_mob" class="profession__side-bar-vacancy-value"><?php echo $first_vaccat->count; ?></span>
+                    
+                        <a id="profession__permalink_mob" href="<?php echo get_term_link( $spc_data['first_specialization']->term_id, $_modificator.'specialization'); ?>" class="profession__side-bar-vacancy-mobile">
+                            <span id="profession__count_mob" class="profession__side-bar-vacancy-value"><?php echo $spc_data['first_specialization']->count; ?></span>
                             вакансии в
                             <span class="profession__side-bar-vacancy-value">
                                 Менеджменте
@@ -110,12 +96,12 @@ $level_terms = get_terms( $_modificator.'level' );
                                 </svg>
                             </span>
                         </a> 
-                    -->
+                  
                 </div>
 
                 <!-- 
-                    <a id="profession__permalink" href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="profession__side-bar-vacancy">
-                        <span id="profession__count" class="profession__side-bar-vacancy-value"><?php echo $first_vaccat->count; ?></span>
+                    <a id="profession__permalink" href="<?php echo get_term_link( $spc_data['first_specialization']->term_id, $_modificator.'specialization'); ?>" class="profession__side-bar-vacancy">
+                        <span id="profession__count" class="profession__side-bar-vacancy-value"><?php echo $spc_data['first_specialization']->count; ?></span>
                         вакансии в
                         <span class="profession__side-bar-vacancy-value">
                         Менеджменте
@@ -128,9 +114,13 @@ $level_terms = get_terms( $_modificator.'level' );
                     </a> 
                 -->
 
-                <div class="profession__side-bar-image-wrapper loading">
-                    <img id="profession__img" class="profession__side-bar-image" data-src="<?php echo get_field( 'vaccat_img', $first_vaccat ); ?>" alt="management" title="Профессии" src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png" width="1000" height="563"/>
-                </div>
+                <?php if( null != get_field( 'specialization_img', $spc_data['first_specialization'] ) ){ ?>
+                  <div class="profession__side-bar-image-wrapper loading">
+                      <img id="profession__img" class="profession__side-bar-image" data-src="<?php echo get_field( 'specialization_img', $spc_data['first_specialization'] ); ?>" alt="management" title="Профессии" src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png" width="1000" height="563"/>
+                  </div>
+                <?php } ?>
+
+              <?php } ?>
             </div>
 
             <div class="profession__main-content">
@@ -138,164 +128,41 @@ $level_terms = get_terms( $_modificator.'level' );
                     <div class="profession__filter-item">
                         <p class="profession__filter-item-title">Уровень</p>
                         <div class="profession__filter-item-select">
-<!-- 
-                            <select name="level" id="level">
-                                <option value="-1">Выберите уровень</option>
+                          <?php 
+                          $level_arr = array( '-1' => 'Любой' );
+                          foreach( $level_terms as $level_term ):
+                              $level_arr[$level_term->slug] = $level_term->name;
+                          endforeach; 
+                          ?>
 
-                                <?php $level_arr = array( '-1' => 'Любой' );
-                                foreach( $level_terms as $level_term ):
-                                    $selected = '';
-                                    $level_arr[$level_term->slug] = $level_term->name;
-                                    if( $level_slug == $level_term->slug ) $selected = 'selected'; ?>
-                                    <option value="<?php echo $level_term->slug; ?>" <?php echo $selected; ?>><?php echo $level_term->name; ?></option>
-                                <?php endforeach; ?>
+                          <input type="hidden" id="level" value="-1"/>
+                          <input class="selectMode profession__level-select" name="tags-select-mode" placeholder="Выбери уровень" value=""/>
 
-                            </select>
-                             -->
-                             
-                             <input type="hidden" id="level" value="-1"/>
-                             <input
-                                class="selectMode profession__level-select"
-                                name="tags-select-mode"
-                                placeholder="Выбери уровень"
-                                value=""
-                            />
+                          <div class="profession__filter-item-select-arrow">
+                              <svg
+                              class="profession__filter-item-select-arrow-image"
+                              width="10"
+                              height="10"
+                              viewBox="0 0 10 10"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              >
+                              <path
+                                  d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
+                                  fill="black"
+                              />
+                              </svg>
+                          </div>
 
-                            <div class="profession__filter-item-select-arrow">
-                                <svg
-                                class="profession__filter-item-select-arrow-image"
-                                width="10"
-                                height="10"
-                                viewBox="0 0 10 10"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                >
-                                <path
-                                    d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
-                                    fill="black"
-                                />
-                                </svg>
-                            </div>
-
-
-                            <script>
-                                var levels = '<?php echo json_encode( $level_arr ); ?>';
-                            </script>
-                            <!-- 
-                                <p class="profession__filter-item-select-value">
-                                Junior, Senior
-                                </p>
-                                <div class="profession__filter-item-select-arrow">
-                                <img
-                                    class="profession__filter-item-select-arrow-image"
-                                    src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-bottom.svg"
-                                    alt="arrow-bottom"
-                                />
-                                </div>
-                                <div class="profession__filter-item-select-list hide">
-                                    <p class="profession__filter-item-select-list-item">
-                                        Junior, Senior
-                                    </p>
-                                    <p class="profession__filter-item-select-list-item">Lead</p>
-                                    <p class="profession__filter-item-select-list-item">
-                                        Middle
-                                    </p>
-                                </div> 
-                            -->
+                          <script>
+                              var levels = '<?php echo json_encode( $level_arr ); ?>';
+                          </script>
                         </div>
 
-                        
-                            <label class="profession__filter-checbox-wrapper-mobile">
-                                <input class="profession__filter-input can_without_experience" type="checkbox" <?php echo $can_without_experience; ?>/>
-                                Без опыта
-                                <span class="profession__filter-checbox-value">
-                                    <svg
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 16 16"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                        <path
-                                            d="M12.5 5L6.5 11L3.5 8"
-                                            stroke="black"
-                                            stroke-width="1.2"
-                                        />
-                                    </svg>
-                                </span>
-                            </label> 
-                       
-                    </div>
-
-                    <div class="profession__filter-item">
-                        <p class="profession__filter-item-title">Город</p>
-                        <div class="profession__filter-item-select">
-<!-- 
-                            <select name="town" id="town">
-                                <option value="-1">Выберите город</option>
-                                <?php $towns_array = array( '-1' => 'Любой' );
-                                foreach( $town_terms as $town_term ):
-                                    $towns_array[$town_term->slug] = $town_term->name;
-                                    if( $town_slug == $town_term->slug ) $selected = 'selected'; ?>
-                                        <option value="<?php echo $town_term->slug; ?>" <?php echo $selected; ?>><?php echo $town_term->name; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                             -->
-
-                             <input type="hidden" id="town" value="-1"/>
-                             <input
-                                name="tags-select-mode"
-                                class="selectMode profession__city-select"
-                                placeholder="Выбери город"
-                                value=""
-                            />
-                            <div class="profession__filter-item-select-arrow">
-                                <svg
-                                class="profession__filter-item-select-arrow-image"
-                                width="10"
-                                height="10"
-                                viewBox="0 0 10 10"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                >
-                                <path
-                                    d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
-                                    fill="black"
-                                />
-                                </svg>
-                            </div>
-
-                            <script>
-                               var towns = '<?php echo json_encode( $towns_array ); ?>';
-                            </script>
-                            <!-- 
-                                <p class="profession__filter-item-select-value">Любой</p>
-                                <div class="profession__filter-item-select-arrow">
-                                <img
-                                    class="profession__filter-item-select-arrow-image"
-                                    src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-bottom.svg"
-                                    alt="arrow-bottom"
-                                />
-                                </div>
-                                <div class="profession__filter-item-select-list hide">
-                                <p class="profession__filter-item-select-list-item">
-                                    Любой
-                                </p>
-                                <p class="profession__filter-item-select-list-item">
-                                    Москва
-                                </p>
-                                <p class="profession__filter-item-select-list-item">
-                                    Санкт-Петербург
-                                </p>
-                                </div> 
-                            -->
-                        </div>
-
-                        
-                            <label class="profession__filter-checbox-wrapper-mobile">
-                                <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $can_work_remotely; ?>/>
-                                Удалённо
-                                <span class="profession__filter-checbox-value">
+                        <label class="profession__filter-checbox-wrapper-mobile">
+                            <input class="profession__filter-input can_without_experience" type="checkbox" <?php echo $filter_params['can_without_experience']; ?>/>
+                            Без опыта
+                            <span class="profession__filter-checbox-value">
                                 <svg
                                     width="16"
                                     height="16"
@@ -309,51 +176,109 @@ $level_terms = get_terms( $_modificator.'level' );
                                         stroke-width="1.2"
                                     />
                                 </svg>
-                                </span>
-                            </label> 
+                            </span>
+                        </label> 
+
+                    </div>
+
+                    <div class="profession__filter-item">
+                        <p class="profession__filter-item-title">Город</p>
+                        <div class="profession__filter-item-select">
+                          <?php 
+                          $towns_array = array( '-1' => 'Любой' );
+                          foreach( $town_terms as $town_term ):
+                              $towns_array[$town_term->slug] = $town_term->name;
+                          endforeach; 
+                          ?>
+
+                          <input type="hidden" id="town" value="-1"/>
+                          <input name="tags-select-mode" class="selectMode profession__city-select" placeholder="Выбери город" value=""/>
+                          
+                          <div class="profession__filter-item-select-arrow">
+                              <svg
+                              class="profession__filter-item-select-arrow-image"
+                              width="10"
+                              height="10"
+                              viewBox="0 0 10 10"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              >
+                              <path
+                                  d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
+                                  fill="black"
+                              />
+                              </svg>
+                          </div>
+
+                          <script>
+                              var towns = '<?php echo json_encode( $towns_array ); ?>';
+                          </script>
+
+                        </div>
+
+                        
+                        <label class="profession__filter-checbox-wrapper-mobile">
+                            <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $filter_params['can_work_remotely']; ?>/>
+                            Удалённо
+                            <span class="profession__filter-checbox-value">
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                >
+                                <path
+                                    d="M12.5 5L6.5 11L3.5 8"
+                                    stroke="black"
+                                    stroke-width="1.2"
+                                />
+                            </svg>
+                            </span>
+                        </label> 
                        
                     </div>
 
                     <div class="profession__checkbox-container">
-                    <label class="profession__filter-checbox-wrapper">
-                        <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $can_work_remotely; ?>/>
-                        Удалённо
-                        <span class="profession__filter-checbox-value">
-                        <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            >
-                            <path
-                                d="M12.5 5L6.5 11L3.5 8"
-                                stroke="black"
-                                stroke-width="1.2"
-                            />
-                        </svg>
-                        </span>
-                    </label>
+                      <label class="profession__filter-checbox-wrapper">
+                          <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $filter_params['can_work_remotely']; ?>/>
+                          Удалённо
+                          <span class="profession__filter-checbox-value">
+                          <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              >
+                              <path
+                                  d="M12.5 5L6.5 11L3.5 8"
+                                  stroke="black"
+                                  stroke-width="1.2"
+                              />
+                          </svg>
+                          </span>
+                      </label>
 
-                    <label class="profession__filter-checbox-wrapper">
-                        <input class="profession__filter-input can_without_experience" type="checkbox"  <?php echo $can_without_experience; ?>/>
-                        Без опыта
-                        <span class="profession__filter-checbox-value">
-                        <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            >
-                            <path
-                                d="M12.5 5L6.5 11L3.5 8"
-                                stroke="black"
-                                stroke-width="1.2"
-                            />
-                        </svg>
-                        </span>
-                    </label>
+                      <label class="profession__filter-checbox-wrapper">
+                          <input class="profession__filter-input can_without_experience" type="checkbox"  <?php echo $filter_params['can_without_experience']; ?>/>
+                          Без опыта
+                          <span class="profession__filter-checbox-value">
+                          <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              >
+                              <path
+                                  d="M12.5 5L6.5 11L3.5 8"
+                                  stroke="black"
+                                  stroke-width="1.2"
+                              />
+                          </svg>
+                          </span>
+                      </label>
                     </div>
 
                     <div id="clear_all_filters" class="cursor-pointer profession__filter-reset">Сбросить фильтры</div>
@@ -363,37 +288,36 @@ $level_terms = get_terms( $_modificator.'level' );
 
                     <?php                    
                         $args = array(
-                            'post_type'         => 'vacancies',
+                            'post_type'         => $_modificator.'vacancies', 
                             'posts_per_page'    => -1,
                             'post_status'       => 'publish',
-                            'relationship'      => 'it'
                         );
 
-                        if( '' != $vaccat_slug ){
+                        if( '' != $spc_data['specialization_slug'] ){
                             $args['tax_query'][] = array(
-                                'taxonomy' => 'vaccat',
+                                'taxonomy' => $_modificator.'specialization',
                                 'field'    => 'slug',
-                                'terms'    => $vaccat_slug
+                                'terms'    => $spc_data['specialization_slug']
                             );
                         }
 
-                        if( '' != $town_slug ){
+                        if( '' != $filter_params['town_slug'] ){
                             $args['tax_query'][] = array(
-                                'taxonomy' => 'town',
+                                'taxonomy' => $_modificator.'city',
                                 'field'    => 'slug',
-                                'terms'    => $town_slug
+                                'terms'    => $filter_params['town_slug']
                             );
                         }
 
-                        if( '' != $level_slug ){
+                        if( '' != $filter_params['level_slug'] ){
                             $args['tax_query'][] = array(
-                                'taxonomy' => 'level',
+                                'taxonomy' => $_modificator.'level',
                                 'field'    => 'slug',
-                                'terms'    => $level_slug
+                                'terms'    => $filter_params['level_slug']
                             );
                         }
 
-                        if( $can_without_experience == true ){
+                        if( $filter_params['can_without_experience'] == true ){
                             $args['meta_query'] = 
                             array(
                                 'relation'		=> 'AND',
