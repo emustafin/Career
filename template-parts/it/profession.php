@@ -317,16 +317,37 @@ $level_terms = get_terms( $_modificator.'level' );
                             );
                         }
 
-                        if( $filter_params['can_without_experience'] == true ){
+                        if( $filter_params['can_work_remotely'] == 'checked' ){
                             $args['meta_query'] = 
                             array(
                                 'relation'		=> 'AND',
                                 array(
-                                    'key'		=> 'can_without_experience',
-                                    'value'		=> 'can_without_experience',
+                                    'key'		=> 'can_work_remotely',
+                                    'value'		=> true,
                                     'compare'	=> '='
                                 )
                             );
+                        }
+
+                        if( $filter_params['can_without_experience'] == 'checked' ){
+
+                            if( isset($args['meta_query']) ){
+                                $args['meta_query'][] = array(
+                                    'key'		=> 'can_without_experience',
+                                    'value'		=> 'can_without_experience',
+                                    'compare'	=> '='
+                                );
+                            } else{
+                                $args['meta_query'] = 
+                                array(
+                                    'relation'		=> 'AND',
+                                    array(
+                                        'key'		=> 'can_without_experience',
+                                        'value'		=> 'can_without_experience',
+                                        'compare'	=> '='
+                                    )
+                                );
+                            }
                         }
 
                         $actually_vacancies = new WP_Query( $args );
