@@ -125,6 +125,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   max-width: 304px;
   margin-right: 16px;
   // border-bottom: 1px solid $blackColorOpacity-05;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   position: relative;
   cursor: pointer;
 
@@ -246,6 +247,14 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
     cursor: pointer;
 
     display: none;
+  }
+
+  & .tagify{
+    padding-bottom: 0;
+
+    & span.tagify__input{
+      border-bottom: none;
+    }
   }
 }
 

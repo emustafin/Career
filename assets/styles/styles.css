@@ -4935,6 +4935,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   width: 100%;
   max-width: 304px;
   margin-right: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   position: relative;
   cursor: pointer;
   display: flex;
@@ -5016,6 +5017,10 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
     background: url("../images/listing/listing-top/search.svg") no-repeat;
     cursor: pointer;
     display: none; }
+  .listing-top__filter-item:first-child .tagify {
+    padding-bottom: 0; }
+    .listing-top__filter-item:first-child .tagify span.tagify__input {
+      border-bottom: none; }
 
 .listing-top__filter-item-button-reset {
   position: absolute;
@@ -6226,6 +6231,12 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 .profession__filter-item-select {
   display: flex;
   justify-content: space-between; }
+  .profession__filter-item-select .tagify.tagify--select.selectMode.listing__specialization-select {
+    border: none; }
+  .profession__filter-item-select .tagify.tagify--select.selectMode.listing__level-select {
+    border: none; }
+  .profession__filter-item-select .tagify.tagify--select.selectMode.listing__city-select {
+    border: none; }
 
 .profession__filter-item-select-arrow {
   display: flex;
