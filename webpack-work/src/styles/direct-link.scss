@@ -77,7 +77,7 @@
   padding-top: 16px;
 
   position: fixed;
-  top: 112px;
+  top: auto;
   left: 16px;
   transition: 0.3s;
 }
@@ -143,6 +143,16 @@
 
 .direct-link__content {
   width: 67%;
+
+  // styles for 1440px
+  @media (max-width: 1919px) {
+    width: 67.05%;
+  }
+
+  // styles for 1024px
+  @media (max-width: 1439px) {
+    width: 67.14%;
+  }
 }
 
 .direct-link__header-headline {

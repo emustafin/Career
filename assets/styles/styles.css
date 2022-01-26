@@ -1505,19 +1505,23 @@
 .vacancy__form,
 .vacancy__positions,
 .vacancy__news {
-  margin-bottom: 96px;
-  margin-left: 16px;
-  margin-right: 16px; }
+  margin-bottom: 96px; }
 
 .vacancy__description-block {
   overflow: hidden; }
 
 .vacancy__intro {
-  display: flex; }
+  display: flex;
+  justify-content: space-between; }
 
-.vacancy__video,
 .vacancy__intro-description {
-  width: 50%; }
+  width: 49.33%; }
+  @media (max-width: 1919px) {
+    .vacancy__intro-description {
+      width: 49.15%; } }
+  @media (max-width: 1439px) {
+    .vacancy__intro-description {
+      width: 48.95%; } }
 
 .vacancy__intro-description > span,
 .vacancy__description-list > ul > li > span {
@@ -1579,8 +1583,28 @@
     margin-bottom: 0; }
 
 .vacancy__description-title,
-.vacancy__description-list {
-  width: 50%; }
+.vacancy__form-title-block {
+  width: 50.59%; }
+  @media (max-width: 1919px) {
+    .vacancy__description-title,
+    .vacancy__form-title-block {
+      width: 50.85%; } }
+  @media (max-width: 1439px) {
+    .vacancy__description-title,
+    .vacancy__form-title-block {
+      width: 51.05%; } }
+
+.vacancy__description-list,
+.vacancy__form-inner-block {
+  width: 49.41%; }
+  @media (max-width: 1919px) {
+    .vacancy__description-list,
+    .vacancy__form-inner-block {
+      width: 49.15%; } }
+  @media (max-width: 1439px) {
+    .vacancy__description-list,
+    .vacancy__form-inner-block {
+      width: 48.95%; } }
 
 .vacancy__description-list {
   padding-left: 18px; }
@@ -1592,11 +1616,13 @@
   width: 100%; }
 
 .vacancy__description-list-item,
-.vacancy__description-list > ul > li {
+.vacancy__description-list > ul > li,
+.vacancy__description-list > div > ul > li {
   list-style: disc;
   margin-bottom: 20px; }
   .vacancy__description-list-item:last-child,
-  .vacancy__description-list > ul > li:last-child {
+  .vacancy__description-list > ul > li:last-child,
+  .vacancy__description-list > div > ul > li:last-child {
     margin-bottom: 0; }
 
 .vacancy__description-list > ul > li > ul > li {
@@ -1781,10 +1807,6 @@
 .vacancy__form {
   display: flex;
   overflow: hidden; }
-
-.vacancy__form-title-block,
-.vacancy__form-inner-block {
-  width: 50%; }
 
 .vacancy__form-title {
   font-size: 64px;
@@ -2053,6 +2075,11 @@
 .vacancy__news-block-mobile {
   display: none; }
 
+.popup_vacancy_content,
+.vacancy__header {
+  margin-left: 16px;
+  margin-right: 16px; }
+
 @media (max-width: 1440px) {
   .flyout,
   .flyout__active {
@@ -2207,13 +2234,13 @@
     display: block; }
   .vacancy__video,
   .vacancy__description-title {
-    width: 30%;
-    margin-right: 28px; }
+    width: 32.98%; }
   .vacancy__description-title-text {
     width: 80%; }
   .vacancy__intro-description,
   .vacancy__description-list {
-    width: 70%; }
+    width: 67.02%;
+    padding-left: 0; }
   .vacancy__description-list-item,
   .vacancy__description-list > ul > li {
     margin-left: 15px; }
@@ -2236,9 +2263,9 @@
     width: 78px;
     height: 88px; }
   .vacancy__form-title-block {
-    width: 30%; }
+    width: 32.98%; }
   .vacancy__form-inner-block {
-    width: 70%; }
+    width: 67.02%; }
   .vacancy__response {
     margin-top: 36px; }
   .vacancy__positions-item {
@@ -7763,7 +7790,7 @@ input#form__town {
   width: 30%;
   padding-top: 16px;
   position: fixed;
-  top: 112px;
+  top: auto;
   left: 16px;
   transition: 0.3s; }
 
@@ -7816,6 +7843,12 @@ input#form__town {
 
 .direct-link__content {
   width: 67%; }
+  @media (max-width: 1919px) {
+    .direct-link__content {
+      width: 67.05%; } }
+  @media (max-width: 1439px) {
+    .direct-link__content {
+      width: 67.14%; } }
 
 .direct-link__header-headline {
   margin-bottom: 96px;

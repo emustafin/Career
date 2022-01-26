@@ -156,8 +156,6 @@
 .vacancy__positions,
 .vacancy__news {
   margin-bottom: 96px;
-  margin-left: 16px;
-  margin-right: 16px;
 }
 
 .vacancy__description-block {
@@ -167,11 +165,21 @@
 // Styles for Flyout-Intro
 .vacancy__intro {
   display: flex;
+  justify-content: space-between;
 }
 
-.vacancy__video,
 .vacancy__intro-description {
-  width: 50%;
+  width: 49.33%;
+
+  // styles for 1440px
+  @media (max-width: 1919px) {
+    width: 49.15%;
+  }
+
+  // styles for 1024px
+  @media (max-width: 1439px) {
+    width: 48.95%;
+  }
 }
 
 .vacancy__intro-description > span,
@@ -257,8 +265,33 @@
 }
 
 .vacancy__description-title,
-.vacancy__description-list {
-  width: 50%;
+.vacancy__form-title-block{
+  width: 50.59%;
+
+  // styles for 1440px
+  @media (max-width: 1919px) {
+    width: 50.85%;
+  }
+
+  // styles for 1024px
+  @media (max-width: 1439px) {
+    width: 51.05%;
+  }
+}
+
+.vacancy__description-list,
+.vacancy__form-inner-block{
+  width: 49.41%;
+
+  // styles for 1440px
+  @media (max-width: 1919px) {
+    width: 49.15%;
+  }
+
+  // styles for 1024px
+  @media (max-width: 1439px) {
+    width: 48.95%;
+  }
 }
 
 .vacancy__description-list{
@@ -274,7 +307,8 @@
 }
 
 .vacancy__description-list-item,
-.vacancy__description-list > ul > li {
+.vacancy__description-list > ul > li,
+.vacancy__description-list > div > ul > li{
   list-style: disc;
   margin-bottom: 20px;
 
@@ -500,11 +534,6 @@
 .vacancy__form {
   display: flex;
   overflow: hidden;
-}
-
-.vacancy__form-title-block,
-.vacancy__form-inner-block {
-  width: 50%;
 }
 
 .vacancy__form-title {
@@ -830,6 +859,12 @@
   display: none;
 }
 
+.popup_vacancy_content,
+.vacancy__header{
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
 // Styles for 1440px
 @media (max-width: 1440px) {
   .flyout,
@@ -1100,8 +1135,7 @@
 
   .vacancy__video,
   .vacancy__description-title {
-    width: 30%;
-    margin-right: 28px;
+    width: 32.98%;
   }
 
   .vacancy__description-title-text {
@@ -1110,7 +1144,8 @@
 
   .vacancy__intro-description,
   .vacancy__description-list {
-    width: 70%;
+    width: 67.02%;
+    padding-left: 0;
   }
 
   .vacancy__description-list-item,
@@ -1151,11 +1186,11 @@
   }
 
   .vacancy__form-title-block {
-    width: 30%;
+    width: 32.98%;
   }
 
   .vacancy__form-inner-block {
-    width: 70%;
+    width: 67.02%;
   }
 
   .vacancy__response {
