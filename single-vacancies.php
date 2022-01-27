@@ -12,7 +12,6 @@ $title = get_the_title( $post_id );
 $content = get_the_content( $post_id );
 $img = get_the_post_thumbnail_url( $post_id, 'full' );
 $money_from = number_format( get_field( 'money_from', $post_id ), 0, ',', ' ');
-$vacancy_project = get_field( 'vacancy_project', $post_id );
 $can_without_experience = get_field( 'can_without_experience', $post_id )['label'];
 $can_work_remotely = get_field( 'can_work_remotely', $post_id );
 $img_map = get_field( 'img_map', $post_id );
