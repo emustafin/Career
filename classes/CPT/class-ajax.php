@@ -27,6 +27,9 @@ class Ajax {
 		add_action( 'wp_ajax_nopriv_get_vacancy_data', [$this, 'get_vacancy_data'] );
 	}
 
+    /**
+     * Функция получения шаблонов вакансий по Query запросу и модификатору
+     */
     public function get_html_templates_by_query( $local_query, $_modificator = 'it_' ) {
 
         $html = '';
@@ -44,6 +47,9 @@ class Ajax {
         return $html;
     }
 
+    /**
+     * Аякс запрос для фильтров на сранице IT 
+     */
     public function get_profession__menu_items() {
 
         $html = '';
@@ -75,11 +81,11 @@ class Ajax {
                 }
     
                 // Check and set city term to args
-                if( '-1' != $_POST['town_slug'] ){
+                if( '-1' != $_POST['city_slug'] ){
                     $args['tax_query'][] = array(
                         'taxonomy' => $_modificator.'city',
                         'field'    => 'slug',
-                        'terms'    => $_POST['town_slug']
+                        'terms'    => $_POST['city_slug']
                     );
                 }
 
@@ -139,7 +145,7 @@ class Ajax {
             }
 
             $actually_vacancies_by = new \WP_Query( $args );
-
+            
             $html .= $this->get_html_templates_by_query( $actually_vacancies_by, $_modificator );
 
             if( '' != $html ){
@@ -220,11 +226,11 @@ class Ajax {
                     );
                 }
     
-                if( '-1' != $_POST['town_slug'] ){
+                if( '-1' != $_POST['city_slug'] ){
                     $args['tax_query'][] = array(
-                        'taxonomy' => 'town',
+                        'taxonomy' => 'city',
                         'field'    => 'slug',
-                        'terms'    => $_POST['town_slug']
+                        'terms'    => $_POST['city_slug']
                     );
                 }
 
@@ -294,168 +300,103 @@ class Ajax {
         }
     }
 
+    /**
+     * 
+     */
     public function get_vacancy_data(){
 
         $html = '';
         if( !empty( $_POST ) ){
 
+            $_modificator = $_POST['modificator'];
             $vacancy_item_id = $_POST['post_id'];
 
-            if( get_field( 'not_gross', $vacancy_item_id) ):
-                $gross = '';
-            else:
-                $gross = '<span> - Гросс</span>';
-            endif;
+            // разметка гросс
+            $gross = '';
+            if( !get_field( 'not_gross', $vacancy_item_id) ) $gross = '<span> - Гросс</span>';
 
-            $relationship_terms = get_the_terms( $vacancy_item_id, 'relationship' );
-            if( is_array( $relationship_terms ) ){
-                $current_relationship = $relationship_terms[0]->slug;
-            }
-
+            // определяет первый терм специализации
             $current_catgs = '';
-            $catgs_terms = get_the_terms( $vacancy_item_id, 'specialization' );
+            $catgs_terms = get_the_terms( $vacancy_item_id, $_modificator.'specialization' );
             if( is_array( $catgs_terms ) ){
                 $current_catgs = $catgs_terms[0]->slug;
             }
 
-            $title                     = get_the_title( $vacancy_item_id );
-            
-            $pre_conten = '';
-            if( 'roznica' == $current_relationship ){
-                if( get_field('is_retail_vacancy', $vacancy_item_id) ) {
-                    $mvideo_eldorado = get_field('mvideo-eldorado_eto', $vacancy_item_id);
+            // добавляет html блок мвидео это
+            $pre_content = '';
+            if( 'roznica_' == $_modificator ){
+                $mvideo_eldorado = get_field('mvideo-eldorado_eto', $vacancy_item_id);
 
-                    $pre_content = '
-                    <div class="vacancy__description-block">
-                        <div class="vacancy__description-title">
-                            <p class="vacancy__description-title-text">
-                                «М.Видео-Эльдорадо» — это
-                            </p>
-                            <div class="vacancy__advantages-slider-navigation-mobile">
-                                <button class="vacancy__advantages-slider-prev">
-                                <svg
-                                    width="14"
-                                    height="10"
-                                    viewBox="0 0 14 10"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                    d="M4.57661 0.576172L0.152344 5.00044L4.57661 9.4247L5.42514 8.57617L2.4494 5.60044H14.0009V4.40044H2.4494L5.42514 1.4247L4.57661 0.576172Z"
-                                    fill="black"
-                                    />
+                $pre_content = '
+                <div class="vacancy__description-block">
+                    <div class="vacancy__description-title">
+                        <p class="vacancy__description-title-text">
+                            «М.Видео-Эльдорадо» — это
+                        </p>
+                        <div class="vacancy__advantages-slider-navigation-mobile">
+                            <button class="vacancy__advantages-slider-prev">
+                                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                                    <path d="M4.57661 0.576172L0.152344 5.00044L4.57661 9.4247L5.42514 8.57617L2.4494 5.60044H14.0009V4.40044H2.4494L5.42514 1.4247L4.57661 0.576172Z" fill="black" />
                                 </svg>
-                                </button>
-                                <div class="vacancy__advantages-slider-counter">
-                                <span class="vacancy__advantages-slider-current-slide"
-                                    >1</span
-                                >/<span class="vacancy__advantages-slider-slides-all"
-                                    >3</span
-                                >
-                                </div>
-        
-                                <button class="vacancy__advantages-slider-next">
-                                <svg
-                                    width="14"
-                                    height="10"
-                                    viewBox="0 0 14 10"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                    d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0L0 4.40044H11.5515Z"
-                                    fill="black"
-                                    />
-                                </svg>
-                                </button>
+                            </button>
+                            <div class="vacancy__advantages-slider-counter">
+                                <span class="vacancy__advantages-slider-current-slide">1</span>/<span class="vacancy__advantages-slider-slides-all">3</span>
                             </div>
+    
+                            <button class="vacancy__advantages-slider-next">
+                                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                                    <path d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0L0 4.40044H11.5515Z" fill="black" />
+                                </svg>
+                            </button>
                         </div>
-                        <div class="vacancy__description-list">
-                            <div class="vacancy__advantages-item-wrapper">
-                                <div class="vacancy__advantages-item">
-                                    <h2 class="vacancy__advantages-item-title">'.$mvideo_eldorado['mvideo_eldorado_title_1'].'</h2>
-                                    <div class="vacancy__advantages-item-description">
-                                        '.$mvideo_eldorado['mvideo_eldorado_content_1'].'
-                                    </div>
-                                    <div class="vacancy__advantages-item-image">
-                                        <svg
-                                            width="56"
-                                            height="56"
-                                            viewBox="0 0 56 56"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                            <path
-                                                d="M50.8346 32.6673C50.8346 45.2778 40.6118 55.5006 28.0013 55.5006C15.3908 55.5006 5.16797 45.2778 5.16797 32.6673C5.16797 20.0568 15.3908 9.83398 28.0013 9.83398C40.6118 9.83398 50.8346 20.0568 50.8346 32.6673Z"
-                                                stroke="#E31235"
-                                                stroke-miterlimit="1.24264"
-                                            />
-                                        </svg>
-                                    </div>
+                    </div>
+                    <div class="vacancy__description-list">
+                        <div class="vacancy__advantages-item-wrapper">
+                            <div class="vacancy__advantages-item">
+                                <h2 class="vacancy__advantages-item-title">'.$mvideo_eldorado['mvideo_eldorado_title_1'].'</h2>
+                                <div class="vacancy__advantages-item-description">
+                                    '.$mvideo_eldorado['mvideo_eldorado_content_1'].'
                                 </div>
-        
-                                <div class="vacancy__advantages-item">
-                                    <h2 class="vacancy__advantages-item-title">'.$mvideo_eldorado['mvideo_eldorado_title_2'].'</h2>
-                                    <div class="vacancy__advantages-item-description">
-                                        '.$mvideo_eldorado['mvideo_eldorado_content_2'].'
-                                    </div>
-                                    <div class="vacancy__advantages-item-image">
-                                        <svg
-                                            width="56"
-                                            height="56"
-                                            viewBox="0 0 56 56"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                            <path
-                                                d="M32.1667 34.9993C32.1667 43.7439 25.0778 50.8327 16.3333 50.8327C7.58882 50.8327 0.5 43.7439 0.5 34.9993C0.5 26.2548 7.58882 19.166 16.3333 19.166C25.0778 19.166 32.1667 26.2548 32.1667 34.9993Z"
-                                                stroke="#E31235"
-                                            />
-                                            <circle
-                                                cx="39.6654"
-                                                cy="34.9994"
-                                                r="15.8333"
-                                                stroke="#E31235"
-                                            />
-                                        </svg>
-                                    </div>
+                                <div class="vacancy__advantages-item-image">
+                                    <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                                        <path d="M50.8346 32.6673C50.8346 45.2778 40.6118 55.5006 28.0013 55.5006C15.3908 55.5006 5.16797 45.2778 5.16797 32.6673C5.16797 20.0568 15.3908 9.83398 28.0013 9.83398C40.6118 9.83398 50.8346 20.0568 50.8346 32.6673Z" stroke="#E31235" stroke-miterlimit="1.24264" />
+                                    </svg>
                                 </div>
-        
-                                <div class="vacancy__advantages-item">
-                                    <h2 class="vacancy__advantages-item-title">'.$mvideo_eldorado['mvideo_eldorado_title_3'].'</h2>
-                                    <div class="vacancy__advantages-item-description">
-                                        '.$mvideo_eldorado['mvideo_eldorado_content_3'].'
-                                    </div>
-                                    <div class="vacancy__advantages-item-image">
-                                        <svg
-                                            width="56"
-                                            height="56"
-                                            viewBox="0 0 56 56"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                            <path
-                                                d="M50.8346 24.7923C50.8346 33.0536 44.1376 39.7507 35.8763 39.7507C27.615 39.7507 20.918 33.0536 20.918 24.7923C20.918 16.5311 27.615 9.83398 35.8763 9.83398C44.1376 9.83398 50.8346 16.5311 50.8346 24.7923Z"
-                                                stroke="#E31235"
-                                            />
-                                            <path
-                                                d="M32.168 38.5C32.168 44.0228 27.6908 48.5 22.168 48.5C16.6451 48.5 12.168 44.0228 12.168 38.5C12.168 32.9772 16.6451 28.5 22.168 28.5C27.6908 28.5 32.168 32.9772 32.168 38.5Z"
-                                                stroke="#E31235"
-                                            />
-                                            <path
-                                                d="M19.918 48.125C19.918 52.1981 16.6161 55.5 12.543 55.5C8.46987 55.5 5.16797 52.1981 5.16797 48.125C5.16797 44.0519 8.46987 40.75 12.543 40.75C16.6161 40.75 19.918 44.0519 19.918 48.125Z"
-                                                stroke="#E31235"
-                                            />
-                                        </svg>
-                                    </div>
+                            </div>
+    
+                            <div class="vacancy__advantages-item">
+                                <h2 class="vacancy__advantages-item-title">'.$mvideo_eldorado['mvideo_eldorado_title_2'].'</h2>
+                                <div class="vacancy__advantages-item-description">
+                                    '.$mvideo_eldorado['mvideo_eldorado_content_2'].'
+                                </div>
+                                <div class="vacancy__advantages-item-image">
+                                    <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                                        <path d="M32.1667 34.9993C32.1667 43.7439 25.0778 50.8327 16.3333 50.8327C7.58882 50.8327 0.5 43.7439 0.5 34.9993C0.5 26.2548 7.58882 19.166 16.3333 19.166C25.0778 19.166 32.1667 26.2548 32.1667 34.9993Z" stroke="#E31235" />
+                                        <circle cx="39.6654" cy="34.9994" r="15.8333" stroke="#E31235" />
+                                    </svg>
+                                </div>
+                            </div>
+    
+                            <div class="vacancy__advantages-item">
+                                <h2 class="vacancy__advantages-item-title">'.$mvideo_eldorado['mvideo_eldorado_title_3'].'</h2>
+                                <div class="vacancy__advantages-item-description">
+                                    '.$mvideo_eldorado['mvideo_eldorado_content_3'].'
+                                </div>
+                                <div class="vacancy__advantages-item-image">
+                                    <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                                        <path d="M50.8346 24.7923C50.8346 33.0536 44.1376 39.7507 35.8763 39.7507C27.615 39.7507 20.918 33.0536 20.918 24.7923C20.918 16.5311 27.615 9.83398 35.8763 9.83398C44.1376 9.83398 50.8346 16.5311 50.8346 24.7923Z" stroke="#E31235" />
+                                        <path d="M32.168 38.5C32.168 44.0228 27.6908 48.5 22.168 48.5C16.6451 48.5 12.168 44.0228 12.168 38.5C12.168 32.9772 16.6451 28.5 22.168 28.5C27.6908 28.5 32.168 32.9772 32.168 38.5Z" stroke="#E31235" />
+                                        <path d="M19.918 48.125C19.918 52.1981 16.6161 55.5 12.543 55.5C8.46987 55.5 5.16797 52.1981 5.16797 48.125C5.16797 44.0519 8.46987 40.75 12.543 40.75C16.6161 40.75 19.918 44.0519 19.918 48.125Z" stroke="#E31235" />
+                                    </svg>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    ';
-                }
+                </div>
+                ';
             }
 
+            // Блок гибкого графика
             $flexible_schedule = '';
             if( get_field('flexible_schedule', $vacancy_item_id) ){
                 $flexible_schedule = '
@@ -512,9 +453,10 @@ class Ajax {
                 ';
             }
 
-            if( 'roznica' == $current_relationship ){ 
+            // определяет видео для попапа
+            if( 'roznica_' == $_modificator ){ 
                 $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/retail-video-preview.mp4';
-            } elseif( 'it' == $current_relationship ){
+            } elseif( 'it_' == $_modificator ){
                 if( 'management' == $current_catgs ){
                     $data_src_video = THEME_URL.'/assets/images/flyout/flyout-intro/video/management-video-preview.mp4';
                 } elseif( 'analyst' == $current_catgs ){
@@ -532,16 +474,22 @@ class Ajax {
                 }
             }
 
+            // название вакансии
+            $title = get_the_title( $vacancy_item_id );
+            // основной контент
             $content                   = get_the_content( '','',$vacancy_item_id );
-            $can_work_remotely         = '';
+            // изображение TODO - может когда-то понадобиться, хотя пока не надо
             $img                       = get_the_post_thumbnail_url( $vacancy_item_id, 'full' );
+            // ценник вакансии с какой зп начинается вилка
             $money_from                = number_format( get_field( 'money_from', $vacancy_item_id ), 0, ',', ' ');
-            $gross                     = $gross;
-            // $vacancy_project           = get_field( 'vacancy_project', $vacancy_item_id );
+            // изображение карты TODO - когда доделаем карту будем внедрять
             $img_map                   = get_field( 'img_map', $vacancy_item_id );
+            // Полный адрес
             $map_full_adress           = get_field( 'map_full_adress', $vacancy_item_id );
+            // ссылка на вакансию
             $url                       = get_post_permalink( $vacancy_item_id );
 
+            // основной контент
             $expectations = $pre_content.'';
             if( have_rows('vacancy_repeater', $vacancy_item_id) ):
 
@@ -558,40 +506,41 @@ class Ajax {
                 endwhile;
             endif;
 
+            // Специализации
             $k = 1;
             $specialization_names = '';
-            $specialization_terms = get_the_terms( $vacancy_item_id, 'specialization' );
-            if( is_array( $specialization_terms ) ){
-                foreach( $specialization_terms as $specialization_term ){
-                    $specialization_names .= $specialization_term->name;
-                    
-                    if( $k != count( $specialization_terms ) ){
-                        $specialization_names .= ', ';
-                    }
-                    $k++;
+            $specialization_terms = (array) get_the_terms( $vacancy_item_id, $_modificator.'specialization' );
+            foreach( $specialization_terms as $specialization_term ){
+
+                $specialization_names .= $specialization_term->name;
+                if( $k != count( $specialization_terms ) ){
+                    $specialization_names .= ', ';
                 }
+                $k++;
             }
 
+            // город
             $k = 1;
-            $town_names = '';
-            $town_terms = get_the_terms( $vacancy_item_id, 'town' );
-            if( is_array( $town_terms ) ){
-                foreach( $town_terms as $town_term ){
-                    $town_names .= $town_term->name;
-                    
-                    if( $k != count( $town_terms ) ){
-                        $town_names .= ', ';
-                    }
-                    $k++;
+            $city_names = '';
+            $city_terms = (array) get_the_terms( $vacancy_item_id, $_modificator.'city' );
+            foreach( $city_terms as $city_term ){
+                $city_names .= $city_term->name;
+                
+                if( $k != count( $city_terms ) ){
+                    $city_names .= ', ';
                 }
+                $k++;
             }
 
+            // название с каким опытом необходимо работать
             if( get_field( 'can_without_experience', $vacancy_item_id ) ){
                 $can_without_experience = get_field( 'can_without_experience', $vacancy_item_id )['label'];
             } else{
                 $can_without_experience = get_field( 'can_without_experience', $vacancy_item_id )['label'];
             }
 
+            // разметка можно ли работать удаленно
+            $can_work_remotely = '';
             if( get_field( 'can_work_remotely', $vacancy_item_id ) ){
                 $can_work_remotely = '
                 <!-- Vacancy Remote-block -->
@@ -599,16 +548,12 @@ class Ajax {
                     <div class="vacancy__remote-title-wrapper">
                         <h2 class="vacancy__remote-title">Работай откуда угодно</h2>
                         <p class="vacancy__remote-info">
-                        На этой позиции можно работать удалённо и не ходить в офис.
-                        Нужно иметь разрешение на работу в России.
+                            На этой позиции можно работать удалённо и не ходить в офис.
+                            Нужно иметь разрешение на работу в России.
                         </p>
                     </div>
                     <div class="vacancy__remote-image-container">
-                        <img
-                        class="vacancy__remote-image"
-                        src="'.THEME_URL.'/assets/images/flyout/flyout-remote/palm.svg"
-                        alt="Picture"
-                        />
+                        <img class="vacancy__remote-image" src="'.THEME_URL.'/assets/images/flyout/flyout-remote/palm.svg" alt="Picture" />
                     </div>
                 </div>
                 <!-- //Vacancy Remote-block -->
@@ -629,7 +574,7 @@ class Ajax {
                 'money_from'        => $money_from,
                 'gross'             => $gross,
                 'specialization'    => $specialization_names,
-                'town'              => $town_names,
+                'city'              => $city_names,
                 'experience'        => $can_without_experience,
                 'url'               => $url,
             );

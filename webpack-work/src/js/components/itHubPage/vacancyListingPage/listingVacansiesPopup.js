@@ -43,7 +43,8 @@ export class ListingVacansiesPagePopup {
   
     var data = {
         action: 'get_vacancy_data',
-        post_id : post_id
+        post_id : post_id,
+        modificator : modificator
     };
     
     var request = new XMLHttpRequest();
