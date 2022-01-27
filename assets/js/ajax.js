@@ -99,6 +99,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
             item.addEventListener('change', event => {
     
                 event.preventDefault();
+
+                document.querySelectorAll('.can_work_remotely').forEach(subitem => {
+                    subitem.checked = item.checked;
+                });
+
                 filtering();
             });
         });
@@ -107,8 +112,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if(document.querySelector('.can_without_experience')){
         document.querySelectorAll('.can_without_experience').forEach(item => {
             item.addEventListener('change', event => {
-    
+
                 event.preventDefault();
+
+                document.querySelectorAll('.can_without_experience').forEach(subitem => {
+                    subitem.checked = item.checked;
+                });
+
                 filtering();
             });
         });
@@ -144,14 +154,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 can_without_experience = true;
             }
         });
-        
+
         var can_work_remotely = false;
         document.querySelectorAll('.can_work_remotely').forEach(item => {
             if( item.checked ){
                 can_work_remotely = true;
             }
         });
-        
+
         var data = {
             action:                     'get_profession__menu_items',
             town_slug:                  town_slug,
