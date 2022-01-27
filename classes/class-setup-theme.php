@@ -97,7 +97,7 @@ class Setup_Theme {
 		if( is_front_page() || is_page('logistic') || is_page('office') ){
 			wp_enqueue_script( self::THEME_ID . "frontpage-js", THEME_URL . "/assets/js/frontpage.js", [], THEME_VSN, true );
 		}
-		if( is_post_type_archive('vacancies') ){
+		if( is_post_type_archive('it_vacancies') || is_post_type_archive('retail_vacancies') || is_post_type_archive('office_vacancies') || is_post_type_archive('logistics_vacancies') || is_post_type_archive('students_vacancies') ){
 			wp_enqueue_script( self::THEME_ID . "vacanciespage-js", THEME_URL . "/assets/js/vacanciespage.js", [], THEME_VSN, true );
 		}
 		wp_localize_script(
