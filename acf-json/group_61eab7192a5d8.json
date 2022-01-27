@@ -3,6 +3,30 @@
     "title": "Вакансии розницы",
     "fields": [
         {
+            "key": "field_61f2bfce50dae",
+            "label": "М.Видео или Эльдорадо?",
+            "name": "check_mvideo_eldorado",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "mvideo": "М.Видео",
+                "eldorado": "Эльдорадо"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_61eab72b996f2",
             "label": "ЗП Net",
             "name": "not_gross",
@@ -546,5 +570,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1642776863
+    "modified": 1643298792
 }
