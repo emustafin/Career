@@ -214,7 +214,7 @@ class Ajax {
 
                 if( null != $_POST['specialization_slug'] && '-1'!= $_POST['specialization_slug'] ){
                     $args['tax_query'][] = array(
-                        'taxonomy' => 'vaccat',
+                        'taxonomy' => 'specialization',
                         'field'    => 'slug',
                         'terms'    => $_POST['specialization_slug']
                     );
@@ -313,7 +313,7 @@ class Ajax {
             }
 
             $current_catgs = '';
-            $catgs_terms = get_the_terms( $vacancy_item_id, 'vaccat' );
+            $catgs_terms = get_the_terms( $vacancy_item_id, 'specialization' );
             if( is_array( $catgs_terms ) ){
                 $current_catgs = $catgs_terms[0]->slug;
             }
@@ -559,14 +559,14 @@ class Ajax {
             endif;
 
             $k = 1;
-            $vaccat_names = '';
-            $vaccat_terms = get_the_terms( $vacancy_item_id, 'vaccat' );
-            if( is_array( $vaccat_terms ) ){
-                foreach( $vaccat_terms as $vaccat_term ){
-                    $vaccat_names .= $vaccat_term->name;
+            $specialization_names = '';
+            $specialization_terms = get_the_terms( $vacancy_item_id, 'specialization' );
+            if( is_array( $specialization_terms ) ){
+                foreach( $specialization_terms as $specialization_term ){
+                    $specialization_names .= $specialization_term->name;
                     
-                    if( $k != count( $vaccat_terms ) ){
-                        $vaccat_names .= ', ';
+                    if( $k != count( $specialization_terms ) ){
+                        $specialization_names .= ', ';
                     }
                     $k++;
                 }
@@ -628,7 +628,7 @@ class Ajax {
                 'map_full_adress'   => $map_full_adress,
                 'money_from'        => $money_from,
                 'gross'             => $gross,
-                'vaccat'            => $vaccat_names,
+                'specialization'    => $specialization_names,
                 'town'              => $town_names,
                 'experience'        => $can_without_experience,
                 'url'               => $url,
