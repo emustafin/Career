@@ -125,7 +125,7 @@ wp_reset_postdata();
                     name="tags-outside"
                     class="tagify--outside listing-top__profession-filter"
                     placeholder="Выбери профессию"
-                    value="<?php echo $_GET['s']; ?>"
+                    value="<?php echo ( isset($_GET['s']) && $_GET['s'] != '' ? $_GET['s'] : '' ); ?>"
                 />
 
                 <svg
