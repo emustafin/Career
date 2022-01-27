@@ -31,7 +31,7 @@ foreach( $town_terms as $town_term ):
 endforeach;
 
 foreach( $vaccat_terms as $vaccat_term ):
-    $vaccat_arr[$vaccat_term->slug] = $vaccat_term->name;
+    $specialization_arr[$vaccat_term->slug] = $vaccat_term->name;
 endforeach;
 
 $args = array(
@@ -52,7 +52,7 @@ wp_reset_postdata();
 <script>
     var level_arr = '<?php echo json_encode( $level_arr ); ?>';
     var town_arr = '<?php echo json_encode( $town_arr ); ?>';
-    var vaccat_arr = '<?php echo json_encode( $vaccat_arr ); ?>';
+    var specialization_arr = '<?php echo json_encode( $specialization_arr ); ?>';
     var vacancy_titles = '<?php echo json_encode( $vacancy_titles ); ?>';
     var rel_type = 'it';
     var vacancyid = '';

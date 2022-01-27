@@ -10,32 +10,32 @@ get_header();
 global $wp_query;
 $primary_query = $wp_query;
 
-$count_posts = wp_count_posts('vacancies');
+$count_posts = wp_count_posts($_modificator.'vacancies');
 $published_posts = $count_posts->publish;
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 
-$vaccat_terms = get_terms( 'vaccat' );
-$town_terms = get_terms( 'town' );
-$level_terms = get_terms( 'level' );
+$specialization_terms = get_terms( $_modificator.'specialization' );
+$city_terms = get_terms( $_modificator.'city' );
+$level_terms = get_terms( $_modificator.'level' );
 
-$town_arr = array();
+$city_arr = array();
 
 $level_arr['-1'] = 'Любой';
 foreach( $level_terms as $level_term ):
     $level_arr[$level_term->slug] = $level_term->name;
 endforeach;
 
-$town_arr['-1'] = 'Любой';
-foreach( $town_terms as $town_term ):
-    $town_arr[$town_term->slug] = $town_term->name;
+$city_arr['-1'] = 'Любой';
+foreach( $city_terms as $city_term ):
+    $city_arr[$city_term->slug] = $city_term->name;
 endforeach;
 
-foreach( $vaccat_terms as $vaccat_term ):
-    $vaccat_arr[$vaccat_term->slug] = $vaccat_term->name;
+foreach( $specialization_terms as $specialization_term ):
+    $specialization_arr[$specialization_term->slug] = $specialization_term->name;
 endforeach;
 
 $args = array(
-    'post_type'         => 'vacancies',
+    'post_type'         => $_modificator.'vacancies',
     'posts_per_page'    => -1,
     'post_status'       => 'publish'
 );
@@ -51,8 +51,8 @@ wp_reset_postdata();
 
 <script>
     var level_arr = '<?php echo json_encode( $level_arr ); ?>';
-    var town_arr = '<?php echo json_encode( $town_arr ); ?>';
-    var vaccat_arr = '<?php echo json_encode( $vaccat_arr ); ?>';
+    var city_arr = '<?php echo json_encode( $city_arr ); ?>';
+    var specialization_arr = '<?php echo json_encode( $specialization_arr ); ?>';
     var vacancy_titles = '<?php echo json_encode( $vacancy_titles ); ?>';
     var rel_type = 'it';
     var vacancyid = '';
