@@ -13,11 +13,11 @@ const listingProfessionInput = document.querySelector('#listing-top__profession-
 
 // Данные для фильтров
 const currentLevelsDataListing = JSON.parse(level_arr);
-const currentCitiesDataListing = JSON.parse(town_arr);
+const currentCitiesDataListing = JSON.parse(city_arr);
 const currentVaccatDataListing = JSON.parse(specialization_arr); // Специализации
 const currentVacancyTitlesDataListing = JSON.parse(vacancy_titles); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
 
-// console.log(town_arr);
+// console.log(city_arr);
 
 // Инициализация селекта Профессии
 const stringVacancyesToArray = currentVacancyTitlesDataListing.split(',');
