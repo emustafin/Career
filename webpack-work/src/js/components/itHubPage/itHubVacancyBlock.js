@@ -215,12 +215,10 @@ export class ItHubVacancyBlock {
   
                 document.querySelector('.flyout .vacancy__headline-title').setAttribute('origin_url', origin_location);
                 document.querySelector('.flyout .vacancy__headline-title').innerHTML = resp.title;
-                // document.querySelector('.flyout .vacancy__video-container img').setAttribute('src', resp.img);
                 document.querySelector('.flyout .vacancy__video-container .vacancy__video-preview').setAttribute('data-src', resp.data_src_video);
                 document.querySelector('.flyout .vacancy__video-container .vacancy__video-preview').setAttribute('src', resp.data_src_video);
                 document.querySelector('.flyout .vacancy__intro-description').innerHTML = resp.content;
                 document.querySelector('.flyout #flexible_schedule').innerHTML = resp.flexible_schedule;
-                // document.querySelector('.flyout #vacancy_project').innerHTML = resp.vacancy_project;
                 document.querySelector('.flyout #expectations').innerHTML = resp.expectations;
                 document.querySelector('.flyout #can_work_remotely').innerHTML = resp.can_work_remotely;
                 if( document.querySelector('.flyout .vacancy__office-map-image') ){
@@ -231,8 +229,8 @@ export class ItHubVacancyBlock {
                 }
                 document.querySelector('.flyout .vacancy__meta-info-sum').innerHTML = resp.money_from;
                 document.querySelector('.flyout .vacancy__meta-info-sum-after').innerHTML = resp.gross;
-                document.querySelector('.flyout #vaccat_info_vacancy').innerHTML = resp.vaccat;
-                document.querySelector('.flyout #town_info_vacancy').innerHTML = resp.town;
+                document.querySelector('.flyout #vaccat_info_vacancy').innerHTML = resp.specialization;
+                document.querySelector('.flyout #town_info_vacancy').innerHTML = resp.city;
                 document.querySelector('.flyout #experience_important').innerHTML = resp.experience;
   
                 document.querySelector('#vacancy_popup .loader-wrapp').style.display = "none";

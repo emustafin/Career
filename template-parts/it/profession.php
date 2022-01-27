@@ -302,11 +302,11 @@ $level_terms = get_terms( $_modificator.'level' );
                             );
                         }
 
-                        if( '' != $filter_params['town_slug'] ){
+                        if( '' != $filter_params['city_slug'] ){
                             $args['tax_query'][] = array(
                                 'taxonomy' => $_modificator.'city',
                                 'field'    => 'slug',
-                                'terms'    => $filter_params['town_slug']
+                                'terms'    => $filter_params['city_slug']
                             );
                         }
 

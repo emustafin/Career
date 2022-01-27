@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         document.querySelector('#actually_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
 
-        var town_slug = document.querySelector('#town').value;
+        var city_slug = document.querySelector('#town').value;
         var level_slug = document.querySelector('#level').value;
         var specialization_slug = document.querySelector('.profession__menu-item.profession__menu-item-active').getAttribute('data-specialization_slug');
         
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         var data = {
             action:                     'get_profession__menu_items',
-            town_slug:                  town_slug,
+            city_slug:                  city_slug,
             level_slug:                 level_slug,
             specialization_slug:        specialization_slug,
             can_without_experience:     can_without_experience,
@@ -194,8 +194,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     if( data.level_slug != '-1' ){
                         xxx = xxx+'&level_slug='+level_slug;
                     }
-                    if( data.town_slug != '-1' ){
-                        xxx = xxx+'&town_slug='+town_slug;
+                    if( data.city_slug != '-1' ){
+                        xxx = xxx+'&city_slug='+city_slug;
                     }
                     if( data.specialization_slug != undefined ){
                         xxx = xxx+'&specialization_slug='+specialization_slug;
@@ -287,7 +287,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         var top__profession = document.querySelector('#listing-top__profession-filter').value;
         var specialization_slug = document.querySelector('#listing__specialization-select').value;
         var level_slug = document.querySelector('#listing__level-select').value;
-        var town_slug = document.querySelector('#listing__city-select').value;
+        var city_slug = document.querySelector('#listing__city-select').value;
 
         var archive_without_experience = false;
         document.querySelectorAll('.archive_without_experience').forEach(item => {
@@ -308,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             top__profession : top__profession,
             specialization_slug : specialization_slug,
             level_slug: level_slug,
-            town_slug : town_slug,
+            city_slug : city_slug,
             archive_without_experience : archive_without_experience,
             archive_remotely : archive_remotely,
         };
@@ -350,8 +350,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     if( data.level_slug != '-1' ){
                         xxx = xxx+'&level_slug='+level_slug;
                     }
-                    if( data.town_slug != '-1' ){
-                        xxx = xxx+'&town_slug='+town_slug;
+                    if( data.city_slug != '-1' ){
+                        xxx = xxx+'&city_slug='+city_slug;
                     }
                     if( data.specialization_slug != undefined ){
                         xxx = xxx+'&specialization_slug='+specialization_slug;

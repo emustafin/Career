@@ -52,14 +52,14 @@ class Supporting {
     public function get_filter_params( $GET ) {
 
         $params = array(
-            'town_slug' => '',
+            'city_slug' => '',
             'level_slug' => '',
             'can_work_remotely' => '',
             'can_without_experience' => '',
         );
 
-        if( $this->NotEmptyGetParam('town_slug') )                 
-            $params['town_slug'] = $GET['town_slug'];
+        if( $this->NotEmptyGetParam('city_slug') )                 
+            $params['city_slug'] = $GET['city_slug'];
 
         if( $this->NotEmptyGetParam('level_slug') )                
             $params['level_slug'] = $GET['level_slug'];
