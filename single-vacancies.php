@@ -80,7 +80,7 @@ if( 'roznica' == $current_relationship ){
 <div class="direct-link__container">
     <div class="direct-link__content-wrapper">
     <div class="direct-link__side-bar">
-        <a href="#" class="direct-link__header-head-copy">
+        <a href="#" id="copy_link" class="direct-link__header-head-copy">
         Скопировать ссылку
               <svg
                 width="14"
