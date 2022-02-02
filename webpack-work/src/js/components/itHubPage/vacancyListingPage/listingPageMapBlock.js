@@ -64,6 +64,21 @@ export class ListingVacancyMapBlock {
         document.querySelector('.listing-metro__location-adress').innerHTML = shop.querySelector('.listing-metro__shop-address').innerHTML;
 
         this.get_vacancy_list( 'mvideo', shop.getAttribute('data-shop_slug') );
+
+        let latitude = shop.getAttribute('data-latitude');
+        let longitude = shop.getAttribute('data-longitude');
+        mapV.geoObjects.removeAll();
+        mapV.setCenter([ latitude, longitude ])
+        yandexMapInit( 
+          [
+            [
+              [ latitude, longitude ],
+              '/wp-content/themes/career_theme/assets/images/listing/map/mvideo-icon.png'
+            ],
+          ] 
+        );
+        mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
+
         this.shopsListContainer.classList.add('hide');
         this.vacanciesInShopContainer.classList.remove('hide');
       });
@@ -76,6 +91,21 @@ export class ListingVacancyMapBlock {
         document.querySelector('.listing-metro__location-adress').innerHTML = shop.querySelector('.listing-metro__shop-address').innerHTML;
 
         this.get_vacancy_list( 'eldorado', shop.getAttribute('data-shop_slug') );
+
+        let latitude = shop.getAttribute('data-latitude');
+        let longitude = shop.getAttribute('data-longitude');
+        mapV.geoObjects.removeAll();
+        mapV.setCenter([ latitude, longitude ])
+        yandexMapInit( 
+          [
+            [
+              [ latitude, longitude ],
+              '/wp-content/themes/career_theme/assets/images/listing/map/eldorado-icon.png'
+            ],
+          ] 
+        );
+        mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
+
         this.shopsListContainer.classList.add('hide');
         this.vacanciesInShopContainer.classList.remove('hide');
       });
@@ -83,20 +113,34 @@ export class ListingVacancyMapBlock {
 
     this.buttonBackToShopsList.addEventListener('click', (event) => {
       event.preventDefault();
+
+      mapV.geoObjects.removeAll();
+      mapV.setCenter( defaultCenter )
+      yandexMapInit( defaultIcons );
+      mapV.setZoom(1, {duration: 1000});
+
       this.shopsListContainer.classList.remove('hide');
       this.vacanciesInShopContainer.classList.add('hide');
     });
 
     this.buttonBackToShopsListMobile.addEventListener('click', (event) => {
       event.preventDefault();
+      
+      mapV.geoObjects.removeAll();
+      mapV.setCenter( defaultCenter )
+      yandexMapInit( defaultIcons );
+      mapV.setZoom(1, {duration: 1000});
+      
       this.shopsListContainer.classList.remove('hide');
       this.vacanciesInShopContainer.classList.add('hide');
     });
 
-    // this.yandexMaps = ymaps.ready(this.yandexMapInit);
   }
 
   get_vacancy_list( kind_shops, shop ){
+
+    var containerV = '.listing-metro__profession-container.' + kind_shops + ' .listing-vacancy_items';
+    document.querySelector( `${containerV}` ).innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
 
     var data = {
         action:     'get_retail_list_vacancy',
@@ -113,20 +157,7 @@ export class ListingVacancyMapBlock {
             // Success!
             var resp = JSON.parse(this.response);
             if( true == resp.success ){
-              document.querySelector('#listing-metro__profession-item').innerHTML = resp.html;
-
-              for (let i = 0; i < 2; i++) {
-                let itemPlace = new ymaps.Placemark(
-                  icons[i][0],
-                  {},
-                  {
-                    iconLayout: 'default#image',
-                    iconImageHref: icons[i][1],
-                    iconImageSize: [42, 66],
-                  }
-                );
-                map.geoObjects.add(itemPlace);
-              }
+              document.querySelector( `${containerV}` ).innerHTML = resp.html;
             }
         }
     };

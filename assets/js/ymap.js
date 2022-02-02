@@ -1,11 +1,23 @@
-var yandexMaps = ymaps.ready( yandexMapInit );
+var yandexMaps = ymaps.ready( ymapInit );
+var mapV;
 
-function yandexMapInit(  ) {
-  
-  var map = new ymaps.Map('yandex-map', {
-    center: [55.773674, 37.67109],
-    zoom: 17,
-  });
+function ymapInit(){
+    mapV = new ymaps.Map('yandex-map', 
+        {
+        center: defaultCenter,
+        zoom: 1,
+        behaviors: ['default', 'scrollZoom']
+        }, 
+        {
+            minZoom: 1,
+            maxZoom: 20,
+            maxAnimationZoomDifference: 1
+        }
+    );
+    yandexMapInit( defaultIcons );
+};
+
+function yandexMapInit( icons ) {
 
   let itemPlace;
 
@@ -19,15 +31,17 @@ function yandexMapInit(  ) {
         iconImageSize: [42, 66],
       }
     );
-    map.geoObjects.add(itemPlace);
+    mapV.geoObjects.add(itemPlace);
   }
 
-  map.controls.remove('geolocationControl'); // удаляем геолокацию
-  map.controls.remove('searchControl'); // удаляем поиск
-  map.controls.remove('trafficControl'); // удаляем контроль трафика
-  map.controls.remove('typeSelector'); // удаляем тип
-  map.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
-  map.controls.remove('zoomControl'); // удаляем контрол зуммирования
-  map.controls.remove('rulerControl'); // удаляем контрол правил
+  mapV.controls.remove('geolocationControl'); // удаляем геолокацию
+  mapV.controls.remove('searchControl'); // удаляем поиск
+  mapV.controls.remove('trafficControl'); // удаляем контроль трафика
+  mapV.controls.remove('typeSelector'); // удаляем тип
+  mapV.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
+  mapV.controls.remove('zoomControl'); // удаляем контрол зуммирования
+  mapV.controls.remove('rulerControl'); // удаляем контрол правил
+
+  mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
   
 }
