@@ -42,9 +42,9 @@ export class VacancyDirecLinkSideBar {
         ? (this.sideBarResponseButton.style.opacity = '1')
         : (this.sideBarResponseButton.style.opacity = '0');
 
-      window.pageYOffset >= this.form.offsetTop
-        ? this.hideSideBar()
-        : this.showSideBar();
+      // window.pageYOffset >= this.form.offsetTop
+      //   ? this.hideSideBar()
+      //   : this.showSideBar();
     }
   }
 
@@ -61,6 +61,6 @@ export class VacancyDirecLinkSideBar {
   // }
 
   monitorScreenWidth() {
-    window.innerWidth > 990 ? this.showSideBar() : this.hideSideBar();
+    // window.innerWidth > 990 ? this.showSideBar() : this.hideSideBar();
   }
 }

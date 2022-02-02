@@ -271,6 +271,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // архивный фильтр
     function archive_filtering(){
 
+        if( document.querySelector('.listing-top__filter-list-item') ){
+            document.querySelector('.listing-top__filter-list-item').click()
+        }
+
         document.querySelector('#archive_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
         
         var top__profession = document.querySelector('#listing-top__profession-filter').value;
@@ -411,14 +415,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     // Инициализация селекта Уровень
-    if( typeof listingLevelSelect !== 'undefined' ){
-        listingTagifyLevelInput.addEventListener('change', (e) => {
-    
-            if( filter_buzy == 0 ){
-                e.preventDefault();
-                archive_filtering();
-            }
-        });
+    if( 'archive' == rel_type && '' == vacancyid ){ 
+        if( listingTagifyLevelInput != null ){
+            listingTagifyLevelInput.addEventListener('change', (e) => {
+        
+                if( filter_buzy == 0 ){
+                    e.preventDefault();
+                    archive_filtering();
+                }
+            });
+        }
     }
 
     // Инициализация селекта Город
@@ -462,17 +468,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             filter_buzy = 1;
 
+            if( document.querySelector('.listing-top__filter-list-item') ){
+                document.querySelector('.listing-top__filter-list-item').click()
+            }
+
             document.querySelector('#archive_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
             document.querySelector('.archive_without_experience').checked = false;
-            document.querySelector('.archive_remotely').checked = false;
+            if( document.querySelector('.archive_remotely') ){
+                document.querySelector('.archive_remotely').checked = false;
+            }
 
             professionListingSelect.removeAllTags();
             specializationListingSelect.removeAllTags();
-            listingLevelSelect.removeAllTags();
+            if( typeof listingLevelSelect != 'undefined' ){
+                listingLevelSelect.removeAllTags();
+            }
             listingCitySelect.removeAllTags();
 
             document.querySelector('#listing__city-select').value = -1;
-            document.querySelector('#listing__level-select').value = -1;
+            if( document.querySelector('#listing__level-select') ){
+                document.querySelector('#listing__level-select').value = -1;
+            }
             
             var data = {
                 action: 'archive_get_profession__menu_items',

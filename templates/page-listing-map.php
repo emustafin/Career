@@ -241,7 +241,7 @@ get_header();
               </div>
           </div>
 
-          <button class="listing-top__filter-item-button-reset listing-top__filter-item-button-reset-map">
+          <button id="archive_clear_all_filters" class="listing-top__filter-item-button-reset listing-top__filter-item-button-reset-map">
             Сбросить фильтры
           </button>
 
