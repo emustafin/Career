@@ -68,7 +68,7 @@ export class ListingVacancyMapBlock {
         let latitude = shop.getAttribute('data-latitude');
         let longitude = shop.getAttribute('data-longitude');
         mapV.geoObjects.removeAll();
-        mapV.setCenter([ latitude, longitude ])
+        mapV.setCenter([ latitude, longitude ]);
         yandexMapInit( 
           [
             [
@@ -77,7 +77,6 @@ export class ListingVacancyMapBlock {
             ],
           ] 
         );
-        mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
 
         this.shopsListContainer.classList.add('hide');
         this.vacanciesInShopContainer.classList.remove('hide');
@@ -104,7 +103,6 @@ export class ListingVacancyMapBlock {
             ],
           ] 
         );
-        mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
 
         this.shopsListContainer.classList.add('hide');
         this.vacanciesInShopContainer.classList.remove('hide');
@@ -117,7 +115,7 @@ export class ListingVacancyMapBlock {
       mapV.geoObjects.removeAll();
       mapV.setCenter( defaultCenter )
       yandexMapInit( defaultIcons );
-      mapV.setZoom(1, {duration: 1000});
+      mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
 
       this.shopsListContainer.classList.remove('hide');
       this.vacanciesInShopContainer.classList.add('hide');
@@ -129,7 +127,7 @@ export class ListingVacancyMapBlock {
       mapV.geoObjects.removeAll();
       mapV.setCenter( defaultCenter )
       yandexMapInit( defaultIcons );
-      mapV.setZoom(1, {duration: 1000});
+      mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
       
       this.shopsListContainer.classList.remove('hide');
       this.vacanciesInShopContainer.classList.add('hide');

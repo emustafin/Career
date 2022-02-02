@@ -2,6 +2,7 @@ var yandexMaps = ymaps.ready( ymapInit );
 var mapV;
 
 function ymapInit(){
+
     mapV = new ymaps.Map('yandex-map', 
         {
         center: defaultCenter,
@@ -14,7 +15,10 @@ function ymapInit(){
             maxAnimationZoomDifference: 1
         }
     );
+
     yandexMapInit( defaultIcons );
+
+    mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
 };
 
 function yandexMapInit( icons ) {
@@ -42,6 +46,6 @@ function yandexMapInit( icons ) {
   mapV.controls.remove('zoomControl'); // удаляем контрол зуммирования
   mapV.controls.remove('rulerControl'); // удаляем контрол правил
 
-  mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
+  mapV.setZoom(17, {duration: 0});
   
 }
