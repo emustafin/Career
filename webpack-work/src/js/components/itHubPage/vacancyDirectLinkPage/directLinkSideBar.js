@@ -48,17 +48,17 @@ export class VacancyDirecLinkSideBar {
     }
   }
 
-  hideSideBar() {
-    this.el.style.opacity = '0';
+  // hideSideBar() {
+  //   this.el.style.opacity = '0';
 
-    setTimeout(() => (this.el.style.display = 'none'), 300);
-  }
+  //   setTimeout(() => (this.el.style.display = 'none'), 300);
+  // }
 
-  showSideBar() {
-    this.el.style.display = 'block';
+  // showSideBar() {
+  //   this.el.style.display = 'block';
 
-    setTimeout(() => (this.el.style.opacity = '1'), 50);
-  }
+  //   setTimeout(() => (this.el.style.opacity = '1'), 50);
+  // }
 
   monitorScreenWidth() {
     window.innerWidth > 990 ? this.showSideBar() : this.hideSideBar();
