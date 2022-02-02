@@ -3618,7 +3618,13 @@
   cursor: pointer;
   transition: 0.3s;
   padding: 16px 16px 0px 0px;
-  margin-top: -25px; }
+  margin-top: -25px;
+  left: -16px;
+  padding-left: 16px; }
+  @media (max-width: 1023px) {
+    .it-header__directions {
+      left: -8px;
+      padding-left: 8px; } }
 
 .it-header__directions-active {
   background-color: #fff;
@@ -3658,6 +3664,9 @@
     padding-bottom: 4px; }
   .it-header__directions-dropdown-item:hover {
     background: rgba(0, 0, 0, 0.1); }
+  @media (max-width: 1023px) {
+    .it-header__directions-dropdown-item {
+      padding: 0 8px; } }
 
 .it-header__directions-title,
 .it-header__directions-value,
