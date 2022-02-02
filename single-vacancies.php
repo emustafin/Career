@@ -80,8 +80,9 @@ if( 'roznica' == $current_relationship ){
 <div class="direct-link__container">
     <div class="direct-link__content-wrapper">
     <div class="direct-link__side-bar">
-        <a href="#" class="direct-link__header-head-copy">
-        Скопировать ссылку
+        <div class="direct-link__side-bar-wrapper">
+          <a href="#" id="copy_link" class="direct-link__header-head-copy">
+            Скопировать ссылку
               <svg
                 width="14"
                 height="10"
@@ -98,58 +99,58 @@ if( 'roznica' == $current_relationship ){
                   fill="black"
                 />
               </svg>
+            </a>
 
-        </a>
+            <div class="direct-link__vacancy-description-block">
+            <div class="direct-link__vacancy-container">
+                <div class="direct-link__vacancy-item" style="<?php echo $not_show_for_retail; ?>">
+                    <p class="direct-link__vacancy-title">Город</p>
+                    <p class="direct-link__vacancy-argument">
+                        <?php echo $town_names; ?>
+                    </p>
+                </div>
 
-        <div class="direct-link__vacancy-description-block">
-        <div class="direct-link__vacancy-container">
-            <div class="direct-link__vacancy-item" style="<?php echo $not_show_for_retail; ?>">
-                <p class="direct-link__vacancy-title">Город</p>
+                <div class="direct-link__vacancy-item">
+                <p class="direct-link__vacancy-title">Подразделение</p>
                 <p class="direct-link__vacancy-argument">
-                    <?php echo $town_names; ?>
+                    <?php echo $vaccat_names; ?>
                 </p>
-            </div>
+                </div>
 
-            <div class="direct-link__vacancy-item">
-            <p class="direct-link__vacancy-title">Подразделение</p>
-            <p class="direct-link__vacancy-argument">
-                <?php echo $vaccat_names; ?>
-            </p>
-            </div>
+                <div class="direct-link__vacancy-item" style="<?php echo $not_show_for_retail; ?>">
+                    <p class="direct-link__vacancy-title">Заработная плата</p>
+                    <p class="direct-link__vacancy-argument">
+                        <span>от</span>
+                        <span class="direct-link__vacancy-price"><?php echo $money_from; ?></span>
+                        <span>₽</span>
+                        <?php if( !get_field( 'not_gross', $post_id) ): ?>
+                            <span> - Гросс</span>
+                        <?php endif; ?>
+                    </p>
+                </div>
 
-            <div class="direct-link__vacancy-item" style="<?php echo $not_show_for_retail; ?>">
-                <p class="direct-link__vacancy-title">Заработная плата</p>
-                <p class="direct-link__vacancy-argument">
-                    <span>от</span>
-                    <span class="direct-link__vacancy-price"><?php echo $money_from; ?></span>
-                    <span>₽</span>
-                    <?php if( !get_field( 'not_gross', $post_id) ): ?>
-                        <span> - Гросс</span>
-                    <?php endif; ?>
-                </p>
+                <div class="direct-link__vacancy-item">
+                <p class="direct-link__vacancy-title">Опыт</p>
+                <p class="direct-link__vacancy-argument"><?php echo $experience; ?></p>
+                </div>
             </div>
+            <a href="#" class="direct-link__vacancy-link">
+                откликнуться
+                <svg
+                    width="14"
+                    height="10"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                    d="M11.5515 4.40001L8.57574 1.42427L9.42426 0.575745L13.8485 5.00001L9.42426 9.42427L8.57574 8.57574L11.5515 5.60001H0L0 4.40001H11.5515Z"
+                    fill="black"
+                    />
+                </svg>
 
-            <div class="direct-link__vacancy-item">
-            <p class="direct-link__vacancy-title">Опыт</p>
-            <p class="direct-link__vacancy-argument"><?php echo $experience; ?></p>
+            </a>
             </div>
-        </div>
-        <a href="#" class="direct-link__vacancy-link">
-            откликнуться
-            <svg
-                width="14"
-                height="10"
-                viewBox="0 0 14 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                  d="M11.5515 4.40001L8.57574 1.42427L9.42426 0.575745L13.8485 5.00001L9.42426 9.42427L8.57574 8.57574L11.5515 5.60001H0L0 4.40001H11.5515Z"
-                  fill="black"
-                />
-            </svg>
-
-        </a>
         </div>
     </div>
 

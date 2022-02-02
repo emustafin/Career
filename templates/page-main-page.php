@@ -29,7 +29,7 @@ if( have_rows('mainpage_content') ):
         break;
 
       case 'why-us':
-        include(THEME_DIR . '/template-parts/retail__why-us.php');
+        include(THEME_DIR . '/template-parts/mainpage/retail__why-us.php');
         break;
 
       case 'video':
@@ -46,7 +46,7 @@ if( have_rows('mainpage_content') ):
 
       case 'news-events':
         // include(THEME_DIR . '/template-parts/mainpage/news-events.php');
-        include(THEME_DIR . '/template-parts/intern.php');
+        include(THEME_DIR . '/template-parts/common/intern.php');
         break;
 
       case 'sustainability':
