@@ -5,7 +5,7 @@ Template Name: Listing Map
 
 $args = array(
   'post_type'         => 'vacancies',
-  'posts_per_page'    => 10,
+  'posts_per_page'    => -1,
   'post_status'       => 'publish',
   'tax_query'         => array( 
     array(
@@ -18,6 +18,13 @@ $args = array(
 
 $actually_vacancies_retail = new \WP_Query( $args );
 $published_posts = $actually_vacancies_retail->post_count;
+
+if( $actually_vacancies_retail->have_posts() ) :
+  while( $actually_vacancies_retail->have_posts() ) :
+    $actually_vacancies_retail->the_post();
+    $vacancy_titles .= get_the_title().',';
+  endwhile;
+endif;
 
 $vaccat_terms = get_terms( 'vaccat' );
 $town_terms = get_terms( 'town' );
@@ -109,19 +116,9 @@ get_header();
             <span class="listing-top__where">
               Розничных магазинах
 
-              <svg
-                class="listing-top__dropdown-arrow"
-                width="38"
-                height="36"
-                viewBox="0 0 38 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16.3663 28.1186V0.160156H21.4663V27.9706L34.0469 15.5064L37.6363 19.1294L22.1319 34.4903C20.3098 36.2956 17.3734 36.2956 15.5513 34.4903L0.046875 19.1294L3.63632 15.5064L16.3663 28.1186Z"
-                  fill="black"
-                />
-              </svg>
+              <!-- <svg class="listing-top__dropdown-arrow" width="38" height="36" viewBox="0 0 38 36" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                <path d="M16.3663 28.1186V0.160156H21.4663V27.9706L34.0469 15.5064L37.6363 19.1294L22.1319 34.4903C20.3098 36.2956 17.3734 36.2956 15.5513 34.4903L0.046875 19.1294L3.63632 15.5064L16.3663 28.1186Z" fill="black" />
+              </svg> -->
             </span>
           </div>
 
@@ -133,7 +130,7 @@ get_header();
 
               <span class="listing-top__counter-list-item">1184</span>
             </p>
-            <p class="listing-top__dropdown-list-item">
+            <!-- <p class="listing-top__dropdown-list-item">
               <span class="listing-top__dropdown-list-item-value">
                 Сервисе и логистике
               </span>
@@ -153,34 +150,16 @@ get_header();
               </span>
 
               <span class="listing-top__counter-list-item"><?php echo $published_posts; ?></span>
-            </p>
+            </p> -->
           </div>
         </div>
 
         <div class="listing-top__filters-wrapper">
           <div class="listing-top__filter-item">
               <input type="hidden" id="listing-top__profession-filter" />
-              <input
-                  name="tags-outside"
-                  class="tagify--outside listing-top__profession-filter"
-                  placeholder="Выбери профессию"
-                  value="<?php echo $_GET['s']; ?>"
-              />
-
-              <svg
-                  class="listing-top__filter-item-search-icon"
-                  width="10"
-                  height="10"
-                  viewBox="0 0 10 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-              >
-                  <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M4.50039 0.399994C2.23602 0.399994 0.400391 2.23563 0.400391 4.49999C0.400391 6.76436 2.23602 8.59999 4.50039 8.59999C5.41615 8.59999 6.26178 8.29977 6.94424 7.79237L8.57613 9.42426L9.42465 8.57573L7.79276 6.94384C8.30016 6.26139 8.60039 5.41575 8.60039 4.49999C8.60039 2.23563 6.76476 0.399994 4.50039 0.399994ZM1.60039 4.49999C1.60039 2.89837 2.89876 1.59999 4.50039 1.59999C6.10202 1.59999 7.40039 2.89837 7.40039 4.49999C7.40039 6.10162 6.10202 7.39999 4.50039 7.39999C2.89876 7.39999 1.60039 6.10162 1.60039 4.49999Z"
-                  fill="black"
-                  />
+              <input name="tags-outside" class="tagify--outside listing-top__profession-filter" placeholder="Выбери профессию" value="<?php echo $_GET['s']; ?>" />
+              <svg class="listing-top__filter-item-search-icon" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M4.50039 0.399994C2.23602 0.399994 0.400391 2.23563 0.400391 4.49999C0.400391 6.76436 2.23602 8.59999 4.50039 8.59999C5.41615 8.59999 6.26178 8.29977 6.94424 7.79237L8.57613 9.42426L9.42465 8.57573L7.79276 6.94384C8.30016 6.26139 8.60039 5.41575 8.60039 4.49999C8.60039 2.23563 6.76476 0.399994 4.50039 0.399994ZM1.60039 4.49999C1.60039 2.89837 2.89876 1.59999 4.50039 1.59999C6.10202 1.59999 7.40039 2.89837 7.40039 4.49999C7.40039 6.10162 6.10202 7.39999 4.50039 7.39999C2.89876 7.39999 1.60039 6.10162 1.60039 4.49999Z" fill="black" />
               </svg>
           </div>
 

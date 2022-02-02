@@ -275,7 +275,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
         
         var top__profession = document.querySelector('#listing-top__profession-filter').value;
         var vaccat_slug = document.querySelector('#listing__specialization-select').value;
-        var level_slug = document.querySelector('#listing__level-select').value;
+        if( document.querySelector('#listing__level-select') ){
+            var level_slug = document.querySelector('#listing__level-select').value;
+        } else{
+            var level_slug = -1;
+        }
         var city_slug = document.querySelector('#listing__city-select').value;
 
         var archive_without_experience = false;
@@ -320,12 +324,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     query_vars = JSON.stringify(resp.query_vars);
                     max_num_pages = resp.max_num_pages;
 
-                    if( resp.max_num_pages == 1 ){
-                        var fadeTarget = document.querySelector('.products__show-more');
-                        fadeTarget.style.display = 'none';
-                    } else{
-                        var fadeTarget = document.querySelector('.products__show-more');
-                        fadeTarget.style.display = 'flex';
+                    if( fadeTarget ){
+                        if( resp.max_num_pages == 1 ){
+                            var fadeTarget = document.querySelector('.products__show-more');
+                            fadeTarget.style.display = 'none';
+                        } else{
+                            var fadeTarget = document.querySelector('.products__show-more');
+                            fadeTarget.style.display = 'flex';
+                        }
                     }
 
                     // TODO
@@ -364,7 +370,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     document.querySelector('#archive_vacancies').innerHTML = 'К сожалению вакансий не найдено!';
 
                     var fadeTarget = document.querySelector('.products__show-more');
-                    fadeTarget.style.display = 'none';
+                    if( fadeTarget ){
+                        fadeTarget.style.display = 'none';
+                    }
                 }
             }
         };
@@ -490,15 +498,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         query_vars = JSON.stringify(resp.query_vars);
                         max_num_pages = resp.max_num_pages;
 
-                        if( resp.max_num_pages > 1 ){
-                            fadeTarget.style.display = 'flex';
-                        } else{
-                            fadeTarget.style.display = 'none';
+                        if( fadeTarget ){
+                            if( resp.max_num_pages > 1 ){
+                                fadeTarget.style.display = 'flex';
+                            } else{
+                                fadeTarget.style.display = 'none';
+                            }
                         }
                         
                     } else{
                         document.querySelector('#archive_vacancies').innerHTML = 'К сожалению вакансий не найдено!';
-                        fadeTarget.style.display = 'none';
+                        if( fadeTarget ){
+                            fadeTarget.style.display = 'none';
+                        }
                     }
                     window.history.pushState('', '', window.location.origin + window.location.pathname );
                 }
