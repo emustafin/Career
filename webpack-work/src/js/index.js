@@ -116,7 +116,7 @@ new ListingVacancyMapBlock(
   '.listing-metro__content-list',
   '.listing-top__filter-list-wrapper'
 );
-new ListingMapPageFilters('.listing-top__filters-wrapper-map');
+// new ListingMapPageFilters('.listing-top__filters-wrapper-map');
 
 new ItHubPageAdvantagesBlock('.why-are-we');
 new ItHubPageCareerUpgradeBlock('.upgrade');
