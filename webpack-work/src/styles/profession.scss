@@ -590,6 +590,12 @@
   flex-direction: column;
   pointer-events: none;
 }
+#listing-metro__profession-item.retail__position{
+  padding: 0 !important;
+}
+#listing-metro__profession-item .profession__location-container{
+  display: none;
+}
 
 .profession__job-expiriens {
   margin-top: auto;
