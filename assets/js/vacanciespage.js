@@ -15,24 +15,30 @@ const listingProfessionInput = document.querySelector('#listing-top__profession-
 const currentLevelsDataListing = JSON.parse(level_arr);
 const currentCitiesDataListing = JSON.parse(town_arr);
 const currentVaccatDataListing = JSON.parse(vaccat_arr); // Специализации
-const currentVacancyTitlesDataListing = JSON.parse(vacancy_titles); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
 
-// console.log(town_arr);
+//TODO отсмотреть эту переменную, возможно избавиться
+if( -1 != vacancy_titles ){
+  
+  const currentVacancyTitlesDataListing = JSON.parse(vacancy_titles); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
+  
+  // console.log(town_arr);
+  
+  // Инициализация селекта Профессии
+  const stringVacancyesToArray = currentVacancyTitlesDataListing.split(',');
+  const currentProfessionList = stringVacancyesToArray.filter((profession) => profession !== '');
+  
+  const professionListingSelect = new Tagify(listingTagifyProfessionInput, {
+    // whitelist: currentProfessionList,
+    dropdown: {
+    position: "input",
+    enabled : 0, // always opens dropdown when input gets focus
+    dropdown: {
+      maxItems: 5,
+      },
+    }
+  })
 
-// Инициализация селекта Профессии
-const stringVacancyesToArray = currentVacancyTitlesDataListing.split(',');
-const currentProfessionList = stringVacancyesToArray.filter((profession) => profession !== '');
-
-const professionListingSelect = new Tagify(listingTagifyProfessionInput, {
-  // whitelist: currentProfessionList,
-  dropdown: {
-  position: "input",
-  enabled : 0, // always opens dropdown when input gets focus
-  dropdown: {
-    maxItems: 5,
-    },
-  }
-})
+}
 
 listingTagifyProfessionInput.addEventListener('change', () => {
   let selectedProfessionList = [];
