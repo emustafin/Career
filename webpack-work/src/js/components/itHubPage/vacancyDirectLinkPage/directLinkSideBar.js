@@ -20,9 +20,6 @@ export class VacancyDirecLinkSideBar {
     );
     this.contentBarResponseButton = this.contentBar.contentResponseButton;
     this.contentBarFormBlock = this.contentBar.form;
-    this.copyLinkButton = this.el.querySelector(
-      '.direct-link__header-head-copy'
-    );
     this.copyLinkButtonMobile = this.contentBar.copyLinkButtonMobile;
     this.header = vacancyDirectLinkHeader || headerItPage;
 
@@ -31,24 +28,12 @@ export class VacancyDirecLinkSideBar {
       'click',
       this.scrollToForm.bind(this)
     );
-    this.copyLinkButton.addEventListener('click', this.copyLink.bind(this));
-    this.copyLinkButtonMobile.addEventListener(
-      'click',
-      this.copyLink.bind(this)
-    );
     window.addEventListener('scroll', this.manageSideBar.bind(this));
     window.addEventListener('resize', this.monitorScreenWidth.bind(this));
   }
   scrollToForm(event) {
     event.preventDefault();
     smothScrollingToBlock(this.form, this.header);
-  }
-
-  async copyLink(event) {
-    event.preventDefault();
-    const link = document.URL;
-
-    await navigator.clipboard.writeText(link);
   }
 
   manageSideBar() {
