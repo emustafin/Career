@@ -70,15 +70,16 @@ listingTagifySpecializationgInput.addEventListener('change', selectValueFromSing
 
 
 // Инициализация селекта Уровень
-const listingLevelSelect = new Tagify(listingTagifyLevelInput, {
-  enforceWhitelist: true,
-  mode: 'select',
-  whitelist: Object.values(currentLevelsDataListing),
-  userInput: false,
-});
-
-listingTagifyLevelInput.addEventListener('change', selectValueFromSingleSelect(currentLevelsDataListing, listingTagifyLevelInput, listingLevelInput))
-
+if(listingTagifyLevelInput){
+  const listingLevelSelect = new Tagify(listingTagifyLevelInput, {
+    enforceWhitelist: true,
+    mode: 'select',
+    whitelist: Object.values(currentLevelsDataListing),
+    userInput: false,
+  });
+  
+  listingTagifyLevelInput.addEventListener('change', selectValueFromSingleSelect(currentLevelsDataListing, listingTagifyLevelInput, listingLevelInput))
+}
 
 // Инициализация селекта Город
 const listingCitySelect = new Tagify(listingTagifyCityInput, {

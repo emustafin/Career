@@ -23,6 +23,25 @@ foreach( $vaccat_terms as $vaccat_term ):
     $vaccat_arr[$vaccat_term->slug] = $vaccat_term->name;
 endforeach;
 
+$args = array(
+  'post_type'         => 'vacancies',
+  'posts_per_page'    => -1,
+  'post_status'       => 'publish',
+  'tax_query'         => array(
+    'taxonomy' => 'relationship',
+    'field'    => 'slug',
+    'terms'    => 'roznica'
+  )
+);
+$all_retail_vacancies = new WP_Query( $args );
+if ( $all_retail_vacancies->have_posts() ) {
+  while ( $all_retail_vacancies->have_posts() ) {
+      $all_retail_vacancies->the_post();
+      $vacancy_titles .= get_the_title().',';
+  }
+}
+wp_reset_postdata();
+
 get_header();
 ?>
 
@@ -30,7 +49,7 @@ get_header();
     var level_arr = '<?php echo json_encode( $level_arr ); ?>';
     var town_arr = '<?php echo json_encode( $town_arr ); ?>';
     var vaccat_arr = '<?php echo json_encode( $vaccat_arr ); ?>';
-    var vacancy_titles = -1;
+    var vacancy_titles = '<?php echo json_encode( $vacancy_titles ); ?>';
     var rel_type = 'retail';
     var vacancyid = '';
     var sourceurl = '';
@@ -104,161 +123,116 @@ get_header();
           </div>
         </div>
 
-        <div
-          class="listing-top__filters-wrapper listing-top__filters-wrapper-map"
-        >
+        <div class="listing-top__filters-wrapper">
           <div class="listing-top__filter-item">
-            <input type="hidden" id="listing-top__profession-filter" />
-            <input
-              name="tags-outside"
-              class="tagify--outside listing-top__profession-filter"
-              placeholder="Выбери профессию"
-            />
-
-            <svg
-              class="listing-top__filter-item-search-icon"
-              width="10"
-              height="10"
-              viewBox="0 0 10 10"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M4.50039 0.399994C2.23602 0.399994 0.400391 2.23563 0.400391 4.49999C0.400391 6.76436 2.23602 8.59999 4.50039 8.59999C5.41615 8.59999 6.26178 8.29977 6.94424 7.79237L8.57613 9.42426L9.42465 8.57573L7.79276 6.94384C8.30016 6.26139 8.60039 5.41575 8.60039 4.49999C8.60039 2.23563 6.76476 0.399994 4.50039 0.399994ZM1.60039 4.49999C1.60039 2.89837 2.89876 1.59999 4.50039 1.59999C6.10202 1.59999 7.40039 2.89837 7.40039 4.49999C7.40039 6.10162 6.10202 7.39999 4.50039 7.39999C2.89876 7.39999 1.60039 6.10162 1.60039 4.49999Z"
-                fill="black"
-              />
-            </svg>
-          </div>
-
-          <div
-            class="listing-top__filter-item listing-top__specialization-on-map"
-          >
-            <p class="profession__filter-item-title">Специализация</p>
-            <div class="profession__filter-item-select">
-              <input type="hidden" id="listing__specialization-select" />
+              <input type="hidden" id="listing-top__profession-filter" />
               <input
-                class="selectMode listing__specialization-select"
-                name="tags-select-mode"
-                placeholder="Выбери специализацию"
+                  name="tags-outside"
+                  class="tagify--outside listing-top__profession-filter"
+                  placeholder="Выбери профессию"
+                  value="<?php echo $_GET['s']; ?>"
               />
-              <div class="listing__filter-item-select-arrow">
-                <svg
-                  class="listing__filter-item-select-arrow-image"
+
+              <svg
+                  class="listing-top__filter-item-search-icon"
                   width="10"
                   height="10"
                   viewBox="0 0 10 10"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                >
+              >
                   <path
-                    d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
-                    fill="black"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M4.50039 0.399994C2.23602 0.399994 0.400391 2.23563 0.400391 4.49999C0.400391 6.76436 2.23602 8.59999 4.50039 8.59999C5.41615 8.59999 6.26178 8.29977 6.94424 7.79237L8.57613 9.42426L9.42465 8.57573L7.79276 6.94384C8.30016 6.26139 8.60039 5.41575 8.60039 4.49999C8.60039 2.23563 6.76476 0.399994 4.50039 0.399994ZM1.60039 4.49999C1.60039 2.89837 2.89876 1.59999 4.50039 1.59999C6.10202 1.59999 7.40039 2.89837 7.40039 4.49999C7.40039 6.10162 6.10202 7.39999 4.50039 7.39999C2.89876 7.39999 1.60039 6.10162 1.60039 4.49999Z"
+                  fill="black"
                   />
-                </svg>
-              </div>
+              </svg>
+          </div>
+
+          <div class="listing-top__filter-item">
+              <p class="profession__filter-item-title">Специализация</p>
+              <div class="profession__filter-item-select">
+
+                  <input type="hidden" id="listing__specialization-select" />
+                  <input
+                      class="selectMode listing__specialization-select"
+                      name="tags-select-mode"
+                      placeholder="Выбери специализацию"
+                      value=""
+                  />
+                  <div class="listing__filter-item-select-arrow">
+                  <svg
+                      class="listing__filter-item-select-arrow-image"
+                      width="10"
+                      height="10"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                      d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
+                      fill="black"
+                      />
+                  </svg>
+                  </div>
             </div>
             <div class="listing__filter-item-border-bottom">
-              <label
-                class="
-                  profession__filter-checbox-listing
-                  profession__filter-checbox-map
-                "
-              >
-                <input class="profession__filter-input" type="checkbox" />
-                Без опыта
-                <span class="profession__filter-checbox-value">
-                  <svg
-                    class="listing-metro__select-shop-checkbox-image"
-                    width="10"
-                    height="8"
-                    viewBox="0 0 10 8"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M3.50044 6.15191L9.07617 0.576172L9.9247 1.4247L3.50044 7.84896L0.0761719 4.4247L0.9247 3.57617L3.50044 6.15191Z"
-                      fill="black"
-                    ></path>
-                  </svg>
-                </span>
-              </label>
-            </div>
-          </div>
+                    <label class="profession__filter-checbox-listing">
+                    <input class="profession__filter-input archive_without_experience" type="checkbox" />
+                    Без опыта
+                    <span class="profession__filter-checbox-value">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12.5 5L6.5 11L3.5 8"
+                        stroke="black"
+                        stroke-width="1.2"
+                      />
+                    </svg>
 
-          <div class="listing-top__filter-item listing-top__filter-sity">
-            <p class="profession__filter-item-title">Город</p>
-            <div class="profession__filter-item-select">
-              <input type="hidden" id="listing__level-select" />
-              <input
-                class="selectMode listing__level-select"
-                name="tags-select-mode"
-                placeholder="Выбери город"
-              />
-
-              <div class="listing__filter-item-select-arrow">
-                <svg
-                  class="listing__filter-item-select-arrow-image"
-                  width="10"
-                  height="10"
-                  viewBox="0 0 10 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
-                    fill="black"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="listing__filter-item-border-bottom"></div>
+                    </span>
+                    </label>
+                </div>
           </div>
 
           <div class="listing-top__filter-item">
-            <p class="profession__filter-item-title">Станция метро</p>
-            <div class="profession__filter-item-select">
-              <input type="hidden" id="listing__city-select" />
-              <input
-                class="selectMode listing__city-select"
-                name="tags-select-mode"
-                placeholder="Выбери станцию метро"
-              />
-
-              <div class="listing__filter-item-select-arrow">
-                <svg
-                  class="listing__filter-item-select-arrow-image"
-                  width="10"
-                  height="10"
-                  viewBox="0 0 10 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
-                    fill="black"
+              <p class="profession__filter-item-title">Город</p>
+              <div class="profession__filter-item-select">
+                  <input type="hidden" id="listing__city-select" value="-1"/>
+                  <input
+                  class="selectMode listing__city-select"
+                  name="tags-select-mode"
+                  placeholder="Выбери город"
                   />
-                </svg>
-              </div>
-            </div>
 
-            <div class="listing__filter-item-border-bottom"></div>
+                  <div class="listing__filter-item-select-arrow">
+                  <svg
+                      class="listing__filter-item-select-arrow-image"
+                      width="10"
+                      height="10"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                  >
+                      <path
+                      d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
+                      fill="black"
+                      />
+                  </svg>
+                  </div>
+              </div>
           </div>
-          <button
-            class="
-              listing-top__filter-item-button-reset
-              listing-top__filter-item-button-reset-map
-            "
-          >
+
+          <button class="listing-top__filter-item-button-reset listing-top__filter-item-button-reset-map">
             Сбросить фильтры
           </button>
 
-          <div
-            class="listing-top__filter-item listing-top__filter-list-wrapper"
-          >
+          <div class="listing-top__filter-item listing-top__filter-list-wrapper">
             <div class="listing-top__filter-list-item" data-name="list">
               <svg
                 class="listing-top__filter-list-item-arrow"

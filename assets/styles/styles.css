@@ -4990,8 +4990,8 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   display: none; }
 
 .listing-top__filter-list-wrapper {
-  padding-top: 25px;
-  margin-left: auto; }
+  margin-left: auto;
+  border: none; }
 
 .listing-top__filter-list-item {
   display: flex;
