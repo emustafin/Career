@@ -407,7 +407,7 @@ get_header();
               </span>
             </div>
 
-            <div class="listing-vacancy_items profession__job-wrapper retail__position"></div>
+            <div class="listing-vacancy_items profession__job-wrapper profession__job-wrapper_eldorado retail__position retail__position_eldorado"></div>
             
           </div>
         </div>
