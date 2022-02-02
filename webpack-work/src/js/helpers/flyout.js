@@ -4,9 +4,6 @@ export class FlyoutFunctional {
     this.flyoutSideBar = this.flyout.querySelector('.flyout__side-bar');
     this.flyOutContentBar = this.flyout.querySelector('.vacancy');
     this.flyOutForm = this.flyout.querySelector('.vacancy__form');
-    this.vacancyCopyLink = this.flyout.querySelector(
-      '.vacancy__header-head-copy'
-    );
     this.newsSlider;
 
     this.progressBar = this.flyout.querySelector('.vacancy__progress-bar');
@@ -22,7 +19,6 @@ export class FlyoutFunctional {
     this.btnMuted = this.flyout.querySelector('.vacancy__video-sound-muted');
     this.btnLoud = this.flyout.querySelector('.vacancy__video-sound-loud');
 
-    this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
   }
 
   openFlyout() {
@@ -140,13 +136,6 @@ export class FlyoutFunctional {
         this.newsSliderInit();
       }
     });
-  }
-
-  async copyLink(event) {
-    event.preventDefault();
-    const link = document.URL;
-
-    await navigator.clipboard.writeText(link);
   }
 
   setVideoProgress() {

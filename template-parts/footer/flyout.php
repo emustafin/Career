@@ -42,7 +42,7 @@
                 include(THEME_DIR . '/template-parts/header/vacancy__header-head-links.php');
             ?>
 
-            <a href="#" class="vacancy__header-head-copy">
+            <a href="#" id="copy_link" class="vacancy__header-head-copy">
                 Скопировать ссылку
 
                 <svg
