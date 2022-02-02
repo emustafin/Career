@@ -4,9 +4,11 @@ export class Footer {
     this.emailAdress = this.el.querySelector('.footer__contact-mail');
     this.copyButton = this.el.querySelector('.footer__contact-button');
     this.vacancyCopyLink = document.querySelector('#copy_link');
+    this.vacancyCopyLinkMobile = document.querySelector('.direct-link__header-head-copy-mobile');
 
     this.copyButton.addEventListener('click', this.copyEmailAdress.bind(this));
     this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
+    this.vacancyCopyLinkMobile.addEventListener('click', this.copyLink.bind(this));
   }
 
   async copyEmailAdress() {
