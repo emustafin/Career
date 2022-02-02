@@ -378,18 +378,6 @@
 .profession__filter-item-select {
   display: flex;
   justify-content: space-between;
-
-  & .tagify.tagify--select.selectMode.listing__specialization-select{
-    border: none;
-  }
-
-  & .tagify.tagify--select.selectMode.listing__level-select{
-    border: none;
-  }
-
-  & .tagify.tagify--select.selectMode.listing__city-select{
-    border: none;
-  }
 }
 
 .profession__filter-item-select-arrow {

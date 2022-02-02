@@ -43,110 +43,106 @@ Template Name: News & events
 </section>
 <section class="news__events">
     <div class="left__column">
-        <div class="left__column-container">
-            <div class="left__column-wrapper">
-                <p class="title__left-column">
-                    Ближайшие события
+        <p class="title__left-column">
+            Ближайшие события
+        </p>
+        <div class="event__swiper swiper">
+            <div class="event__card-wrapper swiper-wrapper">
+                <p class="title__event-month">
+                    Сентябрь
                 </p>
-                <div class="event__swiper swiper">
-                    <div class="event__card-wrapper swiper-wrapper">
-                        <p class="title__event-month">
-                            Сентябрь
+                <div class="event__card swiper-slide">
+                    <div class="event__date">
+                        <p class="event__date-day">12</p>
+                        <p class="event__date-month">/09</p>
+                    </div>
+                    <div class="event__content">
+                        <p class="event__name">
+                            Митап по Data Science
                         </p>
-                        <div class="event__card swiper-slide">
-                            <div class="event__date">
-                                <p class="event__date-day">12</p>
-                                <p class="event__date-month">/09</p>
-                            </div>
-                            <div class="event__content">
-                                <p class="event__name">
-                                    Митап по Data Science
-                                </p>
-                                <p class="event__status">
-                                    Онлайн
-                                </p>
-                                <a href="#" class="event__link">
-                                    <p>Зарегистрироваться</p>
-                                    <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12.0534 4.22214L8.97561 1.35207L9.79401 0.474443L14.37 4.74161L10.1028 9.31758L9.2252 8.49918L12.0953 5.42141L0.550833 5.82455L0.508953 4.62528L12.0534 4.22214Z" fill="black"></path>
-                                    </svg>                    
-                                </a>
-                            </div>
-                        </div>
-                        <div class="event__card swiper-slide">
-                            <div class="event__date">
-                                <p class="event__date-day">13</p>
-                                <p class="event__date-month">/09</p>
-                            </div>
-                            <div class="event__content">
-                                <p class="event__name">
-                                    Митап по Data Science
-                                </p>
-                                <p class="event__status">
-                                    Онлайн
-                                </p>
-                                <a href="#" class="event__link">
-                                    <p>Зарегистрироваться</p>
-                                    <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12.0534 4.22214L8.97561 1.35207L9.79401 0.474443L14.37 4.74161L10.1028 9.31758L9.2252 8.49918L12.0953 5.42141L0.550833 5.82455L0.508953 4.62528L12.0534 4.22214Z" fill="black"></path>
-                                    </svg>                    
-                                </a>
-                            </div>
-                        </div>
-                        <p class="title__event-month">
-                            Октябрь
+                        <p class="event__status">
+                            Онлайн
                         </p>
-                        <div class="event__card swiper-slide">
-                            <div class="event__date">
-                                <p class="event__date-day">07</p>
-                                <p class="event__date-month">/10</p>
-                            </div>
-                            <div class="event__content">
-                                <p class="event__name">
-                                    Митап по Data Science
-                                </p>
-                                <p class="event__status">
-                                    Онлайн
-                                </p>
-                                <a href="#" class="event__link">
-                                    <p>Зарегистрироваться</p>
-                                    <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12.0534 4.22214L8.97561 1.35207L9.79401 0.474443L14.37 4.74161L10.1028 9.31758L9.2252 8.49918L12.0953 5.42141L0.550833 5.82455L0.508953 4.62528L12.0534 4.22214Z" fill="black"></path>
-                                    </svg>                    
-                                </a>
-                            </div>
-                        </div>
-                        <div class="event__card swiper-slide">
-                            <div class="event__date">
-                                <p class="event__date-day">29</p>
-                                <p class="event__date-month">/10</p>
-                            </div>
-                            <div class="event__content">
-                                <p class="event__name">
-                                    Митап по Data Science
-                                </p>
-                                <p class="event__status">
-                                    Онлайн
-                                </p>
-                                <a href="#" class="event__link">
-                                    <p>Зарегистрироваться</p>
-                                    <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12.0534 4.22214L8.97561 1.35207L9.79401 0.474443L14.37 4.74161L10.1028 9.31758L9.2252 8.49918L12.0953 5.42141L0.550833 5.82455L0.508953 4.62528L12.0534 4.22214Z" fill="black"></path>
-                                    </svg>                    
-                                </a>
-                            </div>
-                        </div>
+                        <a href="#" class="event__link">
+                            <p>Зарегистрироваться</p>
+                            <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.0534 4.22214L8.97561 1.35207L9.79401 0.474443L14.37 4.74161L10.1028 9.31758L9.2252 8.49918L12.0953 5.42141L0.550833 5.82455L0.508953 4.62528L12.0534 4.22214Z" fill="black"></path>
+                            </svg>                    
+                        </a>
                     </div>
                 </div>
-                <div class="all__events">
-                    <a href="#" class="all__event-link">
-                        Все события
-                        <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12.0534 4.22214L8.97561 1.35207L9.79401 0.474443L14.37 4.74161L10.1028 9.31758L9.2252 8.49918L12.0953 5.42141L0.550833 5.82455L0.508953 4.62528L12.0534 4.22214Z" fill="black"></path>
-                        </svg> 
-                    </a>
+                <div class="event__card swiper-slide">
+                    <div class="event__date">
+                        <p class="event__date-day">13</p>
+                        <p class="event__date-month">/09</p>
+                    </div>
+                    <div class="event__content">
+                        <p class="event__name">
+                            Митап по Data Science
+                        </p>
+                        <p class="event__status">
+                            Онлайн
+                        </p>
+                        <a href="#" class="event__link">
+                            <p>Зарегистрироваться</p>
+                            <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.0534 4.22214L8.97561 1.35207L9.79401 0.474443L14.37 4.74161L10.1028 9.31758L9.2252 8.49918L12.0953 5.42141L0.550833 5.82455L0.508953 4.62528L12.0534 4.22214Z" fill="black"></path>
+                            </svg>                    
+                        </a>
+                    </div>
+                </div>
+                <p class="title__event-month">
+                    Октябрь
+                </p>
+                <div class="event__card swiper-slide">
+                    <div class="event__date">
+                        <p class="event__date-day">07</p>
+                        <p class="event__date-month">/10</p>
+                    </div>
+                    <div class="event__content">
+                        <p class="event__name">
+                            Митап по Data Science
+                        </p>
+                        <p class="event__status">
+                            Онлайн
+                        </p>
+                        <a href="#" class="event__link">
+                            <p>Зарегистрироваться</p>
+                            <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.0534 4.22214L8.97561 1.35207L9.79401 0.474443L14.37 4.74161L10.1028 9.31758L9.2252 8.49918L12.0953 5.42141L0.550833 5.82455L0.508953 4.62528L12.0534 4.22214Z" fill="black"></path>
+                            </svg>                    
+                        </a>
+                    </div>
+                </div>
+                <div class="event__card swiper-slide">
+                    <div class="event__date">
+                        <p class="event__date-day">29</p>
+                        <p class="event__date-month">/10</p>
+                    </div>
+                    <div class="event__content">
+                        <p class="event__name">
+                            Митап по Data Science
+                        </p>
+                        <p class="event__status">
+                            Онлайн
+                        </p>
+                        <a href="#" class="event__link">
+                            <p>Зарегистрироваться</p>
+                            <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.0534 4.22214L8.97561 1.35207L9.79401 0.474443L14.37 4.74161L10.1028 9.31758L9.2252 8.49918L12.0953 5.42141L0.550833 5.82455L0.508953 4.62528L12.0534 4.22214Z" fill="black"></path>
+                            </svg>                    
+                        </a>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="all__events">
+            <a href="#" class="all__event-link">
+                Все события
+                <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.0534 4.22214L8.97561 1.35207L9.79401 0.474443L14.37 4.74161L10.1028 9.31758L9.2252 8.49918L12.0953 5.42141L0.550833 5.82455L0.508953 4.62528L12.0534 4.22214Z" fill="black"></path>
+                </svg> 
+            </a>
         </div>
     </div>
 
