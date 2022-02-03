@@ -3,9 +3,33 @@
 Template Name: Listing Map
 */
 
+$args = array(
+  'post_type'         => 'vacancies',
+  'posts_per_page'    => -1,
+  'post_status'       => 'publish',
+  'tax_query'         => array( 
+    array(
+      'taxonomy' => 'relationship',
+      'field'    => 'slug',
+      'terms'    => 'roznica'
+    )
+  )
+);
+
+$actually_vacancies_retail = new \WP_Query( $args );
+$published_posts = $actually_vacancies_retail->post_count;
+
+if( $actually_vacancies_retail->have_posts() ) :
+  while( $actually_vacancies_retail->have_posts() ) :
+    $actually_vacancies_retail->the_post();
+    $vacancy_titles .= get_the_title().',';
+  endwhile;
+endif;
+
 $vaccat_terms = get_terms( 'vaccat' );
 $town_terms = get_terms( 'town' );
 $level_terms = get_terms( 'level' );
+$shop_terms = get_terms( 'shop' );
 
 $town_arr = array();
 
@@ -23,24 +47,39 @@ foreach( $vaccat_terms as $vaccat_term ):
     $vaccat_arr[$vaccat_term->slug] = $vaccat_term->name;
 endforeach;
 
-$args = array(
-  'post_type'         => 'vacancies',
-  'posts_per_page'    => -1,
-  'post_status'       => 'publish',
-  'tax_query'         => array(
-    'taxonomy' => 'relationship',
-    'field'    => 'slug',
-    'terms'    => 'roznica'
-  )
-);
-$all_retail_vacancies = new WP_Query( $args );
-if ( $all_retail_vacancies->have_posts() ) {
-  while ( $all_retail_vacancies->have_posts() ) {
-      $all_retail_vacancies->the_post();
-      $vacancy_titles .= get_the_title().',';
+// Координаты всех магазинов
+$defaultIcons = array();
+foreach ($shop_terms as $shop_term ) {
+
+  switch ( get_field( 'mvideo_or_eldorado', $shop_term ) ) {
+    case 'mvideo':
+      $name_icon = THEME_URL . '/assets/images/listing/map/mvideo-icon.png';
+      break;
+    
+    case 'eldorado':
+      $name_icon = THEME_URL . '/assets/images/listing/map/eldorado-icon.png';
+      break;
+    
+    default:
+    $name_icon = THEME_URL . '/assets/images/listing/map/mvideo-icon.png';
+      break;
   }
+
+  if( empty( $defaultIcons ) ){
+    $defaultCenter = [
+      get_field( 'shop_koordinates_latitude', $shop_term ),
+      get_field( 'shop_koordinates_longitude', $shop_term )
+    ];
+  }
+
+  $defaultIcons[] = array(
+    [
+      get_field( 'shop_koordinates_latitude', $shop_term ),
+      get_field( 'shop_koordinates_longitude', $shop_term )
+    ],
+    $name_icon
+  );
 }
-wp_reset_postdata();
 
 get_header();
 ?>
@@ -53,7 +92,9 @@ get_header();
     var rel_type = 'retail';
     var vacancyid = '';
     var sourceurl = '';
-    const icons = [
+    const defaultCenter = JSON.parse( '<?php echo json_encode( $defaultCenter ); ?>' );
+    const defaultIcons = JSON.parse( '<?php echo json_encode( $defaultIcons ); ?>' );
+    const iconsNew = [
       [[55.774824, 37.671345], '/wp-content/themes/career_theme/webpack-work/src/images/listing/map/mvideo-icon.png' ],
       [[55.774951, 37.669619], '/wp-content/themes/career_theme/webpack-work/src/images/listing/map/eldorado-icon.png' ],
       [[55.774289, 37.669145], '/wp-content/themes/career_theme/webpack-work/src/images/listing/map/mvideo-icon.png' ],
@@ -67,7 +108,7 @@ get_header();
       <div class="page-container">
         <h2 class="listing-top__title">
           Вакансии
-          <span class="listing-top__counter">162</span>
+          <span class="listing-top__counter"><?php echo $published_posts; ?></span>
         </h2>
         <div class="listing-top__dropdown">
           <div class="listing-top__dropdown-container">
@@ -75,19 +116,9 @@ get_header();
             <span class="listing-top__where">
               Розничных магазинах
 
-              <svg
-                class="listing-top__dropdown-arrow"
-                width="38"
-                height="36"
-                viewBox="0 0 38 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16.3663 28.1186V0.160156H21.4663V27.9706L34.0469 15.5064L37.6363 19.1294L22.1319 34.4903C20.3098 36.2956 17.3734 36.2956 15.5513 34.4903L0.046875 19.1294L3.63632 15.5064L16.3663 28.1186Z"
-                  fill="black"
-                />
-              </svg>
+              <!-- <svg class="listing-top__dropdown-arrow" width="38" height="36" viewBox="0 0 38 36" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                <path d="M16.3663 28.1186V0.160156H21.4663V27.9706L34.0469 15.5064L37.6363 19.1294L22.1319 34.4903C20.3098 36.2956 17.3734 36.2956 15.5513 34.4903L0.046875 19.1294L3.63632 15.5064L16.3663 28.1186Z" fill="black" />
+              </svg> -->
             </span>
           </div>
 
@@ -99,7 +130,7 @@ get_header();
 
               <span class="listing-top__counter-list-item">1184</span>
             </p>
-            <p class="listing-top__dropdown-list-item">
+            <!-- <p class="listing-top__dropdown-list-item">
               <span class="listing-top__dropdown-list-item-value">
                 Сервисе и логистике
               </span>
@@ -118,35 +149,17 @@ get_header();
                 IT-хабе
               </span>
 
-              <span class="listing-top__counter-list-item">162</span>
-            </p>
+              <span class="listing-top__counter-list-item"><?php echo $published_posts; ?></span>
+            </p> -->
           </div>
         </div>
 
         <div class="listing-top__filters-wrapper filters__map-wrapper">
           <div class="listing-top__filter-item">
               <input type="hidden" id="listing-top__profession-filter" />
-              <input
-                  name="tags-outside"
-                  class="tagify--outside listing-top__profession-filter"
-                  placeholder="Выбери профессию"
-                  value="<?php echo $_GET['s']; ?>"
-              />
-
-              <svg
-                  class="listing-top__filter-item-search-icon"
-                  width="10"
-                  height="10"
-                  viewBox="0 0 10 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-              >
-                  <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M4.50039 0.399994C2.23602 0.399994 0.400391 2.23563 0.400391 4.49999C0.400391 6.76436 2.23602 8.59999 4.50039 8.59999C5.41615 8.59999 6.26178 8.29977 6.94424 7.79237L8.57613 9.42426L9.42465 8.57573L7.79276 6.94384C8.30016 6.26139 8.60039 5.41575 8.60039 4.49999C8.60039 2.23563 6.76476 0.399994 4.50039 0.399994ZM1.60039 4.49999C1.60039 2.89837 2.89876 1.59999 4.50039 1.59999C6.10202 1.59999 7.40039 2.89837 7.40039 4.49999C7.40039 6.10162 6.10202 7.39999 4.50039 7.39999C2.89876 7.39999 1.60039 6.10162 1.60039 4.49999Z"
-                  fill="black"
-                  />
+              <input name="tags-outside" class="tagify--outside listing-top__profession-filter" placeholder="Выбери профессию" value="<?php echo $_GET['s']; ?>" />
+              <svg class="listing-top__filter-item-search-icon" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M4.50039 0.399994C2.23602 0.399994 0.400391 2.23563 0.400391 4.49999C0.400391 6.76436 2.23602 8.59999 4.50039 8.59999C5.41615 8.59999 6.26178 8.29977 6.94424 7.79237L8.57613 9.42426L9.42465 8.57573L7.79276 6.94384C8.30016 6.26139 8.60039 5.41575 8.60039 4.49999C8.60039 2.23563 6.76476 0.399994 4.50039 0.399994ZM1.60039 4.49999C1.60039 2.89837 2.89876 1.59999 4.50039 1.59999C6.10202 1.59999 7.40039 2.89837 7.40039 4.49999C7.40039 6.10162 6.10202 7.39999 4.50039 7.39999C2.89876 7.39999 1.60039 6.10162 1.60039 4.49999Z" fill="black" />
               </svg>
           </div>
 
@@ -228,7 +241,7 @@ get_header();
               </div>
           </div>
 
-          <button class="listing-top__filter-item-button-reset listing-top__filter-item-button-reset-map">
+          <button id="archive_clear_all_filters" class="listing-top__filter-item-button-reset listing-top__filter-item-button-reset-map">
             Сбросить фильтры
           </button>
 
@@ -291,7 +304,6 @@ get_header();
 
           <div class="listing-metro__shops-list mvideo">
             <?php
-            $shop_terms = get_terms( 'shop' );
             foreach( $shop_terms as $shop_term ):
               if( 'mvideo' == get_field( 'mvideo_or_eldorado', $shop_term ) ){                
                 ?>
@@ -311,7 +323,6 @@ get_header();
 
           <div class="listing-metro__shops-list eldorado hide">
             <?php
-            $shop_terms = get_terms( 'shop' );
             foreach( $shop_terms as $shop_term ):
               if( 'eldorado' == get_field( 'mvideo_or_eldorado', $shop_term ) ){                
                 ?>
@@ -340,12 +351,12 @@ get_header();
             </a>
             <span class="listing-metro__location-place">ТРК «Европолис»</span>
             <span class="listing-metro__location-adress">г. Москва, пр. Мира, д. 211, корп. 1, этаж 2</span>
-            <button class="listing-metro__route-button">
+            <!-- <button class="listing-metro__route-button">
               Построить маршрут
               <svg class="listing-metro__route-arrow" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" >
                 <path d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z" fill="black" />
               </svg>
-            </button>
+            </button> -->
 
             <div class="listing-metro__location-metro-container listing-metro__location-on-map">
               <div class="listing-metro__location-metro-item sokol-line">
@@ -384,9 +395,7 @@ get_header();
               </span>
             </div>
 
-            <div id="listing-metro__profession-item" class="profession__job-wrapper retail__position">
-
-            </div>
+            <div class="listing-vacancy_items profession__job-wrapper retail__position"></div>
           </div>
 
           <div class="listing-metro__profession-container eldorado hide">
@@ -398,225 +407,8 @@ get_header();
               </span>
             </div>
 
-            <div class="listing-metro__profession-item">
-              <div class="listing-metro__profession-item-left-bar">
-                <p class="listing-metro__profession-name">Продавец</p>
-                <div class="listing-metro__profession-bread-crumbs">
-                  <a href="#" class="listing-metro__profession-crumb">
-                    Розничные магазины
-
-                    <svg
-                      class="listing-metro__profession-crumb-arrow"
-                      width="12"
-                      height="8"
-                      viewBox="0 0 12 8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9.4136 3.54984L7.1818 1.31804L7.8182 0.681641L11.1364 3.99984L7.8182 7.31804L7.1818 6.68164L9.4136 4.44984H0.75V3.54984H9.4136Z"
-                        fill="rgba(0, 0, 0, 0.5)"
-                      />
-                    </svg>
-                  </a>
-
-                  <a href="#" class="listing-metro__profession-crumb">
-                    Продажи
-
-                    <svg
-                      class="listing-metro__profession-crumb-arrow"
-                      width="12"
-                      height="8"
-                      viewBox="0 0 12 8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9.4136 3.54984L7.1818 1.31804L7.8182 0.681641L11.1364 3.99984L7.8182 7.31804L7.1818 6.68164L9.4136 4.44984H0.75V3.54984H9.4136Z"
-                        fill="rgba(0, 0, 0, 0.5)"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              <div class="listing-metro__profession-item-right-bar">
-                <p class="listing-metro__profession-conditions">
-                  от
-                  <span class="listing-metro__profession-price">80 000</span>
-                  ₽
-                </p>
-                <div class="listing-metro__profession-expiriens">
-                  Можно без опыта
-                </div>
-              </div>
-
-              <a href="#" class="listing-metro__profession-item-link">
-                выбрать магазин
-
-                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0L0 4.40044H11.5515Z" fill="black" />
-                </svg>
-              </a>
-            </div>
-
-            <div class="listing-metro__profession-item">
-              <div class="listing-metro__profession-item-left-bar">
-                <p class="listing-metro__profession-name">
-                  Менеджер торгового зала
-                </p>
-                <div class="listing-metro__profession-bread-crumbs">
-                  <a href="#" class="listing-metro__profession-crumb">
-                    Розничные магазины
-
-                    <svg class="listing-metro__profession-crumb-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                      <path d="M9.4136 3.54984L7.1818 1.31804L7.8182 0.681641L11.1364 3.99984L7.8182 7.31804L7.1818 6.68164L9.4136 4.44984H0.75V3.54984H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                    </svg>
-                  </a>
-
-                  <a href="#" class="listing-metro__profession-crumb">
-                    Продажи
-
-                    <svg class="listing-metro__profession-crumb-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                      <path d="M9.4136 3.54984L7.1818 1.31804L7.8182 0.681641L11.1364 3.99984L7.8182 7.31804L7.1818 6.68164L9.4136 4.44984H0.75V3.54984H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              <div class="listing-metro__profession-item-right-bar">
-                <p class="listing-metro__profession-conditions">
-                  от
-                  <span class="listing-metro__profession-price">80 000</span>
-                  ₽
-                </p>
-                <div class="listing-metro__profession-expiriens">
-                  Можно без опыта
-                </div>
-              </div>
-
-              <a href="#" class="listing-metro__profession-item-link">
-                выбрать магазин
-                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0L0 4.40044H11.5515Z" fill="black" />
-                </svg>
-              </a>
-            </div>
-
-            <div class="listing-metro__profession-item">
-              <div class="listing-metro__profession-item-left-bar">
-                <p class="listing-metro__profession-name">Кладовщик</p>
-                <div class="listing-metro__profession-bread-crumbs">
-                  <a href="#" class="listing-metro__profession-crumb">
-                    Розничные магазины
-                    <svg class="listing-metro__profession-crumb-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                      <path d="M9.4136 3.54984L7.1818 1.31804L7.8182 0.681641L11.1364 3.99984L7.8182 7.31804L7.1818 6.68164L9.4136 4.44984H0.75V3.54984H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                    </svg>
-                  </a>
-
-                  <a href="#" class="listing-metro__profession-crumb">
-                    Продажи
-                    <svg class="listing-metro__profession-crumb-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                      <path d="M9.4136 3.54984L7.1818 1.31804L7.8182 0.681641L11.1364 3.99984L7.8182 7.31804L7.1818 6.68164L9.4136 4.44984H0.75V3.54984H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              <div class="listing-metro__profession-item-right-bar">
-                <p class="listing-metro__profession-conditions">
-                  от
-                  <span class="listing-metro__profession-price">80 000</span>
-                  ₽
-                </p>
-                <div class="listing-metro__profession-expiriens">
-                  Можно без опыта
-                </div>
-              </div>
-
-              <a href="#" class="listing-metro__profession-item-link">
-                выбрать магазин
-                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0L0 4.40044H11.5515Z" fill="black" />
-                </svg>
-              </a>
-            </div>
-
-            <div class="listing-metro__profession-item">
-              <div class="listing-metro__profession-item-left-bar">
-                <p class="listing-metro__profession-name">Старший кассир</p>
-                <div class="listing-metro__profession-bread-crumbs">
-                  <a href="#" class="listing-metro__profession-crumb">
-                    Розничные магазины
-                    <svg class="listing-metro__profession-crumb-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                      <path d="M9.4136 3.54984L7.1818 1.31804L7.8182 0.681641L11.1364 3.99984L7.8182 7.31804L7.1818 6.68164L9.4136 4.44984H0.75V3.54984H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                    </svg>
-                  </a>
-
-                  <a href="#" class="listing-metro__profession-crumb">
-                    Продажи
-                    <svg class="listing-metro__profession-crumb-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                      <path d="M9.4136 3.54984L7.1818 1.31804L7.8182 0.681641L11.1364 3.99984L7.8182 7.31804L7.1818 6.68164L9.4136 4.44984H0.75V3.54984H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              <div class="listing-metro__profession-item-right-bar">
-                <p class="listing-metro__profession-conditions">
-                  от
-                  <span class="listing-metro__profession-price">80 000</span>
-                  ₽
-                </p>
-                <div class="listing-metro__profession-expiriens">
-                  Можно без опыта
-                </div>
-              </div>
-
-              <a href="#" class="listing-metro__profession-item-link">
-                выбрать магазин
-                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0L0 4.40044H11.5515Z" fill="black" />
-                </svg>
-              </a>
-            </div>
-
-            <div class="listing-metro__profession-item">
-              <div class="listing-metro__profession-item-left-bar">
-                <p class="listing-metro__profession-name">Кассир</p>
-                <div class="listing-metro__profession-bread-crumbs">
-                  <a href="#" class="listing-metro__profession-crumb">
-                    Розничные магазины
-                    <svg class="listing-metro__profession-crumb-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                      <path d="M9.4136 3.54984L7.1818 1.31804L7.8182 0.681641L11.1364 3.99984L7.8182 7.31804L7.1818 6.68164L9.4136 4.44984H0.75V3.54984H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                    </svg>
-                  </a>
-
-                  <a href="#" class="listing-metro__profession-crumb">
-                    Продажи
-                    <svg class="listing-metro__profession-crumb-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                      <path d="M9.4136 3.54984L7.1818 1.31804L7.8182 0.681641L11.1364 3.99984L7.8182 7.31804L7.1818 6.68164L9.4136 4.44984H0.75V3.54984H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              <div class="listing-metro__profession-item-right-bar">
-                <p class="listing-metro__profession-conditions">
-                  от <span class="listing-metro__profession-price">80 000</span>₽
-                </p>
-                <div class="listing-metro__profession-expiriens">
-                  Можно без опыта
-                </div>
-              </div>
-
-              <a href="#" class="listing-metro__profession-item-link">
-                выбрать магазин
-                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0L0 4.40044H11.5515Z" fill="black" />
-                </svg>
-              </a>
-            </div>
+            <div class="listing-vacancy_items profession__job-wrapper profession__job-wrapper_eldorado retail__position retail__position_eldorado"></div>
+            
           </div>
         </div>
 
@@ -819,844 +611,26 @@ get_header();
       <!-- //Right bar -->
     </div>
 
-    <div class="listing-metro__content listing-metro__content-list hide transparent">
-      <div class="listing-metro__content-list-container">
-        <div class="position__card-item">
-          <a href="#" class="position__info-link">посмотреть вакансию
-            <svg class="position__link-arrow-black" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-              <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 1)" />
-            </svg>
-          </a>
+    <div class="position__card-wrapper listing-metro__content listing-metro__content-list hide transparent">
+      <div id="archive_vacancies" class="listing-metro__content-list-container">
 
-          <div class="position__job-title-container">
-            <a href="#" class="position__job-title">
-              Менеджер торгового зала
-            </a>
-            <div class="position__bread-crumbs-container-mobile">
-              <a href="#" class="position__link">
-                Розничные магазины
-                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                </svg>
-              </a>
-              <a href="#" class="position__link">
-                Продажи
-                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                </svg>
-              </a>
-            </div>
-            <!-- <a href="#" class="position__show-more">
-              Показать
-              <span class="position__show-more-number">6</span>
-              вакансий +
-            </a> -->
-          </div>
+        <?php 
+        if( $actually_vacancies_retail->have_posts() ) :
 
-          <div class="position__bread-crumbs-block">
-            <div class="position__bread-crumbs-container">
-              <a href="#" class="position__link">
-                Розничные магазины
-                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                </svg>
-              </a>
-              <a href="#" class="position__link">
-                Продажи
-                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                </svg>
-              </a>
-            </div>
-          </div>
+          while( $actually_vacancies_retail->have_posts() ) :
+ 
+            $actually_vacancies_retail->the_post();
+            $vacancy_item_id = get_the_ID();
 
-          <div class="position__payment-container">
-            <p class="position__payment">
-              от
-              <span class="position__payment-value">80 000</span>
-              <span class="position__currency">&#8381;</span>
-            </p>
+            include(THEME_DIR . '/template-parts/loop-parts/archive_vacancies_item.php');
 
-            <p class="position__job-expiriens">Можно без опыта</p>
-          </div>
+          endwhile;
 
-          <div class="position__location-container">
-            <p class="position__location-city">Москва</p>
-            <p class="position__location-city-metro position__location-city-metro-sokoln">
-              Красносельская
-            </p>
-            <p class="position__location-city-metro position__location-city-metro-arbat">
-              Бауманская
-            </p>
-            <p class="position__location">Можно удаленно</p>
-            <!-- <a href="#" class="position__location-map">
-              На карте
-              <svg class="position__link-arrow-map" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 1)" />
-              </svg>
-            </a> -->
-          </div>
-        </div>
+        endif;
 
-        <div class="position__card-item">
-          <a href="#" class="position__info-link">
-            посмотреть вакансию
-            <svg class="position__link-arrow-black" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-              <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 1)" />
-            </svg>
-          </a>
-
-          <div class="position__job-title-container">
-            <a href="#" class="position__job-title"> Продавец </a>
-            <div class="position__bread-crumbs-container-mobile">
-              <a href="#" class="position__link">
-                Розничные магазины
-                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                </svg>
-              </a>
-              <a href="#" class="position__link">
-                Продажи
-                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                </svg>
-              </a>
-            </div>
-            <!-- <a href="#" class="position__show-more">
-              Показать
-              <span class="position__show-more-number">6</span>
-              вакансий +
-            </a> -->
-          </div>
-
-          <div class="position__bread-crumbs-block">
-            <div class="position__bread-crumbs-container">
-              <a href="#" class="position__link">
-                Розничные магазины
-                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                </svg>
-              </a>
-              <a href="#" class="position__link">
-                Продажи
-                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div class="position__payment-container">
-            <p class="position__payment">
-              от
-              <span class="position__payment-value">80 000</span>
-              <span class="position__currency">&#8381;</span>
-            </p>
-
-            <p class="position__job-expiriens">Можно без опыта</p>
-          </div>
-
-          <div class="position__location-container">
-            <p class="position__location-city">Москва</p>
-            <p class="position__location-city-metro position__location-city-metro-sokoln">
-              Красносельская
-            </p>
-            <p class="position__location-city-metro position__location-city-metro-arbat">
-              Бауманская
-            </p>
-            <p class="position__location">Можно удаленно</p>
-            <!-- <a href="#" class="position__location-map">
-              На карте
-              <svg class="position__link-arrow-map" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 1)" />
-              </svg>
-            </a> -->
-          </div>
-        </div>
-
-        <div class="position__card-item">
-          <a href="#" class="position__info-link">
-            посмотреть вакансию
-            <svg class="position__link-arrow-black" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-              <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 1)" />
-            </svg>
-          </a>
-
-          <div class="position__job-title-container">
-            <a href="#" class="position__job-title"> Кассир </a>
-            <div class="position__bread-crumbs-container-mobile">
-              <a href="#" class="position__link">
-                Розничные магазины
-                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                </svg>
-              </a>
-              <a href="#" class="position__link">
-                Продажи
-                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                </svg>
-              </a>
-            </div>
-            <!-- <a href="#" class="position__show-more">
-              Показать
-              <span class="position__show-more-number">6</span>
-              вакансий +
-            </a> -->
-          </div>
-
-          <div class="position__bread-crumbs-block">
-            <div class="position__bread-crumbs-container">
-              <a href="#" class="position__link">
-                Розничные магазины
-                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                </svg>
-              </a>
-              <a href="#" class="position__link">
-                Продажи
-                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div class="position__payment-container">
-            <p class="position__payment">
-              от
-              <span class="position__payment-value">80 000</span>
-              <span class="position__currency">&#8381;</span>
-            </p>
-
-            <p class="position__job-expiriens">Можно без опыта</p>
-          </div>
-
-          <div class="position__location-container">
-            <p class="position__location-city">Москва</p>
-            <p
-              class="
-                position__location-city-metro
-                position__location-city-metro-sokoln
-              "
-            >
-              Красносельская
-            </p>
-            <p
-              class="
-                position__location-city-metro
-                position__location-city-metro-arbat
-              "
-            >
-              Бауманская
-            </p>
-            <p class="position__location">Можно удаленно</p>
-            <!-- <a href="#" class="position__location-map">
-              На карте
-              <svg
-                class="position__link-arrow-map"
-                width="12"
-                height="8"
-                viewBox="0 0 12 8"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                  fill="rgba(0, 0, 0, 1)"
-                />
-              </svg>
-            </a> -->
-          </div>
-        </div>
-
-        <div class="position__card-item">
-          <a href="#" class="position__info-link"
-            >посмотреть вакансию
-            <svg
-              class="position__link-arrow-black"
-              width="12"
-              height="8"
-              viewBox="0 0 12 8"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                fill="rgba(0, 0, 0, 1)"
-              />
-            </svg>
-          </a>
-
-          <div class="position__job-title-container">
-            <a href="#" class="position__job-title"> Кладовщик </a>
-            <div class="position__bread-crumbs-container-mobile">
-              <a href="#" class="position__link">
-                Розничные магазины
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-              <a href="#" class="position__link">
-                Продажи
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-            </div>
-            <!-- <a href="#" class="position__show-more">
-              Показать
-              <span class="position__show-more-number">6</span>
-              вакансий +
-            </a> -->
-          </div>
-
-          <div class="position__bread-crumbs-block">
-            <div class="position__bread-crumbs-container">
-              <a href="#" class="position__link">
-                Розничные магазины
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-              <a href="#" class="position__link">
-                Продажи
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div class="position__payment-container">
-            <p class="position__payment">
-              от
-              <span class="position__payment-value">80 000</span>
-              <span class="position__currency">&#8381;</span>
-            </p>
-
-            <p class="position__job-expiriens">Можно без опыта</p>
-          </div>
-
-          <div class="position__location-container">
-            <p class="position__location-city">Москва</p>
-            <p
-              class="
-                position__location-city-metro
-                position__location-city-metro-sokoln
-              "
-            >
-              Красносельская
-            </p>
-            <p
-              class="
-                position__location-city-metro
-                position__location-city-metro-arbat
-              "
-            >
-              Бауманская
-            </p>
-            <p class="position__location">Можно удаленно</p>
-            <!-- <a href="#" class="position__location-map">
-              На карте
-              <svg
-                class="position__link-arrow-map"
-                width="12"
-                height="8"
-                viewBox="0 0 12 8"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                  fill="rgba(0, 0, 0, 1)"
-                />
-              </svg>
-            </a> -->
-          </div>
-        </div>
-
-        <div class="position__card-item">
-          <a href="#" class="position__info-link"
-            >посмотреть вакансию
-            <svg
-              class="position__link-arrow-black"
-              width="12"
-              height="8"
-              viewBox="0 0 12 8"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                fill="rgba(0, 0, 0, 1)"
-              />
-            </svg>
-          </a>
-
-          <div class="position__job-title-container">
-            <a href="#" class="position__job-title"> Старший кассир </a>
-            <div class="position__bread-crumbs-container-mobile">
-              <a href="#" class="position__link">
-                Розничные магазины
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-              <a href="#" class="position__link">
-                Продажи
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-            </div>
-            <!-- <a href="#" class="position__show-more">
-              Показать
-              <span class="position__show-more-number">6</span>
-              вакансий +
-            </a> -->
-          </div>
-
-          <div class="position__bread-crumbs-block">
-            <div class="position__bread-crumbs-container">
-              <a href="#" class="position__link">
-                Розничные магазины
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-              <a href="#" class="position__link">
-                Продажи
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div class="position__payment-container">
-            <p class="position__payment">
-              от
-              <span class="position__payment-value">80 000</span>
-              <span class="position__currency">&#8381;</span>
-            </p>
-
-            <p class="position__job-expiriens">Можно без опыта</p>
-          </div>
-
-          <div class="position__location-container">
-            <p class="position__location-city">Москва</p>
-            <p
-              class="
-                position__location-city-metro
-                position__location-city-metro-sokoln
-              "
-            >
-              Красносельская
-            </p>
-            <p
-              class="
-                position__location-city-metro
-                position__location-city-metro-arbat
-              "
-            >
-              Бауманская
-            </p>
-            <p class="position__location">Можно удаленно</p>
-            <!-- <a href="#" class="position__location-map">
-              На карте
-              <svg
-                class="position__link-arrow-map"
-                width="12"
-                height="8"
-                viewBox="0 0 12 8"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                  fill="rgba(0, 0, 0, 1)"
-                />
-              </svg>
-            </a> -->
-          </div>
-        </div>
-
-        <div class="position__card-item">
-          <a href="#" class="position__info-link"
-            >посмотреть вакансию
-            <svg
-              class="position__link-arrow-black"
-              width="12"
-              height="8"
-              viewBox="0 0 12 8"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                fill="rgba(0, 0, 0, 1)"
-              />
-            </svg>
-          </a>
-
-          <div class="position__job-title-container">
-            <a href="#" class="position__job-title">
-              Менеджер торгового зала
-            </a>
-            <div class="position__bread-crumbs-container-mobile">
-              <a href="#" class="position__link">
-                Розничные магазины
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-              <a href="#" class="position__link">
-                Продажи
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-            </div>
-            <!-- <a href="#" class="position__show-more">
-              Показать
-              <span class="position__show-more-number">6</span>
-              вакансий +
-            </a> -->
-          </div>
-
-          <div class="position__bread-crumbs-block">
-            <div class="position__bread-crumbs-container">
-              <a href="#" class="position__link">
-                Розничные магазины
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-              <a href="#" class="position__link">
-                Продажи
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div class="position__payment-container">
-            <p class="position__payment">
-              от
-              <span class="position__payment-value">80 000</span>
-              <span class="position__currency">&#8381;</span>
-            </p>
-
-            <p class="position__job-expiriens">Можно без опыта</p>
-          </div>
-
-          <div class="position__location-container">
-            <p class="position__location-city">Москва</p>
-            <p
-              class="
-                position__location-city-metro
-                position__location-city-metro-sokoln
-              "
-            >
-              Красносельская
-            </p>
-            <p
-              class="
-                position__location-city-metro
-                position__location-city-metro-arbat
-              "
-            >
-              Бауманская
-            </p>
-            <p class="position__location">Можно удаленно</p>
-            <!-- <a href="#" class="position__location-map">
-              На карте
-              <svg
-                class="position__link-arrow-map"
-                width="12"
-                height="8"
-                viewBox="0 0 12 8"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                  fill="rgba(0, 0, 0, 1)"
-                />
-              </svg>
-            </a> -->
-          </div>
-        </div>
-
-        <div class="position__card-item">
-          <a href="#" class="position__info-link"
-            >посмотреть вакансию
-            <svg
-              class="position__link-arrow-black"
-              width="12"
-              height="8"
-              viewBox="0 0 12 8"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                fill="rgba(0, 0, 0, 1)"
-              />
-            </svg>
-          </a>
-
-          <div class="position__job-title-container">
-            <a href="#" class="position__job-title">
-              Менеджер торгового зала
-            </a>
-            <div class="position__bread-crumbs-container-mobile">
-              <a href="#" class="position__link">
-                Розничные магазины
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-              <a href="#" class="position__link">
-                Продажи
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-            </div>
-            <!-- <a href="#" class="position__show-more">
-              Показать
-              <span class="position__show-more-number">6</span>
-              вакансий +
-            </a> -->
-          </div>
-
-          <div class="position__bread-crumbs-block">
-            <div class="position__bread-crumbs-container">
-              <a href="#" class="position__link">
-                Розничные магазины
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-              <a href="#" class="position__link">
-                Продажи
-                <svg
-                  class="position__link-arrow"
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                    fill="rgba(0, 0, 0, 0.5)"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div class="position__payment-container">
-            <p class="position__payment">
-              от
-              <span class="position__payment-value">80 000</span>
-              <span class="position__currency">&#8381;</span>
-            </p>
-
-            <p class="position__job-expiriens">Можно без опыта</p>
-          </div>
-
-          <div class="position__location-container">
-            <p class="position__location-city">Москва</p>
-            <p
-              class="
-                position__location-city-metro
-                position__location-city-metro-sokoln
-              "
-            >
-              Красносельская
-            </p>
-            <p
-              class="
-                position__location-city-metro
-                position__location-city-metro-arbat
-              "
-            >
-              Бауманская
-            </p>
-            <p class="position__location">Можно удаленно</p>
-            <!-- <a href="#" class="position__location-map">
-              На карте
-              <svg
-                class="position__link-arrow-map"
-                width="12"
-                height="8"
-                viewBox="0 0 12 8"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z"
-                  fill="rgba(0, 0, 0, 1)"
-                />
-              </svg>
-            </a> -->
-          </div>
-        </div>
+        wp_reset_postdata();
+        ?>
+        
       </div>
     </div>
 

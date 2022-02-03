@@ -271,11 +271,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // архивный фильтр
     function archive_filtering(){
 
+        if( document.querySelector('.listing-top__filter-list-item') ){
+            document.querySelector('.listing-top__filter-list-item').click()
+        }
+
         document.querySelector('#archive_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
         
         var top__profession = document.querySelector('#listing-top__profession-filter').value;
         var vaccat_slug = document.querySelector('#listing__specialization-select').value;
-        var level_slug = document.querySelector('#listing__level-select').value;
+        if( document.querySelector('#listing__level-select') ){
+            var level_slug = document.querySelector('#listing__level-select').value;
+        } else{
+            var level_slug = -1;
+        }
         var city_slug = document.querySelector('#listing__city-select').value;
 
         var archive_without_experience = false;
@@ -320,12 +328,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     query_vars = JSON.stringify(resp.query_vars);
                     max_num_pages = resp.max_num_pages;
 
-                    if( resp.max_num_pages == 1 ){
-                        var fadeTarget = document.querySelector('.products__show-more');
-                        fadeTarget.style.display = 'none';
-                    } else{
-                        var fadeTarget = document.querySelector('.products__show-more');
-                        fadeTarget.style.display = 'flex';
+                    if( fadeTarget ){
+                        if( resp.max_num_pages == 1 ){
+                            var fadeTarget = document.querySelector('.products__show-more');
+                            fadeTarget.style.display = 'none';
+                        } else{
+                            var fadeTarget = document.querySelector('.products__show-more');
+                            fadeTarget.style.display = 'flex';
+                        }
                     }
 
                     // TODO
@@ -364,7 +374,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     document.querySelector('#archive_vacancies').innerHTML = 'К сожалению вакансий не найдено!';
 
                     var fadeTarget = document.querySelector('.products__show-more');
-                    fadeTarget.style.display = 'none';
+                    if( fadeTarget ){
+                        fadeTarget.style.display = 'none';
+                    }
                 }
             }
         };
@@ -403,14 +415,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     // Инициализация селекта Уровень
-    if( typeof listingLevelSelect !== 'undefined' ){
-        listingTagifyLevelInput.addEventListener('change', (e) => {
-    
-            if( filter_buzy == 0 ){
-                e.preventDefault();
-                archive_filtering();
-            }
-        });
+    if( 'archive' == rel_type && '' == vacancyid ){ 
+        if( listingTagifyLevelInput != null ){
+            listingTagifyLevelInput.addEventListener('change', (e) => {
+        
+                if( filter_buzy == 0 ){
+                    e.preventDefault();
+                    archive_filtering();
+                }
+            });
+        }
     }
 
     // Инициализация селекта Город
@@ -454,17 +468,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             filter_buzy = 1;
 
+            if( document.querySelector('.listing-top__filter-list-item') ){
+                document.querySelector('.listing-top__filter-list-item').click()
+            }
+
             document.querySelector('#archive_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
             document.querySelector('.archive_without_experience').checked = false;
-            document.querySelector('.archive_remotely').checked = false;
+            if( document.querySelector('.archive_remotely') ){
+                document.querySelector('.archive_remotely').checked = false;
+            }
 
             professionListingSelect.removeAllTags();
             specializationListingSelect.removeAllTags();
-            listingLevelSelect.removeAllTags();
+            if( typeof listingLevelSelect != 'undefined' ){
+                listingLevelSelect.removeAllTags();
+            }
             listingCitySelect.removeAllTags();
 
             document.querySelector('#listing__city-select').value = -1;
-            document.querySelector('#listing__level-select').value = -1;
+            if( document.querySelector('#listing__level-select') ){
+                document.querySelector('#listing__level-select').value = -1;
+            }
             
             var data = {
                 action: 'archive_get_profession__menu_items',
@@ -490,15 +514,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         query_vars = JSON.stringify(resp.query_vars);
                         max_num_pages = resp.max_num_pages;
 
-                        if( resp.max_num_pages > 1 ){
-                            fadeTarget.style.display = 'flex';
-                        } else{
-                            fadeTarget.style.display = 'none';
+                        if( fadeTarget ){
+                            if( resp.max_num_pages > 1 ){
+                                fadeTarget.style.display = 'flex';
+                            } else{
+                                fadeTarget.style.display = 'none';
+                            }
                         }
                         
                     } else{
                         document.querySelector('#archive_vacancies').innerHTML = 'К сожалению вакансий не найдено!';
-                        fadeTarget.style.display = 'none';
+                        if( fadeTarget ){
+                            fadeTarget.style.display = 'none';
+                        }
                     }
                     window.history.pushState('', '', window.location.origin + window.location.pathname );
                 }
