@@ -23,12 +23,12 @@ export class ListingVacancyMapBlock {
 
     if (!this.mapBlock && !this.listBlock && !this.mapToListSwitcher) return;
 
-    this.checkboxContainer = this.mapBlock.querySelector(
-      '.listing-metro__select-shop-container'
-    );
     this.switchingButtons = this.mapToListSwitcherContainer.querySelectorAll(
       '.listing-top__filter-list-item'
     );
+    this.mvideoInput = document.querySelector('.mvideo-input');
+    this.eldoradoInput = document.querySelector('.eldorado-input');
+
     this.mvideoBrand = this.mapBlock.querySelectorAll('.mvideo');
     this.eldoradoBrand = this.mapBlock.querySelectorAll('.eldorado');
     this.buttonBackToShopsList = this.mapBlock.querySelector(
@@ -52,10 +52,33 @@ export class ListingVacancyMapBlock {
       });
     });
 
-    this.checkboxContainer.addEventListener(
-      'click',
-      this.switchBrand.bind(this)
-    );
+    this.mvideoInput.addEventListener( 'click', (event) => {
+
+      if ( this.mvideoInput.checked == false && this.eldoradoInput.checked == false ) {
+
+        event.preventDefault();
+        return false;
+      }
+
+      this.eldoradoInput.checked == false;
+      
+      this.driverCheckbox()
+
+    });
+
+    this.eldoradoInput.addEventListener( 'click', (event) => {
+
+      if ( this.eldoradoInput.checked == false && this.mvideoInput.checked == false ) {
+
+        event.preventDefault();
+        return false;
+      }
+
+      this.mvideoInput.checked == false;
+
+      this.driverCheckbox()
+
+    });
 
     this.shopListMVideo.forEach((shop) => {
       shop.addEventListener('click', () => {
@@ -119,6 +142,8 @@ export class ListingVacancyMapBlock {
 
       this.shopsListContainer.classList.remove('hide');
       this.vacanciesInShopContainer.classList.add('hide');
+
+      this.driverCheckbox()
     });
 
     this.buttonBackToShopsListMobile.addEventListener('click', (event) => {
@@ -131,6 +156,8 @@ export class ListingVacancyMapBlock {
       
       this.shopsListContainer.classList.remove('hide');
       this.vacanciesInShopContainer.classList.add('hide');
+
+      this.driverCheckbox()
     });
 
   }
@@ -186,20 +213,6 @@ export class ListingVacancyMapBlock {
     setTimeout(() => this.listBlock.classList.remove('transparent'), 50);
   }
 
-  switchBrand(event) {
-    if (event.target.dataset.name && event.target.dataset.name === 'mvideo') {
-      document.querySelector('.eldorado-input').checked = false;
-      this.mvideoBrand.forEach((shop) => shop.classList.remove('hide'));
-      this.eldoradoBrand.forEach((shop) => shop.classList.add('hide'));
-    }
-
-    if (event.target.dataset.name && event.target.dataset.name === 'eldorado') {
-      document.querySelector('.mvideo-input').checked = false;
-      this.eldoradoBrand.forEach((shop) => shop.classList.remove('hide'));
-      this.mvideoBrand.forEach((shop) => shop.classList.add('hide'));
-    }
-  }
-
   showVacanciesOnMap() {
     this.listBlock.classList.add('transparent');
 
@@ -209,6 +222,33 @@ export class ListingVacancyMapBlock {
     }, 300);
 
     setTimeout(() => this.mapBlock.classList.remove('transparent'), 50);
+  }
+
+  changeMapPoints( Center, Icons ) {
+
+    mapV.geoObjects.removeAll();
+    mapV.setCenter( Center )
+    yandexMapInit( Icons );
+    mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
+  }
+
+  driverCheckbox(){
+
+    if ( this.eldoradoInput.checked == true && this.mvideoInput.checked == false ) {
+      this.mvideoBrand.forEach((shop) => shop.classList.add('hide'));
+      this.eldoradoBrand.forEach((shop) => shop.classList.remove('hide'));
+      this.changeMapPoints( eldoradoCenter, eldoradoIcons )
+    }
+    if ( this.eldoradoInput.checked == false && this.mvideoInput.checked == true ) {
+      this.mvideoBrand.forEach((shop) => shop.classList.remove('hide'));
+      this.eldoradoBrand.forEach((shop) => shop.classList.add('hide'));
+      this.changeMapPoints( mvideoCenter, mvideoIcons )
+    }
+    if ( this.eldoradoInput.checked == true && this.mvideoInput.checked == true ) {
+      this.mvideoBrand.forEach((shop) => shop.classList.remove('hide'));
+      this.eldoradoBrand.forEach((shop) => shop.classList.remove('hide'));
+      this.changeMapPoints( defaultCenter, defaultIcons )
+    }
   }
 
   yandexMapInit() {

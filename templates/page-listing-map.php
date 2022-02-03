@@ -54,14 +54,53 @@ foreach ($shop_terms as $shop_term ) {
   switch ( get_field( 'mvideo_or_eldorado', $shop_term ) ) {
     case 'mvideo':
       $name_icon = THEME_URL . '/assets/images/listing/map/mvideo-icon.png';
+      if( empty( $mvideoIcons ) ){
+        $mvideoCenter = [
+          get_field( 'shop_koordinates_latitude', $shop_term ),
+          get_field( 'shop_koordinates_longitude', $shop_term )
+        ];
+      }
+      $mvideoIcons[] = array(
+        [
+          get_field( 'shop_koordinates_latitude', $shop_term ),
+          get_field( 'shop_koordinates_longitude', $shop_term )
+        ],
+        THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
+      );
       break;
     
     case 'eldorado':
       $name_icon = THEME_URL . '/assets/images/listing/map/eldorado-icon.png';
+      if( empty( $eldoradoIcons ) ){
+        $eldoradoCenter = [
+          get_field( 'shop_koordinates_latitude', $shop_term ),
+          get_field( 'shop_koordinates_longitude', $shop_term )
+        ];
+      }
+      $eldoradoIcons[] = array(
+        [
+          get_field( 'shop_koordinates_latitude', $shop_term ),
+          get_field( 'shop_koordinates_longitude', $shop_term )
+        ],
+        THEME_URL . '/assets/images/listing/map/eldorado-icon.png'
+      );
       break;
     
     default:
     $name_icon = THEME_URL . '/assets/images/listing/map/mvideo-icon.png';
+      if( empty( $mvideoIcons ) ){
+        $mvideoCenter = [
+          get_field( 'shop_koordinates_latitude', $shop_term ),
+          get_field( 'shop_koordinates_longitude', $shop_term )
+        ];
+      }
+      $mvideoIcons[] = array(
+        [
+          get_field( 'shop_koordinates_latitude', $shop_term ),
+          get_field( 'shop_koordinates_longitude', $shop_term )
+        ],
+        THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
+      );
       break;
   }
 
@@ -94,11 +133,10 @@ get_header();
     var sourceurl = '';
     const defaultCenter = JSON.parse( '<?php echo json_encode( $defaultCenter ); ?>' );
     const defaultIcons = JSON.parse( '<?php echo json_encode( $defaultIcons ); ?>' );
-    const iconsNew = [
-      [[55.774824, 37.671345], '/wp-content/themes/career_theme/webpack-work/src/images/listing/map/mvideo-icon.png' ],
-      [[55.774951, 37.669619], '/wp-content/themes/career_theme/webpack-work/src/images/listing/map/eldorado-icon.png' ],
-      [[55.774289, 37.669145], '/wp-content/themes/career_theme/webpack-work/src/images/listing/map/mvideo-icon.png' ],
-    ];
+    const mvideoCenter = JSON.parse( '<?php echo json_encode( $mvideoCenter ); ?>' );
+    const mvideoIcons = JSON.parse( '<?php echo json_encode( $mvideoIcons ); ?>' );
+    const eldoradoCenter = JSON.parse( '<?php echo json_encode( $eldoradoCenter ); ?>' );
+    const eldoradoIcons = JSON.parse( '<?php echo json_encode( $eldoradoIcons ); ?>' );
 </script>
 
 <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
@@ -321,7 +359,7 @@ get_header();
             ?>
           </div>
 
-          <div class="listing-metro__shops-list eldorado hide">
+          <div class="listing-metro__shops-list eldorado">
             <?php
             foreach( $shop_terms as $shop_term ):
               if( 'eldorado' == get_field( 'mvideo_or_eldorado', $shop_term ) ){                
@@ -488,7 +526,7 @@ get_header();
             </label>
 
             <label class="listing-metro__select-shop-item" data-name="eldorado">
-              <input class="listing-metro__shop-input eldorado-input" type="checkbox" />
+              <input class="listing-metro__shop-input eldorado-input" type="checkbox" checked />
               <span class="listing-metro__select-shop-checkbox">
                 <svg class="listing-metro__select-shop-checkbox-image" width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M3.50044 6.15191L9.07617 0.576172L9.9247 1.4247L3.50044 7.84896L0.0761719 4.4247L0.9247 3.57617L3.50044 6.15191Z" fill="black" />
