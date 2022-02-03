@@ -1045,44 +1045,22 @@ get_header();
     <div class="vacancy__news">
         <div class="vacancy__news-title">
             <div class="vacancy__news-tabs">
-            <a href="#" class="vacancy__news-link vacancy__news-link-active"
-                >Новости</a
-            >
-            <a href="#" class="vacancy__news-link">События</a>
+            <a href="#" class="vacancy__news-link vacancy__news-link-active">Новости</a>
+            <!-- <a href="#" class="vacancy__news-link">События</a> -->
             </div>
             <div class="vacancy__news-arrows">
-            <button class="vacancy__news-btn-prev">
-                  <svg
-                    width="14"
-                    height="10"
-                    viewBox="0 0 14 10"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4.57661 0.575745L0.152344 5.00001L4.57661 9.42427L5.42514 8.57574L2.4494 5.60001H14.0009V4.40001H2.4494L5.42514 1.42427L4.57661 0.575745Z"
-                      fill="black"
-                    />
-                  </svg>
-
-            </button>
-            <button class="vacancy__news-btn-next">
-                <svg
-                    width="14"
-                    height="10"
-                    viewBox="0 0 14 10"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M11.5515 4.40001L8.57574 1.42427L9.42426 0.575745L13.8485 5.00001L9.42426 9.42427L8.57574 8.57574L11.5515 5.60001H0L0 4.40001H11.5515Z"
-                      fill="black"
-                    />
-                  </svg>
-
-            </button>
+              <button class="vacancy__news-btn-prev">
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                  <path d="M4.57661 0.575745L0.152344 5.00001L4.57661 9.42427L5.42514 8.57574L2.4494 5.60001H14.0009V4.40001H2.4494L5.42514 1.42427L4.57661 0.575745Z" fill="black" />
+                </svg>
+              </button>
+              <button class="vacancy__news-btn-next">
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                  <path d="M11.5515 4.40001L8.57574 1.42427L9.42426 0.575745L13.8485 5.00001L9.42426 9.42427L8.57574 8.57574L11.5515 5.60001H0L0 4.40001H11.5515Z" fill="black" />
+                </svg>
+              </button>
             </div>
-            <a href="#" class="vacancy__news-link-mobile"> Все новости </a>
+            <!-- <a href="#" class="vacancy__news-link-mobile"> Все новости </a> -->
         </div>
 
         <div class="vacancy__news-row">
