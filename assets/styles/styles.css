@@ -5499,7 +5499,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 .listing-top__filter-item > .tagify.tagify--outside {
   display: block; }
 
-@media (max-width: 1440px) {
+@media (max-width: 1919px) {
   .listing,
   .listing-top__filter-item-input,
   .listing-top__filter-item-button-reset {
@@ -5527,7 +5527,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   .listing-top__filter-item:first-child,
   .position__job-title-container,
   .banner-S__side-bar {
-    max-width: 448px; }
+    max-width: 31.82%; }
   .listing-top__filter-item-selected {
     width: 85%; }
   .position__bread-crumbs-block,
