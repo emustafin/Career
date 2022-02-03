@@ -26,6 +26,9 @@ class Vacancies {
         add_action( 'wp_ajax_archive_get_profession__menu_items', [$this, 'archive_get_profession__menu_items'] );
 		add_action( 'wp_ajax_nopriv_archive_get_profession__menu_items', [$this, 'archive_get_profession__menu_items'] );
 
+        add_action( 'wp_ajax_get_retail_list_vacancy', [$this, 'get_retail_list_vacancy'] );
+		add_action( 'wp_ajax_nopriv_get_retail_list_vacancy', [$this, 'get_retail_list_vacancy'] );
+
         add_action( 'wp_ajax_get_vacancy_data', [$this, 'get_vacancy_data'] );
 		add_action( 'wp_ajax_nopriv_get_vacancy_data', [$this, 'get_vacancy_data'] );
 	}
@@ -96,6 +99,34 @@ class Vacancies {
      * Register taxonomies.
     */
     public function create_taxonomies() {
+
+        register_taxonomy( 'shop', ['vacancies'], array(
+            'label'                 => '',
+            'labels'                => array(
+                'name'              => 'Магазины',
+                'singular_name'     => 'Магазины',
+                'search_items'      => 'Поиск магазина',
+                'all_items'         => 'Все магазины',
+                'view_item '        => 'Просмотр магазина',
+                'parent_item'       => 'Родительский магазин',
+                'parent_item_colon' => 'Родительский магазин:',
+                'edit_item'         => 'Изменить магазин',
+                'update_item'       => 'Обновить магазин',
+                'add_new_item'      => 'Добавить новый магазин',
+                'new_item_name'     => 'Название нового магазина',
+                'menu_name'         => 'Магазины',
+            ),
+            'description'           => '',
+            'public'                => true,
+            'hierarchical'          => true,
+            'rewrite'               => array('slug' => 'shop', 'with_front' => false),
+            'query_var'             => 'shop',
+            'capabilities'          => array(),
+            'meta_box_cb'           => 'post_categories_meta_box', 
+            'show_admin_column'     => true, 
+            'show_in_rest'          => true,
+            'rest_base'             => null,
+        ) );
 
         register_taxonomy( 'relationship', ['vacancies'], array(
             'label'                 => '',
@@ -437,6 +468,67 @@ class Vacancies {
                     $vacancy_item_id = get_the_ID();
                     ob_start();
                     include(THEME_DIR . '/template-parts/loop-parts/archive_vacancies_item.php');
+                    $html .= ob_get_clean();
+                }
+            }
+
+            if( '' != $html ){
+                $return = array(
+                    'success' 	=> true,
+                    'html' 	=> $html,
+                    'query_vars'  => $actually_vacancies_by->query_vars,
+                    'max_num_pages' => $actually_vacancies_by->max_num_pages,
+                );
+        
+                wp_send_json($return);
+            }
+        }
+    }
+
+    public function get_retail_list_vacancy() {
+
+        $html = '';
+        if( !empty( $_POST ) ){
+
+            $args = array(
+                'post_type'         => 'vacancies',
+                'posts_per_page'    => 10,
+                'post_status'       => 'publish',
+            );
+
+            $args['tax_query'][] = array(
+                'taxonomy' => 'relationship',
+                'field'    => 'slug',
+                'terms'    => 'roznica'
+            );
+
+            if( null != $_POST['shop'] && '-1'!= $_POST['shop'] ){
+                $args['tax_query'][] = array(
+                    'taxonomy' => 'shop',
+                    'field'    => 'slug',
+                    'terms'    => $_POST['shop']
+                );
+            }
+
+            if( '' != $_POST['kind_shops'] ){
+
+                if( isset($args['meta_query']) ){
+                    $args['meta_query'][] = array(
+                        'key'		=> 'check_mvideo_eldorado',
+                        'value'		=> $_POST['kind_shops'],
+                        'compare'	=> '='
+                    );
+                }
+            }
+            
+            $actually_vacancies_by = new \WP_Query( $args );
+
+            if ( $actually_vacancies_by->have_posts() ) {
+                while ( $actually_vacancies_by->have_posts() ) {
+                    $actually_vacancies_by->the_post();
+                    $vacancy_item_id = get_the_ID();
+                    ob_start();
+                    include(THEME_DIR . '/template-parts/loop-parts/actually_vacancy_item.php');
                     $html .= ob_get_clean();
                 }
             }

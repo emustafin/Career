@@ -8,7 +8,9 @@ export class Footer {
 
     this.copyButton.addEventListener('click', this.copyEmailAdress.bind(this));
     this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
-    this.vacancyCopyLinkMobile.addEventListener('click', this.copyLink.bind(this));
+    if( this.vacancyCopyLinkMobile ){
+      this.vacancyCopyLinkMobile.addEventListener('click', this.copyLink.bind(this));
+    }
   }
 
   async copyEmailAdress() {

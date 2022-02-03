@@ -59,6 +59,25 @@ export class ListingVacancyMapBlock {
 
     this.shopListMVideo.forEach((shop) => {
       shop.addEventListener('click', () => {
+
+        document.querySelector('.listing-metro__location-place').innerHTML = shop.querySelector('.listing-metro__shop-title').innerHTML;
+        document.querySelector('.listing-metro__location-adress').innerHTML = shop.querySelector('.listing-metro__shop-address').innerHTML;
+
+        this.get_vacancy_list( 'mvideo', shop.getAttribute('data-shop_slug') );
+
+        let latitude = shop.getAttribute('data-latitude');
+        let longitude = shop.getAttribute('data-longitude');
+        mapV.geoObjects.removeAll();
+        mapV.setCenter([ latitude, longitude ]);
+        yandexMapInit( 
+          [
+            [
+              [ latitude, longitude ],
+              '/wp-content/themes/career_theme/assets/images/listing/map/mvideo-icon.png'
+            ],
+          ] 
+        );
+
         this.shopsListContainer.classList.add('hide');
         this.vacanciesInShopContainer.classList.remove('hide');
       });
@@ -66,6 +85,25 @@ export class ListingVacancyMapBlock {
 
     this.shopListEldorado.forEach((shop) => {
       shop.addEventListener('click', () => {
+
+        document.querySelector('.listing-metro__location-place').innerHTML = shop.querySelector('.listing-metro__shop-title').innerHTML;
+        document.querySelector('.listing-metro__location-adress').innerHTML = shop.querySelector('.listing-metro__shop-address').innerHTML;
+
+        this.get_vacancy_list( 'eldorado', shop.getAttribute('data-shop_slug') );
+
+        let latitude = shop.getAttribute('data-latitude');
+        let longitude = shop.getAttribute('data-longitude');
+        mapV.geoObjects.removeAll();
+        mapV.setCenter([ latitude, longitude ])
+        yandexMapInit( 
+          [
+            [
+              [ latitude, longitude ],
+              '/wp-content/themes/career_theme/assets/images/listing/map/eldorado-icon.png'
+            ],
+          ] 
+        );
+
         this.shopsListContainer.classList.add('hide');
         this.vacanciesInShopContainer.classList.remove('hide');
       });
@@ -73,18 +111,66 @@ export class ListingVacancyMapBlock {
 
     this.buttonBackToShopsList.addEventListener('click', (event) => {
       event.preventDefault();
+
+      mapV.geoObjects.removeAll();
+      mapV.setCenter( defaultCenter )
+      yandexMapInit( defaultIcons );
+      mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
+
       this.shopsListContainer.classList.remove('hide');
       this.vacanciesInShopContainer.classList.add('hide');
     });
 
     this.buttonBackToShopsListMobile.addEventListener('click', (event) => {
       event.preventDefault();
+      
+      mapV.geoObjects.removeAll();
+      mapV.setCenter( defaultCenter )
+      yandexMapInit( defaultIcons );
+      mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
+      
       this.shopsListContainer.classList.remove('hide');
       this.vacanciesInShopContainer.classList.add('hide');
     });
 
-    this.yandexMaps = ymaps.ready(this.yandexMapInit);
   }
+
+  get_vacancy_list( kind_shops, shop ){
+
+    var containerV = '.listing-metro__profession-container.' + kind_shops + ' .listing-vacancy_items';
+    document.querySelector( `${containerV}` ).innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
+
+    var data = {
+        action:     'get_retail_list_vacancy',
+        kind_shops: kind_shops,
+        shop:       shop,
+    };
+
+    var request = new XMLHttpRequest();
+    request.open('POST', ajax.url, true);
+    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+
+    request.onload = function() {
+        if (this.status >= 200 && this.status < 400) {
+            // Success!
+            var resp = JSON.parse(this.response);
+            if( true == resp.success ){
+              document.querySelector( `${containerV}` ).innerHTML = resp.html;
+            }
+        }
+    };
+
+    var str = "";
+    for (var key in data) {
+        if (str != "") {
+            str += "&";
+        }
+        str += key + "=" + encodeURIComponent(data[key]);
+    }
+
+    request.send( str );
+  }
+
   clearActiveClass(array, className) {
     array.forEach((item) => item.classList.remove(className));
   }
@@ -126,7 +212,7 @@ export class ListingVacancyMapBlock {
   }
 
   yandexMapInit() {
-    const map = new ymaps.Map('yandex-map', {
+    this.map = new ymaps.Map('yandex-map', {
       center: [55.773674, 37.67109],
       zoom: 17,
     });
@@ -171,50 +257,50 @@ export class ListingVacancyMapBlock {
 
     //------------------------------------------------------------------------
     // Эльдорадо. Несколько иконок. Вывод в цикле
-    const eldoradoMarks = [
-      [55.774824, 37.671345],
-      [55.774951, 37.669619],
-      [55.774289, 37.669145],
-      [55.774291, 37.667745],
-    ];
+    // const eldoradoMarks = [
+    //   [55.774824, 37.671345],
+    //   [55.774951, 37.669619],
+    //   [55.774289, 37.669145],
+    //   [55.774291, 37.667745],
+    // ];
 
-    let eldoradoShops = new ymaps.GeoObjectCollection(
-      {},
-      {
-        iconLayout: 'default#image',
-        iconImageHref: '../../images/listing/map/eldorado-icon.png',
-        iconImageSize: [42, 66],
-      }
-    );
+    // let eldoradoShops = new ymaps.GeoObjectCollection(
+    //   {},
+    //   {
+    //     iconLayout: 'default#image',
+    //     iconImageHref: '../../images/listing/map/eldorado-icon.png',
+    //     iconImageSize: [42, 66],
+    //   }
+    // );
 
-    for (let i = 0; i < eldoradoMarks.length; i++) {
-      eldoradoShops.add(new ymaps.Placemark(eldoradoMarks[i]));
-    }
-    map.geoObjects.add(eldoradoShops);
+    // for (let i = 0; i < eldoradoMarks.length; i++) {
+    //   eldoradoShops.add(new ymaps.Placemark(eldoradoMarks[i]));
+    // }
+    // map.geoObjects.add(eldoradoShops);
 
     //---------------------------------------------------------------------------------
     // М.Видео
-    const mvideoMarks = [
-      [55.77395, 37.67262],
-      [55.773221, 37.673137],
-      [55.772568, 37.672053],
-      [55.772241, 37.670142],
-      [55.773674, 37.67109],
-    ];
+    // const mvideoMarks = [
+    //   [55.77395, 37.67262],
+    //   [55.773221, 37.673137],
+    //   [55.772568, 37.672053],
+    //   [55.772241, 37.670142],
+    //   [55.773674, 37.67109],
+    // ];
 
-    let mvidoeShops = new ymaps.GeoObjectCollection(
-      {},
-      {
-        iconLayout: 'default#image',
-        iconImageHref: '../../images/listing/map/mvideo-icon.png',
-        iconImageSize: [42, 66],
-      }
-    );
+    // let mvidoeShops = new ymaps.GeoObjectCollection(
+    //   {},
+    //   {
+    //     iconLayout: 'default#image',
+    //     iconImageHref: '../../images/listing/map/mvideo-icon.png',
+    //     iconImageSize: [42, 66],
+    //   }
+    // );
 
-    for (let i = 0; i < mvideoMarks.length; i++) {
-      mvidoeShops.add(new ymaps.Placemark(mvideoMarks[i]));
-    }
-    map.geoObjects.add(mvidoeShops);
+    // for (let i = 0; i < mvideoMarks.length; i++) {
+    //   mvidoeShops.add(new ymaps.Placemark(mvideoMarks[i]));
+    // }
+    // map.geoObjects.add(mvidoeShops);
 
     //--------------------------------------------------------------
     // Эльдорадо. Несколько меток. Вариант 2
@@ -257,23 +343,31 @@ export class ListingVacancyMapBlock {
 
     //-----------------------------------
     // const icons = [
-    //   [55.774824, 37.671345],
-    //   [55.774951, 37.669619],
-    //   [55.774289, 37.669145],
+    //   [[55.774824, 37.671345], '/wp-content/themes/career_theme/webpack-work/src/images/listing/map/mvideo-icon.png' ],
+    //   [[55.774951, 37.669619], '/wp-content/themes/career_theme/webpack-work/src/images/listing/map/eldorado-icon.png' ],
+    //   [[55.774289, 37.669145], '/wp-content/themes/career_theme/webpack-work/src/images/listing/map/mvideo-icon.png' ],
     // ];
-    // let testPlace;
+    let itemPlace;
 
-    // for (let i = 0; i < icons.length; i++) {
-    //   testPlace = new ymaps.Placemark(icons[i]);
-    //   map.geoObjects.add(testPlace);
-    // }
+    for (let i = 0; i < icons.length; i++) {
+      itemPlace = new ymaps.Placemark(
+        icons[i][0],
+        {},
+        {
+          iconLayout: 'default#image',
+          iconImageHref: icons[i][1],
+          iconImageSize: [42, 66],
+        }
+      );
+      this.map.geoObjects.add(itemPlace);
+    }
 
-    map.controls.remove('geolocationControl'); // удаляем геолокацию
-    map.controls.remove('searchControl'); // удаляем поиск
-    map.controls.remove('trafficControl'); // удаляем контроль трафика
-    map.controls.remove('typeSelector'); // удаляем тип
-    map.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
-    map.controls.remove('zoomControl'); // удаляем контрол зуммирования
-    map.controls.remove('rulerControl'); // удаляем контрол правил
+    this.map.controls.remove('geolocationControl'); // удаляем геолокацию
+    this.map.controls.remove('searchControl'); // удаляем поиск
+    this.map.controls.remove('trafficControl'); // удаляем контроль трафика
+    this.map.controls.remove('typeSelector'); // удаляем тип
+    this.map.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
+    this.map.controls.remove('zoomControl'); // удаляем контрол зуммирования
+    this.map.controls.remove('rulerControl'); // удаляем контрол правил
   }
 }

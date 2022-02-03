@@ -15,9 +15,8 @@ const listingProfessionInput = document.querySelector('#listing-top__profession-
 const currentLevelsDataListing = JSON.parse(level_arr);
 const currentCitiesDataListing = JSON.parse(town_arr);
 const currentVaccatDataListing = JSON.parse(vaccat_arr); // Специализации
-const currentVacancyTitlesDataListing = JSON.parse(vacancy_titles); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
 
-// console.log(town_arr);
+const currentVacancyTitlesDataListing = JSON.parse(vacancy_titles); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
 
 // Инициализация селекта Профессии
 const stringVacancyesToArray = currentVacancyTitlesDataListing.split(',');
@@ -64,15 +63,16 @@ listingTagifySpecializationgInput.addEventListener('change', selectValueFromSing
 
 
 // Инициализация селекта Уровень
-const listingLevelSelect = new Tagify(listingTagifyLevelInput, {
-  enforceWhitelist: true,
-  mode: 'select',
-  whitelist: Object.values(currentLevelsDataListing),
-  userInput: false,
-});
-
-listingTagifyLevelInput.addEventListener('change', selectValueFromSingleSelect(currentLevelsDataListing, listingTagifyLevelInput, listingLevelInput))
-
+if( listingTagifyLevelInput != null ){
+  var listingLevelSelect = new Tagify(listingTagifyLevelInput, {
+    enforceWhitelist: true,
+    mode: 'select',
+    whitelist: Object.values(currentLevelsDataListing),
+    userInput: false,
+  });
+  
+  listingTagifyLevelInput.addEventListener('change', selectValueFromSingleSelect(currentLevelsDataListing, listingTagifyLevelInput, listingLevelInput))
+}
 
 // Инициализация селекта Город
 const listingCitySelect = new Tagify(listingTagifyCityInput, {

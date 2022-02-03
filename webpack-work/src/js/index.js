@@ -65,6 +65,7 @@ export const vacancyDirectLinkMainContent = document.querySelector(
 );
 export const profession = document.querySelector('.profession');
 export const retail__position = document.querySelector('.retail__position');
+export const retail__position_eldorado = document.querySelector('.retail__position_eldorado');
 export const vacancyDirectLinkHeader = document.querySelector(
   '.direct-link__header'
 );
@@ -116,7 +117,7 @@ new ListingVacancyMapBlock(
   '.listing-metro__content-list',
   '.listing-top__filter-list-wrapper'
 );
-new ListingMapPageFilters('.listing-top__filters-wrapper-map');
+// new ListingMapPageFilters('.listing-top__filters-wrapper-map');
 
 new ItHubPageAdvantagesBlock('.why-are-we');
 new ItHubPageCareerUpgradeBlock('.upgrade');
@@ -129,7 +130,9 @@ new MobileSliderAdvantages('.logistic-advantages');
 new ItHubPageCustomSelectInProfessionBlock('.profession__filter-wrapper');
 new ItHubInternshipBlock('.intern');
 const itPageDirection = new ItHubDirectionBlock('.direction');
+
 new ItHubVacanciesContainerInProfessionBlock('.profession__job-wrapper');
+new ItHubVacanciesContainerInProfessionBlock('.profession__job-wrapper_eldorado');
 
 new Form('.form');
 
@@ -148,6 +151,9 @@ if (null != profession) {
 } else {
   if (null != retail__position) {
     const itHubPageVacancy = new ItHubVacancyBlock(retail__position);
+  }
+  if (null != retail__position_eldorado) {
+    const itHubPageVacancy = new ItHubVacancyBlock(retail__position_eldorado);
   }
 }
 //-----------------------------------------------------------

@@ -602,6 +602,12 @@
   flex-direction: column;
   pointer-events: none;
 }
+.listing-vacancy_items.retail__position{
+  padding: 0 !important;
+}
+.listing-vacancy_items .profession__location-container{
+  display: none;
+}
 
 .profession__job-expiriens {
   margin-top: auto;
