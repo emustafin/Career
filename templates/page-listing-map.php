@@ -123,7 +123,7 @@ get_header();
           </div>
         </div>
 
-        <div class="listing-top__filters-wrapper">
+        <div class="listing-top__filters-wrapper filters__map-wrapper">
           <div class="listing-top__filter-item">
               <input type="hidden" id="listing-top__profession-filter" />
               <input
