@@ -16,29 +16,22 @@ const currentLevelsDataListing = JSON.parse(level_arr);
 const currentCitiesDataListing = JSON.parse(town_arr);
 const currentVaccatDataListing = JSON.parse(vaccat_arr); // Специализации
 
-//TODO отсмотреть эту переменную, возможно избавиться
-if( -1 != vacancy_titles ){
-  
-  const currentVacancyTitlesDataListing = JSON.parse(vacancy_titles); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
-  
-  // console.log(town_arr);
-  
-  // Инициализация селекта Профессии
-  const stringVacancyesToArray = currentVacancyTitlesDataListing.split(',');
-  const currentProfessionList = stringVacancyesToArray.filter((profession) => profession !== '');
-  
-  const professionListingSelect = new Tagify(listingTagifyProfessionInput, {
-    // whitelist: currentProfessionList,
-    dropdown: {
-    position: "input",
-    enabled : 0, // always opens dropdown when input gets focus
-    dropdown: {
-      maxItems: 5,
-      },
-    }
-  })
+const currentVacancyTitlesDataListing = JSON.parse(vacancy_titles); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
 
-}
+// Инициализация селекта Профессии
+const stringVacancyesToArray = currentVacancyTitlesDataListing.split(',');
+const currentProfessionList = stringVacancyesToArray.filter((profession) => profession !== '');
+
+const professionListingSelect = new Tagify(listingTagifyProfessionInput, {
+  // whitelist: currentProfessionList,
+  dropdown: {
+  position: "input",
+  enabled : 0, // always opens dropdown when input gets focus
+  dropdown: {
+    maxItems: 5,
+    },
+  }
+})
 
 listingTagifyProfessionInput.addEventListener('change', () => {
   let selectedProfessionList = [];
@@ -70,8 +63,8 @@ listingTagifySpecializationgInput.addEventListener('change', selectValueFromSing
 
 
 // Инициализация селекта Уровень
-if(listingTagifyLevelInput){
-  const listingLevelSelect = new Tagify(listingTagifyLevelInput, {
+if( listingTagifyLevelInput != null ){
+  var listingLevelSelect = new Tagify(listingTagifyLevelInput, {
     enforceWhitelist: true,
     mode: 'select',
     whitelist: Object.values(currentLevelsDataListing),
