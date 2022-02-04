@@ -103,6 +103,8 @@ export class ListingVacancyMapBlock {
 
         this.shopsListContainer.classList.add('hide');
         this.vacanciesInShopContainer.classList.remove('hide');
+
+        document.querySelector('.listing-metro__select-shop-container').classList.add('hide');
       });
     });
 
@@ -129,6 +131,8 @@ export class ListingVacancyMapBlock {
 
         this.shopsListContainer.classList.add('hide');
         this.vacanciesInShopContainer.classList.remove('hide');
+
+        document.querySelector('.listing-metro__select-shop-container').classList.add('hide');
       });
     });
 
@@ -138,6 +142,8 @@ export class ListingVacancyMapBlock {
       this.shopsListContainer.classList.remove('hide');
       this.vacanciesInShopContainer.classList.add('hide');
 
+      document.querySelector('.listing-metro__select-shop-container').classList.remove('hide');
+
       this.driverCheckbox()
     });
 
@@ -146,6 +152,8 @@ export class ListingVacancyMapBlock {
       
       this.shopsListContainer.classList.remove('hide');
       this.vacanciesInShopContainer.classList.add('hide');
+
+      document.querySelector('.listing-metro__select-shop-container').classList.remove('hide');
 
       this.driverCheckbox()
     });

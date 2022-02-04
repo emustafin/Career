@@ -362,6 +362,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         
                                 document.querySelector('.isting-metro__shops-list-container' ).classList.add('hide');
                                 document.querySelector('.isting-metro__single-shop-container' ).classList.remove('hide');
+
+                                document.querySelector('.listing-metro__select-shop-container').classList.add('hide');
                             });
                         });
                     }
@@ -667,6 +669,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                             
                                     document.querySelector('.isting-metro__shops-list-container' ).classList.add('hide');
                                     document.querySelector('.isting-metro__single-shop-container' ).classList.remove('hide');
+
+                                    document.querySelector('.listing-metro__select-shop-container').classList.add('hide');
                                 });
                             });
                         }
