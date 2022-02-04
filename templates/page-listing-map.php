@@ -438,7 +438,7 @@ get_header();
             <div class="listing-vacancy_items profession__job-wrapper retail__position"></div>
           </div>
 
-          <div class="listing-metro__profession-container eldorado hide">
+          <div class="listing-metro__profession-container eldorado">
             <div class="listing-metro__profession-title">
               Вакансии магазина
 

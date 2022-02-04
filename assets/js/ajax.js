@@ -335,15 +335,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     
                                 document.querySelector('.listing-metro__location-place').innerHTML = shop.querySelector('.listing-metro__shop-title').innerHTML;
                                 document.querySelector('.listing-metro__location-adress').innerHTML = shop.querySelector('.listing-metro__shop-address').innerHTML;
-                        
-                                get_vacancy_list( 'mvideo', shop.getAttribute('data-shop_slug') );
 
                                 var parentEl = shop.parentElement;
                                 var imgLink = '/wp-content/themes/career_theme/assets/images/listing/map/mvideo-icon.png';
+                                var type_shop = 'mvideo';
 
                                 if( parentEl.classList.contains('eldorado') ) {
-                                    var imgLink = '/wp-content/themes/career_theme/assets/images/listing/map/eldorado-icon.png';
+                                    imgLink = '/wp-content/themes/career_theme/assets/images/listing/map/eldorado-icon.png';
+                                    type_shop = 'eldorado';
                                 }
+
+                                get_vacancy_list( type_shop, shop.getAttribute('data-shop_slug') );
                         
                                 let latitude = shop.getAttribute('data-latitude');
                                 let longitude = shop.getAttribute('data-longitude');
@@ -441,6 +443,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     function get_vacancy_list( kind_shops, shop ){
+
+        document.querySelector( '.listing-metro__profession-container.mvideo .listing-vacancy_items' ).innerHTML = '';
+        document.querySelector( '.listing-metro__profession-container.eldorado .listing-vacancy_items' ).innerHTML = '';
 
         var containerV = '.listing-metro__profession-container.' + kind_shops + ' .listing-vacancy_items';
         document.querySelector( `${containerV}` ).innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
@@ -636,14 +641,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
                                     document.querySelector('.listing-metro__location-place').innerHTML = shop.querySelector('.listing-metro__shop-title').innerHTML;
                                     document.querySelector('.listing-metro__location-adress').innerHTML = shop.querySelector('.listing-metro__shop-address').innerHTML;
                             
-                                    get_vacancy_list( 'mvideo', shop.getAttribute('data-shop_slug') );
-
                                     var parentEl = shop.parentElement;
                                     var imgLink = '/wp-content/themes/career_theme/assets/images/listing/map/mvideo-icon.png';
+                                    var type_shop = 'mvideo';
 
                                     if( parentEl.classList.contains('eldorado') ) {
-                                        var imgLink = '/wp-content/themes/career_theme/assets/images/listing/map/eldorado-icon.png';
+                                        imgLink = '/wp-content/themes/career_theme/assets/images/listing/map/eldorado-icon.png';
+                                        type_shop = 'eldorado';
                                     }
+
+                                    get_vacancy_list( type_shop, shop.getAttribute('data-shop_slug') );
                             
                                     let latitude = shop.getAttribute('data-latitude');
                                     let longitude = shop.getAttribute('data-longitude');
@@ -653,7 +660,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                                         [
                                         [
                                             [ latitude, longitude ],
-                                            '/wp-content/themes/career_theme/assets/images/listing/map/mvideo-icon.png'
+                                            imgLink
                                         ],
                                         ] 
                                     );
@@ -668,6 +675,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         mapV.setCenter( defaultCenter )
                         yandexMapInit( defaultIcons );
                         mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
+
+                        newDefaultCenter = defaultCenter;
+                        newDefaultIcons = defaultIcons;
 
                         paged = 1;
                         query_vars = JSON.stringify(resp.query_vars);
