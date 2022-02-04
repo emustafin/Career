@@ -52,15 +52,16 @@ listingTagifyProfessionInput.addEventListener('change', () => {
 })
 
 // Инициализация селекта Специализация
-const specializationListingSelect = new Tagify(listingTagifySpecializationgInput, {
-  enforceWhitelist: true,
-  mode: 'select',
-  whitelist: Object.values(currentVaccatDataListing),
-  userInput: false,
-})
+if( listingTagifySpecializationgInput != null ){
+  const specializationListingSelect = new Tagify(listingTagifySpecializationgInput, {
+    enforceWhitelist: true,
+    mode: 'select',
+    whitelist: Object.values(currentVaccatDataListing),
+    userInput: false,
+  })
 
-listingTagifySpecializationgInput.addEventListener('change', selectValueFromSingleSelect(currentVaccatDataListing, listingTagifySpecializationgInput, listingspecializationInput))
-
+  listingTagifySpecializationgInput.addEventListener('change', selectValueFromSingleSelect(currentVaccatDataListing, listingTagifySpecializationgInput, listingspecializationInput))
+}
 
 // Инициализация селекта Уровень
 if( listingTagifyLevelInput != null ){

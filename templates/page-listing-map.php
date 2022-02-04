@@ -203,7 +203,7 @@ get_header();
               </svg>
           </div>
 
-          <div class="listing-top__filter-item">
+          <!-- <div class="listing-top__filter-item">
               <p class="profession__filter-item-title">Специализация</p>
               <div class="profession__filter-item-select">
 
@@ -251,7 +251,7 @@ get_header();
                     </span>
                     </label>
                 </div>
-          </div>
+          </div> -->
 
           <div class="listing-top__filter-item">
               <p class="profession__filter-item-title">Город</p>

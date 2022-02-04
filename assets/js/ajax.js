@@ -274,7 +274,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.querySelector('#archive_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
         
         var top__profession = document.querySelector('#listing-top__profession-filter').value;
-        var vaccat_slug = document.querySelector('#listing__specialization-select').value;
+        if( document.querySelector('#listing__specialization-select') ){
+            var vaccat_slug = document.querySelector('#listing__specialization-select').value;
+        } else{
+            var vaccat_slug = -1;
+        }
         if( document.querySelector('#listing__level-select') ){
             var level_slug = document.querySelector('#listing__level-select').value;
         } else{
@@ -453,7 +457,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.querySelector( `${containerV}` ).innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
     
         var top__profession = document.querySelector('#listing-top__profession-filter').value;
-        var vaccat_slug = document.querySelector('#listing__specialization-select').value;
+        if( document.querySelector('#listing__specialization-select') ){
+            var vaccat_slug = document.querySelector('#listing__specialization-select').value;
+        } else{
+            var vaccat_slug = -1;
+        }
         if( document.querySelector('#listing__level-select') ){
             var level_slug = document.querySelector('#listing__level-select').value;
         } else{
@@ -525,14 +533,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     // Инициализация селекта Специализация
-    if( typeof specializationListingSelect !== 'undefined' ){
-        listingTagifySpecializationgInput.addEventListener('change', (e) => {
-    
-            if( filter_buzy == 0 ){
-                e.preventDefault();
-                archive_filtering();
-            }
-        });
+    if( 'archive' == rel_type && '' == vacancyid ){ 
+        if( typeof specializationListingSelect !== 'undefined' ){
+            listingTagifySpecializationgInput.addEventListener('change', (e) => {
+        
+                if( filter_buzy == 0 ){
+                    e.preventDefault();
+                    archive_filtering();
+                }
+            });
+        }
     }
 
     // Инициализация селекта Уровень
