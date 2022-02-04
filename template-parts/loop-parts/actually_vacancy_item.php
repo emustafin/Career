@@ -6,6 +6,14 @@ if( is_array( $vaccat_terms ) ){
         break;
 	}
 }
+
+$relationship_terms = get_the_terms( $vacancy_item_id, 'relationship' );
+if( is_array( $relationship_terms ) ){
+	foreach( $relationship_terms as $relationship_term ){
+        $first_relationship = $relationship_term;
+        break;
+	}
+}
 ?>
 <div class="profession__job-item" data-vacancy_id="<?php echo $vacancy_item_id; ?>">
     <div class="profession__job-title-container">
@@ -15,7 +23,7 @@ if( is_array( $vaccat_terms ) ){
 
         <div class="profession__bread-crumbs">
             <a href="#" class="profession__crumb">
-                IT-департамент
+            <?php echo $first_relationship->name; ?>
                 <svg
                         width="12"
                         height="8"

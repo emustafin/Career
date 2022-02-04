@@ -271,10 +271,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // архивный фильтр
     function archive_filtering(){
 
-        if( document.querySelector('.listing-top__filter-list-item') ){
-            document.querySelector('.listing-top__filter-list-item').click()
-        }
-
         document.querySelector('#archive_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
         
         var top__profession = document.querySelector('#listing-top__profession-filter').value;
@@ -323,6 +319,58 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
                 if( true == resp.success ){
                     document.querySelector('#archive_vacancies').innerHTML = document.querySelector('#archive_vacancies').innerHTML + resp.html;
+
+                    if( document.querySelector('.listing-metro__shops-list.mvideo') ){
+                        document.querySelector('.listing-metro__shops-list.mvideo').innerHTML = resp.html_mvideo_shops;
+                    }
+
+                    if( document.querySelector('.listing-metro__shops-list.eldorado') ){
+                        document.querySelector('.listing-metro__shops-list.eldorado').innerHTML = resp.html_eldorado_shops;
+                    }
+
+                    if( document.querySelector('.listing-metro__shop') ){
+
+                        document.querySelectorAll('.listing-metro__shop').forEach((shop) => {
+                            shop.addEventListener('click', () => {
+                    
+                                document.querySelector('.listing-metro__location-place').innerHTML = shop.querySelector('.listing-metro__shop-title').innerHTML;
+                                document.querySelector('.listing-metro__location-adress').innerHTML = shop.querySelector('.listing-metro__shop-address').innerHTML;
+                        
+                                get_vacancy_list( 'mvideo', shop.getAttribute('data-shop_slug') );
+
+                                var parentEl = shop.parentElement;
+                                var imgLink = '/wp-content/themes/career_theme/assets/images/listing/map/mvideo-icon.png';
+
+                                if( parentEl.classList.contains('eldorado') ) {
+                                    var imgLink = '/wp-content/themes/career_theme/assets/images/listing/map/eldorado-icon.png';
+                                }
+                        
+                                let latitude = shop.getAttribute('data-latitude');
+                                let longitude = shop.getAttribute('data-longitude');
+                                mapV.geoObjects.removeAll();
+                                mapV.setCenter([ latitude, longitude ]);
+                                yandexMapInit( 
+                                    [
+                                    [
+                                        [ latitude, longitude ],
+                                        imgLink
+                                    ],
+                                    ] 
+                                );
+                        
+                                document.querySelector('.isting-metro__shops-list-container' ).classList.add('hide');
+                                document.querySelector('.isting-metro__single-shop-container' ).classList.remove('hide');
+                            });
+                        });
+                    }
+
+                    mapV.geoObjects.removeAll();
+                    mapV.setCenter( resp.centermap )
+                    yandexMapInit( resp.iconsmap );
+                    mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
+
+                    newDefaultCenter = resp.centermap;
+                    newDefaultIcons = resp.iconsmap;
 
                     paged = 1;
                     query_vars = JSON.stringify(resp.query_vars);
@@ -389,6 +437,72 @@ document.addEventListener("DOMContentLoaded", function(event) {
             str += key + "=" + encodeURIComponent(data[key]);
         }
 
+        request.send( str );
+    }
+
+    function get_vacancy_list( kind_shops, shop ){
+
+        var containerV = '.listing-metro__profession-container.' + kind_shops + ' .listing-vacancy_items';
+        document.querySelector( `${containerV}` ).innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
+    
+        var top__profession = document.querySelector('#listing-top__profession-filter').value;
+        var vaccat_slug = document.querySelector('#listing__specialization-select').value;
+        if( document.querySelector('#listing__level-select') ){
+            var level_slug = document.querySelector('#listing__level-select').value;
+        } else{
+            var level_slug = -1;
+        }
+        var city_slug = document.querySelector('#listing__city-select').value;
+
+        var archive_without_experience = false;
+        document.querySelectorAll('.archive_without_experience').forEach(item => {
+            if( item.checked ){
+                archive_without_experience = true;
+            }
+        });
+
+        var archive_remotely = false;
+        document.querySelectorAll('.archive_remotely').forEach(item => {
+            if( item.checked ){
+                archive_remotely = true;
+            }
+        });
+        
+        var data = {
+            action:     'get_retail_list_vacancy',
+            kind_shops: kind_shops,
+            shop:       shop,
+            shop:       shop,
+            top__profession : top__profession,
+            vaccat_slug : vaccat_slug,
+            level_slug: level_slug,
+            city_slug : city_slug,
+            archive_without_experience : archive_without_experience,
+            archive_remotely : archive_remotely,
+        };
+    
+        var request = new XMLHttpRequest();
+        request.open('POST', ajax.url, true);
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+    
+        request.onload = function() {
+            if (this.status >= 200 && this.status < 400) {
+                // Success!
+                var resp = JSON.parse(this.response);
+                if( true == resp.success ){
+                  document.querySelector( `${containerV}` ).innerHTML = resp.html;
+                }
+            }
+        };
+    
+        var str = "";
+        for (var key in data) {
+            if (str != "") {
+                str += "&";
+            }
+            str += key + "=" + encodeURIComponent(data[key]);
+        }
+    
         request.send( str );
     }
 
@@ -468,10 +582,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             filter_buzy = 1;
 
-            if( document.querySelector('.listing-top__filter-list-item') ){
-                document.querySelector('.listing-top__filter-list-item').click()
-            }
-
             document.querySelector('#archive_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
             document.querySelector('.archive_without_experience').checked = false;
             if( document.querySelector('.archive_remotely') ){
@@ -509,6 +619,55 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     var resp = JSON.parse(this.response);
                     if( true == resp.success ){
                         document.querySelector('#archive_vacancies').innerHTML = resp.html;
+
+                        if( document.querySelector('.listing-metro__shops-list.mvideo') ){
+                            document.querySelector('.listing-metro__shops-list.mvideo').innerHTML = resp.html_mvideo_shops;
+                        }
+    
+                        if( document.querySelector('.listing-metro__shops-list.eldorado') ){
+                            document.querySelector('.listing-metro__shops-list.eldorado').innerHTML = resp.html_eldorado_shops;
+                        }
+    
+                        if( document.querySelector('.listing-metro__shop') ){
+    
+                            document.querySelectorAll('.listing-metro__shop').forEach((shop) => {
+                                shop.addEventListener('click', () => {
+                        
+                                    document.querySelector('.listing-metro__location-place').innerHTML = shop.querySelector('.listing-metro__shop-title').innerHTML;
+                                    document.querySelector('.listing-metro__location-adress').innerHTML = shop.querySelector('.listing-metro__shop-address').innerHTML;
+                            
+                                    get_vacancy_list( 'mvideo', shop.getAttribute('data-shop_slug') );
+
+                                    var parentEl = shop.parentElement;
+                                    var imgLink = '/wp-content/themes/career_theme/assets/images/listing/map/mvideo-icon.png';
+
+                                    if( parentEl.classList.contains('eldorado') ) {
+                                        var imgLink = '/wp-content/themes/career_theme/assets/images/listing/map/eldorado-icon.png';
+                                    }
+                            
+                                    let latitude = shop.getAttribute('data-latitude');
+                                    let longitude = shop.getAttribute('data-longitude');
+                                    mapV.geoObjects.removeAll();
+                                    mapV.setCenter([ latitude, longitude ]);
+                                    yandexMapInit( 
+                                        [
+                                        [
+                                            [ latitude, longitude ],
+                                            '/wp-content/themes/career_theme/assets/images/listing/map/mvideo-icon.png'
+                                        ],
+                                        ] 
+                                    );
+                            
+                                    document.querySelector('.isting-metro__shops-list-container' ).classList.add('hide');
+                                    document.querySelector('.isting-metro__single-shop-container' ).classList.remove('hide');
+                                });
+                            });
+                        }
+
+                        mapV.geoObjects.removeAll();
+                        mapV.setCenter( defaultCenter )
+                        yandexMapInit( defaultIcons );
+                        mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
 
                         paged = 1;
                         query_vars = JSON.stringify(resp.query_vars);

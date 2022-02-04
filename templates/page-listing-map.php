@@ -133,6 +133,8 @@ get_header();
     var sourceurl = '';
     const defaultCenter = JSON.parse( '<?php echo json_encode( $defaultCenter ); ?>' );
     const defaultIcons = JSON.parse( '<?php echo json_encode( $defaultIcons ); ?>' );
+    var newDefaultCenter = JSON.parse( '<?php echo json_encode( $defaultCenter ); ?>' );
+    var newDefaultIcons = JSON.parse( '<?php echo json_encode( $defaultIcons ); ?>' );
     const mvideoCenter = JSON.parse( '<?php echo json_encode( $mvideoCenter ); ?>' );
     const mvideoIcons = JSON.parse( '<?php echo json_encode( $mvideoIcons ); ?>' );
     const eldoradoCenter = JSON.parse( '<?php echo json_encode( $eldoradoCenter ); ?>' );

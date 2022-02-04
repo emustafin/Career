@@ -135,11 +135,6 @@ export class ListingVacancyMapBlock {
     this.buttonBackToShopsList.addEventListener('click', (event) => {
       event.preventDefault();
 
-      mapV.geoObjects.removeAll();
-      mapV.setCenter( defaultCenter )
-      yandexMapInit( defaultIcons );
-      mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
-
       this.shopsListContainer.classList.remove('hide');
       this.vacanciesInShopContainer.classList.add('hide');
 
@@ -148,11 +143,6 @@ export class ListingVacancyMapBlock {
 
     this.buttonBackToShopsListMobile.addEventListener('click', (event) => {
       event.preventDefault();
-      
-      mapV.geoObjects.removeAll();
-      mapV.setCenter( defaultCenter )
-      yandexMapInit( defaultIcons );
-      mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
       
       this.shopsListContainer.classList.remove('hide');
       this.vacanciesInShopContainer.classList.add('hide');
@@ -167,10 +157,39 @@ export class ListingVacancyMapBlock {
     var containerV = '.listing-metro__profession-container.' + kind_shops + ' .listing-vacancy_items';
     document.querySelector( `${containerV}` ).innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
 
+    var top__profession = document.querySelector('#listing-top__profession-filter').value;
+    var vaccat_slug = document.querySelector('#listing__specialization-select').value;
+    if( document.querySelector('#listing__level-select') ){
+        var level_slug = document.querySelector('#listing__level-select').value;
+    } else{
+        var level_slug = -1;
+    }
+    var city_slug = document.querySelector('#listing__city-select').value;
+
+    var archive_without_experience = false;
+    document.querySelectorAll('.archive_without_experience').forEach(item => {
+        if( item.checked ){
+            archive_without_experience = true;
+        }
+    });
+
+    var archive_remotely = false;
+    document.querySelectorAll('.archive_remotely').forEach(item => {
+        if( item.checked ){
+            archive_remotely = true;
+        }
+    });
+    
     var data = {
         action:     'get_retail_list_vacancy',
         kind_shops: kind_shops,
         shop:       shop,
+        top__profession : top__profession,
+        vaccat_slug : vaccat_slug,
+        level_slug: level_slug,
+        city_slug : city_slug,
+        archive_without_experience : archive_without_experience,
+        archive_remotely : archive_remotely,
     };
 
     var request = new XMLHttpRequest();
@@ -247,7 +266,7 @@ export class ListingVacancyMapBlock {
     if ( this.eldoradoInput.checked == true && this.mvideoInput.checked == true ) {
       this.mvideoBrand.forEach((shop) => shop.classList.remove('hide'));
       this.eldoradoBrand.forEach((shop) => shop.classList.remove('hide'));
-      this.changeMapPoints( defaultCenter, defaultIcons )
+      this.changeMapPoints( newDefaultCenter, newDefaultIcons )
     }
   }
 
