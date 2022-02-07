@@ -47,6 +47,17 @@ if ( $all_vacancies->have_posts() ) {
     }
 }
 wp_reset_postdata();
+
+$page_data = array(
+    'it'        => 'IT-хабе',
+    'retail'    => 'Розничных магазинах',
+    'logistic'  => 'Сервисе и логистике',
+    'office'    => 'Центральном офисе',
+);
+
+$page_title = $page_data[ 'it' ];
+if( !empty( $_GET['type'] ) ) 
+    $page_title = $page_data[ $_GET['type'] ];
 ?>
 
 <script>
@@ -63,15 +74,23 @@ wp_reset_postdata();
 <section class="listing-top">
     <div class="page-container">
         <h2 class="listing-top__title">
-        Вакансии
+            Вакансии
         <span class="listing-top__counter"><?php echo $published_posts; ?></span>
         </h2>
         <div class="listing-top__dropdown">
-            <button onclick="myFunction()" class="dropbtn">в IT-хабе</button>
+            <button onclick="myFunction()" class="dropbtn">в <?= $page_title ?></button>
             <div id="Dropdown" class="dropdown-content">
-                <a href="#">Розничных магазинах</a>
-                <a href="#">Сервисе и логистике</a>
-                <a href="#">Центральном офисе</a>
+
+            <?php
+            foreach ($page_data as $key => $title) {
+                
+                if( $page_title != $title ){
+                    ?>
+                    <a href="/vacancies/?type=<?php echo $key; ?>"><?= $title ?></a>
+                    <?php
+                }
+            }
+            ?>
             </div>
         </div>
 
