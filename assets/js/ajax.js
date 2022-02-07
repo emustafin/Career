@@ -600,13 +600,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
             filter_buzy = 1;
 
             document.querySelector('#archive_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
-            document.querySelector('.archive_without_experience').checked = false;
+            if(document.querySelector('.archive_without_experience')){
+                document.querySelector('.archive_without_experience').checked = false;
+            }
             if( document.querySelector('.archive_remotely') ){
                 document.querySelector('.archive_remotely').checked = false;
             }
 
             professionListingSelect.removeAllTags();
-            specializationListingSelect.removeAllTags();
+            if( typeof specializationListingSelect !== 'undefined' ){
+                specializationListingSelect.removeAllTags();
+            }
             if( typeof listingLevelSelect != 'undefined' ){
                 listingLevelSelect.removeAllTags();
             }
