@@ -18,7 +18,7 @@ function ymapInit(){
 
     yandexMapInit( defaultIcons );
 
-    mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
+    mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:40} );
 };
 
 function yandexMapInit( icons ) {
