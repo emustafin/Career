@@ -47,6 +47,17 @@ if ( $all_vacancies->have_posts() ) {
     }
 }
 wp_reset_postdata();
+
+$page_data = array(
+    'it'        => 'IT-хабе',
+    'retail'    => 'Розничных магазинах',
+    'logistic'  => 'Сервисе и логистике',
+    'office'    => 'Центральном офисе',
+);
+
+$page_title = $page_data[ 'it' ];
+if( !empty( $_GET['type'] ) ) 
+    $page_title = $page_data[ $_GET['type'] ];
 ?>
 
 <script>
@@ -63,59 +74,24 @@ wp_reset_postdata();
 <section class="listing-top">
     <div class="page-container">
         <h2 class="listing-top__title">
-        Вакансии
+            Вакансии
         <span class="listing-top__counter"><?php echo $published_posts; ?></span>
         </h2>
         <div class="listing-top__dropdown">
-            <!-- <div class="listing-top__dropdown-container">
-                    <span class="listing-top__in">в</span>
-                    <span class="listing-top__where">
-                        <span> IT-хабе </span>
-                        <svg
-                        width="38"
-                        height="36"
-                        viewBox="0 0 38 36"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        >
-                        <path
-                            d="M16.3663 28.118V0.159515H21.4663V27.9699L34.0469 15.5057L37.6363 19.1287L22.1319 34.4897C20.3098 36.2949 17.3734 36.2949 15.5513 34.4897L0.046875 19.1287L3.63632 15.5057L16.3663 28.118Z"
-                            fill="black"
-                        />
-                        </svg>
-                    </span>
-                </div>
+            <button onclick="myFunction()" class="dropbtn">в <?= $page_title ?></button>
+            <div id="Dropdown" class="dropdown-content">
 
-            <div class="listing-top__dropdown-list hide">
-                <p class="listing-top__dropdown-list-item">
-                <span class="listing-top__dropdown-list-item-value">
-                    Розничных магазинах
-                </span>
-
-                <span class="listing-top__counter-list-item">1184</span>
-                </p>
-                <p class="listing-top__dropdown-list-item">
-                <span class="listing-top__dropdown-list-item-value">
-                    Сервисе и логистике
-                </span>
-
-                <span class="listing-top__counter-list-item">52</span>
-                </p>
-                <p class="listing-top__dropdown-list-item">
-                <span class="listing-top__dropdown-list-item-value">
-                    Центральном офисе
-                </span>
-
-                <span class="listing-top__counter-list-item">34</span>
-                </p>
-                <p class="listing-top__dropdown-list-item">
-                <span class="listing-top__dropdown-list-item-value">
-                    IT-хабе
-                </span>
-
-                <span class="listing-top__counter-list-item">162</span>
-                </p>
-            </div> -->
+            <?php
+            foreach ($page_data as $key => $title) {
+                
+                if( $page_title != $title ){
+                    ?>
+                    <a href="/vacancies/?type=<?php echo $key; ?>"><?= $title ?></a>
+                    <?php
+                }
+            }
+            ?>
+            </div>
         </div>
 
         <div class="listing-top__filters-wrapper">

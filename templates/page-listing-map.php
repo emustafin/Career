@@ -151,47 +151,12 @@ get_header();
           <span class="listing-top__counter"><?php echo $published_posts; ?></span>
         </h2>
         <div class="listing-top__dropdown">
-          <div class="listing-top__dropdown-container">
-            <span class="listing-top__in">в</span>
-            <span class="listing-top__where">
-              Розничных магазинах
-
-              <!-- <svg class="listing-top__dropdown-arrow" width="38" height="36" viewBox="0 0 38 36" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                <path d="M16.3663 28.1186V0.160156H21.4663V27.9706L34.0469 15.5064L37.6363 19.1294L22.1319 34.4903C20.3098 36.2956 17.3734 36.2956 15.5513 34.4903L0.046875 19.1294L3.63632 15.5064L16.3663 28.1186Z" fill="black" />
-              </svg> -->
-            </span>
-          </div>
-
-          <div class="listing-top__dropdown-list hide">
-            <p class="listing-top__dropdown-list-item">
-              <span class="listing-top__dropdown-list-item-value">
-                Розничных магазинах
-              </span>
-
-              <span class="listing-top__counter-list-item">1184</span>
-            </p>
-            <!-- <p class="listing-top__dropdown-list-item">
-              <span class="listing-top__dropdown-list-item-value">
-                Сервисе и логистике
-              </span>
-
-              <span class="listing-top__counter-list-item">52</span>
-            </p>
-            <p class="listing-top__dropdown-list-item">
-              <span class="listing-top__dropdown-list-item-value">
-                Центральном офисе
-              </span>
-
-              <span class="listing-top__counter-list-item">34</span>
-            </p>
-            <p class="listing-top__dropdown-list-item">
-              <span class="listing-top__dropdown-list-item-value">
-                IT-хабе
-              </span>
-
-              <span class="listing-top__counter-list-item"><?php echo $published_posts; ?></span>
-            </p> -->
-          </div>
+            <button onclick="myFunction()" class="dropbtn">в Розничных магазинах</button>
+            <div id="Dropdown" class="dropdown-content">
+                <a href="#">IT-хабе</a>
+                <a href="#">Сервисе и логистике</a>
+                <a href="#">Центральном офисе</a>
+            </div>
         </div>
 
         <div class="listing-top__filters-wrapper filters__map-wrapper">
