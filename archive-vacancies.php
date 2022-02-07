@@ -49,15 +49,19 @@ if ( $all_vacancies->have_posts() ) {
 wp_reset_postdata();
 
 $page_data = array(
-    'it'        => 'IT-хабе',
-    'retail'    => 'Розничных магазинах',
-    'logistic'  => 'Сервисе и логистике',
-    'office'    => 'Центральном офисе',
+    'it'        => array( '/vacancies/?type=it', 'IT-хабе' ),
+    'retail'    => array( '/listing-map/?type=retail', 'Розничных магазинах' ),
+    'logistic'  => array( '/vacancies/?type=logistic', 'Сервисе и логистике' ),
+    'office'    => array( '/vacancies/?type=office', 'Центральном офисе' ),
 );
 
-$page_title = $page_data[ 'it' ];
-if( !empty( $_GET['type'] ) ) 
-    $page_title = $page_data[ $_GET['type'] ];
+$page_title = $page_data[ 'retail' ][1];
+$type_page = 'retail';
+if( !empty( $_GET['type'] ) && array_key_exists( $_GET['type'], $page_data ) ){
+  $page_title = $page_data[ $_GET['type'] ][1];
+  $type_page = $_GET['type'];
+}
+
 ?>
 
 <script>
@@ -78,15 +82,15 @@ if( !empty( $_GET['type'] ) )
         <span class="listing-top__counter"><?php echo $published_posts; ?></span>
         </h2>
         <div class="listing-top__dropdown">
-            <button onclick="myFunction()" class="dropbtn">в <?= $page_title ?></button>
+            <button onclick="myFunction()" class="dropbtn">в <?php echo $page_title; ?></button>
             <div id="Dropdown" class="dropdown-content">
 
             <?php
-            foreach ($page_data as $key => $title) {
+            foreach ($page_data as $key => $data) {
                 
-                if( $page_title != $title ){
+                if( $_GET['type'] != $key ){
                     ?>
-                    <a href="/vacancies/?type=<?php echo $key; ?>"><?= $title ?></a>
+                    <a href="<?php echo $data[0]; ?>"><?= $data[1]; ?></a>
                     <?php
                 }
             }

@@ -3,6 +3,20 @@
 Template Name: Listing Map
 */
 
+$page_data = array(
+  'it'        => array( '/vacancies/?type=it', 'IT-хабе' ),
+  'retail'    => array( '/listing-map/?type=retail', 'Розничных магазинах' ),
+  'logistic'  => array( '/vacancies/?type=logistic', 'Сервисе и логистике' ),
+  'office'    => array( '/vacancies/?type=office', 'Центральном офисе' ),
+);
+
+$page_title = $page_data[ 'retail' ][1];
+$type_page = 'retail';
+if( !empty( $_GET['type'] ) && array_key_exists( $_GET['type'], $page_data ) ){
+  $page_title = $page_data[ $_GET['type'] ][1];
+  $type_page = $_GET['type'];
+} 
+
 $args = array(
   'post_type'         => 'vacancies',
   'posts_per_page'    => -1,
@@ -151,11 +165,19 @@ get_header();
           <span class="listing-top__counter"><?php echo $published_posts; ?></span>
         </h2>
         <div class="listing-top__dropdown">
-            <button onclick="myFunction()" class="dropbtn">в Розничных магазинах</button>
+            <button onclick="myFunction()" class="dropbtn">в <?php echo $page_title; ?></button>
             <div id="Dropdown" class="dropdown-content">
-                <a href="#">IT-хабе</a>
-                <a href="#">Сервисе и логистике</a>
-                <a href="#">Центральном офисе</a>
+
+            <?php
+            foreach ($page_data as $key => $data) {
+                
+                if( $type_page != $key ){
+                    ?>
+                    <a href="<?php echo $data[0]; ?>"><?= $data[1]; ?></a>
+                    <?php
+                }
+            }
+            ?>
             </div>
         </div>
 
