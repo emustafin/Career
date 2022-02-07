@@ -46,7 +46,7 @@ if( have_rows('mainpage_content') ):
 
       case 'news-events':
         // include(THEME_DIR . '/template-parts/mainpage/news-events.php');
-        include(THEME_DIR . '/template-parts/intern.php');
+        include(THEME_DIR . '/template-parts/common/intern.php');
         break;
 
       case 'sustainability':
