@@ -16,10 +16,10 @@
 }
 
 .main-division__top-left-bar {
-  width: 33.05%;
+  width: 32.2%;
 
   @media (max-width: 1919px){
-    width: 32.95%;
+    width: 31.82%;
   }
 
   @media (max-width: 1439px){
@@ -61,7 +61,7 @@
 .main-division__top-right-bar {
   width: 66.1%;
 
-  @media (max-width){
+  @media (max-width: 1919px){
     width: 65.91%;
   }
 
@@ -169,6 +169,10 @@
   &:last-child {
     margin-right: 0;
   }
+
+  @media (max-width: 1919px){
+    width: 48.28%;
+  }
 }
 
 .main-division__item-title {
@@ -185,6 +189,13 @@
 .main-division__item-link {
   color: $mainColor;
   margin-top: auto;
+}
+
+.main-division__student{
+  display: none;
+  @media (max-width:700px){
+    flex-direction: column;
+  }
 }
 
 // Styles for 1440px

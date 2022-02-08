@@ -7,6 +7,7 @@
 
         <div class="main-division__top-switcher-container">
             <div
+            id="main-division__top-switcher__professional"
             class="
                 main-division__top-switcher main-division__top-switcher-active
             "
@@ -26,7 +27,7 @@
 
             я профессионал
             </div>
-            <div class="main-division__top-switcher">
+            <div id="main-division__top-switcher__student" class="main-division__top-switcher">
             <svg
                 width="14"
                 height="10"
@@ -47,8 +48,8 @@
     </div>
 
     <div class="main-division__top-right-bar">
-        <div class="main-division__top-main-item">
-        <div class="main-division__top-item-left">
+        <div class="main-division__top-main-item" id="professional">
+            <div class="main-division__top-item-left">
             <div class="main-division__top-title-container">
             <h3 class="main-division__top-item-title">IT-хаб</h3>
             <div class="main-division__top-title-icon">
@@ -141,6 +142,51 @@
                 </svg>
             </a>
         </div>
+        </div>
+        <div class="main-division__student" id="student"> 
+            <div class="main-division__item">
+                <h3 class="main-division__item-title">
+                    Стажировка в IT
+                </h3>
+                <div class="main-division__item-info">
+                    Получи опыт на highload-проектах
+                </div>
+
+                <a href="/vacancies/" class="main-division__item-link">
+                    <span>8</span>
+                    открытых вакансий
+                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z" fill="black"></path>
+                    </svg>
+                </a>
+                <a href="/vacancies/" class="main-division__more-about-direction-mobile">
+                    Больше о направлении
+                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z" fill="black"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="main-division__item">
+                <h3 class="main-division__item-title">
+                    Подработка для студентов
+                </h3>
+                <div class="main-division__item-info">
+                    Работа в магазинах рядом&nbsp;с&nbsp;учебой или домом
+                </div>
+                <a href="/vacancies/" class="main-division__item-link">
+                    <span>8</span>
+                    открытых вакансий
+                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z" fill="black"></path>
+                    </svg>
+                </a>
+                <a href="/vacancies/" class="main-division__more-about-direction-mobile">
+                    Больше о направлении
+                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z" fill="black"></path>
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
     </div>

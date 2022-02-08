@@ -99,6 +99,9 @@ class Setup_Theme {
 			// wp_enqueue_script( self::THEME_ID . "ymapapi-js", 'https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU', [], THEME_VSN, true );
 			wp_enqueue_script( self::THEME_ID . "ymap-js", THEME_URL . "/assets/js/ymap.js", [], THEME_VSN, true );
 		}
+		if( is_page('main-page') ){
+			wp_enqueue_script( self::THEME_ID . "main-page-division-js", THEME_URL . "/assets/js/main-page-division.js", [], THEME_VSN, true );
+		}
 		if( is_front_page() || is_page('logistic') || is_page('office') ){
 			wp_enqueue_script( self::THEME_ID . "frontpage-js", THEME_URL . "/assets/js/frontpage.js", [], THEME_VSN, true );
 		}

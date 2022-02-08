@@ -11488,10 +11488,10 @@ input#form__town {
   display: none; }
 
 .main-division__top-left-bar {
-  width: 33.05%; }
+  width: 32.2%; }
   @media (max-width: 1919px) {
     .main-division__top-left-bar {
-      width: 32.95%; } }
+      width: 31.82%; } }
   @media (max-width: 1439px) {
     .main-division__top-left-bar {
       width: 32.86%; } }
@@ -11521,7 +11521,7 @@ input#form__town {
 
 .main-division__top-right-bar {
   width: 66.1%; }
-  @media (max-width) {
+  @media (max-width: 1919px) {
     .main-division__top-right-bar {
       width: 65.91%; } }
   @media (max-width: 1439px) {
@@ -11611,6 +11611,9 @@ input#form__town {
   flex-direction: column; }
   .main-division__item:last-child {
     margin-right: 0; }
+  @media (max-width: 1919px) {
+    .main-division__item {
+      width: 48.28%; } }
 
 .main-division__item-title {
   font-size: 40px;
@@ -11624,6 +11627,12 @@ input#form__town {
 .main-division__item-link {
   color: #000000;
   margin-top: auto; }
+
+.main-division__student {
+  display: none; }
+  @media (max-width: 700px) {
+    .main-division__student {
+      flex-direction: column; } }
 
 @media (max-width: 1440px) {
   .main-division {
