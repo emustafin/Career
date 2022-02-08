@@ -388,6 +388,9 @@ class Vacancies {
     public function archive_get_profession__menu_items() {
 
         $html = '';
+        $mvideoIcons = array();
+        $eldoradoIcons = array();
+
         if( !empty( $_POST ) ){
 
             $args = array(
@@ -460,7 +463,30 @@ class Vacancies {
                     }
                 }
             }
+
+            if( null != $_POST['rt'] ){
+                if( 'retail' == $_POST['rt'] ){
+                    $args['tax_query'][] = array(
+                        'taxonomy' => 'relationship',
+                        'field'    => 'slug',
+                        'terms'    => 'roznica'
+                    );
+                } elseif( '-1' != $_POST['rt'] ){
+                    $args['tax_query'][] = array(
+                        'taxonomy' => 'relationship',
+                        'field'    => 'slug',
+                        'terms'    => $_POST['rt']
+                    );
+                }
+            }
+
             $actually_vacancies_by = new \WP_Query( $args );
+
+            $arr_mvideo_shops = array();
+            $arr_eldorado_shops = array();
+
+            $html_mvideo_shops = '';
+            $html_eldorado_shops = '';
 
             if ( $actually_vacancies_by->have_posts() ) {
                 while ( $actually_vacancies_by->have_posts() ) {
@@ -469,6 +495,81 @@ class Vacancies {
                     ob_start();
                     include(THEME_DIR . '/template-parts/loop-parts/archive_vacancies_item.php');
                     $html .= ob_get_clean();
+
+                    $shop_terms = get_the_terms( $vacancy_item_id, 'shop' );
+                    if( is_array( $shop_terms ) ){
+                        foreach( $shop_terms as $shop_term ){
+
+                            if( 'eldorado' == get_field( 'mvideo_or_eldorado', $shop_term ) ){
+
+                                if( !in_array( $shop_term->slug, $arr_eldorado_shops ) ){
+
+                                    $arr_eldorado_shops[] = $shop_term->slug;
+
+                                    if( empty( $eldoradoIcons ) ){
+                                        $сenterMap = [
+                                          get_field( 'shop_koordinates_latitude', $shop_term ),
+                                          get_field( 'shop_koordinates_longitude', $shop_term )
+                                        ];
+                                    }
+
+                                    $eldoradoIcons[] = array(
+                                        [
+                                          get_field( 'shop_koordinates_latitude', $shop_term ),
+                                          get_field( 'shop_koordinates_longitude', $shop_term )
+                                        ],
+                                        THEME_URL . '/assets/images/listing/map/eldorado-icon.png'
+                                    );
+
+                                    $html_eldorado_shops .= '
+                                        <div class="listing-metro__shop" 
+                                            data-shop_slug="'.$shop_term->slug.'" 
+                                            data-latitude="'.get_field( 'shop_koordinates_latitude', $shop_term ).'" 
+                                            data-longitude="'.get_field( 'shop_koordinates_longitude', $shop_term ).'"
+                                        >
+                                            <div class="listing-metro__shop-title">'.$shop_term->name.'</div>
+                                            <div class="listing-metro__shop-address">'.get_field( 'shop_adress', $shop_term ).'</div>
+                                        </div>
+                                    ';
+                                }
+                            }
+                            
+                            if( 'mvideo' == get_field( 'mvideo_or_eldorado', $shop_term ) ){
+
+                                if( !in_array( $shop_term->slug, $arr_mvideo_shops ) ){
+
+                                    $arr_mvideo_shops[] = $shop_term->slug;
+
+                                    if( empty( $сenterMap ) ){
+                                        $сenterMap = [
+                                          get_field( 'shop_koordinates_latitude', $shop_term ),
+                                          get_field( 'shop_koordinates_longitude', $shop_term )
+                                        ];
+                                    }
+
+                                    $mvideoIcons[] = array(
+                                        [
+                                          get_field( 'shop_koordinates_latitude', $shop_term ),
+                                          get_field( 'shop_koordinates_longitude', $shop_term )
+                                        ],
+                                        THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
+                                    );
+                                    
+                                    $html_mvideo_shops .= '
+                                        <div class="listing-metro__shop" 
+                                            data-shop_slug="'.$shop_term->slug.'" 
+                                            data-latitude="'.get_field( 'shop_koordinates_latitude', $shop_term ).'" 
+                                            data-longitude="'.get_field( 'shop_koordinates_longitude', $shop_term ).'"
+                                        >
+                                            <div class="listing-metro__shop-title">'.$shop_term->name.'</div>
+                                            <div class="listing-metro__shop-address">'.get_field( 'shop_adress', $shop_term ).'</div>
+                                        </div>
+                                    ';
+                                }
+                            }
+
+                        }
+                    }
                 }
             }
 
@@ -478,6 +579,10 @@ class Vacancies {
                     'html' 	=> $html,
                     'query_vars'  => $actually_vacancies_by->query_vars,
                     'max_num_pages' => $actually_vacancies_by->max_num_pages,
+                    'html_eldorado_shops' => $html_eldorado_shops,
+                    'html_mvideo_shops' => $html_mvideo_shops,
+                    'iconsmap' => array_merge( $eldoradoIcons, $mvideoIcons ),
+                    'centermap' => $сenterMap
                 );
         
                 wp_send_json($return);
@@ -510,13 +615,74 @@ class Vacancies {
                 );
             }
 
+            if( null != $_POST['top__profession'] ){
+                $args['s'] = $_POST['top__profession'];
+            }
+
+            if( null != $_POST['vaccat_slug'] && '-1'!= $_POST['vaccat_slug'] ){
+                $args['tax_query'][] = array(
+                    'taxonomy' => 'vaccat',
+                    'field'    => 'slug',
+                    'terms'    => $_POST['vaccat_slug']
+                );
+            }
+
             if( '' != $_POST['kind_shops'] ){
 
                 if( isset($args['meta_query']) ){
                     $args['meta_query'][] = array(
-                        'key'		=> 'check_mvideo_eldorado',
-                        'value'		=> $_POST['kind_shops'],
+                        'relation'		=> 'AND',
+                        array(
+                            'key'		=> 'check_mvideo_eldorado',
+                            'value'		=> $_POST['kind_shops'],
+                            'compare'	=> '='
+                        )
+                    );
+                }
+            }
+
+            if( $_POST['archive_remotely'] == 'true' ){
+
+                if( isset($args['meta_query']) ){
+                    $args['meta_query'][] = 
+                    array(
+                        'relation'		=> 'AND',
+                        array(
+                            'key'		=> 'can_work_remotely',
+                            'value'		=> true,
+                            'compare'	=> '='
+                        )
+                    );
+                } else{
+                    $args['meta_query'] = 
+                    array(
+                        'relation'		=> 'AND',
+                        array(
+                            'key'		=> 'can_work_remotely',
+                            'value'		=> true,
+                            'compare'	=> '='
+                        )
+                    );
+                }
+            }
+
+            if( $_POST['archive_without_experience'] == 'true' ){
+
+                if( isset($args['meta_query']) ){
+                    $args['meta_query'][] = array(
+                        'key'		=> 'can_without_experience',
+                        'value'		=> 'can_without_experience',
                         'compare'	=> '='
+                    );
+                } else{
+                    $args['meta_query'] = 
+                    array(
+                        'relation'		=> 'AND',
+                        array(
+                            'key'		=> 'can_without_experience',
+                            'value'		=> 'can_without_experience',
+                            'compare'	=> '='
+                        )
                     );
                 }
             }

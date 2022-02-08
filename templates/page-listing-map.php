@@ -3,6 +3,20 @@
 Template Name: Listing Map
 */
 
+$page_data = array(
+  'it'        => array( '/vacancies/?type=it', 'IT-хабе' ),
+  'retail'    => array( '/listing-map/?type=retail', 'Розничных магазинах' ),
+  'logistic'  => array( '/vacancies/?type=logistic', 'Сервисе и логистике' ),
+  'office'    => array( '/vacancies/?type=office', 'Центральном офисе' ),
+);
+
+$page_title = $page_data[ 'retail' ][1];
+$type_page = 'retail';
+if( !empty( $_GET['type'] ) && array_key_exists( $_GET['type'], $page_data ) ){
+  $page_title = $page_data[ $_GET['type'] ][1];
+  $type_page = $_GET['type'];
+} 
+
 $args = array(
   'post_type'         => 'vacancies',
   'posts_per_page'    => -1,
@@ -54,14 +68,53 @@ foreach ($shop_terms as $shop_term ) {
   switch ( get_field( 'mvideo_or_eldorado', $shop_term ) ) {
     case 'mvideo':
       $name_icon = THEME_URL . '/assets/images/listing/map/mvideo-icon.png';
+      if( empty( $mvideoIcons ) ){
+        $mvideoCenter = [
+          get_field( 'shop_koordinates_latitude', $shop_term ),
+          get_field( 'shop_koordinates_longitude', $shop_term )
+        ];
+      }
+      $mvideoIcons[] = array(
+        [
+          get_field( 'shop_koordinates_latitude', $shop_term ),
+          get_field( 'shop_koordinates_longitude', $shop_term )
+        ],
+        THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
+      );
       break;
     
     case 'eldorado':
       $name_icon = THEME_URL . '/assets/images/listing/map/eldorado-icon.png';
+      if( empty( $eldoradoIcons ) ){
+        $eldoradoCenter = [
+          get_field( 'shop_koordinates_latitude', $shop_term ),
+          get_field( 'shop_koordinates_longitude', $shop_term )
+        ];
+      }
+      $eldoradoIcons[] = array(
+        [
+          get_field( 'shop_koordinates_latitude', $shop_term ),
+          get_field( 'shop_koordinates_longitude', $shop_term )
+        ],
+        THEME_URL . '/assets/images/listing/map/eldorado-icon.png'
+      );
       break;
     
     default:
     $name_icon = THEME_URL . '/assets/images/listing/map/mvideo-icon.png';
+      if( empty( $mvideoIcons ) ){
+        $mvideoCenter = [
+          get_field( 'shop_koordinates_latitude', $shop_term ),
+          get_field( 'shop_koordinates_longitude', $shop_term )
+        ];
+      }
+      $mvideoIcons[] = array(
+        [
+          get_field( 'shop_koordinates_latitude', $shop_term ),
+          get_field( 'shop_koordinates_longitude', $shop_term )
+        ],
+        THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
+      );
       break;
   }
 
@@ -89,16 +142,18 @@ get_header();
     var town_arr = '<?php echo json_encode( $town_arr ); ?>';
     var vaccat_arr = '<?php echo json_encode( $vaccat_arr ); ?>';
     var vacancy_titles = '<?php echo json_encode( $vacancy_titles ); ?>';
-    var rel_type = 'retail';
+    var rel_type = 'archive';
+    var rt = 'retail';
     var vacancyid = '';
     var sourceurl = '';
     const defaultCenter = JSON.parse( '<?php echo json_encode( $defaultCenter ); ?>' );
     const defaultIcons = JSON.parse( '<?php echo json_encode( $defaultIcons ); ?>' );
-    const iconsNew = [
-      [[55.774824, 37.671345], '/wp-content/themes/career_theme/webpack-work/src/images/listing/map/mvideo-icon.png' ],
-      [[55.774951, 37.669619], '/wp-content/themes/career_theme/webpack-work/src/images/listing/map/eldorado-icon.png' ],
-      [[55.774289, 37.669145], '/wp-content/themes/career_theme/webpack-work/src/images/listing/map/mvideo-icon.png' ],
-    ];
+    var newDefaultCenter = JSON.parse( '<?php echo json_encode( $defaultCenter ); ?>' );
+    var newDefaultIcons = JSON.parse( '<?php echo json_encode( $defaultIcons ); ?>' );
+    const mvideoCenter = JSON.parse( '<?php echo json_encode( $mvideoCenter ); ?>' );
+    const mvideoIcons = JSON.parse( '<?php echo json_encode( $mvideoIcons ); ?>' );
+    const eldoradoCenter = JSON.parse( '<?php echo json_encode( $eldoradoCenter ); ?>' );
+    const eldoradoIcons = JSON.parse( '<?php echo json_encode( $eldoradoIcons ); ?>' );
 </script>
 
 <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
@@ -111,47 +166,20 @@ get_header();
           <span class="listing-top__counter"><?php echo $published_posts; ?></span>
         </h2>
         <div class="listing-top__dropdown">
-          <div class="listing-top__dropdown-container">
-            <span class="listing-top__in">в</span>
-            <span class="listing-top__where">
-              Розничных магазинах
+            <button onclick="myFunction()" class="dropbtn">в <?php echo $page_title; ?></button>
+            <div id="Dropdown" class="dropdown-content">
 
-              <!-- <svg class="listing-top__dropdown-arrow" width="38" height="36" viewBox="0 0 38 36" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                <path d="M16.3663 28.1186V0.160156H21.4663V27.9706L34.0469 15.5064L37.6363 19.1294L22.1319 34.4903C20.3098 36.2956 17.3734 36.2956 15.5513 34.4903L0.046875 19.1294L3.63632 15.5064L16.3663 28.1186Z" fill="black" />
-              </svg> -->
-            </span>
-          </div>
-
-          <div class="listing-top__dropdown-list hide">
-            <p class="listing-top__dropdown-list-item">
-              <span class="listing-top__dropdown-list-item-value">
-                Розничных магазинах
-              </span>
-
-              <span class="listing-top__counter-list-item">1184</span>
-            </p>
-            <!-- <p class="listing-top__dropdown-list-item">
-              <span class="listing-top__dropdown-list-item-value">
-                Сервисе и логистике
-              </span>
-
-              <span class="listing-top__counter-list-item">52</span>
-            </p>
-            <p class="listing-top__dropdown-list-item">
-              <span class="listing-top__dropdown-list-item-value">
-                Центральном офисе
-              </span>
-
-              <span class="listing-top__counter-list-item">34</span>
-            </p>
-            <p class="listing-top__dropdown-list-item">
-              <span class="listing-top__dropdown-list-item-value">
-                IT-хабе
-              </span>
-
-              <span class="listing-top__counter-list-item"><?php echo $published_posts; ?></span>
-            </p> -->
-          </div>
+            <?php
+            foreach ($page_data as $key => $data) {
+                
+                if( $type_page != $key ){
+                    ?>
+                    <a href="<?php echo $data[0]; ?>"><?= $data[1]; ?></a>
+                    <?php
+                }
+            }
+            ?>
+            </div>
         </div>
 
         <div class="listing-top__filters-wrapper filters__map-wrapper">
@@ -163,7 +191,7 @@ get_header();
               </svg>
           </div>
 
-          <div class="listing-top__filter-item">
+          <!-- <div class="listing-top__filter-item">
               <p class="profession__filter-item-title">Специализация</p>
               <div class="profession__filter-item-select">
 
@@ -211,7 +239,7 @@ get_header();
                     </span>
                     </label>
                 </div>
-          </div>
+          </div> -->
 
           <div class="listing-top__filter-item">
               <p class="profession__filter-item-title">Город</p>
@@ -321,7 +349,7 @@ get_header();
             ?>
           </div>
 
-          <div class="listing-metro__shops-list eldorado hide">
+          <div class="listing-metro__shops-list eldorado">
             <?php
             foreach( $shop_terms as $shop_term ):
               if( 'eldorado' == get_field( 'mvideo_or_eldorado', $shop_term ) ){                
@@ -398,7 +426,7 @@ get_header();
             <div class="listing-vacancy_items profession__job-wrapper retail__position"></div>
           </div>
 
-          <div class="listing-metro__profession-container eldorado hide">
+          <div class="listing-metro__profession-container eldorado">
             <div class="listing-metro__profession-title">
               Вакансии магазина
 
@@ -464,7 +492,7 @@ get_header();
           <div id="yandex-map" class="listing-metro__map-place">
             <!-- Сюда вставить карту -->
           </div>
-          <button class="listing-metro__map-button-plus">
+          <!-- <button class="listing-metro__map-button-plus">
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" >
               <path d="M4.40039 5.60002V9.5H5.60039V5.60002H9.5V4.40002H5.60039V0.5H4.40039V4.40002H0.5V5.60002H4.40039Z" fill="black" />
             </svg>
@@ -474,7 +502,7 @@ get_header();
             <svg width="10" height="2" viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg" >
               <path fill-rule="evenodd" clip-rule="evenodd" d="M9.5 1.60039H0.5V0.400391H9.5V1.60039Z" fill="black" />
             </svg>
-          </button>
+          </button> -->
 
           <div class="listing-metro__select-shop-container">
             <label class="listing-metro__select-shop-item" data-name="mvideo">
@@ -488,7 +516,7 @@ get_header();
             </label>
 
             <label class="listing-metro__select-shop-item" data-name="eldorado">
-              <input class="listing-metro__shop-input eldorado-input" type="checkbox" />
+              <input class="listing-metro__shop-input eldorado-input" type="checkbox" checked />
               <span class="listing-metro__select-shop-checkbox">
                 <svg class="listing-metro__select-shop-checkbox-image" width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M3.50044 6.15191L9.07617 0.576172L9.9247 1.4247L3.50044 7.84896L0.0761719 4.4247L0.9247 3.57617L3.50044 6.15191Z" fill="black" />

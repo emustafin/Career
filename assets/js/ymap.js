@@ -18,7 +18,7 @@ function ymapInit(){
 
     yandexMapInit( defaultIcons );
 
-    mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
+    mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:40} );
 };
 
 function yandexMapInit( icons ) {
@@ -43,7 +43,7 @@ function yandexMapInit( icons ) {
   mapV.controls.remove('trafficControl'); // удаляем контроль трафика
   mapV.controls.remove('typeSelector'); // удаляем тип
   mapV.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
-  mapV.controls.remove('zoomControl'); // удаляем контрол зуммирования
+  // mapV.controls.remove('zoomControl'); // удаляем контрол зуммирования
   mapV.controls.remove('rulerControl'); // удаляем контрол правил
 
   mapV.setZoom(17, {duration: 0});

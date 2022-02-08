@@ -10,8 +10,41 @@ get_header();
 global $wp_query;
 $primary_query = $wp_query;
 
-$count_posts = wp_count_posts('vacancies');
-$published_posts = $count_posts->publish;
+$page_data = array(
+    'it'        => array( '/vacancies/?type=it', 'IT-хабе' ),
+    'retail'    => array( '/listing-map/?type=retail', 'Розничных магазинах' ),
+    'logistic'  => array( '/vacancies/?type=logistic', 'Сервисе и логистике' ),
+    'office'    => array( '/vacancies/?type=office', 'Центральном офисе' ),
+);
+
+$page_title = $page_data[ 'it' ][1];
+$type_page = 'it';
+if( !empty( $_GET['type'] ) && array_key_exists( $_GET['type'], $page_data ) ){
+    $page_title = $page_data[ $_GET['type'] ][1];
+    $type_page = $_GET['type'];  
+
+    query_posts( array(
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'relationship',
+                'field'    => 'slug',
+                'terms'    => $_GET['type']
+            )
+        )
+    ) );
+} else{
+    query_posts( array(
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'relationship',
+                'field'    => 'slug',
+                'terms'    => 'it'
+            )
+        )
+    ) );
+}
+
+$published_posts = $wp_query->found_posts;
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 
 $vaccat_terms = get_terms( 'vaccat' );
@@ -34,19 +67,20 @@ foreach( $vaccat_terms as $vaccat_term ):
     $vaccat_arr[$vaccat_term->slug] = $vaccat_term->name;
 endforeach;
 
-$args = array(
-    'post_type'         => 'vacancies',
-    'posts_per_page'    => -1,
-    'post_status'       => 'publish'
-);
-$all_vacancies = new WP_Query( $args );
-if ( $all_vacancies->have_posts() ) {
-    while ( $all_vacancies->have_posts() ) {
-        $all_vacancies->the_post();
+// $args = array(
+//     'post_type'         => 'vacancies',
+//     'posts_per_page'    => -1,
+//     'post_status'       => 'publish'
+// );
+// $all_vacancies = new WP_Query( $args );
+if ( have_posts() ) {
+    while ( have_posts() ) {
+        the_post();
         $vacancy_titles .= get_the_title().',';
     }
 }
-wp_reset_postdata();
+// wp_reset_postdata();
+
 ?>
 
 <script>
@@ -55,6 +89,7 @@ wp_reset_postdata();
     var vaccat_arr = '<?php echo json_encode( $vaccat_arr ); ?>';
     var vacancy_titles = '<?php echo json_encode( $vacancy_titles ); ?>';
     var rel_type = 'archive';
+    var rt = '<?php echo $type_page; ?>';
     var vacancyid = '';
     var sourceurl = '';
 </script>
@@ -63,59 +98,24 @@ wp_reset_postdata();
 <section class="listing-top">
     <div class="page-container">
         <h2 class="listing-top__title">
-        Вакансии
+            Вакансии
         <span class="listing-top__counter"><?php echo $published_posts; ?></span>
         </h2>
         <div class="listing-top__dropdown">
-            <!-- <div class="listing-top__dropdown-container">
-                    <span class="listing-top__in">в</span>
-                    <span class="listing-top__where">
-                        <span> IT-хабе </span>
-                        <svg
-                        width="38"
-                        height="36"
-                        viewBox="0 0 38 36"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        >
-                        <path
-                            d="M16.3663 28.118V0.159515H21.4663V27.9699L34.0469 15.5057L37.6363 19.1287L22.1319 34.4897C20.3098 36.2949 17.3734 36.2949 15.5513 34.4897L0.046875 19.1287L3.63632 15.5057L16.3663 28.118Z"
-                            fill="black"
-                        />
-                        </svg>
-                    </span>
-                </div>
+            <button onclick="myFunction()" class="dropbtn">в <?php echo $page_title; ?></button>
+            <div id="Dropdown" class="dropdown-content">
 
-            <div class="listing-top__dropdown-list hide">
-                <p class="listing-top__dropdown-list-item">
-                <span class="listing-top__dropdown-list-item-value">
-                    Розничных магазинах
-                </span>
-
-                <span class="listing-top__counter-list-item">1184</span>
-                </p>
-                <p class="listing-top__dropdown-list-item">
-                <span class="listing-top__dropdown-list-item-value">
-                    Сервисе и логистике
-                </span>
-
-                <span class="listing-top__counter-list-item">52</span>
-                </p>
-                <p class="listing-top__dropdown-list-item">
-                <span class="listing-top__dropdown-list-item-value">
-                    Центральном офисе
-                </span>
-
-                <span class="listing-top__counter-list-item">34</span>
-                </p>
-                <p class="listing-top__dropdown-list-item">
-                <span class="listing-top__dropdown-list-item-value">
-                    IT-хабе
-                </span>
-
-                <span class="listing-top__counter-list-item">162</span>
-                </p>
-            </div> -->
+            <?php
+            foreach ($page_data as $key => $data) {
+                
+                if( $_GET['type'] != $key ){
+                    ?>
+                    <a href="<?php echo $data[0]; ?>"><?= $data[1]; ?></a>
+                    <?php
+                }
+            }
+            ?>
+            </div>
         </div>
 
         <div class="listing-top__filters-wrapper">
@@ -288,9 +288,9 @@ wp_reset_postdata();
 <div class="position__card-wrapper">
     <div id="archive_vacancies" class="page-container">
 
-        <?php if( have_posts()) : ?>
-            <?php $i=1; while( have_posts()) : 
-                the_post();
+        <?php if( $wp_query->have_posts()) : ?>
+            <?php $i=1; while( $wp_query->have_posts()) : 
+                $wp_query->the_post();
 
                 include(THEME_DIR . '/template-parts/loop-parts/archive_vacancies_item.php');
                 

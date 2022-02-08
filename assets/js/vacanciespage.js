@@ -1,7 +1,7 @@
 // Страница Листинга вакансий
 const listingTagifyLevelInput = document.querySelector('.listing__level-select');
 const listingTagifyCityInput = document.querySelector('.listing__city-select');
-const listingTagifySpecializationgInput = document.querySelector('.selectMode.listing__specialization-select');
+var listingTagifySpecializationgInput = document.querySelector('.selectMode.listing__specialization-select');
 const listingTagifyProfessionInput = document.querySelector('.listing-top__profession-filter');
 
 const listingLevelInput = document.querySelector('#listing__level-select');
@@ -52,15 +52,16 @@ listingTagifyProfessionInput.addEventListener('change', () => {
 })
 
 // Инициализация селекта Специализация
-const specializationListingSelect = new Tagify(listingTagifySpecializationgInput, {
-  enforceWhitelist: true,
-  mode: 'select',
-  whitelist: Object.values(currentVaccatDataListing),
-  userInput: false,
-})
+if( listingTagifySpecializationgInput != null ){
+  var specializationListingSelect = new Tagify(listingTagifySpecializationgInput, {
+    enforceWhitelist: true,
+    mode: 'select',
+    whitelist: Object.values(currentVaccatDataListing),
+    userInput: false,
+  })
 
-listingTagifySpecializationgInput.addEventListener('change', selectValueFromSingleSelect(currentVaccatDataListing, listingTagifySpecializationgInput, listingspecializationInput))
-
+  listingTagifySpecializationgInput.addEventListener('change', selectValueFromSingleSelect(currentVaccatDataListing, listingTagifySpecializationgInput, listingspecializationInput))
+}
 
 // Инициализация селекта Уровень
 if( listingTagifyLevelInput != null ){
@@ -78,7 +79,7 @@ if( listingTagifyLevelInput != null ){
 const listingCitySelect = new Tagify(listingTagifyCityInput, {
   enforceWhitelist: true,
   mode: 'select',
-  whitelist: ['Любой', 'Москва', 'Санкт-Петербург', 'Ростов на Дону'],
+  whitelist: ['Любой', 'Москва', 'Санкт-Петербург'],
   userInput: false,
 });
 
@@ -99,4 +100,22 @@ function selectValueFromSingleSelect(data, tagifyInput, targetInput) {
     }
     targetInput.value = currentValue;
   }
+}
+
+function myFunction() {
+  document.getElementById("Dropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+  var i;
+  for (i = 0; i < dropdowns.length; i++) {
+    var openDropdown = dropdowns[i];
+    if (openDropdown.classList.contains('show')) {
+      openDropdown.classList.remove('show');
+    }
+  }
+}
 }
