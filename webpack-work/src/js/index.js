@@ -274,36 +274,39 @@ export function smothScrollingToBlock(block, header) {
 
 //-----------------------------------------------------------------------------------
 // Анимация переключателей (внутренние шарики) на странице IT
+
 export function swichersAnimation(header, block, swichers) {
-  return function () {
-    const offset = 40;
-    let headerHeight = header.clientHeight;
-    const swichersCollection = swichers;
-
-    if (window.innerWidth <= 479) {
-      headerHeight = 0;
-    }
-
-    const topOffset = block.offsetTop - headerHeight;
-
-    if (
-      window.scrollY >= topOffset - offset &&
-      window.scrollY <= topOffset + offset
-    ) {
-      setTimeout(() => {
-        swichersCollection[0].classList.toggle('intern__inside-circle-active');
-      }, 0);
-      setTimeout(() => {
-        swichersCollection[1].classList.toggle('intern__inside-circle-active');
-      }, 1000);
-      setTimeout(() => {
-        swichersCollection[2].classList.toggle('intern__inside-circle-active');
-      }, 2000);
-      setTimeout(() => {
-        swichersCollection[3].classList.toggle('intern__inside-circle-active');
-      }, 3000);
-    }
-  };
+  if (document.querySelector('.intern__header')) {
+    return function () {
+      const offset = 40;
+      let headerHeight = header.clientHeight;
+      const swichersCollection = swichers;
+  
+      if (window.innerWidth <= 479) {
+        headerHeight = 0;
+      }
+  
+      const topOffset = block.offsetTop - headerHeight;
+  
+      if (
+        window.scrollY >= topOffset - offset &&
+        window.scrollY <= topOffset + offset
+      ) {
+        setTimeout(() => {
+          swichersCollection[0].classList.toggle('intern__inside-circle-active');
+        }, 0);
+        setTimeout(() => {
+          swichersCollection[1].classList.toggle('intern__inside-circle-active');
+        }, 1000);
+        setTimeout(() => {
+          swichersCollection[2].classList.toggle('intern__inside-circle-active');
+        }, 2000);
+        setTimeout(() => {
+          swichersCollection[3].classList.toggle('intern__inside-circle-active');
+        }, 3000);
+      }
+    };
+  }
 }
 
 //----------------------------------------------------------------------------------
