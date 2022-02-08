@@ -1,7 +1,7 @@
 // Страница Листинга вакансий
 const listingTagifyLevelInput = document.querySelector('.listing__level-select');
 const listingTagifyCityInput = document.querySelector('.listing__city-select');
-const listingTagifySpecializationgInput = document.querySelector('.selectMode.listing__specialization-select');
+var listingTagifySpecializationgInput = document.querySelector('.selectMode.listing__specialization-select');
 const listingTagifyProfessionInput = document.querySelector('.listing-top__profession-filter');
 
 const listingLevelInput = document.querySelector('#listing__level-select');
@@ -53,7 +53,7 @@ listingTagifyProfessionInput.addEventListener('change', () => {
 
 // Инициализация селекта Специализация
 if( listingTagifySpecializationgInput != null ){
-  const specializationListingSelect = new Tagify(listingTagifySpecializationgInput, {
+  var specializationListingSelect = new Tagify(listingTagifySpecializationgInput, {
     enforceWhitelist: true,
     mode: 'select',
     whitelist: Object.values(currentVaccatDataListing),

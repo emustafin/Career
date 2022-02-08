@@ -463,6 +463,23 @@ class Vacancies {
                     }
                 }
             }
+
+            if( null != $_POST['rt'] ){
+                if( 'retail' == $_POST['rt'] ){
+                    $args['tax_query'][] = array(
+                        'taxonomy' => 'relationship',
+                        'field'    => 'slug',
+                        'terms'    => 'roznica'
+                    );
+                } elseif( '-1' != $_POST['rt'] ){
+                    $args['tax_query'][] = array(
+                        'taxonomy' => 'relationship',
+                        'field'    => 'slug',
+                        'terms'    => $_POST['rt']
+                    );
+                }
+            }
+
             $actually_vacancies_by = new \WP_Query( $args );
 
             $arr_mvideo_shops = array();

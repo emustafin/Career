@@ -293,6 +293,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
         });
 
+        if( document.querySelector('.products__show-more') ){
+            var fadeTarget = document.querySelector('.products__show-more');
+        }
+
         var archive_remotely = false;
         document.querySelectorAll('.archive_remotely').forEach(item => {
             if( item.checked ){
@@ -309,6 +313,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
             archive_without_experience : archive_without_experience,
             archive_remotely : archive_remotely,
         };
+
+        if( rt ){
+            data['rt'] = rt;
+        }
 
         var request = new XMLHttpRequest();
         request.open('POST', ajax.url, true);
@@ -372,30 +380,35 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         });
                     }
 
-                    mapV.geoObjects.removeAll();
-                    mapV.setCenter( resp.centermap )
-                    yandexMapInit( resp.iconsmap );
-                    mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
+                    if( typeof mapV != 'undefined' ){
 
-                    newDefaultCenter = resp.centermap;
-                    newDefaultIcons = resp.iconsmap;
+                        mapV.geoObjects.removeAll();
+                        mapV.setCenter( resp.centermap )
+                        yandexMapInit( resp.iconsmap );
+                        mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
+    
+                        newDefaultCenter = resp.centermap;
+                        newDefaultIcons = resp.iconsmap;
+                    }
+
 
                     paged = 1;
                     query_vars = JSON.stringify(resp.query_vars);
                     max_num_pages = resp.max_num_pages;
 
                     if( fadeTarget ){
-                        if( resp.max_num_pages == 1 ){
-                            var fadeTarget = document.querySelector('.products__show-more');
-                            fadeTarget.style.display = 'none';
-                        } else{
-                            var fadeTarget = document.querySelector('.products__show-more');
+                        if( resp.max_num_pages > 1 ){
                             fadeTarget.style.display = 'flex';
+                        } else{
+                            fadeTarget.style.display = 'none';
                         }
                     }
 
                     // TODO
                     var xxx = '';
+                    if( rt ){
+                        xxx = '&type='+rt;
+                    }
                     if( data.archive_without_experience != false ){
                         xxx = xxx+'&archive_without_experience=true';
                     }
@@ -429,7 +442,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 } else{
                     document.querySelector('#archive_vacancies').innerHTML = 'К сожалению вакансий не найдено!';
 
-                    var fadeTarget = document.querySelector('.products__show-more');
                     if( fadeTarget ){
                         fadeTarget.style.display = 'none';
                     }
@@ -626,6 +638,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 default: 'default',
             };
 
+            if( rt ){
+                data['rt'] = rt;
+            }
+
             var fadeTarget = document.querySelector('.products__show-more');
 
             var request = new XMLHttpRequest();
@@ -689,13 +705,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
                             });
                         }
 
-                        mapV.geoObjects.removeAll();
-                        mapV.setCenter( defaultCenter )
-                        yandexMapInit( defaultIcons );
-                        mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
+                        if( typeof mapV != 'undefined' ){
+                            mapV.geoObjects.removeAll();
+                            mapV.setCenter( defaultCenter )
+                            yandexMapInit( defaultIcons );
+                            mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
 
-                        newDefaultCenter = defaultCenter;
-                        newDefaultIcons = defaultIcons;
+                            newDefaultCenter = defaultCenter;
+                            newDefaultIcons = defaultIcons;
+                        }
 
                         paged = 1;
                         query_vars = JSON.stringify(resp.query_vars);
@@ -715,7 +733,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
                             fadeTarget.style.display = 'none';
                         }
                     }
-                    window.history.pushState('', '', window.location.origin + window.location.pathname );
+                    var xxx = '';
+                    if( rt ){
+                        xxx = '?type='+rt;
+                    }
+                    window.history.pushState('', '', window.location.origin + window.location.pathname + xxx );
                 }
             };
 
