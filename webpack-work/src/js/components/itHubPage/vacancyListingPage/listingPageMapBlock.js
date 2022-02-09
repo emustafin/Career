@@ -162,10 +162,9 @@ export class ListingVacancyMapBlock {
 
   get_vacancy_list( kind_shops, shop ){
 
-    document.querySelector( '.listing-metro__profession-container.mvideo .listing-vacancy_items' ).innerHTML = '';
-    document.querySelector( '.listing-metro__profession-container.eldorado .listing-vacancy_items' ).innerHTML = '';
+    document.querySelector( '.listing-metro__profession-container .listing-vacancy_items' ).innerHTML = '';
 
-    var containerV = '.listing-metro__profession-container.' + kind_shops + ' .listing-vacancy_items';
+    var containerV = '.listing-metro__profession-container .listing-vacancy_items';
     document.querySelector( `${containerV}` ).innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
 
     var top__profession = document.querySelector('#listing-top__profession-filter').value;

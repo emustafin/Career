@@ -414,29 +414,12 @@ get_header();
             </div>
           </div>
 
-          <div class="listing-metro__profession-container mvideo">
+          <div class="listing-metro__profession-container">
             <div class="listing-metro__profession-title">
               Вакансии магазина
-
-              <span class="listing-metro__profession-title-shop">
-                «М.Видео»
-              </span>
             </div>
 
             <div class="listing-vacancy_items profession__job-wrapper retail__position"></div>
-          </div>
-
-          <div class="listing-metro__profession-container eldorado">
-            <div class="listing-metro__profession-title">
-              Вакансии магазина
-
-              <span class="listing-metro__profession-title-shop">
-                «Эльдорадо»
-              </span>
-            </div>
-
-            <div class="listing-vacancy_items profession__job-wrapper profession__job-wrapper_eldorado retail__position retail__position_eldorado"></div>
-            
           </div>
         </div>
 
