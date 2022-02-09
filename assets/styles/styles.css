@@ -12712,11 +12712,33 @@ input#form__town {
   position: relative;
   width: 100%;
   margin-bottom: 96px; }
-  .main-video > img {
-    display: block;
-    width: 100%; }
 
-.main-video__button {
+.video {
+  display: block;
+  width: 100%; }
+
+.button-wrapper button {
+  position: absolute;
+  z-index: 1;
+  background: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.button-wrapper {
+  opacity: 0; }
+
+.button-wrapper:hover {
+  opacity: 1; }
+
+.main-video-play {
+  display: none; }
+
+.main-video__button-off {
+  display: none; }
+
+.main-video__button-off,
+.main-video__button-on {
   border: none;
   outline: none;
   background: transparent;
