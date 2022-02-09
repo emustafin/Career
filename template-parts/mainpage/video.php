@@ -1,11 +1,8 @@
 <!-- Section Video -->
 <div class="main-video">
-  <img
-    src="<?php echo get_sub_field('video_img_bg'); ?>"
-    alt="video"
-    title="video"
-    class="main-video__placeholder"
-  />
+  <video class="main__video" controls="controls" >
+    <source class="main__video-src" src="<?php echo get_template_directory_uri()?>/webpack-work/src/future.mp4">
+  </video>
   <button class="main-video__button">Выключить звук</button>
 </div>
 <!-- //Section Video -->
