@@ -54,6 +54,10 @@
   cursor: pointer;
 }
 
+.main-awards__right-bar-mobile{
+  display: none;
+}
+
 // Styles for 1440
 @media (max-width: 1440px) {
   .main-awards {
@@ -122,7 +126,19 @@
 }
 
 // Styles for 320px
-@media (max-width: 550px) {
+@media (max-width: 720px) {
+  .main-awards__right-bar{
+    display: none;
+  }
+
+  .main-awards__right-bar-mobile{
+    display: block;
+  }
+
+  .main-awards__wrapper-mobile{
+    margin: 0;
+  }
+
   .main-awards {
     font-size: 14px;
     line-height: 16px;

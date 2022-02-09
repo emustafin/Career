@@ -11406,6 +11406,9 @@ input#form__town {
   margin-top: 32px;
   cursor: pointer; }
 
+.main-awards__right-bar-mobile {
+  display: none; }
+
 @media (max-width: 1440px) {
   .main-awards {
     font-size: 16px;
@@ -11444,7 +11447,13 @@ input#form__town {
   .main-awards__award-item {
     margin-top: 0; } }
 
-@media (max-width: 550px) {
+@media (max-width: 720px) {
+  .main-awards__right-bar {
+    display: none; }
+  .main-awards__right-bar-mobile {
+    display: block; }
+  .main-awards__wrapper-mobile {
+    margin: 0; }
   .main-awards {
     font-size: 14px;
     line-height: 16px;

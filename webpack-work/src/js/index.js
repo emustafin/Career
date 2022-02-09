@@ -6,6 +6,7 @@ import { ItHubPageCareerUpgradeBlock } from './components/itHubPage/itHubCareerU
 import { ItHubVideoPlayerBlock } from './components/itHubPage/itHubVideoPlayerBlock';
 import { ItHubRunningLineBlock } from './components/itHubPage/itHubRunningLine';
 import { ItHubGoalsBlock } from './components/itHubPage/itHubGoalsBlock';
+import { mainAwards } from './components/mainPage/mainAwards.js';
 import { ItHubPageCustomSelectInProfessionBlock } from './components/itHubPage/itHubPagecustomSelectInVacancy';
 import { ItHubInternshipBlock } from './components/itHubPage/itHubInternship';
 import { ItHubDirectionBlock } from './components/itHubPage/itHubDirectionBlock';
@@ -124,6 +125,8 @@ new ItHubPageCareerUpgradeBlock('.upgrade');
 new ItHubVideoPlayerBlock('.find');
 new ItHubRunningLineBlock('.find__title');
 const itHubPageGoalBlock = new ItHubGoalsBlock('.goal');
+const itHubPageGoalBlock_MainPage = new ItHubGoalsBlock('.retail__why-us');
+const mainPageslider = new mainAwards('.main-awards');
 
 new MobileSliderAdvantages('.logistic-advantages');
 
