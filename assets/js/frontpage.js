@@ -38,6 +38,9 @@ const idPageCitySelect = new Tagify(idPageTagifyCityInput, {
   mode: 'select',
   whitelist: town_titles,
   userInput: false,
+  dropdown: {
+    maxItems: 1000,
+  }
 });
 
 idPageTagifyCityInput.addEventListener('change', () => {

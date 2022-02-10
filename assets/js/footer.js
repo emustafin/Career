@@ -149,6 +149,9 @@ if( null != formCityInput_r ){
     mode: 'select',
     whitelist: town_titles,
     userInput: false,
+    dropdown: {
+      maxItems: 1000,
+    }
   });
   
   formCitySelect_r.on(

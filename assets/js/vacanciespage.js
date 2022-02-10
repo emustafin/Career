@@ -81,6 +81,9 @@ const listingCitySelect = new Tagify(listingTagifyCityInput, {
   mode: 'select',
   whitelist: town_titles,
   userInput: false,
+  dropdown: {
+    maxItems: 1000,
+  }
 });
 
 listingTagifyCityInput.addEventListener('change', selectValueFromSingleSelect(currentCitiesDataListing, listingTagifyCityInput, listingCityInput))
