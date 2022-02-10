@@ -264,7 +264,7 @@
         Маркетинг, финансы, менеджмент и HR
         </div>
 
-        <a href="/vacancies/?type=logistic" class="main-division__item-link">
+        <a href="/vacancies/?type=office" class="main-division__item-link">
             <span><?php echo get_term_by( 'slug', 'roznica', 'relationship' )->count; ?></span>
             открытых вакансий
             <svg
@@ -304,7 +304,7 @@
         Работа на складе и в сервисном центре
         </div>
 
-        <a href="/vacancies/?type=office" class="main-division__item-link">
+        <a href="/vacancies/?type=logistic" class="main-division__item-link">
             <span><?php echo get_term_by( 'slug', 'roznica', 'relationship' )->count; ?></span>
             открытых вакансий
             <svg
