@@ -11,7 +11,7 @@
         подобрать идеальный гаджет одной левой.
     </p>
 
-    <a href="#" class="retail__position-description-link">
+    <!-- <a href="#" class="retail__position-description-link">
         <span class="retail__position-value">343</span>
         вакансии
         <svg
@@ -27,7 +27,7 @@
                 fill="black"
             />
         </svg>
-    </a>
+    </a> -->
     </div>
     <a href="<?php echo get_permalink( $vacancy_item_id ); ?>" class="retail__position-item-button">
         больше о направлении
