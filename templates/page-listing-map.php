@@ -65,75 +65,78 @@ endforeach;
 // Координаты всех магазинов
 $defaultIcons = array();
 foreach ($shop_terms as $shop_term ) {
-
-  switch ( get_field( 'mvideo_or_eldorado', $shop_term ) ) {
-    case 'mvideo':
+  if (get_field( 'shop_koordinates_latitude', $shop_term ) != "" && get_field( 'shop_koordinates_longitude', $shop_term ) != ""){
+    switch ( get_field( 'mvideo_or_eldorado', $shop_term ) ) {
+      case 'mvideo':
+        $name_icon = THEME_URL . '/assets/images/listing/map/mvideo-icon.png';
+        if( empty( $mvideoIcons ) ){
+          $mvideoCenter = [
+            get_field( 'shop_koordinates_latitude', $shop_term ),
+            get_field( 'shop_koordinates_longitude', $shop_term )
+          ];
+        }
+        $mvideoIcons[] = array(
+          [
+            get_field( 'shop_koordinates_latitude', $shop_term ),
+            get_field( 'shop_koordinates_longitude', $shop_term )
+          ],
+          THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
+        );
+        break;
+      
+      case 'eldorado':
+        $name_icon = THEME_URL . '/assets/images/listing/map/eldorado-icon.png';
+        if( empty( $eldoradoIcons ) ){
+          $eldoradoCenter = [
+            get_field( 'shop_koordinates_latitude', $shop_term ),
+            get_field( 'shop_koordinates_longitude', $shop_term )
+          ];
+        }
+        $eldoradoIcons[] = array(
+          [
+            get_field( 'shop_koordinates_latitude', $shop_term ),
+            get_field( 'shop_koordinates_longitude', $shop_term )
+          ],
+          THEME_URL . '/assets/images/listing/map/eldorado-icon.png'
+        );
+        break;
+      
+      default:
       $name_icon = THEME_URL . '/assets/images/listing/map/mvideo-icon.png';
-      if( empty( $mvideoIcons ) ){
-        $mvideoCenter = [
-          get_field( 'shop_koordinates_latitude', $shop_term ),
-          get_field( 'shop_koordinates_longitude', $shop_term )
-        ];
-      }
-      $mvideoIcons[] = array(
-        [
-          get_field( 'shop_koordinates_latitude', $shop_term ),
-          get_field( 'shop_koordinates_longitude', $shop_term )
-        ],
-        THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
-      );
-      break;
-    
-    case 'eldorado':
-      $name_icon = THEME_URL . '/assets/images/listing/map/eldorado-icon.png';
-      if( empty( $eldoradoIcons ) ){
-        $eldoradoCenter = [
-          get_field( 'shop_koordinates_latitude', $shop_term ),
-          get_field( 'shop_koordinates_longitude', $shop_term )
-        ];
-      }
-      $eldoradoIcons[] = array(
-        [
-          get_field( 'shop_koordinates_latitude', $shop_term ),
-          get_field( 'shop_koordinates_longitude', $shop_term )
-        ],
-        THEME_URL . '/assets/images/listing/map/eldorado-icon.png'
-      );
-      break;
-    
-    default:
-    $name_icon = THEME_URL . '/assets/images/listing/map/mvideo-icon.png';
-      if( empty( $mvideoIcons ) ){
-        $mvideoCenter = [
-          get_field( 'shop_koordinates_latitude', $shop_term ),
-          get_field( 'shop_koordinates_longitude', $shop_term )
-        ];
-      }
-      $mvideoIcons[] = array(
-        [
-          get_field( 'shop_koordinates_latitude', $shop_term ),
-          get_field( 'shop_koordinates_longitude', $shop_term )
-        ],
-        THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
-      );
-      break;
-  }
-
-  if( empty( $defaultIcons ) ){
-    $defaultCenter = [
-      get_field( 'shop_koordinates_latitude', $shop_term ),
-      get_field( 'shop_koordinates_longitude', $shop_term )
-    ];
-  }
-
-  $defaultIcons[] = array(
-    [
-      get_field( 'shop_koordinates_latitude', $shop_term ),
-      get_field( 'shop_koordinates_longitude', $shop_term )
-    ],
-    $name_icon
-  );
+        if( empty( $mvideoIcons ) ){
+          $mvideoCenter = [
+            get_field( 'shop_koordinates_latitude', $shop_term ),
+            get_field( 'shop_koordinates_longitude', $shop_term )
+          ];
+        }
+        $mvideoIcons[] = array(
+          [
+            get_field( 'shop_koordinates_latitude', $shop_term ),
+            get_field( 'shop_koordinates_longitude', $shop_term )
+          ],
+          THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
+        );
+        break;
+    }
+  
+    if( empty( $defaultIcons ) ){
+      $defaultCenter = [
+        get_field( 'shop_koordinates_latitude', $shop_term ),
+        get_field( 'shop_koordinates_longitude', $shop_term )
+      ];
+    }
+  
+    $defaultIcons[] = array(
+      [
+        get_field( 'shop_koordinates_latitude', $shop_term ),
+        get_field( 'shop_koordinates_longitude', $shop_term )
+      ],
+      $name_icon
+    );
+  }  
 }
+
+$broken_shops = array();
 
 get_header();
 ?>
@@ -334,17 +337,21 @@ get_header();
           <div class="listing-metro__shops-list mvideo">
             <?php
             foreach( $shop_terms as $shop_term ):
-              if( 'mvideo' == get_field( 'mvideo_or_eldorado', $shop_term ) ){                
-                ?>
-                <div class="listing-metro__shop" 
-                  data-shop_slug="<?php echo $shop_term->slug; ?>" 
-                  data-latitude="<?php echo get_field( 'shop_koordinates_latitude', $shop_term );?>" 
-                  data-longitude="<?php echo get_field( 'shop_koordinates_longitude', $shop_term );?>"
-                  >
-                  <div class="listing-metro__shop-title"><?php echo $shop_term->name; ?></div>
-                  <div class="listing-metro__shop-address"><?php echo get_field( 'shop_adress', $shop_term ); ?></div>
-                </div>
-                <?php
+              if (get_field( 'shop_koordinates_latitude', $shop_term ) != "" && get_field( 'shop_koordinates_longitude', $shop_term ) != ""){
+                if( 'mvideo' == get_field( 'mvideo_or_eldorado', $shop_term ) ){                
+                  ?>
+                  <div class="listing-metro__shop" 
+                    data-shop_slug="<?php echo $shop_term->slug; ?>" 
+                    data-latitude="<?php echo get_field( 'shop_koordinates_latitude', $shop_term );?>" 
+                    data-longitude="<?php echo get_field( 'shop_koordinates_longitude', $shop_term );?>"
+                    >
+                    <div class="listing-metro__shop-title"><?php echo $shop_term->name; ?></div>
+                    <div class="listing-metro__shop-address"><?php echo get_field( 'shop_adress', $shop_term ); ?></div>
+                  </div>
+                  <?php
+                }
+              } else{
+                $broken_shops[] = $shop_term->term_id;
               }
             endforeach;
             ?>
@@ -353,17 +360,21 @@ get_header();
           <div class="listing-metro__shops-list eldorado">
             <?php
             foreach( $shop_terms as $shop_term ):
-              if( 'eldorado' == get_field( 'mvideo_or_eldorado', $shop_term ) ){                
-                ?>
-                <div class="listing-metro__shop" 
-                  data-shop_slug="<?php echo $shop_term->slug; ?>" 
-                  data-latitude="<?php echo get_field( 'shop_koordinates_latitude', $shop_term );?>" 
-                  data-longitude="<?php echo get_field( 'shop_koordinates_longitude', $shop_term );?>"
-                  >
-                  <div class="listing-metro__shop-title"><?php echo $shop_term->name; ?></div>
-                  <div class="listing-metro__shop-address"><?php echo get_field( 'shop_adress', $shop_term ); ?></div>
-                </div>
-                <?php
+              if (get_field( 'shop_koordinates_latitude', $shop_term ) != "" && get_field( 'shop_koordinates_longitude', $shop_term ) != ""){
+                if( 'eldorado' == get_field( 'mvideo_or_eldorado', $shop_term ) ){                
+                  ?>
+                  <div class="listing-metro__shop" 
+                    data-shop_slug="<?php echo $shop_term->slug; ?>" 
+                    data-latitude="<?php echo get_field( 'shop_koordinates_latitude', $shop_term );?>" 
+                    data-longitude="<?php echo get_field( 'shop_koordinates_longitude', $shop_term );?>"
+                    >
+                    <div class="listing-metro__shop-title"><?php echo $shop_term->name; ?></div>
+                    <div class="listing-metro__shop-address"><?php echo get_field( 'shop_adress', $shop_term ); ?></div>
+                  </div>
+                  <?php
+                }
+              } else{
+                $broken_shops[] = $shop_term->term_id;
               }
             endforeach;
             ?>
@@ -634,7 +645,16 @@ get_header();
             $actually_vacancies_retail->the_post();
             $vacancy_item_id = get_the_ID();
 
-            include(THEME_DIR . '/template-parts/loop-parts/archive_vacancies_item.php');
+            $break = false;
+            $current_term_id = (array)wp_get_post_terms( $vacancy_item_id, 'shop', array('fields' => 'ids') );
+            foreach ($current_term_id as $shop_id) {
+              if( in_array( $shop_id, $broken_shops ) ){
+                $break = true;
+              }
+            }
+            if( false == $break ){
+              include(THEME_DIR . '/template-parts/loop-parts/archive_vacancies_item.php');
+            }
 
           endwhile;
 
