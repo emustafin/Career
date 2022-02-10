@@ -33,6 +33,6 @@ class Boot {
 	
 	public function log( $content ){
 
-		file_put_contents( 'xxx3.txt', print_r( $content, true ), FILE_APPEND );
+		file_put_contents( 'wp-content/themes/career_theme/classes/xxx6.json', print_r( $content, true ), FILE_APPEND );
 	}
 }
