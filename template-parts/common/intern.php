@@ -1,6 +1,6 @@
 <!--  Internship Section  -->
 <section class="intern">
-    <?php if( is_front_page() || is_page('office') ){ ?>
+    <?php if( is_page('it') || is_page('office') ){ ?>
     <div class="intern__header">
       <div class="intern__wrap">
         <h2 class="intern__title">Приходи на стажировку!</h2>

@@ -216,7 +216,7 @@ $reviews = new WP_Query( $args );
 
 <?php
 
-if( !is_front_page() ){
+if( !is_page('it') ){
     $args = array(
         'post_type'         => 'reviews',
         'posts_per_page'    => -1,
