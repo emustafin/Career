@@ -63,7 +63,7 @@ switch ($post_slug) {
 }
 
 $myterms = get_terms('town', 'orderby=count&hide_empty=1');
-$array_town = array();
+$array_town = array('Любой');
 foreach( $myterms as $term ){
   $array_town[] = $term->name;
 }
