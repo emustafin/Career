@@ -4,6 +4,7 @@ if( get_field( 'can_without_experience', $vacancy_item_id ) ) $experience = get_
 
 // TODO надо будет посмотреть и переделать
 $k = 1;
+$first_vaccat = '-1';
 $vaccat_terms = get_the_terms( $vacancy_item_id, 'vaccat' );
 if( is_array( $vaccat_terms ) ){
     foreach( $vaccat_terms as $vaccat_term ){
@@ -36,12 +37,18 @@ if( is_array( $relationship_terms ) ){
                     <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)"/>
                 </svg>
             </a>
-            <a href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="position__link">
-                <?php echo $first_vaccat->name; ?>
-                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)"/>
-                </svg>
-            </a>
+            <?php
+            if( '-1' != $first_vaccat ){
+                ?>
+                <a href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="position__link">
+                    <?php echo $first_vaccat->name; ?>
+                    <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                        <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)"/>
+                    </svg>
+                </a>
+                <?php
+            }
+            ?>
         </div>
     </div>
 
@@ -53,12 +60,18 @@ if( is_array( $relationship_terms ) ){
                     <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)" />
                 </svg>
             </a>
-            <a href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="position__link">
-                <?php echo $first_vaccat->name; ?>
-                <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                    <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)"/>
-                </svg>
-            </a>
+            <?php
+            if( '-1' != $first_vaccat ){
+                ?>
+                <a href="<?php echo get_term_link( $first_vaccat->term_id, 'vaccat'); ?>" class="position__link">
+                    <?php echo $first_vaccat->name; ?>
+                    <svg class="position__link-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                        <path d="M9.4136 3.55001L7.1818 1.3182L7.8182 0.681808L11.1364 4.00001L7.8182 7.3182L7.1818 6.68181L9.4136 4.45001H0.75V3.55001H9.4136Z" fill="rgba(0, 0, 0, 0.5)"/>
+                    </svg>
+                </a>
+                <?php
+            }
+            ?>
         </div>
     </div>
 

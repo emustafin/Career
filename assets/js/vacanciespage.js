@@ -18,10 +18,6 @@ const currentVaccatDataListing = JSON.parse(vaccat_arr); // Специализа
 
 const currentVacancyTitlesDataListing = JSON.parse(vacancy_titles); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
 
-// Инициализация селекта Профессии
-const stringVacancyesToArray = currentVacancyTitlesDataListing.split(',');
-const currentProfessionList = stringVacancyesToArray.filter((profession) => profession !== '');
-
 const professionListingSelect = new Tagify(listingTagifyProfessionInput, {
   // whitelist: currentProfessionList,
   dropdown: {
@@ -32,6 +28,10 @@ const professionListingSelect = new Tagify(listingTagifyProfessionInput, {
     },
   }
 })
+
+if (currentVacancyTitlesDataListing) {
+  professionListingSelect.addTags(currentVacancyTitlesDataListing);
+}
 
 listingTagifyProfessionInput.addEventListener('change', () => {
   let selectedProfessionList = [];
