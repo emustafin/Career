@@ -12416,9 +12416,16 @@ input#form__town {
   width: 33.33%; }
 
 .main-stability__text {
-  max-width: 552px; }
+  max-width: 552px;
+  padding-right: 72px; }
   .main-stability__text p {
     margin-bottom: 32px; }
+  @media (max-width: 1439px) {
+    .main-stability__text {
+      padding-right: 17px; } }
+  @media (max-width: 1023px) {
+    .main-stability__text {
+      padding-right: 0; } }
 
 .main-stability__left-bar-link {
   color: #000000; }
