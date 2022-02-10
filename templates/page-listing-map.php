@@ -36,9 +36,10 @@ $published_posts = $actually_vacancies_retail->post_count;
 if( $actually_vacancies_retail->have_posts() ) :
   while( $actually_vacancies_retail->have_posts() ) :
     $actually_vacancies_retail->the_post();
-    $vacancy_titles .= get_the_title().',';
   endwhile;
 endif;
+
+$vacancy_titles = $_GET["search"];
 
 $vaccat_terms = get_terms( 'vaccat' );
 $town_terms = get_terms( 'town' );

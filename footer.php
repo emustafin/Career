@@ -41,7 +41,7 @@ if( is_page('retail') ){
             <h2 class="footer__title">Хочешь стать частью команды?</h2>
             <form method="GET" action="/vacancies/" class="footer__search-block">
               <input
-                name="s"
+                name="search"
                 class="footer__search-field"
                 type="text"
                 placeholder="найти вакансию"

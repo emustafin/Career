@@ -73,12 +73,7 @@ endforeach;
 //     'post_status'       => 'publish'
 // );
 // $all_vacancies = new WP_Query( $args );
-if ( have_posts() ) {
-    while ( have_posts() ) {
-        the_post();
-        $vacancy_titles .= get_the_title().',';
-    }
-}
+$vacancy_titles = $_GET["search"];
 // wp_reset_postdata();
 
 ?>

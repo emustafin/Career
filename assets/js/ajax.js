@@ -425,7 +425,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         xxx = xxx+'&vaccat_slug='+vaccat_slug;
                     }
                     if( data.top__profession != undefined ){
-                        xxx = xxx+'&s='+top__profession;
+                        xxx = xxx+'&search='+top__profession;
                     }
                     // if( data.top__profession != '' ){
                     //     var prof = top__profession.split(",");
