@@ -79,7 +79,7 @@ if( listingTagifyLevelInput != null ){
 const listingCitySelect = new Tagify(listingTagifyCityInput, {
   enforceWhitelist: true,
   mode: 'select',
-  whitelist: ['Любой', 'Москва', 'Санкт-Петербург'],
+  whitelist: town_titles,
   userInput: false,
 });
 
