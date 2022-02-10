@@ -36,7 +36,7 @@ idPageTagifyLevelInput.addEventListener('change', () => {
 const idPageCitySelect = new Tagify(idPageTagifyCityInput, {
   enforceWhitelist: true,
   mode: 'select',
-  whitelist: ['Любой','Москва', 'Санкт-Петербург'],
+  whitelist: town_titles,
   userInput: false,
 });
 

@@ -61,6 +61,13 @@ switch ($post_slug) {
     $body_class = 'it-hub direct-link';
     break;
 }
+
+$myterms = get_terms('town', 'orderby=count&hide_empty=1');
+$array_town = array();
+foreach( $myterms as $term ){
+  $array_town[] = $term->name;
+}
+
 ?>
 <body class='<?php echo $body_class; ?>'>
 
@@ -69,7 +76,9 @@ switch ($post_slug) {
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-
+<script>
+  var town_titles = JSON.parse('<?php echo json_encode( $array_town ); ?>');
+</script>
     <!-- Header -->
     <header class="it-header">
       <div class="container">
