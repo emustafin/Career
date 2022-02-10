@@ -17,40 +17,40 @@
             </form>
         </div>
 
-        <div class="main-page__stage-links-block">
+        <!-- <div class="main-page__stage-links-block">
             <a href="#" class="main-page__stage-link-development">
-            разработка
+                разработка
 
-            <svg
-                width="14"
-                height="10"
-                viewBox="0 0 14 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
-                fill="black"
-                />
-            </svg>
+                <svg
+                    width="14"
+                    height="10"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                    d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                    fill="black"
+                    />
+                </svg>
             </a>
             <a href="#" class="main-page__stage-link-sales">
-            продажи
+                продажи
 
-            <svg
-                width="14"
-                height="10"
-                viewBox="0 0 14 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
-                fill="black"
-                />
-            </svg>
+                <svg
+                    width="14"
+                    height="10"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                    d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+                    fill="black"
+                    />
+                </svg>
             </a>
-        </div>
+        </div> -->
         </div>
     </div>
     <p class="main-page__stage-text">с командой</p>
