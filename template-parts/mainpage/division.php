@@ -153,7 +153,7 @@
                 </div>
 
                 <a href="/vacancies/" class="main-division__item-link">
-                    <span>8</span>
+                    <span><?php echo get_term_by( 'slug', 'it', 'relationship' )->count; ?></span>
                     открытых вакансий
                     <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z" fill="black"></path>
@@ -308,7 +308,7 @@
         </div>
 
         <a href="/vacancies/?type=office" class="main-division__item-link">
-            <span><?php echo get_term_by( 'slug', 'roznica', 'relationship' )->count; ?></span>
+            <span><?php echo get_term_by( 'slug', 'office', 'relationship' )->count; ?></span>
             открытых вакансий
             <svg
                 width="14"
@@ -348,7 +348,7 @@
         </div>
 
         <a href="/vacancies/?type=logistic" class="main-division__item-link">
-            <span><?php echo get_term_by( 'slug', 'roznica', 'relationship' )->count; ?></span>
+            <span><?php echo get_term_by( 'slug', 'logistic', 'relationship' )->count; ?></span>
             открытых вакансий
             <svg
                 width="14"
