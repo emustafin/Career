@@ -338,7 +338,7 @@ endif; ?>
             <?php
             $args = array(
                 'post_type'         => 'post',
-                'posts_per_page'    => 6,
+                'posts_per_page'    => -1,
                 'post_status'       => 'publish',
                 'order'             => 'DESC',
                 'order_by'          => 'date'
