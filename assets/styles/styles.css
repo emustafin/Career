@@ -11404,7 +11404,8 @@ input#form__town {
 
 .main-awards__awards-button {
   margin-top: 32px;
-  cursor: pointer; }
+  cursor: pointer;
+  display: none; }
 
 .main-awards__right-bar-mobile {
   display: none; }
