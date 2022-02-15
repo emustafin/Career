@@ -16,16 +16,15 @@ const currentLevelsDataListing = JSON.parse(level_arr);
 const currentCitiesDataListing = JSON.parse(town_arr);
 const currentVaccatDataListing = JSON.parse(vaccat_arr); // Специализации
 
-const currentVacancyTitlesDataListing = JSON.parse(vacancy_titles); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
-
+const currentVacancyTitlesDataListing = JSON.parse(vacancy_get); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
+const ProfessionList = JSON.parse(vacancy_titles);
+console.log(ProfessionList);
 const professionListingSelect = new Tagify(listingTagifyProfessionInput, {
-  // whitelist: currentProfessionList,
+  whitelist: ProfessionList,
   dropdown: {
-  position: "input",
+  position: "text",
+  maxItems: 5,
   enabled : 0, // always opens dropdown when input gets focus
-  dropdown: {
-    maxItems: 5,
-    },
   }
 })
 
