@@ -69,7 +69,7 @@ class Skillaz_Vacancies_Find extends Boot {
 
                 $WorkLocation = (array)$work_vacancy_data['WorkLocation'];
                 
-                if( null != $WorkLocation ){
+                if( null == $WorkLocation ){
                     $WorkLocation = (array)$work_vacancy_data['Address'];
                 }
 
@@ -182,7 +182,7 @@ class Skillaz_Vacancies_Find extends Boot {
         } elseif( null != $Data['WorkLocation'] ) {
             $WorkLocation = (array)$Data['WorkLocation'];
 
-            if( null != $WorkLocation ){
+            if( null == $WorkLocation ){
                 $WorkLocation = (array)$Data['Address'];
             }
 
@@ -207,7 +207,7 @@ class Skillaz_Vacancies_Find extends Boot {
         if( null != $Data['WorkLocation'] ) {
             $WorkLocation = (array)$Data['WorkLocation'];
 
-            if( null != $WorkLocation ){
+            if( null == $WorkLocation ){
                 $WorkLocation = (array)$Data['Address'];
             }
 
@@ -247,7 +247,7 @@ class Skillaz_Vacancies_Find extends Boot {
             } else{
                 $insert_res = wp_insert_term(
                     $ShopName,
-                    'shop',
+                    'shop'
                 );
                 $current_shop_id = $insert_res['term_id'];
                 wp_set_post_terms( $post_id, $insert_res['term_id'], 'shop', true );
