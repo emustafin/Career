@@ -68,6 +68,11 @@ class Skillaz_Vacancies_Find extends Boot {
                 }
 
                 $WorkLocation = (array)$work_vacancy_data['WorkLocation'];
+                
+                if( null != $WorkLocation ){
+                    $WorkLocation = (array)$work_vacancy_data['Address'];
+                }
+
                 if( null != $WorkLocation['Longitude'] && null != $WorkLocation['Latitude'] ){
 
                     $post_data = array(
@@ -93,7 +98,6 @@ class Skillaz_Vacancies_Find extends Boot {
                     update_field( 'money_to', $salary['To'], $post_id );
                     
                     // Полный адрес магазина
-                    $WorkLocation = (array)$work_vacancy_data['WorkLocation'];
                     update_field( 'map_full_adress', $WorkLocation['Text'], $post_id );
                     
                     // Город
@@ -114,12 +118,12 @@ class Skillaz_Vacancies_Find extends Boot {
                     $url = get_permalink( $post_id );
                     return $url;
                 } else{
-                    // file_put_contents( 'wp-content/themes/career_theme/classes/empty_coordinates.json', print_r( $vacancy_data, true ), FILE_APPEND );
+                    file_put_contents( 'wp-content/themes/career_theme/classes/empty_coordinates.json', print_r( $vacancy_data, true ), FILE_APPEND );
                     return 'no1';
                 }
 
             } else{
-                // file_put_contents( 'wp-content/themes/career_theme/classes/NeedToPublishToJobMve-false-or-null.json', print_r( $vacancy_data, true ), FILE_APPEND );
+                file_put_contents( 'wp-content/themes/career_theme/classes/NeedToPublishToJobMve-false-or-null.json', print_r( $vacancy_data, true ), FILE_APPEND );
                 return 'no1';
             }
     
@@ -177,6 +181,11 @@ class Skillaz_Vacancies_Find extends Boot {
             $City = $Data['City'];
         } elseif( null != $Data['WorkLocation'] ) {
             $WorkLocation = (array)$Data['WorkLocation'];
+
+            if( null != $WorkLocation ){
+                $WorkLocation = (array)$Data['Address'];
+            }
+
             if( null != $WorkLocation['City'] ){
                 $City = $WorkLocation['City'];
             }
@@ -197,6 +206,11 @@ class Skillaz_Vacancies_Find extends Boot {
 
         if( null != $Data['WorkLocation'] ) {
             $WorkLocation = (array)$Data['WorkLocation'];
+
+            if( null != $WorkLocation ){
+                $WorkLocation = (array)$Data['Address'];
+            }
+
             if( null != $Data['OrgUnitId'] ){
                 $OrgUnitId = (array)$Data['OrgUnitId'];
                 if( null != $OrgUnitId['Name'] ){
