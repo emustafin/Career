@@ -44,6 +44,12 @@ if( !empty( $_GET['type'] ) && array_key_exists( $_GET['type'], $page_data ) ){
     ) );
 }
 
+if( !empty( $_GET['search'] ) ){
+    query_posts( array(
+        's' => $_GET['search']
+    ) );
+}
+
 $published_posts = $wp_query->found_posts;
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 
