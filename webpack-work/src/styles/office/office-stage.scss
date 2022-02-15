@@ -10,6 +10,9 @@
 
 .office__left-bar {
   width: 50%;
+  @media (max-width: 1439px) {
+    width: 54%;
+  }
 }
 
 .office__stage-title {
