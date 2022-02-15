@@ -30,12 +30,29 @@ $args = array(
   )
 );
 
+if( !empty( $_GET['search'] ) ){
+  $args['s'] = $_GET['search'];
+}
+
 $actually_vacancies_retail = new \WP_Query( $args );
 $published_posts = $actually_vacancies_retail->post_count;
+
+$shop_terms = array();
 
 if( $actually_vacancies_retail->have_posts() ) :
   while( $actually_vacancies_retail->have_posts() ) :
     $actually_vacancies_retail->the_post();
+
+    $vacancy_item_id = get_the_ID();
+
+    $current_shop_terms = (array)get_the_terms( $vacancy_item_id, 'shop' );
+    if( is_array( $current_shop_terms ) ){
+      foreach( $current_shop_terms as $current_shop_term ){
+        if( !in_array( $current_shop_term, $shop_terms ) ){
+          $shop_terms[] = $current_shop_term;
+        }
+      }
+    }
   endwhile;
 endif;
 
@@ -44,7 +61,6 @@ $vacancy_titles = $_GET["search"];
 $vaccat_terms = get_terms( 'vaccat' );
 $town_terms = get_terms( 'town' );
 $level_terms = get_terms( 'level' );
-$shop_terms = get_terms( 'shop' );
 
 $town_arr = array();
 

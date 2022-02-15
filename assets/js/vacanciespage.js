@@ -31,6 +31,7 @@ const professionListingSelect = new Tagify(listingTagifyProfessionInput, {
 
 if (currentVacancyTitlesDataListing) {
   professionListingSelect.addTags(currentVacancyTitlesDataListing);
+  document.querySelector('#listing-top__profession-filter').value = currentVacancyTitlesDataListing;
 }
 
 listingTagifyProfessionInput.addEventListener('change', () => {
