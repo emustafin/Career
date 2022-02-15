@@ -64,7 +64,11 @@ class Skillaz_Vacancies_Find extends Boot {
                     $title = $work_vacancy_data['ExtraData.ProfileName'];
                 } else{
                     $ProfileId = (array)$work_vacancy_data['ProfileId'];
-                    $title = $ProfileId['Name'];
+                    if( null != $ProfileId ){
+                        $title = $ProfileId['Name'];
+                    } elseif( null != $work_vacancy_data['Name'] ){
+                        $title = $work_vacancy_data['Name'];
+                    }
                 }
 
                 $WorkLocation = (array)$work_vacancy_data['WorkLocation'];
