@@ -171,6 +171,11 @@ class Skillaz_Vacancies_Find extends Boot {
                 wp_set_post_terms( $post_id, $term->term_id, 'relationship', true );
                 break;
             
+            case 'MVideoITPodbor':
+                $term = get_term_by( 'slug', 'it', 'relationship' );
+                wp_set_post_terms( $post_id, $term->term_id, 'relationship', true );
+                break;
+            
             default:
                 # code...
                 break;
