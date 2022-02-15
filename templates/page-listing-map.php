@@ -38,11 +38,12 @@ $actually_vacancies_retail = new \WP_Query( $args );
 $published_posts = $actually_vacancies_retail->post_count;
 
 $shop_terms = array();
+$vacancy_titles = array();
 
 if( $actually_vacancies_retail->have_posts() ) :
   while( $actually_vacancies_retail->have_posts() ) :
     $actually_vacancies_retail->the_post();
-
+    $vacancy_titles[] = get_the_title();
     $vacancy_item_id = get_the_ID();
 
     $current_shop_terms = (array)get_the_terms( $vacancy_item_id, 'shop' );
@@ -56,7 +57,7 @@ if( $actually_vacancies_retail->have_posts() ) :
   endwhile;
 endif;
 
-$vacancy_titles = $_GET["search"];
+$vacancy_get = $_GET["search"];
 
 $vaccat_terms = get_terms( 'vaccat' );
 $town_terms = get_terms( 'town' );
@@ -161,6 +162,7 @@ get_header();
     var level_arr = '<?php echo json_encode( $level_arr ); ?>';
     var town_arr = '<?php echo json_encode( $town_arr ); ?>';
     var vaccat_arr = '<?php echo json_encode( $vaccat_arr ); ?>';
+    var vacancy_get = '<?php echo json_encode( $vacancy_get ); ?>';
     var vacancy_titles = '<?php echo json_encode( $vacancy_titles ); ?>';
     var rel_type = 'archive';
     var rt = 'retail';

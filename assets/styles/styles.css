@@ -6041,7 +6041,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
     background: var(--tag-hover); }
 
 .tagify--outside {
-  border: 0; }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
 
 .tagify--outside .tagify__input {
   order: -1;
