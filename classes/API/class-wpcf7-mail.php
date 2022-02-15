@@ -22,7 +22,8 @@ class WPcf7_Mail extends Boot {
             $_SESSION['send_post_id'] = array( (int) $posted_data['text-vacancyid'] );
         } elseif( !in_array( $posted_data['text-vacancyid'], $_SESSION['send_post_id'] ) ){
             $_SESSION['send_post_id'][] = (int) $posted_data['text-vacancyid'];
-        } elseif( in_array( $posted_data['text-vacancyid'], $_SESSION['send_post_id'] ) ){
+        }
+        elseif( in_array( $posted_data['text-vacancyid'], $_SESSION['send_post_id'] ) ){
             $result['api_send_status'] = 'data_false';
             return $response;
         }
@@ -32,16 +33,17 @@ class WPcf7_Mail extends Boot {
         } elseif( 'roznica' == $rel_type ){
             $send_result = self::sent_data_to_skillaz( $posted_data );
         }
-
         
-        $result['api_send_status'] = 'data_sent';
+        file_put_contents( 'wp-content/themes/career_theme/classes/API/cf7.json', print_r( $send_result, true ), FILE_APPEND );
+        
+        $response['api_send_status'] = 'data_sent';
         if( isset( $send_result->IsOk ) ){
             if( false == $send_result->IsOk ){
-                $result['api_send_status'] = 'data_false';
+                $response['api_send_status'] = 'data_false';
             }
         } elseif( isset( $send_result->doubles ) ){
             if( !empty( $send_result->doubles[0]->double ) ){
-                $result['api_send_status'] = 'data_false';
+                $response['api_send_status'] = 'data_false';
             }
         }
 
@@ -148,7 +150,11 @@ class WPcf7_Mail extends Boot {
         $params = array();
 
         if( $posted_data['vacancyid'] ){
-            $params['VacancyId'] = $posted_data['vacancyid'];
+            $unique_code = get_field( 'unique_code', $posted_data['vacancyid'] );
+            if( '' != $unique_code ){
+                $unique_code = $posted_data['vacancyid'];
+            }
+            $params['VacancyId'] = $unique_code;
         } else{
             $params['VacancyId'] = '60fec01df37e005d6777d853';
         }
