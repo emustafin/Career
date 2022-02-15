@@ -206,15 +206,15 @@ spezialisationSelect.on(
 
 function setup_vars_for_forms() {
 
-  document.querySelectorAll('rel_type').forEach(
+  document.querySelectorAll('.rel_type').forEach(
     element => element.setAttribute('value',rel_type),
   );
 
-  document.querySelectorAll('vacancyid').forEach(
+  document.querySelectorAll('.vacancyid').forEach(
     element => element.setAttribute('value',vacancyid),
   );
 
-  document.querySelectorAll('sourceurl').forEach(
+  document.querySelectorAll('.sourceurl').forEach(
     element => element.setAttribute('value',sourceurl),
   );
 
