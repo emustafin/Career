@@ -67,21 +67,13 @@ foreach( $vaccat_terms as $vaccat_term ):
     $vaccat_arr[$vaccat_term->slug] = $vaccat_term->name;
 endforeach;
 
-$args = array(
-    'post_type'         => 'vacancies',
-    'posts_per_page'    => -1,
-    'post_status'       => 'publish'
-);
-// $all_vacancies = new WP_Query( $args );
 $vacancy_get = $_GET["search"];
-// wp_reset_postdata();
 
 $vacancy_titles = array();
 
-$all_vacancies = new WP_Query( $args );
-if ( $all_vacancies->have_posts() ) {
-    while ( $all_vacancies->have_posts() ) {
-        $all_vacancies->the_post();
+if ( have_posts() ) {
+    while ( have_posts() ) {
+        the_post();
         $vacancy_titles[] = get_the_title();
     }
 }
