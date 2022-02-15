@@ -58,7 +58,7 @@ class Skillaz_Vacancies_Find extends Boot {
     
             $work_vacancy_data = (array)$vacancy_data->Data;
 
-            if( true == $work_vacancy_data['ExtraData.NeedToPublishToEmLife'] || null == $work_vacancy_data['ExtraData.NeedToPublishToEmLife'] ){
+            if( true == $work_vacancy_data['ExtraData.NeedToPublishToJobMve'] ){
 
                 if( null != $work_vacancy_data['ExtraData.ProfileName'] ){
                     $title = $work_vacancy_data['ExtraData.ProfileName'];
@@ -114,17 +114,17 @@ class Skillaz_Vacancies_Find extends Boot {
                     $url = get_permalink( $post_id );
                     return $url;
                 } else{
-                    file_put_contents( 'wp-content/themes/career_theme/classes/broken.json', print_r( $vacancy_data, true ), FILE_APPEND );
+                    // file_put_contents( 'wp-content/themes/career_theme/classes/empty_coordinates.json', print_r( $vacancy_data, true ), FILE_APPEND );
                     return 'no1';
                 }
 
             } else{
-                file_put_contents( 'wp-content/themes/career_theme/classes/broken.json', print_r( $vacancy_data, true ), FILE_APPEND );
+                // file_put_contents( 'wp-content/themes/career_theme/classes/NeedToPublishToJobMve-false-or-null.json', print_r( $vacancy_data, true ), FILE_APPEND );
                 return 'no1';
             }
     
         } else{
-            file_put_contents( 'wp-content/themes/career_theme/classes/broken.json', print_r( $vacancy_data, true ), FILE_APPEND );
+            // file_put_contents( 'wp-content/themes/career_theme/classes/broken.json', print_r( $vacancy_data, true ), FILE_APPEND );
             return 'no2';
         }
 
