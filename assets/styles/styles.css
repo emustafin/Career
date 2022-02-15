@@ -4279,7 +4279,8 @@ section.intern {
     top: 0;
     right: 0;
     width: 100%;
-    max-width: 907px; }
+    max-width: 907px;
+    z-index: 0; }
   section.intern .intern__title {
     font-size: 160px;
     line-height: 144px;
@@ -4847,7 +4848,8 @@ section.intern {
 @media (max-width: 1919px) {
   .intern__wrap {
     position: relative;
-    margin-bottom: 40px; }
+    margin-bottom: 40px;
+    z-index: 1; }
   section.intern .intern__header-link {
     bottom: -35px; }
   section.intern .intern__header-text {

@@ -15,6 +15,7 @@ section.intern {
         right: 0;
         width: 100%;
         max-width: 907px;
+        z-index: 0;
         //background: url('../images/internship/swichers.svg') right / contain no-repeat;
         //padding-top: 15%;
     }
@@ -1023,6 +1024,7 @@ section.intern {
     .intern__wrap{
       position: relative;
       margin-bottom: 40px;
+      z-index: 1;
     }
   
     section.intern .intern__header-link{
