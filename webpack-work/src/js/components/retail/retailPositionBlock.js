@@ -44,7 +44,7 @@ export class RetailPositionBlock {
         '.vacancy__headline-link'
       );
 
-      this.el.addEventListener('mouseover', this.getVacancyItems.bind(this));
+      // this.el.addEventListener('mouseover', this.getVacancyItems.bind(this));
 
       //--------------------------------------------------------------------------------------------
       // Скрипт копирует ссылку на страницу вакансии и открывает ее.
@@ -61,7 +61,7 @@ export class RetailPositionBlock {
       // Скрипт для открытия попапа вакансии при клике на блоке вакансии
 
       this.vacancyItems.forEach((vacancy) => {
-        vacancy.addEventListener('click', this.openFlyout.bind(this) );
+        // vacancy.addEventListener('click', this.openFlyout.bind(this) );
       });
 
       //---------------------------------------------------------------------------------------------
@@ -85,14 +85,14 @@ export class RetailPositionBlock {
       );
     }
   }
-  getVacancyItems(event) {
-    if (event.target.classList.contains('retail__position-list-item')) {
-      this.vacancyItems = this.el.querySelectorAll(
-        '.retail__position-list-item'
-      );
-      this.showButtonMoreAboutDirection(this.vacancyItems);
-    }
-  }
+  // getVacancyItems(event) {
+  //   if (event.target.classList.contains('retail__position-list-item')) {
+  //     this.vacancyItems = this.el.querySelectorAll(
+  //       '.retail__position-list-item'
+  //     );
+  //     this.showButtonMoreAboutDirection(this.vacancyItems);
+  //   }
+  // }
 
   load_popup_vacancy( post_id ){
 
@@ -178,17 +178,17 @@ export class RetailPositionBlock {
       request.send( str );
   }
 
-  showButtonMoreAboutDirection(vacancyCollection) {
-    vacancyCollection.forEach((item) => {
-      item.addEventListener('mousemove', (event) => {
-        const button = event.target.querySelector(
-          '.retail__position-item-button'
-        );
-        button.style.top = event.layerY - 15 + 'px';
-        button.style.left = event.layerX - 30 + 'px';
-      });
-    });
-  }
+  // showButtonMoreAboutDirection(vacancyCollection) {
+  //   vacancyCollection.forEach((item) => {
+  //     item.addEventListener('mousemove', (event) => {
+  //       const button = event.target.querySelector(
+  //         '.retail__position-item-button'
+  //       );
+  //       button.style.top = event.layerY - 15 + 'px';
+  //       button.style.left = event.layerX - 30 + 'px';
+  //     });
+  //   });
+  // }
 
   openFlyout( event ) {
 
