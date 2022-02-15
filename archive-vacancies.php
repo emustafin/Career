@@ -67,14 +67,24 @@ foreach( $vaccat_terms as $vaccat_term ):
     $vaccat_arr[$vaccat_term->slug] = $vaccat_term->name;
 endforeach;
 
-// $args = array(
-//     'post_type'         => 'vacancies',
-//     'posts_per_page'    => -1,
-//     'post_status'       => 'publish'
-// );
+$args = array(
+    'post_type'         => 'vacancies',
+    'posts_per_page'    => -1,
+    'post_status'       => 'publish'
+);
 // $all_vacancies = new WP_Query( $args );
-$vacancy_titles = $_GET["search"];
+$vacancy_get = $_GET["search"];
 // wp_reset_postdata();
+
+$vacancy_titles = array();
+
+$all_vacancies = new WP_Query( $args );
+if ( $all_vacancies->have_posts() ) {
+    while ( $all_vacancies->have_posts() ) {
+        $all_vacancies->the_post();
+        $vacancy_titles[] = get_the_title();
+    }
+}
 
 ?>
 
@@ -82,6 +92,7 @@ $vacancy_titles = $_GET["search"];
     var level_arr = '<?php echo json_encode( $level_arr ); ?>';
     var town_arr = '<?php echo json_encode( $town_arr ); ?>';
     var vaccat_arr = '<?php echo json_encode( $vaccat_arr ); ?>';
+    var vacancy_get = '<?php echo json_encode( $vacancy_get ); ?>';
     var vacancy_titles = '<?php echo json_encode( $vacancy_titles ); ?>';
     var rel_type = 'archive';
     var rt = '<?php echo $type_page; ?>';
