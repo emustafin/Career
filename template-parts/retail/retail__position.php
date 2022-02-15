@@ -55,33 +55,41 @@ $eldorado_retail_position = get_sub_field('eldorado_retail_position');
       <div class="retail__position-list">
 
         <?php
-          $args = array(
-              'post_type'         => 'vacancies',
-              'posts_per_page'    => -1,
-              'post_status'       => 'publish',
-              'relationship'      => 'roznica',
-              'meta_query'        => array(
-                'relation'		=> 'AND',
-                array(
-                    'key'		=> 'check_mvideo_eldorado',
-                    'value'		=> 'mvideo',
-                    'compare'	=> '='
-                )
-              )
+          $title_arr = array(
+            'Продавец',
+            'Кассир',
           );
 
-          $retail_vacancies = new WP_Query( $args );
-
-          if ( $retail_vacancies->have_posts() ) {
-              while ( $retail_vacancies->have_posts() ) {
-                  $retail_vacancies->the_post();
-                  $vacancy_item_id = get_the_ID();
-                  include(THEME_DIR . '/template-parts/loop-parts/retail__position_list_item.php');
-              }
-          } else {
-              echo 'Вакансий не найдено';
+          foreach ($title_arr as $title) {
+            include(THEME_DIR . '/template-parts/loop-parts/retail__position_list_item.php');
           }
-          wp_reset_postdata();
+          // $args = array(
+          //     'post_type'         => 'vacancies',
+          //     'posts_per_page'    => -1,
+          //     'post_status'       => 'publish',
+          //     'relationship'      => 'roznica',
+          //     'meta_query'        => array(
+          //       'relation'		=> 'AND',
+          //       array(
+          //           'key'		=> 'check_mvideo_eldorado',
+          //           'value'		=> 'mvideo',
+          //           'compare'	=> '='
+          //       )
+          //     )
+          // );
+
+          // $retail_vacancies = new WP_Query( $args );
+
+          // if ( $retail_vacancies->have_posts() ) {
+          //     while ( $retail_vacancies->have_posts() ) {
+          //         $retail_vacancies->the_post();
+          //         $vacancy_item_id = get_the_ID();
+          //         include(THEME_DIR . '/template-parts/loop-parts/retail__position_list_item.php');
+          //     }
+          // } else {
+          //     echo 'Вакансий не найдено';
+          // }
+          // wp_reset_postdata();
         ?>
       </div>
     </div>
@@ -127,33 +135,41 @@ $eldorado_retail_position = get_sub_field('eldorado_retail_position');
       <div class="retail__position-list">
 
         <?php
-          $args = array(
-              'post_type'         => 'vacancies',
-              'posts_per_page'    => -1,
-              'post_status'       => 'publish',
-              'relationship'      => 'roznica',
-              'meta_query'        => array(
-                'relation'		=> 'AND',
-                array(
-                    'key'		=> 'check_mvideo_eldorado',
-                    'value'		=> 'eldorado',
-                    'compare'	=> '='
-                )
-              )
+          $title_arr = array(
+            'Продавец',
+            'Кассир',
           );
 
-          $retail_vacancies = new WP_Query( $args );
-
-          if ( $retail_vacancies->have_posts() ) {
-              while ( $retail_vacancies->have_posts() ) {
-                  $retail_vacancies->the_post();
-                  $vacancy_item_id = get_the_ID();
-                  include(THEME_DIR . '/template-parts/loop-parts/retail__position_list_item.php');
-              }
-          } else {
-              echo 'Вакансий не найдено';
+          foreach ($title_arr as $title) {
+            include(THEME_DIR . '/template-parts/loop-parts/retail__position_list_item.php');
           }
-          wp_reset_postdata();
+          // $args = array(
+          //     'post_type'         => 'vacancies',
+          //     'posts_per_page'    => -1,
+          //     'post_status'       => 'publish',
+          //     'relationship'      => 'roznica',
+          //     'meta_query'        => array(
+          //       'relation'		=> 'AND',
+          //       array(
+          //           'key'		=> 'check_mvideo_eldorado',
+          //           'value'		=> 'eldorado',
+          //           'compare'	=> '='
+          //       )
+          //     )
+          // );
+
+          // $retail_vacancies = new WP_Query( $args );
+
+          // if ( $retail_vacancies->have_posts() ) {
+          //     while ( $retail_vacancies->have_posts() ) {
+          //         $retail_vacancies->the_post();
+          //         $vacancy_item_id = get_the_ID();
+          //         include(THEME_DIR . '/template-parts/loop-parts/retail__position_list_item.php');
+          //     }
+          // } else {
+          //     echo 'Вакансий не найдено';
+          // }
+          // wp_reset_postdata();
         ?>
       </div>
     </div>

@@ -48,25 +48,34 @@
 
       <div class="retail__position-list">
         <?php
-          $args = array(
-                'post_type'         => 'vacancies',
-                'posts_per_page'    => -1,
-                'post_status'       => 'publish',
-                'relationship'      => 'logistic'
+
+          $title_arr = array(
+            'Продавец',
+            'Кассир',
           );
 
-          $retail_vacancies = new WP_Query( $args );
-
-          if ( $retail_vacancies->have_posts() ) {
-              while ( $retail_vacancies->have_posts() ) {
-                  $retail_vacancies->the_post();
-                  $vacancy_item_id = get_the_ID();
-                  include(THEME_DIR . '/template-parts/loop-parts/retail__position_list_item.php');
-              }
-          } else {
-              echo 'Вакансий не найдено';
+          foreach ($title_arr as $title) {
+            include(THEME_DIR . '/template-parts/loop-parts/retail__position_list_item.php');
           }
-          wp_reset_postdata();
+          // $args = array(
+          //       'post_type'         => 'vacancies',
+          //       'posts_per_page'    => -1,
+          //       'post_status'       => 'publish',
+          //       'relationship'      => 'logistic'
+          // );
+
+          // $retail_vacancies = new WP_Query( $args );
+
+          // if ( $retail_vacancies->have_posts() ) {
+          //     while ( $retail_vacancies->have_posts() ) {
+          //         $retail_vacancies->the_post();
+          //         $vacancy_item_id = get_the_ID();
+          //         include(THEME_DIR . '/template-parts/loop-parts/retail__position_list_item.php');
+          //     }
+          // } else {
+          //     echo 'Вакансий не найдено';
+          // }
+          // wp_reset_postdata();
         ?>
       </div>
 
