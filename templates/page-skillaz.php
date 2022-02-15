@@ -43,7 +43,7 @@ the_post();
 get_footer();
 ?>
 <?php
-if( $mapping_page <= 221 ){
+if( $mapping_page <= 746 ){
     ?>
     <script>
         jQuery(document).ready(function() {

@@ -11614,7 +11614,7 @@ input#form__town {
   justify-content: space-between; }
 
 .main-division__item {
-  width: 32.2%;
+  width: 100%;
   margin-right: 32px;
   padding-top: 8px;
   padding-bottom: 24px;
@@ -12239,7 +12239,7 @@ input#form__town {
     display: block;
     width: 100%; }
 
-@media (max-width: 1550px) {
+@media (max-width: 1919px) {
   .main-page__stage {
     margin-bottom: 92px;
     font-size: 16px;
@@ -12266,7 +12266,7 @@ input#form__town {
     width: 492px;
     height: 492px; } }
 
-@media (max-width: 1250px) {
+@media (max-width: 1439px) {
   .main-page__stage {
     min-height: 565px;
     padding-top: 100px; }
@@ -12301,7 +12301,7 @@ input#form__town {
   .main-stage__switcher-container {
     height: 386px; } }
 
-@media (max-width: 950px) {
+@media (max-width: 1023px) {
   .main-page__stage {
     padding: 0 8px;
     padding-top: 100px;
@@ -12332,7 +12332,7 @@ input#form__town {
   .main-page__stage-search-block {
     right: 170px; } }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .main-page__stage {
     padding-top: 88px;
     font-size: 14px;
@@ -15081,6 +15081,9 @@ input#form__town {
 
 .office__left-bar {
   width: 50%; }
+  @media (max-width: 1439px) {
+    .office__left-bar {
+      width: 54%; } }
 
 .office__stage-title {
   font-size: 212px;
