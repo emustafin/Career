@@ -1,15 +1,15 @@
-<div class="retail__position-list-item" data-vacancy_id="<?php echo $vacancy_item_id; ?>">
+<a href="/listing-map/?search=<?php echo get_the_title( $vacancy_item_id ); ?>" class="retail__position-list-item" data-vacancy_id="<?php echo $vacancy_item_id; ?>">
     <div class="retail__position-item-position">
-    <p class="retail__position-item-position-title">
-        <?php echo get_the_title( $vacancy_item_id ); ?>
-    </p>
+        <p class="retail__position-item-position-title">
+            <?php echo get_the_title( $vacancy_item_id ); ?>
+        </p>
     </div>
 
     <div class="retail__position-item-description">
-    <p class="retail__position-description-text">
-        Главный человек в компании! Правая рука покупателя, может
-        подобрать идеальный гаджет одной левой.
-    </p>
+        <p class="retail__position-description-text">
+            Главный человек в компании! Правая рука покупателя, может
+            подобрать идеальный гаджет одной левой.
+        </p>
 
     <!-- <a href="#" class="retail__position-description-link">
         <span class="retail__position-value">343</span>
@@ -29,7 +29,7 @@
         </svg>
     </a> -->
     </div>
-    <a href="<?php echo get_permalink( $vacancy_item_id ); ?>" class="retail__position-item-button">
+    <!-- <a href="<?php echo get_permalink( $vacancy_item_id ); ?>" class="retail__position-item-button">
         больше о направлении
         <svg
             width="14"
@@ -43,5 +43,5 @@
             fill="black"
             />
         </svg>
-    </a>
-</div>
+    </a> -->
+</a>
