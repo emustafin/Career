@@ -9689,6 +9689,9 @@ input#form__town {
     margin-right: auto;
     margin-left: 0; } }
 
+.retail__position-list-item:visited {
+  color: #000; }
+
 .retail__position {
   font-size: 18px;
   line-height: 24px;
@@ -9764,6 +9767,7 @@ input#form__town {
   top: calc(50% - 4px); }
 
 .retail__position-list-item {
+  color: #000;
   border-top: 1px solid rgba(0, 0, 0, 0.5);
   padding-top: 16px;
   margin-bottom: 32px;
