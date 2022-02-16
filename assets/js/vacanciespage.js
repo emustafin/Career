@@ -18,7 +18,7 @@ const currentVaccatDataListing = JSON.parse(vaccat_arr); // Специализа
 
 const currentVacancyTitlesDataListing = JSON.parse(vacancy_get); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
 const ProfessionList = JSON.parse(vacancy_titles);
-console.log(ProfessionList);
+
 const professionListingSelect = new Tagify(listingTagifyProfessionInput, {
   whitelist: ProfessionList,
   dropdown: {
