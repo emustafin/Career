@@ -5213,6 +5213,14 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   display: flex;
   flex-direction: column;
   pointer-events: none; }
+  .position__payment-container > .position__payment {
+    margin-bottom: 24px; }
+    @media (max-width: 1023px) {
+      .position__payment-container > .position__payment {
+        margin-bottom: 44px; } }
+    @media (max-width: 767px) {
+      .position__payment-container > .position__payment {
+        margin-bottom: 16px; } }
 
 .position__job-expiriens {
   margin-top: auto; }
