@@ -38,6 +38,7 @@ $actually_vacancies_retail = new \WP_Query( $args );
 $published_posts = $actually_vacancies_retail->post_count;
 
 $shop_terms = array();
+$town_arr['-1'] = 'Любой';
 $vacancy_titles = array();
 
 if( $actually_vacancies_retail->have_posts() ) :
@@ -54,25 +55,26 @@ if( $actually_vacancies_retail->have_posts() ) :
         }
       }
     }
+
+    $current_town_terms = (array)get_the_terms( $vacancy_item_id, 'town' );
+    if( is_array( $current_town_terms ) ){
+      foreach( $current_town_terms as $current_town_term ){
+        if( !in_array( $current_town_term->name, $town_arr ) ){
+          $town_arr[$current_town_term->slug] = $current_town_term->name;
+        }
+      }
+    }
   endwhile;
 endif;
 
 $vacancy_get = $_GET["search"];
 
 $vaccat_terms = get_terms( 'vaccat' );
-$town_terms = get_terms( 'town' );
 $level_terms = get_terms( 'level' );
-
-$town_arr = array();
 
 $level_arr['-1'] = 'Любой';
 foreach( $level_terms as $level_term ):
     $level_arr[$level_term->slug] = $level_term->name;
-endforeach;
-
-$town_arr['-1'] = 'Любой';
-foreach( $town_terms as $town_term ):
-    $town_arr[$town_term->slug] = $town_term->name;
 endforeach;
 
 foreach( $vaccat_terms as $vaccat_term ):
