@@ -98,8 +98,16 @@ class Skillaz_Vacancies_Find extends Boot {
         
                     // ЗП от и до
                     $salary = (array)$work_vacancy_data['Salary'];
-                    update_field( 'money_from', $salary['From'], $post_id );
-                    update_field( 'money_to', $salary['To'], $post_id );
+                    $salary_from = $salary['From'];
+                    if( null == $salary_from ){
+                        $salary_from = 0;
+                    }
+                    $salary_to = $salary['To'];
+                    if( null == $salary_to ){
+                        $salary_to = 0;
+                    }
+                    update_field( 'money_from', $salary_from, $post_id );
+                    update_field( 'money_to', $salary_to, $post_id );
                     
                     // Полный адрес магазина
                     update_field( 'map_full_adress', $WorkLocation['Text'], $post_id );
