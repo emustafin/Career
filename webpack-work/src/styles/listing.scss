@@ -781,6 +781,18 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   display: block;
 }
 
+.listing-top__filter-item{
+  &>.tagify{
+    padding-bottom: 3px !important;
+    &>.tagify__tag {
+      margin: 0;
+      &>div{
+        padding: 0.18em 0.5em;
+      }
+    }
+  }
+}
+
 // Styles for 1440 px
 @media (max-width: 1919px) {
   .listing,

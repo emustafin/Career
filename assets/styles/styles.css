@@ -5508,6 +5508,13 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 .listing-top__filter-item > .tagify.tagify--outside {
   display: block; }
 
+.listing-top__filter-item > .tagify {
+  padding-bottom: 3px !important; }
+  .listing-top__filter-item > .tagify > .tagify__tag {
+    margin: 0; }
+    .listing-top__filter-item > .tagify > .tagify__tag > div {
+      padding: 0.18em 0.5em; }
+
 @media (max-width: 1919px) {
   .listing,
   .listing-top__filter-item-input,
