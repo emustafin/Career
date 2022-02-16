@@ -44,7 +44,11 @@ $vacancy_titles = array();
 if( $actually_vacancies_retail->have_posts() ) :
   while( $actually_vacancies_retail->have_posts() ) :
     $actually_vacancies_retail->the_post();
-    $vacancy_titles[] = get_the_title();
+
+    $title = get_the_title();
+    if( !in_array( $title, $vacancy_titles ) ){
+      $vacancy_titles[] = $title;
+    }
     $vacancy_item_id = get_the_ID();
 
     $current_shop_terms = (array)get_the_terms( $vacancy_item_id, 'shop' );
