@@ -9,15 +9,18 @@ class Skillaz_Vacancies_Find extends Boot {
 		$params = array(
             "PageSize" => 0,
             "CurrentPage" => $page,
-            "Data" => [
-                "ExtraData.NeedToPublishToEmLife" => true
-            ]
+            'IsActive'  => true,
+            // "Data" => [
+            //     "ExtraData.NeedToPublishToEmLife" => true
+            // ]
         );
     
         $content = json_encode($params);
     
-        $url = 'https://api-feature-mvideo.dev.skillaz.ru/open-api/objects/vacancies/find';
-        $headers = array('Content-Type: application/json', 'Authorization: Bearer WXIGzUxm23bXoKv/AlbA8Lgmd3Yq3tsgpg5x5mMK77I=');
+        // $url = 'https://api-feature-mvideo.dev.skillaz.ru/open-api/objects/vacancies/find';
+        // $headers = array('Content-Type: application/json', 'Authorization: Bearer WXIGzUxm23bXoKv/AlbA8Lgmd3Yq3tsgpg5x5mMK77I=');
+        $url = 'https://api.skillaz.ru/open-api/objects/vacancies/find';
+        $headers = array('Content-Type: application/json', 'Authorization: Bearer +GfochhSwjsyfsnp9n7HhM4GcFBhhOv/rAoRR3Z+nWc=');
 
         $result = self::init_post( $headers, $url, $content );
         self::finded_vacancies( $result );

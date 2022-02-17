@@ -24,7 +24,7 @@ the_post();
                 if( $_POST['mapping_page'] ){
                     $mapping_page = intval($_POST['mapping_page']) + 1;
                 } elseif( '0' == $_POST['mapping_page'] ) {
-                    $mapping_page = 0;
+                    $mapping_page = 1;
                 }?>
                 <form id="mapping" action="/skillaz/" method="POST">
                     <p>
