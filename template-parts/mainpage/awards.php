@@ -31,7 +31,7 @@
       <div class="main-awards__award-item ">
         <h3 class="main-awards__item-title">Лучший работодатель России</h3>
 
-        <a href="#" class="main-awards__item-link">
+        <a href="https://rating.hh.ru/history/rating2019/?sphere=%D0%A0%D0%B8%D1%82%D0%B5%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5%20%D1%81%D0%B5%D1%82%D0%B8" class="main-awards__item-link">
           по версии HH.ru в 2020 году
           <svg
             width="14"
@@ -51,7 +51,7 @@
       <div class="main-awards__award-item ">
         <h3 class="main-awards__item-title">Лидер рынка</h3>
 
-        <a href="#" class="main-awards__item-link">
+        <a href="https://www.forbes.ru/biznes/447503-lucsie-rabotodateli-rossii-2021-rejting-forbes" class="main-awards__item-link">
           по версии Forbes
           <svg
             width="14"
@@ -71,7 +71,7 @@
       <div class="main-awards__award-item ">
         <h3 class="main-awards__item-title">№ 1 среди ритейлеров России</h3>
 
-        <a href="#" class="main-awards__item-link">
+        <a href="https://www.forbes.ru/biznes/415107-set-mvideo-zanyala-pervoe-mesto-v-novom-reytinge-omnikanalnosti-data-insight" class="main-awards__item-link">
           в рейтинге омниканальности Data Insight
           <svg
             width="14"
@@ -93,7 +93,7 @@
           Премия Quality Award в номинации «Передовые технологии»
         </h3>
 
-        <a href="#" class="main-awards__item-link">
+        <a href="https://www.sap.com/about/company/quality/awards/winner-benefits-and-prizes/previous-winners/2020.html" class="main-awards__item-link">
           по версии SAP в 2020 году
           <svg
             width="14"

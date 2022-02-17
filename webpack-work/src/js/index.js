@@ -37,6 +37,8 @@ import { VacancyDirecLinkNewsBlock } from './components/itHubPage/vacancyDirectL
 import './components/animation';
 //-----------------------------------------------
 
+import { scrollBlockOffice } from './components/office/scrollBlockOffice';
+
 // Импорт классов страницы Розницы
 import { CreateRetailFutureComponent } from './components/retail/createRetailFuture';
 import { RetailMissionBlock } from './components/retail/retailMissionBlock';
@@ -160,6 +162,8 @@ if (null != profession) {
   }
 }
 //-----------------------------------------------------------
+
+const office__stage = new scrollBlockOffice('.office__stage');
 
 // Инициализация классов страницы Розницы
 const retailCreateFuture = new CreateRetailFutureComponent('.retail__preview');
