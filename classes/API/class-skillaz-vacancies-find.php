@@ -80,7 +80,7 @@ class Skillaz_Vacancies_Find extends Boot {
                     $WorkLocation = (array)$work_vacancy_data['Address'];
                 }
 
-                if( null != $WorkLocation['Longitude'] && null != $WorkLocation['Latitude'] ){
+                // if( null != $WorkLocation['Longitude'] && null != $WorkLocation['Latitude'] ){
 
                     $post_data = array(
                         'post_title'    => sanitize_text_field( $title ),
@@ -118,8 +118,10 @@ class Skillaz_Vacancies_Find extends Boot {
                     // Город
                     self::update_vacancy_town( $work_vacancy_data, $post_id );
                     
-                    // Магазин
-                    self::update_vacancy_shop( $work_vacancy_data, $post_id );
+                    if( null != $WorkLocation['Longitude'] && null != $WorkLocation['Latitude'] ){
+                        // Магазин
+                        self::update_vacancy_shop( $work_vacancy_data, $post_id );
+                    }
     
                     // Устанавливает дату обновления
                     $blogtime = current_time('mysql');
@@ -129,13 +131,30 @@ class Skillaz_Vacancies_Find extends Boot {
                     } else{
                         update_post_meta( $post_id, 'date_update', $blogtime );
                     }
+
+                    if( null != $work_vacancy_data['ExtraData.Brend'] ){
+                        $Brend = $work_vacancy_data['ExtraData.Brend'];
+                        switch ($Brend) {
+                            case 'EM':
+                                update_field( 'mvideo_or_eldorado', 'mvideo', $post_id );
+                                break;
+
+                            case 'MV':
+                                update_field( 'mvideo_or_eldorado', 'mvideo', $post_id );
+                                break;
+                            
+                            case 'EL':
+                                update_field( 'mvideo_or_eldorado', 'eldorado', $post_id );
+                                break;
+                        }
+                    }
             
                     $url = get_permalink( $post_id );
                     return $url;
-                } else{
-                    file_put_contents( 'wp-content/themes/career_theme/classes/empty_coordinates.json', print_r( $vacancy_data, true ), FILE_APPEND );
-                    return 'no1';
-                }
+                // } else{
+                //     file_put_contents( 'wp-content/themes/career_theme/classes/empty_coordinates.json', print_r( $vacancy_data, true ), FILE_APPEND );
+                //     return 'no1';
+                // }
 
             } else{
                 file_put_contents( 'wp-content/themes/career_theme/classes/NeedToPublishToJobMve-false-or-null.json', print_r( $vacancy_data, true ), FILE_APPEND );
@@ -172,24 +191,51 @@ class Skillaz_Vacancies_Find extends Boot {
         $tax_terms = array();
 
         switch ($funnel_id) {
-            case 'MvideoMassRetail':
-                $term = get_term_by( 'slug', 'roznica', 'relationship' );
-                wp_set_post_terms( $post_id, $term->term_id, 'relationship', true );
-                break;
-            
-            case 'prof_podbor_servis_Retail':
-                $term = get_term_by( 'slug', 'roznica', 'relationship' );
-                wp_set_post_terms( $post_id, $term->term_id, 'relationship', true );
-                break;
-            
             case 'MVideoITPodbor':
                 $term = get_term_by( 'slug', 'it', 'relationship' );
                 wp_set_post_terms( $post_id, $term->term_id, 'relationship', true );
                 break;
             
-            default:
-                # code...
+            case 'MvideoMassRetail':
+                $term = get_term_by( 'slug', 'roznica', 'relationship' );
+                wp_set_post_terms( $post_id, $term->term_id, 'relationship', true );
                 break;
+
+            case 'prof_podbor_servis_SLF':
+                $term = get_term_by( 'slug', 'logistic', 'relationship' );
+                wp_set_post_terms( $post_id, $term->term_id, 'relationship', true );
+                break;
+            
+            case 'ServisPodborSklad':
+                $term = get_term_by( 'slug', 'logistic', 'relationship' );
+                wp_set_post_terms( $post_id, $term->term_id, 'relationship', true );
+                break;
+            
+            case 'ServisPodborViezdnoiServis':
+                $term = get_term_by( 'slug', 'logistic', 'relationship' );
+                wp_set_post_terms( $post_id, $term->term_id, 'relationship', true );
+                break;
+            
+            case 'MvideoServisPodborSLC':
+                $term = get_term_by( 'slug', 'logistic', 'relationship' );
+                wp_set_post_terms( $post_id, $term->term_id, 'relationship', true );
+                break;
+            
+            case 'ServisPodborKontaktCenter':
+                $term = get_term_by( 'slug', 'logistic', 'relationship' );
+                wp_set_post_terms( $post_id, $term->term_id, 'relationship', true );
+                break;
+            
+            case 'MvideoCallCenterProfRetailFunnel':
+                $term = get_term_by( 'slug', 'logistic', 'relationship' );
+                wp_set_post_terms( $post_id, $term->term_id, 'relationship', true );
+                break;
+            
+            case 'prof_podbor_servis':
+                $term = get_term_by( 'slug', 'office', 'relationship' );
+                wp_set_post_terms( $post_id, $term->term_id, 'relationship', true );
+                break;
+            
         }
 
     }
@@ -287,18 +333,6 @@ class Skillaz_Vacancies_Find extends Boot {
             
             if( '-1' != $Latitude ){
                 update_field( 'shop_koordinates_latitude', $Latitude, $shop_l );
-            }
-
-            if( null != $Data['FunnelId'] ){
-                switch ($Data['FunnelId']) {
-                    case 'MvideoMassRetail':
-                        update_field( 'mvideo_or_eldorado', 'mvideo', $shop_l );
-                        break;
-                        
-                    case 'prof_podbor_servis_Retail':
-                        update_field( 'mvideo_or_eldorado', 'eldorado', $shop_l );
-                        break;
-                }
             }
         }
 
