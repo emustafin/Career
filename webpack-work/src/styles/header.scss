@@ -103,7 +103,7 @@
 }
 
 .it-header__contact-us-to-top {
-  transform: translateY(-10px);
+  transform: translateY(-11px);
 }
 
 .it-header__directions {
@@ -114,7 +114,7 @@
   cursor: pointer;
   transition: 0.3s;
   padding: 16px 16px 0px 0px;
-  margin-top: -25px;
+  margin-top: -16px;
   left: -16px;
   padding-left: 16px;
 
@@ -220,7 +220,7 @@
   border: 0.5px solid #e31235;
   border-radius: 48px;
   position: absolute;
-  top: 16px;
+  top: auto;
   right: 0;
   font-size: 16px;
   line-height: 24px;
