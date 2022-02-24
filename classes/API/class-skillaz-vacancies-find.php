@@ -85,7 +85,7 @@ class Skillaz_Vacancies_Find extends Boot {
                     $post_data = array(
                         'post_title'    => sanitize_text_field( $title ),
                         'post_content'  => $work_vacancy_data['ExtraData.Opisanie'],
-                        'post_status'   => 'publish',
+                        'post_status'   => 'draft',
                         'post_type'     => 'vacancies',
                         'post_author'   => 1,
                     );
@@ -121,6 +121,9 @@ class Skillaz_Vacancies_Find extends Boot {
                     if( null != $WorkLocation['Longitude'] && null != $WorkLocation['Latitude'] ){
                         // Магазин
                         self::update_vacancy_shop( $work_vacancy_data, $post_id );
+                    } else{
+                        file_put_contents( 'wp-content/themes/career_theme/classes/API/empty_coordinates.json', print_r( $vacancy_data, true ), FILE_APPEND );
+                        return 'no1';
                     }
     
                     // Устанавливает дату обновления
@@ -151,18 +154,13 @@ class Skillaz_Vacancies_Find extends Boot {
             
                     $url = get_permalink( $post_id );
                     return $url;
-                // } else{
-                //     file_put_contents( 'wp-content/themes/career_theme/classes/empty_coordinates.json', print_r( $vacancy_data, true ), FILE_APPEND );
-                //     return 'no1';
-                // }
-
             } else{
-                file_put_contents( 'wp-content/themes/career_theme/classes/NeedToPublishToJobMve-false-or-null.json', print_r( $vacancy_data, true ), FILE_APPEND );
+                file_put_contents( 'wp-content/themes/career_theme/classes/API/NeedToPublishToJobMve-false-or-null.json', print_r( $vacancy_data, true ), FILE_APPEND );
                 return 'no1';
             }
     
         } else{
-            // file_put_contents( 'wp-content/themes/career_theme/classes/broken.json', print_r( $vacancy_data, true ), FILE_APPEND );
+            file_put_contents( 'wp-content/themes/career_theme/classes/API/broken.json', print_r( $vacancy_data, true ), FILE_APPEND );
             return 'no2';
         }
 
