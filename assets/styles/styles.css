@@ -12202,7 +12202,10 @@ input#form__town {
 .main-page__left-bar {
   width: 50%;
   position: relative;
-  z-index: 1; }
+  z-index: 1;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content; }
 
 .main-page__title-block {
   position: relative;
@@ -12286,7 +12289,6 @@ input#form__town {
 .main-stage__switcher-container {
   width: 100%;
   height: 730px;
-  padding-top: 50%;
   border: 1px solid #e31235;
   border-radius: 540px;
   position: relative; }
