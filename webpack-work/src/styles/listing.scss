@@ -63,6 +63,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   border: none;
   font-family: 'suisse';
   cursor: pointer;
+  text-align: start;
 
   @media (max-width: 1919px){
     font-size: 56px;
@@ -1605,7 +1606,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 
 @media (max-width: 767px){
   .filters__map-wrapper{
-    margin-bottom: 0;
+    margin-bottom: 138px;
 
     & .listing-top__filter-item:nth-child(1){
       margin-bottom: 16px;
@@ -1631,14 +1632,14 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
     }
 
     & .listing-top__filter-item-button-reset-map{
-      bottom: 44px;
+      bottom: -50px;
     }
 
     & .listing-top__filter-item:last-child{
       left: 0;
       right: auto;
       width: 55.92%;
-      bottom: 0;
+      bottom: -90px;
       margin-bottom: 0;
     }
   }
