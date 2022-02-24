@@ -27,7 +27,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 }
 
 .listing-top {
-  margin-bottom: 96px;
+  margin-bottom: 128px;
   padding-top: 136px;
 }
 
@@ -265,7 +265,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 .listing-top__filter-item-button-reset {
   position: absolute;
   left: 0;
-  bottom: -30px;
+  bottom: -32px;
   background: transparent;
   font-size: 18px;
   line-height: 24px;
@@ -450,8 +450,6 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 }
 
 .position__location-container {
-  width: 100%;
-  max-width: 304px;
   pointer-events: none;
 }
 
@@ -675,7 +673,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 
 // Styles for Button Show more
 .products__show-more {
-  margin-top: 32px;
+  margin-top: 52px;
   margin-bottom: 96px;
   display: flex;
   justify-content: center;
@@ -795,9 +793,12 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 
 .listing-top__filter-item{
   &>.tagify{
-    padding-bottom: 3px !important;
+    @media (max-width: 1919px){
+      padding-bottom: 3px !important;
+    }
     &>.tagify__tag {
       margin: 0;
+      margin-right: 4px;
       &>div{
         padding: 0.18em 0.5em;
       }
@@ -811,7 +812,11 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   .listing-top__filter-item-input,
   .listing-top__filter-item-button-reset {
     font-size: 16px;
-    line-height: 20px;
+    line-height: 20px;  
+  }
+
+  .listing-top__filter-item-button-reset{
+    bottom: -20px;
   }
 
   // Для Тагифай
@@ -830,7 +835,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   // Для Тагифай
 
   .listing-top {
-    margin-bottom: 72px;
+    margin-bottom: 100px;
     padding-top: 112px;
   }
 
@@ -864,7 +869,6 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 
   .position__bread-crumbs-block,
   .position__payment-container,
-  .position__location-container,
   .listing-top__filter-item {
     max-width: 224px;
   }
@@ -983,7 +987,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 // Styles for 1024px
 @media (max-width: 1250px) {
   .listing-top {
-    margin-bottom: 64px;
+    margin-bottom: 92px;
     padding-top: 88px;
   }
 
@@ -1051,10 +1055,6 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 
   .position__payment-container {
     max-width: 154px;
-  }
-
-  .position__location-container {
-    max-width: 326px;
   }
 
   .listing-top__filter-item {
@@ -1207,7 +1207,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   }
 
   .listing-top__filter-item-button-reset {
-    margin-bottom: -40px;
+    margin-bottom: -50px;
   }
 
   .listing-top__filter-item-selected {
@@ -1357,7 +1357,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 
     &:nth-child(3),
     &:nth-child(4) {
-      margin-bottom: 45px;
+      margin-bottom: 42px;
       margin-right: 0;
       max-width: 100%;
     }
@@ -1365,6 +1365,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 
   .listing-top__filter-item-button-reset {
     margin-bottom: 0;
+    bottom: -20px;
   }
 
   .listing-top__filters-wrapper {
@@ -1645,6 +1646,6 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   }
 
   .listing-top{
-    margin-bottom: 32px;
+    margin-bottom: 48px;
   }
 }

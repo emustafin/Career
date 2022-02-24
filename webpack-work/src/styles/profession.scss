@@ -124,7 +124,7 @@
   font-size: 160px;
   line-height: 144px;
   letter-spacing: -0.03em;
-  margin-top: 24px;
+  margin-top: 16px;
   margin-bottom: 96px;
 }
 
@@ -441,7 +441,7 @@
 .profession__filter-checbox-listing {
   position: absolute;
   left: 0;
-  bottom: -30px;
+  bottom: -28px;
   display: none;
 }
 
@@ -493,9 +493,9 @@
   position: relative;
   overflow: hidden;
 
-  &:first-child {
-    border-top: 1px solid transparent;
-  }
+  // &:first-child {
+  //   border-top: 1px solid transparent;
+  // }
 
   &:last-child {
     margin-bottom: 0;
@@ -560,6 +560,10 @@
   display: flex;
   flex-direction: column;
   pointer-events: none;
+
+  @media (max-width: 1919px){
+    width: 50.85%;
+  }
 }
 
 .profession__show-more {
@@ -674,7 +678,7 @@
   .profession__title {
     font-size: 124px;
     line-height: 112px;
-    margin-bottom: 88px;
+    margin-bottom: 72px;
   }
 
   .profession__question {
@@ -699,21 +703,25 @@
   }
 
   .profession__job-item {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
 
   .profession__side-bar-text,
   .profession__side-bar-vacancy {
     margin-bottom: 24px;
+    margin-top: 16px;
   }
 
   .profession__side-bar-text-wrapper > .profession__side-bar-text:nth-child(2) {
     margin-bottom: 16px;
   }
 
-  .profession__job-price-container,
+  .profession__job-price-container{
+    width: 25.42%;
+  }
+
   .profession__location-container {
-    max-width: 240px;
+    width: 23.73%;
   }
 }
 
@@ -762,7 +770,7 @@
 
 @media (max-width: 1150px) {
   .profession {
-    margin-bottom: 144px;
+    margin-bottom: 128px;
   }
 
   .profession__header {
@@ -954,7 +962,6 @@
     min-width: 100%;
     margin-left: 0;
     margin-bottom: 42px;
-    padding-bottom: 8px;
   }
 
   .profession__filter-reset {
