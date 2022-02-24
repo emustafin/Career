@@ -228,8 +228,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         // document.querySelector('#actually_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
         
+        var ndi = JSON.stringify(newDefaultIcons);
+        var nmvi = JSON.stringify(mvideoIcons);
+        var neli = JSON.stringify(eldoradoIcons);
+
         var data = {
             action: 'archive_show_more_items',
+            newDefaultIcons : ndi,
+            nmvi : nmvi,
+            neli : neli,
+            shop_terms_id : shop_terms_id,
             query_vars : query_vars,
             paged : paged
         };
@@ -252,6 +260,71 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     
                     if( resp.paged == max_num_pages ){
                         document.querySelector('.products__show-more').style.display = 'none';
+                    }
+
+                    if( document.querySelector('.listing-metro__shops-list.mvideo') ){
+                        if( null != resp.shop_mvideo_html ){
+                            document.querySelector('.listing-metro__shops-list.mvideo').innerHTML = document.querySelector('.listing-metro__shops-list.mvideo').innerHTML + resp.shop_mvideo_html;
+                        }
+                    }
+                    
+                    if( document.querySelector('.listing-metro__shops-list.eldorado') ){
+                        if( null != resp.shop_eldorado_html ){
+                            document.querySelector('.listing-metro__shops-list.eldorado').innerHTML = document.querySelector('.listing-metro__shops-list.eldorado').innerHTML + resp.shop_eldorado_html;
+                        }
+                    }
+
+                    if( document.querySelector('.listing-metro__shop') ){
+
+                        document.querySelectorAll('.listing-metro__shop').forEach((shop) => {
+                            shop.addEventListener('click', () => {
+                    
+                                document.querySelector('.listing-metro__location-place').innerHTML = shop.querySelector('.listing-metro__shop-title').innerHTML;
+                                document.querySelector('.listing-metro__location-adress').innerHTML = shop.querySelector('.listing-metro__shop-address').innerHTML;
+
+                                var parentEl = shop.parentElement;
+                                var imgLink = '/wp-content/themes/career_theme/assets/images/listing/map/mvideo-icon.png';
+                                var type_shop = 'mvideo';
+
+                                if( parentEl.classList.contains('eldorado') ) {
+                                    imgLink = '/wp-content/themes/career_theme/assets/images/listing/map/eldorado-icon.png';
+                                    type_shop = 'eldorado';
+                                }
+
+                                get_vacancy_list( type_shop, shop.getAttribute('data-shop_slug') );
+                        
+                                let latitude = shop.getAttribute('data-latitude');
+                                let longitude = shop.getAttribute('data-longitude');
+                                mapV.geoObjects.removeAll();
+                                mapV.setCenter([ latitude, longitude ]);
+                                yandexMapInit( 
+                                    [
+                                    [
+                                        [ latitude, longitude ],
+                                        imgLink
+                                    ],
+                                    ] 
+                                );
+                        
+                                document.querySelector('.isting-metro__shops-list-container' ).classList.add('hide');
+                                document.querySelector('.isting-metro__single-shop-container' ).classList.remove('hide');
+
+                                document.querySelector('.listing-metro__select-shop-container').classList.add('hide');
+                            });
+                        });
+                    }
+
+                    if( typeof shop_terms_id != 'undefined' ){
+                        shop_terms_id = JSON.stringify(resp.globalShopTerms);
+                    }
+
+                    if( typeof mapV != 'undefined' ){
+                        mvideoIcons = resp.mvideoIcons;
+                        eldoradoIcons = resp.eldoradoIcons;
+                        newDefaultIcons = resp.newDefaultIcons;
+                        mapV.geoObjects.removeAll();
+                        yandexMapInit( newDefaultIcons );
+                        mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
                     }
                 }
             }

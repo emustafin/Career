@@ -36,7 +36,9 @@ if( !empty( $_GET['search'] ) ){
 
 $actually_vacancies_retail = new \WP_Query( $args );
 $published_posts = $actually_vacancies_retail->post_count;
+$paged = 1;
 
+$shop_terms_id = array();
 $shop_terms = array();
 $town_arr['-1'] = 'Любой';
 $vacancy_titles = array();
@@ -56,6 +58,9 @@ if( $actually_vacancies_retail->have_posts() ) :
       foreach( $current_shop_terms as $current_shop_term ){
         if( !in_array( $current_shop_term, $shop_terms ) ){
           $shop_terms[] = $current_shop_term;
+        }
+        if( !in_array( $current_shop_term->term_id, $shop_terms_id ) ){
+          $shop_terms_id[] = $current_shop_term->term_id;
         }
       }
     }
@@ -156,7 +161,7 @@ foreach ($shop_terms as $shop_term ) {
       ],
       $name_icon
     );
-  }  
+  }
 }
 
 $broken_shops = array();
@@ -165,6 +170,7 @@ get_header();
 ?>
 
 <script>
+    var shop_terms_id = '<?php echo json_encode( $shop_terms_id ); ?>';
     var level_arr = '<?php echo json_encode( $level_arr ); ?>';
     var town_arr = '<?php echo json_encode( $town_arr ); ?>';
     var vaccat_arr = '<?php echo json_encode( $vaccat_arr ); ?>';
@@ -178,10 +184,10 @@ get_header();
     const defaultIcons = JSON.parse( '<?php echo json_encode( $defaultIcons ); ?>' );
     var newDefaultCenter = JSON.parse( '<?php echo json_encode( $defaultCenter ); ?>' );
     var newDefaultIcons = JSON.parse( '<?php echo json_encode( $defaultIcons ); ?>' );
-    const mvideoCenter = JSON.parse( '<?php echo json_encode( $mvideoCenter ); ?>' );
-    const mvideoIcons = JSON.parse( '<?php echo json_encode( $mvideoIcons ); ?>' );
-    const eldoradoCenter = JSON.parse( '<?php echo json_encode( $eldoradoCenter ); ?>' );
-    const eldoradoIcons = JSON.parse( '<?php echo json_encode( $eldoradoIcons ); ?>' );
+    var mvideoCenter = JSON.parse( '<?php echo json_encode( $mvideoCenter ); ?>' );
+    var mvideoIcons = JSON.parse( '<?php echo json_encode( $mvideoIcons ); ?>' );
+    var eldoradoCenter = JSON.parse( '<?php echo json_encode( $eldoradoCenter ); ?>' );
+    var eldoradoIcons = JSON.parse( '<?php echo json_encode( $eldoradoIcons ); ?>' );
 </script>
 
 <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
@@ -302,7 +308,7 @@ get_header();
           </button>
 
           <div class="listing-top__filter-item listing-top__filter-list-wrapper">
-            <div class="listing-top__filter-list-item" data-name="list">
+            <div class="listing-top__filter-list-item listing-top__filter-list-item-active" data-name="list">
               <svg
                 class="listing-top__filter-list-item-arrow"
                 width="14"
@@ -320,13 +326,7 @@ get_header();
               <span class="listing-top__filter-list-item-text"> списком </span>
             </div>
 
-            <div
-              class="
-                listing-top__filter-list-item
-                listing-top__filter-list-item-active
-              "
-              data-name="map"
-            >
+            <div class="listing-top__filter-list-item" data-name="map">
               <svg
                 class="listing-top__filter-list-item-arrow"
                 width="14"
@@ -350,7 +350,7 @@ get_header();
     <!-- //Section Listing-filter-Top -->
 
     <!-- Content block -->
-    <div class="listing-metro__content listing-metro__content-map">
+    <div class="listing-metro__content listing-metro__content-map hide transparent">
       <!-- Left bar -->
       <div class="listing-metro__left-bar">
         <div class="isting-metro__shops-list-container">
@@ -658,7 +658,7 @@ get_header();
       <!-- //Right bar -->
     </div>
 
-    <div class="position__card-wrapper listing-metro__content listing-metro__content-list hide transparent">
+    <div class="position__card-wrapper listing-metro__content listing-metro__content-list">
       <div id="archive_vacancies" class="listing-metro__content-list-container">
 
         <?php 
@@ -689,6 +689,28 @@ get_header();
         
       </div>
     </div>
+
+    <?php 
+    if( $actually_vacancies_retail->max_num_pages > $paged ): 
+        $button_show_more_display = 'display:flex;';
+    else:
+        $button_show_more_display = 'display:none;';
+    endif; ?>
+    <!-- Button Show-more -->
+    <div class="products__show-more" style="<?php echo $button_show_more_display; ?>">
+        <div href="#" class="position__show-more-button">
+            показать ещё
+            <svg class="position__show-more-button-link" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.40039 5.60002V9.5H5.60039V5.60002H9.5V4.40002H5.60039V0.5H4.40039V4.40002H0.5L0.5 5.60002H4.40039Z" fill="black"/>
+            </svg>
+        </div>
+    </div>
+    <script>
+        var paged = parseInt('<?php echo $paged; ?>');
+        var query_vars = `<?php echo json_encode($actually_vacancies_retail->query_vars); ?>`;
+        var max_num_pages = parseInt('<?php echo json_encode($actually_vacancies_retail->max_num_pages); ?>');
+    </script>
+    <!-- //Button Show-more -->
 
     <!-- //Content block -->
 

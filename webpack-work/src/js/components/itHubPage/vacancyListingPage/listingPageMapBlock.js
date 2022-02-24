@@ -260,7 +260,7 @@ export class ListingVacancyMapBlock {
   changeMapPoints( Center, Icons ) {
 
     mapV.geoObjects.removeAll();
-    mapV.setCenter( Center )
+    // mapV.setCenter( Center )
     yandexMapInit( Icons );
     mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
   }
