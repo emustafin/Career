@@ -18,6 +18,7 @@ $page_data = array(
 );
 
 $page_title = $page_data[ 'it' ][1];
+
 $type_page = 'it';
 if( !empty( $_GET['type'] ) && array_key_exists( $_GET['type'], $page_data ) ){
     $page_title = $page_data[ $_GET['type'] ][1];
@@ -112,7 +113,11 @@ if ( have_posts() ) {
             <?php
             foreach ($page_data as $key => $data) {
                 
-                if( $_GET['type'] != $key ){
+                if( $_GET['type'] != $key && !empty($_GET['type'])){
+                    ?>
+                    <a href="<?php echo $data[0]; ?>"><?= $data[1]; ?></a>
+                    <?php
+                }elseif ( empty($_GET['type']) && 'it' != $key ){
                     ?>
                     <a href="<?php echo $data[0]; ?>"><?= $data[1]; ?></a>
                     <?php

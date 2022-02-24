@@ -342,16 +342,20 @@ if( is_page('retail') ){
         <div class="footer__info-block-mobile">
           <div class="footer__info-block-item-mobile">
             <p class="footer__info-text-mobile">
-              © 2021 Группа «М.Видео-Эльдорадо»
+              © 2021 Группа
+            </p>
+            <p class="footer__info-text-mobile">
+              «М.Видео-Эльдорадо»
             </p>
           </div>
-
+          
+        <div class="footer__info-block-item-mobile-wrapper">
           <div class="footer__info-block-item-mobile">
             <a href="/privacy-policy/" class="footer__info-text-mobile">Политика конфиденциальности</a>
           </div>
 
           <div class="footer__info-block-item-mobile">
-          <div class="footer__info-text-mobile">
+            <div class="footer__info-text-mobile">
               Made by
               <a
                 class="footer__info-link"
@@ -369,6 +373,7 @@ if( is_page('retail') ){
                 AmberLabs
               </a>
             </div>
+          </div>
           </div>
         </div>
       </div>

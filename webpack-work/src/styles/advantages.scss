@@ -2,6 +2,10 @@
 
 .why-are-we {
   margin-bottom: 192px;
+  @media (max-width: 1023px){
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 }
 
 .why-are-we__wrapper {
@@ -235,7 +239,6 @@
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 40px;
-    padding: 0 8px;
   }
 
   .why-are-we__slide-buttons-mobile,
@@ -274,12 +277,8 @@
     position: relative;
   }
 
-  .why-are-we__slide-info {
-    padding-left: 8px;
-  }
-
   .why-are-we__slide-image-wrapper {
-    padding-right: 8px;
+    width: 47.87%;
     overflow: hidden;
   }
 }
