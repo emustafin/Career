@@ -348,6 +348,9 @@ class Vacancies {
         $html = '';
         if( !empty( $_POST ) ){
 
+            $shop_terms = array();
+            $town_arr['-1'] = 'Любой';
+
             $args = (array) json_decode( str_replace( "\\", '', $_POST['query_vars'] ) );
             $paged = $_POST['paged']+1;
             $args['paged'] = $paged;
@@ -361,24 +364,161 @@ class Vacancies {
                     $archive_vacancies->the_post();
                     $vacancy_item_id = get_the_ID();
 
+                    $current_shop_terms = (array)get_the_terms( $vacancy_item_id, 'shop' );
+                    if( is_array( $current_shop_terms ) ){
+                        foreach( $current_shop_terms as $current_shop_term ){
+                            if( !in_array( $current_shop_term, $shop_terms ) ){
+                                $shop_terms[] = $current_shop_term;
+                            }
+                        }
+                    }
+
+                    $current_town_terms = (array)get_the_terms( $vacancy_item_id, 'town' );
+                    if( is_array( $current_town_terms ) ){
+                        foreach( $current_town_terms as $current_town_term ){
+                            if( !in_array( $current_town_term->name, $town_arr ) ){
+                                $town_arr[$current_town_term->slug] = $current_town_term->name;
+                            }
+                        }
+                    }
+
                     ob_start();
                     include(THEME_DIR . '/template-parts/loop-parts/archive_vacancies_item.php');
                     $html .= ob_get_clean();
                 }
             }
 
+
+            if( !empty( $shop_terms ) ){
+
+                if( !empty( $_POST['newDefaultIcons'] ) ){
+                    $ndi =  str_replace( "\\", '', $_POST['newDefaultIcons'] ) ;
+                    $newDefaultIcons = (array) json_decode( $ndi );
+                }
+
+                if( !empty( $_POST['nmvi'] ) ){
+                    $nmvi =  str_replace( "\\", '', $_POST['nmvi'] ) ;
+                    $newMvideoIcons = (array) json_decode( $nmvi );
+                }
+
+                if( !empty( $_POST['neli'] ) ){
+                    $neli =  str_replace( "\\", '', $_POST['neli'] ) ;
+                    $newEldoradoIcons = (array) json_decode( $neli );
+                }
+
+                $globalShopTerms = array();
+                if( !empty( $_POST['shop_terms_id'] ) ){
+                    $globalShopTerms = (array) json_decode( $_POST['shop_terms_id'] );
+                }
+
+                foreach( $shop_terms as $shop_term ):
+                    if( !in_array( $shop_term->term_id, $globalShopTerms ) ){
+                        if (get_field( 'shop_koordinates_latitude', $shop_term ) != "" && get_field( 'shop_koordinates_longitude', $shop_term ) != ""){
+                            if( 'mvideo' == get_field( 'mvideo_or_eldorado', $shop_term ) ){
+                                $shop_mvideo_html ='
+                                    <div class="listing-metro__shop" 
+                                        data-shop_slug="'.$shop_term->slug.'" 
+                                        data-latitude="'.get_field( 'shop_koordinates_latitude', $shop_term ).'" 
+                                        data-longitude="'.get_field( 'shop_koordinates_longitude', $shop_term ).'"
+                                    >
+                                    <div class="listing-metro__shop-title">'.$shop_term->name.'</div>
+                                    <div class="listing-metro__shop-address">'.get_field( 'shop_adress', $shop_term ).'</div>
+                                    </div>
+                                ';
+                            }
+                            if( 'eldorado' == get_field( 'mvideo_or_eldorado', $shop_term ) ){
+                                $shop_eldorado_html ='
+                                    <div class="listing-metro__shop" 
+                                    data-shop_slug="'.$shop_term->slug.'" 
+                                    data-latitude="'.get_field( 'shop_koordinates_latitude', $shop_term ).'" 
+                                    data-longitude="'.get_field( 'shop_koordinates_longitude', $shop_term ).'"
+                                    >
+                                    <div class="listing-metro__shop-title">'.$shop_term->name.'</div>
+                                    <div class="listing-metro__shop-address">'.get_field( 'shop_adress', $shop_term ).'</div>
+                                    </div>
+                                ';
+                            }
+                            $globalShopTerms[] = $shop_term->term_id;
+                        }
+                        if (get_field( 'shop_koordinates_latitude', $shop_term ) != "" && get_field( 'shop_koordinates_longitude', $shop_term ) != ""){
+                            switch ( get_field( 'mvideo_or_eldorado', $shop_term ) ) {
+                                case 'mvideo':
+                                    $name_icon = THEME_URL . '/assets/images/listing/map/mvideo-icon.png';
+                                    $newMvideoIcons[] = array(
+                                        [
+                                            get_field( 'shop_koordinates_latitude', $shop_term ),
+                                            get_field( 'shop_koordinates_longitude', $shop_term )
+                                        ],
+                                        THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
+                                    );
+                                    break;
+                              
+                                case 'eldorado':
+                                    $name_icon = THEME_URL . '/assets/images/listing/map/eldorado-icon.png';
+                                    $newEldoradoIcons[] = array(
+                                        [
+                                            get_field( 'shop_koordinates_latitude', $shop_term ),
+                                            get_field( 'shop_koordinates_longitude', $shop_term )
+                                        ],
+                                        THEME_URL . '/assets/images/listing/map/eldorado-icon.png'
+                                    );
+                                    break;
+                              
+                                default:
+                                $name_icon = THEME_URL . '/assets/images/listing/map/mvideo-icon.png';
+                                    $newMvideoIcons[] = array(
+                                        [
+                                            get_field( 'shop_koordinates_latitude', $shop_term ),
+                                            get_field( 'shop_koordinates_longitude', $shop_term )
+                                        ],
+                                        THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
+                                    );
+                                    break;
+                            }
+                          
+                            $newDefaultIcons[] = array(
+                              [
+                                get_field( 'shop_koordinates_latitude', $shop_term ),
+                                get_field( 'shop_koordinates_longitude', $shop_term )
+                              ],
+                              $name_icon
+                            );
+                        }
+                    }
+                    
+
+                endforeach;
+
+            }
+
             if( '' != $html ){
                 $return = array(
                     'success' 	=> true,
                     'html' 	=> $html,
-                    'paged' => $paged
+                    'paged' => $paged,
+                    'shop_mvideo_html' => $shop_mvideo_html,
+                    'shop_eldorado_html' => $shop_eldorado_html,
+                    // 'newMvideoCenter' => $newMvideoCenter,
+                    'mvideoIcons' => $newMvideoIcons,
+                    // 'eldoradoCenter' => $newEldoradoCenter,
+                    'eldoradoIcons' => $newEldoradoIcons,
+                    'newDefaultIcons' => $newDefaultIcons,
+                    'globalShopTerms' => $globalShopTerms,
                 );
         
             } else{
                 $return = array(
                     'success' 	=> false,
                     'html' 	=> '',
-                    'paged' => $paged
+                    'paged' => $paged,
+                    'shop_mvideo_html' => $shop_mvideo_html,
+                    'shop_eldorado_html' => $shop_eldorado_html,
+                    // 'newMvideoCenter' => $newMvideoCenter,
+                    'mvideoIcons' => $newMvideoIcons,
+                    // 'eldoradoCenter' => $newEldoradoCenter,
+                    'eldoradoIcons' => $newEldoradoIcons,
+                    'newDefaultIcons' => $newDefaultIcons,
+                    'globalShopTerms' => $globalShopTerms,
                 );
             }
             wp_send_json($return);
