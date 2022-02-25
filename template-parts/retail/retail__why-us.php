@@ -1,5 +1,4 @@
 <!-- Section Why-us -->
-<div class="retail__why-us">
   <div class="goal__content-wrapper">
     <div class="goal__side-block">
       <div class="goal__side-block-container">

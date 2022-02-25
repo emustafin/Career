@@ -564,6 +564,9 @@
 /*three-circle*/
 .three-circle {
   position: relative;
+  @media(max-width: 1023px){
+    left: 8px;
+  }
 }
 
 .three-circle_inverted {

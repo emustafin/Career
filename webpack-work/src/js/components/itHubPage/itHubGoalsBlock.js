@@ -11,7 +11,8 @@ export class ItHubGoalsBlock {
     this.activeSlideIndex;
 
     this.slider = new Swiper('.goal-slider', {
-      slidesPerView: 1.23,
+      slidesPerView: 1.24,
+      spaceBetween: 16,
     });
 
     this.init();
