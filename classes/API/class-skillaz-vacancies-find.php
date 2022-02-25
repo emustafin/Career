@@ -123,7 +123,7 @@ class Skillaz_Vacancies_Find extends Boot {
                         self::update_vacancy_shop( $work_vacancy_data, $post_id );
                     } else{
                         file_put_contents( 'wp-content/themes/career_theme/classes/API/empty_coordinates.json', print_r( $vacancy_data, true ), FILE_APPEND );
-                        return 'no1';
+                        $res = 'no1';
                     }
     
                     // Устанавливает дату обновления
@@ -153,17 +153,18 @@ class Skillaz_Vacancies_Find extends Boot {
                     }
             
                     $url = get_permalink( $post_id );
-                    return $url;
+                    $res = $url;
             } else{
                 file_put_contents( 'wp-content/themes/career_theme/classes/API/NeedToPublishToJobMve-false-or-null.json', print_r( $vacancy_data, true ), FILE_APPEND );
-                return 'no1';
+                $res = 'no1';
             }
     
         } else{
             file_put_contents( 'wp-content/themes/career_theme/classes/API/broken.json', print_r( $vacancy_data, true ), FILE_APPEND );
-            return 'no2';
+            $res = 'no2';
         }
 
+        return $res;
     }
 
     public function check_live_vacancy( $unique_code ){
@@ -332,6 +333,24 @@ class Skillaz_Vacancies_Find extends Boot {
             if( '-1' != $Latitude ){
                 update_field( 'shop_koordinates_latitude', $Latitude, $shop_l );
             }
+
+            if( null != $Data['ExtraData.Brend'] ){
+                $Brend = $Data['ExtraData.Brend'];
+                switch ($Brend) {
+                    case 'EM':
+                        update_field( 'mvideo_or_eldorado', 'mvideo', $shop_l );
+                        break;
+
+                    case 'MV':
+                        update_field( 'mvideo_or_eldorado', 'mvideo', $shop_l );
+                        break;
+                    
+                    case 'EL':
+                        update_field( 'mvideo_or_eldorado', 'eldorado', $shop_l );
+                        break;
+                }
+            }
+
         }
 
     }
