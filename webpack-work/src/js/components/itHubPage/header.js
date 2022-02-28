@@ -78,12 +78,12 @@ export class Header {
     if (window.scrollY > this.windowTopOffset) {
       this.phoneBlock.classList.add('it-header__contact-us-to-top');
       this.phoneTitle.classList.add('transparent');
-      this.headerWrapper.style.padding = '8px 0';
+      this.headerWrapper.classList.add('header__scroll-padding');
       // this.headerButton.style.top = '16px';
     } else {
       this.phoneBlock.classList.remove('it-header__contact-us-to-top');
       this.phoneTitle.classList.remove('transparent');
-      this.headerWrapper.style.padding = '16px 0';
+      this.headerWrapper.classList.remove('header__scroll-padding');
       // this.headerButton.style.top = '22px';
     }
 
