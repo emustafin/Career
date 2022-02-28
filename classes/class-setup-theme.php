@@ -107,6 +107,7 @@ class Setup_Theme {
 		}
 		if( is_page('it') || is_page('logistic') || is_page('office') ){
 			wp_enqueue_script( self::THEME_ID . "frontpage-js", THEME_URL . "/assets/js/frontpage.js", [], THEME_VSN, true );
+			wp_enqueue_script( self::THEME_ID . "nabr-news-js", THEME_URL . "/assets/js/habrNews.js", [], THEME_VSN, true );
 		}
 		if( is_post_type_archive('vacancies') || is_page('listing-map') ){
 			wp_enqueue_script( self::THEME_ID . "vacanciespage-js", THEME_URL . "/assets/js/vacanciespage.js", [], THEME_VSN, true );
