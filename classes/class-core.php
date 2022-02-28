@@ -47,6 +47,7 @@ final class Core {
 		new CPT\Product_directions();
 		new CPT\News_and_events();
 		new Menu\Menu();
+		new Menu\Skillaz_setting();
 
 		new API\WPcf7_Mail();
 		new API\Skillaz_Vacancies_Find();

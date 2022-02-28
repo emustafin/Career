@@ -31,24 +31,26 @@ class Skillaz_Vacancies_Find extends Boot {
 
         $content = (object)json_decode($result);
 
-        $items = $content->Items;
+        update_option( 'skillaz_total_pages', $content->TotalPages );
+
         $i = 1;
-        // $funnelid = (array)get_option( 'funnelid' );
-        $vacancy_skillaz_id = (array)get_option( 'vacancy_skillaz_id' );
 
-        foreach ($items as $vacancy) {
-            
-            if( false == $vacancy_skillaz_id ){
-                $vacancy_skillaz_id[0] = $vacancy->Id;
-            } elseif( !in_array( $vacancy->Id, $vacancy_skillaz_id ) ){
-                $vacancy_skillaz_id[] = $vacancy->Id;
-            }
-
-            update_option( 'vacancy_skillaz_id', $vacancy_skillaz_id );
+        foreach ($content->Items as $vacancy) {
 
             $single_permalink = self::create_single_vacancy( $vacancy );
-            if( 'no1' != $single_permalink && 'no2' != $single_permalink ){
-                echo $i. ' - <a href="'.$single_permalink.'">'.$vacancy->Name.'</a><br>';
+            switch ($single_permalink) {
+                case '/not_public':
+                    echo '<p style="color:red;">'.$i.' - <span style="color:red;">'.$vacancy->Name.'</span> - '.$vacancy->Id.'</p>';
+                    break;
+                
+                case '/update':
+                    $vacancy_id = self::check_live_vacancy( $vacancy->Id );
+                    echo '<p style="color:blue;">'.$i.' - <a href="'.get_permalink($vacancy_id).'" style="color:blue;">'.$vacancy->Name.'</a> - '.$vacancy->Id.'</p>';
+                    break;
+                
+                default:
+                    echo '<p style="color:green;">'.$i.' - <a href="'.$single_permalink.'" style="color:green;">'.$vacancy->Name.'</a> - '.$vacancy->Id.'</p>';
+                    break;
             }
 
             $i++;
@@ -57,7 +59,9 @@ class Skillaz_Vacancies_Find extends Boot {
 
     public function create_single_vacancy( $vacancy_data ){
 
-        if( !self::check_live_vacancy( $vacancy_data->Id ) ){
+        $vacancy_id = self::check_live_vacancy( $vacancy_data->Id );
+
+        if( false == $vacancy_id ){
     
             $work_vacancy_data = (array)$vacancy_data->Data;
 
@@ -74,97 +78,109 @@ class Skillaz_Vacancies_Find extends Boot {
                     }
                 }
 
-                $WorkLocation = (array)$work_vacancy_data['WorkLocation'];
-                
-                if( null == $WorkLocation ){
-                    $WorkLocation = (array)$work_vacancy_data['Address'];
-                }
-
-                // if( null != $WorkLocation['Longitude'] && null != $WorkLocation['Latitude'] ){
-
-                    $post_data = array(
-                        'post_title'    => sanitize_text_field( $title ),
-                        'post_content'  => $work_vacancy_data['ExtraData.Opisanie'],
-                        'post_status'   => 'draft',
-                        'post_type'     => 'vacancies',
-                        'post_author'   => 1,
-                    );
-            
-                    // Вставляем запись в базу данных
-                    $post_id = wp_insert_post( $post_data );
-            
-                    // Установка таксономии
-                    self::set_post_to_terms( $post_id, $vacancy_data->FunnelId );
+                $post_data = array(
+                    'post_title'    => sanitize_text_field( $title ),
+                    'post_content'  => $work_vacancy_data['ExtraData.Opisanie'],
+                    'post_status'   => 'draft',
+                    'post_type'     => 'vacancies',
+                    'post_author'   => 1,
+                );
         
-                    // Устанавливает уникальный код из скиллаза
-                    update_field( 'unique_code', $vacancy_data->Id, $post_id );
+                // Вставляем запись в базу данных
+                $post_id = wp_insert_post( $post_data );
         
-                    // ЗП от и до
-                    $salary = (array)$work_vacancy_data['Salary'];
-                    $salary_from = $salary['From'];
-                    if( null == $salary_from ){
-                        $salary_from = 0;
-                    }
-                    $salary_to = $salary['To'];
-                    if( null == $salary_to ){
-                        $salary_to = 0;
-                    }
-                    update_field( 'money_from', $salary_from, $post_id );
-                    update_field( 'money_to', $salary_to, $post_id );
-                    
-                    // Полный адрес магазина
-                    update_field( 'map_full_adress', $WorkLocation['Text'], $post_id );
-                    
-                    // Город
-                    self::update_vacancy_town( $work_vacancy_data, $post_id );
-                    
-                    if( null != $WorkLocation['Longitude'] && null != $WorkLocation['Latitude'] ){
-                        // Магазин
-                        self::update_vacancy_shop( $work_vacancy_data, $post_id );
-                    } else{
-                        file_put_contents( 'wp-content/themes/career_theme/classes/API/empty_coordinates.json', print_r( $vacancy_data, true ), FILE_APPEND );
-                        $res = 'no1';
-                    }
-    
-                    // Устанавливает дату обновления
-                    $blogtime = current_time('mysql');
-                    $date_update = get_post_meta( $post_id, 'date_update' );
-                    if( false == $date_update ){
-                        add_post_meta( $post_id, 'date_update', $blogtime );
-                    } else{
-                        update_post_meta( $post_id, 'date_update', $blogtime );
-                    }
+                self::set_vacancy_params( $post_id, $vacancy_data, $work_vacancy_data );
+        
+                $res = get_permalink( $post_id );
 
-                    if( null != $work_vacancy_data['ExtraData.Brend'] ){
-                        $Brend = $work_vacancy_data['ExtraData.Brend'];
-                        switch ($Brend) {
-                            case 'EM':
-                                update_field( 'mvideo_or_eldorado', 'mvideo', $post_id );
-                                break;
-
-                            case 'MV':
-                                update_field( 'mvideo_or_eldorado', 'mvideo', $post_id );
-                                break;
-                            
-                            case 'EL':
-                                update_field( 'mvideo_or_eldorado', 'eldorado', $post_id );
-                                break;
-                        }
-                    }
-            
-                    $url = get_permalink( $post_id );
-                    $res = $url;
             } else{
-                file_put_contents( 'wp-content/themes/career_theme/classes/API/NeedToPublishToJobMve-false-or-null.json', print_r( $vacancy_data, true ), FILE_APPEND );
-                $res = 'no1';
+                $res = '/not_public';
             }
     
         } else{
-            file_put_contents( 'wp-content/themes/career_theme/classes/API/broken.json', print_r( $vacancy_data, true ), FILE_APPEND );
-            $res = 'no2';
+            // Update
+            $work_vacancy_data = (array)$vacancy_data->Data;
+
+            if( true == $work_vacancy_data['ExtraData.NeedToPublishToJobMve'] ){
+
+                self::set_vacancy_params( $vacancy_id, $vacancy_data, $work_vacancy_data );
+            }
+
+            $res = '/update';
         }
 
         return $res;
+    }
+
+    public function set_vacancy_params( $post_id, $vacancy_data, $work_vacancy_data ){
+
+        // Установка таксономии
+        self::set_post_to_terms( $post_id, $vacancy_data->FunnelId );
+        
+        // Устанавливает уникальный код из скиллаза
+        update_field( 'unique_code', $vacancy_data->Id, $post_id );
+
+        // ЗП от и до
+        $salary = (array)$work_vacancy_data['Salary'];
+        $salary_from = $salary['From'];
+        if( null == $salary_from ){
+            $salary_from = 0;
+        }
+        $salary_to = $salary['To'];
+        if( null == $salary_to ){
+            $salary_to = 0;
+        }
+        update_field( 'money_from', $salary_from, $post_id );
+        update_field( 'money_to', $salary_to, $post_id );
+
+        $WorkLocation = (array)$work_vacancy_data['WorkLocation'];
+    
+        if( null == $WorkLocation ){
+            $WorkLocation = (array)$work_vacancy_data['Address'];
+        }
+        
+        // Полный адрес магазина
+        update_field( 'map_full_adress', $WorkLocation['Text'], $post_id );
+        
+        // Город
+        self::update_vacancy_town( $work_vacancy_data, $post_id );
+        
+        if( null != $WorkLocation['Longitude'] && null != $WorkLocation['Latitude'] ){
+            // Магазин
+            self::update_vacancy_shop( $work_vacancy_data, $post_id );
+        } else{
+            file_put_contents( '../wp-content/themes/career_theme/classes/API/empty_coordinates.json', print_r( $vacancy_data, true ), FILE_APPEND );
+            echo '<h3><b>Пустые координаты: </b></h3>';
+        }
+
+        // Устанавливает дату обновления
+        $blogtime = current_time('mysql');
+        $date_update = get_post_meta( $post_id, 'date_update' );
+        if( false == $date_update ){
+            add_post_meta( $post_id, 'date_update', $blogtime );
+        } else{
+            update_post_meta( $post_id, 'date_update', $blogtime );
+        }
+
+        // Устанавливает флаг эльдорадо или мвидео
+        if( null != $work_vacancy_data['ExtraData.Brend'] ){
+            $Brend = $work_vacancy_data['ExtraData.Brend'];
+            switch ($Brend) {
+                case 'EM':
+                    update_field( 'check_mvideo_eldorado', 'mvideo', $post_id );
+                    break;
+
+                case 'MV':
+                    update_field( 'check_mvideo_eldorado', 'mvideo', $post_id );
+                    break;
+                
+                case 'EL':
+                    update_field( 'check_mvideo_eldorado', 'eldorado', $post_id );
+                    break;
+            }
+            update_field( 'is_retail_vacancy', true, $post_id );
+        }
+
     }
 
     public function check_live_vacancy( $unique_code ){
@@ -182,12 +198,13 @@ class Skillaz_Vacancies_Find extends Boot {
 
         $check_query = new \WP_Query( $args );
 
-        return $check_query->have_posts();
+        $result_vacancy_id = false;
+        if( false != $check_query->have_posts() ) $result_vacancy_id = $check_query->posts[0]->ID;
+
+        return $result_vacancy_id;
     }
 
     public function set_post_to_terms( $post_id, $funnel_id ){
-
-        $tax_terms = array();
 
         switch ($funnel_id) {
             case 'MVideoITPodbor':
@@ -234,7 +251,6 @@ class Skillaz_Vacancies_Find extends Boot {
                 $term = get_term_by( 'slug', 'office', 'relationship' );
                 wp_set_post_terms( $post_id, $term->term_id, 'relationship', true );
                 break;
-            
         }
 
     }
