@@ -128,12 +128,12 @@
       </svg>
     </div>
   </div>
-  <div class="main-awards__right-bar main-awards__right-bar-mobile swiper">
-    <div class="main-awards__wrapper main-awards__wrapper-mobile swiper-wrapper">
-      <div class="main-awards__award-item swiper-slide">
-        <h3 class="main-awards__item-title">Лучший работодатель России</h3>
+  <div class="main-awards__right-bar-mobile swiper">
+    <div class="main-awards__wrapper-mobile swiper-wrapper">
+      <div class="main-awards__award-item-mobile swiper-slide">
+        <h3 class="main-awards__item-title-mobile">Лучший работодатель России</h3>
 
-        <a href="#" class="main-awards__item-link">
+        <a href="#" class="main-awards__item-link-mobile">
           по версии HH.ru в 2020 году
           <svg
             width="14"
@@ -150,10 +150,10 @@
         </a>
       </div>
 
-      <div class="main-awards__award-item swiper-slide">
-        <h3 class="main-awards__item-title">Лидер рынка</h3>
+      <div class="main-awards__award-item-mobile swiper-slide">
+        <h3 class="main-awards__item-title-mobile">Лидер рынка</h3>
 
-        <a href="#" class="main-awards__item-link">
+        <a href="#" class="main-awards__item-link-mobile">
           по версии Forbes
           <svg
             width="14"
@@ -170,10 +170,10 @@
         </a>
       </div>
 
-      <div class="main-awards__award-item swiper-slide">
-        <h3 class="main-awards__item-title">№ 1 среди ритейлеров России</h3>
+      <div class="main-awards__award-item-mobile swiper-slide">
+        <h3 class="main-awards__item-title-mobile">№ 1 среди ритейлеров России</h3>
 
-        <a href="#" class="main-awards__item-link">
+        <a href="#" class="main-awards__item-link-mobile">
           в рейтинге омниканальности Data Insight
           <svg
             width="14"
@@ -190,12 +190,12 @@
         </a>
       </div>
 
-      <div class="main-awards__award-item swiper-slide">
-        <h3 class="main-awards__item-title">
+      <div class="main-awards__award-item-mobile swiper-slide">
+        <h3 class="main-awards__item-title-mobile">
           Премия Quality Award в номинации «Передовые технологии»
         </h3>
 
-        <a href="#" class="main-awards__item-link">
+        <a href="#" class="main-awards__item-link-mobile">
           по версии SAP в 2020 году
           <svg
             width="14"

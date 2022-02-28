@@ -1,16 +1,16 @@
-export class mainAwards {
+export class mainStability {
     constructor(className) {
       this.el = document.querySelector(className);
   
       if (this.el === null || this.el === undefined) return;
   
       this.slider;
-      this.slidesRow = this.el.querySelector('.main-awards__wrapper-mobile');
-      this.currentSlide = this.el.querySelector('.awards__current-slide');
-      this.slidesValue = this.el.querySelector('.awards__slide-value');
+      this.slidesRow = this.el.querySelector('.main-stability__content-container-wrapper-mobile');
+      this.currentSlide = this.el.querySelector('.main-stability__current-slide');
+      this.slidesValue = this.el.querySelector('.main-stability__slide-value');
       this.activeSlideIndex;
   
-      this.slider = new Swiper('.main-awards__right-bar-mobile', {
+      this.slider = new Swiper('.main-stability__content-container-mobile', {
         slidesPerView: 1.23,
         spaceBetween: 16,
       });
