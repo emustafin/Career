@@ -119,6 +119,64 @@
       
     </div>
     <?php } ?>
+    <?php if( is_page('it')){ ?>
+    <!-- section habr news -->
+    <section class="habr__news-block">
+        <div class="habr__news-title_block">
+            <p class="habr__news-title">
+                Мы в Хабре
+            </p>
+            <a href="#" class="habr__news-link">
+                Все статьи
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.5515 7.39995L9.57574 4.42421L10.4243 3.57568L14.8485 7.99995L10.4243 12.4242L9.57574 11.5757L12.5515 8.59995H1V7.39995H12.5515Z" fill="black"/>
+                </svg>
+            </a>
+        </div>
+        <?php
+          $argsHabr = array(
+            'post_type'         => 'post',
+            'posts_per_page'    => -1,
+            'post_status'       => 'publish',
+            'order'             => 'DESC',
+            'order_by'          => 'date'
+          );
+
+          $actually_habr = new WP_Query( $argsHabr );
+        ?>
+        <div class="habr__news-wrapper swiper">
+          <div class="swiper-wrapper">
+          <?php 
+            if($actually_habr->have_posts()){
+              while ($actually_habr->have_posts()){
+                $actually_habr->the_post();
+                ?>
+                <div class="habr__news-item swiper-slide">
+                    <p class="habr__news-data">
+                      <?php echo get_the_modified_date('j F Y')?>
+                    </p>
+                    <h3 class="habr__news-title__item">
+                      <a href="<?php the_permalink()?>" class="nabr__news-item__link">
+                        <?php the_title()?>
+                      </a>
+                    </h3>
+                    <p class="habr__news-text__item">
+                      <?php 
+                        $content = get_the_content();
+                        $trimmed_content = wp_trim_words( $content, 40);
+                        echo $trimmed_content
+                      ?>
+                    </p>
+                </div>
+                <?php
+              }
+            }
+          ?>
+          </div>
+        </div>
+    </section>
+    <!-- //section habr news -->
+    <?php } ?>
 
     <?php
     $args = array(

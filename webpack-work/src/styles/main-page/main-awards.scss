@@ -5,37 +5,39 @@
   display: flex;
   margin-bottom: 192px;
   overflow: hidden;
+  justify-content: space-between;
 }
 
 .main-awards__left-bar {
-  width: 33.33%;
+  width: 16.1%;
 }
 
 .main-awards__buttons-mobile {
   display: none;
 }
 
-.main-awards__left-bar-text {
-  max-width: 304px;
-}
-
 .main-awards__right-bar {
-  width: 66.66%;
+  width: 66.95%;
 }
 
 .main-awards__wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin: -16px -8px;
+  justify-content: space-between;
 }
 
 .main-awards__award-item {
-  margin: 16px 8px;
-  width: calc(50% - 16px);
+  width: 49.36%;
   padding-bottom: 24px;
   border-bottom: 1px solid #969696;
   display: flex;
   flex-direction: column;
+  margin-top: 32px;
+}
+
+.main-awards__award-item:nth-child(1),
+.main-awards__award-item:nth-child(2){
+  margin-top: 0;
 }
 
 .main-awards__item-title {
@@ -60,126 +62,120 @@
 }
 
 // Styles for 1440
-@media (max-width: 1440px) {
-  .main-awards {
+@media (max-width: 1919px) {
+  .main-awards{
     font-size: 16px;
     line-height: 20px;
-    margin-bottom: 144px;
   }
 
-  .main-awards__left-bar-text {
-    max-width: 224px;
+  .main-awards__left-bar {
+    width: 15.91%;
+  }
+
+  .main-awards__right-bar {
+    width: 67.05%;
+  }
+
+  .main-awards__award-item {
+    margin-top: 24px;
+    width: 49.15%;
   }
 
   .main-awards__item-title {
     font-size: 32px;
     line-height: 40px;
-    margin-bottom: 128px;
-  }
-
-  .main-awards__awards-button {
-    margin-top: 24px;
+    margin-bottom: 168px;
   }
 }
 
 // Styles for 1024px
-@media (max-width: 1100px) {
-  .main-awards {
+@media (max-width: 1439px) {
+  .main-awards__left-bar {
+    width: 26.41%;
+  }
+
+  .main-awards__right-bar {
+    width: 67.14%;
+  }
+
+  .main-awards__award-item {
+    width: 48.93%;
+  }
+
+  .main-awards__item-title{
     margin-bottom: 128px;
   }
-
-  .main-awards__left-bar-text {
-    max-width: 262px;
-  }
-
-  .main-awards__item-title {
-    margin-bottom: 108px;
-  }
-
-  .main-awards__item-link {
-    width: 95%;
-  }
 }
-
 // Styles for 768px
-@media (max-width: 850px) {
-  .main-awards {
-    flex-wrap: wrap;
+@media (max-width: 1023px) {
+  .main-awards{
     padding: 0 8px;
+    flex-direction: column;
   }
 
-  .main-awards__left-bar,
+  .main-awards__left-bar{
+    width: 32.98%;
+    margin-bottom: 40px;
+  }
+
   .main-awards__right-bar {
     width: 100%;
   }
 
-  .main-awards__left-bar {
-    margin-bottom: 40px;
-  }
-
-  .main-awards__item-title {
-    margin-bottom: 88px;
-  }
-
-  .main-awards__award-item {
-    margin-top: 0;
+  .main-awards__item-title{
+    margin-bottom: 168px;
   }
 }
 
 // Styles for 320px
-@media (max-width: 720px) {
-  .main-awards__right-bar{
+@media (max-width: 767px) {
+  .main-awards__left-bar {
+    width: 100%;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .main-awards__left-bar-text {
+    width: 72.7%;
+  }
+
+  .main-awards__buttons-mobile {
+    display: flex;
+    padding: 0;
+  }
+
+  .main-awards__right-bar {
     display: none;
   }
 
   .main-awards__right-bar-mobile{
     display: block;
+    width: 100%;
+    height: 188px;
   }
-
-  .main-awards__wrapper-mobile{
-    margin: 0;
-  }
-
-  .main-awards {
-    font-size: 14px;
-    line-height: 16px;
-    margin-bottom: 60px;
-  }
-
-  .main-awards__buttons-mobile {
-    display: flex;
-  }
-
-  .main-awards__left-bar {
-    display: flex;
-    align-items: start;
-    margin-bottom: 24px;
-  }
-
-  .main-awards__left-bar-text {
-    max-width: 221px;
-  }
-
-  .main-awards__wrapper {
-    width: 330%;
-    flex-wrap: nowrap;
-  }
-
-  .main-awards__award-item {
-    width: calc(80% - 16px);
-    margin-bottom: 0;
+  
+  .main-awards__award-item-mobile{
+    border-bottom: 1px solid #969696;
     padding-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  .main-awards__item-title {
+  .main-awards__item-title-mobile{
     font-size: 24px;
     line-height: 28px;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
   }
 
-  .main-awards__awards-button {
-    opacity: 0;
-    margin-top: 0;
-    pointer-events: none;
+  .main-awards__item-link-mobile{
+    font-size: 14px;
+    line-height: 16px;
+    color: #000;
+  }
+
+  .main-awards__item-link-mobile:visited{
+    color:#000;
   }
 }

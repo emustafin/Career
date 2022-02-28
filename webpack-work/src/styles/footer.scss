@@ -47,6 +47,10 @@
   box-shadow: 48px 2px 24px rgba(0, 0, 0, 0.03);
   border-radius: 128px;
   background: $whiteColor;
+
+  @media (max-width: 1439px){
+    max-width: 320px;
+  }
 }
 
 .footer__search-field {
@@ -56,6 +60,10 @@
   line-height: 24px;
   width: 90%;
   color: $mainColor;
+
+  @media (max-width: 1439px){
+    line-height: 18px;
+  }
 }
 
 .footer__search-button {
