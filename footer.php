@@ -101,7 +101,7 @@ if( is_page('retail') ){
               </div>
             </div>
 
-            <p class="footer__info-text">© 2021 Группа «М.Видео-Эльдорадо»</p>
+            <p class="footer__info-text">© <?php echo date('Y'); ?> Группа «М.Видео-Эльдорадо»</p>
           </div>
 
           <div class="footer__item">
@@ -342,7 +342,7 @@ if( is_page('retail') ){
         <div class="footer__info-block-mobile">
           <div class="footer__info-block-item-mobile">
             <p class="footer__info-text-mobile">
-              © 2021 Группа
+              © <?php echo date('Y'); ?> Группа
             </p>
             <p class="footer__info-text-mobile">
               «М.Видео-Эльдорадо»
