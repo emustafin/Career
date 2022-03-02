@@ -42,141 +42,147 @@ $eldorado_retail_internship = get_sub_field('eldorado_retail_internship');
 
   <div class="retail__internship-image-block">
     <div class="retail__internship-image-block-outside">
-      <svg
-        class="retail__internship-image-block-outside-circle"
-        width="344"
-        height="344"
-        viewBox="0 0 344 344"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        >
-        <circle cx="172" cy="172" r="171.5" stroke="#E31235" />
-      </svg>
-
-      <div class="retail__internship-image-block-outside-icon-block">
+      <div class="spin__right">
         <svg
-          width="40"
-          height="40"
-          viewBox="0 0 40 40"
+          class="retail__internship-image-block-outside-circle"
+          width="344"
+          height="344"
+          viewBox="0 0 344 344"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           >
-          <path
-            d="M2.63894 9.956C2.63894 9.956 5.42876 6.49434 9.96346 3.76522"
-            stroke="#E31235"
-            stroke-linecap="round"
-          />
-          <path
-            d="M12.7641 2.30243C17.6149 0.149929 23.8267 -0.646457 30.5347 3.38413C38.8336 8.3706 39.7598 16.6867 39.0512 22.6238"
-            stroke="#E31235"
-            stroke-linecap="round"
-          />
-          <path
-            d="M37.2418 29.52C37.4898 29.1072 38.0593 27.6706 38.5273 25.6309"
-            stroke="#E31235"
-            stroke-linecap="round"
-          />
-          <path
-            d="M25.8637 38.4922C29.862 31.8379 29.8302 35.1958 32.9475 30.0077C34.1722 27.9695 35.1339 24.873 35.2896 21.5273"
-            stroke="#76BC21"
-            stroke-linecap="round"
-          />
-          <path
-            d="M26.1213 6.12857C26.8155 6.42939 27.5188 6.79062 28.2299 7.21791C32.3571 9.69778 34.3609 13.4697 35.0376 17.3478"
-            stroke="#76BC21"
-            stroke-linecap="round"
-          />
-          <path
-            d="M3.4922 15.6875C3.4922 15.6875 12.3232 2.02847 24.2278 5.44774"
-            stroke="#76BC21"
-            stroke-linecap="round"
-          />
-          <path
-            d="M10.5578 14.0999C14.6886 10.1484 20.1311 7.2648 25.8368 10.6931C30.2298 13.3328 31.4218 17.3937 30.939 21.3622"
-            stroke="#E31235"
-            stroke-linecap="round"
-          />
-          <path
-            d="M29.8892 25.4081C29.4949 26.4101 29.0177 27.3672 28.4873 28.2499C26.3509 31.8054 24.6536 31.412 23.0507 33.5795"
-            stroke="#E31235"
-            stroke-linecap="round"
-          />
-          <path
-            d="M20.7178 39.3931C21.1546 37.6794 21.5859 36.3984 22.0186 35.416"
-            stroke="#E31235"
-            stroke-linecap="round"
-          />
-          <path
-            d="M3.0806 24.036C3.0806 24.036 5.46272 19.5079 9.22793 15.4493"
-            stroke="#E31235"
-            stroke-linecap="round"
-          />
-          <path
-            d="M11.3566 19.7992C14.6891 15.2504 18.9916 11.7994 23.5319 14.5275C26.021 16.0231 26.8172 17.9968 26.8368 19.8903"
-            stroke="#76BC21"
-            stroke-linecap="round"
-          />
-          <path
-            d="M4.81453 32.1385C4.81453 32.1385 6.40206 27.8805 8.98975 23.4414"
-            stroke="#76BC21"
-            stroke-linecap="round"
-          />
-          <path
-            d="M8.26436 35.5939C8.26436 35.5939 9.64481 29.2086 13.9128 24.4049"
-            stroke="#E31235"
-            stroke-linecap="round"
-          />
-          <path
-            d="M17.2514 27.0237C16.7264 27.6891 16.2506 28.3812 15.8203 29.0804"
-            stroke="#E31235"
-            stroke-linecap="round"
-          />
-          <path
-            d="M12.189 38.2583C12.189 38.2583 12.8415 34.8104 14.7329 31.0371"
-            stroke="#E31235"
-            stroke-linecap="round"
-          />
-          <path
-            d="M25.8374 24.0475C25.5486 24.6791 25.2533 25.2012 25.0366 25.5619C23.8453 27.5446 20.4069 28.8631 17.9993 34.2279"
-            stroke="#76BC21"
-            stroke-linecap="round"
-          />
-          <path
-            d="M16.4311 39.119C16.6631 38.0568 16.9305 37.0942 17.2246 36.2188"
-            stroke="#76BC21"
-            stroke-linecap="round"
-          />
+          <circle cx="172" cy="172" r="171.5" stroke="#E31235" />
         </svg>
-      </div>
 
-      <div class="retail__internship-image-block-inside">
-        <svg
-          class="retail__internship-image-block-inside-circle"
-          width="232"
-          height="232"
-          viewBox="0 0 232 232"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          >
-          <circle cx="116" cy="116" r="115.5" stroke="#76BC21" />
-        </svg>
-        <div class="retail__internship-image-block-inside-icon-block">
+        <div class="retail__internship-image-block-outside-icon-block">
           <svg
-            class="retail__internship-image-block-inside-icon"
-            width="32"
-            height="24"
-            viewBox="0 0 32 24"
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M16.4168 23.2506H31.4169V2.41728H28.9169V3.25061H30.5835V22.4173H22.2781L28.9168 21.5321V0.691406L16.0002 2.41363L3.08352 0.691406V21.5321L9.72225 22.4173H1.41683V3.25061H3.0835V2.41728H0.583496V23.2506H15.5835V23.3099L16.0002 23.2543L16.4168 23.3099V23.2506ZM16.4168 3.19878V22.3581L28.0835 20.8025V1.64323L16.4168 3.19878ZM15.5835 22.3581V3.19878L3.91685 1.64323V20.8025L15.5835 22.3581Z"
-              fill="#76BC21"
+              d="M2.63894 9.956C2.63894 9.956 5.42876 6.49434 9.96346 3.76522"
+              stroke="#E31235"
+              stroke-linecap="round"
+            />
+            <path
+              d="M12.7641 2.30243C17.6149 0.149929 23.8267 -0.646457 30.5347 3.38413C38.8336 8.3706 39.7598 16.6867 39.0512 22.6238"
+              stroke="#E31235"
+              stroke-linecap="round"
+            />
+            <path
+              d="M37.2418 29.52C37.4898 29.1072 38.0593 27.6706 38.5273 25.6309"
+              stroke="#E31235"
+              stroke-linecap="round"
+            />
+            <path
+              d="M25.8637 38.4922C29.862 31.8379 29.8302 35.1958 32.9475 30.0077C34.1722 27.9695 35.1339 24.873 35.2896 21.5273"
+              stroke="#76BC21"
+              stroke-linecap="round"
+            />
+            <path
+              d="M26.1213 6.12857C26.8155 6.42939 27.5188 6.79062 28.2299 7.21791C32.3571 9.69778 34.3609 13.4697 35.0376 17.3478"
+              stroke="#76BC21"
+              stroke-linecap="round"
+            />
+            <path
+              d="M3.4922 15.6875C3.4922 15.6875 12.3232 2.02847 24.2278 5.44774"
+              stroke="#76BC21"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.5578 14.0999C14.6886 10.1484 20.1311 7.2648 25.8368 10.6931C30.2298 13.3328 31.4218 17.3937 30.939 21.3622"
+              stroke="#E31235"
+              stroke-linecap="round"
+            />
+            <path
+              d="M29.8892 25.4081C29.4949 26.4101 29.0177 27.3672 28.4873 28.2499C26.3509 31.8054 24.6536 31.412 23.0507 33.5795"
+              stroke="#E31235"
+              stroke-linecap="round"
+            />
+            <path
+              d="M20.7178 39.3931C21.1546 37.6794 21.5859 36.3984 22.0186 35.416"
+              stroke="#E31235"
+              stroke-linecap="round"
+            />
+            <path
+              d="M3.0806 24.036C3.0806 24.036 5.46272 19.5079 9.22793 15.4493"
+              stroke="#E31235"
+              stroke-linecap="round"
+            />
+            <path
+              d="M11.3566 19.7992C14.6891 15.2504 18.9916 11.7994 23.5319 14.5275C26.021 16.0231 26.8172 17.9968 26.8368 19.8903"
+              stroke="#76BC21"
+              stroke-linecap="round"
+            />
+            <path
+              d="M4.81453 32.1385C4.81453 32.1385 6.40206 27.8805 8.98975 23.4414"
+              stroke="#76BC21"
+              stroke-linecap="round"
+            />
+            <path
+              d="M8.26436 35.5939C8.26436 35.5939 9.64481 29.2086 13.9128 24.4049"
+              stroke="#E31235"
+              stroke-linecap="round"
+            />
+            <path
+              d="M17.2514 27.0237C16.7264 27.6891 16.2506 28.3812 15.8203 29.0804"
+              stroke="#E31235"
+              stroke-linecap="round"
+            />
+            <path
+              d="M12.189 38.2583C12.189 38.2583 12.8415 34.8104 14.7329 31.0371"
+              stroke="#E31235"
+              stroke-linecap="round"
+            />
+            <path
+              d="M25.8374 24.0475C25.5486 24.6791 25.2533 25.2012 25.0366 25.5619C23.8453 27.5446 20.4069 28.8631 17.9993 34.2279"
+              stroke="#76BC21"
+              stroke-linecap="round"
+            />
+            <path
+              d="M16.4311 39.119C16.6631 38.0568 16.9305 37.0942 17.2246 36.2188"
+              stroke="#76BC21"
+              stroke-linecap="round"
             />
           </svg>
         </div>
+      </div>
+      
+
+      <div class="retail__internship-image-block-inside">
+        <div class="spin__left">
+          <svg
+            class="retail__internship-image-block-inside-circle"
+            width="232"
+            height="232"
+            viewBox="0 0 232 232"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            >
+            <circle cx="116" cy="116" r="115.5" stroke="#76BC21" />
+          </svg>
+          <div class="retail__internship-image-block-inside-icon-block">
+            <svg
+              class="retail__internship-image-block-inside-icon"
+              width="32"
+              height="24"
+              viewBox="0 0 32 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M16.4168 23.2506H31.4169V2.41728H28.9169V3.25061H30.5835V22.4173H22.2781L28.9168 21.5321V0.691406L16.0002 2.41363L3.08352 0.691406V21.5321L9.72225 22.4173H1.41683V3.25061H3.0835V2.41728H0.583496V23.2506H15.5835V23.3099L16.0002 23.2543L16.4168 23.3099V23.2506ZM16.4168 3.19878V22.3581L28.0835 20.8025V1.64323L16.4168 3.19878ZM15.5835 22.3581V3.19878L3.91685 1.64323V20.8025L15.5835 22.3581Z"
+                fill="#76BC21"
+              />
+            </svg>
+          </div>
+        </div>
+        
 
         <div class="retail__internship-shop-icon-eldorado eldorado hide">
           <svg

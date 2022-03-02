@@ -41,21 +41,8 @@
             <?php echo get_sub_field('block_description_1'); ?>
           </div>
           <div class="goal__item-image-container">
-            <svg
-              class="circle"
-              width="80"
-              height="80"
-              viewBox="0 0 80 80"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle
-                cx="40"
-                cy="40"
-                r="39.5"
-                stroke="#E31235"
-                stroke-miterlimit="1.24264"
-              />
+            <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="48" cy="56" r="39.5" stroke="#E31235" stroke-miterlimit="1.24264"/>
             </svg>
           </div>
         </div>
@@ -66,22 +53,10 @@
             <?php echo get_sub_field('block_description_2'); ?>
           </div>
           <div class="goal__item-image-container">
-            <div class="two-horizontal-circle">
-              <svg
-                class="two-horizontal-circle__circle"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="28" cy="28" r="27.5" stroke="#E31235" />
-              </svg>
-              <svg
-                class="two-horizontal-circle__circle"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="28" cy="28" r="27.5" stroke="#E31235" />
-              </svg>
-            </div>
+            <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="28" cy="60" r="27.5" stroke="#E31235"/>
+                <circle cx="68" cy="60" r="27.5" stroke="#E31235"/>
+            </svg>
           </div>
         </div>
 
@@ -91,35 +66,11 @@
             <?php echo get_sub_field('block_description_3'); ?>
           </div>
           <div class="goal__item-image-container">
-            <div class="three-circle">
-              <svg
-                class="three-circle-big"
-                width="27"
-                height="27"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="13.5" cy="13.5" r="13" stroke="#E31235" />
-              </svg>
-              <svg
-                class="three-circle-big"
-                width="36"
-                height="36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="18" cy="18" r="17.5" stroke="#E31235" />
-              </svg>
-              <svg
-                class="three-circle-big"
-                width="53"
-                height="53"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="26.5" cy="26.5" r="26" stroke="#E31235" />
-              </svg>
-            </div>
+            <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="61.5" cy="42.5" r="26" stroke="#E31235"/>
+                <circle cx="38" cy="66" r="17.5" stroke="#E31235"/>
+                <circle cx="21.5" cy="82.5" r="13" stroke="#E31235"/>
+            </svg>
           </div>
         </div>
 
@@ -129,26 +80,10 @@
             <?php echo get_sub_field('block_description_4'); ?>
           </div>
           <div class="goal__item-image-container">
-            <div class="circle-in-circle">
-              <div class="circle-in-circle__area">
-                <svg
-                  width="48"
-                  height="48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="24" cy="24" r="23.5" stroke="#E31235" />
-                </svg>
-              </div>
-              <svg
-                width="80"
-                height="80"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="40" cy="40" r="39.5" stroke="#E31235" />
-              </svg>
-            </div>
+            <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="48" cy="56" r="39.5" stroke="#E31235"/>
+                <circle cx="35" cy="47" r="23.5" stroke="#E31235"/>
+            </svg>
           </div>
         </div>
       </div>
@@ -192,21 +127,8 @@
             <?php echo get_sub_field('block_description_1'); ?>
           </div>
           <div class="goal__item-image-container">
-            <svg
-              class="circle"
-              width="80"
-              height="80"
-              viewBox="0 0 80 80"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle
-                cx="40"
-                cy="40"
-                r="39.5"
-                stroke="#E31235"
-                stroke-miterlimit="1.24264"
-              />
+            <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="48" cy="56" r="39.5" stroke="#E31235" stroke-miterlimit="1.24264"/>
             </svg>
           </div>
         </div>
@@ -217,22 +139,10 @@
             <?php echo get_sub_field('block_description_2'); ?>
           </div>
           <div class="goal__item-image-container">
-            <div class="two-horizontal-circle">
-              <svg
-                class="two-horizontal-circle__circle"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="28" cy="28" r="27.5" stroke="#E31235" />
-              </svg>
-              <svg
-                class="two-horizontal-circle__circle"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="28" cy="28" r="27.5" stroke="#E31235" />
-              </svg>
-            </div>
+            <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="28" cy="60" r="27.5" stroke="#E31235"/>
+                <circle cx="68" cy="60" r="27.5" stroke="#E31235"/>
+            </svg>
           </div>
         </div>
 
@@ -242,35 +152,11 @@
             <?php echo get_sub_field('block_description_3'); ?>
           </div>
           <div class="goal__item-image-container">
-            <div class="three-circle">
-              <svg
-                class="three-circle-big"
-                width="27"
-                height="27"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="13.5" cy="13.5" r="13" stroke="#E31235" />
-              </svg>
-              <svg
-                class="three-circle-big"
-                width="36"
-                height="36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="18" cy="18" r="17.5" stroke="#E31235" />
-              </svg>
-              <svg
-                class="three-circle-big"
-                width="53"
-                height="53"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="26.5" cy="26.5" r="26" stroke="#E31235" />
-              </svg>
-            </div>
+            <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="61.5" cy="42.5" r="26" stroke="#E31235"/>
+                <circle cx="38" cy="66" r="17.5" stroke="#E31235"/>
+                <circle cx="21.5" cy="82.5" r="13" stroke="#E31235"/>
+            </svg>
           </div>
         </div>
 
@@ -280,26 +166,10 @@
             <?php echo get_sub_field('block_description_4'); ?>
           </div>
           <div class="goal__item-image-container">
-            <div class="circle-in-circle">
-              <div class="circle-in-circle__area">
-                <svg
-                  width="48"
-                  height="48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="24" cy="24" r="23.5" stroke="#E31235" />
-                </svg>
-              </div>
-              <svg
-                width="80"
-                height="80"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="40" cy="40" r="39.5" stroke="#E31235" />
+              <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="48" cy="56" r="39.5" stroke="#E31235"/>
+                  <circle cx="35" cy="47" r="23.5" stroke="#E31235"/>
               </svg>
-            </div>
           </div>
         </div>
       </div>
