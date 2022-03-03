@@ -27,11 +27,26 @@ class WPcf7_Mail extends Boot {
             $result['api_send_status'] = 'data_false';
             return $response;
         }
-        
-        if( 'it' == $rel_type ){
-            $send_result = self::sent_data_to_huntflow( $posted_data );
-        } elseif( 'roznica' == $rel_type ){
+        if( 'hold' == $rel_type ){
             $send_result = self::sent_data_to_skillaz( $posted_data );
+        } elseif( 'it' == $rel_type ){
+            $send_result = self::sent_data_to_huntflow( $posted_data );
+        } elseif( 'roznica' == $rel_type || 'mainpage' == $rel_type ){
+            $send_result = self::sent_data_to_skillaz( $posted_data );
+        } elseif( 'archive' == $rel_type ){
+            if( $posted_data['text-vacancyid'] ){
+                $relationship_terms = get_the_terms( $posted_data['text-vacancyid'], 'relationship' );
+                if( is_array( $relationship_terms ) ){
+                    $current_relationship = $relationship_terms[0]->slug;
+                }
+                if( 'it' == $current_relationship ){
+                    $send_result = self::sent_data_to_huntflow( $posted_data );
+                } else{
+                    $send_result = self::sent_data_to_skillaz( $posted_data );
+                }
+            } else{
+                $send_result = self::sent_data_to_skillaz( $posted_data );
+            }
         }
         
         file_put_contents( 'wp-content/themes/career_theme/classes/API/cf7.json', print_r( $send_result, true ), FILE_APPEND );
@@ -149,18 +164,29 @@ class WPcf7_Mail extends Boot {
         $url = 'https://api-feature-mvideo.dev.skillaz.ru/open-api/objects/candidates';
         $params = array();
 
-        if( $posted_data['vacancyid'] ){
-            $unique_code = get_field( 'unique_code', $posted_data['vacancyid'] );
-            if( '' != $unique_code ){
-                $unique_code = $posted_data['vacancyid'];
+        if( 'hold' != $posted_data['text-rel_type'] ){
+            $page_type = get_post_type( $posted_data['text-vacancyid'] );
+            if( 'vacancies' == $page_type ){
+                if( $posted_data['text-vacancyid'] ){
+                    $unique_code = get_field( 'unique_code', $posted_data['text-vacancyid'] );
+                    if( '' == $unique_code ){
+                        $unique_code = '62149a22460995270b9a98b2';
+                    }
+                    $params['VacancyId'] = $unique_code;
+                } else{
+                    $params['VacancyId'] = '62149a22460995270b9a98b2';
+                }
+                if( $posted_data['text-sourceurl'] ){
+                    $params['SourceUrl'] = $posted_data['text-sourceurl'];
+                } else{
+                    $params['SourceUrl'] = 'https://job.mvideoeldorado.ru/shop/vacancy/3679';
+                }
+            }  else{
+                $params['VacancyId'] = '62149a22460995270b9a98b2';
+                $params['SourceUrl'] = 'https://job.mvideoeldorado.ru/shop/vacancy/3679';
             }
-            $params['VacancyId'] = $unique_code;
         } else{
-            $params['VacancyId'] = '60fec01df37e005d6777d853';
-        }
-        if( $posted_data['sourceurl'] ){
-            $params['SourceUrl'] = $posted_data['sourceurl'];
-        } else{
+            $params['VacancyId'] = '62149a22460995270b9a98b2';
             $params['SourceUrl'] = 'https://job.mvideoeldorado.ru/shop/vacancy/3679';
         }
         $params['BirthDate'] = '1999-03-03T00:00:00'; //надо обсудить, пока заглушка

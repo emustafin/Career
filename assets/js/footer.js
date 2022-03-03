@@ -210,6 +210,8 @@ function setup_vars_for_forms() {
     element => element.setAttribute('value',rel_type),
   );
 
+  document.querySelector('#popup_form .rel_type').setAttribute( 'value', 'hold' );
+
   document.querySelectorAll('.vacancyid').forEach(
     element => element.setAttribute('value',vacancyid),
   );

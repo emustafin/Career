@@ -199,6 +199,10 @@ export class ItHubVacancyBlock {
               // Success!
               var resp = JSON.parse(this.response);
               if( true == resp.success ){
+
+                document.querySelector('#vacancy_form .vacancyid').setAttribute( 'value', post_id );
+                document.querySelector('#vacancy_form .sourceurl').setAttribute( 'value', resp.url );
+
                 // document.querySelector('.profession__title').setAttribute('originhref', origin_location);
   
                 document.querySelector('.flyout .vacancy__headline-title').setAttribute('origin_url', origin_location);
