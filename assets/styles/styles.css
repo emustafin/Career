@@ -6423,14 +6423,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 
 .profession__filter-item-select {
   display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
-  .profession__filter-item-select .tagify.tagify--select.selectMode.listing__specialization-select {
-    border: none; }
-  .profession__filter-item-select .tagify.tagify--select.selectMode.listing__level-select {
-    border: none; }
-  .profession__filter-item-select .tagify.tagify--select.selectMode.listing__city-select {
-    border: none; }
+  justify-content: space-between; }
 
 .profession__filter-item-select-arrow {
   display: flex;
@@ -7151,6 +7144,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
     margin-bottom: 10px; }
   .slider__img {
     width: 114px;
+    height: 114px;
     margin-right: 10px; }
     @media (max-width: 1919px) {
       .slider__img {
@@ -10460,7 +10454,7 @@ input#form__town {
   font-size: 64px;
   line-height: 68px; }
 
-@media (max-width: 1580px) {
+@media (max-width: 1919px) {
   .retail__quote-container {
     margin-bottom: 72px; }
   .retail__quote {
@@ -10473,7 +10467,7 @@ input#form__town {
     font-size: 56px;
     line-height: 60px; } }
 
-@media (max-width: 1300px) {
+@media (max-width: 1439px) {
   .retail__quote-container {
     margin-bottom: 64px; }
   .retail__quote-wrapper {
@@ -10485,7 +10479,7 @@ input#form__town {
     line-height: 36px;
     margin-bottom: 24px; } }
 
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
   .retail__quote-container {
     margin-bottom: 64px; }
   .retail__quote {
@@ -10493,7 +10487,7 @@ input#form__town {
   .retail__quote-wrapper {
     top: 32px; } }
 
-@media (max-width: 740px) {
+@media (max-width: 767px) {
   .retail__quote-container {
     margin-bottom: 32px; }
   .retail__quote {
