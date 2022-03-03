@@ -28,6 +28,10 @@
 
 .upgrade__text {
   max-width: 304px;
+
+  @media (max-width: 1919px){
+    min-width: 224px;
+  }
 }
 
 .upgrade__slider-wrapper {
@@ -141,8 +145,8 @@
 
 $slider-img-small: 40px;
 $font-main: 'suisse';
-$font-line: 20px;
-$font-size: 16px;
+$font-line: 24px;
+$font-size: 18px;
 
 
 .slider{
@@ -228,6 +232,10 @@ $font-size: 16px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      @media (max-width: 767px){
+        font-size: 14px;
+        line-height: 16px;
+      }
 
       &-paragraph{
           position: relative;
@@ -290,6 +298,10 @@ $font-size: 16px;
   &__img{
       width: 114px;
       margin-right: 10px;
+      @media (max-width: 1919px){
+        width: 102px;
+        height: 102px;
+      }
       @media (max-width: 1439px){
         width: 96px;
         height: 96px;
@@ -303,6 +315,10 @@ $font-size: 16px;
       font-size: $font-size;
       font-family: $font-main;
       line-height: $font-line;
+      @media (max-width: 767px){
+        font-size: 14px;
+        line-height: 16px;
+      }
       &-name{
           
       }
@@ -329,34 +345,42 @@ $font-size: 16px;
           display: block;
       }
       &-profession{
-          padding-right: 25px;
           display: block;
       }
       &-item{
-          display: block;
+          display: flex;
           position: relative;
-          width: 33.33%;
+          // width: 33.33%;
           margin-bottom: 16px;
+          &-wrapper{
+            margin-right: 8px;
+          }
           &-mobile{
               margin-bottom: 4px;
           }
           &:last-child{
+            & > svg {
+              display: none;
+            }
               &::after{
                   display: none;
               }
           }
-          &::after{
-              content: '';
-              position: absolute;
-              top: calc(50% - 5px);
-              right: 10px;
-              width: 14px;
-              height: 10px;
-              background-image: url("data:image/svg+xml,%3Csvg class='upgrade__way-arrow' width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.5515 4.39999L8.57574 1.42426L9.42426 0.575729L13.8485 4.99999L9.42426 9.42426L8.57574 8.57573L11.5515 5.59999H0V4.39999H11.5515Z' fill='black'%3E%3C/path%3E%3C/svg%3E");
-              background-repeat: no-repeat;
-              background-position: center center;
-              background-size: 14px;
+          & > svg{
+            margin-right: 8px;
           }
+          // &::after{
+          //     content: '';
+          //     position: absolute;
+          //     top: calc(50% - 5px);
+          //     right: 10px;
+          //     width: 14px;
+          //     height: 10px;
+          //     background-image: url("data:image/svg+xml,%3Csvg class='upgrade__way-arrow' width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.5515 4.39999L8.57574 1.42426L9.42426 0.575729L13.8485 4.99999L9.42426 9.42426L8.57574 8.57573L11.5515 5.59999H0V4.39999H11.5515Z' fill='black'%3E%3C/path%3E%3C/svg%3E");
+          //     background-repeat: no-repeat;
+          //     background-position: center center;
+          //     background-size: 14px;
+          // }
       }
 
   }

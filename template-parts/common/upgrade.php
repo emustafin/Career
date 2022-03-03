@@ -125,8 +125,13 @@ $reviews = new WP_Query( $args );
 
                                                     ?>
                                                     <div class="slider__way-item">
-                                                        <span class="slider__way-year"><?php echo get_sub_field('year'); ?></span>
-                                                        <span class="slider__way-profession"><?php echo get_sub_field('proff'); ?></span>
+                                                        <div class="slider__way-item-wrapper">
+                                                            <span class="slider__way-year"><?php echo get_sub_field('year'); ?></span>
+                                                            <span class="slider__way-profession"><?php echo get_sub_field('proff'); ?></span>
+                                                        </div>
+                                                        <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M12.5515 9.40044L9.57574 6.4247L10.4243 5.57617L14.8485 10.0004L10.4243 14.4247L9.57574 13.5762L12.5515 10.6004H1V9.40044H12.5515Z" fill="black"/>
+                                                        </svg>
                                                     </div>
                                                     <?php
                                                     $k++;

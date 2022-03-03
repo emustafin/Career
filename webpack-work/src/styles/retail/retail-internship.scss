@@ -62,8 +62,63 @@
 .retail__internship-image-block {
   width: 33.33%;
   min-width: 536px;
-  min-height: 536px;
+  min-height: 570px;
   position: relative;
+  margin-top: 2%;
+}
+
+@keyframes circleoutside { 
+  to { transform: rotate(-1turn); }
+}
+
+@keyframes circleinside { 
+  to { transform: rotate(1turn); }
+}
+
+@keyframes impuls { 
+  to { transform:scale(1.1); }
+}
+
+.spin__right {
+  animation: circleoutside 5000ms infinite linear;
+  width: 536px;
+  height: 536px;
+
+  @media (max-width: 1919px){
+    width: 344px;
+    height: 344px;
+  }
+
+  @media (max-width: 1439px){
+    width: 308px;
+    height: 308px;
+  }
+
+  @media (max-width: 767px){
+    width: 286px;
+    height: 286px;
+  }
+}
+
+.spin__left{
+  animation: circleinside 5000ms infinite linear;
+  width: 362px;
+  height: 362px;
+
+  @media (max-width: 1919px){
+    width: 232px;
+    height: 232px;
+  }
+
+  @media (max-width: 1439px){
+    width: 200px;
+    height: 200px;
+  }
+
+  @media (max-width: 767px){
+    width: 186px;
+    height: 186px;
+  }
 }
 
 .retail__internship-image-block-outside {
@@ -133,13 +188,34 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: 0.3s;
+  top: calc(50% - 72px);
+  left: calc(50% - 72px);
+  animation-name: impuls;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  // transform: translate(-50%, -50%);
+  // transition: 0.3s;
 
   & > svg {
     transform: scale(2);
+  }
+
+  @media (max-width: 1919px){
+    top: calc(50% - 36px);
+    left: calc(50% - 36px);
+  }
+
+  @media (max-width: 1439px){
+    top: calc(50% - 32px);
+    left: calc(50% - 32px);
+  }
+
+  @media (max-width: 767px){
+    top: calc(50% - 28px);
+    left: calc(50% - 28px);
   }
 }
 
@@ -163,7 +239,7 @@
 
   .retail__internship-image-block {
     min-width: 344px;
-    min-height: 344px;
+    min-height: 375px;
   }
 
   .retail__internship-image-block-outside {
@@ -230,7 +306,8 @@
 
   .retail__internship-image-block {
     min-width: 308px;
-    min-height: 308px;
+    min-height: 340px;
+    margin-top: 3%;
   }
   .retail__internship-image-block-outside,
   .retail__internship-image-block-outside-circle {
@@ -314,6 +391,7 @@
   .retail__internship-image-block {
     order: -1;
     margin-bottom: 16px;
+    margin-top: 6%;
   }
 
   .retail__internship-image-block-outside {
@@ -346,7 +424,7 @@
   }
 
   .retail__internship-button {
-    transform: rotate(0) translateX(0);
+    transform: rotate(-2deg) translateX(0);
     margin-right: auto;
     margin-left: 0;
   }
