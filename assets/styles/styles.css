@@ -2493,6 +2493,10 @@
 .codedropz-upload-container {
   padding: 20px 20px; }
 
+.tagify__tag {
+  margin: 0;
+  margin-right: 4px; }
+
 .footer {
   padding-top: 40px;
   padding-bottom: 24px;
