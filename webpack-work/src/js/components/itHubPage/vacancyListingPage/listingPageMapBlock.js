@@ -284,7 +284,7 @@ export class ListingVacancyMapBlock {
     }
   }
 
-  yandexMapInit() {
+  yandexMapInit( icons ) {
     this.map = new ymaps.Map('yandex-map', {
       center: [55.773674, 37.67109],
       zoom: 17,
@@ -430,8 +430,15 @@ export class ListingVacancyMapBlock {
           iconLayout: 'default#image',
           iconImageHref: icons[i][1],
           iconImageSize: [42, 66],
+          iconWithContent: icons[i][2],
         }
       );
+      
+      itemPlace.events.add('click', function(e) {
+        var iconWithContent = e.get('target')['options'].get('iconWithContent')
+        $(`.listing-metro__shop[data-shop_id=${iconWithContent}]`).click();
+      });
+
       this.map.geoObjects.add(itemPlace);
     }
 

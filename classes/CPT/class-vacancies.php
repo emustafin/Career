@@ -417,24 +417,26 @@ class Vacancies {
                             if( 'mvideo' == get_field( 'mvideo_or_eldorado', $shop_term ) ){
                                 $shop_mvideo_html ='
                                     <div class="listing-metro__shop" 
+                                        data-shop_id="'.$shop_term->term_id.'"
                                         data-shop_slug="'.$shop_term->slug.'" 
                                         data-latitude="'.get_field( 'shop_koordinates_latitude', $shop_term ).'" 
                                         data-longitude="'.get_field( 'shop_koordinates_longitude', $shop_term ).'"
                                     >
-                                    <div class="listing-metro__shop-title">'.$shop_term->name.'</div>
-                                    <div class="listing-metro__shop-address">'.get_field( 'shop_adress', $shop_term ).'</div>
+                                        <div class="listing-metro__shop-title">'.$shop_term->name.'</div>
+                                        <div class="listing-metro__shop-address">'.get_field( 'shop_adress', $shop_term ).'</div>
                                     </div>
                                 ';
                             }
                             if( 'eldorado' == get_field( 'mvideo_or_eldorado', $shop_term ) ){
                                 $shop_eldorado_html ='
                                     <div class="listing-metro__shop" 
-                                    data-shop_slug="'.$shop_term->slug.'" 
-                                    data-latitude="'.get_field( 'shop_koordinates_latitude', $shop_term ).'" 
-                                    data-longitude="'.get_field( 'shop_koordinates_longitude', $shop_term ).'"
+                                        data-shop_id="'.$shop_term->term_id.'"
+                                        data-shop_slug="'.$shop_term->slug.'" 
+                                        data-latitude="'.get_field( 'shop_koordinates_latitude', $shop_term ).'" 
+                                        data-longitude="'.get_field( 'shop_koordinates_longitude', $shop_term ).'"
                                     >
-                                    <div class="listing-metro__shop-title">'.$shop_term->name.'</div>
-                                    <div class="listing-metro__shop-address">'.get_field( 'shop_adress', $shop_term ).'</div>
+                                        <div class="listing-metro__shop-title">'.$shop_term->name.'</div>
+                                        <div class="listing-metro__shop-address">'.get_field( 'shop_adress', $shop_term ).'</div>
                                     </div>
                                 ';
                             }
@@ -449,7 +451,8 @@ class Vacancies {
                                             get_field( 'shop_koordinates_latitude', $shop_term ),
                                             get_field( 'shop_koordinates_longitude', $shop_term )
                                         ],
-                                        THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
+                                        THEME_URL . '/assets/images/listing/map/mvideo-icon.png',
+                                        $shop_term->term_id
                                     );
                                     break;
                               
@@ -460,7 +463,8 @@ class Vacancies {
                                             get_field( 'shop_koordinates_latitude', $shop_term ),
                                             get_field( 'shop_koordinates_longitude', $shop_term )
                                         ],
-                                        THEME_URL . '/assets/images/listing/map/eldorado-icon.png'
+                                        THEME_URL . '/assets/images/listing/map/eldorado-icon.png',
+                                        $shop_term->term_id
                                     );
                                     break;
                               
@@ -471,7 +475,8 @@ class Vacancies {
                                             get_field( 'shop_koordinates_latitude', $shop_term ),
                                             get_field( 'shop_koordinates_longitude', $shop_term )
                                         ],
-                                        THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
+                                        THEME_URL . '/assets/images/listing/map/mvideo-icon.png',
+                                        $shop_term->term_id
                                     );
                                     break;
                             }
@@ -659,11 +664,13 @@ class Vacancies {
                                               get_field( 'shop_koordinates_latitude', $shop_term ),
                                               get_field( 'shop_koordinates_longitude', $shop_term )
                                             ],
-                                            THEME_URL . '/assets/images/listing/map/eldorado-icon.png'
+                                            THEME_URL . '/assets/images/listing/map/eldorado-icon.png',
+                                            $shop_term->term_id
                                         );
     
                                         $html_eldorado_shops .= '
                                             <div class="listing-metro__shop" 
+                                                data-shop_id="'.$shop_term->term_id.'"
                                                 data-shop_slug="'.$shop_term->slug.'" 
                                                 data-latitude="'.get_field( 'shop_koordinates_latitude', $shop_term ).'" 
                                                 data-longitude="'.get_field( 'shop_koordinates_longitude', $shop_term ).'"
@@ -692,11 +699,13 @@ class Vacancies {
                                               get_field( 'shop_koordinates_latitude', $shop_term ),
                                               get_field( 'shop_koordinates_longitude', $shop_term )
                                             ],
-                                            THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
+                                            THEME_URL . '/assets/images/listing/map/mvideo-icon.png',
+                                            $shop_term->term_id
                                         );
                                         
                                         $html_mvideo_shops .= '
                                             <div class="listing-metro__shop" 
+                                                data-shop_id="'.$shop_term->term_id.'"
                                                 data-shop_slug="'.$shop_term->slug.'" 
                                                 data-latitude="'.get_field( 'shop_koordinates_latitude', $shop_term ).'" 
                                                 data-longitude="'.get_field( 'shop_koordinates_longitude', $shop_term ).'"

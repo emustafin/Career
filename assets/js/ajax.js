@@ -494,7 +494,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     if( data.city_slug != '-1' ){
                         xxx = xxx+'&city_slug='+city_slug;
                     }
-                    if( data.vaccat_slug != undefined ){
+                    if( data.vaccat_slug != undefined && '-1' != data.vaccat_slug ){
                         xxx = xxx+'&vaccat_slug='+vaccat_slug;
                     }
                     if( data.top__profession != undefined ){

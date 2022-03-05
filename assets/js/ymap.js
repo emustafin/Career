@@ -33,8 +33,15 @@ function yandexMapInit( icons ) {
         iconLayout: 'default#image',
         iconImageHref: icons[i][1],
         iconImageSize: [42, 66],
+        iconWithContent: icons[i][2],
       }
     );
+
+    itemPlace.events.add('click', function(e) {
+      var iconWithContent = e.get('target')['options'].get('iconWithContent')
+      $(`.listing-metro__shop[data-shop_id=${iconWithContent}]`).click();
+    });
+
     mapV.geoObjects.add(itemPlace);
   }
 
