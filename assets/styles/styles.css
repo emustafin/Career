@@ -10688,24 +10688,47 @@ section.page__404 {
   padding-top: 76px;
   height: 904px;
   position: relative; }
+  @media (max-width: 1919px) {
+    section.page__404 {
+      font-size: 16px;
+      line-height: 20px;
+      padding-top: 68px;
+      height: 728px; } }
 
 .page__404-wrapper {
   position: relative;
   left: 50%;
   width: 33.4%;
   margin-top: 120px; }
+  @media (max-width: 1919px) {
+    .page__404-wrapper {
+      width: 29.4%;
+      margin-top: 96px; } }
 
 .page__404-title-wrapper {
-  display: flex; }
+  display: flex;
+  margin-bottom: 56px; }
+  @media (max-width: 1919px) {
+    .page__404-title-wrapper {
+      margin-bottom: 40px; } }
 
 h3.page__404-title {
   font-size: 212px;
   line-height: 200px;
-  margin-right: 24px; }
+  margin-right: 24px;
+  letter-spacing: -0.03em; }
+  @media (max-width: 1919px) {
+    h3.page__404-title {
+      font-size: 164px;
+      line-height: 138px;
+      margin-right: 16px; } }
 
 p.page__404-subtitle {
   margin-top: 16px;
   max-width: 101px; }
+  @media (max-width: 1919px) {
+    p.page__404-subtitle {
+      max-width: 94px; } }
 
 .page__404-conten__wrapper {
   position: relative;
@@ -10728,66 +10751,279 @@ a.page__404-link {
   right: 0; }
   a.page__404-link:hover {
     transform: rotate(0); }
+  @media (max-width: 1919px) {
+    a.page__404-link {
+      font-size: 20px;
+      line-height: 20px; } }
+
+.Basic-White {
+  background: #FFFFFF;
+  box-shadow: 2px 2px 24px rgba(0, 0, 0, 0.03);
+  border-radius: 1000px; }
 
 .bubble__one {
   position: absolute;
-  left: calc(50% - 56px/2 - 640px);
-  top: 501px; }
+  width: 48px;
+  height: 48px;
+  left: calc(50% - 48px/2 - 920px);
+  top: 461px; }
+  .bubble__one > svg {
+    position: absolute;
+    left: 15.38%;
+    right: 15.38%;
+    top: 15.38%;
+    bottom: 15.39%; }
+  @media (max-width: 1919px) {
+    .bubble__one {
+      width: 40px;
+      height: 40px;
+      left: calc(50% - 40px/2 - 684px);
+      top: 413px; }
+      .bubble__one > svg {
+        width: 27.69px;
+        height: 27.69px; } }
 
 .bubble__two {
   position: absolute;
-  left: calc(50% - 48px/2 - 920px);
-  top: 461px; }
+  width: 72px;
+  height: 72px;
+  left: 248px;
+  top: 276px; }
+  .bubble__two > svg {
+    position: absolute;
+    left: 15.38%;
+    right: 15.38%;
+    top: 15.39%;
+    bottom: 15.38%; }
+  @media (max-width: 1919px) {
+    .bubble__two {
+      width: 64px;
+      height: 64px;
+      left: 176px;
+      top: 299px; }
+      .bubble__two > svg {
+        width: 44.31px;
+        height: 44.31px; } }
 
 .bubble__three {
   position: absolute;
-  left: 248px;
-  top: 276px; }
+  width: 56px;
+  height: 56px;
+  left: calc(50% - 56px/2 - 640px);
+  top: 501px; }
+  .bubble__three > svg {
+    position: absolute;
+    left: 15.67%;
+    right: 15.58%;
+    top: 15.67%;
+    bottom: 15.58%; }
+  @media (max-width: 1919px) {
+    .bubble__three {
+      width: 48px;
+      height: 48px;
+      left: calc(50% - 48px/2 - 480px);
+      top: 457px; }
+      .bubble__three > svg {
+        width: 33px;
+        height: 33px; } }
 
 .bubble__four {
   position: absolute;
+  width: 72px;
+  height: 72px;
   left: calc(50% - 72px/2 - 479px);
   top: 716px; }
+  .bubble__four > svg {
+    position: absolute;
+    left: 15.38%;
+    right: 15.38%;
+    top: 15.39%;
+    bottom: 15.38%; }
+  @media (max-width: 1919px) {
+    .bubble__four {
+      width: 64px;
+      height: 64px;
+      left: calc(50% - 64px/2 - 358px);
+      top: 573px; }
+      .bubble__four > svg {
+        width: 44.31px;
+        height: 44.31px; } }
 
 .bubble__five {
   position: absolute;
+  width: 64px;
+  height: 64px;
   left: 576px;
   top: 255px; }
+  .bubble__five > svg {
+    position: absolute;
+    left: 15.38%;
+    right: 15.38%;
+    top: 15.39%;
+    bottom: 15.38%; }
+  @media (max-width: 1919px) {
+    .bubble__five {
+      width: 56px;
+      height: 56px;
+      left: 449px;
+      top: 210px; }
+      .bubble__five > svg {
+        width: 38.77px;
+        height: 38.77px; } }
 
 .bubble__six {
   position: absolute;
+  width: 64px;
+  height: 64px;
   left: 640px;
   bottom: 382px; }
+  .bubble__six > svg {
+    position: absolute;
+    left: 15.38%;
+    right: 15.38%;
+    top: 15.39%;
+    bottom: 15.38%; }
+  @media (max-width: 1919px) {
+    .bubble__six {
+      width: 56px;
+      height: 56px;
+      left: 480px;
+      bottom: 259px; }
+      .bubble__six > svg {
+        width: 38.77px;
+        height: 38.77px; } }
 
 .bubble__seven {
   position: absolute;
+  width: 56px;
+  height: 56px;
   left: calc(50% - 56px/2 - 160px);
   top: 411px; }
+  .bubble__seven > svg {
+    position: absolute;
+    left: 15.38%;
+    right: 15.38%;
+    top: 15.39%;
+    bottom: 15.38%; }
+  @media (max-width: 1919px) {
+    .bubble__seven {
+      width: 48px;
+      height: 48px;
+      left: calc(50% - 48px/2 - 114px);
+      top: 363px; }
+      .bubble__seven > svg {
+        width: 33.23px;
+        height: 33.23px; } }
 
 .bubble__eight {
   position: absolute;
+  width: 72px;
+  height: 72px;
   right: 887px;
   bottom: 187px; }
+  .bubble__eight > svg {
+    position: absolute;
+    left: 15.38%;
+    right: 15.38%;
+    top: 15.39%;
+    bottom: 15.38%; }
+  @media (max-width: 1919px) {
+    .bubble__eight {
+      width: 64px;
+      height: 64px;
+      right: 656px;
+      bottom: 169px; }
+      .bubble__eight > svg {
+        width: 44.31px;
+        height: 44.31px; } }
 
 .bubble__nine {
   position: absolute;
+  width: 56px;
+  height: 56px;
   right: 612px;
   bottom: 252px; }
+  .bubble__nine > svg {
+    position: absolute;
+    left: 15.38%;
+    right: 15.38%;
+    top: 15.39%;
+    bottom: 15.38%; }
+  @media (max-width: 1919px) {
+    .bubble__nine {
+      width: 48px;
+      height: 48px;
+      right: 457px;
+      bottom: 219px; }
+      .bubble__nine > svg {
+        width: 33.23px;
+        height: 33.23px; } }
 
 .bubble__ten {
   position: absolute;
+  width: 72px;
+  height: 72px;
   right: 284px;
   bottom: 197px; }
+  .bubble__ten > svg {
+    position: absolute;
+    left: 15.38%;
+    right: 15.38%;
+    top: 15.39%;
+    bottom: 15.38%; }
+  @media (max-width: 1919px) {
+    .bubble__ten {
+      width: 64px;
+      height: 64px;
+      right: 211px;
+      bottom: 188px; }
+      .bubble__ten > svg {
+        width: 44.31px;
+        height: 44.31px; } }
 
 .bubble__eleven {
   position: absolute;
+  width: 48px;
+  height: 48px;
   right: 272px;
   top: 303px; }
+  .bubble__eleven > svg {
+    position: absolute;
+    left: 15.67%;
+    right: 15.58%;
+    top: 15.67%;
+    bottom: 15.58%; }
+  @media (max-width: 1919px) {
+    .bubble__eleven {
+      width: 40px;
+      height: 40px;
+      right: 200px;
+      top: 244px; }
+      .bubble__eleven > svg {
+        width: 27.5px;
+        height: 27.5px; } }
 
 .bubble__twelve {
   position: absolute;
+  width: 56px;
+  height: 56px;
   right: 18px;
   top: 427px; }
+  .bubble__twelve > svg {
+    position: absolute;
+    left: 15.38%;
+    right: 15.38%;
+    top: 15.39%;
+    bottom: 15.38%; }
+  @media (max-width: 1919px) {
+    .bubble__twelve {
+      width: 48px;
+      height: 48px;
+      right: 16px;
+      top: 351px; }
+      .bubble__twelve > svg {
+        width: 33.23px;
+        height: 33.23px; } }
 
 .listing-metro__content {
   display: flex;
