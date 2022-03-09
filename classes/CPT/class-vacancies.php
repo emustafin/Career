@@ -159,18 +159,18 @@ class Vacancies {
         register_taxonomy( 'vaccat', ['vacancies'], array(
             'label'                 => '',
             'labels'                => array(
-                'name'              => 'Категории',
-                'singular_name'     => 'Категория',
-                'search_items'      => 'Поиск категории',
-                'all_items'         => 'Все категории',
-                'view_item '        => 'Просмотр категории',
-                'parent_item'       => 'Родительская категория',
-                'parent_item_colon' => 'Родительская категория:',
-                'edit_item'         => 'Изменить категория',
-                'update_item'       => 'Обновить категорию',
-                'add_new_item'      => 'Добавить новую категорию',
-                'new_item_name'     => 'Название новой категории',
-                'menu_name'         => 'Категория',
+                'name'              => 'Специализации',
+                'singular_name'     => 'Специализация',
+                'search_items'      => 'Поиск специализации',
+                'all_items'         => 'Все специализации',
+                'view_item '        => 'Просмотр специализации',
+                'parent_item'       => 'Родительская специализация',
+                'parent_item_colon' => 'Родительская специализация:',
+                'edit_item'         => 'Изменить специализацию',
+                'update_item'       => 'Обновить специализацию',
+                'add_new_item'      => 'Добавить новую специализацию',
+                'new_item_name'     => 'Название новой специализации',
+                'menu_name'         => 'Специализация',
             ),
             'description'           => '',
             'public'                => true,
@@ -246,10 +246,16 @@ class Vacancies {
                 'post_type'         => 'vacancies',
                 'posts_per_page'    => 6,
                 'post_status'       => 'publish',
-                'relationship'      => 'it'
             );
 
             if( 'default' != $_POST['default'] ){
+
+                if( null != $_POST['rel_type'] && '-1'!= $_POST['rel_type']  ){
+                    $args['relationship'] = $_POST['rel_type'];
+                } else{
+                    $args['relationship'] = 'it';
+                }
+
                 if( null != $_POST['vaccat_slug'] && '-1'!= $_POST['vaccat_slug']  ){
                     $args['tax_query'][] = array(
                         'taxonomy' => 'vaccat',

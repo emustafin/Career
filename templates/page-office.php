@@ -3,9 +3,12 @@
 Template Name: Office
 */
 ?>
-<?php get_header(); ?>
+<?php
+get_header();
+$rel_type = 'office';
+?>
 <script>
-    var rel_type = 'office';
+    var rel_type = '<?php echo $rel_type; ?>';
     var vacancyid = '';
     var sourceurl = '';
 </script>

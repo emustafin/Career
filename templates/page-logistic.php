@@ -3,9 +3,12 @@
 Template Name: Logistic
 */
 ?>
-<?php get_header(); ?>
+<?php
+get_header();
+$rel_type = 'logistic';
+?>
 <script>
-    var rel_type = 'logistic';
+    var rel_type = '<?php echo $rel_type; ?>';
     var vacancyid = '';
     var sourceurl = '';
 </script>
