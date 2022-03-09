@@ -35,7 +35,6 @@ if( !empty( $_GET['search'] ) ){
 }
 
 $actually_vacancies_retail = new \WP_Query( $args );
-$published_posts = $actually_vacancies_retail->post_count;
 $paged = 1;
 
 $shop_terms_id = array();
@@ -201,7 +200,7 @@ get_header();
       <div class="page-container">
         <h2 class="listing-top__title">
           Вакансии
-          <span class="listing-top__counter"><?php echo $published_posts; ?></span>
+          <span class="listing-top__counter"><?php echo get_term_by( 'slug', 'roznica', 'relationship' )->count; ?></span>
         </h2>
         <div class="listing-top__dropdown">
             <button onclick="myFunction()" class="dropbtn">в <?php echo $page_title; ?></button>
