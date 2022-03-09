@@ -40,6 +40,7 @@ $paged = 1;
 $shop_terms_id = array();
 $shop_terms = array();
 $town_arr['-1'] = 'Любой';
+$town_titles = array('Любой');
 $vacancy_titles = array();
 
 if( $actually_vacancies_retail->have_posts() ) :
@@ -67,8 +68,9 @@ if( $actually_vacancies_retail->have_posts() ) :
     $current_town_terms = (array)get_the_terms( $vacancy_item_id, 'town' );
     if( is_array( $current_town_terms ) ){
       foreach( $current_town_terms as $current_town_term ){
-        if( !in_array( $current_town_term->name, $town_arr ) ){
+        if( false != $current_town_term && !in_array( $current_town_term->name, $town_arr ) ){
           $town_arr[$current_town_term->slug] = $current_town_term->name;
+          $town_titles[] = $current_town_term->name;
         }
       }
     }
@@ -176,6 +178,7 @@ get_header();
     var shop_terms_id = '<?php echo json_encode( $shop_terms_id ); ?>';
     var level_arr = '<?php echo json_encode( $level_arr ); ?>';
     var town_arr = '<?php echo json_encode( $town_arr ); ?>';
+    town_titles = JSON.parse('<?php echo json_encode( $town_titles ); ?>');
     var vaccat_arr = '<?php echo json_encode( $vaccat_arr ); ?>';
     var vacancy_get = '<?php echo json_encode( $vacancy_get ); ?>';
     var vacancy_titles = '<?php echo json_encode( $vacancy_titles ); ?>';

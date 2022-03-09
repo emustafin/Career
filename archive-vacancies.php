@@ -77,11 +77,22 @@ endforeach;
 $vacancy_get = $_GET["search"];
 
 $vacancy_titles = array();
+$town_titles = array('Любой');
 
 if ( have_posts() ) {
     while ( have_posts() ) {
         the_post();
+
         $vacancy_titles[] = get_the_title();
+
+        $current_town_terms = (array)get_the_terms( get_the_ID(), 'town' );
+        if( is_array( $current_town_terms ) ){
+            foreach( $current_town_terms as $current_town_term ){
+                if( false != $current_town_term && !in_array( $current_town_term->name, $town_titles ) ){
+                    $town_titles[] = $current_town_term->name;
+                }
+            }
+        }
     }
 }
 
@@ -93,6 +104,7 @@ if ( have_posts() ) {
     var vaccat_arr = '<?php echo json_encode( $vaccat_arr ); ?>';
     var vacancy_get = '<?php echo json_encode( $vacancy_get ); ?>';
     var vacancy_titles = '<?php echo json_encode( $vacancy_titles ); ?>';
+    town_titles = JSON.parse('<?php echo json_encode( $town_titles ); ?>');
     var rel_type = 'archive';
     var rt = '<?php echo $type_page; ?>';
     var vacancyid = '';
