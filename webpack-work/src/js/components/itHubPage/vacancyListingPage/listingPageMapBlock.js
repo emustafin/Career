@@ -49,6 +49,10 @@ export class ListingVacancyMapBlock {
         button.dataset.name === 'list'
           ? this.showVacanciesList()
           : this.showVacanciesOnMap();
+
+        setTimeout(() => {
+          mapV.setBounds( mapV.geoObjects.getBounds(), {checkZoomRange:true, zoomMargin:20} );
+        }, 350);
       });
     });
 
