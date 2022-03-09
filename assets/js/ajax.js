@@ -228,19 +228,37 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         // document.querySelector('#actually_vacancies').innerHTML = '<div class="loader-bg"><div class="lds-ripple"><div></div><div></div></div></div>';
         
-        var ndi = JSON.stringify(newDefaultIcons);
-        var nmvi = JSON.stringify(mvideoIcons);
-        var neli = JSON.stringify(eldoradoIcons);
+        if( typeof newDefaultIcons != 'undefined' ){
+            var ndi = JSON.stringify(newDefaultIcons);
+        }
+        if( typeof mvideoIcons != 'undefined' ){
+            var nmvi = JSON.stringify(mvideoIcons);
+        }
+        if( typeof eldoradoIcons != 'undefined' ){
+            var neli = JSON.stringify(eldoradoIcons);
+        }
 
         var data = {
             action: 'archive_show_more_items',
-            newDefaultIcons : ndi,
-            nmvi : nmvi,
-            neli : neli,
-            shop_terms_id : shop_terms_id,
             query_vars : query_vars,
             paged : paged
         };
+
+        if( ndi ){
+            data['newDefaultIcons'] = ndi;
+        }
+
+        if( typeof shop_terms_id != 'undefined' ){
+            data['shop_terms_id'] = shop_terms_id;
+        }
+
+        if( nmvi ){
+            data['nmvi'] = nmvi;
+        }
+
+        if( neli ){
+            data['neli'] = neli;
+        }
 
         paged++;
 
@@ -494,7 +512,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     if( data.city_slug != '-1' ){
                         xxx = xxx+'&city_slug='+city_slug;
                     }
-                    if( data.vaccat_slug != undefined ){
+                    if( data.vaccat_slug != undefined && '-1' != data.vaccat_slug ){
                         xxx = xxx+'&vaccat_slug='+vaccat_slug;
                     }
                     if( data.top__profession != undefined ){

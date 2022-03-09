@@ -19,7 +19,7 @@ if( !empty( $_GET['type'] ) && array_key_exists( $_GET['type'], $page_data ) ){
 
 $args = array(
   'post_type'         => 'vacancies',
-  'posts_per_page'    => -1,
+  'posts_per_page'    => 10,
   'post_status'       => 'publish',
   'tax_query'         => array( 
     array(
@@ -35,12 +35,12 @@ if( !empty( $_GET['search'] ) ){
 }
 
 $actually_vacancies_retail = new \WP_Query( $args );
-$published_posts = $actually_vacancies_retail->post_count;
 $paged = 1;
 
 $shop_terms_id = array();
 $shop_terms = array();
 $town_arr['-1'] = 'Любой';
+$town_titles = array('Любой');
 $vacancy_titles = array();
 
 if( $actually_vacancies_retail->have_posts() ) :
@@ -68,8 +68,9 @@ if( $actually_vacancies_retail->have_posts() ) :
     $current_town_terms = (array)get_the_terms( $vacancy_item_id, 'town' );
     if( is_array( $current_town_terms ) ){
       foreach( $current_town_terms as $current_town_term ){
-        if( !in_array( $current_town_term->name, $town_arr ) ){
+        if( false != $current_town_term && !in_array( $current_town_term->name, $town_arr ) ){
           $town_arr[$current_town_term->slug] = $current_town_term->name;
+          $town_titles[] = $current_town_term->name;
         }
       }
     }
@@ -108,7 +109,8 @@ foreach ($shop_terms as $shop_term ) {
             get_field( 'shop_koordinates_latitude', $shop_term ),
             get_field( 'shop_koordinates_longitude', $shop_term )
           ],
-          THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
+          THEME_URL . '/assets/images/listing/map/mvideo-icon.png',
+          $shop_term->term_id
         );
         break;
       
@@ -125,7 +127,8 @@ foreach ($shop_terms as $shop_term ) {
             get_field( 'shop_koordinates_latitude', $shop_term ),
             get_field( 'shop_koordinates_longitude', $shop_term )
           ],
-          THEME_URL . '/assets/images/listing/map/eldorado-icon.png'
+          THEME_URL . '/assets/images/listing/map/eldorado-icon.png',
+          $shop_term->term_id
         );
         break;
       
@@ -142,7 +145,8 @@ foreach ($shop_terms as $shop_term ) {
             get_field( 'shop_koordinates_latitude', $shop_term ),
             get_field( 'shop_koordinates_longitude', $shop_term )
           ],
-          THEME_URL . '/assets/images/listing/map/mvideo-icon.png'
+          THEME_URL . '/assets/images/listing/map/mvideo-icon.png',
+          $shop_term->term_id
         );
         break;
     }
@@ -159,7 +163,8 @@ foreach ($shop_terms as $shop_term ) {
         get_field( 'shop_koordinates_latitude', $shop_term ),
         get_field( 'shop_koordinates_longitude', $shop_term )
       ],
-      $name_icon
+      $name_icon,
+      $shop_term->term_id
     );
   }
 }
@@ -173,6 +178,7 @@ get_header();
     var shop_terms_id = '<?php echo json_encode( $shop_terms_id ); ?>';
     var level_arr = '<?php echo json_encode( $level_arr ); ?>';
     var town_arr = '<?php echo json_encode( $town_arr ); ?>';
+    town_titles = JSON.parse('<?php echo json_encode( $town_titles ); ?>');
     var vaccat_arr = '<?php echo json_encode( $vaccat_arr ); ?>';
     var vacancy_get = '<?php echo json_encode( $vacancy_get ); ?>';
     var vacancy_titles = '<?php echo json_encode( $vacancy_titles ); ?>';
@@ -197,7 +203,7 @@ get_header();
       <div class="page-container">
         <h2 class="listing-top__title">
           Вакансии
-          <span class="listing-top__counter"><?php echo $published_posts; ?></span>
+          <span class="listing-top__counter"><?php echo get_term_by( 'slug', 'roznica', 'relationship' )->count; ?></span>
         </h2>
         <div class="listing-top__dropdown">
             <button onclick="myFunction()" class="dropbtn">в <?php echo $page_title; ?></button>
@@ -365,6 +371,7 @@ get_header();
                 if( 'mvideo' == get_field( 'mvideo_or_eldorado', $shop_term ) ){                
                   ?>
                   <div class="listing-metro__shop" 
+                    data-shop_id="<?php echo $shop_term->term_id;?>"
                     data-shop_slug="<?php echo $shop_term->slug; ?>" 
                     data-latitude="<?php echo get_field( 'shop_koordinates_latitude', $shop_term );?>" 
                     data-longitude="<?php echo get_field( 'shop_koordinates_longitude', $shop_term );?>"
@@ -388,6 +395,7 @@ get_header();
                 if( 'eldorado' == get_field( 'mvideo_or_eldorado', $shop_term ) ){                
                   ?>
                   <div class="listing-metro__shop" 
+                    data-shop_id="<?php echo $shop_term->term_id;?>"
                     data-shop_slug="<?php echo $shop_term->slug; ?>" 
                     data-latitude="<?php echo get_field( 'shop_koordinates_latitude', $shop_term );?>" 
                     data-longitude="<?php echo get_field( 'shop_koordinates_longitude', $shop_term );?>"

@@ -77,11 +77,22 @@ endforeach;
 $vacancy_get = $_GET["search"];
 
 $vacancy_titles = array();
+$town_titles = array('Любой');
 
 if ( have_posts() ) {
     while ( have_posts() ) {
         the_post();
+
         $vacancy_titles[] = get_the_title();
+
+        $current_town_terms = (array)get_the_terms( get_the_ID(), 'town' );
+        if( is_array( $current_town_terms ) ){
+            foreach( $current_town_terms as $current_town_term ){
+                if( false != $current_town_term && !in_array( $current_town_term->name, $town_titles ) ){
+                    $town_titles[] = $current_town_term->name;
+                }
+            }
+        }
     }
 }
 
@@ -93,6 +104,7 @@ if ( have_posts() ) {
     var vaccat_arr = '<?php echo json_encode( $vaccat_arr ); ?>';
     var vacancy_get = '<?php echo json_encode( $vacancy_get ); ?>';
     var vacancy_titles = '<?php echo json_encode( $vacancy_titles ); ?>';
+    town_titles = JSON.parse('<?php echo json_encode( $town_titles ); ?>');
     var rel_type = 'archive';
     var rt = '<?php echo $type_page; ?>';
     var vacancyid = '';
@@ -515,7 +527,7 @@ else:
 endif; ?>
 <!-- Button Show-more -->
 <div class="products__show-more" style="<?php echo $button_show_more_display; ?>">
-    <div href="#" class="position__show-more-button">
+    <div class="position__show-more-button">
         показать ещё
         <svg class="position__show-more-button-link" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4.40039 5.60002V9.5H5.60039V5.60002H9.5V4.40002H5.60039V0.5H4.40039V4.40002H0.5L0.5 5.60002H4.40039Z" fill="black"/>
