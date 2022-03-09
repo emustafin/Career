@@ -19,7 +19,7 @@ if( !empty( $_GET['type'] ) && array_key_exists( $_GET['type'], $page_data ) ){
 
 $args = array(
   'post_type'         => 'vacancies',
-  'posts_per_page'    => -1,
+  'posts_per_page'    => 10,
   'post_status'       => 'publish',
   'tax_query'         => array( 
     array(
