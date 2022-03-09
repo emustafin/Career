@@ -75,7 +75,7 @@ export class Header {
   }
 
   hidePhoneTitle() {
-    if (window.scrollY > this.windowTopOffset) {
+    if (window.scrollY > this.windowTopOffset && window.screen.width > 767) {
       this.phoneBlock.classList.add('it-header__contact-us-to-top');
       this.phoneTitle.classList.add('transparent');
       this.headerWrapper.classList.add('header__scroll-padding');

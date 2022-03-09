@@ -2,6 +2,11 @@
 get_header();
 the_post();
 ?>
+<script>
+    var rel_type = '404';
+    var vacancyid = '';
+    var sourceurl = '';
+</script>
 <section class="page__404">
     <div class="page__404-wrapper">
         <div class="page__404-title-wrapper">
@@ -15,7 +20,7 @@ the_post();
     
         <div class="page__404-conten__wrapper">
             <p class="page__404-text">
-                Ой... Возможно вы ввели неправильный адрес или страница была удалена
+                Ой... Возможно вы ввели неправильный адрес или страница была удалена
             </p>
             <a href="<?php echo get_home_url()?>" class="page__404-link">
                 Вернуться на главную
