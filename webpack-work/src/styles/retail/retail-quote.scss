@@ -14,14 +14,15 @@
 .retail__video-placeholder {
   display: block;
   width: 100%;
+  min-height: inherit;
   object-fit: cover;
 }
 
 .retail__quote-wrapper {
-  width: 49.17%;
+  width: 944px;
   position: absolute;
-  top: 72px;
-  right: 17.5%;
+  top: 8.89%;
+  left: 33.33%;
   color: $whiteColor;
 }
 
@@ -42,11 +43,6 @@
     line-height: 20px;
   }
 
-  .retail__quote-wrapper {
-    width: 65.56%;
-    right: 16px;
-  }
-
   .retail__quote-text {
     font-size: 56px;
     line-height: 60px;
@@ -61,8 +57,8 @@
 
   .retail__quote-wrapper {
     top: 64px;
-    width: 65.15%;
-    right: 1.4%;
+    width: 493px;
+    left: 33.33%;
   }
 
   .retail__quote-text {
