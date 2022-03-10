@@ -42,7 +42,6 @@ import { scrollBlockOffice } from './components/office/scrollBlockOffice';
 
 // Импорт классов страницы Розницы
 import { CreateRetailFutureComponent } from './components/retail/createRetailFuture';
-import { RetailMissionBlock } from './components/retail/retailMissionBlock';
 import { RetailBrandsBlock } from './components/retail/retailBrandsBlock';
 import { RetailPositionBlock } from './components/retail/retailPositionBlock';
 import { RetailQuoteBlock } from './components/retail/retailQuote';
@@ -169,7 +168,6 @@ const office__stage = new scrollBlockOffice('.office__stage');
 
 // Инициализация классов страницы Розницы
 const retailCreateFuture = new CreateRetailFutureComponent('.retail__preview');
-const retailMissionBlock = new RetailMissionBlock('.retail__mission');
 const retailBrandsBlock = new RetailBrandsBlock('.brands');
 const retailPositionBlock = new RetailPositionBlock('.retail__position');
 const retailQuote = new RetailQuoteBlock('.retail__quote-container');
@@ -178,7 +176,6 @@ const retailAdvantagesBlock = new RetailAdvantagesBlock('.retail__advantages');
 const retailUpgradeBlock = new RetailUpgradeBlock('.upgrade');
 const retailFooter = new RetailFooter('.retail__footer');
 
-retailMissionBlock.registerParameters(retailBrandsBlock, headerItPage);
 retailBrandsBlock.getAllBrandsTabs([
   { name: 'mvideo', elements: retailBrandsBlock.mvideoFromBrandsPage },
   { name: 'eldorado', elements: retailBrandsBlock.eldoradoFromBrandsPage },
@@ -228,7 +225,9 @@ document.body.addEventListener('click', (event) => {
 
   if (
     event.target.classList.contains('it-header__button') ||
-    event.target.classList.contains('intern__header-link')
+    event.target.classList.contains('intern__header-link') ||
+    event.target.classList.contains('retail__mission-button') ||
+    event.target.classList.contains('retail__internship-button')
   ) {
     event.preventDefault();
     openApplicationForm();
@@ -249,7 +248,7 @@ document.body.addEventListener('click', (event) => {
 // Открыть анкету выбора вакансии
 function openApplicationForm() {
   const form = document.querySelector('.form');
-
+  
   form.classList.add('form-active');
 
   setTimeout(() => {

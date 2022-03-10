@@ -12019,7 +12019,8 @@ a.page__404-link {
 .main-division__top-item-title {
   font-size: 64px;
   line-height: 68px;
-  margin-bottom: 140px; }
+  margin-bottom: 140px;
+  display: block; }
 
 .main-division__top-title-icon {
   width: 32px;
@@ -16367,11 +16368,10 @@ button::-moz-focus-inner {
   border: 0; }
 
 a,
-a:visited {
-  text-decoration: none; }
-
+a:visited,
 a:hover {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #000000; }
 
 ul li {
   list-style: none; }
