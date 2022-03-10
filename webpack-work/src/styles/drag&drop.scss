@@ -1,0 +1,70 @@
+.default__drag,
+.drop__drag,
+.loading__drag,
+.upload__one,
+.first__file,
+.second__file,
+.upload__two,
+.error__file {
+    display: flex;
+}
+
+.drop__plus,
+.loading__elips,
+.upload__svg,
+.error__cross {
+    margin-right: 16px;
+    height: 40px;
+}
+
+.file-uploadre,
+.drop__file-uploadre,
+.loading__file-uploadre,
+.first__file-wrapper,
+.second__file-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.file-uploadre__text,
+.first__file-text{
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.file-uploadre__subtext,
+.first__file-subtext,
+.error-uploadre__subtext {
+    font-size: 12px;
+    line-height: 12px;
+    opacity: 0.5;
+}
+
+.drop__file-uploadre > .file-uploadre__text{
+    color: #76BC21;
+}
+
+.first__file-subtext > svg {
+    vertical-align: middle;
+}
+
+.second__file-text{
+    opacity: 0.5;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.first__file{
+    margin-right: 29px;
+}
+
+.error-uploadre__text{
+    font-size: 16px;
+    line-height: 20px;
+    color: #E31235;
+}
+
+.upload__one > .second__file > .upload__svg {
+    opacity: 0.5;
+}

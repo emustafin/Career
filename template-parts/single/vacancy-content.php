@@ -297,6 +297,11 @@
             echo do_shortcode('[contact-form-7 id="277" title="Popap Vacancy"]'); 
         }
         ?>
+        <div class="drag__and__drop">
+            <?php
+                include(THEME_DIR . '/template-parts/common/drag&drop.php');
+            ?>
+        </div>
     </div>
 </div>
 <!-- //Vacancy Form-block -->
