@@ -56,7 +56,7 @@
                     <div class="main-division__top-main-item" id="professional" style="opacity: 0.3;">
                         <div class="main-division__top-item-left">
                             <div class="main-division__top-title-container">
-                                <h3 class="main-division__top-item-title">IT-хаб</h3>
+                                <a href="/it/" class="main-division__top-item-title">IT-хаб</a>
                                 <div class="main-division__top-title-icon">
                                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <path d="M0 16.12H16V0.12L0 0.12L0 16.12Z" fill="url(#pattern0)"/>
@@ -131,7 +131,7 @@
                     <div class="main-division__top-main-item" id="professional">
                         <div class="main-division__top-item-left">
                             <div class="main-division__top-title-container">
-                                <h3 class="main-division__top-item-title">IT-хаб</h3>
+                                <a href="/it/" class="main-division__top-item-title">IT-хаб</a>
                                 <div class="main-division__top-title-icon">
                                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <path d="M0 16.12H16V0.12L0 0.12L0 16.12Z" fill="url(#pattern0)"/>
@@ -212,9 +212,9 @@
                 if($student_one == 0){
                     ?>
                     <div class="main-division__item" style="opacity: 0.3;">
-                        <h3 class="main-division__item-title">
+                        <a href="/it/" class="main-division__item-title">
                             Стажировка в IT
-                        </h3>
+                        </a>
                         <div class="main-division__item-info">
                             Получи опыт на highload-проектах
                         </div>
@@ -237,9 +237,9 @@
                 }else{
                     ?>
                     <div class="main-division__item">
-                        <h3 class="main-division__item-title">
+                        <a href="/it/" class="main-division__item-title">
                             Стажировка в IT
-                        </h3>
+                        </a>
                         <div class="main-division__item-info">
                             Получи опыт на highload-проектах
                         </div>
@@ -267,7 +267,7 @@
                 if($student_two == 0){
                     ?>
                     <div class="main-division__item" style="opacity: 0.3;">
-                        <h3 class="main-division__item-title">Розничные магазины</h3>
+                        <a href="/retail/" class="main-division__item-title">Розничные магазины</a>
 
                         <div class="main-division__item-info">
                             Продажи, консультирование клиентов магазинов
@@ -334,7 +334,7 @@
                 }else{
                     ?>
                     <div class="main-division__item">
-                        <h3 class="main-division__item-title">Розничные магазины</h3>
+                        <a href="/retail/" class="main-division__item-title">Розничные магазины</a>
 
                         <div class="main-division__item-info">
                             Продажи, консультирование клиентов магазинов
@@ -411,7 +411,7 @@
     if($retail_job == 0){
         ?>
         <div class="main-division__item" style="opacity: 0.3;">
-            <h3 class="main-division__item-title">Розничные магазины</h3>
+            <a href="/retail/" class="main-division__item-title">Розничные магазины</a>
 
             <div class="main-division__item-info">
             Продажи, консультирование клиентов магазинов
@@ -478,7 +478,7 @@
     }else{
         ?>
         <div class="main-division__item">
-            <h3 class="main-division__item-title">Розничные магазины</h3>
+            <a href="/retail/" class="main-division__item-title">Розничные магазины</a>
 
             <div class="main-division__item-info">
             Продажи, консультирование клиентов магазинов
@@ -552,7 +552,7 @@
     if($office_job == 0){
         ?>
         <div style="opacity: 0.3;" class="main-division__item">
-            <h3 class="main-division__item-title">Центральный офис</h3>
+            <a href="/office/" class="main-division__item-title">Центральный офис</a>
 
             <div class="main-division__item-info">
             Маркетинг, финансы, менеджмент и HR
@@ -594,7 +594,7 @@
     }else{
         ?>
         <div id="Office_vacancies" class="main-division__item">
-            <h3 class="main-division__item-title">Центральный офис</h3>
+            <a href="/office/" class="main-division__item-title">Центральный офис</a>
 
             <div class="main-division__item-info">
             Маркетинг, финансы, менеджмент и HR
@@ -641,7 +641,7 @@
     if ($logistic_job == 0){
         ?>
         <div class="main-division__item" style="opacity: 0.3;">
-            <h3 class="main-division__item-title">Сервис и логистика</h3>
+            <a href="/logistic/" class="main-division__item-title">Сервис и логистика</a>
 
             <div class="main-division__item-info">
             Работа на складе и в сервисном центре
@@ -683,7 +683,7 @@
     }else{
         ?>
         <div class="main-division__item">
-            <h3 class="main-division__item-title">Сервис и логистика</h3>
+            <a href="/logistic/" class="main-division__item-title">Сервис и логистика</a>
 
             <div class="main-division__item-info">
             Работа на складе и в сервисном центре
