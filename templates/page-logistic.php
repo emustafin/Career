@@ -28,7 +28,7 @@ if( have_rows('logistic_blocks') ):
         break;
 
       case 'career_screen':
-        include(THEME_DIR . '/template-parts/logistic/career_screen.php');
+        include(THEME_DIR . '/template-parts/common/join-the-team.php');
         break;
 
       case 'directions_screen':
