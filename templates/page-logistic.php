@@ -3,9 +3,12 @@
 Template Name: Logistic
 */
 ?>
-<?php get_header(); ?>
+<?php
+get_header();
+$rel_type = 'logistic';
+?>
 <script>
-    var rel_type = 'logistic';
+    var rel_type = '<?php echo $rel_type; ?>';
     var vacancyid = '';
     var sourceurl = '';
 </script>
@@ -25,7 +28,7 @@ if( have_rows('logistic_blocks') ):
         break;
 
       case 'career_screen':
-        include(THEME_DIR . '/template-parts/logistic/career_screen.php');
+        include(THEME_DIR . '/template-parts/common/join-the-team.php');
         break;
 
       case 'directions_screen':

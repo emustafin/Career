@@ -3,9 +3,12 @@
 Template Name: Retail
 */
 ?>
-<?php get_header(); ?>
+<?php
+get_header();
+$rel_type = 'roznica';
+?>
 <script>
-    var rel_type = 'roznica';
+    var rel_type = '<?php echo $rel_type; ?>';
     var vacancyid = '';
     var sourceurl = '';
 </script>
@@ -33,7 +36,7 @@ if( have_rows('content_blocks') ):
         break;
 
       case 'retail__position':
-        include(THEME_DIR . '/template-parts/retail/retail__position.php');
+        include(THEME_DIR . '/template-parts/common/join-the-team.php');
         break;
 
       case 'retail__quote':

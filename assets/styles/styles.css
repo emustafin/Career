@@ -13299,7 +13299,7 @@ a.page__404-link {
   .logistic-advantages__content-item:nth-child(4n) {
     margin-right: 0; }
   .logistic-advantages__content-item.swiper-slide {
-    width: 24.05%;
+    width: 24%;
     height: auto; }
   @media (max-width: 1919px) {
     .logistic-advantages__content-item.swiper-slide {
@@ -13946,7 +13946,7 @@ a.page__404-link {
   position: relative; }
 
 .logistic-stage__title-block {
-  width: 35.06%; }
+  width: 35.15%; }
   @media (max-width: 1919px) {
     .logistic-stage__title-block {
       width: 36.5%; } }

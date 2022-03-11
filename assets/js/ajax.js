@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
             var data = {
                 action: 'get_profession__menu_items',
                 default: 'default',
-                vaccat_slug : vaccat_slug
+                vaccat_slug : vaccat_slug,
+                rel_type : rel_type
             };
     
             var request = new XMLHttpRequest();
@@ -159,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             vaccat_slug: vaccat_slug,
             can_without_experience : can_without_experience,
             can_work_remotely : can_work_remotely,
+            rel_type : rel_type
         };
 
         var request = new XMLHttpRequest();

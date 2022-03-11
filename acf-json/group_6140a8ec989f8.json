@@ -1,6 +1,6 @@
 {
     "key": "group_6140a8ec989f8",
-    "title": "Направления вакансий (категория)",
+    "title": "Вакансии: специализация",
     "fields": [
         {
             "key": "field_6140a9214d5d9",
@@ -27,6 +27,33 @@
             "mime_types": ""
         },
         {
+            "key": "field_6228c285225f1",
+            "label": "Тип специализации",
+            "name": "type_vaccat",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "it": "IT",
+                "retail": "Розница",
+                "logistic": "Логистика",
+                "office": "Офис"
+            },
+            "default_value": "it",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_614339ce552ba",
             "label": "Технологии",
             "name": "vaccat_tehnologies",
@@ -42,7 +69,7 @@
             "choices": {
                 "jira": "Jira",
                 "confluence": "Confluence",
-                "google-docs": "Google-docs",
+                "google-docs": "Google Docs",
                 "gitlab": "Gitlab",
                 "slack": "Slack",
                 "swagger": "Swagger",
@@ -92,5 +119,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631867911
+    "modified": 1646841295
 }
