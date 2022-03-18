@@ -168,11 +168,24 @@ const directionSelect = new Tagify(directionFormInput, {
 
 directionSelect.on(
   'change',
-  selectValueFromSingleSelect(
-    array_directions,
-    directionFormInput,
-    directionFormInput
-  )
+  function (e) {
+    selectValueFromSingleSelect(
+      array_directions,
+      directionFormInput,
+      directionFormInput
+    )
+
+    if( 'Розничные магазины' == JSON.parse(e.detail.value)[0].value ){
+      document.querySelector('.form__holdf_town').style.display = "block";
+      document.querySelector('.form__holdf_age').style.display = "block";
+      document.querySelector('.form__holdf_citizenship').style.display = "block";
+    } else{
+      document.querySelector('.form__holdf_town').style.display = "none";
+      document.querySelector('.form__holdf_age').style.display = "none";
+      document.querySelector('.form__holdf_citizenship').style.display = "none";
+    }
+
+  }
 );
 
 // Инициализация селекта Тагифай в анкете. Поле "Гражданство"

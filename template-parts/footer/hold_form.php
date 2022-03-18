@@ -34,20 +34,17 @@
     <div class="form__form-mistake" style="display:none;">это обязательное поле</div>
 </div>
 
-<div class="form__holdf_town">
+<div class="form__holdf_town" style="display:none;">
     <p class="form__form-name-value">Город*</p>
     <input type="text" name="holdf_town" value="" size="40" class="holdf_town" aria-required="true" aria-invalid="false" placeholder="">
     <div class="form__form-mistake" style="display:none;">это обязательное поле</div>
 </div>
-
-<div class="form__holdf_age">
+<div class="form__holdf_age" style="display:none;">
     <p class="form__form-name-value">Возраст*</p>
     <input type="number" name="holdf_age" value="" min="1" class="holdf_age" aria-required="true" aria-invalid="false" placeholder="">
     <div class="form__form-mistake" style="display:none;">это обязательное поле</div>
 </div>
-
-
-<div class="form__holdf_citizenship">
+<div class="form__holdf_citizenship" style="display:none;">
     <p class="form__form-name-value">Гражданство*</p>
     <div class="form__dropdown">
         <input type="text" name="holdf_citizenship" value="" size="40" class="holdf_citizenship" aria-required="true" aria-invalid="false" placeholder="Выбери гражданство">

@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
                 // Телефон
                 var holdf_tel = document.querySelector('.holdf_tel').value;
-                console.log(holdf_tel);
                 if( '' == holdf_tel ){
                     document.querySelector('.form__holdf_tel .form__form-mistake').style.display = "block";
                     fl_send = false;
@@ -60,56 +59,67 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
 
                 // Направление
-                var holdf_directions = document.querySelector('.holdf_directions').value;
-                // console.log(holdf_directions);
+                var holdf_directions = directionFormInput.value;
                 if( '' == holdf_directions ){
                     document.querySelector('.form__holdf_directions .form__form-mistake').style.display = "block";
                     fl_send = false;
+                    var holdf_town = '';
+                    var holdf_age = '';
+                    var holdf_citizenship = '';
                 } else{
                     document.querySelector('.form__holdf_directions .form__form-mistake').style.display = "none";
+
+                    holdf_directions = JSON.parse(holdf_directions)[0].value;
+                    
+                    if( 'Розничные магазины' == holdf_directions ){
+                        // Город
+                        var holdf_town = document.querySelector('.holdf_town').value;
+                        if( '' == holdf_town ){
+                            document.querySelector('.form__holdf_town .form__form-mistake').style.display = "block";
+                            fl_send = false;
+                        } else{
+                            document.querySelector('.form__holdf_town .form__form-mistake').style.display = "none";
+                        }
+
+                        // Возраст
+                        var holdf_age = document.querySelector('.holdf_age').value;
+                        if( '' == holdf_age && 0 < holdf_age ){
+                            document.querySelector('.form__holdf_age .form__form-mistake').style.display = "block";
+                            fl_send = false;
+                        } else{
+                            document.querySelector('.form__holdf_age .form__form-mistake').style.display = "none";
+                        }
+        
+                        // Гражданство
+                        var holdf_citizenship = citizenshipFormInput.value;
+                        if( '' == holdf_citizenship ){
+                            document.querySelector('.form__holdf_citizenship .form__form-mistake').style.display = "block";
+                            fl_send = false;
+                        } else{
+                            document.querySelector('.form__holdf_citizenship .form__form-mistake').style.display = "none";
+                            holdf_citizenship = JSON.parse(holdf_citizenship)[0].value;
+                        }
+                    } else{
+                        var holdf_town = '';
+                        var holdf_age = '';
+                        var holdf_citizenship = '';
+                    }
+
                 }
 
-                // Город
-                var holdf_town = document.querySelector('.holdf_town').value;
-                // console.log(holdf_town);
-                if( '' == holdf_town ){
-                    document.querySelector('.form__holdf_town .form__form-mistake').style.display = "block";
-                    fl_send = false;
-                } else{
-                    document.querySelector('.form__holdf_town .form__form-mistake').style.display = "none";
-                }
-
-                // Возраст
-                var holdf_age = document.querySelector('.holdf_age').value;
-                // console.log(holdf_age);
-                if( '' == holdf_age && 0 < holdf_age ){
-                    document.querySelector('.form__holdf_age .form__form-mistake').style.display = "block";
-                    fl_send = false;
-                } else{
-                    document.querySelector('.form__holdf_age .form__form-mistake').style.display = "none";
-                }
-
-                // Гражданство
-                var holdf_citizenship = document.querySelector('.holdf_citizenship').value;
-                // console.log(holdf_citizenship);
-                if( '' == holdf_citizenship ){
-                    document.querySelector('.form__holdf_citizenship .form__form-mistake').style.display = "block";
-                    fl_send = false;
-                } else{
-                    document.querySelector('.form__holdf_citizenship .form__form-mistake').style.display = "none";
-                }
 
                 // Файл
 
                 // Политика конфиденциальности
                 var holdf_agree_checkbox = document.querySelector('.holdf_agree_checkbox').checked;
-                // console.log(holdf_agree_checkbox);
                 if( false == holdf_agree_checkbox ){
                     document.querySelector('.form_policy input').style.border = "red";
                     fl_send = false;
                 } else{
                     document.querySelector('.form_policy input').style.border = "black";
                 }
+
+                var holdf_information = document.querySelector('.holdf_information').value;
 
                 // Проверка ошибок
                 if( !fl_send ){
