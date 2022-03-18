@@ -58,7 +58,10 @@
 </div>
 
 <div class="form__file-uploader">
-    <input type="file" size="40" class="drag-n-drop-file d-none" aria-invalid="false" multiple="multiple" data-name="upload-file-803" data-type="jpeg|png|jpg|gif|txt|docx|doc|pdf|rtf" data-limit="5242880" data-max="2" data-id="437" accept=".jpeg, .png, .jpg, .gif, .txt, .docx, .doc, .pdf, .rtf">
+    <!-- <input type="file" size="40" class="drag-n-drop-file d-none" aria-invalid="false" multiple="multiple" data-name="upload-file-803" data-type="jpeg|png|jpg|gif|txt|docx|doc|pdf|rtf" data-limit="5242880" data-max="2" data-id="437" accept=".jpeg, .png, .jpg, .gif, .txt, .docx, .doc, .pdf, .rtf"> -->
+    <div class="drag__and__drop">
+        <input type="file" id="file">
+    </div>
 </div>
 <div class="form__holdf_information">
     <input type="text" name="holdf_information" value="" size="40" class="holdf_information" aria-invalid="false" placeholder="Дополнительная информация">
