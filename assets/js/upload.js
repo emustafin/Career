@@ -37,23 +37,24 @@ function upload(selector, options = {}){
         uploadFile.innerHTML = ''
 
         files = Array.from(event)
+        upload_file_to_server( files[0] );
         currentFiles.push(files[0])
         
         currentFiles.reverse().forEach(file => {
-        uploadFile.insertAdjacentHTML('afterbegin',`
-            <div id="uploadFile" class="file background__file">
-            <p class="file__name">${file.name}</p>
-            <p class="file__subname" data-name="${file.name}">
-                удалить файл
-                <svg data-name="${file.name}" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g opacity="0.5">
-                        <path data-name="${file.name}" d="M7.15191 7.99995L3.57617 11.5757L4.4247 12.4242L8.00044 8.84848L11.5762 12.4242L12.4247 11.5757L8.84896 7.99995L12.4247 4.42421L11.5762 3.57568L8.00044 7.15142L4.4247 3.57568L3.57617 4.42421L7.15191 7.99995Z" fill="black"/>
-                    </g>
-                </svg>
-            </p>
-            </div>
-        `
-        )
+            uploadFile.insertAdjacentHTML('afterbegin',`
+                <div id="uploadFile" class="file background__file">
+                <p class="file__name">${file.name}</p>
+                <p class="file__subname" data-name="${file.name}">
+                    удалить файл
+                    <svg data-name="${file.name}" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g opacity="0.5">
+                            <path data-name="${file.name}" d="M7.15191 7.99995L3.57617 11.5757L4.4247 12.4242L8.00044 8.84848L11.5762 12.4242L12.4247 11.5757L8.84896 7.99995L12.4247 4.42421L11.5762 3.57568L8.00044 7.15142L4.4247 3.57568L3.57617 4.42421L7.15191 7.99995Z" fill="black"/>
+                        </g>
+                    </svg>
+                </p>
+                </div>
+            `
+            )
         })
 
         uploadFile.insertAdjacentElement('beforeend', newFile) 
@@ -127,6 +128,69 @@ function upload(selector, options = {}){
     };
 }
 
-upload('#file', {
-accept: ['.pdf', '.doc', '.docx', '.rtf'],
+upload('#hold_file', {
+    accept: ['.pdf', '.doc', '.docx', '.rtf'],
 })
+
+upload('#vacancy_file', {
+    accept: ['.pdf', '.doc', '.docx', '.rtf'],
+})
+
+function upload_file_to_server( file ) {
+    
+    if (window.FormData != undefined) {
+
+		var formData = new FormData();
+		formData.append('action', 'upload_file');
+		formData.append('file', file);
+		formData.append('name', file.name);
+
+        var request = new XMLHttpRequest();
+        request.open('POST', ajax.url, true);
+        // request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+
+        console.log(file);
+        console.log(formData);
+
+        request.onreadystatechange = function() {
+            if (this.status >= 200 && this.status < 400) {
+                // Success!
+                var resp = JSON.parse(this.response);
+                // console.log(resp);
+                if( true == resp.success ){
+
+                    return true;
+                } else{
+                    return false;
+                }
+            }
+        };
+
+        // array(1) { 
+        //     ["file"]=> array(5) { 
+        //         ["name"]=> string(63) "1. Установка_и_настройка_win_vpn_2fa (1).pdf" 
+        //         ["type"]=> string(15) "application/pdf" 
+        //         ["tmp_name"]=> string(57) "D:\Work\WorkV3\OpenServer\userdata\php_upload\phpF96C.tmp" 
+        //         ["error"]=> int(0) 
+        //         ["size"]=> int(2569478) 
+        //     } 
+        // } 
+        // array(2) { 
+        //     ["action"]=> string(11) "upload_file" 
+        //     ["name"]=> string(63) "1. Установка_и_настройка_win_vpn_2fa (1).pdf" 
+        // }
+
+        //TODO
+        // var str = "";
+        // for (var key in formData) {
+        //     if (str != "") {
+        //         str += "&";
+        //     }
+        //     str += key + "=" + encodeURIComponent(formData[key]);
+        // }
+
+        request.send( formData );
+    } else{
+        return false;
+    }
+}

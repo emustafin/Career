@@ -10,6 +10,9 @@ class WPcf7_Mail extends Boot {
 
         add_action( 'wp_ajax_send_hold_form', [$this, 'send_hold_form'] );
 		add_action( 'wp_ajax_nopriv_send_hold_form', [$this, 'send_hold_form'] );
+
+        add_action( 'wp_ajax_upload_file', [$this, 'upload_file'] );
+		add_action( 'wp_ajax_nopriv_upload_file', [$this, 'upload_file'] );
 	}
 
     public function sent_data_to_service( $response, $result ){
@@ -365,11 +368,87 @@ class WPcf7_Mail extends Boot {
     }
 
     public function sending_email( $content ) {
-
-		$headers = 'From: admin@career.com'       . "\r\n" .
-					'Reply-To: '. get_option( 'admin_email' ) . "\r\n" .
-					'X-Mailer: PHP/' . phpversion();
-
+        
+        $headers = 'From: admin@career.com'       . "\r\n" .
+            'Reply-To: '. get_option( 'admin_email' ) . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+        
 		wp_mail( get_option( 'admin_email' ), 'Анкета', $content, $headers);
 	}
+    
+    public function upload_file() {
+
+        var_dump($_FILES);
+        // var_dump($_POST);
+
+        $link = '';
+
+        $valid_formats = array("pdf", "doc", "docx", "rtf"); // Supported file types
+        $max_file_size = 1024 * 5000; // in kb
+        $wp_upload_dir = wp_upload_dir();
+        $path = $wp_upload_dir['path'] . '/';
+
+        $extension = pathinfo( $_POST['name'], PATHINFO_EXTENSION );
+
+        if ( $_FILES['file']['error'] == 0 ) {
+            // Check if image size is larger than the allowed file size
+            if ( $_FILES['file']['size'] > $max_file_size ) {
+                // is too large!
+                $result = false;
+        
+            // Check if the file being uploaded is in the allowed file types
+            } elseif( ! in_array( strtolower( $extension ), $valid_formats ) ){
+                // is not a valid format
+                $result = false;
+        
+            } else{
+                // If no errors, upload the file...
+                if( move_uploaded_file( $_FILES["file"]["tmp_name"], $path.$_POST['name'] ) ) {
+                
+                    $filename = $path.$_POST['name'];
+                    $filetype = wp_check_filetype( basename( $filename ), null );
+                    $wp_upload_dir = wp_upload_dir();
+                    $attachment = array(
+                        'guid'           => $wp_upload_dir['url'] . '/' . basename( $filename ),
+                        'post_mime_type' => $filetype['type'],
+                        'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $filename ) ),
+                        'post_content'   => '',
+                        'post_status'    => 'inherit'
+                    );
+
+                    require_once( ABSPATH . 'wp-admin/includes/file.php' );
+
+                    $overrides = [ 'test_form' => false ];
+
+                    $movefile = wp_handle_upload( $_FILES["file"], $overrides );
+
+                    var_dump($movefile);
+                    if ( $movefile && empty($movefile['error']) ) {
+                        $link = $movefile;
+                        $result = true;
+                    } else {
+                        $result = false;
+                    }
+                    // Insert attachment to the database
+                    // $attach_id = wp_insert_attachment( $attachment, $filename, $parent_post_id );
+
+                    // require_once( ABSPATH . 'wp-admin/includes/image.php' );
+                
+                    // Generate meta data
+                    // $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+                    // wp_update_attachment_metadata( $attach_id, $attach_data );
+                
+                    $result = true;
+                }
+            }
+        }
+
+        $return = array(
+            'success' 	=> $result,
+            'link'      => $link
+        );
+
+        wp_send_json($return);
+
+    }
 }

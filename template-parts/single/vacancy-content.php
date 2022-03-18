@@ -298,7 +298,7 @@
         }
         ?>
         <div class="drag__and__drop">
-            <input type="file" id="file">
+            <input type="file" id="vacancy_file">
         </div>
     </div>
 </div>
