@@ -220,8 +220,12 @@
               if( false == $thumbnail_url ) $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
 
               $url_from_habr0 = get_habr_url( $actually_news->posts[0]->ID );
-              if( null != get_field( 'url_from_habr', $actually_news->posts[0]->ID ) ) 
-                $url_from_habr0 = get_field( 'url_from_habr', $actually_news->posts[0]->ID ); ?>
+              if( null != get_field( 'url_from_habr', $actually_news->posts[0]->ID ) ) {
+                $url_from_habr0 = get_field( 'url_from_habr', $actually_news->posts[0]->ID );
+              } else{
+                $url_from_habr0 = get_permalink( $actually_news->posts[0]->ID );
+              }
+              ?>
 
               <div class="intern-no-events__news-block">
 
