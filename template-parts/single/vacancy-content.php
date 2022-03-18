@@ -298,9 +298,7 @@
         }
         ?>
         <div class="drag__and__drop">
-            <?php
-                include(THEME_DIR . '/template-parts/common/drag&drop.php');
-            ?>
+            <input type="file" id="file">
         </div>
     </div>
 </div>

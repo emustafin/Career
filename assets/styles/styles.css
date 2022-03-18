@@ -10681,65 +10681,63 @@ input#form__town {
 .habr__news-title__item > a {
   color: #000; }
 
-.default__drag,
-.drop__drag,
-.loading__drag,
-.upload__one,
-.first__file,
-.second__file,
-.upload__two,
-.error__file {
-  display: flex; }
+.drag__and__drop input[type=file] {
+  display: none; }
 
-.drop__plus,
-.loading__elips,
-.upload__svg,
-.error__cross {
-  margin-right: 16px;
-  height: 40px; }
+.file__wrapper {
+  display: flex;
+  flex-wrap: wrap; }
 
-.file-uploadre,
-.drop__file-uploadre,
-.loading__file-uploadre,
-.first__file-wrapper,
-.second__file-wrapper {
+.file {
+  padding-left: 56px;
+  background: url("../images/drag&drop/plus.png");
+  background-repeat: no-repeat;
+  background-position: left;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; }
+  justify-content: space-between;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 40px;
+  cursor: pointer; }
 
-.file-uploadre__text,
-.first__file-text {
+.file__name {
   font-size: 16px;
   line-height: 20px; }
 
-.file-uploadre__subtext,
-.first__file-subtext,
-.error-uploadre__subtext {
+.file__subname {
   font-size: 12px;
-  line-height: 12px;
-  opacity: 0.5; }
+  line-height: 12px; }
 
-.drop__file-uploadre > .file-uploadre__text {
-  color: #76BC21; }
-
-.first__file-subtext > svg {
+.file__subname > svg {
   vertical-align: middle; }
 
-.second__file-text {
+.green {
+  color: #76BC21; }
+
+.background__file {
+  background: url("../images/drag&drop/file.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  margin-bottom: 16px;
+  width: 50%; }
+
+.new__file {
+  background: url("../images/drag&drop/plus.png");
+  background-repeat: no-repeat;
+  background-position: left;
   opacity: 0.5;
-  font-size: 16px;
-  line-height: 20px; }
-
-.first__file {
-  margin-right: 29px; }
-
-.error-uploadre__text {
+  padding-left: 56px;
   font-size: 16px;
   line-height: 20px;
-  color: #E31235; }
+  width: 168px;
+  height: 40px;
+  cursor: pointer; }
 
-.upload__one > .second__file > .upload__svg {
-  opacity: 0.5; }
+.file .removing {
+  transform: scale(0);
+  transition: transform .3s; }
 
 section.page__404 {
   font-size: 18px;
