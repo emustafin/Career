@@ -40,31 +40,17 @@
         
         $product_directions = new WP_Query( $args );
 
-        $info_product_directions = array( 'Любое' );
-
         if ( $product_directions->have_posts() ) {
             while ( $product_directions->have_posts() ) {
-            $product_directions->the_post();
-
-            $title = get_the_title();
-            $info_product_directions[] .= $title;
+                $product_directions->the_post();
+                $title = get_the_title();
             }
         }
         wp_reset_postdata();
-
-        $info_vaccat = array();
-        $terms = get_terms( 'vaccat' );
-        if( $terms && ! is_wp_error($terms) ){
-            foreach( $terms as $term ){
-                $info_vaccat[] .= $term->name;
-            }
-        }
         ?>
 
         <script>
             const cities = town_titles;
-            var info_product_directions = '<?php echo json_encode( $info_product_directions ); ?>'; // Направление
-            var info_vaccat = '<?php echo json_encode( $info_vaccat ); ?>'; // Специализация
         </script>
         <div id="popup_form" class="form__content-right-bar-wrapper">
             <div class="form__content-right-bar form__content-right-bar-100">

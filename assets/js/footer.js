@@ -119,10 +119,6 @@ function selectValueFromSingleSelect(data, tagifyInput, targetInput) {
   };
 }
 
-// Данные для фильтров
-const dataDirection = JSON.parse(info_product_directions);
-const dataSpecialization = JSON.parse(info_vaccat);
-
 // Инициализация селекта Тагифай в анкете. Поле "Город"
 const formCityTagifyInput = document.querySelector(
   'input[name=tags-select-mode].form__city-select'
@@ -161,46 +157,40 @@ if( null != formCityInput_r ){
 }
 
 // Инициализация селекта Тагифай в анкете. Поле "Направление"
-const directionFormTagifyInput = document.querySelector(
-  'input[name=tags-select-mode].form__direction-select'
-);
 const directionFormInput = document.querySelector('.holdf_directions');
 
 const directionSelect = new Tagify(directionFormInput, {
   enforceWhitelist: true,
   mode: 'select',
-  whitelist: dataDirection,
+  whitelist: array_directions,
   userInput: false,
 });
 
 directionSelect.on(
   'change',
   selectValueFromSingleSelect(
-    dataDirection,
+    array_directions,
     directionFormInput,
     directionFormInput
   )
 );
 
-// Инициализация селекта Тагифай в анкете. Поле "Специализация"
-const specializationFormTagifyInput = document.querySelector(
-  'input[name=tags-select-mode].form__spezialisation-select'
-);
-const specializationFormInput = document.querySelector('.holdf_citizenship');
+// Инициализация селекта Тагифай в анкете. Поле "Гражданство"
+const citizenshipFormInput = document.querySelector('.holdf_citizenship');
 
-const spezialisationSelect = new Tagify(specializationFormInput, {
+const citizenshipSelect = new Tagify(citizenshipFormInput, {
   enforceWhitelist: true,
   mode: 'select',
-  whitelist: dataSpecialization,
+  whitelist: array_citizenship,
   userInput: false,
 });
 
-spezialisationSelect.on(
+citizenshipSelect.on(
   'change',
   selectValueFromSingleSelect(
-    dataSpecialization,
-    specializationFormInput,
-    specializationFormInput
+    array_citizenship,
+    citizenshipFormInput,
+    citizenshipFormInput
   )
 );
 

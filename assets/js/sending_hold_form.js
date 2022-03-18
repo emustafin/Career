@@ -18,6 +18,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 document.querySelector('.form__response-block').style.display = "none";
                 document.querySelector('.form__form-message').innerHTML = "";
 
+                // Default
+                var rel_type = document.querySelector('.rel_type').value;
+                var vacancyid = document.querySelector('.vacancyid').value;
+                var sourceurl = document.querySelector('.sourceurl').value;
+
                 // Имя Фамилия
                 var holdf_name = document.querySelector('.holdf_name').value;
                 if( '' == holdf_name ){
@@ -112,16 +117,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     return false;
                 } else{
                     var data = {
-                            action                  : 'send_hold_form',
-                            holdf_name              : holdf_name,
-                            holdf_email             : holdf_email,
-                            holdf_tel               : holdf_tel,
-                            holdf_directions        : holdf_directions,
-                            holdf_town              : holdf_town,
-                            holdf_age               : holdf_age,
-                            holdf_citizenship       : holdf_citizenship,
-                            holdf_information       : holdf_information,
-                            holdf_agree_checkbox    : holdf_agree_checkbox
+                        action                  : 'send_hold_form',
+                        rel_type                : rel_type,
+                        vacancyid               : vacancyid,
+                        sourceurl               : sourceurl,
+                        holdf_name              : holdf_name,
+                        holdf_email             : holdf_email,
+                        holdf_tel               : holdf_tel,
+                        holdf_directions        : holdf_directions,
+                        holdf_town              : holdf_town,
+                        holdf_age               : holdf_age,
+                        holdf_citizenship       : holdf_citizenship,
+                        holdf_information       : holdf_information,
+                        holdf_agree_checkbox    : holdf_agree_checkbox
                     };
     
                     if( buzy_send ){

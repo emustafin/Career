@@ -68,6 +68,21 @@ foreach( $myterms as $term ){
   $array_town[] = $term->name;
 }
 
+// Гражданство
+$array_citizenship = array();
+foreach( get_field('citizenship', 'option') as $item ) {
+  $array_citizenship[] = $item['name'];
+}
+$array_citizenship[] = 'Другое';
+
+// Направление
+$array_directions = array(
+  'IT',
+  'Розница',
+  'Офис',
+  'Сервис и Логистика',
+  'Студентам',
+);
 ?>
 <body class='<?php echo $body_class; ?>'>
 
@@ -78,6 +93,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
   var town_titles = JSON.parse('<?php echo json_encode( $array_town ); ?>');
+  var array_citizenship = JSON.parse('<?php echo json_encode( $array_citizenship ); ?>');
+  var array_directions = JSON.parse('<?php echo json_encode( $array_directions ); ?>');
 </script>
     <!-- Header -->
     <header class="it-header">
