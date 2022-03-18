@@ -7691,7 +7691,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 .form__input-checkbox span {
   margin-left: 0; }
 
-.form__input-checkbox input:checked ~ .wpcf7-list-item-label::before {
+.vacancy__form-label_checkbox input:checked ~ .wpcf7-list-item-label::before {
   opacity: 1; }
 
 .form__form-politics {
@@ -7820,6 +7820,51 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   display: block;
   margin-bottom: 16px; }
 
+.hform__input {
+  background: #f3f3f3;
+  font-size: 18px;
+  line-height: 24px; }
+
+.hform {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding-bottom: 8px;
+  margin-bottom: 16px; }
+
+.form__holdf_directions > .form__dropdown > .tagify,
+.form__holdf_citizenship > .form__dropdown > .tagify {
+  border: none; }
+
+.holdf_agree_checkbox {
+  display: none; }
+
+.wpcf7-list-item-label::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: url(../images/form/check.svg) center/contain no-repeat;
+  transition: opacity 0.2s;
+  opacity: 0; }
+
+.wpcf7-list-item-label::after {
+  content: " "; }
+
+.hold_form_send {
+  display: block;
+  width: 100%;
+  max-width: 180px;
+  border-radius: 36px;
+  background: #ffffff;
+  padding: 8px 40px 8px 16px;
+  position: relative;
+  font-size: 24px;
+  line-height: 24px;
+  margin-top: 16px;
+  color: #000000; }
+
 @media (max-width: 1600px) {
   .form,
   .form__form-input,
@@ -7904,7 +7949,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   border: 1px dashed #969696; }
 
 .form__file-uploader {
-  margin-bottom: 10px; }
+  margin-bottom: 16px; }
 
 .form__content-right-bar-100 {
   width: 100%; }

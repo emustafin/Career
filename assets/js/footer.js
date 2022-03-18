@@ -157,7 +157,7 @@ if( null != formCityInput_r ){
 }
 
 // Инициализация селекта Тагифай в анкете. Поле "Направление"
-const directionFormInput = document.querySelector('.holdf_directions');
+const directionFormInput = document.querySelector('input[name="holdf_directions"]');
 
 const directionSelect = new Tagify(directionFormInput, {
   enforceWhitelist: true,
