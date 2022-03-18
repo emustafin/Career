@@ -6,11 +6,13 @@ document.querySelector('#popup_form .wpcf7-submit').addEventListener("click", fu
   document.querySelector("#popup_form  .vacancy__form-label_checkbox a").style.borderBottom = "#000000 1px solid";
 }, false);
 
-document.querySelector('#vacancy_form .wpcf7-submit').addEventListener("click", function(e) {
-  document.querySelector("#vacancy_form .vacancy__form-label_checkbox").style.color = "#000000";
-  document.querySelector("#vacancy_form  .vacancy__form-label_checkbox a").style.color = "#000000";
-  document.querySelector("#vacancy_form  .vacancy__form-label_checkbox a").style.borderBottom = "#000000 1px solid";
-}, false);
+if( document.querySelector('#vacancy_form .wpcf7-submit') ){
+  document.querySelector('#vacancy_form .wpcf7-submit').addEventListener("click", function(e) {
+    document.querySelector("#vacancy_form .vacancy__form-label_checkbox").style.color = "#000000";
+    document.querySelector("#vacancy_form  .vacancy__form-label_checkbox a").style.color = "#000000";
+    document.querySelector("#vacancy_form  .vacancy__form-label_checkbox a").style.borderBottom = "#000000 1px solid";
+  }, false);
+}
 
 // Отправка анкеты на сервер
 if(document.querySelector('#popup_form .wpcf7')){

@@ -7,7 +7,9 @@ export class Footer {
     this.vacancyCopyLinkMobile = document.querySelector('.direct-link__header-head-copy-mobile');
 
     this.copyButton.addEventListener('click', this.copyEmailAdress.bind(this));
-    this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
+    if( undefined != this.vacancyCopyLink ){
+      this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
+    }
     if( this.vacancyCopyLinkMobile ){
       this.vacancyCopyLinkMobile.addEventListener('click', this.copyLink.bind(this));
     }
