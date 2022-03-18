@@ -1,4 +1,4 @@
-var townFormRetail = document.querySelector('input[name=text-town_r]');
+var townFormRetail = document.querySelector('input[name=holdf_town_r]');
 if (typeof vacancy_towns != 'undefined') {
   var curretnVacancyTowns = JSON.parse(vacancy_towns);
   console.log(curretnVacancyTowns);

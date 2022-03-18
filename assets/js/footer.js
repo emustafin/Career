@@ -1,10 +1,10 @@
 var origin_location = window.location.href;
 
-document.querySelector('#popup_form .wpcf7-submit').addEventListener("click", function(e) {
-  document.querySelector("#popup_form .vacancy__form-label_checkbox").style.color = "#000000";
-  document.querySelector("#popup_form  .vacancy__form-label_checkbox a").style.color = "#000000";
-  document.querySelector("#popup_form  .vacancy__form-label_checkbox a").style.borderBottom = "#000000 1px solid";
-}, false);
+// document.querySelector('#popup_form .wpcf7-submit').addEventListener("click", function(e) {
+//   document.querySelector("#popup_form .vacancy__form-label_checkbox").style.color = "#000000";
+//   document.querySelector("#popup_form  .vacancy__form-label_checkbox a").style.color = "#000000";
+//   document.querySelector("#popup_form  .vacancy__form-label_checkbox a").style.borderBottom = "#000000 1px solid";
+// }, false);
 
 document.querySelector('#vacancy_form .wpcf7-submit').addEventListener("click", function(e) {
   document.querySelector("#vacancy_form .vacancy__form-label_checkbox").style.color = "#000000";
@@ -13,52 +13,52 @@ document.querySelector('#vacancy_form .wpcf7-submit').addEventListener("click", 
 }, false);
 
 // Отправка анкеты на сервер
-if(document.querySelector('#popup_form .wpcf7')){
-  const form = document.querySelector('#popup_form .wpcf7');
+// if(document.querySelector('#popup_form .wpcf7')){
+//   const form = document.querySelector('#popup_form .wpcf7');
 
-  form.addEventListener(
-    'wpcf7submit',
-    function (event) {
+//   form.addEventListener(
+//     'wpcf7submit',
+//     function (event) {
 
-      const submitBtn = document.querySelector(
-        '.wpcf7-form-control.wpcf7-submit.form__response'
-      );
-      const answerTitle = document.querySelector('.form__response-block');
+//       const submitBtn = document.querySelector(
+//         '.wpcf7-form-control.wpcf7-submit.form__response'
+//       );
+//       const answerTitle = document.querySelector('.form__response-block');
 
-      const result = event.detail;
+//       const result = event.detail;
 
-      if (result.status === 'validation_failed'){
+//       if (result.status === 'validation_failed'){
 
-        var array = result.apiResponse.invalid_fields;
-        for (let index = 0; index < array.length; index++) {
-          var element = array[index];
-          if( -1 != element.error_id.indexOf('checkbox') ){
-            var label_checkbox = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox');
-            var label_checkbox_a = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox a');
-            label_checkbox.style.color = '#e31235';
-            label_checkbox_a.style.color = '#e31235';
-            label_checkbox_a.style.borderBottom = "#e31235 1px solid";
-          }
-        }
-        return;
-      } 
+//         var array = result.apiResponse.invalid_fields;
+//         for (let index = 0; index < array.length; index++) {
+//           var element = array[index];
+//           if( -1 != element.error_id.indexOf('checkbox') ){
+//             var label_checkbox = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox');
+//             var label_checkbox_a = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox a');
+//             label_checkbox.style.color = '#e31235';
+//             label_checkbox_a.style.color = '#e31235';
+//             label_checkbox_a.style.borderBottom = "#e31235 1px solid";
+//           }
+//         }
+//         return;
+//       } 
 
-      if ( result.apiResponse.api_send_status == 'data_sent' ) {
-        answerTitle.innerHTML = 'Спасибо за отклик! Скоро ответим!';
-        answerTitle.style.display = 'block';
-        submitBtn.style.display = 'none';
-      } else{
-        if( result.apiResponse.api_send_status == 'data_false' ){
-          answerTitle.style.display = 'block';
-          answerTitle.innerHTML = 'Что-то пошло не так. Попробуйте позже.';
-        }
-      }
+//       if ( result.apiResponse.api_send_status == 'data_sent' ) {
+//         answerTitle.innerHTML = 'Спасибо за отклик! Скоро ответим!';
+//         answerTitle.style.display = 'block';
+//         submitBtn.style.display = 'none';
+//       } else{
+//         if( result.apiResponse.api_send_status == 'data_false' ){
+//           answerTitle.style.display = 'block';
+//           answerTitle.innerHTML = 'Что-то пошло не так. Попробуйте позже.';
+//         }
+//       }
 
-      setTimeout(setup_vars_for_forms, 1000);
-    },
-    false
-  );
-}
+//       setTimeout(setup_vars_for_forms, 1000);
+//     },
+//     false
+//   );
+// }
 
 if(document.querySelector('#vacancy_form .wpcf7')){
   const form2 = document.querySelector('#vacancy_form .wpcf7');
@@ -164,7 +164,7 @@ if( null != formCityInput_r ){
 const directionFormTagifyInput = document.querySelector(
   'input[name=tags-select-mode].form__direction-select'
 );
-const directionFormInput = document.querySelector('.form__value1');
+const directionFormInput = document.querySelector('.holdf_directions');
 
 const directionSelect = new Tagify(directionFormInput, {
   enforceWhitelist: true,
@@ -186,7 +186,7 @@ directionSelect.on(
 const specializationFormTagifyInput = document.querySelector(
   'input[name=tags-select-mode].form__spezialisation-select'
 );
-const specializationFormInput = document.querySelector('.form__value2');
+const specializationFormInput = document.querySelector('.holdf_citizenship');
 
 const spezialisationSelect = new Tagify(specializationFormInput, {
   enforceWhitelist: true,

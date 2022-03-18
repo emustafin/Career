@@ -91,7 +91,9 @@ class Setup_Theme {
 		// }
 		wp_enqueue_script( self::THEME_ID . "singleVacanciesPage-js", THEME_URL . "/assets/js/singleVacanciesPage.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "swiper-js", THEME_URL . "/assets/js/swiper-bundle.min.js", [], THEME_VSN, true );
+		wp_enqueue_script( self::THEME_ID . "imask-js", THEME_URL . "/assets/js/imask.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "ajax-js", THEME_URL . "/assets/js/ajax.js", [], THEME_VSN, true );
+		wp_enqueue_script( self::THEME_ID . "sending_hold_form-js", THEME_URL . "/assets/js/sending_hold_form.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "bundle-js", THEME_URL . "/assets/bundle.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "popup_vacancy-js", THEME_URL . "/assets/js/popup_vacancy.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "footer-js", THEME_URL . "/assets/js/footer.js", [], THEME_VSN, true );

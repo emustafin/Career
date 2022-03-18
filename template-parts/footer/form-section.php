@@ -68,13 +68,15 @@
         </script>
         <div id="popup_form" class="form__content-right-bar-wrapper">
             <div class="form__content-right-bar form__content-right-bar-100">
-            <?php echo do_shortcode('[contact-form-7 id="487" title="Анкета"]'); ?>
-            <!-- Вставить разметку об успешной отправке -->
-            <div class="form__response-block">
-                <h2 class="form__response-title">
-                Спасибо за отклик! Скоро ответим!
-                </h2>
-            </div>
+
+                <div id="hold_form">
+
+                    <?php //echo do_shortcode('[contact-form-7 id="487" title="Анкета"]'); ?>
+                    <?php include(THEME_DIR . '/template-parts/footer/hold_form.php'); ?>
+                    <?php //include(THEME_DIR . '/template-parts/footer/old_form.php'); ?>
+                    
+                </div>
+
             </div>
         </div>
 

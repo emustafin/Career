@@ -7461,6 +7461,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   position: relative; }
 
 .form__form-mistake,
+.form__form-mistake_format,
 .form__email-mistake {
   color: #e31235;
   background: #ffffff;
@@ -7469,7 +7470,6 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   border-radius: 16px;
   display: inline-block;
   position: absolute;
-  bottom: calc(-50% + 12px);
   right: 0;
   display: none; }
 
@@ -7485,7 +7485,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 
 .form__checkbox-mistake {
   color: #e31235; }
-  .form__checkbox-mistake > .wpcf7-form-control-wrap.checkbox-484
+  .form__checkbox-mistake > .wpcf7-form-control-wrap.holdf_agree_checkbox
 > .wpcf7-form-control.wpcf7-checkbox.wpcf7-validates-as-required.form__input-checkbox
 > .wpcf7-list-item.first.last
 > .wpcf7-list-item-label {
@@ -7513,25 +7513,25 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   right: 0;
   font-size: 12px; }
 
-.wpcf7-form-control-wrap.checkbox-484 > .wpcf7-not-valid-tip {
+.wpcf7-form-control-wrap.holdf_agree_checkbox > .wpcf7-not-valid-tip {
   display: none; }
 
-.wpcf7-form-control-wrap.checkbox-484 > .wpcf7-not-valid-tip {
+.wpcf7-form-control-wrap.holdf_agree_checkbox > .wpcf7-not-valid-tip {
   display: none; }
 
-.wpcf7-form-control-wrap.checkbox-484 > .wpcf7-not-valid {
+.wpcf7-form-control-wrap.holdf_agree_checkbox > .wpcf7-not-valid {
   border-bottom: none; }
 
 .wpcf7-not-valid > .wpcf7-list-item.first.last > .wpcf7-list-item-label {
   border: 1px solid #e31235; }
 
-.wpcf7-form-control-wrap.text-town,
+.wpcf7-form-control-wrap.holdf_town,
 .wpcf7-form-control-wrap.text-name,
-.wpcf7-form-control-wrap.email-88,
-.wpcf7-form-control-wrap.mask-176,
-.wpcf7-form-control-wrap.text-931,
-.wpcf7-form-control-wrap.text-932,
-.wpcf7-form-control-wrap.text-name2 {
+.wpcf7-form-control-wrap.holdf_email,
+.wpcf7-form-control-wrap.holdf_tel,
+.wpcf7-form-control-wrap.holdf_directions,
+.wpcf7-form-control-wrap.holdf_citizenship,
+.wpcf7-form-control-wrap.holdf_name {
   display: flex; }
 
 .tagify--noTags.tagify--empty {
@@ -7539,8 +7539,8 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   .tagify--noTags.tagify--empty:nth-child(5) {
     display: none; }
 
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value2,
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value1,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.holdf_citizenship,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.holdf_directions,
 .form__form-input,
 .wpcf7-form-control.wpcf7-text.form__information,
 .tagify--noTags.tagify--empty,
@@ -7548,13 +7548,13 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 .form__form-input {
   padding-bottom: 8px; }
 
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value2,
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value1,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.holdf_citizenship,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.holdf_directions,
 .wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email.form__form-input,
 .wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__form-input,
 .wpcf7-form-control.wpcf7mf-mask.wpcf7-mask.wpcf7-validates-as-required.form__form-input,
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.form__value1.tagify--noTags.tagify--empty,
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.form__value2.tagify--noTags.tagify--empty,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.holdf_directions.tagify--noTags.tagify--empty,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.holdf_citizenship.tagify--noTags.tagify--empty,
 .wpcf7-form-control.wpcf7-text.form__information,
 .tagify--noTags.tagify--empty,
 .form__information,
@@ -7567,13 +7567,16 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 #popup_form .form__dropdown .tagify--select {
   min-height: 32.2px; }
 
+#popup_form .control_hold_form {
+  display: none; }
+
 .wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__form-input.wpcf7-not-valid,
 .wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email.form__form-input.wpcf7-not-valid,
 .wpcf7-not-valid,
 .tagify--noTags.tagify--empty.wpcf7-not-valid,
 .wpcf7-form-control.wpcf7mf-mask.wpcf7-mask.wpcf7-validates-as-required.form__form-input.wpcf7-not-valid,
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value1.tagify--noTags.tagify--empty.wpcf7-not-valid,
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value2.tagify--noTags.tagify--empty.wpcf7-not-valid {
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.holdf_directions.tagify--noTags.tagify--empty.wpcf7-not-valid,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.holdf_citizenship.tagify--noTags.tagify--empty.wpcf7-not-valid {
   border-bottom: 1px solid #e31235; }
 
 .form,
@@ -7720,8 +7723,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
     background: url("../images/form/arrow-right.svg") no-repeat; }
 
 .form__response-block {
-  max-width: 464px;
-  display: none; }
+  max-width: 464px; }
 
 .form__response-title {
   font-size: 32px;
