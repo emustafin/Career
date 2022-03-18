@@ -10683,6 +10683,64 @@ input#form__town {
 .habr__news-title__item > a {
   color: #000; }
 
+.drag__and__drop input[type=file] {
+  display: none; }
+
+.file__wrapper {
+  display: flex;
+  flex-wrap: wrap; }
+
+.file {
+  padding-left: 56px;
+  background: url("../images/drag&drop/plus.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 40px;
+  cursor: pointer; }
+
+.file__name {
+  font-size: 16px;
+  line-height: 20px; }
+
+.file__subname {
+  font-size: 12px;
+  line-height: 12px; }
+
+.file__subname > svg {
+  vertical-align: middle; }
+
+.green {
+  color: #76BC21; }
+
+.background__file {
+  background: url("../images/drag&drop/file.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  margin-bottom: 16px;
+  width: 50%; }
+
+.new__file {
+  background: url("../images/drag&drop/plus.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  opacity: 0.5;
+  padding-left: 56px;
+  font-size: 16px;
+  line-height: 20px;
+  width: 168px;
+  height: 40px;
+  cursor: pointer; }
+
+.file .removing {
+  transform: scale(0);
+  transition: transform .3s; }
+
 section.page__404 {
   font-size: 18px;
   line-height: 24px;
