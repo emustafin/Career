@@ -1,4 +1,5 @@
 const swiper = new Swiper('.habr__news-wrapper', {
+    autoHeight: true,
     direction: 'horizontal',
     breakpoints: {
         // when window width is >= 320px

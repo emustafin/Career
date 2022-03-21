@@ -126,7 +126,7 @@
             <p class="habr__news-title">
                 Мы в Хабре
             </p>
-            <a href="#" class="habr__news-link">
+            <a href="https://habr.com/ru/company/mvideo/blog/" class="habr__news-link">
                 Все статьи
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12.5515 7.39995L9.57574 4.42421L10.4243 3.57568L14.8485 7.99995L10.4243 12.4242L9.57574 11.5757L12.5515 8.59995H1V7.39995H12.5515Z" fill="black"/>
@@ -150,13 +150,20 @@
             if($actually_habr->have_posts()){
               while ($actually_habr->have_posts()){
                 $actually_habr->the_post();
+
+                $url_from_habr0 = get_habr_url( $actually_news->posts[0]->ID );
+                if( null != get_field( 'url_from_habr', $actually_news->posts[0]->ID ) ) {
+                  $url_from_habr0 = get_field( 'url_from_habr', $actually_news->posts[0]->ID );
+                } else{
+                  // $url_from_habr0 = get_permalink( $actually_news->posts[0]->ID );
+                }
                 ?>
                 <div class="habr__news-item swiper-slide">
                     <p class="habr__news-data">
                       <?php echo get_the_modified_date('j F Y')?>
                     </p>
                     <h3 class="habr__news-title__item">
-                      <a href="<?php the_permalink()?>" class="nabr__news-item__link">
+                      <a href="<?php echo $url_from_habr0; ?>" class="nabr__news-item__link" target="_blank">
                         <?php the_title()?>
                       </a>
                     </h3>
@@ -180,7 +187,7 @@
 
     <?php
     $args = array(
-      'post_type'         => 'post',
+      'post_type'         => 'news_and_events',
       'posts_per_page'    => 4,
       'post_status'       => 'publish',
       'order'             => 'DESC',
@@ -195,7 +202,7 @@
         <div class="intern-no-events-container">
           <div class="intern-no-events__header">
             <a href="#" class="intern-no-events__news-link">Новости</a>
-            <a href="https://habr.com/ru/company/mvideo/blog/" class="intern-no-events__all-news-link" target="blank">
+            <a href="https://habr.com/ru/company/mvideo/blog/" class="intern-no-events__all-news-link" target="_blank">
             Все новости
           
             <svg
@@ -219,17 +226,12 @@
               $thumbnail_url = get_the_post_thumbnail_url( $actually_news->posts[0]->ID, 'full' );
               if( false == $thumbnail_url ) $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
 
-              $url_from_habr0 = get_habr_url( $actually_news->posts[0]->ID );
-              if( null != get_field( 'url_from_habr', $actually_news->posts[0]->ID ) ) {
-                $url_from_habr0 = get_field( 'url_from_habr', $actually_news->posts[0]->ID );
-              } else{
-                $url_from_habr0 = get_permalink( $actually_news->posts[0]->ID );
-              }
+              $url_from_habr0 = get_the_permalink( $actually_news->posts[0]->ID );
               ?>
 
               <div class="intern-no-events__news-block">
 
-                <a href="<?php echo $url_from_habr0; ?>" target="_blank" class="intern-no-events__news-card-main">
+                <a href="<?php echo $url_from_habr0; ?>" class="intern-no-events__news-card-main">
                   <div class="intern-no-events__card-image-block loading">
                     <img
                       class="intern-no-events__card-image"
@@ -253,13 +255,9 @@
                   if( false == $thumbnail_url ){
                   $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
                   }
-                  if( null != get_field( 'url_from_habr', $actually_news->posts[1]->ID ) ){
-                    $url_from_habr1 = get_field( 'url_from_habr', $actually_news->posts[1]->ID );
-                  } else{
-                    $url_from_habr1 = get_habr_url( $actually_news->posts[1]->ID );
-                  }
+                  $url_from_habr1 = get_the_permalink( $actually_news->posts[1]->ID );
                   ?>
-                  <a href="<?php echo $url_from_habr1; ?>" target="_blank" class="intern-no-events__news-card-second">
+                  <a href="<?php echo $url_from_habr1; ?>" class="intern-no-events__news-card-second">
                     <div class="intern-no-events__card-image-block loading">
                       <img
                         class="intern-no-events__card-image"
@@ -290,13 +288,9 @@
                   if( false == $thumbnail_url ){
                     $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
                   }
-                  if( null != get_field( 'url_from_habr', $actually_news->posts[2]->ID ) ){
-                    $url_from_habr2 = get_field( 'url_from_habr', $actually_news->posts[2]->ID );
-                  } else{
-                    $url_from_habr2 = get_habr_url( $actually_news->posts[2]->ID );
-                  }
+                  $url_from_habr2 = get_the_permalink( $actually_news->posts[2]->ID );
                   ?>
-                  <a href="<?php echo $url_from_habr2; ?>" target="_blank" class="intern-no-events__news-card-main">
+                  <a href="<?php echo $url_from_habr2; ?>" class="intern-no-events__news-card-main">
                     <div class="intern-no-events__card-image-block loading">
                       <img
                         class="intern-no-events__card-image"
@@ -323,13 +317,9 @@
                   if( false == $thumbnail_url ){
                     $thumbnail_url = THEME_URL .'/assets/images/default/post-image-default.jpg';
                   }
-                  if( null != get_field( 'url_from_habr', $actually_news->posts[3]->ID ) ){
-                    $url_from_habr3 = get_field( 'url_from_habr', $actually_news->posts[3]->ID );
-                  } else{
-                    $url_from_habr3 = get_habr_url( $actually_news->posts[3]->ID );
-                  }
+                  $url_from_habr3 = get_the_permalink( $actually_news->posts[3]->ID );
                   ?>
-                  <a href="<?php echo $url_from_habr3; ?>" target="_blank" class="intern-no-events__news-card-second">
+                  <a href="<?php echo $url_from_habr3; ?>" class="intern-no-events__news-card-second">
                     <div class="intern-no-events__card-image-block loading">
                       <img
                         class="intern-no-events__card-image"
