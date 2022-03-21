@@ -378,9 +378,6 @@ class WPcf7_Mail extends Boot {
     
     public function upload_file() {
 
-        var_dump($_FILES);
-        // var_dump($_POST);
-
         $link = '';
 
         $valid_formats = array("pdf", "doc", "docx", "rtf"); // Supported file types
@@ -390,9 +387,9 @@ class WPcf7_Mail extends Boot {
 
         $extension = pathinfo( $_POST['name'], PATHINFO_EXTENSION );
 
-        if ( $_FILES['file']['error'] == 0 ) {
+        if ( $_FILES['hold_file']['error'] == 0 ) {
             // Check if image size is larger than the allowed file size
-            if ( $_FILES['file']['size'] > $max_file_size ) {
+            if ( $_FILES['hold_file']['size'] > $max_file_size ) {
                 // is too large!
                 $result = false;
         
@@ -402,43 +399,17 @@ class WPcf7_Mail extends Boot {
                 $result = false;
         
             } else{
-                // If no errors, upload the file...
-                if( move_uploaded_file( $_FILES["file"]["tmp_name"], $path.$_POST['name'] ) ) {
-                
-                    $filename = $path.$_POST['name'];
-                    $filetype = wp_check_filetype( basename( $filename ), null );
-                    $wp_upload_dir = wp_upload_dir();
-                    $attachment = array(
-                        'guid'           => $wp_upload_dir['url'] . '/' . basename( $filename ),
-                        'post_mime_type' => $filetype['type'],
-                        'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $filename ) ),
-                        'post_content'   => '',
-                        'post_status'    => 'inherit'
-                    );
+                require_once( ABSPATH . 'wp-admin/includes/file.php' );
 
-                    require_once( ABSPATH . 'wp-admin/includes/file.php' );
+                $overrides = [ 'test_form' => false ];
 
-                    $overrides = [ 'test_form' => false ];
+                $movefile = wp_handle_upload( $_FILES["hold_file"], $overrides );
 
-                    $movefile = wp_handle_upload( $_FILES["file"], $overrides );
-
-                    var_dump($movefile);
-                    if ( $movefile && empty($movefile['error']) ) {
-                        $link = $movefile;
-                        $result = true;
-                    } else {
-                        $result = false;
-                    }
-                    // Insert attachment to the database
-                    // $attach_id = wp_insert_attachment( $attachment, $filename, $parent_post_id );
-
-                    // require_once( ABSPATH . 'wp-admin/includes/image.php' );
-                
-                    // Generate meta data
-                    // $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
-                    // wp_update_attachment_metadata( $attach_id, $attach_data );
-                
+                if ( $movefile && empty($movefile['error']) ) {
+                    $link = $movefile['url'];
                     $result = true;
+                } else {
+                    $result = false;
                 }
             }
         }

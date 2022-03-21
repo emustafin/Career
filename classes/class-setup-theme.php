@@ -36,6 +36,8 @@ class Setup_Theme {
 		add_action( 'wp_enqueue_scripts', [ $this, 'theme_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'theme_styles' ] );
 
+		add_filter( 'upload_mimes', [ $this, 'upload_allow_types' ] );
+
 	}
 
 	/**
@@ -124,6 +126,18 @@ class Setup_Theme {
 				'nonce' => wp_create_nonce( 'tc-ajax-nonce' ),
 			)
 		);
+	}
+
+	public function upload_allow_types( $mimes ) {
+
+		// разрешаем новые типы
+		$mimes['txt']  = 'text/plain';
+		$mimes['pdf']  = 'application/pdf';
+		$mimes['doc']  = 'application/msword';
+		$mimes['docx']  = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+		$mimes['rtf']  = 'application/rtf';
+	
+		return $mimes;
 	}
 
 }
