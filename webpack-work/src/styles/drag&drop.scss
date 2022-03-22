@@ -1,4 +1,5 @@
-.drag__and__drop input[type=file]{
+.drag__and__drop input[type=file],
+.hidden{
     display: none;
 }
 
@@ -83,4 +84,14 @@
 .file .removing {
     transform: scale(0);
     transition: transform .3s;
+}
+
+.errorFileImg{
+    background: url("../images/drag&drop/error.png");
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.errorName{
+    color: #E31235;
 }

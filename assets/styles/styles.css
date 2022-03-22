@@ -7959,7 +7959,10 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
     margin-bottom: 24px; }
   .form__response-title {
     font-size: 24px;
-    line-height: 28px; } }
+    line-height: 28px; }
+  .hform__input {
+    font-size: 14px;
+    line-height: 16px; } }
 
 .form__file-uploader .wpcf7-form-control-wrap.upload-file-803 {
   width: 100%; }
@@ -10756,7 +10759,8 @@ input#form__town {
 .habr__news-title__item > a {
   color: #000; }
 
-.drag__and__drop input[type=file] {
+.drag__and__drop input[type=file],
+.hidden {
   display: none; }
 
 .file__wrapper {
@@ -10830,6 +10834,14 @@ input#form__town {
 .file .removing {
   transform: scale(0);
   transition: transform .3s; }
+
+.errorFileImg {
+  background: url("../images/drag&drop/error.png");
+  background-repeat: no-repeat;
+  background-position: left; }
+
+.errorName {
+  color: #E31235; }
 
 section.page__404 {
   font-size: 18px;

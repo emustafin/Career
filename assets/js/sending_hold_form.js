@@ -160,8 +160,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
             if (this.status >= 200 && this.status < 400) {
                 // Success!
                 var resp = JSON.parse(this.response);
+                
                 if( true == resp.success ){
-
+                    
                     document.querySelector('.form__response-block').style.display = "block";
                 } else{
                     document.querySelector('.form__form-message').innerHTML = "Что-то пошло не так...";
