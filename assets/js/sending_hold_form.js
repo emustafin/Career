@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
 
                 // Файл
-                var hold_file_array = document.querySelector('.hold_file_array').value;
+                var hold_file_array = document.querySelector('#hold_file_array').value;
 
                 // Политика конфиденциальности
                 var holdf_agree_checkbox = document.querySelector('.holdf_agree_checkbox').checked;
@@ -160,11 +160,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
             if (this.status >= 200 && this.status < 400) {
                 // Success!
                 var resp = JSON.parse(this.response);
+                
                 if( true == resp.success ){
-
+                    document.getElementById('rhform').reset();
+                    currentFiles = []
+                    uploadFile.style.display = 'none'
+                    preview.style.display = 'flex'
+                    preview.classList.remove('errorFileImg')
+                    preview.innerHTML = `
+                        <p class="file__name">Выберите файл или перетащите сюда</p>
+                        <p class="file__subname">До 2 файлов по 5 Мб форматов pdf, doc, docx, rtf</p>
+                    `
                     document.querySelector('.form__response-block').style.display = "block";
+                    document.querySelector('.form__response-title').innerHTML = "Спасибо за отклик! Скоро ответим!";
                 } else{
-                    document.querySelector('.form__form-message').innerHTML = "Что-то пошло не так...";
+                    document.querySelector('.form__response-block').style.display = "block";
+                    document.querySelector('.form__response-title').innerHTML = "Что-то пошло не так...";
                 }
             }
         };
