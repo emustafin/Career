@@ -27,7 +27,7 @@ function upload(selector, options = {}){
 
     const changeHandler = event => {
         if (!event.length) {
-        return
+            return
         }
         
         uploadFile.style.display = 'flex'
@@ -142,7 +142,7 @@ upload('#vacancy_file', {
 })
 
 function upload_file_to_server( file ) {
-    
+
     if (window.FormData != undefined) {
 
 		var formData = new FormData();
@@ -150,13 +150,13 @@ function upload_file_to_server( file ) {
 		formData.append('hold_file', file);
 		formData.append('name', file.name);
 
-        var request = new XMLHttpRequest();
-        request.open('POST', ajax.url, true);
+        var fupload_request = new XMLHttpRequest();
+        fupload_request.open('POST', ajax.url, true);
         // request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 
-        request.send( formData );
+        fupload_request.send( formData );
 
-        request.onreadystatechange = function() {
+        fupload_request.onreadystatechange = function() {
             if (this.status >= 200 && this.status < 400) {
                 // Success!
                 console.log(this.response);
@@ -175,13 +175,17 @@ function upload_file_to_server( file ) {
                             return false;
                         }
                     } else{
-                        return false;
+                        return 'success false';
                     }
-                } return false;
+                } else {
+                    return 'empty respone';
+                }
+            } else{
+                return 'status failed'+this.status;
             }
         };
 
     } else{
-        return false;
+        return 'false';
     }
 }
