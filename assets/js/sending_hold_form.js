@@ -104,11 +104,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         var holdf_age = '';
                         var holdf_citizenship = '';
                     }
-
                 }
 
-
                 // Файл
+                var hold_file_array = document.querySelector('.hold_file_array').value;
 
                 // Политика конфиденциальности
                 var holdf_agree_checkbox = document.querySelector('.holdf_agree_checkbox').checked;
@@ -138,6 +137,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         holdf_town              : holdf_town,
                         holdf_age               : holdf_age,
                         holdf_citizenship       : holdf_citizenship,
+                        hold_file_array         : hold_file_array,
                         holdf_information       : holdf_information,
                         holdf_agree_checkbox    : holdf_agree_checkbox
                     };

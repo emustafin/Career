@@ -129,10 +129,8 @@ class WPcf7_Mail extends Boot {
         if( $posted_data["holdf_information"] ){
             $externals_body .= "Дополнительная информация - ".$posted_data["holdf_information"]."\n";
         }
-        if( $posted_data["upload-file-803"] ){
-            foreach ($posted_data["upload-file-803"] as $file) {
-                $account_source .= $file.","; //TODO запятую последнюю убрать
-            }
+        if( $posted_data["hold_file_array"] ){
+            $externals_body .= "Файлы - ".$posted_data["hold_file_array"]."\n";
         }
         if( $posted_data["upload-file-805"] ){
             foreach ($posted_data["upload-file-805"] as $file) {
@@ -257,10 +255,8 @@ class WPcf7_Mail extends Boot {
             if( $posted_data["holdf_information"] ){
                 $externals_body .= "Дополнительная информация - ".$posted_data["holdf_citizenship"]."\n";
             }
-            if( $posted_data["upload-file-803"] ){
-                foreach ($posted_data["upload-file-803"] as $file) {
-                    $account_source .= $file.","; //TODO запятую последнюю убрать
-                }
+            if( $posted_data["hold_file_array"] ){
+                $externals_body .= "Файлы - ".$posted_data["hold_file_array"]."\n";
             }
             if( $posted_data["upload-file-805"] ){
                 foreach ($posted_data["upload-file-805"] as $file) {
