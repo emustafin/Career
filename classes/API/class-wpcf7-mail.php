@@ -73,21 +73,17 @@ class WPcf7_Mail extends Boot {
 
     public function sent_data_to_huntflow( $posted_data, $sending ){
 
+        $mail_info = '';
         $url = 'https://mvideo-api.huntflow.ru/account/2/applicants';
         $params = array();
 
         if( $posted_data['text-name'] ){
             $full_name = $posted_data['text-name'];
         }
-        if( $posted_data['text-name'] ){
-            $full_name = $posted_data['text-name'];
-        }
         if( $posted_data['holdf_name'] ){
             $full_name = $posted_data['holdf_name'];
         }
-        if( $posted_data['holdf_name'] ){
-            $full_name = $posted_data['holdf_name'];
-        }
+        $mail_info .= 'Имя и Фамилия - '.$full_name.'\n';
 
         $names = explode(" ", $full_name);
 
@@ -104,12 +100,22 @@ class WPcf7_Mail extends Boot {
         if( $posted_data['mask-348'] ){
             $params['phone'] = $posted_data['mask-348'];
         }
+        $mail_info .= 'Телефон - '.$params['phone'].'\n';
+
         if( $posted_data['holdf_email'] ){
             $params['email'] = $posted_data['holdf_email'];
         }
         if( $posted_data['email-717'] ){
             $params['email'] = $posted_data['email-717'];
         }
+        $mail_info .= 'Email - '.$params['email'].'\n';
+
+        if( $posted_data['holdf_citizenship'] ){
+            $params['citizenship'] = 'Гражданство - '.$posted_data['holdf_citizenship'];
+        } else{
+            $params['citizenship'] = '';
+        }
+        $mail_info .= 'Гражданство - '.$params['citizenship'].'\n';
 
         $externals_body = "";
         $account_source = "";
@@ -129,10 +135,8 @@ class WPcf7_Mail extends Boot {
         if( $posted_data["holdf_information"] ){
             $externals_body .= "Дополнительная информация - ".$posted_data["holdf_information"]."\n";
         }
-        if( $posted_data["upload-file-803"] ){
-            foreach ($posted_data["upload-file-803"] as $file) {
-                $account_source .= $file.","; //TODO запятую последнюю убрать
-            }
+        if( $posted_data["hold_file_array"] ){
+            $externals_body .= "Файлы - ".$posted_data["hold_file_array"]."\n";
         }
         if( $posted_data["upload-file-805"] ){
             foreach ($posted_data["upload-file-805"] as $file) {
@@ -144,6 +148,7 @@ class WPcf7_Mail extends Boot {
         }
 
         if( '' != $externals_body ){
+            $mail_info .= 'Доп.Материалы - \n'.$externals_body;
             $params['externals'] = [
                 [
                     "data"=> [
@@ -163,7 +168,7 @@ class WPcf7_Mail extends Boot {
         self::log( $result );
 
         if( true == $sending ){
-            self::sending_email( $params );
+            self::sending_email( $mail_info );
         }
 
         return json_decode( $result );
@@ -171,6 +176,7 @@ class WPcf7_Mail extends Boot {
 
     public function sent_data_to_skillaz( $posted_data, $sending ){
 
+        $mail_info = '';
         $url = 'https://api-feature-mvideo.dev.skillaz.ru/open-api/objects/candidates';
         $params = array();
 
@@ -199,6 +205,8 @@ class WPcf7_Mail extends Boot {
             $params['VacancyId'] = '62149a22460995270b9a98b2';
             $params['SourceUrl'] = 'https://job.mvideoeldorado.ru/shop/vacancy/3679';
         }
+        $mail_info .= 'VacancyId - '.$params['VacancyId'].'\n';
+        $mail_info .= 'SourceUrl - '.$params['SourceUrl'].'\n';
         $params['BirthDate'] = '1999-03-03T00:00:00'; //надо обсудить, пока заглушка
         $params['Source'] = 'CorporatePortal'; //надо обсудить, пока заглушка
         $params['AddWay'] = 'negotiation'; //надо обсудить, пока заглушка
@@ -216,6 +224,8 @@ class WPcf7_Mail extends Boot {
         } else{
             $params['LastName'] = 'Тест1';
         }
+        $mail_info .= 'Имя и Фамилия - '.$params['FirstName'].' '.$params['LastName'].'\n';
+
         if( $posted_data['text-name'] ){
             $params['MiddleName'] = '';
         } else{
@@ -231,6 +241,8 @@ class WPcf7_Mail extends Boot {
         } else{
             $params['PhoneNumber'] = '+7 (999) 992-9999';
         }
+        $mail_info .= 'Телефон - '.$params['PhoneNumber'].'\n';
+
         if( $posted_data['holdf_email'] ){
             $params['Email'] = $posted_data['holdf_email'];
         } else{
@@ -241,6 +253,14 @@ class WPcf7_Mail extends Boot {
         } else{
             $params['Email'] = 'test-email1@skillaz.ru';
         }
+        $mail_info .= 'Email - '.$params['Email'].'\n';
+
+        if( $posted_data['holdf_citizenship'] ){
+            $params['Citizenship'] = 'Гражданство - '.$posted_data['holdf_citizenship'];
+        } else{
+            $params['Citizenship'] = '';
+        }
+        $mail_info .= 'Гражданство - '.$params['citizenship'].'\n';
 
         // -----another_params---------
             $externals_body = "";
@@ -257,10 +277,8 @@ class WPcf7_Mail extends Boot {
             if( $posted_data["holdf_information"] ){
                 $externals_body .= "Дополнительная информация - ".$posted_data["holdf_citizenship"]."\n";
             }
-            if( $posted_data["upload-file-803"] ){
-                foreach ($posted_data["upload-file-803"] as $file) {
-                    $account_source .= $file.","; //TODO запятую последнюю убрать
-                }
+            if( $posted_data["hold_file_array"] ){
+                $externals_body .= "Файлы - ".$posted_data["hold_file_array"]."\n";
             }
             if( $posted_data["upload-file-805"] ){
                 foreach ($posted_data["upload-file-805"] as $file) {
@@ -272,6 +290,7 @@ class WPcf7_Mail extends Boot {
             }
 
             if( '' != $externals_body ){
+                $mail_info .= 'Доп.Материалы - '.$externals_body.'\n';
                 $another_params['externals'] = [
                     [
                         "data"=> [
@@ -290,7 +309,7 @@ class WPcf7_Mail extends Boot {
         self::log( $result );
 
         if( true == $sending ){
-            self::sending_email( $params );
+            self::sending_email( $mail_info );
         }
 
         return json_decode( $result );
@@ -407,6 +426,8 @@ class WPcf7_Mail extends Boot {
 
                 if ( $movefile && empty($movefile['error']) ) {
                     $link = $movefile['url'];
+                    $path_parts = pathinfo($link);
+                    $filename = $path_parts['filename'];
                     $result = true;
                 } else {
                     $result = false;
@@ -416,6 +437,7 @@ class WPcf7_Mail extends Boot {
 
         $return = array(
             'success' 	=> $result,
+            'filename'  => $filename,
             'link'      => $link
         );
 
