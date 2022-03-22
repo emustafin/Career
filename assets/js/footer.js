@@ -218,9 +218,11 @@ citizenshipSelect.on(
 
 function setup_vars_for_forms() {
 
+  // var hf_rel_type = document.querySelector('#hold_form .rel_type').value;
   document.querySelectorAll('.rel_type').forEach(
     element => element.setAttribute('value',rel_type),
   );
+  document.querySelector('#hold_form .rel_type').value = 'hold';
 
   document.querySelector('#popup_form .rel_type').setAttribute( 'value', 'hold' );
 

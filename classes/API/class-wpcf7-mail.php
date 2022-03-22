@@ -324,7 +324,7 @@ class WPcf7_Mail extends Boot {
                 $rel_type = $_POST['rel_type'];
             }
     
-            if( 'hold' != $rel_type && 'mainpage' != $rel_type ){
+            if( 'hold' != $rel_type ){
                 if( empty( $_SESSION['send_post_id'] ) ){
                     $_SESSION['send_post_id'] = array( (int) $_POST['text-vacancyid'] );
                 } elseif( !in_array( $_POST['text-vacancyid'], $_SESSION['send_post_id'] ) ){
@@ -341,7 +341,7 @@ class WPcf7_Mail extends Boot {
                 }
             }
 
-            if( 'hold' == $rel_type && 'mainpage' == $rel_type ){
+            if( 'hold' == $rel_type ){
                 $send_result = self::sent_data_to_skillaz( $_POST, true );
             } elseif( 'it' == $rel_type ){
                 $send_result = self::sent_data_to_huntflow( $_POST, true );
