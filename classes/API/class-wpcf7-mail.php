@@ -393,6 +393,8 @@ class WPcf7_Mail extends Boot {
         $headers = 'From: admin@career.com'       . "\r\n" .
             'Reply-To: '. get_option( 'admin_email' ) . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
+
+        file_put_contents( 'wp-content/themes/career_theme/classes/API/email-sending.json', print_r( $content, true ), FILE_APPEND );
         
 		wp_mail( get_option( 'admin_email' ), 'Анкета', $content, $headers);
 	}
