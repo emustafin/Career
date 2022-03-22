@@ -157,7 +157,7 @@ if( null != formCityInput_r ){
 }
 
 // Инициализация селекта Тагифай в анкете. Поле "Направление"
-const directionFormInput = document.querySelector('.holdf_directions');
+const directionFormInput = document.querySelector('input[name="holdf_directions"]');
 
 const directionSelect = new Tagify(directionFormInput, {
   enforceWhitelist: true,
@@ -187,6 +187,15 @@ directionSelect.on(
 
   }
 );
+
+// Инициализация селекта Тагифай в анкете. Поле "Города"
+const townsFormInput = document.querySelector('input[name="holdf_town"]');
+
+const townsSelect = new Tagify(townsFormInput, {
+    enforceWhitelist: true,
+    mode : "select",
+    whitelist: hformTowns,
+})
 
 // Инициализация селекта Тагифай в анкете. Поле "Гражданство"
 const citizenshipFormInput = document.querySelector('.holdf_citizenship');

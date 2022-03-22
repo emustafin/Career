@@ -3,20 +3,20 @@
     <input type="hidden" name="text-vacancyid" size="40" class="vacancyid" value>
     <input type="hidden" name="text-sourceurl" size="40" class="sourceurl" value>
 </div>
-<div class="form__holdf_name">
+<div class="hform form__holdf_name">
     <p class="form__form-name-value">Имя и фамилия*</p>
-    <input type="text" name="holdf_name" value size="40" class="holdf_name">
+    <input type="text" placeholder="Имя и фамилия" name="holdf_name" value size="40" class="hform__input holdf_name">
     <div class="form__form-mistake" style="display:none;">это обязательное поле</div>
 </div>
-<div class="form__holdf_email">
+<div class="hform form__holdf_email">
     <p class="form__form-name-value">Электронная почта*</p>
-    <input type="email" name="holdf_email" value size="40" class="holdf_email">
+    <input type="email" placeholder="test@test.ru" name="holdf_email" value size="40" class="hform__input holdf_email">
     <div class="form__form-mistake" style="display:none;">неверный формат почты</div>
 </div>
 
-<div class="form__holdf_tel">
+<div class="hform form__holdf_tel">
     <p class="form__form-name-value">Телефон*</p>
-    <input type="tel" name="holdf_tel" value="" class="holdf_tel" size="40" aria-required="1" placeholder="+7 (___) ___-__-__" data-mask="+7 (___) ___-__-__">
+    <input type="tel" name="holdf_tel" value="" class="hform__input holdf_tel" size="40" aria-required="1" placeholder="+7 (___) ___-__-__" data-mask="+7 (___) ___-__-__">
     <div class="form__form-mistake" style="display:none;">это обязательное поле</div>
     <div class="form__form-mistake_format" style="display:none;">неверный формат почты</div>
 </div>
@@ -36,12 +36,12 @@
 
 <div class="form__holdf_town" style="display:none;">
     <p class="form__form-name-value">Город*</p>
-    <input type="text" name="holdf_town" value="" size="40" class="holdf_town" aria-required="true" aria-invalid="false" placeholder="">
+    <input type="text" name="holdf_town" value="" placeholder="Город" size="40" class="holdf_town" aria-required="true" aria-invalid="false" placeholder="">
     <div class="form__form-mistake" style="display:none;">это обязательное поле</div>
 </div>
-<div class="form__holdf_age" style="display:none;">
+<div class="hform form__holdf_age" style="display:none;">
     <p class="form__form-name-value">Возраст*</p>
-    <input type="number" name="holdf_age" value="" min="1" class="holdf_age" aria-required="true" aria-invalid="false" placeholder="">
+    <input type="number" name="holdf_age" value="" placeholder="Возраст" min="1" class="hform__input holdf_age" aria-required="true" aria-invalid="false" placeholder="">
     <div class="form__form-mistake" style="display:none;">это обязательное поле</div>
 </div>
 <div class="form__holdf_citizenship" style="display:none;">
@@ -63,12 +63,13 @@
         <input type="file" name="hold_file" id="hold_file">
     </div>
 </div>
-<div class="form__holdf_information">
-    <input type="text" name="holdf_information" value="" size="40" class="holdf_information" aria-invalid="false" placeholder="Дополнительная информация">
+<div class="hform form__holdf_information">
+    <input type="text" name="holdf_information" value="" size="40" class="hform__input holdf_information" aria-invalid="false" placeholder="Дополнительная информация">
 </div>
 <div class="form_policy">
     <label class="form__form-label vacancy__form-label_checkbox">
         <input type="checkbox" name="holdf_agree_checkbox" value="" class="holdf_agree_checkbox">
+        <span class="wpcf7-list-item-label"></span>
         <span class="form__form-agree">Я согласен с </span>
         <a href="/privacy-policy/" class="form__form-politics">Политикой обработки персональных данных</a>
     </label>
