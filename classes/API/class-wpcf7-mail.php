@@ -324,19 +324,21 @@ class WPcf7_Mail extends Boot {
                 $rel_type = $_POST['text-rel_type'];
             }
     
-            if( empty( $_SESSION['send_post_id'] ) ){
-                $_SESSION['send_post_id'] = array( (int) $_POST['text-vacancyid'] );
-            } elseif( !in_array( $_POST['text-vacancyid'], $_SESSION['send_post_id'] ) ){
-                $_SESSION['send_post_id'][] = (int) $_POST['text-vacancyid'];
-            }
-            elseif( in_array( $_POST['text-vacancyid'], $_SESSION['send_post_id'] ) ){
-                $return = array(
-                    'success' 	=> false,
-                );
-        
-                wp_send_json($return);
-
-                return false;
+            if( 'hold' != $rel_type ){
+                if( empty( $_SESSION['send_post_id'] ) ){
+                    $_SESSION['send_post_id'] = array( (int) $_POST['text-vacancyid'] );
+                } elseif( !in_array( $_POST['text-vacancyid'], $_SESSION['send_post_id'] ) ){
+                    $_SESSION['send_post_id'][] = (int) $_POST['text-vacancyid'];
+                }
+                elseif( in_array( $_POST['text-vacancyid'], $_SESSION['send_post_id'] ) ){
+                    $return = array(
+                        'success' 	=> false,
+                    );
+            
+                    wp_send_json($return);
+    
+                    return false;
+                }
             }
 
             if( 'hold' == $rel_type ){
