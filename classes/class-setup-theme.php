@@ -36,6 +36,8 @@ class Setup_Theme {
 		add_action( 'wp_enqueue_scripts', [ $this, 'theme_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'theme_styles' ] );
 
+		add_filter( 'upload_mimes', [ $this, 'upload_allow_types' ] );
+
 	}
 
 	/**
@@ -90,8 +92,11 @@ class Setup_Theme {
 			wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', [], '3.5.1', false );
 		// }
 		wp_enqueue_script( self::THEME_ID . "singleVacanciesPage-js", THEME_URL . "/assets/js/singleVacanciesPage.js", [], THEME_VSN, true );
+		wp_enqueue_script( self::THEME_ID . "upload-js", THEME_URL . "/assets/js/upload.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "swiper-js", THEME_URL . "/assets/js/swiper-bundle.min.js", [], THEME_VSN, true );
+		wp_enqueue_script( self::THEME_ID . "imask-js", THEME_URL . "/assets/js/imask.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "ajax-js", THEME_URL . "/assets/js/ajax.js", [], THEME_VSN, true );
+		wp_enqueue_script( self::THEME_ID . "sending_hold_form-js", THEME_URL . "/assets/js/sending_hold_form.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "bundle-js", THEME_URL . "/assets/bundle.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "popup_vacancy-js", THEME_URL . "/assets/js/popup_vacancy.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "footer-js", THEME_URL . "/assets/js/footer.js", [], THEME_VSN, true );
@@ -121,6 +126,18 @@ class Setup_Theme {
 				'nonce' => wp_create_nonce( 'tc-ajax-nonce' ),
 			)
 		);
+	}
+
+	public function upload_allow_types( $mimes ) {
+
+		// разрешаем новые типы
+		$mimes['txt']  = 'text/plain';
+		$mimes['pdf']  = 'application/pdf';
+		$mimes['doc']  = 'application/msword';
+		$mimes['docx']  = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+		$mimes['rtf']  = 'application/rtf';
+	
+		return $mimes;
 	}
 
 }

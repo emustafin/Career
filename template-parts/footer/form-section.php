@@ -40,41 +40,29 @@
         
         $product_directions = new WP_Query( $args );
 
-        $info_product_directions = array( 'Любое' );
-
         if ( $product_directions->have_posts() ) {
             while ( $product_directions->have_posts() ) {
-            $product_directions->the_post();
-
-            $title = get_the_title();
-            $info_product_directions[] .= $title;
+                $product_directions->the_post();
+                $title = get_the_title();
             }
         }
         wp_reset_postdata();
-
-        $info_vaccat = array();
-        $terms = get_terms( 'vaccat' );
-        if( $terms && ! is_wp_error($terms) ){
-            foreach( $terms as $term ){
-                $info_vaccat[] .= $term->name;
-            }
-        }
         ?>
 
         <script>
             const cities = town_titles;
-            var info_product_directions = '<?php echo json_encode( $info_product_directions ); ?>'; // Направление
-            var info_vaccat = '<?php echo json_encode( $info_vaccat ); ?>'; // Специализация
         </script>
         <div id="popup_form" class="form__content-right-bar-wrapper">
             <div class="form__content-right-bar form__content-right-bar-100">
-            <?php echo do_shortcode('[contact-form-7 id="487" title="Анкета"]'); ?>
-            <!-- Вставить разметку об успешной отправке -->
-            <div class="form__response-block">
-                <h2 class="form__response-title">
-                Спасибо за отклик! Скоро ответим!
-                </h2>
-            </div>
+
+                <div id="hold_form">
+
+                    <?php //echo do_shortcode('[contact-form-7 id="487" title="Анкета"]'); ?>
+                    <?php include(THEME_DIR . '/template-parts/footer/hold_form.php'); ?>
+                    <?php //include(THEME_DIR . '/template-parts/footer/old_form.php'); ?>
+                    
+                </div>
+
             </div>
         </div>
 

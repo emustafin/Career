@@ -1,0 +1,97 @@
+.drag__and__drop input[type=file],
+.hidden{
+    display: none;
+}
+
+.file__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.file{
+    padding-left: 56px;
+    background: url('../images/drag&drop/plus.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: fit-content;
+    min-height: 40px;
+    cursor: pointer;
+}
+
+.file__name{
+    font-size: 18px;
+    line-height: 24px;
+
+    @media (max-width: 1919px) {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    @media (max-width: 767px) {
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
+
+.file__subname{
+    font-size: 12px;
+    line-height: 12px;
+    opacity: 0.5;
+}
+
+.file__subname > svg {
+    vertical-align: middle;
+}
+
+.green{
+    color: #76BC21;
+}
+
+.background__file{
+    background: url("../images/drag&drop/file.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    margin-bottom: 16px;
+    width: 50%;
+}
+
+.new__file{
+    background: url('../images/drag&drop/plus.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    opacity: 0.5;
+    padding-left: 56px;
+    font-size: 18px;
+    line-height: 24px;
+    width: 50%;
+    height: 40px;
+    cursor: pointer;
+
+    @media (max-width: 1919px) {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    @media (max-width: 767px) {
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
+
+.file .removing {
+    transform: scale(0);
+    transition: transform .3s;
+}
+
+.errorFileImg{
+    background: url("../images/drag&drop/error.png");
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.errorName{
+    color: #E31235;
+}

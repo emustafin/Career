@@ -7,6 +7,12 @@ class WPcf7_Mail extends Boot {
 	public function __construct() {
 
         add_filter( 'wpcf7_feedback_response', [ $this, 'sent_data_to_service' ], 10, 2 );
+
+        add_action( 'wp_ajax_send_hold_form', [$this, 'send_hold_form'] );
+		add_action( 'wp_ajax_nopriv_send_hold_form', [$this, 'send_hold_form'] );
+
+        add_action( 'wp_ajax_upload_file', [$this, 'upload_file'] );
+		add_action( 'wp_ajax_nopriv_upload_file', [$this, 'upload_file'] );
 	}
 
     public function sent_data_to_service( $response, $result ){
@@ -28,11 +34,11 @@ class WPcf7_Mail extends Boot {
             return $response;
         }
         if( 'hold' == $rel_type ){
-            $send_result = self::sent_data_to_skillaz( $posted_data );
+            $send_result = self::sent_data_to_skillaz( $posted_data, false );
         } elseif( 'it' == $rel_type ){
-            $send_result = self::sent_data_to_huntflow( $posted_data );
+            $send_result = self::sent_data_to_huntflow( $posted_data, false );
         } elseif( 'roznica' == $rel_type || 'mainpage' == $rel_type ){
-            $send_result = self::sent_data_to_skillaz( $posted_data );
+            $send_result = self::sent_data_to_skillaz( $posted_data, false );
         } elseif( 'archive' == $rel_type ){
             if( $posted_data['text-vacancyid'] ){
                 $relationship_terms = get_the_terms( $posted_data['text-vacancyid'], 'relationship' );
@@ -40,16 +46,16 @@ class WPcf7_Mail extends Boot {
                     $current_relationship = $relationship_terms[0]->slug;
                 }
                 if( 'it' == $current_relationship ){
-                    $send_result = self::sent_data_to_huntflow( $posted_data );
+                    $send_result = self::sent_data_to_huntflow( $posted_data, false );
                 } else{
-                    $send_result = self::sent_data_to_skillaz( $posted_data );
+                    $send_result = self::sent_data_to_skillaz( $posted_data, false );
                 }
             } else{
-                $send_result = self::sent_data_to_skillaz( $posted_data );
+                $send_result = self::sent_data_to_skillaz( $posted_data, false );
             }
         }
         
-        file_put_contents( 'wp-content/themes/career_theme/classes/API/cf7.json', print_r( $send_result, true ), FILE_APPEND );
+        // file_put_contents( 'wp-content/themes/career_theme/classes/API/cf7.json', print_r( $send_result, true ), FILE_APPEND );
         
         $response['api_send_status'] = 'data_sent';
         if( isset( $send_result->IsOk ) ){
@@ -65,23 +71,19 @@ class WPcf7_Mail extends Boot {
         return $response;
     }
 
-    public function sent_data_to_huntflow( $posted_data ){
+    public function sent_data_to_huntflow( $posted_data, $sending ){
 
+        $mail_info = '';
         $url = 'https://mvideo-api.huntflow.ru/account/2/applicants';
         $params = array();
 
         if( $posted_data['text-name'] ){
             $full_name = $posted_data['text-name'];
         }
-        if( $posted_data['text-name'] ){
-            $full_name = $posted_data['text-name'];
+        if( $posted_data['holdf_name'] ){
+            $full_name = $posted_data['holdf_name'];
         }
-        if( $posted_data['text-name2'] ){
-            $full_name = $posted_data['text-name2'];
-        }
-        if( $posted_data['text-name2'] ){
-            $full_name = $posted_data['text-name2'];
-        }
+        $mail_info .= 'Имя и Фамилия - '.$full_name.'\n';
 
         $names = explode(" ", $full_name);
 
@@ -92,18 +94,28 @@ class WPcf7_Mail extends Boot {
             $params['last_name'] = $names[1];
         }
         
-        if( $posted_data['mask-176'] ){
-            $params['phone'] = $posted_data['mask-176'];
+        if( $posted_data['holdf_tel'] ){
+            $params['phone'] = $posted_data['holdf_tel'];
         }
         if( $posted_data['mask-348'] ){
             $params['phone'] = $posted_data['mask-348'];
         }
-        if( $posted_data['email-88'] ){
-            $params['email'] = $posted_data['email-88'];
+        $mail_info .= 'Телефон - '.$params['phone'].'\n';
+
+        if( $posted_data['holdf_email'] ){
+            $params['email'] = $posted_data['holdf_email'];
         }
         if( $posted_data['email-717'] ){
             $params['email'] = $posted_data['email-717'];
         }
+        $mail_info .= 'Email - '.$params['email'].'\n';
+
+        if( $posted_data['holdf_citizenship'] ){
+            $params['citizenship'] = 'Гражданство - '.$posted_data['holdf_citizenship'];
+        } else{
+            $params['citizenship'] = '';
+        }
+        $mail_info .= 'Гражданство - '.$params['citizenship'].'\n';
 
         $externals_body = "";
         $account_source = "";
@@ -111,22 +123,20 @@ class WPcf7_Mail extends Boot {
             $externals_body .= "Название вакансии - ".get_the_title( $posted_data['text-vacancyid'] )."\n";
             $externals_body .= "Ссылка на вакансию - ".get_permalink( $posted_data['text-vacancyid'] )."\n";
         }
-        if( $posted_data["text-town"] ){
-            $externals_body .= "Город - ".json_decode( $posted_data["text-town"] )[0]->value."\n";
+        if( $posted_data["holdf_town"] ){
+            $externals_body .= "Город - ".json_decode( $posted_data["holdf_town"] )[0]->value."\n";
         }
-        if( $posted_data["text-931"] ){
-            $externals_body .= "Направление - ".json_decode( $posted_data["text-931"] )[0]->value."\n";
+        if( $posted_data["holdf_directions"] ){
+            $externals_body .= "Направление - ".json_decode( $posted_data["holdf_directions"] )[0]->value."\n";
         }
-        if( $posted_data["text-932"] ){
-            $externals_body .= "Специализация - ".json_decode( $posted_data["text-932"] )[0]->value."\n";
+        if( $posted_data["holdf_citizenship"] ){
+            $externals_body .= "Специализация - ".json_decode( $posted_data["holdf_citizenship"] )[0]->value."\n";
         }
-        if( $posted_data["text-341"] ){
-            $externals_body .= "Дополнительная информация - ".$posted_data["text-341"]."\n";
+        if( $posted_data["holdf_information"] ){
+            $externals_body .= "Дополнительная информация - ".$posted_data["holdf_information"]."\n";
         }
-        if( $posted_data["upload-file-803"] ){
-            foreach ($posted_data["upload-file-803"] as $file) {
-                $account_source .= $file.","; //TODO запятую последнюю убрать
-            }
+        if( $posted_data["hold_file_array"] ){
+            $externals_body .= "Файлы - ".$posted_data["hold_file_array"]."\n";
         }
         if( $posted_data["upload-file-805"] ){
             foreach ($posted_data["upload-file-805"] as $file) {
@@ -138,6 +148,7 @@ class WPcf7_Mail extends Boot {
         }
 
         if( '' != $externals_body ){
+            $mail_info .= 'Доп.Материалы - \n'.$externals_body;
             $params['externals'] = [
                 [
                     "data"=> [
@@ -156,12 +167,17 @@ class WPcf7_Mail extends Boot {
         $result = self::init_post( $headers, $url, $content );
         self::log( $result );
 
+        if( true == $sending ){
+            self::sending_email( $mail_info );
+        }
+
         return json_decode( $result );
     }
 
-    public function sent_data_to_skillaz( $posted_data ){
+    public function sent_data_to_skillaz( $posted_data, $sending ){
 
-        $url = 'https://api-feature-mvideo.dev.skillaz.ru/open-api/objects/candidates';
+        $mail_info = '';
+        $url = 'https://api.skillaz.ru/open-api/objects/candidates';
         $params = array();
 
         if( 'hold' != $posted_data['text-rel_type'] ){
@@ -189,6 +205,8 @@ class WPcf7_Mail extends Boot {
             $params['VacancyId'] = '62149a22460995270b9a98b2';
             $params['SourceUrl'] = 'https://job.mvideoeldorado.ru/shop/vacancy/3679';
         }
+        $mail_info .= 'VacancyId - '.$params['VacancyId'].'\n';
+        $mail_info .= 'SourceUrl - '.$params['SourceUrl'].'\n';
         $params['BirthDate'] = '1999-03-03T00:00:00'; //надо обсудить, пока заглушка
         $params['Source'] = 'CorporatePortal'; //надо обсудить, пока заглушка
         $params['AddWay'] = 'negotiation'; //надо обсудить, пока заглушка
@@ -196,8 +214,8 @@ class WPcf7_Mail extends Boot {
 
         if( $posted_data['text-name'] ){
             $params['FirstName'] = $posted_data['text-name'];
-        } elseif( $posted_data['text-name2'] ){
-            $params['FirstName'] = $posted_data['text-name2'];
+        } elseif( $posted_data['holdf_name'] ){
+            $params['FirstName'] = $posted_data['holdf_name'];
         } else{
             $params['FirstName'] = 'Тест1';
         }
@@ -206,13 +224,15 @@ class WPcf7_Mail extends Boot {
         } else{
             $params['LastName'] = 'Тест1';
         }
+        $mail_info .= 'Имя и Фамилия - '.$params['FirstName'].' '.$params['LastName'].'\n';
+
         if( $posted_data['text-name'] ){
             $params['MiddleName'] = '';
         } else{
             $params['MiddleName'] = '';
         }
-        if( $posted_data['mask-176'] ){
-            $params['PhoneNumber'] = $posted_data['mask-176'];
+        if( $posted_data['holdf_tel'] ){
+            $params['PhoneNumber'] = $posted_data['holdf_tel'];
         } else{
             $params['PhoneNumber'] = '+7 (999) 992-9999';
         }
@@ -221,8 +241,10 @@ class WPcf7_Mail extends Boot {
         } else{
             $params['PhoneNumber'] = '+7 (999) 992-9999';
         }
-        if( $posted_data['email-88'] ){
-            $params['Email'] = $posted_data['email-88'];
+        $mail_info .= 'Телефон - '.$params['PhoneNumber'].'\n';
+
+        if( $posted_data['holdf_email'] ){
+            $params['Email'] = $posted_data['holdf_email'];
         } else{
             $params['Email'] = 'test-email1@skillaz.ru';
         }
@@ -231,26 +253,32 @@ class WPcf7_Mail extends Boot {
         } else{
             $params['Email'] = 'test-email1@skillaz.ru';
         }
+        $mail_info .= 'Email - '.$params['Email'].'\n';
+
+        if( $posted_data['holdf_citizenship'] ){
+            $params['Citizenship'] = 'Гражданство - '.$posted_data['holdf_citizenship'];
+        } else{
+            $params['Citizenship'] = '';
+        }
+        $mail_info .= 'Гражданство - '.$params['citizenship'].'\n';
 
         // -----another_params---------
             $externals_body = "";
             $account_source = "";
-            if( $posted_data["text-town"] ){
-                $externals_body .= "Город - ".json_decode( $posted_data["text-town"] )[0]->value."\n";
+            if( $posted_data["holdf_town"] ){
+                $externals_body .= "Город - ".json_decode( $posted_data["holdf_town"] )[0]->value."\n";
             }
-            if( $posted_data["text-931"] ){
-                $externals_body .= "Направление - ".json_decode( $posted_data["text-931"] )[0]->value."\n";
+            if( $posted_data["holdf_directions"] ){
+                $externals_body .= "Направление - ".json_decode( $posted_data["holdf_directions"] )[0]->value."\n";
             }
-            if( $posted_data["text-932"] ){
-                $externals_body .= "Специализация - ".json_decode( $posted_data["text-932"] )[0]->value."\n";
+            if( $posted_data["holdf_citizenship"] ){
+                $externals_body .= "Специализация - ".json_decode( $posted_data["holdf_citizenship"] )[0]->value."\n";
             }
-            if( $posted_data["text-341"] ){
-                $externals_body .= "Дополнительная информация - ".$posted_data["text-932"]."\n";
+            if( $posted_data["holdf_information"] ){
+                $externals_body .= "Дополнительная информация - ".$posted_data["holdf_citizenship"]."\n";
             }
-            if( $posted_data["upload-file-803"] ){
-                foreach ($posted_data["upload-file-803"] as $file) {
-                    $account_source .= $file.","; //TODO запятую последнюю убрать
-                }
+            if( $posted_data["hold_file_array"] ){
+                $externals_body .= "Файлы - ".$posted_data["hold_file_array"]."\n";
             }
             if( $posted_data["upload-file-805"] ){
                 foreach ($posted_data["upload-file-805"] as $file) {
@@ -262,6 +290,7 @@ class WPcf7_Mail extends Boot {
             }
 
             if( '' != $externals_body ){
+                $mail_info .= 'Доп.Материалы - '.$externals_body.'\n';
                 $another_params['externals'] = [
                     [
                         "data"=> [
@@ -275,10 +304,148 @@ class WPcf7_Mail extends Boot {
 
         $content = json_encode($params);
 
-        $headers = array('Content-Type: application/json', 'Authorization: Bearer WXIGzUxm23bXoKv/AlbA8Lgmd3Yq3tsgpg5x5mMK77I=');
+        $headers = array('Content-Type: application/json', 'Authorization: Bearer +GfochhSwjsyfsnp9n7HhM4GcFBhhOv/rAoRR3Z+nWc=');
         $result = self::init_post( $headers, $url, $content );
         self::log( $result );
 
+        if( true == $sending ){
+            self::sending_email( $mail_info );
+        }
+
         return json_decode( $result );
+    }
+
+    public function send_hold_form() {
+
+        $result = false;
+        if( !empty($_POST) ){
+
+            if( $_POST['rel_type'] ){
+                $rel_type = $_POST['rel_type'];
+            }
+    
+            if( 'hold' != $rel_type ){
+                if( empty( $_SESSION['send_post_id'] ) ){
+                    $_SESSION['send_post_id'] = array( (int) $_POST['text-vacancyid'] );
+                } elseif( !in_array( $_POST['text-vacancyid'], $_SESSION['send_post_id'] ) ){
+                    $_SESSION['send_post_id'][] = (int) $_POST['text-vacancyid'];
+                }
+                elseif( in_array( $_POST['text-vacancyid'], $_SESSION['send_post_id'] ) ){
+                    $return = array(
+                        'success' 	=> false,
+                    );
+            
+                    wp_send_json($return);
+    
+                    return false;
+                }
+            }
+
+            if( 'hold' == $rel_type ){
+                $send_result = self::sent_data_to_skillaz( $_POST, true );
+            } elseif( 'it' == $rel_type ){
+                $send_result = self::sent_data_to_huntflow( $_POST, true );
+            } elseif( 'roznica' == $rel_type || 'mainpage' == $rel_type ){
+                $send_result = self::sent_data_to_skillaz( $_POST, true );
+            } elseif( 'archive' == $rel_type ){
+                if( $_POST['text-vacancyid'] ){
+                    $relationship_terms = get_the_terms( $_POST['text-vacancyid'], 'relationship' );
+                    if( is_array( $relationship_terms ) ){
+                        $current_relationship = $relationship_terms[0]->slug;
+                    }
+                    if( 'it' == $current_relationship ){
+                        $send_result = self::sent_data_to_huntflow( $_POST, true );
+                    } else{
+                        $send_result = self::sent_data_to_skillaz( $_POST, true );
+                    }
+                } else{
+                    $send_result = self::sent_data_to_skillaz( $_POST, true );
+                }
+            }
+
+            if( isset( $send_result->IsOk ) ){
+                if( false == $send_result->IsOk ){
+                    $result = false;
+                } else{
+                    $result = true;
+                }
+            } elseif( isset( $send_result->doubles ) ){
+                if( !empty( $send_result->doubles[0]->double ) ){
+                    $result = false;
+                } else{
+                    $result = true;
+                }
+            } else{
+                $result = true;
+            }
+        }
+
+        $return = array(
+            'success' 	=> $result,
+        );
+
+        wp_send_json($return);
+
+    }
+
+    public function sending_email( $content ) {
+        
+        $headers = 'From: admin@career.com'       . "\r\n" .
+            'Reply-To: '. get_option( 'admin_email' ) . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+        file_put_contents( 'wp-content/themes/career_theme/classes/API/email-sending.json', print_r( $content, true ), FILE_APPEND );
+        
+		wp_mail( get_option( 'admin_email' ), 'Анкета', $content, $headers);
+	}
+    
+    public function upload_file() {
+
+        $link = '';
+
+        $valid_formats = array("pdf", "doc", "docx", "rtf"); // Supported file types
+        $max_file_size = 1024 * 5000; // in kb
+        $wp_upload_dir = wp_upload_dir();
+        $path = $wp_upload_dir['path'] . '/';
+
+        $extension = pathinfo( $_POST['name'], PATHINFO_EXTENSION );
+
+        if ( $_FILES['hold_file']['error'] == 0 ) {
+            // Check if image size is larger than the allowed file size
+            if ( $_FILES['hold_file']['size'] > $max_file_size ) {
+                // is too large!
+                $result = false;
+        
+            // Check if the file being uploaded is in the allowed file types
+            } elseif( ! in_array( strtolower( $extension ), $valid_formats ) ){
+                // is not a valid format
+                $result = false;
+        
+            } else{
+                require_once( ABSPATH . 'wp-admin/includes/file.php' );
+
+                $overrides = [ 'test_form' => false ];
+
+                $movefile = wp_handle_upload( $_FILES["hold_file"], $overrides );
+
+                if ( $movefile && empty($movefile['error']) ) {
+                    $link = $movefile['url'];
+                    $path_parts = pathinfo($link);
+                    $filename = $path_parts['filename'];
+                    $result = true;
+                } else {
+                    $result = false;
+                }
+            }
+        }
+
+        $return = array(
+            'success' 	=> $result,
+            'filename'  => $filename,
+            'link'      => $link
+        );
+
+        wp_send_json($return);
+
     }
 }

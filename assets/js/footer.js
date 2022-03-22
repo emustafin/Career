@@ -1,10 +1,10 @@
 var origin_location = window.location.href;
 
-document.querySelector('#popup_form .wpcf7-submit').addEventListener("click", function(e) {
-  document.querySelector("#popup_form .vacancy__form-label_checkbox").style.color = "#000000";
-  document.querySelector("#popup_form  .vacancy__form-label_checkbox a").style.color = "#000000";
-  document.querySelector("#popup_form  .vacancy__form-label_checkbox a").style.borderBottom = "#000000 1px solid";
-}, false);
+// document.querySelector('#popup_form .wpcf7-submit').addEventListener("click", function(e) {
+//   document.querySelector("#popup_form .vacancy__form-label_checkbox").style.color = "#000000";
+//   document.querySelector("#popup_form  .vacancy__form-label_checkbox a").style.color = "#000000";
+//   document.querySelector("#popup_form  .vacancy__form-label_checkbox a").style.borderBottom = "#000000 1px solid";
+// }, false);
 
 if( document.querySelector('#vacancy_form .wpcf7-submit') ){
   document.querySelector('#vacancy_form .wpcf7-submit').addEventListener("click", function(e) {
@@ -15,52 +15,52 @@ if( document.querySelector('#vacancy_form .wpcf7-submit') ){
 }
 
 // Отправка анкеты на сервер
-if(document.querySelector('#popup_form .wpcf7')){
-  const form = document.querySelector('#popup_form .wpcf7');
+// if(document.querySelector('#popup_form .wpcf7')){
+//   const form = document.querySelector('#popup_form .wpcf7');
 
-  form.addEventListener(
-    'wpcf7submit',
-    function (event) {
+//   form.addEventListener(
+//     'wpcf7submit',
+//     function (event) {
 
-      const submitBtn = document.querySelector(
-        '.wpcf7-form-control.wpcf7-submit.form__response'
-      );
-      const answerTitle = document.querySelector('.form__response-block');
+//       const submitBtn = document.querySelector(
+//         '.wpcf7-form-control.wpcf7-submit.form__response'
+//       );
+//       const answerTitle = document.querySelector('.form__response-block');
 
-      const result = event.detail;
+//       const result = event.detail;
 
-      if (result.status === 'validation_failed'){
+//       if (result.status === 'validation_failed'){
 
-        var array = result.apiResponse.invalid_fields;
-        for (let index = 0; index < array.length; index++) {
-          var element = array[index];
-          if( -1 != element.error_id.indexOf('checkbox') ){
-            var label_checkbox = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox');
-            var label_checkbox_a = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox a');
-            label_checkbox.style.color = '#e31235';
-            label_checkbox_a.style.color = '#e31235';
-            label_checkbox_a.style.borderBottom = "#e31235 1px solid";
-          }
-        }
-        return;
-      } 
+//         var array = result.apiResponse.invalid_fields;
+//         for (let index = 0; index < array.length; index++) {
+//           var element = array[index];
+//           if( -1 != element.error_id.indexOf('checkbox') ){
+//             var label_checkbox = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox');
+//             var label_checkbox_a = document.querySelector('.form__content-right-bar .vacancy__form-label_checkbox a');
+//             label_checkbox.style.color = '#e31235';
+//             label_checkbox_a.style.color = '#e31235';
+//             label_checkbox_a.style.borderBottom = "#e31235 1px solid";
+//           }
+//         }
+//         return;
+//       } 
 
-      if ( result.apiResponse.api_send_status == 'data_sent' ) {
-        answerTitle.innerHTML = 'Спасибо за отклик! Скоро ответим!';
-        answerTitle.style.display = 'block';
-        submitBtn.style.display = 'none';
-      } else{
-        if( result.apiResponse.api_send_status == 'data_false' ){
-          answerTitle.style.display = 'block';
-          answerTitle.innerHTML = 'Что-то пошло не так. Попробуйте позже.';
-        }
-      }
+//       if ( result.apiResponse.api_send_status == 'data_sent' ) {
+//         answerTitle.innerHTML = 'Спасибо за отклик! Скоро ответим!';
+//         answerTitle.style.display = 'block';
+//         submitBtn.style.display = 'none';
+//       } else{
+//         if( result.apiResponse.api_send_status == 'data_false' ){
+//           answerTitle.style.display = 'block';
+//           answerTitle.innerHTML = 'Что-то пошло не так. Попробуйте позже.';
+//         }
+//       }
 
-      setTimeout(setup_vars_for_forms, 1000);
-    },
-    false
-  );
-}
+//       setTimeout(setup_vars_for_forms, 1000);
+//     },
+//     false
+//   );
+// }
 
 if(document.querySelector('#vacancy_form .wpcf7')){
   const form2 = document.querySelector('#vacancy_form .wpcf7');
@@ -121,10 +121,6 @@ function selectValueFromSingleSelect(data, tagifyInput, targetInput) {
   };
 }
 
-// Данные для фильтров
-const dataDirection = JSON.parse(info_product_directions);
-const dataSpecialization = JSON.parse(info_vaccat);
-
 // Инициализация селекта Тагифай в анкете. Поле "Город"
 const formCityTagifyInput = document.querySelector(
   'input[name=tags-select-mode].form__city-select'
@@ -163,54 +159,72 @@ if( null != formCityInput_r ){
 }
 
 // Инициализация селекта Тагифай в анкете. Поле "Направление"
-const directionFormTagifyInput = document.querySelector(
-  'input[name=tags-select-mode].form__direction-select'
-);
-const directionFormInput = document.querySelector('.form__value1');
+const directionFormInput = document.querySelector('input[name="holdf_directions"]');
 
 const directionSelect = new Tagify(directionFormInput, {
   enforceWhitelist: true,
   mode: 'select',
-  whitelist: dataDirection,
+  whitelist: array_directions,
   userInput: false,
 });
 
 directionSelect.on(
   'change',
-  selectValueFromSingleSelect(
-    dataDirection,
-    directionFormInput,
-    directionFormInput
-  )
+  function (e) {
+    selectValueFromSingleSelect(
+      array_directions,
+      directionFormInput,
+      directionFormInput
+    )
+
+    if( 'Розничные магазины' == JSON.parse(e.detail.value)[0].value ){
+      document.querySelector('.form__holdf_town').style.display = "block";
+      document.querySelector('.form__holdf_age').style.display = "block";
+      document.querySelector('.form__holdf_citizenship').style.display = "block";
+    } else{
+      document.querySelector('.form__holdf_town').style.display = "none";
+      document.querySelector('.form__holdf_age').style.display = "none";
+      document.querySelector('.form__holdf_citizenship').style.display = "none";
+    }
+
+  }
 );
 
-// Инициализация селекта Тагифай в анкете. Поле "Специализация"
-const specializationFormTagifyInput = document.querySelector(
-  'input[name=tags-select-mode].form__spezialisation-select'
-);
-const specializationFormInput = document.querySelector('.form__value2');
+// Инициализация селекта Тагифай в анкете. Поле "Города"
+const townsFormInput = document.querySelector('input[name="holdf_town"]');
 
-const spezialisationSelect = new Tagify(specializationFormInput, {
+const townsSelect = new Tagify(townsFormInput, {
+    enforceWhitelist: true,
+    mode : "select",
+    whitelist: hformTowns,
+})
+
+// Инициализация селекта Тагифай в анкете. Поле "Гражданство"
+const citizenshipFormInput = document.querySelector('.holdf_citizenship');
+
+const citizenshipSelect = new Tagify(citizenshipFormInput, {
   enforceWhitelist: true,
   mode: 'select',
-  whitelist: dataSpecialization,
+  whitelist: array_citizenship,
   userInput: false,
 });
 
-spezialisationSelect.on(
+citizenshipSelect.on(
   'change',
   selectValueFromSingleSelect(
-    dataSpecialization,
-    specializationFormInput,
-    specializationFormInput
+    array_citizenship,
+    citizenshipFormInput,
+    citizenshipFormInput
   )
 );
 
 function setup_vars_for_forms() {
 
+  // var hf_rel_type = document.querySelector('#hold_form .rel_type').value;
   document.querySelectorAll('.rel_type').forEach(
     element => element.setAttribute('value',rel_type),
   );
+  document.querySelector('#hold_form .rel_type').value = 'hold';
 
   document.querySelector('#popup_form .rel_type').setAttribute( 'value', 'hold' );
 

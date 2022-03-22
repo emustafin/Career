@@ -68,6 +68,23 @@ foreach( $myterms as $term ){
   $array_town[] = $term->name;
 }
 
+// Гражданство
+$array_citizenship = array();
+foreach( get_field('citizenship', 'option') as $item ) {
+  $array_citizenship[] = $item['name'];
+}
+$array_citizenship[] = 'Другое';
+
+// Направление
+$array_directions = array(
+  'IT-хаб',
+  'Розничные магазины',
+  'Центральный офис',
+  'Сервис и Логистика',
+);
+
+// Список городов для холодной формы
+$hformTowns = file_get_contents(get_template_directory_uri().'/assets/towns/townsHform.json');
 ?>
 <body class='<?php echo $body_class; ?>'>
 
@@ -77,7 +94,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <script>
+  var hformTowns = JSON.parse('<?php echo $hformTowns; ?>');
   var town_titles = JSON.parse('<?php echo json_encode( $array_town ); ?>');
+  var array_citizenship = JSON.parse('<?php echo json_encode( $array_citizenship ); ?>');
+  var array_directions = JSON.parse('<?php echo json_encode( $array_directions ); ?>');
 </script>
     <!-- Header -->
     <header class="it-header">
