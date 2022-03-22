@@ -126,9 +126,9 @@ upload('#hold_file', {
     accept: ['.pdf', '.doc', '.docx', '.rtf'],
 })
 
-upload('#vacancy_file', {
-    accept: ['.pdf', '.doc', '.docx', '.rtf'],
-})
+// upload('#vacancy_file', {
+//     accept: ['.pdf', '.doc', '.docx', '.rtf'],
+// })
 
 function upload_file_to_server( files, uploadFile, input, newFile, preview ) {
 
