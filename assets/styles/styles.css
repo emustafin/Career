@@ -7470,6 +7470,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   border-radius: 16px;
   display: inline-block;
   position: absolute;
+  bottom: calc(-50% + 12px);
   right: 0;
   display: none; }
 
@@ -7831,7 +7832,8 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 .hform {
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   padding-bottom: 8px;
-  margin-bottom: 16px; }
+  margin-bottom: 16px;
+  position: relative; }
 
 .holdf_agree_checkbox {
   display: none; }
@@ -7867,7 +7869,8 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
 .form__holdf_directions,
 .form__holdf_citizenship,
 .form__holdf_town {
-  margin-bottom: 16px; }
+  margin-bottom: 16px;
+  position: relative; }
 
 .form__holdf_directions > .form__dropdown > .tagify,
 .form__holdf_citizenship > .form__dropdown > .tagify,
@@ -7980,7 +7983,8 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   border: 1px dashed #969696; }
 
 .form__file-uploader {
-  margin-bottom: 16px; }
+  margin-bottom: 16px;
+  position: relative; }
 
 .form__content-right-bar-100 {
   width: 100%; }

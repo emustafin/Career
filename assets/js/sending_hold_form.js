@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     
                     if( 'Розничные магазины' == holdf_directions ){
                         // Город
-                        var holdf_town = document.querySelector('.holdf_town').value;
+                        var holdf_town = document.querySelector('input[name="holdf_town"]').value;
                         if( '' == holdf_town ){
                             document.querySelector('.form__holdf_town .form__form-mistake').style.display = "block";
                             fl_send = false;
@@ -82,8 +82,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         }
 
                         // Возраст
-                        var holdf_age = document.querySelector('.holdf_age').value;
-                        if( '' == holdf_age && 0 < holdf_age ){
+                        var holdf_age = document.querySelector('input[name="holdf_age"]').value;
+                        if( '' == holdf_age ){
+                            document.querySelector('.form__holdf_age .form__form-mistake').style.display = "block";
+                            fl_send = false;
+                        } else if (0 >= holdf_age){
                             document.querySelector('.form__holdf_age .form__form-mistake').style.display = "block";
                             fl_send = false;
                         } else{
@@ -91,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         }
         
                         // Гражданство
-                        var holdf_citizenship = citizenshipFormInput.value;
+                        var holdf_citizenship = document.querySelector('input[name="holdf_citizenship"]').value;
                         if( '' == holdf_citizenship ){
                             document.querySelector('.form__holdf_citizenship .form__form-mistake').style.display = "block";
                             fl_send = false;

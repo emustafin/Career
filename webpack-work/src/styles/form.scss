@@ -28,7 +28,7 @@
   border-radius: 16px;
   display: inline-block;
   position: absolute;
-  // bottom: calc(-50% + 12px);
+  bottom: calc(-50% + 12px);
   right: 0;
   display: none;
 }
@@ -491,6 +491,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   padding-bottom: 8px;
   margin-bottom: 16px;
+  position: relative;
 }
 
 .holdf_agree_checkbox{
@@ -531,6 +532,7 @@
 .form__holdf_citizenship,
 .form__holdf_town{
   margin-bottom: 16px;
+  position: relative;
 }
 
 .form__holdf_directions > .form__dropdown > .tagify,
@@ -707,6 +709,7 @@
 
 .form__file-uploader {
   margin-bottom: 16px;
+  position: relative;
 }
 
 .form__content-right-bar-100 {
