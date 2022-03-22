@@ -37,35 +37,7 @@ function upload(selector, options = {}){
         uploadFile.innerHTML = ''
 
         files = Array.from(event)
-        var result_link = upload_file_to_server( files[0] );
-        console.log(result_link);
-        if( undefined != result_link && false != result_link && '' != result_link ){
-
-            console.log('------------ok--------');
-            currentFiles.push(files[0])
-            
-            currentFiles.reverse().forEach(file => {
-                uploadFile.insertAdjacentHTML('afterbegin',`
-                    <div id="uploadFile" class="file background__file">
-                    <p class="file__name">${file.name}</p>
-                    <p class="file__subname" data-name="${file.name}">
-                        удалить файл
-                        <svg data-name="${file.name}" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g opacity="0.5">
-                                <path data-name="${file.name}" d="M7.15191 7.99995L3.57617 11.5757L4.4247 12.4242L8.00044 8.84848L11.5762 12.4242L12.4247 11.5757L8.84896 7.99995L12.4247 4.42421L11.5762 3.57568L8.00044 7.15142L4.4247 3.57568L3.57617 4.42421L7.15191 7.99995Z" fill="black"/>
-                            </g>
-                        </svg>
-                    </p>
-                    </div>
-                `
-                )
-            })
-    
-            uploadFile.insertAdjacentElement('beforeend', newFile) 
-            currentFiles.reverse()
-    
-            input.value = ''
-        }
+        upload_file_to_server( files, uploadFile, input, newFile );
     }
 
     const removeHandler = event => {
@@ -141,14 +113,14 @@ upload('#vacancy_file', {
     accept: ['.pdf', '.doc', '.docx', '.rtf'],
 })
 
-function upload_file_to_server( file ) {
+function upload_file_to_server( files, uploadFile, input, newFile ) {
 
     if (window.FormData != undefined) {
 
 		var formData = new FormData();
 		formData.append('action', 'upload_file');
-		formData.append('hold_file', file);
-		formData.append('name', file.name);
+		formData.append('hold_file', files[0]);
+		formData.append('name', files[0].name);
 
         var fupload_request = new XMLHttpRequest();
         fupload_request.open('POST', ajax.url, true);
@@ -156,36 +128,47 @@ function upload_file_to_server( file ) {
 
         fupload_request.send( formData );
 
-        fupload_request.onreadystatechange = function() {
+        fupload_request.onload = function() {
             if (this.status >= 200 && this.status < 400) {
                 // Success!
-                console.log(this.response);
                 if( undefined != this.response && '' != this.response ){
                     var resp = JSON.parse(this.response);
-    
-                    console.log(resp.link);
+
                     if( true == resp.success ){
-                        console.log(resp.link);
                         
                         if( '' != resp.link ){
-                            console.log(resp.link);
-                            return resp.link;
+
+                            currentFiles.push(files[0])
+            
+                            currentFiles.reverse().forEach(file => {
+                                uploadFile.insertAdjacentHTML('afterbegin',`
+                                    <div id="uploadFile" class="file background__file">
+                                    <p class="file__name">${file.name}</p>
+                                    <p class="file__subname" data-name="${file.name}">
+                                        удалить файл
+                                        <svg data-name="${file.name}" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g opacity="0.5">
+                                                <path data-name="${file.name}" d="M7.15191 7.99995L3.57617 11.5757L4.4247 12.4242L8.00044 8.84848L11.5762 12.4242L12.4247 11.5757L8.84896 7.99995L12.4247 4.42421L11.5762 3.57568L8.00044 7.15142L4.4247 3.57568L3.57617 4.42421L7.15191 7.99995Z" fill="black"/>
+                                            </g>
+                                        </svg>
+                                    </p>
+                                    </div>
+                                `
+                                )
+                            })
+                    
+                            uploadFile.insertAdjacentElement('beforeend', newFile) 
+                            currentFiles.reverse()
+                    
+                            input.value = ''
                         } else{
-                            console.log('false - ' + resp);
-                            return false;
+                            console.log('Что-то пошло не так');
+                            // return false;
                         }
-                    } else{
-                        return 'success false';
                     }
-                } else {
-                    return 'empty respone';
                 }
-            } else{
-                return 'status failed'+this.status;
             }
         };
 
-    } else{
-        return 'false';
     }
 }
