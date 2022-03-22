@@ -141,9 +141,13 @@ function upload_file_to_server( files, uploadFile, input, newFile ) {
                             currentFiles.push(files[0])
             
                             currentFiles.reverse().forEach(file => {
+                                let filename = file.file.name;
+                                if( resp.filename == file.file.name ){
+                                    filename = resp.filename;
+                                }
                                 uploadFile.insertAdjacentHTML('afterbegin',`
                                     <div id="uploadFile" class="file background__file">
-                                    <p class="file__name">${file.name}</p>
+                                    <p class="file__name">${filename}</p>
                                     <p class="file__subname" data-name="${file.name}">
                                         удалить файл
                                         <svg data-name="${file.name}" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
