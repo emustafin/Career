@@ -163,8 +163,9 @@ function upload_file_to_server( files, uploadFile, input, newFile ) {
                             input.value = ''
                         } else{
                             console.log('Что-то пошло не так');
-                            // return false;
                         }
+                    } else{
+                        console.log('Что-то пошло не так');
                     }
                 }
             }

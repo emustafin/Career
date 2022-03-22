@@ -60,6 +60,7 @@
 <div class="form__file-uploader">
     <!-- <input type="file" size="40" class="drag-n-drop-file d-none" aria-invalid="false" multiple="multiple" data-name="upload-file-803" data-type="jpeg|png|jpg|gif|txt|docx|doc|pdf|rtf" data-limit="5242880" data-max="2" data-id="437" accept=".jpeg, .png, .jpg, .gif, .txt, .docx, .doc, .pdf, .rtf"> -->
     <div class="drag__and__drop">
+        <input type="text" name="hold_file_array" id="hold_file_array" class="hidden">
         <input type="file" name="hold_file" id="hold_file">
     </div>
 </div>
