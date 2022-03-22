@@ -10819,7 +10819,7 @@ input#form__town {
   padding-left: 56px;
   font-size: 18px;
   line-height: 24px;
-  width: 168px;
+  width: 50%;
   height: 40px;
   cursor: pointer; }
   @media (max-width: 1919px) {

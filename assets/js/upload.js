@@ -14,7 +14,6 @@ function upload(selector, options = {}){
 
     const uploadFile = document.createElement('div')
     uploadFile.classList.add('file__wrapper')
-    console.log(newFile);
 
     currentFiles = []
 
@@ -55,6 +54,10 @@ function upload(selector, options = {}){
             curentLinks += file.link+','
         })
         document.querySelector('#hold_file_array').value = curentLinks
+
+        if (currentFiles.length < 2){
+            uploadFile.insertAdjacentElement('beforeend', newFile)
+        }
 
         if (!currentFiles.length) {
             uploadFile.style.display = 'none'
@@ -178,10 +181,10 @@ function upload_file_to_server( files, uploadFile, input, newFile, preview ) {
                             
                             document.querySelector('#hold_file_array').value = curentLinks
 
-                            if(currentFiles.length <= 2){
+                            if(currentFiles.length < 2){
                                 uploadFile.insertAdjacentElement('beforeend', newFile) 
                             }else{
-                                document.querySelector('#uploadFile').removeChild(newFile) 
+                                uploadFile.removeChild(newFile) 
                             }
                             
                             currentFiles.reverse()
