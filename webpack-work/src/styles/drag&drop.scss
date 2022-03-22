@@ -21,13 +21,24 @@
 }
 
 .file__name{
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 18px;
+    line-height: 24px;
+
+    @media (max-width: 1919px) {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    @media (max-width: 767px) {
+        font-size: 14px;
+        line-height: 16px;
+    }
 }
 
 .file__subname{
     font-size: 12px;
     line-height: 12px;
+    opacity: 0.5;
 }
 
 .file__subname > svg {
@@ -52,11 +63,21 @@
     background-position: left;
     opacity: 0.5;
     padding-left: 56px;
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 18px;
+    line-height: 24px;
     width: 168px;
     height: 40px;
     cursor: pointer;
+
+    @media (max-width: 1919px) {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    @media (max-width: 767px) {
+        font-size: 14px;
+        line-height: 16px;
+    }
 }
 
 .file .removing {

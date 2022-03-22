@@ -21,7 +21,7 @@
     <div class="form__form-mistake_format" style="display:none;">неверный формат почты</div>
 </div>
 
-<div class="hform form__holdf_directions">
+<div class="form__holdf_directions">
     <p class="form__form-name-value">Направление</p>
     <div class="form__dropdown">
         <input type="text" name="holdf_directions" value="" size="40" class="holdf_directions" aria-required="true" aria-invalid="false" placeholder="Выбери направление">
@@ -34,9 +34,9 @@
     <div class="form__form-mistake" style="display:none;">это обязательное поле</div>
 </div>
 
-<div class="hform form__holdf_town" style="display:none;">
+<div class="form__holdf_town" style="display:none;">
     <p class="form__form-name-value">Город*</p>
-    <input type="text" name="holdf_town" value="" placeholder="Город" size="40" class="hform__input holdf_town" aria-required="true" aria-invalid="false" placeholder="">
+    <input type="text" name="holdf_town" value="" placeholder="Город" size="40" class="holdf_town" aria-required="true" aria-invalid="false" placeholder="">
     <div class="form__form-mistake" style="display:none;">это обязательное поле</div>
 </div>
 <div class="hform form__holdf_age" style="display:none;">
@@ -44,7 +44,7 @@
     <input type="number" name="holdf_age" value="" placeholder="Возраст" min="1" class="hform__input holdf_age" aria-required="true" aria-invalid="false" placeholder="">
     <div class="form__form-mistake" style="display:none;">это обязательное поле</div>
 </div>
-<div class="hform form__holdf_citizenship" style="display:none;">
+<div class="form__holdf_citizenship" style="display:none;">
     <p class="form__form-name-value">Гражданство*</p>
     <div class="form__dropdown">
         <input type="text" name="holdf_citizenship" value="" size="40" class="holdf_citizenship" aria-required="true" aria-invalid="false" placeholder="Выбери гражданство">

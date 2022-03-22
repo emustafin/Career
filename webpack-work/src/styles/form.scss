@@ -33,6 +33,10 @@
   display: none;
 }
 
+.form__content-right-bar-wrapper{
+  width: 50%;
+}
+
 .form__form-mistake-message {
   border-bottom: 1px solid #e31235;
 
@@ -489,11 +493,6 @@
   margin-bottom: 16px;
 }
 
-.form__holdf_directions > .form__dropdown > .tagify,
-.form__holdf_citizenship > .form__dropdown > .tagify {
-  border: none;
-}
-
 .holdf_agree_checkbox{
   display: none;
 }
@@ -528,6 +527,25 @@
   color: #000000;
 }
 
+.form__holdf_directions,
+.form__holdf_citizenship,
+.form__holdf_town{
+  margin-bottom: 16px;
+}
+
+.form__holdf_directions > .form__dropdown > .tagify,
+.form__holdf_citizenship > .form__dropdown > .tagify,
+.form__holdf_town > .form__dropdown > .tagify{
+  padding-bottom: 8px;
+  min-height: auto !important; 
+}
+
+.holdf_age::-webkit-outer-spin-button,
+.holdf_age::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 // Styles for 1440px
 @media (max-width: 1600px) {
   .form,
@@ -559,6 +577,24 @@
   .form__header {
     margin-bottom: 40px;
   }
+
+  .hform__input{
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .hold_form_send{
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+// Styles for 1024px
+@media (max-width: 1439px) {
+  .hold_form_send{
+    font-size: 18px;
+    line-height: 18px;
+  }
 }
 
 // Styles for 768px
@@ -583,7 +619,7 @@
     width: 35%;
   }
 
-  .form__content-right-bar {
+  .form__content-right-bar-wrapper {
     width: 65%;
   }
 
@@ -596,6 +632,10 @@
 
 // Styles for 320px
 @media (max-width: 650px) {
+  .form__content-right-bar-wrapper {
+    width: 100%;
+  }
+
   .form,
   .form__form-input,
   .form__information,
@@ -638,6 +678,11 @@
   .form__response-title {
     font-size: 24px;
     line-height: 28px;
+  }
+
+  .hform__input{
+    font-size: 14px;
+    line-height: 16px;
   }
 }
 
