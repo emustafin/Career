@@ -177,7 +177,7 @@ class WPcf7_Mail extends Boot {
     public function sent_data_to_skillaz( $posted_data, $sending ){
 
         $mail_info = '';
-        $url = 'https://api-feature-mvideo.dev.skillaz.ru/open-api/objects/candidates';
+        $url = 'https://api.skillaz.ru/open-api/objects/candidates';
         $params = array();
 
         if( 'hold' != $posted_data['text-rel_type'] ){
@@ -304,7 +304,7 @@ class WPcf7_Mail extends Boot {
 
         $content = json_encode($params);
 
-        $headers = array('Content-Type: application/json', 'Authorization: Bearer WXIGzUxm23bXoKv/AlbA8Lgmd3Yq3tsgpg5x5mMK77I=');
+        $headers = array('Content-Type: application/json', 'Authorization: Bearer +GfochhSwjsyfsnp9n7HhM4GcFBhhOv/rAoRR3Z+nWc=');
         $result = self::init_post( $headers, $url, $content );
         self::log( $result );
 
@@ -320,23 +320,25 @@ class WPcf7_Mail extends Boot {
         $result = false;
         if( !empty($_POST) ){
 
-            if( $_POST['text-rel_type'] ){
-                $rel_type = $_POST['text-rel_type'];
+            if( $_POST['rel_type'] ){
+                $rel_type = $_POST['rel_type'];
             }
     
-            if( empty( $_SESSION['send_post_id'] ) ){
-                $_SESSION['send_post_id'] = array( (int) $_POST['text-vacancyid'] );
-            } elseif( !in_array( $_POST['text-vacancyid'], $_SESSION['send_post_id'] ) ){
-                $_SESSION['send_post_id'][] = (int) $_POST['text-vacancyid'];
-            }
-            elseif( in_array( $_POST['text-vacancyid'], $_SESSION['send_post_id'] ) ){
-                $return = array(
-                    'success' 	=> false,
-                );
-        
-                wp_send_json($return);
-
-                return false;
+            if( 'hold' != $rel_type ){
+                if( empty( $_SESSION['send_post_id'] ) ){
+                    $_SESSION['send_post_id'] = array( (int) $_POST['text-vacancyid'] );
+                } elseif( !in_array( $_POST['text-vacancyid'], $_SESSION['send_post_id'] ) ){
+                    $_SESSION['send_post_id'][] = (int) $_POST['text-vacancyid'];
+                }
+                elseif( in_array( $_POST['text-vacancyid'], $_SESSION['send_post_id'] ) ){
+                    $return = array(
+                        'success' 	=> false,
+                    );
+            
+                    wp_send_json($return);
+    
+                    return false;
+                }
             }
 
             if( 'hold' == $rel_type ){
@@ -360,7 +362,7 @@ class WPcf7_Mail extends Boot {
                     $send_result = self::sent_data_to_skillaz( $_POST, true );
                 }
             }
-            
+
             if( isset( $send_result->IsOk ) ){
                 if( false == $send_result->IsOk ){
                     $result = false;
@@ -391,6 +393,8 @@ class WPcf7_Mail extends Boot {
         $headers = 'From: admin@career.com'       . "\r\n" .
             'Reply-To: '. get_option( 'admin_email' ) . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
+
+        file_put_contents( 'wp-content/themes/career_theme/classes/API/email-sending.json', print_r( $content, true ), FILE_APPEND );
         
 		wp_mail( get_option( 'admin_email' ), 'Анкета', $content, $headers);
 	}

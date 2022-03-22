@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 document.querySelector('.form__form-message').innerHTML = "";
 
                 // Default
-                var rel_type = document.querySelector('.rel_type').value;
+                var local_rel_type = document.querySelector('#hold_form .rel_type').value;
                 var vacancyid = document.querySelector('.vacancyid').value;
                 var sourceurl = document.querySelector('.sourceurl').value;
 
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 } else{
                     var data = {
                         action                  : 'send_hold_form',
-                        rel_type                : rel_type,
+                        rel_type                : local_rel_type,
                         vacancyid               : vacancyid,
                         sourceurl               : sourceurl,
                         holdf_name              : holdf_name,
