@@ -33,6 +33,7 @@ function upload(selector, options = {}){
         uploadFile.style.display = 'flex'
 
         preview.style.display = "none"
+        
         input.insertAdjacentElement('afterend', uploadFile)
         uploadFile.innerHTML = ''
 
