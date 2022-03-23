@@ -84,7 +84,7 @@ $array_directions = array(
 );
 
 // Список городов для холодной формы
-$hformTowns = file_get_contents(get_template_directory_uri().'/assets/towns/townsHform.json');
+$hformTowns = file_get_contents(get_template_directory().'/assets/towns/townsHform.json');
 ?>
 <body class='<?php echo $body_class; ?>'>
 
