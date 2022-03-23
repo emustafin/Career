@@ -18,13 +18,13 @@ $page_data = array(
 );
 
 $page_title = $page_data[ 'it' ][1];
-
+$dop_query = array();
 $type_page = 'it';
 if( !empty( $_GET['type'] ) && array_key_exists( $_GET['type'], $page_data ) ){
     $page_title = $page_data[ $_GET['type'] ][1];
     $type_page = $_GET['type'];  
 
-    query_posts( array(
+    $dop_query = array(
         'tax_query' => array(
             array(
                 'taxonomy' => 'relationship',
@@ -32,9 +32,9 @@ if( !empty( $_GET['type'] ) && array_key_exists( $_GET['type'], $page_data ) ){
                 'terms'    => $_GET['type']
             )
         )
-    ) );
+    );
 } else{
-    query_posts( array(
+    $dop_query = array(
         'tax_query' => array(
             array(
                 'taxonomy' => 'relationship',
@@ -42,13 +42,20 @@ if( !empty( $_GET['type'] ) && array_key_exists( $_GET['type'], $page_data ) ){
                 'terms'    => 'it'
             )
         )
-    ) );
+    );
 }
 
 if( !empty( $_GET['search'] ) ){
-    query_posts( array(
-        's' => $_GET['search']
-    ) );
+    if( !empty($dop_query) ){
+        $dop_query['s'] = $_GET['search'];
+    } else{
+        $dop_query = array(
+            's' => $_GET['search']
+        );
+    }
+}
+if( !empty($dop_query) ){
+    query_posts( $dop_query );
 }
 
 $published_posts = $wp_query->found_posts;
