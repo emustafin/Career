@@ -6,8 +6,8 @@ function upload(selector, options = {}){
     preview.classList.add('file')
     preview.innerHTML = `
         <p class="file__name">Выберите файл или перетащите сюда</p>
-        <p class="file__subname">До 2 файлов по 5 Мб форматов pdf, doc, docx, rtf</p>
-    `
+        <p class="file__subname">До 2 файлов по 5 Мб форматов pdf, doc, docx, rtf</p>`;
+
     const newFile = document.createElement('div')
     newFile.classList.add('new__file')
     newFile.innerHTML = 'добавить ещё один файл'
@@ -66,8 +66,8 @@ function upload(selector, options = {}){
             preview.classList.remove('errorFileImg')
             preview.innerHTML = `
                 <p class="file__name">Выберите файл или перетащите сюда</p>
-                <p class="file__subname">До 2 файлов по 5 Мб форматов pdf, doc, docx, rtf</p>
-            `
+                <p class="file__subname">До 2 файлов по 5 Мб форматов pdf, doc, docx, rtf</p>`;
+
         }
 
         const block = uploadFile
@@ -178,9 +178,8 @@ function upload_file_to_server( files, uploadFile, input, newFile, preview ) {
                                             </g>
                                         </svg>
                                     </p>
-                                    </div>
-                                `
-                                )
+                                    </div>`
+                                );
                                 curentLinks += file.link + ','
                             })
                             
@@ -199,16 +198,16 @@ function upload_file_to_server( files, uploadFile, input, newFile, preview ) {
                             preview.style.display = "flex"
                             preview.innerHTML = `
                                 <p class="file__name errorName">Ой-ой! Файл слишком большой!</p>
-                                <p class="file__subname">Можно загрузить 2 файла по 5 Мб</p>
-                            `
+                                <p class="file__subname">Можно загрузить 2 файла по 5 Мб</p>`;
+
                             preview.classList.add('errorFileImg')
                         }
                     } else{
                         preview.style.display = "flex"
                         preview.innerHTML = `
                             <p class="file__name errorName">Ой-ой! Файл слишком большой!</p>
-                            <p class="file__subname">Можно загрузить 2 файла по 5 Мб</p>
-                        `
+                            <p class="file__subname">Можно загрузить 2 файла по 5 Мб</p>`;
+
                         preview.classList.add('errorFileImg')
                     }
                 }

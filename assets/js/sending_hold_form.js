@@ -172,8 +172,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     preview.classList.remove('errorFileImg')
                     preview.innerHTML = `
                         <p class="file__name">Выберите файл или перетащите сюда</p>
-                        <p class="file__subname">До 2 файлов по 5 Мб форматов pdf, doc, docx, rtf</p>
-                    `
+                        <p class="file__subname">До 2 файлов по 5 Мб форматов pdf, doc, docx, rtf</p>`;
                     document.querySelector('.form__response-block').style.display = "block";
                     document.querySelector('.form__response-title').innerHTML = "Спасибо за отклик! Скоро ответим!";
                 } else{
