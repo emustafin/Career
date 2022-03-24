@@ -19,37 +19,39 @@ const currentVaccatDataListing = JSON.parse(vaccat_arr); // Специализа
 const currentVacancyTitlesDataListing = JSON.parse(vacancy_get); // Профессии - ОБЯЗАТЕЛЬНО ПОСМОТРЕТЬ КАК ВЫГЛЯДИТ! ИНАЧЕ НЕЖЕЛИ ДРУГИЕ, КОТОРЫЕ ВЫШЕ!!!
 const ProfessionList = JSON.parse(vacancy_titles);
 
-const professionListingSelect = new Tagify(listingTagifyProfessionInput, {
-  whitelist: ProfessionList,
-  dropdown: {
-  position: "text",
-  maxItems: 5,
-  enabled : 0, // always opens dropdown when input gets focus
+if( ProfessionList.length != 0 ){
+  var professionListingSelect = new Tagify(listingTagifyProfessionInput, {
+    whitelist: ProfessionList,
+    dropdown: {
+    position: "text",
+    maxItems: 5,
+    enabled : 0, // always opens dropdown when input gets focus
+    }
+  })
+  
+  if (currentVacancyTitlesDataListing) {
+    professionListingSelect.addTags(currentVacancyTitlesDataListing);
+    document.querySelector('#listing-top__profession-filter').value = currentVacancyTitlesDataListing;
   }
-})
-
-if (currentVacancyTitlesDataListing) {
-  professionListingSelect.addTags(currentVacancyTitlesDataListing);
-  document.querySelector('#listing-top__profession-filter').value = currentVacancyTitlesDataListing;
+  
+  listingTagifyProfessionInput.addEventListener('change', () => {
+    let selectedProfessionList = [];
+  
+    if (listingTagifyProfessionInput.value === '') {
+      selectedProfessionList = [];
+      listingProfessionInput.value = '';
+      return
+    } 
+  
+    var savedInInputProfessions = JSON.parse(listingTagifyProfessionInput.value);
+  
+    for (let profession of savedInInputProfessions) {
+      selectedProfessionList.push(profession.value)
+    }
+  
+    listingProfessionInput.value = selectedProfessionList
+  })
 }
-
-listingTagifyProfessionInput.addEventListener('change', () => {
-  let selectedProfessionList = [];
-
-  if (listingTagifyProfessionInput.value === '') {
-    selectedProfessionList = [];
-    listingProfessionInput.value = '';
-    return
-  } 
-
-  const savedInInputProfessions = JSON.parse(listingTagifyProfessionInput.value);
-
-  for (let profession of savedInInputProfessions) {
-    selectedProfessionList.push(profession.value)
-  }
-
-  listingProfessionInput.value = selectedProfessionList
-})
 
 // Инициализация селекта Специализация
 if( listingTagifySpecializationgInput != null ){
@@ -76,17 +78,19 @@ if( listingTagifyLevelInput != null ){
 }
 
 // Инициализация селекта Город
-const listingCitySelect = new Tagify(listingTagifyCityInput, {
-  enforceWhitelist: true,
-  mode: 'select',
-  whitelist: town_titles,
-  userInput: false,
-  dropdown: {
-    maxItems: 1000,
-  }
-});
-
-listingTagifyCityInput.addEventListener('change', selectValueFromSingleSelect(currentCitiesDataListing, listingTagifyCityInput, listingCityInput))
+if( listingTagifyCityInput != null ){
+  var listingCitySelect = new Tagify(listingTagifyCityInput, {
+    enforceWhitelist: true,
+    mode: 'select',
+    whitelist: town_titles,
+    userInput: false,
+    dropdown: {
+      maxItems: 1000,
+    }
+  });
+  
+  listingTagifyCityInput.addEventListener('change', selectValueFromSingleSelect(currentCitiesDataListing, listingTagifyCityInput, listingCityInput))
+}
 
 
 // Функция выбора элемента из выпадающего списка
