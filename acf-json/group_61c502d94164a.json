@@ -64,6 +64,25 @@
                             "max_height": "",
                             "max_size": "",
                             "mime_types": ""
+                        },
+                        {
+                            "key": "field_623c7271368ba",
+                            "label": "Подпись",
+                            "name": "podpis",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "new_lines": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "rows": ""
                         }
                     ],
                     "min": "",
@@ -536,5 +555,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1640302342
+    "modified": 1648128814
 }
