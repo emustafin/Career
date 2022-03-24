@@ -1,19 +1,12 @@
 // Данные для фильтров
 if( typeof levels != 'undefined' ){
   const currentLevels = JSON.parse(levels);
-}
-if( typeof towns != 'undefined' ){
-  const currentCities = JSON.parse(towns);
-}
 
-// Страница IT
-const idPageTagifyLevelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
-const idPageTagifyCityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
-const idPageLevelInput = document.querySelector('#level')
-const idPageCityInput = document.querySelector('#town')
+  const idPageTagifyLevelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
+  const idPageLevelInput = document.querySelector('#level');
 
-// Инициализация селекта выбора уровня
-if( typeof currentLevels != 'undefined' ){
+  // Инициализация селекта выбора уровня
+
   const idPageLevelSelect = new Tagify(idPageTagifyLevelInput, {
     enforceWhitelist: true,
     mode: 'select',
@@ -36,20 +29,22 @@ if( typeof currentLevels != 'undefined' ){
   })
 }
 
+if( typeof towns != 'undefined' ){
+  const currentCities = JSON.parse(towns);
+  const idPageTagifyCityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
+  const idPageCityInput = document.querySelector('#town')
+  // Инициализация селекта выбора города
 
+  const idPageCitySelect = new Tagify(idPageTagifyCityInput, {
+    enforceWhitelist: true,
+    mode: 'select',
+    whitelist: town_titles,
+    userInput: false,
+    dropdown: {
+      maxItems: 1000,
+    }
+  });
 
-// Инициализация селекта выбора города
-const idPageCitySelect = new Tagify(idPageTagifyCityInput, {
-  enforceWhitelist: true,
-  mode: 'select',
-  whitelist: town_titles,
-  userInput: false,
-  dropdown: {
-    maxItems: 1000,
-  }
-});
-
-if( idPageTagifyCityInput != null ){
   idPageTagifyCityInput.addEventListener('change', () => {
     if (idPageTagifyCityInput.value === '') return;
   
