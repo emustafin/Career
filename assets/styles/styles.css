@@ -10844,6 +10844,24 @@ input#form__town {
 .errorName {
   color: #E31235; }
 
+.loadFile {
+  background: none;
+  position: relative;
+  overflow: hidden; }
+
+.loadFile:before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 0;
+  z-index: 1;
+  background: url("../images/drag&drop/file-uploader__progress.png");
+  -webkit-animation: circleinside 5000ms infinite linear;
+          animation: circleinside 5000ms infinite linear;
+  background-repeat: no-repeat;
+  background-position: left; }
+
 section.page__404 {
   font-size: 18px;
   line-height: 24px;

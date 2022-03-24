@@ -31,8 +31,18 @@ function upload(selector, options = {}){
         }
         
         uploadFile.style.display = 'flex'
-
-        preview.style.display = "none"
+        
+        preview.style.display = 'flex'
+        preview.classList.add('loadFile')
+        preview.innerHTML = `
+            <p class="file__name">Загружаем файл...</p>
+            <p class="file__subname">отменить загрузку
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g opacity="0.5">
+                        <path d="M7.15191 7.99995L3.57617 11.5757L4.4247 12.4242L8.00044 8.84848L11.5762 12.4242L12.4247 11.5757L8.84896 7.99995L12.4247 4.42421L11.5762 3.57568L8.00044 7.15142L4.4247 3.57568L3.57617 4.42421L7.15191 7.99995Z" fill="black"/>
+                    </g>
+                </svg>
+            </p>`;
         
         input.insertAdjacentElement('afterend', uploadFile)
         uploadFile.innerHTML = ''
@@ -161,6 +171,12 @@ function upload_file_to_server( files, uploadFile, input, newFile, preview ) {
                             })
 
                             let curentLinks = ''
+
+                            preview.style.display = "none"
+                            preview.innerHTML = `
+                                <p class="file__name">Выберите файл или перетащите сюда</p>
+                                <p class="file__subname">До 2 файлов по 5 Мб форматов pdf, doc, docx, rtf</p>`;
+                            preview.classList.remove('loadFile');
             
                             currentFiles.reverse().forEach(file => {
                                 let filename = file.file.name;
