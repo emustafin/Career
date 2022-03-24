@@ -1,13 +1,13 @@
 // Данные для фильтров
 if( typeof levels != 'undefined' ){
-  const currentLevels = JSON.parse(levels);
+  var currentLevels = JSON.parse(levels);
 
-  const idPageTagifyLevelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
-  const idPageLevelInput = document.querySelector('#level');
+  var idPageTagifyLevelInput = document.querySelector('input[name="tags-select-mode"].profession__level-select');
+  var idPageLevelInput = document.querySelector('#level');
 
   // Инициализация селекта выбора уровня
 
-  const idPageLevelSelect = new Tagify(idPageTagifyLevelInput, {
+  var idPageLevelSelect = new Tagify(idPageTagifyLevelInput, {
     enforceWhitelist: true,
     mode: 'select',
     whitelist: Object.values(currentLevels),
@@ -30,12 +30,12 @@ if( typeof levels != 'undefined' ){
 }
 
 if( typeof towns != 'undefined' ){
-  const currentCities = JSON.parse(towns);
-  const idPageTagifyCityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
-  const idPageCityInput = document.querySelector('#town')
+  var currentCities = JSON.parse(towns);
+  var idPageTagifyCityInput = document.querySelector('input[name="tags-select-mode"].profession__city-select');
+  var idPageCityInput = document.querySelector('#town')
   // Инициализация селекта выбора города
 
-  const idPageCitySelect = new Tagify(idPageTagifyCityInput, {
+  var idPageCitySelect = new Tagify(idPageTagifyCityInput, {
     enforceWhitelist: true,
     mode: 'select',
     whitelist: town_titles,
