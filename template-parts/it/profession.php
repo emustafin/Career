@@ -1,80 +1,72 @@
 <!--  Profession  -->
+<?php
+$vaccat_terms = get_terms( 'vaccat', 'meta_key=type_vaccat&meta_value='.$rel_type );
+$town_terms = get_terms( 'town' );
+$level_terms = get_terms( 'level' );
+
+if( !empty($vaccat_terms) ){
+  foreach ($vaccat_terms as $vaccat_term) {
+      $first_vaccat = $vaccat_term;
+      $vaccat_slug = $vaccat_term->slug;
+      break;
+  }
+  
+  $town_slug = '';
+  $level_slug = '';
+  $can_work_remotely = '';
+  $can_without_experience = '';
+
+  if( NotEmptyGetParam('vaccat_slug') )               $vaccat_slug = $_GET['vaccat_slug'];
+  if( NotEmptyGetParam('town_slug') )                 $town_slug = $_GET['town_slug'];
+  if( NotEmptyGetParam('level_slug') )                $level_slug = $_GET['level_slug'];
+  if( NotEmptyGetParam('can_work_remotely') )         $can_work_remotely = 'checked';
+  if( NotEmptyGetParam('can_without_experience') && true == $_GET['can_without_experience'] ) $can_without_experience = 'checked';
+
+  $profession__title = '';
+?>
 <section class="profession">
     <div class="container">
         <div id="vaccat_items" class="profession__header">
             <p class="profession__question">Что подходит тебе?</p>
             
-            <?php
-            $vaccat_terms = get_terms( 'vaccat', 'meta_key=type_vaccat&meta_value='.$rel_type );
-            $town_terms = get_terms( 'town' );
-            $level_terms = get_terms( 'level' );
-            
+            <?php if( $vaccat_terms && ! is_wp_error($vaccat_terms) ): ?>
+              <nav class="profession__menu">
+                <?php foreach( $vaccat_terms as $vaccat_term ):
 
-            // TODO Иногда массив приходит без нулевого элемента
-            if( !empty($vaccat_terms) ){
-              foreach ($vaccat_terms as $vaccat_term) {
-                  $first_vaccat = $vaccat_term;
-                  $vaccat_slug = $vaccat_term->slug;
-                  break;
-              }
-              
-              $town_slug = '';
-              $level_slug = '';
-              $can_work_remotely = '';
-              $can_without_experience = '';
-  
-              if( NotEmptyGetParam('vaccat_slug') )               $vaccat_slug = $_GET['vaccat_slug'];
-              if( NotEmptyGetParam('town_slug') )                 $town_slug = $_GET['town_slug'];
-              if( NotEmptyGetParam('level_slug') )                $level_slug = $_GET['level_slug'];
-              if( NotEmptyGetParam('can_work_remotely') )         $can_work_remotely = 'checked';
-              if( NotEmptyGetParam('can_without_experience') && true == $_GET['can_without_experience'] ) $can_without_experience = 'checked';
-  
-              $profession__title = '';
-  
-              if( $vaccat_terms && ! is_wp_error($vaccat_terms) ): ?>
-                  
-                  <nav class="profession__menu">
-                    <?php foreach( $vaccat_terms as $vaccat_term ):
-  
-                        $profession__technology = '';
-                        if( get_field( 'vaccat_tehnologies', $vaccat_term ) ){
-                            foreach (get_field( 'vaccat_tehnologies', $vaccat_term ) as $tech) {
-                                $profession__technology .= '<div class="profession__technology-item '.$tech['value'].'">'.$tech['label'].'</div>';
-                            }
+                    $profession__technology = '';
+                    if( get_field( 'vaccat_tehnologies', $vaccat_term ) ){
+                        foreach (get_field( 'vaccat_tehnologies', $vaccat_term ) as $tech) {
+                            $profession__technology .= '<div class="profession__technology-item '.$tech['value'].'">'.$tech['label'].'</div>';
                         }
-  
-                        $vaccat_data = array(
-                            'profession__description'   => term_description( $vaccat_term->term_id, 'vaccat' ),
-                            'profession__tehnology'     => $profession__technology,
-                            'profession__permalink'     => get_term_link( $vaccat_term->term_id, 'vaccat'),
-                            'profession__count'         => $vaccat_term->count,
-                            'profession__img'           => get_field( 'vaccat_img', $vaccat_term )
-                        );
-                        
-                        $active_class = '';
-  
-                        if( $vaccat_term->slug == $vaccat_slug ){
-                            $active_class = 'profession__menu-item-active';
-                            $profession__title = $vaccat_term->name;
-                        }
-                        ?>
-  
-                        <span 
-                            data-vaccat_info='<?php echo json_encode($vaccat_data); ?>' 
-                            data-vaccat_slug="<?php echo $vaccat_term->slug; ?>" 
-                            class="cursor-pointer profession__menu-item <?php echo $active_class; ?>"
-                        >
-                            <?php echo $vaccat_term->name; ?>
-                        </span>
-  
-                    <?php endforeach; ?>
-                  </nav>
-              <?php 
-              endif;
-            } else{
-              echo '<nav class="profession__menu"><span></span>Специализаций не найдено...</span></nav>';
-            }
-            ?>
+                    }
+
+                    $vaccat_data = array(
+                        'profession__description'   => term_description( $vaccat_term->term_id, 'vaccat' ),
+                        'profession__tehnology'     => $profession__technology,
+                        'profession__permalink'     => get_term_link( $vaccat_term->term_id, 'vaccat'),
+                        'profession__count'         => $vaccat_term->count,
+                        'profession__img'           => get_field( 'vaccat_img', $vaccat_term )
+                    );
+                    
+                    $active_class = '';
+
+                    if( $vaccat_term->slug == $vaccat_slug ){
+                        $active_class = 'profession__menu-item-active';
+                        $profession__title = $vaccat_term->name;
+                    }
+                    ?>
+
+                    <span 
+                        data-vaccat_info='<?php echo json_encode($vaccat_data); ?>' 
+                        data-vaccat_slug="<?php echo $vaccat_term->slug; ?>" 
+                        class="cursor-pointer profession__menu-item <?php echo $active_class; ?>"
+                    >
+                        <?php echo $vaccat_term->name; ?>
+                    </span>
+
+                <?php endforeach; ?>
+              </nav>
+            <?php endif; ?>
         </div>
 
         <h2 class="profession__title"><?php echo $profession__title; ?></h2>
@@ -1170,4 +1162,7 @@
     <!--  //SVG images  -->
 
 </section>
+<?php
+}
+?>
 <!--  //Profession  -->
