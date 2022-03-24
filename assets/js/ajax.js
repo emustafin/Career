@@ -626,14 +626,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     // Инициализация селекта Профессии
-    if( typeof professionListingSelect !== 'undefined' ){
-        listingTagifyProfessionInput.addEventListener('change', (e) => {
-    
-            if( filter_buzy == 0 ){
-                e.preventDefault();
-                archive_filtering();
-            }
-        });
+    if( 'archive' == rel_type && '' == vacancyid ){
+        if( listingTagifyProfessionInput != null ){
+            listingTagifyProfessionInput.addEventListener('change', (e) => {
+        
+                if( filter_buzy == 0 ){
+                    e.preventDefault();
+                    archive_filtering();
+                }
+            });
+        }
     }
 
     // Инициализация селекта Специализация
@@ -663,14 +665,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     // Инициализация селекта Город
-    if( typeof listingCitySelect !== 'undefined' ){
-        listingTagifyCityInput.addEventListener('change', (e) => {
-    
-            if( filter_buzy == 0 ){
-                e.preventDefault();
-                archive_filtering();
-            }
-        });
+    if( 'archive' == rel_type && '' == vacancyid ){
+        if( listingTagifyCityInput != null ){
+            listingTagifyCityInput.addEventListener('change', (e) => {
+        
+                if( filter_buzy == 0 ){
+                    e.preventDefault();
+                    archive_filtering();
+                }
+            });
+        }
     }
 
     // чекбокс Без опыта
