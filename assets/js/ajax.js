@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
     }
 
-    if( typeof idPageLevelSelect !== 'undefined' ){
+    if( typeof idPageLevelSelect != 'undefined' ){
         idPageTagifyLevelInput.addEventListener('change', (e) => {
     
             e.preventDefault();
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
     }
 
-    if( typeof idPageCitySelect !== 'undefined' ){
+    if( typeof idPageCitySelect != 'undefined' ){
         idPageTagifyCityInput.addEventListener('change', (e) => {
     
             e.preventDefault();
