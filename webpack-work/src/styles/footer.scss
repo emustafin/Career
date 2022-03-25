@@ -172,6 +172,11 @@
   }
 }
 
+.footer__item-social-link:hover,
+.footer__item-social-link:visited{
+  color: #fff;
+}
+
 .footem__item-directions-link {
   color: $whiteColor;
 }

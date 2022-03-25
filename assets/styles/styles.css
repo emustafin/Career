@@ -2631,6 +2631,10 @@
     height: 10px;
     pointer-events: none; }
 
+.footer__item-social-link:hover,
+.footer__item-social-link:visited {
+  color: #fff; }
+
 .footem__item-directions-link {
   color: #ffffff; }
 

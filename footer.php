@@ -112,7 +112,7 @@ if( is_page('retail') ){
 
               <div class="footer__item-social-row">
                 <div class="footer__item-social-item">
-                  <a href="https://www.facebook.com/mvideoeldorado/" class="footer__item-social-link" target="blank">
+                  <!-- <a href="https://www.facebook.com/mvideoeldorado/" class="footer__item-social-link" target="blank">
                   Facebook
                     <svg
                       width="10"
@@ -126,24 +126,13 @@ if( is_page('retail') ){
                         fill="white"
                       />
                     </svg>
-
-                </a>
+                  </a>   -->
                   <a href="https://habr.com/ru/company/mvideo/blog/" class="footer__item-social-link" target="blank">
-                  Хабр
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M7.55191 1.5999H3.00044V0.399902H9.00044C9.33181 0.399902 9.60044 0.668531 9.60044 0.999902V6.9999H8.40044V2.44843L1.4247 9.42417L0.576172 8.57564L7.55191 1.5999Z"
-                        fill="white"
-                      />
+                    Хабр
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.55191 1.5999H3.00044V0.399902H9.00044C9.33181 0.399902 9.60044 0.668531 9.60044 0.999902V6.9999H8.40044V2.44843L1.4247 9.42417L0.576172 8.57564L7.55191 1.5999Z" fill="white"/>
                     </svg>
-
-                </a>
+                  </a>
                   <a href="https://inplacers.ru/mvideo" class="footer__item-social-link" target="blank">
                   Inplace
                     <svg
@@ -201,7 +190,7 @@ if( is_page('retail') ){
                     </svg>
 
                 </a>
-                  <a href="https://www.instagram.com/myjobby/" class="footer__item-social-link" target="blank">
+                  <!-- <a href="https://www.instagram.com/myjobby/" class="footer__item-social-link" target="blank">
                   Instagram
                     <svg
                       width="10"
@@ -216,7 +205,7 @@ if( is_page('retail') ){
                       />
                     </svg>
 
-                </a>
+                  </a> -->
                 </div>
               </div>
             </div>
@@ -258,7 +247,7 @@ if( is_page('retail') ){
                     </svg>
 
                 </a>
-                  <a href="https://www.instagram.com/eldorado_job/" class="footer__item-social-link" target="blank">
+                  <!-- <a href="https://www.instagram.com/eldorado_job/" class="footer__item-social-link" target="blank">
                   Instagram
                     <svg
                       width="10"
@@ -272,7 +261,7 @@ if( is_page('retail') ){
                         fill="white"
                       />
                     </svg>
-                </a>
+                  </a> -->
                 </div>
               </div>
             </div>
