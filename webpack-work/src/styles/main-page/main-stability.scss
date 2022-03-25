@@ -229,3 +229,82 @@
     }
   }
 }
+// Анимация для первого блока
+.first__svg-main-stability > circle:nth-child(1),
+.first__svg-main-stability > circle:nth-child(2),
+.first__svg-main-stability > circle:nth-child(3) {
+  transform: translate(0, 0);
+  transition: all 1s;
+}
+
+.main-stability__item:hover .first__svg-main-stability > circle:nth-child(1) {
+  transition: all 1s;
+  transform: translate(5px, 5px);
+}
+
+.main-stability__item:hover .first__svg-main-stability > circle:nth-child(2) {
+  transition: all 1s;
+  transform: translate(-4px, 4px);
+}
+
+.main-stability__item:hover .first__svg-main-stability > circle:nth-child(3) {
+  transition: all 1s;
+  transform: translate(4px, -4px);
+}
+
+// Анимация для второго блока
+.second__svg-main-stability > circle:nth-child(2),
+.second__svg-main-stability > circle:nth-child(3) {
+  transform: translate(0, 0);
+  transition: all 1s;
+}
+
+.main-stability__item:hover .second__svg-main-stability > circle:nth-child(2) {
+  transition: all 1s;
+  transform: translate(-3px, 3px);
+}
+
+.main-stability__item:hover .second__svg-main-stability > circle:nth-child(3) {
+  transition: all 1s;
+  transform: translate(3px, -3px);
+}
+
+// Анимация для третьего блока
+.fourth__svg-main-stability > circle:nth-child(1),
+.fourth__svg-main-stability > circle:nth-child(2),
+.fourth__svg-main-stability > circle:nth-child(3),
+.fourth__svg-main-stability > circle:nth-child(4) {
+  transform: translate(0, 0);
+  transition: all 1s;
+}
+
+.main-stability__item:hover .fourth__svg-main-stability > circle:nth-child(1) {
+  transition: all 1s;
+  transform: translate(0px, -5px);
+}
+
+.main-stability__item:hover .fourth__svg-main-stability > circle:nth-child(2) {
+  transition: all 1s;
+  transform: translate(5px, 0px);
+}
+
+.main-stability__item:hover .fourth__svg-main-stability > circle:nth-child(3) {
+  transition: all 1s;
+  transform: translate(0px, 5px);
+}
+
+.main-stability__item:hover .fourth__svg-main-stability > circle:nth-child(4) {
+  transition: all 1s;
+  transform: translate(-5px, 0px);
+}
+
+// Анимация для четвертого блока
+.third__svg-main-stability{
+  transform: scale(1);
+  transition: all 1s;
+}
+
+.main-stability__item:hover .third__svg-main-stability{
+  transform: scale(0.9);
+  transition: all 1s;
+}
