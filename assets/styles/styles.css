@@ -2632,7 +2632,9 @@
     pointer-events: none; }
 
 .footer__item-social-link:hover,
-.footer__item-social-link:visited {
+.footer__item-social-link:visited,
+.footem__item-directions-link:hover,
+.footem__item-directions-link:visited {
   color: #fff; }
 
 .footem__item-directions-link {
@@ -13200,6 +13202,68 @@ a.page__404-link {
     .main-stability__content-icon > svg {
       width: 48px;
       height: 48px; } }
+
+.first__svg-main-stability > circle:nth-child(1),
+.first__svg-main-stability > circle:nth-child(2),
+.first__svg-main-stability > circle:nth-child(3) {
+  transform: translate(0, 0);
+  transition: all 1s; }
+
+.main-stability__item:hover .first__svg-main-stability > circle:nth-child(1) {
+  transition: all 1s;
+  transform: translate(5px, 5px); }
+
+.main-stability__item:hover .first__svg-main-stability > circle:nth-child(2) {
+  transition: all 1s;
+  transform: translate(-4px, 4px); }
+
+.main-stability__item:hover .first__svg-main-stability > circle:nth-child(3) {
+  transition: all 1s;
+  transform: translate(4px, -4px); }
+
+.second__svg-main-stability > circle:nth-child(2),
+.second__svg-main-stability > circle:nth-child(3) {
+  transform: translate(0, 0);
+  transition: all 1s; }
+
+.main-stability__item:hover .second__svg-main-stability > circle:nth-child(2) {
+  transition: all 1s;
+  transform: translate(-3px, 3px); }
+
+.main-stability__item:hover .second__svg-main-stability > circle:nth-child(3) {
+  transition: all 1s;
+  transform: translate(3px, -3px); }
+
+.fourth__svg-main-stability > circle:nth-child(1),
+.fourth__svg-main-stability > circle:nth-child(2),
+.fourth__svg-main-stability > circle:nth-child(3),
+.fourth__svg-main-stability > circle:nth-child(4) {
+  transform: translate(0, 0);
+  transition: all 1s; }
+
+.main-stability__item:hover .fourth__svg-main-stability > circle:nth-child(1) {
+  transition: all 1s;
+  transform: translate(0px, -5px); }
+
+.main-stability__item:hover .fourth__svg-main-stability > circle:nth-child(2) {
+  transition: all 1s;
+  transform: translate(5px, 0px); }
+
+.main-stability__item:hover .fourth__svg-main-stability > circle:nth-child(3) {
+  transition: all 1s;
+  transform: translate(0px, 5px); }
+
+.main-stability__item:hover .fourth__svg-main-stability > circle:nth-child(4) {
+  transition: all 1s;
+  transform: translate(-5px, 0px); }
+
+.third__svg-main-stability {
+  transform: scale(1);
+  transition: all 1s; }
+
+.main-stability__item:hover .third__svg-main-stability {
+  transform: scale(0.9);
+  transition: all 1s; }
 
 .main-sustainability {
   padding: 0 16px;
