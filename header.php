@@ -159,6 +159,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       $menu_name = 'primary';
                       $locations = get_nav_menu_locations();
                       $menu_items = wp_get_nav_menu_items( $locations[ $menu_name ] );
+                      $current__url = home_url( $wp->request );
+                      
                       foreach ($menu_items as $item) :
 
                         $target_blank = '';
@@ -169,7 +171,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         
                         ?>
 
-                        <a href="<?php echo $item->url;?>" class="it-header__directions-dropdown-item" <?php echo $target_blank; ?>><?php echo $item->title;?></a>
+                        <a href="<?php echo $item->url;?>" class="it-header__directions-dropdown-item" <?php echo $target_blank; ?>>
+                          <?php
+                            if ($item->object_id == get_queried_object_id()) {
+                              ?><strong>
+                                <?php echo $item->title;?>
+                              </strong><?php
+                            } else {
+                              echo $item->title;
+                            }
+                          ?>
+                        </a>
 
                       <?php endforeach; ?>
                       
