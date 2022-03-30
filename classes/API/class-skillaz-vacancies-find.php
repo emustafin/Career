@@ -181,6 +181,31 @@ class Skillaz_Vacancies_Find extends Boot {
             update_field( 'is_retail_vacancy', true, $post_id );
         }
 
+        // Устанавливает контентную часть в повторитель
+        $add_content = array();        
+        if( '' != $work_vacancy_data['ExtraData.ResponsibilityProf'] ){
+            $add_content[] = array(
+                'item_title'    => 'Ты будешь заниматься',
+                'item_contect'  => $work_vacancy_data['ExtraData.ResponsibilityProf']
+            );
+        }
+        
+        if( '' != $work_vacancy_data['ExtraData.RequirementsProf'] ){
+            $add_content[] = array(
+                'item_title'    => 'Мы знаем, что ты',
+                'item_contect'  => $work_vacancy_data['ExtraData.RequirementsProf']
+            );
+        }
+        
+        if( '' != $work_vacancy_data['ExtraData.OfferProf'] ){
+            $add_content[] = array(
+                'item_title'    => 'Что ты получишь',
+                'item_contect'  => $work_vacancy_data['ExtraData.OfferProf']
+            );
+        }
+
+        update_field( 'vacancy_repeater', $add_content, $post_id );
+
     }
 
     public function check_live_vacancy( $unique_code ){
