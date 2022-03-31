@@ -188,6 +188,11 @@ class Skillaz_setting{
             'select_skillaz_url'
         );
 
+        register_setting(
+            $this->option_group,
+            'idvac_hold_form'
+        );
+
         add_settings_section(
             'footer_theme_settings',
             '',
@@ -205,6 +210,19 @@ class Skillaz_setting{
                 'label_for' => 'select_skillaz_url',
                 'class' => 'select_skillaz_url-class',
                 'name' => 'select_skillaz_url',
+            )
+        );
+
+        add_settings_field(
+            'idvac_hold_form',
+            'ID вакансии для холодной формы',
+            [ $this, 'get_idvac_hold_form' ],
+            $this->page_slug,
+            'footer_theme_settings',
+            array( 
+                'label_for' => 'idvac_hold_form',
+                'class' => 'idvac_hold_form-class',
+                'name' => 'idvac_hold_form',
             )
         );
     }
@@ -228,6 +246,16 @@ class Skillaz_setting{
             ?>
         </select>
         <?php
+    }
+
+    public function get_idvac_hold_form( $args ){
+        $value = get_option( $args[ 'name' ] );
+        printf(
+            '<input type="text" id="%s" name="%s" value="%s" >',
+            esc_attr( $args[ 'name' ] ),
+            esc_attr( $args[ 'name' ] ),
+            $value
+        );
     }
 
     public function notice() {
