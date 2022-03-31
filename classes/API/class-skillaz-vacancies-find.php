@@ -273,6 +273,9 @@ class Skillaz_Vacancies_Find extends Boot {
             if( $d ){
                 $current_vaccat[] = $term;
             }
+
+            // Удаляет пост из терма
+            wp_delete_object_term_relationships( $post_id, 'vaccat' );
         }
 
         // Устанавливаем вакансии специализацию в зависимости от совпадений по ключевым словам
