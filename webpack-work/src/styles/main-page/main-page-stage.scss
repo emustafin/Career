@@ -133,7 +133,28 @@
 
   & > img {
     display: block;
-    width: 100%;
+    width: 682px;
+    height: 682px;
+
+    @media (max-width: 1919px) {
+      width: 492px;
+      height: 492px;
+    }
+
+    @media (max-width: 1439px) {
+      width: 354px;
+      height: 354px;
+    }
+
+    @media (max-width: 1023px) {
+      width: 268px;
+      height: 268px;
+    }
+
+    @media (max-width: 767px) {
+      width: 176px;
+      height: 176px;
+    }
   }
 }
 

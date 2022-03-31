@@ -369,7 +369,7 @@ if( is_page('retail') ){
     </footer>
     <!--  //Footer  -->
 
-    <?php if( !is_single() ): ?>
+    <?php if( !is_single() && !is_front_page() && !is_page('news-events') ): ?>
     <!-- Flyout section -->
       <?php include(THEME_DIR . '/template-parts/footer/flyout.php'); ?>
       <!-- //Flyout section -->
@@ -386,11 +386,10 @@ if( is_page('retail') ){
       if( in_array( (string) get_the_ID(), $_SESSION['send_post_id'] ) || in_array( (int) get_the_ID(), $_SESSION['send_post_id'] ) ){
         ?>
         <script>
-          $ = jQuery;
-          $(document).ready(function() {
-            $('input.wpcf7-form-control.wpcf7-submit').css( 'display', 'none' );
-            $('#popup_form').append( '<h3>Вы уже откликались. Ваша заявка будет рассмотрена в скором времени.</h3>' );
-            $('#vacancy_form').append( '<h3>Вы уже откликались. Ваша заявка будет рассмотрена в скором времени.</h3>' );
+          document.addEventListener("DOMContentLoaded", function(event) {
+            document.querySelector('input.wpcf7-form-control.wpcf7-submit').style.display = 'none';
+            document.querySelector('#popup_form').insertAdjacentHTML('beforeend', `<h3>Вы уже откликались. Ваша заявка будет рассмотрена в скором времени.</h3>` );
+            document.querySelector('#vacancy_form').insertAdjacentHTML('beforeend', `<h3>Вы уже откликались. Ваша заявка будет рассмотрена в скором времени.</h3>` );
           })
         </script>
         <?php
