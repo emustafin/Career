@@ -7,8 +7,6 @@
 
 namespace Career\Menu;
 
-use \Career\API\Skillaz_Vacancies_Find;
-
 class Skillaz_setting{
 
     public $page_slug;
@@ -101,7 +99,7 @@ class Skillaz_setting{
                     </div>
                     <?php if( '-1' != $mapping_page ){ ?>
                         <h3>Вакансии:</h3>
-                        <div style="margin-top:50px;"><?php Skillaz_Vacancies_Find::vacancies_find( $mapping_page ); ?></div>
+                        <div style="margin-top:50px;"><?php do_action( 'skillaz_vacancies_find', $mapping_page ); ?></div>
                     <?php } ?>
                 </div>
                 <div class="col-6" style="margin-top:20px;width:49%;">

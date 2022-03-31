@@ -4,7 +4,12 @@ namespace Career\API;
 
 class Skillaz_Vacancies_Find extends Boot {
 
-	public static function vacancies_find( $page ) {
+    public function __construct() {
+
+        add_action( 'skillaz_vacancies_find', [ $this, 'vacancies_find' ] );
+    }
+
+	public static function vacancies_find( $page = 0 ) {
 
 		$params = array(
             "PageSize" => 0,
