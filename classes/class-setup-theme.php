@@ -37,7 +37,9 @@ class Setup_Theme {
 		add_action( 'wp_enqueue_scripts', [ $this, 'theme_styles' ] );
 
 		add_filter( 'upload_mimes', [ $this, 'upload_allow_types' ] );
-
+        add_filter( 'autoptimize_filter_imgopt_lazyload_cssoutput', function () {
+            return '<style>.no-js .lazyload{display:none;}.lazyload,.lazyloading{opacity:0;}.lazyloaded{opacity:1;transition:opacity 300ms;}</style>';
+        });
 	}
 
 	/**
@@ -87,10 +89,7 @@ class Setup_Theme {
 
 		wp_deregister_script( 'jquery' );
 
-		// Bring back jQuery for  now.
-		// if( is_page('skillaz') ){
-			wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', [], '3.5.1', false );
-		// }
+		
 		wp_enqueue_script( self::THEME_ID . "singleVacanciesPage-js", THEME_URL . "/assets/js/singleVacanciesPage.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "upload-js", THEME_URL . "/assets/js/upload.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "swiper-js", THEME_URL . "/assets/js/swiper-bundle.min.js", [], THEME_VSN, true );

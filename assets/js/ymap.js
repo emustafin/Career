@@ -1,5 +1,7 @@
-var yandexMaps = ymaps.ready( ymapInit );
-var mapV;
+if( document.querySelector('#yandex-map') != null ){
+  var yandexMaps = ymaps.ready( ymapInit );
+  var mapV;
+}
 
 function ymapInit(){
 

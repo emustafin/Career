@@ -7,6 +7,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
           mask: '+{7}(000)000-00-00'
         }
     );
+    
+    if (document.querySelector('#popup_vacant') != undefined) {
+        var phoneMask_vacat = IMask(
+            document.querySelector('#popup_vacant'), {
+              mask: '+{7}(000)000-00-00'
+            }
+        );
+    }
 
     if(document.querySelector('.hold_form_send')){
         document.querySelectorAll('.hold_form_send').forEach(item => {
