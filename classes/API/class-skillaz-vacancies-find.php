@@ -16,11 +16,11 @@ class Skillaz_Vacancies_Find extends Boot {
         );
     
         $content = json_encode($params);
+
+        $choise_url = get_option( 'select_skillaz_url' );
     
-        // $url = 'https://api-feature-mvideo.dev.skillaz.ru/open-api/objects/vacancies/find';
-        // $headers = array('Content-Type: application/json', 'Authorization: Bearer WXIGzUxm23bXoKv/AlbA8Lgmd3Yq3tsgpg5x5mMK77I=');
-        $url = 'https://api.skillaz.ru/open-api/objects/vacancies/find';
-        $headers = array('Content-Type: application/json', 'Authorization: Bearer +GfochhSwjsyfsnp9n7HhM4GcFBhhOv/rAoRR3Z+nWc=');
+        $url = SKILLAZ_URL[$choise_url]['link'].'open-api/objects/vacancies/find';
+        $headers = array('Content-Type: application/json', SKILLAZ_URL[$choise_url]['key']);
 
         $result = self::init_post( $headers, $url, $content );
         self::finded_vacancies( $result );

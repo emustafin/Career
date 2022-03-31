@@ -13,6 +13,7 @@ class Skillaz_setting{
 
     public $page_slug;
 	public $option_group;
+    public $select_skillaz_url = SKILLAZ_URL;
 
 	public function __construct() {
 
@@ -20,8 +21,8 @@ class Skillaz_setting{
 		$this->option_group = 'main_skillaz_control';
 
         add_action( 'admin_menu', [ $this, 'add_skillaz_control' ], 25 );
-        // add_action( 'admin_init',  [ $this, 'skillaz_settings_fields' ] );
-        // add_action( 'admin_notices', [ $this, 'notice' ] );
+        add_action( 'admin_init',  [ $this, 'theme_settings_fields' ] );
+        add_action( 'admin_notices', [ $this, 'notice' ] );
 	}
 
     public function add_skillaz_control() {
@@ -62,6 +63,21 @@ class Skillaz_setting{
             <div class="row">
                 <h1>Skillaz управление</h1>
             </div>
+
+            <div class="row" style="display:flex;">
+                <div class="col-12" style="margin-top:20px;">
+
+                    <form method="post" action="options.php">
+                        <?php
+                            settings_fields( $this->option_group );
+                            do_settings_sections( $this->page_slug );
+                            submit_button();
+                        ?>
+                    </form>
+
+                </div>
+            </div>
+
             <div class="row" style="display:flex;">
                 <div class="col-6" style="margin-top:20px;width:49%;">
                     <div style="margin-top:20px;">
@@ -164,5 +180,66 @@ class Skillaz_setting{
             return false;
         }
     }
+
+    public function theme_settings_fields(){
+
+        register_setting(
+            $this->option_group,
+            'select_skillaz_url'
+        );
+
+        add_settings_section(
+            'footer_theme_settings',
+            '',
+            '',
+            $this->page_slug
+        );
+
+        add_settings_field(
+            'select_skillaz_url',
+            'Выбор ссылки по которой будет работать Skillaz',
+            [ $this, 'get_select_skillaz_url' ],
+            $this->page_slug,
+            'footer_theme_settings',
+            array( 
+                'label_for' => 'select_skillaz_url',
+                'class' => 'select_skillaz_url-class',
+                'name' => 'select_skillaz_url',
+            )
+        );
+    }
+
+    public function get_select_skillaz_url( $args ){
+
+        $choise_url = get_option( $args[ 'name' ] );
+        ?>
+        <select name="select_skillaz_url" id="select_skillaz_url-dropdown" class="select_skillaz_url-dropdown">
+            <?php
+            
+            foreach ($this->select_skillaz_url as $key => $content) {
+                $selected = '';
+                if( $key == $choise_url ){
+                    $selected = 'selected="selected"';
+                }
+                ?>
+                <option value="<?php echo $key; ?>" <?php echo $selected; ?>><?php echo $content['name']; ?></option>
+                <?php
+            }
+            ?>
+        </select>
+        <?php
+    }
+
+    public function notice() {
+ 
+		if(
+			isset( $_GET[ 'page' ] )
+			&& $this->page_slug == $_GET[ 'page' ]
+			&& isset( $_GET[ 'settings-updated' ] )
+			&& true == $_GET[ 'settings-updated' ]
+		) {
+			echo '<div class="notice notice-success is-dismissible"><p>Настройки сохранены!</p></div>';
+		}
+	}
 
 }

@@ -176,8 +176,9 @@ class WPcf7_Mail extends Boot {
 
     public function sent_data_to_skillaz( $posted_data, $sending ){
 
+        $choise_url = get_option( 'select_skillaz_url' );
         $mail_info = '';
-        $url = 'https://api.skillaz.ru/open-api/objects/candidates';
+        $url = SKILLAZ_URL[$choise_url]['link'].'open-api/objects/candidates';
         $params = array();
 
         if( 'hold' != $posted_data['text-rel_type'] ){
@@ -304,7 +305,7 @@ class WPcf7_Mail extends Boot {
 
         $content = json_encode($params);
 
-        $headers = array('Content-Type: application/json', 'Authorization: Bearer +GfochhSwjsyfsnp9n7HhM4GcFBhhOv/rAoRR3Z+nWc=');
+        $headers = array('Content-Type: application/json', SKILLAZ_URL[$choise_url]['key']);
         $result = self::init_post( $headers, $url, $content );
         self::log( $result );
 
