@@ -6,7 +6,14 @@ class Skillaz_Vacancies_Find extends Boot {
 
     public function __construct() {
 
-        add_action( 'skillaz_vacancies_find', [ $this, 'vacancies_find' ] );
+        add_action( 'skillaz_vacancies_find', [ $this, 'cron_vacancies_find' ] );
+    }
+
+	public static function cron_vacancies_find() {
+
+        for ($i=0; $i < get_option( 'skillaz_total_pages' ); $i++) {
+            self::vacancies_find( $i );
+        }
     }
 
 	public static function vacancies_find( $page = 0 ) {
