@@ -206,6 +206,78 @@ class Skillaz_Vacancies_Find extends Boot {
 
         update_field( 'vacancy_repeater', $add_content, $post_id );
 
+        // Установка специализации
+        self::set_vaccat_vacancy( $work_vacancy_data, $post_id );
+
+    }
+
+    public function set_vaccat_vacancy( $work_vacancy_data, $post_id ){
+
+        // Получаем название
+        if( null != $work_vacancy_data['ExtraData.ProfileName'] ){
+            $title = $work_vacancy_data['ExtraData.ProfileName'];
+        } else{
+            $ProfileId = (array)$work_vacancy_data['ProfileId'];
+            if( null != $ProfileId ){
+                $title = $ProfileId['Name'];
+            } elseif( null != $work_vacancy_data['Name'] ){
+                $title = $work_vacancy_data['Name'];
+            }
+        }
+
+        // Превращаем название в массив слов
+        $stitle_array = array();
+        $title_array = explode( " ", $title );
+        foreach ($title_array as $word) {
+            $sword = str_replace( ",", "", $word );
+            $stitle_array[] = $sword;
+        }
+
+        // Получаем все термы специализации
+        $vaccat_terms = get_terms('vaccat', [ 'hide_empty' => false, ]);
+        $current_vaccat = array();
+
+        // Проходимся по всем термам для сравнения по ключевым словам название
+        foreach ($vaccat_terms as $term) {
+            
+            $d = false;
+            $keywords = get_field('keywords', $term);
+
+            if( null != $keywords || '' != $keywords ){
+                $skeywords_array = array();
+                // Превращаем полученное в массив
+                $keywords_array = explode( ",", $keywords );
+                foreach ($keywords_array as $keyword) {
+                    $skeyword = str_replace( " ", "", $keyword );
+                    $skeywords_array[] = $skeyword;
+                }
+                
+                // Цикл по ключевым словам для сравнения...
+                foreach ($skeywords_array as $keyword) {
+    
+                    // ...с каждым из слов в названии вакансии
+                    foreach ($stitle_array as $word) {
+                        if( $keyword == $word ){
+                            $d = true;
+                        }
+                    }
+                }
+            }
+
+            // Проверяем есть ли совпадения
+            if( $d ){
+                $current_vaccat[] = $term;
+            }
+        }
+
+        // Устанавливаем вакансии специализацию в зависимости от совпадений по ключевым словам
+        if( empty($current_vaccat) ){
+            $another_term = get_term_by( 'slug', 'other', 'vaccat' );
+            wp_set_post_terms( $post_id, $another_term->term_id, 'vaccat', true );
+        } else{
+            wp_set_post_terms( $post_id, $current_vaccat[0]->term_id, 'vaccat', true );
+        }
+
     }
 
     public function check_live_vacancy( $unique_code ){
