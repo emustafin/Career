@@ -4,7 +4,19 @@ namespace Career\API;
 
 class Skillaz_Vacancies_Find extends Boot {
 
-	public static function vacancies_find( $page ) {
+    public function __construct() {
+
+        add_action( 'skillaz_vacancies_find', [ $this, 'cron_vacancies_find' ] );
+    }
+
+	public static function cron_vacancies_find() {
+
+        for ($i=0; $i < get_option( 'skillaz_total_pages' ); $i++) {
+            self::vacancies_find( $i );
+        }
+    }
+
+	public static function vacancies_find( $page = 0 ) {
 
 		$params = array(
             "PageSize" => 0,
@@ -16,11 +28,11 @@ class Skillaz_Vacancies_Find extends Boot {
         );
     
         $content = json_encode($params);
+
+        $choise_url = get_option( 'select_skillaz_url' );
     
-        // $url = 'https://api-feature-mvideo.dev.skillaz.ru/open-api/objects/vacancies/find';
-        // $headers = array('Content-Type: application/json', 'Authorization: Bearer WXIGzUxm23bXoKv/AlbA8Lgmd3Yq3tsgpg5x5mMK77I=');
-        $url = 'https://api.skillaz.ru/open-api/objects/vacancies/find';
-        $headers = array('Content-Type: application/json', 'Authorization: Bearer +GfochhSwjsyfsnp9n7HhM4GcFBhhOv/rAoRR3Z+nWc=');
+        $url = SKILLAZ_URL[$choise_url]['link'].'open-api/objects/vacancies/find';
+        $headers = array('Content-Type: application/json', SKILLAZ_URL[$choise_url]['key']);
 
         $result = self::init_post( $headers, $url, $content );
         self::finded_vacancies( $result );
@@ -179,6 +191,106 @@ class Skillaz_Vacancies_Find extends Boot {
                     break;
             }
             update_field( 'is_retail_vacancy', true, $post_id );
+        }
+
+        // Устанавливает контентную часть в повторитель
+        $add_content = array();        
+        if( '' != $work_vacancy_data['ExtraData.ResponsibilityProf'] ){
+            $add_content[] = array(
+                'item_title'    => 'Ты будешь заниматься',
+                'item_contect'  => $work_vacancy_data['ExtraData.ResponsibilityProf']
+            );
+        }
+        
+        if( '' != $work_vacancy_data['ExtraData.RequirementsProf'] ){
+            $add_content[] = array(
+                'item_title'    => 'Мы знаем, что ты',
+                'item_contect'  => $work_vacancy_data['ExtraData.RequirementsProf']
+            );
+        }
+        
+        if( '' != $work_vacancy_data['ExtraData.OfferProf'] ){
+            $add_content[] = array(
+                'item_title'    => 'Что ты получишь',
+                'item_contect'  => $work_vacancy_data['ExtraData.OfferProf']
+            );
+        }
+
+        update_field( 'vacancy_repeater', $add_content, $post_id );
+
+        // Установка специализации
+        self::set_vaccat_vacancy( $work_vacancy_data, $post_id );
+
+    }
+
+    public function set_vaccat_vacancy( $work_vacancy_data, $post_id ){
+
+        // Получаем название
+        if( null != $work_vacancy_data['ExtraData.ProfileName'] ){
+            $title = $work_vacancy_data['ExtraData.ProfileName'];
+        } else{
+            $ProfileId = (array)$work_vacancy_data['ProfileId'];
+            if( null != $ProfileId ){
+                $title = $ProfileId['Name'];
+            } elseif( null != $work_vacancy_data['Name'] ){
+                $title = $work_vacancy_data['Name'];
+            }
+        }
+
+        // Превращаем название в массив слов
+        $stitle_array = array();
+        $title_array = explode( " ", $title );
+        foreach ($title_array as $word) {
+            $sword = str_replace( ",", "", $word );
+            $stitle_array[] = $sword;
+        }
+
+        // Получаем все термы специализации
+        $vaccat_terms = get_terms('vaccat', [ 'hide_empty' => false, ]);
+        $current_vaccat = array();
+
+        // Проходимся по всем термам для сравнения по ключевым словам название
+        foreach ($vaccat_terms as $term) {
+            
+            $d = false;
+            $keywords = get_field('keywords', $term);
+
+            if( null != $keywords || '' != $keywords ){
+                $skeywords_array = array();
+                // Превращаем полученное в массив
+                $keywords_array = explode( ",", $keywords );
+                foreach ($keywords_array as $keyword) {
+                    $skeyword = str_replace( " ", "", $keyword );
+                    $skeywords_array[] = $skeyword;
+                }
+                
+                // Цикл по ключевым словам для сравнения...
+                foreach ($skeywords_array as $keyword) {
+    
+                    // ...с каждым из слов в названии вакансии
+                    foreach ($stitle_array as $word) {
+                        if( $keyword == $word ){
+                            $d = true;
+                        }
+                    }
+                }
+            }
+
+            // Проверяем есть ли совпадения
+            if( $d ){
+                $current_vaccat[] = $term;
+            }
+
+            // Удаляет пост из терма
+            wp_delete_object_term_relationships( $post_id, 'vaccat' );
+        }
+
+        // Устанавливаем вакансии специализацию в зависимости от совпадений по ключевым словам
+        if( empty($current_vaccat) ){
+            $another_term = get_term_by( 'slug', 'other', 'vaccat' );
+            wp_set_post_terms( $post_id, $another_term->term_id, 'vaccat', true );
+        } else{
+            wp_set_post_terms( $post_id, $current_vaccat[0]->term_id, 'vaccat', true );
         }
 
     }

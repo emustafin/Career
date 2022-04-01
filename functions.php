@@ -7,6 +7,19 @@
 session_start();
 define( 'THEME_DIR', get_stylesheet_directory() );
 define( 'THEME_URL', get_stylesheet_directory_uri() );
+define( 'SKILLAZ_URL', array(
+		'dev'   => array(
+			'name'  => 'Разработка',
+			'link'  => 'https://api-feature-mvideo.dev.skillaz.ru/',
+			'key'   => 'Authorization: Bearer WXIGzUxm23bXoKv/AlbA8Lgmd3Yq3tsgpg5x5mMK77I='
+		),
+		'prod'  => array(
+			'name'  => 'Продакшн',
+			'link'  => 'https://api.skillaz.ru/',
+			'key'   => 'Authorization: Bearer +GfochhSwjsyfsnp9n7HhM4GcFBhhOv/rAoRR3Z+nWc='
+		)
+	)
+);
 
 require_once THEME_DIR . '/classes/class-core.php';
 

@@ -8,8 +8,9 @@ class Skillaz_Org_Structure extends Boot {
 
 		$param = '5d69251551e9b613e4787ef7';
     
-        $url = 'https://api-feature-mvideo.dev.skillaz.ru/open-api/org-structure/units/'.$param;
-        $headers = array('Content-Type: application/json', 'Authorization: Bearer WXIGzUxm23bXoKv/AlbA8Lgmd3Yq3tsgpg5x5mMK77I=');
+        $choise_url = get_option( 'select_skillaz_url' );
+        $url = SKILLAZ_URL[$choise_url]['link'].'open-api/org-structure/units/'.$param;
+        $headers = array('Content-Type: application/json', SKILLAZ_URL[$choise_url]['key']);
 
         $result = self::init_get( $headers, $url );
         self::log( $result );
