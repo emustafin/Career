@@ -176,8 +176,11 @@ class WPcf7_Mail extends Boot {
 
     public function sent_data_to_skillaz( $posted_data, $sending ){
 
+        $choise_url = get_option( 'select_skillaz_url' );
+        $idvac_hold_form = get_option( 'idvac_hold_form' );
+
         $mail_info = '';
-        $url = 'https://api.skillaz.ru/open-api/objects/candidates';
+        $url = SKILLAZ_URL[$choise_url]['link'].'open-api/objects/candidates';
         $params = array();
 
         if( 'hold' != $posted_data['text-rel_type'] ){
@@ -186,11 +189,11 @@ class WPcf7_Mail extends Boot {
                 if( $posted_data['text-vacancyid'] ){
                     $unique_code = get_field( 'unique_code', $posted_data['text-vacancyid'] );
                     if( '' == $unique_code ){
-                        $unique_code = '62149a22460995270b9a98b2';
+                        $unique_code = $idvac_hold_form;
                     }
                     $params['VacancyId'] = $unique_code;
                 } else{
-                    $params['VacancyId'] = '62149a22460995270b9a98b2';
+                    $params['VacancyId'] = $idvac_hold_form;
                 }
                 if( $posted_data['text-sourceurl'] ){
                     $params['SourceUrl'] = $posted_data['text-sourceurl'];
@@ -198,11 +201,11 @@ class WPcf7_Mail extends Boot {
                     $params['SourceUrl'] = 'https://job.mvideoeldorado.ru/shop/vacancy/3679';
                 }
             }  else{
-                $params['VacancyId'] = '62149a22460995270b9a98b2';
+                $params['VacancyId'] = $idvac_hold_form;
                 $params['SourceUrl'] = 'https://job.mvideoeldorado.ru/shop/vacancy/3679';
             }
         } else{
-            $params['VacancyId'] = '62149a22460995270b9a98b2';
+            $params['VacancyId'] = $idvac_hold_form;
             $params['SourceUrl'] = 'https://job.mvideoeldorado.ru/shop/vacancy/3679';
         }
         $mail_info .= 'VacancyId - '.$params['VacancyId'].'\n';
@@ -304,7 +307,7 @@ class WPcf7_Mail extends Boot {
 
         $content = json_encode($params);
 
-        $headers = array('Content-Type: application/json', 'Authorization: Bearer +GfochhSwjsyfsnp9n7HhM4GcFBhhOv/rAoRR3Z+nWc=');
+        $headers = array('Content-Type: application/json', SKILLAZ_URL[$choise_url]['key']);
         $result = self::init_post( $headers, $url, $content );
         self::log( $result );
 
