@@ -240,10 +240,10 @@
             ?>
             <div class="vacancy__description-block">
                 <div class="vacancy__description-title">
-                    <p class="vacancy__description-title-text"><?php echo get_sub_field('item_title'); ?></p>
+                <p class="vacancy__description-title-text"><?php echo get_sub_field('item_title'); ?></p>
                 </div>
                 <div class="vacancy__description-list">
-                    <?php echo get_sub_field('item_contect'); ?>
+                <?php echo get_sub_field('item_contect'); ?>
                 </div>
             </div>
             <?php

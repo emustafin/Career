@@ -13,7 +13,6 @@ export class MobileSliderAdvantages {
     if( window.innerWidth < 479 ){
       this.slider = new Swiper('.logistic-advantages__right-bar', {
         slidesPerView: 1.23,
-        spaceBetween: 16,
       });
   
       this.init();
