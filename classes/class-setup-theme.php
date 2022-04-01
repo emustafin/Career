@@ -76,6 +76,7 @@ class Setup_Theme {
 	 */
 	public function theme_styles() {
 
+		wp_enqueue_style( self::THEME_ID . "-tagify-css", THEME_URL . "/assets/styles/tagify.css", [], THEME_VSN, 'all' );
 		wp_enqueue_style( self::THEME_ID . "-styles-css", THEME_URL . "/assets/styles/styles.css", [], THEME_VSN, 'all' );
 		wp_enqueue_style( self::THEME_ID . "-swiper-css", THEME_URL . "/assets/styles/swiper-bundle.min.css", [], THEME_VSN, 'all' );
 	}
@@ -90,6 +91,8 @@ class Setup_Theme {
 		wp_deregister_script( 'jquery' );
 
 		
+		wp_enqueue_script( self::THEME_ID . "tagify.min.js", THEME_URL . "/assets/js/tagify.min.js", [], THEME_VSN, true );
+		wp_enqueue_script( self::THEME_ID . "tagify.polyfills.min.js", THEME_URL . "/assets/js/tagify.polyfills.min.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "singleVacanciesPage-js", THEME_URL . "/assets/js/singleVacanciesPage.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "upload-js", THEME_URL . "/assets/js/upload.js", [], THEME_VSN, true );
 		wp_enqueue_script( self::THEME_ID . "swiper-js", THEME_URL . "/assets/js/swiper-bundle.min.js", [], THEME_VSN, true );
