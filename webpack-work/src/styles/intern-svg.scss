@@ -15,6 +15,7 @@ section.intern {
         right: 0;
         width: 100%;
         max-width: 907px;
+        z-index: 0;
         //background: url('../images/internship/swichers.svg') right / contain no-repeat;
         //padding-top: 15%;
     }
@@ -861,14 +862,10 @@ section.intern {
     
     // Styles block widthout events for 768px
     @media (max-width: 880px) {
-        .intern-no-events {
-        margin-top: -60px;
+        .intern-no-events-container{
+            padding: 0;
         }
-    
-        .intern-no-events-container {
-        padding: 0 8px;
-        }
-    
+
         .intern-no-events__news-block {
         flex-direction: column;
         }
@@ -958,7 +955,6 @@ section.intern {
         & > .intern-no-events__title {
             font-size: 14px;
             line-height: 16px;
-            padding: 0 8px;
         }
         }
     
@@ -966,7 +962,6 @@ section.intern {
         & > .intern-no-events__title {
             font-size: 14px;
             line-height: 16px;
-            padding: 0 8px;
         }
         }
     
@@ -976,7 +971,7 @@ section.intern {
     
         .intern-no-events__header,
         .intern-no-events__date-block {
-        padding: 0 8px;
+        padding: 0;
         }
         // Стили для анимации. Начало
         .intern__header-background {
@@ -1023,6 +1018,7 @@ section.intern {
     .intern__wrap{
       position: relative;
       margin-bottom: 40px;
+      z-index: 1;
     }
   
     section.intern .intern__header-link{

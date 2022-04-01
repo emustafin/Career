@@ -42,7 +42,7 @@
                 include(THEME_DIR . '/template-parts/header/vacancy__header-head-links.php');
             ?>
 
-            <a href="#" class="vacancy__header-head-copy">
+            <a href="#" id="copy_link" class="vacancy__header-head-copy">
                 Скопировать ссылку
 
                 <svg
@@ -264,7 +264,7 @@
                 <?php
                 $args = array(
                     'post_type'         => 'post',
-                    'posts_per_page'    => 6,
+                    'posts_per_page'    => -1,
                     'post_status'       => 'publish',
                     'order'             => 'DESC',
                     'order_by'          => 'date'

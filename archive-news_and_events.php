@@ -277,7 +277,7 @@ else:
 endif; ?>
 <!-- Button Show-more -->
 <div class="products__show-more" style="<?php echo $button_show_more_display; ?>">
-    <div href="#" class="position__show-more-button">
+    <div class="position__show-more-button">
         показать ещё
         <svg class="position__show-more-button-link" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4.40039 5.60002V9.5H5.60039V5.60002H9.5V4.40002H5.60039V0.5H4.40039V4.40002H0.5L0.5 5.60002H4.40039Z" fill="black"/>
@@ -338,7 +338,7 @@ endif; ?>
             <?php
             $args = array(
                 'post_type'         => 'post',
-                'posts_per_page'    => 6,
+                'posts_per_page'    => -1,
                 'post_status'       => 'publish',
                 'order'             => 'DESC',
                 'order_by'          => 'date'

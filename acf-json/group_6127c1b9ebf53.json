@@ -89,6 +89,27 @@
             "step": ""
         },
         {
+            "key": "field_6203c63dfe829",
+            "label": "ЗП до",
+            "name": "money_to",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 0,
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_61280260676dc",
             "label": "Можно без опыта?",
             "name": "can_without_experience",
@@ -510,5 +531,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1636542344
+    "modified": 1644414537
 }

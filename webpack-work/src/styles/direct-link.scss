@@ -70,16 +70,25 @@
 .direct-link__content-wrapper {
   display: flex;
   justify-content: flex-end;
+  position: relative;
 }
 
 .direct-link__side-bar {
-  width: 30%;
   padding-top: 16px;
-
-  position: fixed;
-  top: 112px;
-  left: 16px;
   transition: 0.3s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+}
+
+.direct-link__side-bar-wrapper{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 132px;
+  padding: 0 15px;
+  padding-bottom: 15px;
 }
 
 .direct-link__header-head-copy {
@@ -143,6 +152,16 @@
 
 .direct-link__content {
   width: 67%;
+
+  // styles for 1440px
+  @media (max-width: 1919px) {
+    width: 67.05%;
+  }
+
+  // styles for 1024px
+  @media (max-width: 1439px) {
+    width: 67.14%;
+  }
 }
 
 .direct-link__header-headline {

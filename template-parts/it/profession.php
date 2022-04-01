@@ -1,38 +1,36 @@
 <!--  Profession  -->
+<?php
+$vaccat_terms = get_terms( 'vaccat', 'meta_key=type_vaccat&meta_value='.$rel_type );
+$town_terms = get_terms( 'town' );
+$level_terms = get_terms( 'level' );
+
+if( !empty($vaccat_terms) ){
+  foreach ($vaccat_terms as $vaccat_term) {
+      $first_vaccat = $vaccat_term;
+      $vaccat_slug = $vaccat_term->slug;
+      break;
+  }
+  
+  $town_slug = '';
+  $level_slug = '';
+  $can_work_remotely = '';
+  $can_without_experience = '';
+
+  if( NotEmptyGetParam('vaccat_slug') )               $vaccat_slug = $_GET['vaccat_slug'];
+  if( NotEmptyGetParam('town_slug') )                 $town_slug = $_GET['town_slug'];
+  if( NotEmptyGetParam('level_slug') )                $level_slug = $_GET['level_slug'];
+  if( NotEmptyGetParam('can_work_remotely') )         $can_work_remotely = 'checked';
+  if( NotEmptyGetParam('can_without_experience') && true == $_GET['can_without_experience'] ) $can_without_experience = 'checked';
+
+  $profession__title = '';
+?>
 <section class="profession">
     <div class="container">
         <div id="vaccat_items" class="profession__header">
             <p class="profession__question">Что подходит тебе?</p>
             
-            <?php
-            $vaccat_terms = get_terms( 'vaccat' );
-            $town_terms = get_terms( 'town' );
-            $level_terms = get_terms( 'level' );
-
-            // TODO Иногда массив приходит без нулевого элемента
-            foreach ($vaccat_terms as $vaccat_term) {
-                $first_vaccat = $vaccat_term;
-                $vaccat_slug = $vaccat_term->slug;
-                break;
-            }
-
-            $town_slug = '';
-            $level_slug = '';
-            $can_work_remotely = '';
-            $can_without_experience = '';
-
-            if( NotEmptyGetParam('vaccat_slug') )               $vaccat_slug = $_GET['vaccat_slug'];
-            if( NotEmptyGetParam('town_slug') )                 $town_slug = $_GET['town_slug'];
-            if( NotEmptyGetParam('level_slug') )                $level_slug = $_GET['level_slug'];
-            if( NotEmptyGetParam('can_work_remotely') )         $can_work_remotely = 'checked';
-            if( NotEmptyGetParam('can_without_experience') && true == $_GET['can_without_experience'] ) $can_without_experience = 'checked';
-
-            $profession__title = '';
-
-            if( $vaccat_terms && ! is_wp_error($vaccat_terms) ): ?>
-                
-                <nav class="profession__menu">
-                    
+            <?php if( $vaccat_terms && ! is_wp_error($vaccat_terms) ): ?>
+              <nav class="profession__menu">
                 <?php foreach( $vaccat_terms as $vaccat_term ):
 
                     $profession__technology = '';
@@ -67,7 +65,7 @@
                     </span>
 
                 <?php endforeach; ?>
-                </nav>
+              </nav>
             <?php endif; ?>
         </div>
 
@@ -75,6 +73,7 @@
 
         <div class="profession__content">
             <div class="profession__side-bar">
+              <?php if( null != $first_vaccat ){ ?>
                 <div class="profession__side-bar-text-wrapper">
                     <div id="profession__description" class="profession__side-bar-text">
                         <?php echo term_description( $first_vaccat->term_id, 'vaccat' ); ?>
@@ -85,7 +84,7 @@
                             foreach (get_field( 'vaccat_tehnologies', $first_vaccat ) as $tech) : ?>
                             <div class="profession__technology-item <?php echo $tech['value']; ?>"><?php echo $tech['label']; ?></div>
                         <?php  endforeach; 
-                           endif;?>
+                          endif;?>
                     </div>
 
                     <!-- 
@@ -122,191 +121,167 @@
                 <div class="profession__side-bar-image-wrapper loading">
                     <img id="profession__img" class="profession__side-bar-image" data-src="<?php echo get_field( 'vaccat_img', $first_vaccat ); ?>" alt="management" title="Профессии" src="<?php echo THEME_URL; ?>/assets/images/Lazy-loading/1x1.png" width="1000" height="563"/>
                 </div>
+                <?php } ?>
             </div>
 
             <div class="profession__main-content">
+              <?php if( null != $first_vaccat ){ ?>
                 <div class="profession__filter-wrapper">
-                    <div class="profession__filter-item">
-                        <p class="profession__filter-item-title">Уровень</p>
-                        <div class="profession__filter-item-select">
-<!-- 
-                            <select name="level" id="level">
-                                <option value="-1">Выберите уровень</option>
+                  <div class="profession__filter-item">
+                    <p class="profession__filter-item-title">Уровень</p>
+                    <div class="profession__filter-item-select">
+                        <!-- 
+                        <select name="level" id="level">
+                            <option value="-1">Выберите уровень</option>
 
-                                <?php $level_arr = array( '-1' => 'Любой' );
-                                foreach( $level_terms as $level_term ):
-                                    $selected = '';
-                                    $level_arr[$level_term->slug] = $level_term->name;
-                                    if( $level_slug == $level_term->slug ) $selected = 'selected'; ?>
-                                    <option value="<?php echo $level_term->slug; ?>" <?php echo $selected; ?>><?php echo $level_term->name; ?></option>
-                                <?php endforeach; ?>
+                            <?php $level_arr = array( '-1' => 'Любой' );
+                            foreach( $level_terms as $level_term ):
+                                $selected = '';
+                                $level_arr[$level_term->slug] = $level_term->name;
+                                if( $level_slug == $level_term->slug ) $selected = 'selected'; ?>
+                                <option value="<?php echo $level_term->slug; ?>" <?php echo $selected; ?>><?php echo $level_term->name; ?></option>
+                            <?php endforeach; ?>
 
-                            </select>
-                             -->
-                             
-                             <input type="hidden" id="level" value="-1"/>
-                             <input
-                                class="selectMode profession__level-select"
-                                name="tags-select-mode"
-                                placeholder="Выбери уровень"
-                                value=""
+                        </select>
+                          -->
+                          
+                          <input type="hidden" id="level" value="-1"/>
+                          <input
+                            class="selectMode profession__level-select"
+                            name="tags-select-mode"
+                            placeholder="Выбери уровень"
+                            value=""
+                        />
+
+                        <div class="profession__filter-item-select-arrow">
+                            <svg
+                            class="profession__filter-item-select-arrow-image"
+                            width="10"
+                            height="10"
+                            viewBox="0 0 10 10"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            >
+                            <path
+                                d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
+                                fill="black"
                             />
+                            </svg>
+                        </div>
 
+
+                        <script>
+                            var levels = '<?php echo json_encode( $level_arr ); ?>';
+                        </script>
+                        <!-- 
+                            <p class="profession__filter-item-select-value">
+                            Junior, Senior
+                            </p>
                             <div class="profession__filter-item-select-arrow">
-                                <svg
+                            <img
                                 class="profession__filter-item-select-arrow-image"
-                                width="10"
-                                height="10"
-                                viewBox="0 0 10 10"
+                                src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-bottom.svg"
+                                alt="arrow-bottom"
+                            />
+                            </div>
+                            <div class="profession__filter-item-select-list hide">
+                                <p class="profession__filter-item-select-list-item">
+                                    Junior, Senior
+                                </p>
+                                <p class="profession__filter-item-select-list-item">Lead</p>
+                                <p class="profession__filter-item-select-list-item">
+                                    Middle
+                                </p>
+                            </div> 
+                        -->
+                    </div>
+
+                    <label class="profession__filter-checbox-wrapper-mobile">
+                        <input class="profession__filter-input can_without_experience" type="checkbox" <?php echo $can_without_experience; ?>/>
+                        Без опыта
+                        <span class="profession__filter-checbox-value">
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                                 >
                                 <path
-                                    d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
-                                    fill="black"
+                                    d="M12.5 5L6.5 11L3.5 8"
+                                    stroke="black"
+                                    stroke-width="1.2"
                                 />
-                                </svg>
-                            </div>
+                            </svg>
+                        </span>
+                    </label>
+                  </div>
 
+                  <div class="profession__filter-item">
+                    <p class="profession__filter-item-title">Город</p>
+                    <div class="profession__filter-item-select">
+                        <!-- 
+                        <select name="town" id="town">
+                            <option value="-1">Выберите город</option>
+                            <?php $towns_array = array( '-1' => 'Любой' );
+                            foreach( $town_terms as $town_term ):
+                                $towns_array[$town_term->slug] = $town_term->name;
+                                if( $town_slug == $town_term->slug ) $selected = 'selected'; ?>
+                                    <option value="<?php echo $town_term->slug; ?>" <?php echo $selected; ?>><?php echo $town_term->name; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                          -->
 
-                            <script>
-                                var levels = '<?php echo json_encode( $level_arr ); ?>';
-                            </script>
-                            <!-- 
-                                <p class="profession__filter-item-select-value">
-                                Junior, Senior
-                                </p>
-                                <div class="profession__filter-item-select-arrow">
-                                <img
-                                    class="profession__filter-item-select-arrow-image"
-                                    src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-bottom.svg"
-                                    alt="arrow-bottom"
-                                />
-                                </div>
-                                <div class="profession__filter-item-select-list hide">
-                                    <p class="profession__filter-item-select-list-item">
-                                        Junior, Senior
-                                    </p>
-                                    <p class="profession__filter-item-select-list-item">Lead</p>
-                                    <p class="profession__filter-item-select-list-item">
-                                        Middle
-                                    </p>
-                                </div> 
-                            -->
-                        </div>
-
-                        
-                            <label class="profession__filter-checbox-wrapper-mobile">
-                                <input class="profession__filter-input can_without_experience" type="checkbox" <?php echo $can_without_experience; ?>/>
-                                Без опыта
-                                <span class="profession__filter-checbox-value">
-                                    <svg
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 16 16"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                        <path
-                                            d="M12.5 5L6.5 11L3.5 8"
-                                            stroke="black"
-                                            stroke-width="1.2"
-                                        />
-                                    </svg>
-                                </span>
-                            </label> 
-                       
-                    </div>
-
-                    <div class="profession__filter-item">
-                        <p class="profession__filter-item-title">Город</p>
-                        <div class="profession__filter-item-select">
-<!-- 
-                            <select name="town" id="town">
-                                <option value="-1">Выберите город</option>
-                                <?php $towns_array = array( '-1' => 'Любой' );
-                                foreach( $town_terms as $town_term ):
-                                    $towns_array[$town_term->slug] = $town_term->name;
-                                    if( $town_slug == $town_term->slug ) $selected = 'selected'; ?>
-                                        <option value="<?php echo $town_term->slug; ?>" <?php echo $selected; ?>><?php echo $town_term->name; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                             -->
-
-                             <input type="hidden" id="town" value="-1"/>
-                             <input
-                                name="tags-select-mode"
-                                class="selectMode profession__city-select"
-                                placeholder="Выбери город"
-                                value=""
+                          <input type="hidden" id="town" value="-1"/>
+                          <input
+                            name="tags-select-mode"
+                            class="selectMode profession__city-select"
+                            placeholder="Выбери город"
+                            value=""
+                        />
+                        <div class="profession__filter-item-select-arrow">
+                            <svg
+                            class="profession__filter-item-select-arrow-image"
+                            width="10"
+                            height="10"
+                            viewBox="0 0 10 10"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            >
+                            <path
+                                d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
+                                fill="black"
                             />
-                            <div class="profession__filter-item-select-arrow">
-                                <svg
-                                class="profession__filter-item-select-arrow-image"
-                                width="10"
-                                height="10"
-                                viewBox="0 0 10 10"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                >
-                                <path
-                                    d="M5.58286 7.56905V0.925293H4.38286V7.53389L1.4247 4.57574L0.576172 5.42426L4.22262 9.07071C4.65219 9.50029 5.34868 9.50029 5.77825 9.07071L9.4247 5.42426L8.57617 4.57574L5.58286 7.56905Z"
-                                    fill="black"
-                                />
-                                </svg>
-                            </div>
-
-                            <script>
-                               var towns = '<?php echo json_encode( $towns_array ); ?>';
-                            </script>
-                            <!-- 
-                                <p class="profession__filter-item-select-value">Любой</p>
-                                <div class="profession__filter-item-select-arrow">
-                                <img
-                                    class="profession__filter-item-select-arrow-image"
-                                    src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-bottom.svg"
-                                    alt="arrow-bottom"
-                                />
-                                </div>
-                                <div class="profession__filter-item-select-list hide">
-                                <p class="profession__filter-item-select-list-item">
-                                    Любой
-                                </p>
-                                <p class="profession__filter-item-select-list-item">
-                                    Москва
-                                </p>
-                                <p class="profession__filter-item-select-list-item">
-                                    Санкт-Петербург
-                                </p>
-                                </div> 
-                            -->
+                            </svg>
                         </div>
 
-                        
-                            <label class="profession__filter-checbox-wrapper-mobile">
-                                <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $can_work_remotely; ?>/>
-                                Удалённо
-                                <span class="profession__filter-checbox-value">
-                                <svg
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                    <path
-                                        d="M12.5 5L6.5 11L3.5 8"
-                                        stroke="black"
-                                        stroke-width="1.2"
-                                    />
-                                </svg>
-                                </span>
-                            </label> 
-                       
+                        <script>
+                            var towns = '<?php echo json_encode( $towns_array ); ?>';
+                        </script>
+                        <!-- 
+                            <p class="profession__filter-item-select-value">Любой</p>
+                            <div class="profession__filter-item-select-arrow">
+                            <img
+                                class="profession__filter-item-select-arrow-image"
+                                src="<?php echo THEME_URL; ?>/assets/images/arrows/arrow-bottom.svg"
+                                alt="arrow-bottom"
+                            />
+                            </div>
+                            <div class="profession__filter-item-select-list hide">
+                            <p class="profession__filter-item-select-list-item">
+                                Любой
+                            </p>
+                            <p class="profession__filter-item-select-list-item">
+                                Москва
+                            </p>
+                            <p class="profession__filter-item-select-list-item">
+                                Санкт-Петербург
+                            </p>
+                            </div> 
+                        -->
                     </div>
 
-                    <div class="profession__checkbox-container">
-                    <label class="profession__filter-checbox-wrapper">
+                    <label class="profession__filter-checbox-wrapper-mobile">
                         <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $can_work_remotely; ?>/>
                         Удалённо
                         <span class="profession__filter-checbox-value">
@@ -324,6 +299,28 @@
                             />
                         </svg>
                         </span>
+                    </label> 
+                  </div>
+
+                  <div class="profession__checkbox-container">
+                    <label class="profession__filter-checbox-wrapper">
+                      <input class="profession__filter-input can_work_remotely" type="checkbox" <?php echo $can_work_remotely; ?>/>
+                      Удалённо
+                      <span class="profession__filter-checbox-value">
+                      <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          >
+                          <path
+                              d="M12.5 5L6.5 11L3.5 8"
+                              stroke="black"
+                              stroke-width="1.2"
+                          />
+                      </svg>
+                      </span>
                     </label>
 
                     <label class="profession__filter-checbox-wrapper">
@@ -345,72 +342,80 @@
                         </svg>
                         </span>
                     </label>
-                    </div>
+                  </div>
 
-                    <div id="clear_all_filters" class="cursor-pointer profession__filter-reset">Сбросить фильтры</div>
+                  <div id="clear_all_filters" class="cursor-pointer profession__filter-reset">Сбросить фильтры</div>
                 </div>
+              <?php } ?>
 
-                <div id="actually_vacancies" class="profession__job-wrapper">
+              <div id="actually_vacancies" class="profession__job-wrapper">
 
-                    <?php                    
-                        $args = array(
-                            'post_type'         => 'vacancies',
-                            'posts_per_page'    => -1,
-                            'post_status'       => 'publish',
-                            'relationship'      => 'it'
-                        );
+                  <?php                    
+                      $args = array(
+                          'post_type'         => 'vacancies',
+                          'posts_per_page'    => -1,
+                          'post_status'       => 'publish',
+                          'relationship'      => $rel_type
+                      );
 
-                        if( '' != $vaccat_slug ){
-                            $args['tax_query'][] = array(
-                                'taxonomy' => 'vaccat',
-                                'field'    => 'slug',
-                                'terms'    => $vaccat_slug
-                            );
-                        }
+                      if( '' != $vaccat_slug ){
+                          $args['tax_query'][] = array(
+                              'taxonomy' => 'vaccat',
+                              'field'    => 'slug',
+                              'terms'    => $vaccat_slug
+                          );
+                      }
 
-                        if( '' != $town_slug ){
-                            $args['tax_query'][] = array(
-                                'taxonomy' => 'town',
-                                'field'    => 'slug',
-                                'terms'    => $town_slug
-                            );
-                        }
+                      if( '' != $town_slug ){
+                          $args['tax_query'][] = array(
+                              'taxonomy' => 'town',
+                              'field'    => 'slug',
+                              'terms'    => $town_slug
+                          );
+                      }
 
-                        if( '' != $level_slug ){
-                            $args['tax_query'][] = array(
-                                'taxonomy' => 'level',
-                                'field'    => 'slug',
-                                'terms'    => $level_slug
-                            );
-                        }
+                      if( '' != $level_slug ){
+                          $args['tax_query'][] = array(
+                              'taxonomy' => 'level',
+                              'field'    => 'slug',
+                              'terms'    => $level_slug
+                          );
+                      }
 
-                        if( $can_without_experience == true ){
-                            $args['meta_query'] = 
-                            array(
-                                'relation'		=> 'AND',
-                                array(
-                                    'key'		=> 'can_without_experience',
-                                    'value'		=> 'can_without_experience',
-                                    'compare'	=> '='
-                                )
-                            );
-                        }
+                      if( $can_without_experience == true ){
+                          $args['meta_query'] = 
+                          array(
+                              'relation'		=> 'AND',
+                              array(
+                                  'key'		=> 'can_without_experience',
+                                  'value'		=> 'can_without_experience',
+                                  'compare'	=> '='
+                              )
+                          );
+                      }
 
-                        $actually_vacancies = new WP_Query( $args );
+                      $actually_vacancies = new WP_Query( $args );
 
-                        if ( $actually_vacancies->have_posts() ) {
-                            while ( $actually_vacancies->have_posts() ) {
-                                $actually_vacancies->the_post();
-                                $vacancy_item_id = get_the_ID();
-                                include(THEME_DIR . '/template-parts/loop-parts/actually_vacancy_item.php');
-                            }
-                        } else {
-                            echo 'Вакансий не найдено';
-                        }
-                        wp_reset_postdata();
-                    ?>
-                    <!-- <a href="#" class="profession__show-more">Показать <span class="profession__show-more-number">6</span> вакансий +</a> -->
-                </div>
+                      $town_titles = array('Любой');
+
+                      if ( $actually_vacancies->have_posts() ) {
+                          while ( $actually_vacancies->have_posts() ) {
+
+                            $actually_vacancies->the_post();
+                            $vacancy_item_id = get_the_ID();
+                            include(THEME_DIR . '/template-parts/loop-parts/actually_vacancy_item.php');
+
+                          }
+                      } else {
+                          echo 'Вакансий не найдено';
+                      }
+                      wp_reset_postdata();
+                  ?>
+                  <script>
+                    // town_titles = JSON.parse('<?php echo json_encode( $town_titles ); ?>');
+                  </script>
+                  <!-- <a href="#" class="profession__show-more">Показать <span class="profession__show-more-number">6</span> вакансий +</a> -->
+              </div>
             </div>
         </div>
     </div>
@@ -1157,4 +1162,7 @@
     <!--  //SVG images  -->
 
 </section>
+<?php
+}
+?>
 <!--  //Profession  -->

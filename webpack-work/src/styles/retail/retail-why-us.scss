@@ -2,8 +2,11 @@
 
 .retail__why-us {
   margin-bottom: 192px;
-  padding-left: 16px;
+  padding: 0 16px;
   overflow: hidden;
+  @media (max-width: 1023px){
+    padding: 0 8px;
+  }
 }
 
 @media (max-width: 1440px) {
@@ -27,5 +30,22 @@
   .retail__why-us {
     padding-right: 0px;
     padding-left: 8px;
+  }
+}
+
+.main__page-why__us{
+  margin-bottom: 92px;
+  @media(max-width: 1919px){
+    margin-bottom: 72px;
+  }
+  @media (max-width: 1439px){
+    margin-bottom: 64px;
+  }
+  @media (max-width: 1023px){
+    padding-bottom: 64px;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 767px){
+    margin-bottom: 32px;
   }
 }

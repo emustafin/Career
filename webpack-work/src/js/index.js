@@ -6,6 +6,8 @@ import { ItHubPageCareerUpgradeBlock } from './components/itHubPage/itHubCareerU
 import { ItHubVideoPlayerBlock } from './components/itHubPage/itHubVideoPlayerBlock';
 import { ItHubRunningLineBlock } from './components/itHubPage/itHubRunningLine';
 import { ItHubGoalsBlock } from './components/itHubPage/itHubGoalsBlock';
+import { mainAwards } from './components/mainPage/mainAwards.js';
+import { mainStability } from './components/mainPage/mainStability.js';
 import { ItHubPageCustomSelectInProfessionBlock } from './components/itHubPage/itHubPagecustomSelectInVacancy';
 import { ItHubInternshipBlock } from './components/itHubPage/itHubInternship';
 import { ItHubDirectionBlock } from './components/itHubPage/itHubDirectionBlock';
@@ -36,9 +38,10 @@ import { VacancyDirecLinkNewsBlock } from './components/itHubPage/vacancyDirectL
 import './components/animation';
 //-----------------------------------------------
 
+import { scrollBlockOffice } from './components/office/scrollBlockOffice';
+
 // Импорт классов страницы Розницы
 import { CreateRetailFutureComponent } from './components/retail/createRetailFuture';
-import { RetailMissionBlock } from './components/retail/retailMissionBlock';
 import { RetailBrandsBlock } from './components/retail/retailBrandsBlock';
 import { RetailPositionBlock } from './components/retail/retailPositionBlock';
 import { RetailQuoteBlock } from './components/retail/retailQuote';
@@ -65,6 +68,7 @@ export const vacancyDirectLinkMainContent = document.querySelector(
 );
 export const profession = document.querySelector('.profession');
 export const retail__position = document.querySelector('.retail__position');
+export const retail__position_eldorado = document.querySelector('.retail__position_eldorado');
 export const vacancyDirectLinkHeader = document.querySelector(
   '.direct-link__header'
 );
@@ -116,20 +120,25 @@ new ListingVacancyMapBlock(
   '.listing-metro__content-list',
   '.listing-top__filter-list-wrapper'
 );
-new ListingMapPageFilters('.listing-top__filters-wrapper-map');
+// new ListingMapPageFilters('.listing-top__filters-wrapper-map');
 
 new ItHubPageAdvantagesBlock('.why-are-we');
 new ItHubPageCareerUpgradeBlock('.upgrade');
 new ItHubVideoPlayerBlock('.find');
 new ItHubRunningLineBlock('.find__title');
 const itHubPageGoalBlock = new ItHubGoalsBlock('.goal');
+const itHubPageGoalBlock_MainPage = new ItHubGoalsBlock('.retail__why-us');
+const mainPageslider = new mainAwards('.main-awards');
+const mainPagesliderStability = new mainStability('.main-stability');
 
 new MobileSliderAdvantages('.logistic-advantages');
 
 new ItHubPageCustomSelectInProfessionBlock('.profession__filter-wrapper');
 new ItHubInternshipBlock('.intern');
 const itPageDirection = new ItHubDirectionBlock('.direction');
+
 new ItHubVacanciesContainerInProfessionBlock('.profession__job-wrapper');
+new ItHubVacanciesContainerInProfessionBlock('.profession__job-wrapper_eldorado');
 
 new Form('.form');
 
@@ -149,12 +158,16 @@ if (null != profession) {
   if (null != retail__position) {
     const itHubPageVacancy = new ItHubVacancyBlock(retail__position);
   }
+  if (null != retail__position_eldorado) {
+    const itHubPageVacancy = new ItHubVacancyBlock(retail__position_eldorado);
+  }
 }
 //-----------------------------------------------------------
 
+const office__stage = new scrollBlockOffice('.office__stage');
+
 // Инициализация классов страницы Розницы
 const retailCreateFuture = new CreateRetailFutureComponent('.retail__preview');
-const retailMissionBlock = new RetailMissionBlock('.retail__mission');
 const retailBrandsBlock = new RetailBrandsBlock('.brands');
 const retailPositionBlock = new RetailPositionBlock('.retail__position');
 const retailQuote = new RetailQuoteBlock('.retail__quote-container');
@@ -163,7 +176,6 @@ const retailAdvantagesBlock = new RetailAdvantagesBlock('.retail__advantages');
 const retailUpgradeBlock = new RetailUpgradeBlock('.upgrade');
 const retailFooter = new RetailFooter('.retail__footer');
 
-retailMissionBlock.registerParameters(retailBrandsBlock, headerItPage);
 retailBrandsBlock.getAllBrandsTabs([
   { name: 'mvideo', elements: retailBrandsBlock.mvideoFromBrandsPage },
   { name: 'eldorado', elements: retailBrandsBlock.eldoradoFromBrandsPage },
@@ -213,7 +225,9 @@ document.body.addEventListener('click', (event) => {
 
   if (
     event.target.classList.contains('it-header__button') ||
-    event.target.classList.contains('intern__header-link')
+    event.target.classList.contains('intern__header-link') ||
+    event.target.classList.contains('retail__mission-button') ||
+    event.target.classList.contains('retail__internship-button')
   ) {
     event.preventDefault();
     openApplicationForm();
@@ -234,7 +248,7 @@ document.body.addEventListener('click', (event) => {
 // Открыть анкету выбора вакансии
 function openApplicationForm() {
   const form = document.querySelector('.form');
-
+  
   form.classList.add('form-active');
 
   setTimeout(() => {
@@ -268,36 +282,39 @@ export function smothScrollingToBlock(block, header) {
 
 //-----------------------------------------------------------------------------------
 // Анимация переключателей (внутренние шарики) на странице IT
+
 export function swichersAnimation(header, block, swichers) {
-  return function () {
-    const offset = 40;
-    let headerHeight = header.clientHeight;
-    const swichersCollection = swichers;
-
-    if (window.innerWidth <= 479) {
-      headerHeight = 0;
-    }
-
-    const topOffset = block.offsetTop - headerHeight;
-
-    if (
-      window.scrollY >= topOffset - offset &&
-      window.scrollY <= topOffset + offset
-    ) {
-      setTimeout(() => {
-        swichersCollection[0].classList.toggle('intern__inside-circle-active');
-      }, 0);
-      setTimeout(() => {
-        swichersCollection[1].classList.toggle('intern__inside-circle-active');
-      }, 1000);
-      setTimeout(() => {
-        swichersCollection[2].classList.toggle('intern__inside-circle-active');
-      }, 2000);
-      setTimeout(() => {
-        swichersCollection[3].classList.toggle('intern__inside-circle-active');
-      }, 3000);
-    }
-  };
+  if (document.querySelector('.intern__header')) {
+    return function () {
+      const offset = 40;
+      let headerHeight = header.clientHeight;
+      const swichersCollection = swichers;
+  
+      if (window.innerWidth <= 479) {
+        headerHeight = 0;
+      }
+  
+      const topOffset = block.offsetTop - headerHeight;
+  
+      if (
+        window.scrollY >= topOffset - offset &&
+        window.scrollY <= topOffset + offset
+      ) {
+        setTimeout(() => {
+          swichersCollection[0].classList.toggle('intern__inside-circle-active');
+        }, 0);
+        setTimeout(() => {
+          swichersCollection[1].classList.toggle('intern__inside-circle-active');
+        }, 1000);
+        setTimeout(() => {
+          swichersCollection[2].classList.toggle('intern__inside-circle-active');
+        }, 2000);
+        setTimeout(() => {
+          swichersCollection[3].classList.toggle('intern__inside-circle-active');
+        }, 3000);
+      }
+    };
+  }
 }
 
 //----------------------------------------------------------------------------------

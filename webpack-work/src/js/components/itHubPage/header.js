@@ -20,7 +20,7 @@ export class Header {
     this.phoneTitle = this.el.querySelector('.it-header__contact-text');
     this.phoneBlock = this.el.querySelector('.it-header__contact-us');
     this.headerWrapper = this.el.querySelector('.it-header__wrapper');
-    this.headerButton = this.el.querySelector('.it-header__button');
+    // this.headerButton = this.el.querySelector('.it-header__button');
     this.windowTopOffset = 50;
 
     if (null !== this.headerSelect) {
@@ -75,22 +75,22 @@ export class Header {
   }
 
   hidePhoneTitle() {
-    if (window.scrollY > this.windowTopOffset) {
+    if (window.scrollY > this.windowTopOffset && window.screen.width > 767) {
       this.phoneBlock.classList.add('it-header__contact-us-to-top');
       this.phoneTitle.classList.add('transparent');
-      this.headerWrapper.style.padding = '8px 0';
-      this.headerButton.style.top = '16px';
+      this.headerWrapper.classList.add('header__scroll-padding');
+      // this.headerButton.style.top = '16px';
     } else {
       this.phoneBlock.classList.remove('it-header__contact-us-to-top');
       this.phoneTitle.classList.remove('transparent');
-      this.headerWrapper.style.padding = '16px 0';
-      this.headerButton.style.top = '22px';
+      this.headerWrapper.classList.remove('header__scroll-padding');
+      // this.headerButton.style.top = '22px';
     }
 
-    if (window.scrollY > this.windowTopOffset && window.innerWidth <= 1100) {
-      this.headerButton.style.top = '8px';
-    } else {
-      this.headerButton.style.top = '16px';
-    }
+    // if (window.scrollY > this.windowTopOffset && window.innerWidth <= 1100) {
+    //   // this.headerButton.style.top = '8px';
+    // } else {
+    //   // this.headerButton.style.top = '16px';
+    // }
   }
 }

@@ -41,7 +41,7 @@ if( is_page('retail') ){
             <h2 class="footer__title">Хочешь стать частью команды?</h2>
             <form method="GET" action="/vacancies/" class="footer__search-block">
               <input
-                name="s"
+                name="search"
                 class="footer__search-field"
                 type="text"
                 placeholder="найти вакансию"
@@ -101,7 +101,7 @@ if( is_page('retail') ){
               </div>
             </div>
 
-            <p class="footer__info-text">© 2021 Группа «М.Видео-Эльдорадо»</p>
+            <p class="footer__info-text">© <?php echo date('Y'); ?> Группа «М.Видео-Эльдорадо»</p>
           </div>
 
           <div class="footer__item">
@@ -112,7 +112,7 @@ if( is_page('retail') ){
 
               <div class="footer__item-social-row">
                 <div class="footer__item-social-item">
-                  <a href="https://www.facebook.com/mvideoeldorado/" class="footer__item-social-link" target="blank">
+                  <!-- <a href="https://www.facebook.com/mvideoeldorado/" class="footer__item-social-link" target="blank">
                   Facebook
                     <svg
                       width="10"
@@ -126,24 +126,13 @@ if( is_page('retail') ){
                         fill="white"
                       />
                     </svg>
-
-                </a>
+                  </a>   -->
                   <a href="https://habr.com/ru/company/mvideo/blog/" class="footer__item-social-link" target="blank">
-                  Хабр
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M7.55191 1.5999H3.00044V0.399902H9.00044C9.33181 0.399902 9.60044 0.668531 9.60044 0.999902V6.9999H8.40044V2.44843L1.4247 9.42417L0.576172 8.57564L7.55191 1.5999Z"
-                        fill="white"
-                      />
+                    Хабр
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.55191 1.5999H3.00044V0.399902H9.00044C9.33181 0.399902 9.60044 0.668531 9.60044 0.999902V6.9999H8.40044V2.44843L1.4247 9.42417L0.576172 8.57564L7.55191 1.5999Z" fill="white"/>
                     </svg>
-
-                </a>
+                  </a>
                   <a href="https://inplacers.ru/mvideo" class="footer__item-social-link" target="blank">
                   Inplace
                     <svg
@@ -201,7 +190,7 @@ if( is_page('retail') ){
                     </svg>
 
                 </a>
-                  <a href="https://www.instagram.com/myjobby/" class="footer__item-social-link" target="blank">
+                  <!-- <a href="https://www.instagram.com/myjobby/" class="footer__item-social-link" target="blank">
                   Instagram
                     <svg
                       width="10"
@@ -216,7 +205,7 @@ if( is_page('retail') ){
                       />
                     </svg>
 
-                </a>
+                  </a> -->
                 </div>
               </div>
             </div>
@@ -258,7 +247,7 @@ if( is_page('retail') ){
                     </svg>
 
                 </a>
-                  <a href="https://www.instagram.com/eldorado_job/" class="footer__item-social-link" target="blank">
+                  <!-- <a href="https://www.instagram.com/eldorado_job/" class="footer__item-social-link" target="blank">
                   Instagram
                     <svg
                       width="10"
@@ -272,7 +261,7 @@ if( is_page('retail') ){
                         fill="white"
                       />
                     </svg>
-                </a>
+                  </a> -->
                 </div>
               </div>
             </div>
@@ -342,16 +331,20 @@ if( is_page('retail') ){
         <div class="footer__info-block-mobile">
           <div class="footer__info-block-item-mobile">
             <p class="footer__info-text-mobile">
-              © 2021 Группа «М.Видео-Эльдорадо»
+              © <?php echo date('Y'); ?> Группа
+            </p>
+            <p class="footer__info-text-mobile">
+              «М.Видео-Эльдорадо»
             </p>
           </div>
-
+          
+        <div class="footer__info-block-item-mobile-wrapper">
           <div class="footer__info-block-item-mobile">
             <a href="/privacy-policy/" class="footer__info-text-mobile">Политика конфиденциальности</a>
           </div>
 
           <div class="footer__info-block-item-mobile">
-          <div class="footer__info-text-mobile">
+            <div class="footer__info-text-mobile">
               Made by
               <a
                 class="footer__info-link"
@@ -370,12 +363,13 @@ if( is_page('retail') ){
               </a>
             </div>
           </div>
+          </div>
         </div>
       </div>
     </footer>
     <!--  //Footer  -->
 
-    <?php if( !is_single() ): ?>
+    <?php if( !is_single() && !is_front_page() && !is_page('news-events') ): ?>
     <!-- Flyout section -->
       <?php include(THEME_DIR . '/template-parts/footer/flyout.php'); ?>
       <!-- //Flyout section -->
@@ -392,11 +386,10 @@ if( is_page('retail') ){
       if( in_array( (string) get_the_ID(), $_SESSION['send_post_id'] ) || in_array( (int) get_the_ID(), $_SESSION['send_post_id'] ) ){
         ?>
         <script>
-          $ = jQuery;
-          $(document).ready(function() {
-            $('input.wpcf7-form-control.wpcf7-submit').css( 'display', 'none' );
-            $('#popup_form').append( '<h3>Вы уже откликались. Ваша заявка будет рассмотрена в скором времени.</h3>' );
-            $('#vacancy_form').append( '<h3>Вы уже откликались. Ваша заявка будет рассмотрена в скором времени.</h3>' );
+          document.addEventListener("DOMContentLoaded", function(event) {
+            document.querySelector('input.wpcf7-form-control.wpcf7-submit').style.display = 'none';
+            document.querySelector('#popup_form').insertAdjacentHTML('beforeend', `<h3>Вы уже откликались. Ваша заявка будет рассмотрена в скором времени.</h3>` );
+            document.querySelector('#vacancy_form').insertAdjacentHTML('beforeend', `<h3>Вы уже откликались. Ваша заявка будет рассмотрена в скором времени.</h3>` );
           })
         </script>
         <?php

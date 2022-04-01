@@ -1,7 +1,16 @@
 <!-- Running Line -->
+<?php
+$archive_link = '/vacancies/';
+if( is_page( 'retail' ) )
+$archive_link = '/listing-map/';
+if( is_page( 'office' ) )
+$archive_link = '/vacancies/?type=office';
+if( is_page( 'logistic' ) )
+$archive_link = '/vacancies/?type=logistic';
+?>
 <div class="main__running-line">
   <h2 class="find__title">
-    <a href="https://career.dev64.ru/vacancies/" class="find__title-link">
+    <a href="<?php echo $archive_link; ?>" class="find__title-link">
       <span class="find__link-aroow">
         <?php echo get_sub_field('title'); ?>
         <svg

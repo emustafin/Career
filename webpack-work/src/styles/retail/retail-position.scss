@@ -1,5 +1,9 @@
 // @import '../styles.scss';
 
+.retail__position-list-item:visited{
+  color: #000;
+}
+
 .retail__position {
   font-size: 18px;
   line-height: 24px;
@@ -94,6 +98,7 @@
 }
 
 .retail__position-list-item {
+  color: #000;
   border-top: 1px solid $blackColorOpacity-05;
   padding-top: 16px;
   margin-bottom: 32px;

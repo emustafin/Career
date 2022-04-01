@@ -5,16 +5,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Подключение библиотеки Tagify -->
-    <script src="https://unpkg.com/@yaireo/tagify"></script>
-    <script src="https://unpkg.com/@yaireo/tagify@3.1.0/dist/tagify.polyfills.min.js"></script>
-    <link
-      href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-  <!-- //Подключение библиотеки Tagify -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5KK9TMS');</script>
+  <!-- End Google Tag Manager -->
 
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(86134928, "init", {
+          clickmap:true,
+          trackLinks:true,
+          accurateTrackBounce:true,
+          webvisor:true
+    });
+  </script>
+  <!-- /Yandex.Metrika counter -->
 
   <link href="<?php echo THEME_URL; ?>/assets/images/favicon/favicon.svg" rel="shortcut icon" type="image/x-icon"/>
   <title>М.ВидеоЭльдорадо</title>
@@ -61,15 +73,47 @@ switch ($post_slug) {
     $body_class = 'it-hub direct-link';
     break;
 }
+
+$myterms = get_terms('town', 'orderby=count&hide_empty=1');
+$array_town = array('Любой');
+foreach( $myterms as $term ){
+  $array_town[] = $term->name;
+}
+
+// Гражданство
+$array_citizenship = array();
+foreach( get_field('citizenship', 'option') as $item ) {
+  $array_citizenship[] = $item['name'];
+}
+$array_citizenship[] = 'Другое';
+
+// Направление
+$array_directions = array(
+  'IT-хаб',
+  'Розничные магазины',
+  'Центральный офис',
+  'Сервис и Логистика',
+);
+
+// Список городов для холодной формы
+$hformTowns = file_get_contents(get_template_directory().'/assets/towns/townsHform.json');
 ?>
 <body class='<?php echo $body_class; ?>'>
 
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-6ZQL"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KK9TMS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<!-- Yandex.Metrika counter -->
+<noscript><div><img src="https://mc.yandex.ru/watch/86134928" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 
-
+<script>
+  var hformTowns = JSON.parse('<?php echo $hformTowns; ?>');
+  var town_titles = JSON.parse('<?php echo json_encode( $array_town ); ?>');
+  var array_citizenship = JSON.parse('<?php echo json_encode( $array_citizenship ); ?>');
+  var array_directions = JSON.parse('<?php echo json_encode( $array_directions ); ?>');
+</script>
     <!-- Header -->
     <header class="it-header">
       <div class="container">
@@ -130,6 +174,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       $menu_name = 'primary';
                       $locations = get_nav_menu_locations();
                       $menu_items = wp_get_nav_menu_items( $locations[ $menu_name ] );
+                      $current__url = home_url( $wp->request );
+                      
                       foreach ($menu_items as $item) :
 
                         $target_blank = '';
@@ -140,7 +186,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         
                         ?>
 
-                        <a href="<?php echo $item->url;?>" class="it-header__directions-dropdown-item" <?php echo $target_blank; ?>><?php echo $item->title;?></a>
+                        <a href="<?php echo $item->url;?>" class="it-header__directions-dropdown-item" <?php echo $target_blank; ?>>
+                          <?php
+                            if ($item->object_id == get_queried_object_id()) {
+                              ?><strong>
+                                <?php echo $item->title;?>
+                              </strong><?php
+                            } else {
+                              echo $item->title;
+                            }
+                          ?>
+                        </a>
 
                       <?php endforeach; ?>
                       
@@ -194,23 +250,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="it-header__item-mobile">
           <a href="tel:+78002002311" class="it-header__phone-mobile">
               8-800-200-23-11
-
-              <svg
-                class="it-header__phone-mobile-icon"
-                width="13"
-                height="13"
-                viewBox="0 0 13 13"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M3.96922 0.585176C3.73823 0.350297 3.36106 0.345586 3.12428 0.574622L1.69904 1.95322L1.68232 1.967C1.65377 1.99091 1.61735 2.02327 1.57573 2.06442C1.49264 2.14657 1.38763 2.26493 1.28296 2.42235C1.07145 2.74047 0.866649 3.21079 0.842278 3.84248C0.79364 5.10319 1.46316 6.84722 3.80749 9.19155C6.15183 11.5359 7.89593 12.2056 9.15667 12.1573C9.78838 12.133 10.2588 11.9284 10.5769 11.717C10.7344 11.6124 10.8528 11.5074 10.935 11.4244C10.9761 11.3828 11.0085 11.3464 11.0324 11.3178L11.0431 11.3049L12.4394 9.90186C12.5521 9.78864 12.615 9.63515 12.6141 9.47542C12.6133 9.31568 12.5488 9.16288 12.4349 9.05086L10.4218 7.07077C10.187 6.83976 9.80976 6.84131 9.57681 7.07426L8.20204 8.44903C8.19105 8.44876 8.17577 8.44766 8.15533 8.44485C8.04077 8.4291 7.86022 8.36797 7.61752 8.23582C7.13847 7.97496 6.55941 7.51629 6.02136 6.97824C5.48331 6.44019 5.02464 5.86113 4.76378 5.38208C4.63163 5.13939 4.5705 4.95883 4.55475 4.84427C4.55194 4.82383 4.55084 4.80855 4.55057 4.79756L5.92534 3.42279C6.15827 3.18986 6.15985 2.81269 5.92887 2.57782L3.96922 0.585176ZM2.44732 2.89089L2.4464 2.89156L2.45501 2.88514L2.4518 2.88758L2.44902 2.88965L2.44732 2.89089ZM2.45501 2.88514L2.45276 2.88702C2.44764 2.8913 2.43587 2.9015 2.41941 2.91776C2.38636 2.95044 2.3357 3.00636 2.28224 3.08676C2.1775 3.24429 2.05624 3.50379 2.04139 3.88875C2.01158 4.66134 2.41096 6.09796 4.65602 8.34302C6.90108 10.5881 8.33788 10.9878 9.11069 10.9581C9.49575 10.9434 9.75532 10.8222 9.91288 10.7175L10.1683 10.4828L11.1631 9.48315L10.0046 8.34356L9.01782 9.33031C8.71242 9.63571 8.31426 9.67798 7.99191 9.63367C7.67377 9.58994 7.34724 9.45502 7.04365 9.28971C6.43014 8.95563 5.75979 8.41372 5.17284 7.82677C4.58589 7.23982 4.04397 6.56946 3.7099 5.95595C3.54458 5.65236 3.40966 5.32583 3.36593 5.00769C3.32162 4.68534 3.36389 4.28718 3.66929 3.98178L4.65607 2.995L3.53087 1.85085L2.5111 2.83725C2.49323 2.85454 2.47489 2.87021 2.45501 2.88514Z"
-                  fill="black"
-                />
-              </svg>
-            </a>
+            <svg width="11.75" height="11.75" viewBox="0 0 11.75 11.75" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.96922 0.585176C3.73823 0.350297 3.36106 0.345586 3.12428 0.574622L1.69904 1.95322L1.68232 1.967C1.65377 1.99091 1.61735 2.02327 1.57573 2.06442C1.49264 2.14657 1.38763 2.26493 1.28296 2.42235C1.07145 2.74047 0.866649 3.21079 0.842278 3.84248C0.79364 5.10319 1.46316 6.84722 3.80749 9.19155C6.15183 11.5359 7.89593 12.2056 9.15667 12.1573C9.78838 12.133 10.2588 11.9284 10.5769 11.717C10.7344 11.6124 10.8528 11.5074 10.935 11.4244C10.9761 11.3828 11.0085 11.3464 11.0324 11.3178L11.0431 11.3049L12.4394 9.90186C12.5521 9.78864 12.615 9.63515 12.6141 9.47542C12.6133 9.31568 12.5488 9.16288 12.4349 9.05086L10.4218 7.07077C10.187 6.83976 9.80976 6.84131 9.57681 7.07426L8.20204 8.44903C8.19105 8.44876 8.17577 8.44766 8.15533 8.44485C8.04077 8.4291 7.86022 8.36797 7.61752 8.23582C7.13847 7.97496 6.55941 7.51629 6.02136 6.97824C5.48331 6.44019 5.02464 5.86113 4.76378 5.38208C4.63163 5.13939 4.5705 4.95883 4.55475 4.84427C4.55194 4.82383 4.55084 4.80855 4.55057 4.79756L5.92534 3.42279C6.15827 3.18986 6.15985 2.81269 5.92887 2.57782L3.96922 0.585176ZM2.44732 2.89089L2.4464 2.89156L2.45501 2.88514L2.4518 2.88758L2.44902 2.88965L2.44732 2.89089ZM2.45501 2.88514L2.45276 2.88702C2.44764 2.8913 2.43587 2.9015 2.41941 2.91776C2.38636 2.95044 2.3357 3.00636 2.28224 3.08676C2.1775 3.24429 2.05624 3.50379 2.04139 3.88875C2.01158 4.66134 2.41096 6.09796 4.65602 8.34302C6.90108 10.5881 8.33788 10.9878 9.11069 10.9581C9.49575 10.9434 9.75532 10.8222 9.91288 10.7175L10.1683 10.4828L11.1631 9.48315L10.0046 8.34356L9.01782 9.33031C8.71242 9.63571 8.31426 9.67798 7.99191 9.63367C7.67377 9.58994 7.34724 9.45502 7.04365 9.28971C6.43014 8.95563 5.75979 8.41371 5.17284 7.82677C4.58589 7.23982 4.04397 6.56946 3.7099 5.95595C3.54458 5.65236 3.40966 5.32583 3.36593 5.00769C3.32162 4.68534 3.36389 4.28718 3.66929 3.98178L4.65607 2.995L3.53087 1.85085L2.5111 2.83725C2.49323 2.85454 2.47489 2.87021 2.45501 2.88514Z" fill="black"/>
+            </svg>
+          </a>
           </div>
           <a href="#" class="it-header__button">Заполнить анкету</a>
         </div>

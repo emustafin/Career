@@ -6,32 +6,30 @@
     </p>
 
     <div class="goal__slide-buttons-mobile main-awards__buttons-mobile">
-      <button class="why-are-we__slide-arrow" data-name="prev">
-        <img
-          src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-left.svg"
-          alt="Arrow-right"
-        />
+      <button class="why-are-we__slide-arrow" data-name="prev" id="prev">
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.57563 0.575729L0.151367 4.99999L4.57563 9.42426L5.42416 8.57573L2.44842 5.59999H13.9999V4.39999H2.44842L5.42416 1.42426L4.57563 0.575729Z" fill="black"/>
+        </svg>
       </button>
 
       <p class="why-are-we__slide-number-mobile">
-        <span>1</span>/<span>4</span>
+        <span class="awards__current-slide">1</span>/<span class="awards__slide-value">4</span>
       </p>
 
-      <button class="why-are-we__slide-arrow" data-name="next">
-        <img
-          src="<?php echo THEME_URL; ?>/assets/images/advantages/small-arrow-right.svg"
-          alt="Arrow-right"
-        />
+      <button class="why-are-we__slide-arrow" data-name="next" id="next">
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.5515 4.39999L8.57574 1.42426L9.42426 0.575729L13.8485 4.99999L9.42426 9.42426L8.57574 8.57573L11.5515 5.59999H0V4.39999H11.5515Z" fill="black"/>
+        </svg>
       </button>
     </div>
   </div>
 
-  <div class="main-awards__right-bar">
-    <div class="main-awards__wrapper">
-      <div class="main-awards__award-item">
+  <div class="main-awards__right-bar ">
+    <div class="main-awards__wrapper ">
+      <div class="main-awards__award-item ">
         <h3 class="main-awards__item-title">Лучший работодатель России</h3>
 
-        <a href="#" class="main-awards__item-link">
+        <a href="https://rating.hh.ru/history/rating2019/?sphere=%D0%A0%D0%B8%D1%82%D0%B5%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5%20%D1%81%D0%B5%D1%82%D0%B8" class="main-awards__item-link">
           по версии HH.ru в 2020 году
           <svg
             width="14"
@@ -48,10 +46,10 @@
         </a>
       </div>
 
-      <div class="main-awards__award-item">
+      <div class="main-awards__award-item ">
         <h3 class="main-awards__item-title">Лидер рынка</h3>
 
-        <a href="#" class="main-awards__item-link">
+        <a href="https://www.forbes.ru/biznes/447503-lucsie-rabotodateli-rossii-2021-rejting-forbes" class="main-awards__item-link">
           по версии Forbes
           <svg
             width="14"
@@ -68,10 +66,10 @@
         </a>
       </div>
 
-      <div class="main-awards__award-item">
+      <div class="main-awards__award-item ">
         <h3 class="main-awards__item-title">№ 1 среди ритейлеров России</h3>
 
-        <a href="#" class="main-awards__item-link">
+        <a href="https://www.forbes.ru/biznes/415107-set-mvideo-zanyala-pervoe-mesto-v-novom-reytinge-omnikanalnosti-data-insight" class="main-awards__item-link">
           в рейтинге омниканальности Data Insight
           <svg
             width="14"
@@ -88,12 +86,12 @@
         </a>
       </div>
 
-      <div class="main-awards__award-item">
+      <div class="main-awards__award-item ">
         <h3 class="main-awards__item-title">
           Премия Quality Award в номинации «Передовые технологии»
         </h3>
 
-        <a href="#" class="main-awards__item-link">
+        <a href="https://www.sap.com/about/company/quality/awards/winner-benefits-and-prizes/previous-winners/2020.html" class="main-awards__item-link">
           по версии SAP в 2020 году
           <svg
             width="14"
@@ -126,6 +124,91 @@
           fill="black"
         />
       </svg>
+    </div>
+  </div>
+  <div class="main-awards__right-bar-mobile swiper">
+    <div class="main-awards__wrapper-mobile swiper-wrapper">
+      <div class="main-awards__award-item-mobile swiper-slide">
+        <h3 class="main-awards__item-title-mobile">Лучший работодатель России</h3>
+
+        <a href="#" class="main-awards__item-link-mobile">
+          по версии HH.ru в 2020 году
+          <svg
+            width="14"
+            height="10"
+            viewBox="0 0 14 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+              fill="black"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <div class="main-awards__award-item-mobile swiper-slide">
+        <h3 class="main-awards__item-title-mobile">Лидер рынка</h3>
+
+        <a href="#" class="main-awards__item-link-mobile">
+          по версии Forbes
+          <svg
+            width="14"
+            height="10"
+            viewBox="0 0 14 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+              fill="black"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <div class="main-awards__award-item-mobile swiper-slide">
+        <h3 class="main-awards__item-title-mobile">№ 1 среди ритейлеров России</h3>
+
+        <a href="#" class="main-awards__item-link-mobile">
+          в рейтинге омниканальности Data Insight
+          <svg
+            width="14"
+            height="10"
+            viewBox="0 0 14 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+              fill="black"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <div class="main-awards__award-item-mobile swiper-slide">
+        <h3 class="main-awards__item-title-mobile">
+          Премия Quality Award в номинации «Передовые технологии»
+        </h3>
+
+        <a href="#" class="main-awards__item-link-mobile">
+          по версии SAP в 2020 году
+          <svg
+            width="14"
+            height="10"
+            viewBox="0 0 14 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.5515 4.40044L8.57574 1.4247L9.42426 0.576172L13.8485 5.00044L9.42426 9.4247L8.57574 8.57617L11.5515 5.60044H0V4.40044H11.5515Z"
+              fill="black"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </div>

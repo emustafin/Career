@@ -70,18 +70,26 @@ $not_show_for_retail = 'display:block;';
 if( 'roznica' == $current_relationship ){
     $not_show_for_retail = 'display:none;';
 }
-
+$vacancy_towns = array('Любой');
+$current_vacancy_towns = (array)get_the_terms( get_the_ID(), 'town' );
+    if( is_array( $current_vacancy_towns ) ){
+      foreach( $current_vacancy_towns as $current_vacancy_town ){
+          $vacancy_towns[] = $current_vacancy_town->name;
+      }
+    }
 ?>
 <script>
     var rel_type = '<?php echo $current_relationship; ?>';
     var vacancyid = '<?php echo get_the_ID(); ?>';
     var sourceurl = '<?php echo get_permalink(); ?>';
+    var vacancy_towns = '<?php echo json_encode( $vacancy_towns ); ?>';
 </script>
 <div class="direct-link__container">
     <div class="direct-link__content-wrapper">
     <div class="direct-link__side-bar">
-        <a href="#" class="direct-link__header-head-copy">
-        Скопировать ссылку
+        <div class="direct-link__side-bar-wrapper">
+          <a href="#" id="copy_link" class="direct-link__header-head-copy">
+            Скопировать ссылку
               <svg
                 width="14"
                 height="10"
@@ -98,8 +106,8 @@ if( 'roznica' == $current_relationship ){
                   fill="black"
                 />
               </svg>
+            </a>
 
-        </a>
 
         <div class="direct-link__vacancy-description-block">
         <div class="direct-link__vacancy-container">
@@ -381,7 +389,7 @@ if( 'roznica' == $current_relationship ){
             <?php
             $args = array(
                 'post_type'         => 'post',
-                'posts_per_page'    => 6,
+                'posts_per_page'    => -1,
                 'post_status'       => 'publish',
                 'order'             => 'DESC',
                 'order_by'          => 'date'

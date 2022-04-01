@@ -201,7 +201,7 @@
             <h2 class="goal__title">
               <?php echo get_sub_field('title'); ?>
             </h2>
-            <a href="#" class="goal__button">
+            <a href="/vacancies/" class="goal__button">
               хочу работать с вами!
 
               <svg

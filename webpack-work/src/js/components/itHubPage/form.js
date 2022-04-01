@@ -12,8 +12,8 @@ export class Form {
     );
     this.sideBar = this.el.querySelector('.form__side-bar');
     this.mainContentBar = this.el.querySelector('.form__content');
-    this.input1 = this.el.querySelector('.form__value1');
-    this.input2 = this.el.querySelector('.form__value2');
+    this.input1 = this.el.querySelector('.holdf_directions');
+    this.input2 = this.el.querySelector('.holdf_citizenship');
     this.formCitySelect = this.el.querySelector(
       'input[name=tags-select-mode].form__city-select'
     );

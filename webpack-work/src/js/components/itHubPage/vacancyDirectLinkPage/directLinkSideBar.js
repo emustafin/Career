@@ -20,9 +20,6 @@ export class VacancyDirecLinkSideBar {
     );
     this.contentBarResponseButton = this.contentBar.contentResponseButton;
     this.contentBarFormBlock = this.contentBar.form;
-    this.copyLinkButton = this.el.querySelector(
-      '.direct-link__header-head-copy'
-    );
     this.copyLinkButtonMobile = this.contentBar.copyLinkButtonMobile;
     this.header = vacancyDirectLinkHeader || headerItPage;
 
@@ -30,11 +27,6 @@ export class VacancyDirecLinkSideBar {
     this.sideBarResponseButton.addEventListener(
       'click',
       this.scrollToForm.bind(this)
-    );
-    this.copyLinkButton.addEventListener('click', this.copyLink.bind(this));
-    this.copyLinkButtonMobile.addEventListener(
-      'click',
-      this.copyLink.bind(this)
     );
     window.addEventListener('scroll', this.manageSideBar.bind(this));
     window.addEventListener('resize', this.monitorScreenWidth.bind(this));
@@ -44,22 +36,15 @@ export class VacancyDirecLinkSideBar {
     smothScrollingToBlock(this.form, this.header);
   }
 
-  async copyLink(event) {
-    event.preventDefault();
-    const link = document.URL;
-
-    await navigator.clipboard.writeText(link);
-  }
-
   manageSideBar() {
     if (window.innerWidth > 990) {
       window.pageYOffset >= this.contentBarResponseButton.offsetTop
         ? (this.sideBarResponseButton.style.opacity = '1')
         : (this.sideBarResponseButton.style.opacity = '0');
 
-      window.pageYOffset >= this.form.offsetTop
-        ? this.hideSideBar()
-        : this.showSideBar();
+      // window.pageYOffset >= this.form.offsetTop
+      //   ? this.hideSideBar()
+      //   : this.showSideBar();
     }
   }
 
@@ -76,6 +61,6 @@ export class VacancyDirecLinkSideBar {
   }
 
   monitorScreenWidth() {
-    window.innerWidth > 990 ? this.showSideBar() : this.hideSideBar();
+    // window.innerWidth > 990 ? this.showSideBar() : this.hideSideBar();
   }
 }

@@ -26,6 +26,9 @@ class Vacancies {
         add_action( 'wp_ajax_archive_get_profession__menu_items', [$this, 'archive_get_profession__menu_items'] );
 		add_action( 'wp_ajax_nopriv_archive_get_profession__menu_items', [$this, 'archive_get_profession__menu_items'] );
 
+        add_action( 'wp_ajax_get_retail_list_vacancy', [$this, 'get_retail_list_vacancy'] );
+		add_action( 'wp_ajax_nopriv_get_retail_list_vacancy', [$this, 'get_retail_list_vacancy'] );
+
         add_action( 'wp_ajax_get_vacancy_data', [$this, 'get_vacancy_data'] );
 		add_action( 'wp_ajax_nopriv_get_vacancy_data', [$this, 'get_vacancy_data'] );
 	}
@@ -97,6 +100,34 @@ class Vacancies {
     */
     public function create_taxonomies() {
 
+        register_taxonomy( 'shop', ['vacancies'], array(
+            'label'                 => '',
+            'labels'                => array(
+                'name'              => 'Магазины',
+                'singular_name'     => 'Магазины',
+                'search_items'      => 'Поиск магазина',
+                'all_items'         => 'Все магазины',
+                'view_item '        => 'Просмотр магазина',
+                'parent_item'       => 'Родительский магазин',
+                'parent_item_colon' => 'Родительский магазин:',
+                'edit_item'         => 'Изменить магазин',
+                'update_item'       => 'Обновить магазин',
+                'add_new_item'      => 'Добавить новый магазин',
+                'new_item_name'     => 'Название нового магазина',
+                'menu_name'         => 'Магазины',
+            ),
+            'description'           => '',
+            'public'                => true,
+            'hierarchical'          => true,
+            'rewrite'               => array('slug' => 'shop', 'with_front' => false),
+            'query_var'             => 'shop',
+            'capabilities'          => array(),
+            'meta_box_cb'           => 'post_categories_meta_box', 
+            'show_admin_column'     => true, 
+            'show_in_rest'          => true,
+            'rest_base'             => null,
+        ) );
+
         register_taxonomy( 'relationship', ['vacancies'], array(
             'label'                 => '',
             'labels'                => array(
@@ -128,18 +159,18 @@ class Vacancies {
         register_taxonomy( 'vaccat', ['vacancies'], array(
             'label'                 => '',
             'labels'                => array(
-                'name'              => 'Категории',
-                'singular_name'     => 'Категория',
-                'search_items'      => 'Поиск категории',
-                'all_items'         => 'Все категории',
-                'view_item '        => 'Просмотр категории',
-                'parent_item'       => 'Родительская категория',
-                'parent_item_colon' => 'Родительская категория:',
-                'edit_item'         => 'Изменить категория',
-                'update_item'       => 'Обновить категорию',
-                'add_new_item'      => 'Добавить новую категорию',
-                'new_item_name'     => 'Название новой категории',
-                'menu_name'         => 'Категория',
+                'name'              => 'Специализации',
+                'singular_name'     => 'Специализация',
+                'search_items'      => 'Поиск специализации',
+                'all_items'         => 'Все специализации',
+                'view_item '        => 'Просмотр специализации',
+                'parent_item'       => 'Родительская специализация',
+                'parent_item_colon' => 'Родительская специализация:',
+                'edit_item'         => 'Изменить специализацию',
+                'update_item'       => 'Обновить специализацию',
+                'add_new_item'      => 'Добавить новую специализацию',
+                'new_item_name'     => 'Название новой специализации',
+                'menu_name'         => 'Специализация',
             ),
             'description'           => '',
             'public'                => true,
@@ -215,10 +246,16 @@ class Vacancies {
                 'post_type'         => 'vacancies',
                 'posts_per_page'    => 6,
                 'post_status'       => 'publish',
-                'relationship'      => 'it'
             );
 
             if( 'default' != $_POST['default'] ){
+
+                if( null != $_POST['rel_type'] && '-1'!= $_POST['rel_type']  ){
+                    $args['relationship'] = $_POST['rel_type'];
+                } else{
+                    $args['relationship'] = 'it';
+                }
+
                 if( null != $_POST['vaccat_slug'] && '-1'!= $_POST['vaccat_slug']  ){
                     $args['tax_query'][] = array(
                         'taxonomy' => 'vaccat',
@@ -315,11 +352,17 @@ class Vacancies {
     public function archive_show_more_items() {
 
         $html = '';
+        $shop_mvideo_html = '';
+        $shop_eldorado_html = '';
         if( !empty( $_POST ) ){
+
+            $shop_terms = array();
+            $town_arr['-1'] = 'Любой';
 
             $args = (array) json_decode( str_replace( "\\", '', $_POST['query_vars'] ) );
             $paged = $_POST['paged']+1;
             $args['paged'] = $paged;
+            $args['posts_per_page'] = 10;
             $args['post_type'] = 'vacancies';
             $args['post_status'] = 'publish';
 
@@ -330,24 +373,158 @@ class Vacancies {
                     $archive_vacancies->the_post();
                     $vacancy_item_id = get_the_ID();
 
+                    $current_shop_terms = (array)get_the_terms( $vacancy_item_id, 'shop' );
+                    if( is_array( $current_shop_terms ) ){
+                        foreach( $current_shop_terms as $current_shop_term ){
+                            if( !in_array( $current_shop_term, $shop_terms ) ){
+                                $shop_terms[] = $current_shop_term;
+                            }
+                        }
+                    }
+
+                    $current_town_terms = (array)get_the_terms( $vacancy_item_id, 'town' );
+                    if( is_array( $current_town_terms ) ){
+                        foreach( $current_town_terms as $current_town_term ){
+                            if( !in_array( $current_town_term->name, $town_arr ) ){
+                                $town_arr[$current_town_term->slug] = $current_town_term->name;
+                            }
+                        }
+                    }
+
                     ob_start();
                     include(THEME_DIR . '/template-parts/loop-parts/archive_vacancies_item.php');
                     $html .= ob_get_clean();
                 }
             }
 
+
+            if( !empty( $shop_terms ) ){
+
+                if( !empty( $_POST['newDefaultIcons'] ) ){
+                    $ndi =  str_replace( "\\", '', $_POST['newDefaultIcons'] ) ;
+                    $newDefaultIcons = (array) json_decode( $ndi );
+                }
+
+                if( !empty( $_POST['nmvi'] ) ){
+                    $nmvi =  str_replace( "\\", '', $_POST['nmvi'] ) ;
+                    $newMvideoIcons = (array) json_decode( $nmvi );
+                }
+
+                if( !empty( $_POST['neli'] ) ){
+                    $neli =  str_replace( "\\", '', $_POST['neli'] ) ;
+                    $newEldoradoIcons = (array) json_decode( $neli );
+                }
+
+                $globalShopTerms = array();
+                if( !empty( $_POST['shop_terms_id'] ) ){
+                    $globalShopTerms = (array) json_decode( $_POST['shop_terms_id'] );
+                }
+
+                foreach( $shop_terms as $shop_term ):
+                    if( !in_array( $shop_term->term_id, $globalShopTerms ) ){
+                        if (get_field( 'shop_koordinates_latitude', $shop_term ) != "" && get_field( 'shop_koordinates_longitude', $shop_term ) != ""){
+                            if( 'mvideo' == get_field( 'mvideo_or_eldorado', $shop_term ) ){
+                                $shop_mvideo_html .='
+                                    <div class="listing-metro__shop" 
+                                        data-shop_id="'.$shop_term->term_id.'"
+                                        data-shop_slug="'.$shop_term->slug.'" 
+                                        data-latitude="'.get_field( 'shop_koordinates_latitude', $shop_term ).'" 
+                                        data-longitude="'.get_field( 'shop_koordinates_longitude', $shop_term ).'"
+                                    >
+                                        <div class="listing-metro__shop-title">'.$shop_term->name.'</div>
+                                        <div class="listing-metro__shop-address">'.get_field( 'shop_adress', $shop_term ).'</div>
+                                    </div>
+                                ';
+
+                                $name_icon = THEME_URL . '/assets/images/listing/map/mvideo-icon.png';
+                                $newMvideoIcons[] = array(
+                                    [
+                                        get_field( 'shop_koordinates_latitude', $shop_term ),
+                                        get_field( 'shop_koordinates_longitude', $shop_term )
+                                    ],
+                                    THEME_URL . '/assets/images/listing/map/mvideo-icon.png',
+                                    $shop_term->term_id
+                                );
+                            } elseif( 'eldorado' == get_field( 'mvideo_or_eldorado', $shop_term ) ){
+                                $shop_eldorado_html .='
+                                    <div class="listing-metro__shop" 
+                                        data-shop_id="'.$shop_term->term_id.'"
+                                        data-shop_slug="'.$shop_term->slug.'" 
+                                        data-latitude="'.get_field( 'shop_koordinates_latitude', $shop_term ).'" 
+                                        data-longitude="'.get_field( 'shop_koordinates_longitude', $shop_term ).'"
+                                    >
+                                        <div class="listing-metro__shop-title">'.$shop_term->name.'</div>
+                                        <div class="listing-metro__shop-address">'.get_field( 'shop_adress', $shop_term ).'</div>
+                                    </div>
+                                ';
+
+                                $name_icon = THEME_URL . '/assets/images/listing/map/eldorado-icon.png';
+                                $newEldoradoIcons[] = array(
+                                    [
+                                        get_field( 'shop_koordinates_latitude', $shop_term ),
+                                        get_field( 'shop_koordinates_longitude', $shop_term )
+                                    ],
+                                    THEME_URL . '/assets/images/listing/map/eldorado-icon.png',
+                                    $shop_term->term_id
+                                );
+                            } else{
+                                $name_icon = THEME_URL . '/assets/images/listing/map/mvideo-icon.png';
+                                $newMvideoIcons[] = array(
+                                    [
+                                        get_field( 'shop_koordinates_latitude', $shop_term ),
+                                        get_field( 'shop_koordinates_longitude', $shop_term )
+                                    ],
+                                    THEME_URL . '/assets/images/listing/map/mvideo-icon.png',
+                                    $shop_term->term_id
+                                );
+                            }
+                            $globalShopTerms[] = $shop_term->term_id;
+                          
+                            $newDefaultIcons[] = array(
+                                [
+                                    get_field( 'shop_koordinates_latitude', $shop_term ),
+                                    get_field( 'shop_koordinates_longitude', $shop_term )
+                                ],
+                                $name_icon,
+                                $shop_term->term_id
+                            );
+
+                        }
+                    }
+                    
+
+                endforeach;
+
+            }
+
             if( '' != $html ){
                 $return = array(
                     'success' 	=> true,
                     'html' 	=> $html,
-                    'paged' => $paged
+                    'paged' => $paged,
+                    'shop_mvideo_html' => $shop_mvideo_html,
+                    'shop_eldorado_html' => $shop_eldorado_html,
+                    // 'newMvideoCenter' => $newMvideoCenter,
+                    'mvideoIcons' => $newMvideoIcons,
+                    // 'eldoradoCenter' => $newEldoradoCenter,
+                    'eldoradoIcons' => $newEldoradoIcons,
+                    'newDefaultIcons' => $newDefaultIcons,
+                    'globalShopTerms' => $globalShopTerms,
                 );
         
             } else{
                 $return = array(
                     'success' 	=> false,
                     'html' 	=> '',
-                    'paged' => $paged
+                    'paged' => $paged,
+                    'shop_mvideo_html' => $shop_mvideo_html,
+                    'shop_eldorado_html' => $shop_eldorado_html,
+                    // 'newMvideoCenter' => $newMvideoCenter,
+                    'mvideoIcons' => $newMvideoIcons,
+                    // 'eldoradoCenter' => $newEldoradoCenter,
+                    'eldoradoIcons' => $newEldoradoIcons,
+                    'newDefaultIcons' => $newDefaultIcons,
+                    'globalShopTerms' => $globalShopTerms,
                 );
             }
             wp_send_json($return);
@@ -357,6 +534,9 @@ class Vacancies {
     public function archive_get_profession__menu_items() {
 
         $html = '';
+        $mvideoIcons = array();
+        $eldoradoIcons = array();
+
         if( !empty( $_POST ) ){
 
             $args = array(
@@ -429,7 +609,30 @@ class Vacancies {
                     }
                 }
             }
+
+            if( null != $_POST['rt'] ){
+                if( 'retail' == $_POST['rt'] ){
+                    $args['tax_query'][] = array(
+                        'taxonomy' => 'relationship',
+                        'field'    => 'slug',
+                        'terms'    => 'roznica'
+                    );
+                } elseif( '-1' != $_POST['rt'] ){
+                    $args['tax_query'][] = array(
+                        'taxonomy' => 'relationship',
+                        'field'    => 'slug',
+                        'terms'    => $_POST['rt']
+                    );
+                }
+            }
+
             $actually_vacancies_by = new \WP_Query( $args );
+
+            $arr_mvideo_shops = array();
+            $arr_eldorado_shops = array();
+
+            $html_mvideo_shops = '';
+            $html_eldorado_shops = '';
 
             if ( $actually_vacancies_by->have_posts() ) {
                 while ( $actually_vacancies_by->have_posts() ) {
@@ -437,6 +640,211 @@ class Vacancies {
                     $vacancy_item_id = get_the_ID();
                     ob_start();
                     include(THEME_DIR . '/template-parts/loop-parts/archive_vacancies_item.php');
+                    $html .= ob_get_clean();
+
+                    $shop_terms = get_the_terms( $vacancy_item_id, 'shop' );
+                    if( is_array( $shop_terms ) ){
+                        foreach( $shop_terms as $shop_term ){
+
+                            if (get_field( 'shop_koordinates_latitude', $shop_term ) != "" && get_field( 'shop_koordinates_longitude', $shop_term ) != ""){
+                                if( 'eldorado' == get_field( 'mvideo_or_eldorado', $shop_term ) ){
+
+                                    if( !in_array( $shop_term->slug, $arr_eldorado_shops ) ){
+    
+                                        $arr_eldorado_shops[] = $shop_term->slug;
+    
+                                        if( empty( $eldoradoIcons ) ){
+                                            $сenterMap = [
+                                              get_field( 'shop_koordinates_latitude', $shop_term ),
+                                              get_field( 'shop_koordinates_longitude', $shop_term )
+                                            ];
+                                        }
+    
+                                        $eldoradoIcons[] = array(
+                                            [
+                                              get_field( 'shop_koordinates_latitude', $shop_term ),
+                                              get_field( 'shop_koordinates_longitude', $shop_term )
+                                            ],
+                                            THEME_URL . '/assets/images/listing/map/eldorado-icon.png',
+                                            $shop_term->term_id
+                                        );
+    
+                                        $html_eldorado_shops .= '
+                                            <div class="listing-metro__shop" 
+                                                data-shop_id="'.$shop_term->term_id.'"
+                                                data-shop_slug="'.$shop_term->slug.'" 
+                                                data-latitude="'.get_field( 'shop_koordinates_latitude', $shop_term ).'" 
+                                                data-longitude="'.get_field( 'shop_koordinates_longitude', $shop_term ).'"
+                                            >
+                                                <div class="listing-metro__shop-title">'.$shop_term->name.'</div>
+                                                <div class="listing-metro__shop-address">'.get_field( 'shop_adress', $shop_term ).'</div>
+                                            </div>
+                                        ';
+                                    }   
+                                }
+                                if( 'mvideo' == get_field( 'mvideo_or_eldorado', $shop_term ) ){
+
+                                    if( !in_array( $shop_term->slug, $arr_mvideo_shops ) ){
+    
+                                        $arr_mvideo_shops[] = $shop_term->slug;
+    
+                                        if( empty( $сenterMap ) ){
+                                            $сenterMap = [
+                                              get_field( 'shop_koordinates_latitude', $shop_term ),
+                                              get_field( 'shop_koordinates_longitude', $shop_term )
+                                            ];
+                                        }
+    
+                                        $mvideoIcons[] = array(
+                                            [
+                                              get_field( 'shop_koordinates_latitude', $shop_term ),
+                                              get_field( 'shop_koordinates_longitude', $shop_term )
+                                            ],
+                                            THEME_URL . '/assets/images/listing/map/mvideo-icon.png',
+                                            $shop_term->term_id
+                                        );
+                                        
+                                        $html_mvideo_shops .= '
+                                            <div class="listing-metro__shop" 
+                                                data-shop_id="'.$shop_term->term_id.'"
+                                                data-shop_slug="'.$shop_term->slug.'" 
+                                                data-latitude="'.get_field( 'shop_koordinates_latitude', $shop_term ).'" 
+                                                data-longitude="'.get_field( 'shop_koordinates_longitude', $shop_term ).'"
+                                            >
+                                                <div class="listing-metro__shop-title">'.$shop_term->name.'</div>
+                                                <div class="listing-metro__shop-address">'.get_field( 'shop_adress', $shop_term ).'</div>
+                                            </div>
+                                        ';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            if( '' != $html ){
+                $return = array(
+                    'success' 	=> true,
+                    'html' 	=> $html,
+                    'query_vars'  => $actually_vacancies_by->query_vars,
+                    'max_num_pages' => $actually_vacancies_by->max_num_pages,
+                    'html_eldorado_shops' => $html_eldorado_shops,
+                    'html_mvideo_shops' => $html_mvideo_shops,
+                    'iconsmap' => array_merge( $eldoradoIcons, $mvideoIcons ),
+                    'centermap' => $сenterMap
+                );
+        
+                wp_send_json($return);
+            }
+        }
+    }
+
+    public function get_retail_list_vacancy() {
+
+        $html = '';
+        if( !empty( $_POST ) ){
+
+            $args = array(
+                'post_type'         => 'vacancies',
+                'posts_per_page'    => 10,
+                'post_status'       => 'publish',
+            );
+
+            $args['tax_query'][] = array(
+                'taxonomy' => 'relationship',
+                'field'    => 'slug',
+                'terms'    => 'roznica'
+            );
+
+            if( null != $_POST['shop'] && '-1'!= $_POST['shop'] ){
+                $args['tax_query'][] = array(
+                    'taxonomy' => 'shop',
+                    'field'    => 'slug',
+                    'terms'    => $_POST['shop']
+                );
+            }
+
+            if( null != $_POST['top__profession'] ){
+                $args['s'] = $_POST['top__profession'];
+            }
+
+            if( null != $_POST['vaccat_slug'] && '-1'!= $_POST['vaccat_slug'] ){
+                $args['tax_query'][] = array(
+                    'taxonomy' => 'vaccat',
+                    'field'    => 'slug',
+                    'terms'    => $_POST['vaccat_slug']
+                );
+            }
+
+            if( '' != $_POST['kind_shops'] ){
+
+                if( isset($args['meta_query']) ){
+                    $args['meta_query'][] = array(
+                        'relation'		=> 'AND',
+                        array(
+                            'key'		=> 'check_mvideo_eldorado',
+                            'value'		=> $_POST['kind_shops'],
+                            'compare'	=> '='
+                        )
+                    );
+                }
+            }
+
+            if( $_POST['archive_remotely'] == 'true' ){
+
+                if( isset($args['meta_query']) ){
+                    $args['meta_query'][] = 
+                    array(
+                        'relation'		=> 'AND',
+                        array(
+                            'key'		=> 'can_work_remotely',
+                            'value'		=> true,
+                            'compare'	=> '='
+                        )
+                    );
+                } else{
+                    $args['meta_query'] = 
+                    array(
+                        'relation'		=> 'AND',
+                        array(
+                            'key'		=> 'can_work_remotely',
+                            'value'		=> true,
+                            'compare'	=> '='
+                        )
+                    );
+                }
+            }
+
+            if( $_POST['archive_without_experience'] == 'true' ){
+
+                if( isset($args['meta_query']) ){
+                    $args['meta_query'][] = array(
+                        'key'		=> 'can_without_experience',
+                        'value'		=> 'can_without_experience',
+                        'compare'	=> '='
+                    );
+                } else{
+                    $args['meta_query'] = 
+                    array(
+                        'relation'		=> 'AND',
+                        array(
+                            'key'		=> 'can_without_experience',
+                            'value'		=> 'can_without_experience',
+                            'compare'	=> '='
+                        )
+                    );
+                }
+            }
+            
+            $actually_vacancies_by = new \WP_Query( $args );
+
+            if ( $actually_vacancies_by->have_posts() ) {
+                while ( $actually_vacancies_by->have_posts() ) {
+                    $actually_vacancies_by->the_post();
+                    $vacancy_item_id = get_the_ID();
+                    ob_start();
+                    include(THEME_DIR . '/template-parts/loop-parts/actually_vacancy_item.php');
                     $html .= ob_get_clean();
                 }
             }

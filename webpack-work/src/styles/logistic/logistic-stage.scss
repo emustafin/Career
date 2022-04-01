@@ -10,7 +10,13 @@
 }
 
 .logistic-stage__title-block {
-  width: 33.33%;
+  // width: 33.33%;
+
+  width: 35.15%;
+
+  @media (max-width: 1919px){
+    width: 36.5%;
+  }
 }
 
 .logistic-stage__title {

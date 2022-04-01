@@ -14,11 +14,15 @@
   width: 50%;
   position: relative;
   z-index: 1;
+  max-width: fit-content;
 }
 
 .main-page__title-block {
   position: relative;
   margin-bottom: 64px;
+  @media (max-width: 1919px){
+    margin-bottom: 48px;
+  }
 }
 
 .main-page__title-slogan,
@@ -64,7 +68,7 @@
 
 .main-page__stage-input-search-button {
   position: absolute;
-  top: 20px;
+  top: calc(50% / 2);
   right: 16px;
   width: 24px;
   height: 24px;
@@ -113,7 +117,6 @@
 .main-stage__switcher-container {
   width: 100%;
   height: 730px;
-  padding-top: 50%;
   border: 1px solid #e31235;
   border-radius: 540px;
   position: relative;
@@ -130,17 +133,39 @@
 
   & > img {
     display: block;
-    width: 100%;
+    width: 682px;
+    height: 682px;
+
+    @media (max-width: 1919px) {
+      width: 492px;
+      height: 492px;
+    }
+
+    @media (max-width: 1439px) {
+      width: 354px;
+      height: 354px;
+    }
+
+    @media (max-width: 1023px) {
+      width: 268px;
+      height: 268px;
+    }
+
+    @media (max-width: 767px) {
+      width: 176px;
+      height: 176px;
+    }
   }
 }
 
 // Styles for 1440px
-@media (max-width: 1550px) {
+@media (max-width: 1919px) {
   .main-page__stage {
     margin-bottom: 92px;
     font-size: 16px;
     line-height: 20px;
     min-height: 720px;
+    padding-top: 108px;
   }
 
   .main-page__left-bar {
@@ -156,8 +181,8 @@
 
   .main-page__stage-search-block {
     width: 320px;
-    top: 210px;
-    right: 40px;
+    top: 195px;
+    right: 0;
   }
 
   .main-page__stage-input {
@@ -177,7 +202,7 @@
 }
 
 // Sytles for 1024px
-@media (max-width: 1250px) {
+@media (max-width: 1439px) {
   .main-page__stage {
     min-height: 565px;
     padding-top: 100px;
@@ -199,11 +224,14 @@
 
   .main-page__stage-search-block {
     width: 272px;
-    top: 150px;
+    top: 142px;
+    right: 10px;
   }
 
   .main-page__stage-input {
     padding: 12px 40px 12px 16px;
+    font-size: 18px;
+    line-height: 18px;
   }
 
   .main-page__stage-input-search-button {
@@ -231,7 +259,7 @@
 }
 
 // Sytles for 768px
-@media (max-width: 950px) {
+@media (max-width: 1023px) {
   .main-page__stage {
     padding: 0 8px;
     padding-top: 100px;
@@ -276,12 +304,12 @@
   }
 
   .main-page__stage-search-block {
-    right: 170px;
+    right: 150px;
   }
 }
 
 // Styles for 320px
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .main-page__stage {
     padding-top: 88px;
     font-size: 14px;
@@ -321,7 +349,7 @@
   }
 
   .main-page__stage-search-block {
-    top: 88px;
+    top: 135px;
     right: auto;
     left: 22px;
   }

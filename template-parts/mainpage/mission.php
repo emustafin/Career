@@ -292,7 +292,7 @@
 
   <div class="main-mission__title-bar">
     <h2 class="main-mission-title"><?php echo get_sub_field('title'); ?></h2>
-    <a href="#" class="main-mission__link">
+    <a href="/listing-map/" class="main-mission__link">
       хочу хакнуть ритейл
       <svg
         width="14"

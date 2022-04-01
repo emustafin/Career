@@ -19,6 +19,7 @@
 // Для стилизации чекбокса label с классом "form__form-label"
 // добавить класс "form__checkbox-mistake"
 .form__form-mistake,
+.form__form-mistake_format,
 .form__email-mistake {
   color: #e31235;
   background: $whiteColor;
@@ -30,6 +31,10 @@
   bottom: calc(-50% + 12px);
   right: 0;
   display: none;
+}
+
+.form__content-right-bar-wrapper{
+  width: 50%;
 }
 
 .form__form-mistake-message {
@@ -52,7 +57,7 @@
   color: #e31235;
 
   &
-    > .wpcf7-form-control-wrap.checkbox-484
+    > .wpcf7-form-control-wrap.holdf_agree_checkbox
     > .wpcf7-form-control.wpcf7-checkbox.wpcf7-validates-as-required.form__input-checkbox
     > .wpcf7-list-item.first.last
     > .wpcf7-list-item-label {
@@ -81,7 +86,7 @@
   color: #e31235;
   background: $whiteColor;
   padding: 2px 8px;
-  box-shadow: 16px 2px 24px rgba(0, 0, 0, 0.03);
+  // box-shadow: 16px 2px 24px rgba(0, 0, 0, 0.03);
   border-radius: 16px;
   display: inline-block;
   position: absolute;
@@ -90,11 +95,11 @@
   font-size: 12px;
 }
 
-.wpcf7-form-control-wrap.checkbox-484 > .wpcf7-not-valid-tip {
+.wpcf7-form-control-wrap.holdf_agree_checkbox > .wpcf7-not-valid-tip {
   display: none;
 }
 
-.wpcf7-form-control-wrap.checkbox-484 {
+.wpcf7-form-control-wrap.holdf_agree_checkbox {
   & > .wpcf7-not-valid-tip {
     display: none;
   }
@@ -110,13 +115,13 @@
   }
 }
 
-.wpcf7-form-control-wrap.text-town,
+.wpcf7-form-control-wrap.holdf_town,
 .wpcf7-form-control-wrap.text-name,
-.wpcf7-form-control-wrap.email-88,
-.wpcf7-form-control-wrap.mask-176,
-.wpcf7-form-control-wrap.text-931,
-.wpcf7-form-control-wrap.text-932,
-.wpcf7-form-control-wrap.text-name2 {
+.wpcf7-form-control-wrap.holdf_email,
+.wpcf7-form-control-wrap.holdf_tel,
+.wpcf7-form-control-wrap.holdf_directions,
+.wpcf7-form-control-wrap.holdf_citizenship,
+.wpcf7-form-control-wrap.holdf_name {
   display: flex;
 }
 
@@ -132,12 +137,12 @@
 // .wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__form-input.wpcf7-not-valid,
 // .wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__form-input,
 // .wpcf7-form-control.wpcf7mf-mask.wpcf7-mask.wpcf7-validates-as-required.form__form-input,
-// .tagify.tagify--select.wpcf7-form-control.wpcf7-text.form__value1.tagify--noTags.tagify--empty,
-// .tagify.tagify--select.wpcf7-form-control.wpcf7-text.form__value2.tagify--noTags.tagify--empty,
+// .tagify.tagify--select.wpcf7-form-control.wpcf7-text.holdf_directions.tagify--noTags.tagify--empty,
+// .tagify.tagify--select.wpcf7-form-control.wpcf7-text.holdf_citizenship.tagify--noTags.tagify--empty,
 // .wpcf7-form-control.wpcf7-text.form__information,
 // .wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email.form__form-input.wpcf7-not-valid,
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value2,
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value1,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.holdf_citizenship,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.holdf_directions,
 .form__form-input,
 .wpcf7-form-control.wpcf7-text.form__information,
 .tagify--noTags.tagify--empty,
@@ -146,13 +151,13 @@
   padding-bottom: 8px;
 }
 
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value2,
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value1,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.holdf_citizenship,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.holdf_directions,
 .wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email.form__form-input,
 .wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__form-input,
 .wpcf7-form-control.wpcf7mf-mask.wpcf7-mask.wpcf7-validates-as-required.form__form-input,
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.form__value1.tagify--noTags.tagify--empty,
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.form__value2.tagify--noTags.tagify--empty,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.holdf_directions.tagify--noTags.tagify--empty,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.holdf_citizenship.tagify--noTags.tagify--empty,
 .wpcf7-form-control.wpcf7-text.form__information,
 .tagify--noTags.tagify--empty,
 .form__information,
@@ -166,14 +171,17 @@
 #popup_form .form__dropdown .tagify--select{
   min-height: 32.2px;
 }
+#popup_form .control_hold_form{
+  display: none;
+}
 
 .wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__form-input.wpcf7-not-valid,
 .wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email.form__form-input.wpcf7-not-valid,
 .wpcf7-not-valid,
 .tagify--noTags.tagify--empty.wpcf7-not-valid,
 .wpcf7-form-control.wpcf7mf-mask.wpcf7-mask.wpcf7-validates-as-required.form__form-input.wpcf7-not-valid,
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value1.tagify--noTags.tagify--empty.wpcf7-not-valid,
-.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.form__value2.tagify--noTags.tagify--empty.wpcf7-not-valid {
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.holdf_directions.tagify--noTags.tagify--empty.wpcf7-not-valid,
+.tagify.tagify--select.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required.holdf_citizenship.tagify--noTags.tagify--empty.wpcf7-not-valid {
   border-bottom: 1px solid #e31235;
 }
 
@@ -311,7 +319,7 @@
 .form__input-checkbox span {
   margin-left: 0;
 }
-.form__input-checkbox input:checked ~ .wpcf7-list-item-label::before {
+.vacancy__form-label_checkbox input:checked ~ .wpcf7-list-item-label::before {
   opacity: 1;
 }
 
@@ -349,7 +357,7 @@
 
 .form__response-block {
   max-width: 464px;
-  display: none;
+  // display: none;
 }
 
 .form__response-title {
@@ -369,8 +377,8 @@
   height: 14px;
 }
 
-// .form__value1,
-// .form__value2 {
+// .holdf_directions,
+// .holdf_citizenship {
 //   height: 0;
 //   position: absolute;
 // }
@@ -473,6 +481,73 @@
   margin-bottom: 16px;
 }
 
+.hform__input{
+  background: #f3f3f3;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.hform{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.holdf_agree_checkbox{
+  display: none;
+}
+
+.wpcf7-list-item-label::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: url(../images/form/check.svg) center/contain no-repeat;
+  transition: opacity 0.2s;
+  opacity: 0;
+}
+.wpcf7-list-item-label::after {
+  content: " ";
+}
+
+.hold_form_send{
+  display: block;
+  width: 100%;
+  max-width: 180px;
+  border-radius: 36px;
+  background: #ffffff;
+  padding: 8px 40px 8px 16px;
+  position: relative;
+  font-size: 24px;
+  line-height: 24px;
+  margin-top: 16px;
+  color: #000000;
+}
+
+.form__holdf_directions,
+.form__holdf_citizenship,
+.form__holdf_town{
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.form__holdf_directions > .form__dropdown > .tagify,
+.form__holdf_citizenship > .form__dropdown > .tagify,
+.form__holdf_town > .form__dropdown > .tagify{
+  padding-bottom: 8px;
+  min-height: auto !important; 
+}
+
+.holdf_age::-webkit-outer-spin-button,
+.holdf_age::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 // Styles for 1440px
 @media (max-width: 1600px) {
   .form,
@@ -504,6 +579,24 @@
   .form__header {
     margin-bottom: 40px;
   }
+
+  .hform__input{
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .hold_form_send{
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+// Styles for 1024px
+@media (max-width: 1439px) {
+  .hold_form_send{
+    font-size: 18px;
+    line-height: 18px;
+  }
 }
 
 // Styles for 768px
@@ -528,7 +621,7 @@
     width: 35%;
   }
 
-  .form__content-right-bar {
+  .form__content-right-bar-wrapper {
     width: 65%;
   }
 
@@ -541,6 +634,10 @@
 
 // Styles for 320px
 @media (max-width: 650px) {
+  .form__content-right-bar-wrapper {
+    width: 100%;
+  }
+
   .form,
   .form__form-input,
   .form__information,
@@ -584,6 +681,11 @@
     font-size: 24px;
     line-height: 28px;
   }
+
+  .hform__input{
+    font-size: 14px;
+    line-height: 16px;
+  }
 }
 
 .form__file-uploader .wpcf7-form-control-wrap.upload-file-803 {
@@ -606,7 +708,8 @@
 }
 
 .form__file-uploader {
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  position: relative;
 }
 
 .form__content-right-bar-100 {

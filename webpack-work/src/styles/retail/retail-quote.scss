@@ -14,14 +14,15 @@
 .retail__video-placeholder {
   display: block;
   width: 100%;
+  min-height: inherit;
   object-fit: cover;
 }
 
 .retail__quote-wrapper {
-  width: 49.17%;
+  width: 944px;
   position: absolute;
-  top: 72px;
-  right: 17.5%;
+  top: 8.89%;
+  left: 33.33%;
   color: $whiteColor;
 }
 
@@ -32,7 +33,7 @@
 }
 
 // Styles for 1440px
-@media (max-width: 1580px) {
+@media (max-width: 1919px) {
   .retail__quote-container {
     margin-bottom: 72px;
   }
@@ -42,11 +43,6 @@
     line-height: 20px;
   }
 
-  .retail__quote-wrapper {
-    width: 65.56%;
-    right: 16px;
-  }
-
   .retail__quote-text {
     font-size: 56px;
     line-height: 60px;
@@ -54,15 +50,15 @@
 }
 
 // Styles for 1024px
-@media (max-width: 1300px) {
+@media (max-width: 1439px) {
   .retail__quote-container {
     margin-bottom: 64px;
   }
 
   .retail__quote-wrapper {
     top: 64px;
-    width: 48.15%;
-    right: 18.55%;
+    width: 493px;
+    left: 33.33%;
   }
 
   .retail__quote-text {
@@ -73,7 +69,7 @@
 }
 
 // Styles for 768px
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
   .retail__quote-container {
     margin-bottom: 64px;
   }
@@ -90,7 +86,7 @@
 }
 
 // Styles for 320px
-@media (max-width: 740px) {
+@media (max-width: 767px) {
   .retail__quote-container {
     margin-bottom: 32px;
   }

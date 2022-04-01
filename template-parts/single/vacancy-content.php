@@ -290,13 +290,16 @@
     <div id="vacancy_form" class="vacancy__form-inner-block">
         <?php 
         if( 'it' == $current_relationship ){
-            echo do_shortcode('[contact-form-7 id="224" title="Popap Vacancy"]'); 
+            echo do_shortcode('[contact-form-7 id="277" title="Popap Vacancy"]'); 
         } elseif( 'roznica' == $current_relationship ){
-            echo do_shortcode('[contact-form-7 id="729" title="Popup vacancy V.Retail"]'); 
+            echo do_shortcode('[contact-form-7 id="1067" title="Popup vacancy V.Retail"]'); 
         } else{
-            echo do_shortcode('[contact-form-7 id="224" title="Popap Vacancy"]'); 
+            echo do_shortcode('[contact-form-7 id="277" title="Popap Vacancy"]'); 
         }
         ?>
+        <!-- <div class="drag__and__drop">
+            <input type="file" id="vacancy_file">
+        </div> -->
     </div>
 </div>
 <!-- //Vacancy Form-block -->

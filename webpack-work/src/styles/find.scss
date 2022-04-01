@@ -230,9 +230,9 @@
 .find__video-play-box,
 .find__video-play-box-active {
   position: absolute;
-  bottom: 12.04%;
-  left: 63.3%;
-  transform: translate(-60%, -58%);
+  bottom: 22.96%;
+  left: 33.33%;
+  // transform: translate(-60%, -58%);
   color: #fff;
   font-size: 64px;
   line-height: 68px;
@@ -240,6 +240,15 @@
   max-width: 960px;
   z-index: 2;
   transition: 0.3s;
+  @media (max-width: 1919px){
+    bottom: 25.98%;
+  }
+  @media (max-width: 1439px){
+    bottom: 26.21%;
+  }
+  @media (max-width: 1023px){
+    bottom: 34.94%;
+  }
 }
 
 .find__video-play-box-active {
@@ -369,7 +378,7 @@
 // Styles for 1024px
 @media (max-width: 1280px) {
   .find {
-    margin-bottom: 76px;
+    margin-bottom: 64px;
   }
 
   .find__title {
@@ -460,6 +469,7 @@
   .find__title {
     font-size: 36px;
     line-height: 38px;
+    margin-bottom: 64px;
   }
 
   .find__link-aroow {

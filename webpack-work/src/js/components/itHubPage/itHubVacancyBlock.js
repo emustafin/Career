@@ -9,9 +9,6 @@ export class ItHubVacancyBlock {
       this.flyoutSideBar = this.flyout.querySelector('.flyout__side-bar');
       this.flyOutContentBar = this.flyout.querySelector('.vacancy');
       this.flyOutForm = this.flyout.querySelector('.vacancy__form');
-      this.vacancyCopyLink = this.flyout.querySelector(
-        '.vacancy__header-head-copy'
-      );
       this.newsSlider;
 
       this.progressBar = this.flyout.querySelector('.vacancy__progress-bar');
@@ -26,8 +23,6 @@ export class ItHubVacancyBlock {
       );
       this.btnMuted = this.flyout.querySelector('.vacancy__video-sound-muted');
       this.btnLoud = this.flyout.querySelector('.vacancy__video-sound-loud');
-
-      this.vacancyCopyLink.addEventListener('click', this.copyLink.bind(this));
 
       this.init();
       this.resizeFlyout();
@@ -111,13 +106,6 @@ export class ItHubVacancyBlock {
         this.newsSliderInit();
       }
     });
-  }
-
-  async copyLink(event) {
-    event.preventDefault();
-    const link = document.URL;
-
-    await navigator.clipboard.writeText(link);
   }
 
   setVideoProgress() {
@@ -211,6 +199,10 @@ export class ItHubVacancyBlock {
               // Success!
               var resp = JSON.parse(this.response);
               if( true == resp.success ){
+
+                document.querySelector('#vacancy_form .vacancyid').setAttribute( 'value', post_id );
+                document.querySelector('#vacancy_form .sourceurl').setAttribute( 'value', resp.url );
+
                 // document.querySelector('.profession__title').setAttribute('originhref', origin_location);
   
                 document.querySelector('.flyout .vacancy__headline-title').setAttribute('origin_url', origin_location);
