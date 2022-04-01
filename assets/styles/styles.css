@@ -12870,16 +12870,18 @@ a.page__404-link {
   height: 730px;
   border: 1px solid #e31235;
   border-radius: 540px;
-  position: relative; }
+  position: relative;
+  cursor: pointer; }
 
 .main-stage__switcher-image-container {
   position: absolute;
   top: 24px;
-  right: 24px;
+  left: calc(100% - 706px);
   bottom: 24px;
   width: 682px;
   height: 682px;
-  border-radius: 50%; }
+  border-radius: 50%;
+  transition: all 1s ease 0s; }
   .main-stage__switcher-image-container > img {
     display: block;
     width: 682px;
@@ -12900,6 +12902,18 @@ a.page__404-link {
       .main-stage__switcher-image-container > img {
         width: 176px;
         height: 176px; } }
+
+.main-stage__switcher-block:hover .main-stage__switcher-image-container {
+  left: 24px; }
+  @media (max-width: 1439px) {
+    .main-stage__switcher-block:hover .main-stage__switcher-image-container {
+      left: 16px; } }
+  @media (max-width: 1023px) {
+    .main-stage__switcher-block:hover .main-stage__switcher-image-container {
+      left: 12px; } }
+  @media (max-width: 767px) {
+    .main-stage__switcher-block:hover .main-stage__switcher-image-container {
+      left: 8px; } }
 
 @media (max-width: 1919px) {
   .main-page__stage {
@@ -12927,7 +12941,8 @@ a.page__404-link {
     height: 540px; }
   .main-stage__switcher-image-container {
     width: 492px;
-    height: 492px; } }
+    height: 492px;
+    left: calc(100% - 516px); } }
 
 @media (max-width: 1439px) {
   .main-page__stage {
@@ -12963,7 +12978,7 @@ a.page__404-link {
     width: 354px;
     height: 354px;
     top: 16px;
-    right: 16px; }
+    left: calc(100% - 370px); }
   .main-stage__switcher-container {
     height: 386px; } }
 
@@ -12991,7 +13006,7 @@ a.page__404-link {
     width: 268px;
     height: 268px;
     top: 12px;
-    right: 12px; }
+    left: calc(100% - 280px); }
   .main-page__stage-logo {
     width: 143px;
     display: flex; }
@@ -13041,7 +13056,7 @@ a.page__404-link {
     width: 176px;
     height: 176px;
     top: 8px;
-    right: 8px; } }
+    left: calc(100% - 184px); } }
 
 @media (max-width: 479px) {
   .main-page__stage {
