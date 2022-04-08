@@ -24,17 +24,7 @@ student.addEventListener("click", (event) =>{
 var mainSwitcher = document.querySelector('.main-stage__switcher-image-container');
 
 if (mainSwitcher != undefined){
-   // if (mainSwitcher.type == 'mouseover') {
-   //    mainSwitcher.classList.toggle('main-stage__switcher-image-on');
-   // }
-
    mainSwitcher.onmouseover = function fixRelatedTarget(e) {
       if (e.type == 'mouseover') mainSwitcher.classList.toggle('main-stage__switcher-image-on');
    }
-
-   // function turnOn(){
-   //    mainSwitcher.classList.toggle('main-stage__switcher-image-on');
-   // }
-
-   // mainSwitcher.addEventListener('mousemove', turnOn())
 }
