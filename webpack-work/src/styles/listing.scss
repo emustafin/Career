@@ -1,9 +1,5 @@
 // @import './styles.scss';
 
-.page-container {
-  padding: 0 16px;
-}
-
 .tagify.tagify--outside.listing-top__profession-filter.tagify--noTags.tagify--empty {
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
@@ -251,14 +247,6 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
     cursor: pointer;
 
     display: none;
-  }
-
-  & .tagify{
-    padding-bottom: 0;
-
-    & span.tagify__input{
-      border-bottom: none;
-    }
   }
 }
 
@@ -1032,13 +1020,9 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   }
 
   .listing-top__filter-item:first-child,
+  .position__job-title-container,
   .banner-S__side-bar {
     max-width: 311px;
-  }
-
-  .position__job-title-container{
-    max-width: 324px;
-    margin-right: 6px;
   }
 
   .listing-top__filter-item:first-child {
@@ -1050,19 +1034,15 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   }
 
   .position__bread-crumbs-block {
-    max-width: 154px;
+    max-width: 150px;
   }
 
   .position__payment-container {
-    max-width: 154px;
+    max-width: 170px;
   }
 
   .listing-top__filter-item {
     max-width: 211px;
-
-    &:nth-child(4){
-      margin-right: 0;
-    }
   }
 
   .listing-top__filter-item-selected {
@@ -1176,16 +1156,8 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   }
 
   .listing-top__filter-item {
-    max-width: 32.98%;
+    max-width: 32%;
     margin-right: 8px;
-
-    &:nth-child(3){
-      max-width: 31.91%
-    }
-
-    &:nth-child(4){
-      margin-right: 8px;
-    }
   }
 
   .listing-top__filter-item {
@@ -1231,16 +1203,10 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
   .position__job-title-container,
   .position__location-container {
     max-width: 248px;
-    margin-right: 0;
-  }
-
-  .position__job-title-container{
-    padding-right: 16px;
   }
 
   .position__payment-container {
     max-width: 256px;
-    margin-right: 0;
   }
 
   .position__job-title {
@@ -1381,7 +1347,6 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
     width: 100%;
     max-width: 100%;
     margin-bottom: 16px;
-    padding-right: 0;
   }
 
   .position__payment-container,
@@ -1389,10 +1354,7 @@ tags.tagify.tagify--select.selectMode.listing__level-select.tagify--noTags.tagif
     width: 50%;
     max-width: 50%;
     margin-right: 0;
-  }
-
-  .position__payment-container{
-    padding-right: 16px;
+    padding-right: 8px;
   }
 
   .banner-S {
