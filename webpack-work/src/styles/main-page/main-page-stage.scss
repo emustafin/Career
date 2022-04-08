@@ -160,24 +160,6 @@
   }
 }
 
-.main-stage__switcher-block:hover .main-stage__switcher-image-container{
-  left: 24px;
-
-  @media (max-width: 1439px) {
-    // right: 296px;
-    left: 16px;
-  }
-
-  @media (max-width: 1023px) {
-    // right: 224px;
-    left: 12px;
-  }
-
-  @media (max-width: 767px) {
-    // right: 152px;
-    left: 8px;
-  }
-}
 
 // Styles for 1440px
 @media (max-width: 1919px) {
@@ -255,7 +237,7 @@
     font-size: 18px;
     line-height: 18px;
   }
-
+  
   .main-page__stage-input-search-button {
     top: 13px;
   }
@@ -409,5 +391,24 @@
   .main-stage__switcher-block {
     top: 240px;
     left: 28px;
+  }
+}
+
+.main-stage__switcher-image-on{
+  left: 24px;
+
+  @media (max-width: 1439px) {
+    // right: 296px;
+    left: 16px;
+  }
+
+  @media (max-width: 1023px) {
+    // right: 224px;
+    left: 12px;
+  }
+
+  @media (max-width: 767px) {
+    // right: 152px;
+    left: 8px;
   }
 }
