@@ -77,11 +77,20 @@
     <p>- Advanced Custom Fields PRO</p>
     <p>- All in One SEO</p>
     <p>- Autoptimize</p>
+    <p>- BBQ Брандмауэр</p>
     <p>- Classic Editor</p>
     <p>- Contact Form 7</p>
+    <p>- Contact Form 7 - Маска телефонного номера</p>
     <p>- Contact Form 7 Serial Numbers</p>
     <p>- Cyr-To-Lat</p>
-    <p>- Import XML feed</p>
+    <p>- Duplicator</p>
     <p>- Flamingo</p>
-    <p>- Loco Translate</p>
+    <p>- Import XML feed</p>
+    <p>- Last-Modified and If-Modified-Since Headers</p>
+    <p>- Post SMTP</p>
+    <p>- Robin image optimizer</p>
+    <p>- Webcraftic Clearfy – WordPress optimization plugin</p>
+    <p>- WP Login Door</p>
+    <p>- WPide</p>
+    <p>- Форма загрузки файлов для плагина Contact Form 7</p>
 </details>

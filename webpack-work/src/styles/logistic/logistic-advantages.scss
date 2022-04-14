@@ -8,7 +8,15 @@
 }
 
 .logistic-advantages__left-bar {
-  width: 33.33%;
+  width: 33.05%;
+
+  @media (max-width:1919px){
+    width: 33%;
+  }
+
+  @media (max-width:1439px){
+    width: 32.86%;
+  }
 }
 
 .logistic-advantages__slide-buttons-mobile {
@@ -16,24 +24,43 @@
 }
 
 .logistic-advantages__right-bar {
-  width: 66.66%;
+  width: 66.95%;
+
+  @media (max-width: 1919px){
+    width: 67.2%;
+  }
+
+  @media (max-width: 1439px){
+    width: 67.14%;
+  }
 }
 
 .logistic-advantages__content-wrapper {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  margin: -24px -16px;
+  // margin: -24px -16px;
+
+  &.swiper-wrapper{
+    height: auto;
+  }
 }
 
 .logistic-advantages__content-item {
-  margin: 24px 16px;
+  // margin: 24px 16px;
+  margin-right: 16px;
   padding-bottom: 16px;
   border-bottom: 1px solid #969696;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 24px;
+  
+  // @media (min-width: 478px) {
+  //   height: auto !important;
+  //   width: calc(25% - 32px) !important;
+  // }
   
   &:nth-child(4n){
     margin-right: 0;
@@ -93,12 +120,28 @@
 
 .logistic-advantages__content-item-icon {
   margin-top: auto;
-  width: 96px;
-  height: 96px;
   display: flex;
 
   & > svg {
     margin-top: auto;
+    width: 64px;
+    height: 62.67px;  
+  }
+
+  // Styles for 1440px
+  @media (max-width: 1919px){
+    & > svg {
+      width: 48px;
+      height: 47px;
+    }
+  }
+
+  // Styles for 320px
+  @media (max-width: 767px){
+    & > svg {
+      width: 32px;
+      height: 31.33px;
+    }
   }
 }
 
@@ -112,12 +155,10 @@
 
   .logistic-advantages__content-item-icon {
     margin-top: auto;
-    width: 72px;
-    height: 72px;
     display: flex;
 
     & > svg {
-      transform: scale(0.75);
+      // transform: scale(0.75);
     }
   }
 }
@@ -173,14 +214,14 @@
     padding-bottom: 8px;
   }
 
-  .logistic-advantages__content-item-icon {
-    width: 48px;
-    height: 48px;
+  // .logistic-advantages__content-item-icon {
+  //   width: 48px;
+  //   height: 48px;
 
-    & > svg {
-      transform: scale(0.67);
-    }
-  }
+  //   & > svg {
+  //     transform: scale(0.67);
+  //   }
+  // }
 
   .logistic-advantages__left-bar {
     display: flex;

@@ -20,3 +20,11 @@ student.addEventListener("click", (event) =>{
      document.querySelector('#student').style.display = "flex"
     }
  });
+
+var mainSwitcher = document.querySelector('.main-stage__switcher-image-container');
+
+if (mainSwitcher != undefined){
+   mainSwitcher.onmouseover = function fixRelatedTarget(e) {
+      if (e.type == 'mouseover') mainSwitcher.classList.toggle('main-stage__switcher-image-on');
+   }
+}
