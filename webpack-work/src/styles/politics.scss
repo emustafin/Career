@@ -9,13 +9,21 @@
 }
 
 .politics {
-  width: 66.66%;
+  width: 66.39%;
   font-family: Suisse Intl, sans-serif;
 
   &__header {
     font-size: 64px;
     line-height: 68px;
     margin-bottom: 96px;
+  }
+
+  @media (max-width: 1439px){
+    width: 66.17%;
+  }
+
+  @media (max-width: 1023px){
+    width: 66.31%;
   }
 }
 
@@ -32,6 +40,7 @@
     font-size: 56px;
     line-height: 60px;
     margin-bottom: 72px;
+    padding-right: 8px;
   }
 }
 
