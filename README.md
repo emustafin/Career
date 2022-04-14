@@ -77,11 +77,16 @@
     <p>- Advanced Custom Fields PRO</p>
     <p>- All in One SEO</p>
     <p>- Autoptimize</p>
+    <p>- BBQ Брандмауэр</p>
     <p>- Classic Editor</p>
     <p>- Contact Form 7</p>
     <p>- Contact Form 7 Serial Numbers</p>
     <p>- Cyr-To-Lat</p>
-    <p>- Import XML feed</p>
+    <p>- Duplicator</p>
     <p>- Flamingo</p>
+    <p>- Import XML feed</p>
     <p>- Loco Translate</p>
+    <p>- Post SMTP</p>
+    <p>- WP Login Door</p>
+    <p>- WPide</p>
 </details>
