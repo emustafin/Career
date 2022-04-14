@@ -85,8 +85,10 @@
     <p>- Duplicator</p>
     <p>- Flamingo</p>
     <p>- Import XML feed</p>
-    <p>- Loco Translate</p>
+    <p>- Last-Modified and If-Modified-Since Headers</p>
     <p>- Post SMTP</p>
+    <p>- Robin image optimizer</p>
+    <p>- Webcraftic Clearfy – WordPress optimization plugin</p>
     <p>- WP Login Door</p>
     <p>- WPide</p>
 </details>
