@@ -53,7 +53,8 @@
             $it_job = get_term_by( 'slug', 'it', 'relationship' )->count;
             if($it_job == 0){
                 ?>
-                    <div class="main-division__top-main-item" id="professional" style="opacity: 0.3;">
+                    <!-- <div class="main-division__top-main-item" id="professional" style="opacity: 0.3;"> -->
+                    <div class="main-division__top-main-item" id="professional">
                         <div class="main-division__top-item-left">
                             <div class="main-division__top-title-container">
                                 <a href="/it/" class="main-division__top-item-title">IT-хаб</a>
@@ -211,7 +212,8 @@
                 $student_one = get_term_by( 'slug', 'it', 'relationship' )->count;
                 if($student_one == 0){
                     ?>
-                    <div class="main-division__item" style="opacity: 0.3;">
+                    <!-- <div class="main-division__item" style="opacity: 0.3;"> -->
+                    <div class="main-division__item">
                         <a href="/it/" class="main-division__item-title">
                             Стажировка в IT
                         </a>
@@ -266,7 +268,8 @@
                 $student_two = get_term_by( 'slug', 'roznica', 'relationship' )->count;
                 if($student_two == 0){
                     ?>
-                    <div class="main-division__item" style="opacity: 0.3;">
+                    <!-- <div class="main-division__item" style="opacity: 0.3;"> -->
+                    <div class="main-division__item">
                         <a href="/retail/" class="main-division__item-title">Розничные магазины</a>
 
                         <div class="main-division__item-info">
@@ -410,7 +413,8 @@
     $retail_job = get_term_by( 'slug', 'roznica', 'relationship' )->count;
     if($retail_job == 0){
         ?>
-        <div class="main-division__item" style="opacity: 0.3;">
+        <!-- <div class="main-division__item" style="opacity: 0.3;"> -->
+        <div class="main-division__item">
             <a href="/retail/" class="main-division__item-title">Розничные магазины</a>
 
             <div class="main-division__item-info">
@@ -551,7 +555,8 @@
     $office_job = get_term_by( 'slug', 'office', 'relationship' )->count;    
     if($office_job == 0){
         ?>
-        <div style="opacity: 0.3;" class="main-division__item">
+        <!-- <div class="main-division__item" style="opacity: 0.3;"> -->
+        <div class="main-division__item">
             <a href="/office/" class="main-division__item-title">Центральный офис</a>
 
             <div class="main-division__item-info">
@@ -640,7 +645,8 @@
     $logistic_job = get_term_by( 'slug', 'logistic', 'relationship' )->count;
     if ($logistic_job == 0){
         ?>
-        <div class="main-division__item" style="opacity: 0.3;">
+        <!-- <div class="main-division__item" style="opacity: 0.3;"> -->
+        <div class="main-division__item">
             <a href="/logistic/" class="main-division__item-title">Сервис и логистика</a>
 
             <div class="main-division__item-info">
