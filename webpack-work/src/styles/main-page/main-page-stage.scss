@@ -107,7 +107,7 @@
 }
 
 .main-stage__switcher-block {
-  width: 66%;
+  width: 1264px;
   position: absolute;
   right: 16px;
   bottom: 0;
@@ -126,7 +126,7 @@
 .main-stage__switcher-image-container {
   position: absolute;
   top: 24px;
-  left: calc(100% - 706px);
+  right: 24px;
   bottom: 24px;
   width: 682px;
   height: 682px;
@@ -160,24 +160,6 @@
   }
 }
 
-.main-stage__switcher-block:hover .main-stage__switcher-image-container{
-  left: 24px;
-
-  @media (max-width: 1439px) {
-    // right: 296px;
-    left: 16px;
-  }
-
-  @media (max-width: 1023px) {
-    // right: 224px;
-    left: 12px;
-  }
-
-  @media (max-width: 767px) {
-    // right: 152px;
-    left: 8px;
-  }
-}
 
 // Styles for 1440px
 @media (max-width: 1919px) {
@@ -219,7 +201,9 @@
   .main-stage__switcher-image-container {
     width: 492px;
     height: 492px;
-    left: calc(100% - 516px);
+  }
+  .main-stage__switcher-block{
+    width: 936px;
   }
 }
 
@@ -255,13 +239,13 @@
     font-size: 18px;
     line-height: 18px;
   }
-
+  
   .main-page__stage-input-search-button {
     top: 13px;
   }
 
   .main-stage__switcher-block {
-    width: 100%;
+    width: 666px;
     max-width: 666px;
     height: 386px;
     top: 145px;
@@ -272,7 +256,7 @@
     width: 354px;
     height: 354px;
     top: 16px;
-    left: calc(100% - 370px);
+    right: 16px;
   }
 
   .main-stage__switcher-container {
@@ -317,7 +301,7 @@
     width: 268px;
     height: 268px;
     top: 12px;
-    left: calc(100% - 280px);
+    right: 12px;
   }
 
   .main-page__stage-logo {
@@ -396,7 +380,7 @@
     width: 176px;
     height: 176px;
     top: 8px;
-    left: calc(100% - 184px);
+    right: 8px;
   }
 }
 
@@ -409,5 +393,26 @@
   .main-stage__switcher-block {
     top: 240px;
     left: 28px;
+  }
+}
+
+.main-stage__switcher-image-on{
+  transform: translateX(-534px);
+
+  @media (max-width: 1919px) {
+    transform: translateX(-396px);
+  }
+
+  @media (max-width: 1439px) {
+    transform: translateX(-280px);
+  }
+
+  @media (max-width: 1023px) {
+    transform: translateX(-212
+    px);
+  }
+
+  @media (max-width: 767px) {
+    transform: translateX(-144px);
   }
 }
