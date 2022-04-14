@@ -80,6 +80,7 @@
     <p>- BBQ Брандмауэр</p>
     <p>- Classic Editor</p>
     <p>- Contact Form 7</p>
+    <p>- Contact Form 7 - Маска телефонного номера</p>
     <p>- Contact Form 7 Serial Numbers</p>
     <p>- Cyr-To-Lat</p>
     <p>- Duplicator</p>
@@ -91,4 +92,5 @@
     <p>- Webcraftic Clearfy – WordPress optimization plugin</p>
     <p>- WP Login Door</p>
     <p>- WPide</p>
+    <p>- Форма загрузки файлов для плагина Contact Form 7</p>
 </details>
