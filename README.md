@@ -1,6 +1,54 @@
 # Career
 
-<h2>Обновление темы:</h2>
+## Введение
+Карьерный сайт М-Видео-Эльдорадо реализован, как витрина для публикации информации о требуемых вакансий и сбора откликов от соискателей.
+Технологически сайт базируется на CMS Wordpress. Вся функциональность реализована штатными средствами CMS и расширяется при помощи специально разработанной темы и плагинов.
+
+## Интеграции
+Сайт интегрирован с системой Skillaz через API и получает новости с Habr через RSS c помощью плагина Feed Importer. Интеграция со Skillaz двусторонняя, т.е. сайт получает информацию по вакансиям для публикации и отправляет данные соискателей в систему.
+
+## Локальный запуск проекта:
+1. создать с помощью Duplicator архив с инсталлером и скачать
+
+<img src="./Docs/Img/Step 016.png" style="width:50%;"><img src="./Docs/Img/Step 017.png" style="width:50%;">
+<img src="./Docs/Img/Step 018.png" style="width:50%;"><img src="./Docs/Img/Step 019.png" style="width:50%;">
+
+2. развернуть сервер с настройками не ниже указанных, создать БД под проект
+    * PHP 7.4 or higher
+    * MySQL 5.7 or higher, or MariaDB 10.2 or higher
+    * Nginx or Apache
+
+3. в папку локального сайта переместить инсталлер и архив(без распаковки)
+
+4. зайти по ссылке на сайт локального проекта /installer.php
+<img src="./Docs/Img/Step 022.png" style="width:50%;">
+
+5. пройти по всем пункта и заполнить в необходимых местах
+<img src="./Docs/Img/Step 023.png" style="width:50%;">
+
+### Необходимые плагины
+* Advanced Cron Manager
+* Advanced Custom Fields PRO
+* All in One SEO
+* Autoptimize
+* BBQ Брандмауэр
+* Classic Editor
+* Contact Form 7
+* Contact Form 7 - Маска телефонного номера
+* Contact Form 7 Serial Numbers
+* Cyr-To-Lat
+* Duplicator
+* Flamingo
+* Import XML feed
+* Last-Modified and If-Modified-Since Headers
+* Post SMTP
+* Robin image optimizer
+* Webcraftic Clearfy – WordPress optimization plugin
+* WP Login Door
+* WPide
+* Форма загрузки файлов для плагина Contact Form 7
+
+## Обновление темы:
 <details>
     <p>- скопировать нужные папки в отдельную папку, желательно с таким же названием - </p>
         <img src="./Docs/Img/Step 001.png" style="width:50%;">
@@ -23,7 +71,7 @@
         <img src="./Docs/Img/Step 009.png" style="width:50%;">
 </details>
 
-<h2>Обновление вакансий(Skillaz):</h2>
+## Обновление вакансий(Skillaz):</h2>
 <details>
     <p>- в админке зайти во вкладку Skillaz control -</p>
         <img src="./Docs/Img/Step 010.png" style="width:50%;">
@@ -35,62 +83,14 @@
         <img src="./Docs/Img/Step 013.png" style="width:50%;">
     <p>- в вакансиях выбрать необходимые для публикации(проверить при необходимости) и опубликовать</p>
         <img src="./Docs/Img/Step 014.png" style="width:50%;">
-        -->
+
         <img src="./Docs/Img/Step 015.png" style="width:50%;">
-</details>
 
-<h2>Для того чтобы развернуть проект локально:</h2>
-<details>
-    <p>- создать с помощью Duplicator архив с инсталлером и скачать</p>
-        <img src="./Docs/Img/Step 016.png" style="width:50%;">
-        -->
-        <img src="./Docs/Img/Step 017.png" style="width:50%;">
-        -->
-        <img src="./Docs/Img/Step 018.png" style="width:50%;">
-        -->
-        <img src="./Docs/Img/Step 019.png" style="width:50%;">
-    <p>- развернуть сервер с настройками не ниже указанных, создать БД под проект</p>
-        <img src="./Docs/Img/Step 020.png" style="width:50%;">
-    <p>- в папку локального сайта переместить инсталлер и архив(без распаковки)</p>
-        <img src="./Docs/Img/Step 021.png" style="width:50%;">
-    <p>- зайти по ссылке на сайт локального проекта /installer.php</p>
-        <img src="./Docs/Img/Step 022.png" style="width:50%;">
-    <p>- пройти по всем пункта и заполнить в необходимых местах</p>
-        <img src="./Docs/Img/Step 023.png" style="width:50%;">
-</details>
+### Установка ID вакансии для холодной формы
+- находится в Skillaz control, после установки - сохранить изменения</p>
+<img src="./Docs/Img/Step 025.png" style="width:50%;">
 
-<h2>Автоматическое обновление вакансий со Skillaz:</h2>
-<details>
-    <p>- зайти и добавить новую задачу установив все необходимые параметры: название хука на обновление - "skillaz_vacancies_find"</p>
-        <img src="./Docs/Img/Step 024.png" style="width:50%;">
-</details>
-
-<h2>Установка ID вакансии для холодной формы:</h2>
-<details>
-    <p>- находиться в Skillaz control, после установки - сохранить изменения</p>
-        <img src="./Docs/Img/Step 025.png" style="width:50%;">
-</details>
-
-<h2>Необходимые плагины:</h2>
-<details>
-    <p>- Advanced Cron Manager</p>
-    <p>- Advanced Custom Fields PRO</p>
-    <p>- All in One SEO</p>
-    <p>- Autoptimize</p>
-    <p>- BBQ Брандмауэр</p>
-    <p>- Classic Editor</p>
-    <p>- Contact Form 7</p>
-    <p>- Contact Form 7 - Маска телефонного номера</p>
-    <p>- Contact Form 7 Serial Numbers</p>
-    <p>- Cyr-To-Lat</p>
-    <p>- Duplicator</p>
-    <p>- Flamingo</p>
-    <p>- Import XML feed</p>
-    <p>- Last-Modified and If-Modified-Since Headers</p>
-    <p>- Post SMTP</p>
-    <p>- Robin image optimizer</p>
-    <p>- Webcraftic Clearfy – WordPress optimization plugin</p>
-    <p>- WP Login Door</p>
-    <p>- WPide</p>
-    <p>- Форма загрузки файлов для плагина Contact Form 7</p>
+### Автоматическое обновление
+- зайти и добавить новую задачу установив все необходимые параметры: название хука на обновление - "skillaz_vacancies_find"</p>
+<img src="./Docs/Img/Step 024.png" style="width:50%;">
 </details>
